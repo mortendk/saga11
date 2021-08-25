@@ -1,6 +1,6 @@
 ## Quick start
 1. open terminal do an `npm install`
-2. spin up the site `npm run dev`
+2. spin up the site `npm run start`
 3. build minified css 'npm run tailwind:build'
 
 ## Requirements:
@@ -60,12 +60,9 @@ If its cool and approved we can add the changes to the references with approve
 inside _data/site.son general meta data is added like sitename etc
 
 ## RSS feed
-rss feed meta is setup on metadata.json
+
 
 ## Favicon
-is inside favicon
-use the xxxx service to generate it all
-
 
 ## css setup
 Tailwin config /tailwin.config.js setup all the specific here
