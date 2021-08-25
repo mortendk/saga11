@@ -1,0 +1,19 @@
+@tailwind base;
+
+/* apply base settings */
+@layer base {
+  /* alphine helper */
+  [x-cloak] {
+    display: none !important;
+  }
+  a {
+    @apply text-red-900;
+  }
+  .pagewidth {
+  }
+
+}
+
+/* custom */
+@tailwind components;
+@tailwind utilities;

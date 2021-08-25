@@ -1,0 +1,9 @@
+---
+layout: base/base.njk
+---
+{%- include "layout/_layout-header.njk" %}
+<h1 class="text-3xl">{{title}}</h1>
+<main role="main">
+{{ content | safe }}
+</main>
+{%- include "layout/_layout-footer.njk" %}

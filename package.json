@@ -1,0 +1,32 @@
+{
+  "name": "thisonegoestoeleven",
+  "version": "1.0.0",
+  "description": "This One Goes to Eleven",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
+    "clean": "rm -rf _site & rm -rf src/assets/css/style.css & rm -rf src/assets/css/style.min.css",
+    "tailwind:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
+    "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
+    "netlify": "netlify dev",
+    "backstop:clean": "rm -rf backstop_data",
+    "backstop:build": "backstop reference",
+    "backstop:test": "backstop test",
+    "backstop:approve": "backstop approve",
+    "debug": "DEBUG=* eleventy",
+    "build": "npm run tailwind:build && npm run debug "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.2.0",
+    "@11ty/eleventy-plugin-rss": "^1.1.1",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.1",
+    "tailwindcss": "^2.2.4"
+  }
+}

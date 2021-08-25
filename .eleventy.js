@@ -1,0 +1,117 @@
+const fs = require("fs");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const { DateTime } = require("luxon");
+const slugify = require("slugify");
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  // passThrough
+  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+
+  // Browser config
+  eleventyConfig.setBrowserSyncConfig({
+    // Open browser by default
+    open: true,
+    callbacks: {
+      ready: function(err, bs) {
+
+        bs.addMiddleware("*", (req, res) => {
+          const content_404 = fs.readFileSync('_site/404.html');
+          // Add 404 http status code in request header.
+          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          res.end();
+        });
+      }
+    }
+  });
+
+  // -----------------------------------------------------------------
+  // Shortcode
+  // -----------------------------------------------------------------
+  // eleventyConfig.addFilter('countDown', (dateObj) => {
+    // set end = DateTime.fromISO('2017-03-13');
+    // start = DateTime.fromISO('2017-02-15');
+    // return end.diff(dateObj, ['months', 'days']); //=> { months: 1, days: 2 }
+  // });
+
+  // -----------------------------------------------------------------
+  // FILTER DATE FORMAT
+  // -----------------------------------------------------------------
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+
+  eleventyConfig.addFilter('dateFormat', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
+  });
+
+  eleventyConfig.addFilter('hour', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('HH:mm');
+  });
+
+  eleventyConfig.addFilter('monthDay', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('LLLL d');
+  });
+
+  // SLUG
+  eleventyConfig.addFilter("slugify", function (str) {
+    return slugify(str, {
+      lower: true,
+      replacement: "-",
+      remove: /[*+~.·,()'"`´%!?¿:@]/g
+    });
+  });
+
+  // -----------------------------------------------------------------
+  // COLLECTIONS
+  // https://www.11ty.dev/docs/collections/
+  // -----------------------------------------------------------------
+  // SORT: order
+  // {% for item in items | sortByOrder %}
+  eleventyConfig.addFilter("sortByOrder", (arr) => {
+    arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
+    return arr;
+  });
+
+  // Sort: title
+  // {% for item in items | sortByTitle %}
+  eleventyConfig.addFilter("sortByTitle", (arr) => {
+    arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+    return arr;
+  });
+
+  // -----------------------------------------------------------------
+  // Collection example
+  eleventyConfig.addCollection("collectionByTitle", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("./src/section/*.md")
+      .sort(function (a, b) {
+        let nameA = a.data.title.toUpperCase();
+        let nameB = b.data.title.toUpperCase();
+        if (nameA < nameB) return -1;
+        else if (nameA > nameB) return 1;
+        else return 0;
+      });
+  });
+
+  // -----------------------------------------------------------------
+  // Directory setup
+  return {
+    markdownTemplateEngine: 'njk',
+    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    dir: {
+      input: "src/",
+      output: "_site",
+      includes: "_templates",
+      data: "_data",
+    },
+  };
+
+};
