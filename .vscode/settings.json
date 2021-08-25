@@ -1,11 +1,9 @@
 {
-  "netlify.site_id": "e4d2aa66-3e8c-439c-9406-a9a36e41550e",
-  "netlify.api_token": "tOkA9xRkn14cHWS2zzjrK7Tc2vUqX6T1hp8WSGlKJEE",
   "window.zoomLevel": 1,
   "editor.fontSize": 14,
   "workbench.colorCustomizations": {
-    "statusBar.background": "#ce7e1c",
+    "statusBar.background": "#b61cce",
     "statusBar.foreground": "#ffffff",
-    "statusBarItem.hoverBackground": "#ff8e00"
+    "statusBarItem.hoverBackground": "#d400ff"
   }
 }
