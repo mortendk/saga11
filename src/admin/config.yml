@@ -139,12 +139,20 @@ collections:
             fields:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image }
+
+      - label: "Manual PDF"
+        name: "manual_pdf"
+        widget: "file"
+        default: "/uploads/general-manual.pdf"
+        media_library:
+          config:
+            multiple: true
       # Refes
-      - label: "Post Author"
-        name: "author"
-        widget: "relation"
-        collection: "authors"
-        required: false
-        search_fields: ["name.first", "twitterHandle"]
-        value_field: "name.first"
-        display_fields: ["twitterHandle", "followerCount"]
+      # - label: "Post Author"
+      #   name: "author"
+      #   widget: "relation"
+      #   collection: "authors"
+      #   required: false
+      #   search_fields: ["name.first", "twitterHandle"]
+      #   value_field: "name.first"
+      #   display_fields: ["twitterHandle", "followerCount"]
