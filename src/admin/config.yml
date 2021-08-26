@@ -108,7 +108,7 @@ collections:
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
 
-      - label: "Layout"
+      - label: "Layout template"
         name: "layout"
         widget: "select"
         multiple: false
