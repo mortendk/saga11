@@ -58,18 +58,18 @@ collections:
     sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
     # SESSION FILTERS
     view_filters:
-      - label: "Day 1"
-        field: tags
-        pattern: 'dayone'
-      - label: "Day 2"
-        field: tags
-        pattern: 'daytwo'
-      - label: "Day 3"
-        field: tags
-        pattern: 'daythree'
-      - label: "featured"
-        field: tags
-        pattern: 'featuredsession'
+      # - label: "Day 1"
+      #   field: tags
+      #   pattern: 'dayone'
+      # - label: "Day 2"
+      #   field: tags
+      #   pattern: 'daytwo'
+      # - label: "Day 3"
+      #   field: tags
+      #   pattern: 'daythree'
+      # - label: "featured"
+      #   field: tags
+      #   pattern: 'featuredsession'
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
@@ -87,8 +87,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       # TIME
-      - label: "date published wrtd"
-        hint: "date yo"
+      - label: "date published"
         name: "date"
         widget: "datetime"
         date_format: "DD.MM.YYYY"
