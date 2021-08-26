@@ -54,7 +54,7 @@ collections:
       preview: true
     # Overview
 
-    summary: "{{ title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
+    # summary: "{{ title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
     sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
     # SESSION FILTERS
     view_filters:
