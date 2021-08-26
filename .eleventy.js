@@ -1,20 +1,19 @@
+const path = require("path");
 const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
+const Image = require("@11ty/eleventy-img");
 
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
 
-// Image Handling
-const Image = require("@11ty/eleventy-img");
 
 async function imageShortcode(src, alt, sizes, css) {
   let metadata = await Image(src, {
     widths: [300, 600],
     // formats: ["avif", "jpeg"],
-    outputDir: "./src/img/",
+    outputDir: "src/img/",
     urlPath: "/img/",
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
@@ -50,6 +49,7 @@ module.exports = function (eleventyConfig) {
   // passThrough
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 

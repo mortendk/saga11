@@ -3,6 +3,31 @@ layout: layout/default.njk
 ---
 
 
-{{ content | safe}}
+{% if image %}
+  {% set img =  "src/" + image %}
+  {% set alt = "Image of " + title %}
+  {% set css = "border-4 border-red-400" %}
+  {% imageresize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
+{% endif %}
 
 
+
+{{ date }}
+{{ tags }}
+{{ order }}
+
+
+<div class="p-8 bg-green-100">
+  {{ content | safe}}
+</div>
+sdfsdfds
+
+
+pre
+
+
+next
+
+
+
+list of post
