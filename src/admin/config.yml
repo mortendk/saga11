@@ -102,8 +102,6 @@ collections:
         name: "tags"
         widget: "select"
         multiple: true
-        min: 0
-        max: 2
         required: false
         options: ["css", "html", "11ty", "a11y"]
 
@@ -118,7 +116,7 @@ collections:
         options:
           - { label: "Post template", value: "page-post.njk" }
           - { label: "page template", value: "page.njk" }
-        default: ["page-post"]
+        default: ["page-post.njk"]
 
         - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
           name: "eleventyNavigation"
