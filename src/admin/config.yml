@@ -113,10 +113,9 @@ collections:
         widget: "select"
         multiple: false
         required: true
-        options:
-          - { label: "Post template", value: "page-post.njk" }
-          - { label: "page template", value: "page.njk" }
         default: ["page-post.njk"]
+        options: ["page-post.njk", "page.njk"]
+
 
         # - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
         #   name: "eleventyNavigation"
