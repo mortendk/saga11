@@ -84,7 +84,6 @@ collections:
     # FIELDS
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
       # TIME
       - label: "date published"
         hint: "date yo"
@@ -95,8 +94,8 @@ collections:
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: false
 
-        - { label: "Image", name: "image", widget: "image", required: false }
-        - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
 
       - label: "Collections"
         name: "tags"
