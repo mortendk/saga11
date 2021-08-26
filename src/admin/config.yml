@@ -116,10 +116,10 @@ collections:
         default: ["page-post.njk"]
         options: ["page-post.njk", "page.njk"]
 
-      - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
-        name: "eleventyNavigation"
-        required: false
-        widget: "object"
-        fields:
-          - { label: "Key", name: "key", widget: "string", required: false }
-          - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+      # - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+      #   name: "eleventyNavigation"
+      #   required: false
+      #   widget: "object"
+      #   fields:
+      #     - { label: "Key", name: "key", widget: "string", required: false }
+      #     - { label: "Order", name: "order", widget: "number", default: 0, required: false }
