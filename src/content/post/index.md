@@ -14,5 +14,4 @@ testimonials:
       name: mdk
       avatar: /images/copenhell.jpeg
 ---
-
-this is all post
+this is all post  required: false,
