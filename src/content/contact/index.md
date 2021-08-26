@@ -1,16 +1,11 @@
 ---
-title: index
-layout: frontpage.njk
-permalink: /
+title: Contact
 
 eleventyNavigation:
-  key: Home
-  title: Home
-  order: 1
-
+  key: contact
+  title: Contact
+  order: 30
 ---
 
-# markdown
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-## markdown is awesome
+this should have contact form yo
