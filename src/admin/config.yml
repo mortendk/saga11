@@ -122,6 +122,7 @@ collections:
         name: "eleventyNavigation"
         required: false
         widget: "object"
+        collapsed: true
         fields:
           - { label: "Key", name: "key", widget: "string", required: false }
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
