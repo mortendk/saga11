@@ -41,18 +41,20 @@ slug:
 
 collections:
   # SESSIONS
-  - label: "post"
-    name: "post"
+  - label: "posts"
+    label_singular: "post"
+    name: "posts"
+    description: "All the Post"
     folder: "src/content/post"
+    slug: "{{year}}-{{month}}-{{day}}_{{title}}"
     preview_path: session/{{slug}}
     create: true
     delete: true
-    # slug: "{{title}}-{{speaker}}-{{day}}-{{month}}" # filename
     editor:
       preview: true
     # Overview
-    description: "Post"
-    summary: "{{title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
+
+    summary: "{{ title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
     sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
     # SESSION FILTERS
     view_filters:
