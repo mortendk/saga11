@@ -85,7 +85,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       # TIME
-      - label: "date published"
+      - label: "date published wrtd"
         hint: "date yo"
         name: "date"
         widget: "datetime"
