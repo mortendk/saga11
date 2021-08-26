@@ -1,0 +1,15 @@
+---
+layout: layout/default.njk
+---
+{% for item in collections.tag | sortByOrder%}
+ {{item.data.title}}
+ {{item.templateContent | safe}}
+{% endfor %}
+
+
+{{ content | safe}}
+
+
+{% for item in sequence %}
+
+{% endfor %}
