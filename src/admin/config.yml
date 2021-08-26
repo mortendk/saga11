@@ -86,7 +86,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
 
       # TIME
-      - label: "date"
+      - label: "date published"
         hint: "date yo"
         name: "date"
         widget: "datetime"
