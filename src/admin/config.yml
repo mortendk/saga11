@@ -109,17 +109,17 @@ collections:
       - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
 
       - label: "Layout template"
-        name: "layout"1
+        name: "layout"
         widget: "select"
         multiple: false
         required: true
         default: ["page-post.njk"]
         options: ["page-post.njk", "page.njk"]
 
-      # - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
-      #   name: "eleventyNavigation"
-      #   required: false
-      #   widget: "object"
-      #   fields:
-      #     - { label: "Key", name: "key", widget: "string", required: false }
-      #     - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+      - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+        name: "eleventyNavigation"
+        required: false
+        widget: "object"
+        fields:
+          - { label: "Key", name: "key", widget: "string", required: false }
+          - { label: "Order", name: "order", widget: "number", default: 0, required: false }
