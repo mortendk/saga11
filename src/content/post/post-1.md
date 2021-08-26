@@ -1,8 +1,13 @@
 ---
 title: markup is awersome
-eleventyExcludeFromCollections: false
-tags: html
+date: 2021-08-26 16:08:00
+image: /images/morten-freya.jpeg
+tags:
+  - html
+  - css
 order: 1
+eleventyExcludeFromCollections: false
+layout: page.njk
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
