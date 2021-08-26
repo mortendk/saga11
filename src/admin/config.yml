@@ -105,9 +105,11 @@ collections:
         required: false
         options: ["css", "html", "11ty", "a11y"]
 
+        # 11ty settings
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
 
+      # Template selector
       - label: "Layout template"
         name: "layout"
         widget: "select"
@@ -115,7 +117,7 @@ collections:
         required: true
         default: ["page-post.njk"]
         options: ["page-post.njk", "page.njk"]
-
+      # Navigation
       - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
         name: "eleventyNavigation"
         required: false
@@ -123,7 +125,7 @@ collections:
         fields:
           - { label: "Key", name: "key", widget: "string", required: false }
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-
+      # textimotional
       - label: "Testimonials"
         name: "testimonials"
         widget: "list"
@@ -136,3 +138,11 @@ collections:
             fields:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image, default: "/img/emmet.jpg"}
+      # Refes
+      - label: "Post Author"
+        name: "author"
+        widget: "relation"
+        collection: "authors"
+        search_fields: ["name.first", "twitterHandle"]
+        value_field: "name.first"
+        display_fields: ["twitterHandle", "followerCount"]
