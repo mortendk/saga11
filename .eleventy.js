@@ -14,7 +14,7 @@ async function imageShortcode(src, alt, sizes, css) {
     widths: [300, 600],
     // formats: ["avif", "jpeg"],
     outputDir: "src/img/",
-    urlPath: "/img/",
+    // urlPath: "/img/",
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
