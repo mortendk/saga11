@@ -13,8 +13,8 @@ async function imageShortcode(src, alt, sizes, css) {
   let metadata = await Image(src, {
     widths: [300, 600],
     // formats: ["avif", "jpeg"],
-    outputDir: "src/img/",
-    // urlPath: "/img/",
+    outputDir: "_site/img/",
+    urlPath: "/img/",
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
@@ -49,7 +49,6 @@ module.exports = function (eleventyConfig) {
   // passThrough
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
