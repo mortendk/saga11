@@ -1,3 +1,10 @@
+# Setup for
+# Add users aka identity
+# https://app.netlify.com/sites/[SITENAME]/settings/identity#external-providers
+# enable git gateway
+# https://app.netlify.com/sites/[SITENAME]/settings/identity#git-gateway
+
+#
 backend:
   # Use netlify identity as backend
   name: git-gateway
@@ -76,39 +83,30 @@ collections:
 
     # FIELDS
     fields:
-      - { label: "Session Title", name: "title", widget: "string" }
-      - { label: "speaker name", name: "speaker", widget: "string" }
-      - { label: "session type", name: "sessiontype", widget: "string", required: false }
-      - { label: "speaker info", name: "speakerinfo", widget: "string", required: false }
-      - { label: "speaker company", name: "speakercompany", widget: "string", required: false }
-      - { label: "speaker Title", name: "speakertitle", widget: "string", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Title", name: "title", widget: "string" }
+
       # TIME
-      - label: "Start time"
-        hint: "Session Start time"
+      - label: "date"
+        hint: "date yo"
         name: "date"
         widget: "datetime"
         date_format: "DD.MM.YYYY"
         time_format: "HH:mm"
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: false
-      - label: "Start time"
-        name: "end"
-        widget: "datetime"
-        date_format: "DD.MM.YYYY"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: false
 
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+        - { label: "Image", name: "image", widget: "image", required: false }
+        - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      - label: "Collection"
+      - label: "Collections"
         name: "tags"
         widget: "select"
         multiple: true
         min: 0
         max: 2
-        options: ["featuredsession", "dayone", "daytwo", "daythree","none"]
-        default: ["none"]
+        required: false
+        options: ["css", "html", "11ty", "a11y"]
+
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
+
