@@ -1,24 +1,25 @@
-<div class=" sm:ml-6 sm:flex sm:space-x-8">
+{% set cssMenu ="inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium" %}
+{% set cssMenuActive ="border-red-500 text-gray-900" %}
+{% set cssMenuDefault ="border-transparent text-gray-500 hover:border-red-100 hover:text-gray-700" %}
+
+<eleventyNavigation class="">
   {%- for entry in collections.all | eleventyNavigation %}
 
-    {% set username = "joe" %}
-
     {% if entry.url in page.url %}
-    {# active menu iten #}
       <a
         href="{{ entry.url | url }}"
         title="{{entry.excerpt}}"
-        class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium">
+        class="{{ cssMenu }} {{ cssMenuActive }}">
         {{ entry.title }}
       </a>
       {% else %}
       <a
         href="{{ entry.url | url }}"
         title="{{entry.excerpt}}"
-        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium">
+        class="{{cssMenu}} {{cssMenuDefault}}">
         {{ entry.title }}
       </a>
     {% endif %}
   {%- endfor %}
-</div>
+</eleventyNavigation>
 {# /menu #}

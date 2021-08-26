@@ -1,10 +1,13 @@
 {
   "name": "this one goes to 11",
   "url": "https://domaine.com",
+  "generator": "theme machine",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  ",
   "keywords": "",
   "color": "#0067B1",
   "twitter": "mortendk",
   "authorname": "11ty",
-  "authoremail": "11@morten.dk"
+  "authoremail": "11@morten.dk",
+  "facebook": "https://facebook.com/mortendk",
+  "linkedin": "https://linkedin.com/mortendk"
 }

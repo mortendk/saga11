@@ -38,7 +38,7 @@ module.exports = {
       'theme-bad': '#BADA55'
 		},
 		fontFamily: {
-			sans: ["TT", "Helvetica Neue", "sans-serif"],
+			sans: ["Montserrat", "Helvetica Neue", "sans-serif"],
 			serif: ["Merriweather", "serif"],
 		},
 		fontSize: {

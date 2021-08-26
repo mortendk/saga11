@@ -1,6 +1,9 @@
 const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
+
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
 
@@ -35,8 +38,11 @@ async function imageShortcode(src, alt, sizes, css) {
 
 
 module.exports = function (eleventyConfig) {
+  //plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight);
+
 
   // shortcode
   eleventyConfig.addNunjucksAsyncShortcode("imageresize", imageShortcode);
@@ -106,14 +112,14 @@ module.exports = function (eleventyConfig) {
   // https://www.11ty.dev/docs/collections/
   // -----------------------------------------------------------------
   // SORT: order
-  // {% for item in items | sortByOrder %}
+  // {% for item in collections.tag | sortByOrder %}
   eleventyConfig.addFilter("sortByOrder", (arr) => {
     arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
     return arr;
   });
 
   // Sort: title
-  // {% for item in items | sortByTitle %}
+  // {% for item in collections.tag | sortByTitle %}
   eleventyConfig.addFilter("sortByTitle", (arr) => {
     arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
     return arr;
@@ -121,16 +127,18 @@ module.exports = function (eleventyConfig) {
 
   // -----------------------------------------------------------------
   // Collection example
-    // Creates custom collection "myPosts"
+
+  // Creates custom collection "myPosts"
   eleventyConfig.addCollection("allPost", function(collection) {
      return collection.getFilteredByGlob("./src/content/post/*.md");
   });
 
   // Recent post
   eleventyConfig.addCollection("recentPosts", function(collection) {
-    return collection.getAllSorted().reverse().slice(0, 3);
+    return collection.getAllSorted().reverse().slice(0, 5);
   });
 
+  // post by title
   eleventyConfig.addCollection("postByTitle", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/content/post/*.md")

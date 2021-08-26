@@ -3,14 +3,14 @@ layout: layout/default.njk
 ---
 {{ content | safe}}
 
-
+{% include "components/nav/menu.njk" %}
 
 <div class="text-2xl">Recent</div>
 <div class="bg-blue-100">
 {% for item in collections.recentPosts %}
  <h3 class="font-bold">{{item.data.title}}</h3>
  {# {{item.templateContent | safe}} #}
- <a href="{{ item.url }}">go</a>
+ <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
 {% endfor %}
 </div>
 
@@ -19,7 +19,7 @@ layout: layout/default.njk
 {% for item in collections.allPost %}
  <h3 class="font-bold">{{item.data.title}}</h3>
  {{item.templateContent | safe}}
- <a href="{{ item.url }}">go</a>
+ <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
 {% endfor %}
 </div>
 
@@ -28,7 +28,7 @@ layout: layout/default.njk
 {% for item in collections.postByTitle %}
  <h3 class="font-bold">{{item.data.title}}</h3>
  {{item.templateContent | safe}}
- <a href="{{ item.url }}">go</a>
+ <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
 {% endfor %}
 </div>
 
