@@ -118,6 +118,7 @@ collections:
 
       - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
         name: "eleventyNavigation"
+        required: false
         widget: "object"
         fields:
           - { label: "Key", name: "key", widget: "string" }
