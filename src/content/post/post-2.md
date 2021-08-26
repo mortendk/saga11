@@ -1,6 +1,7 @@
 ---
 title: 1 one two yeah
 date: 2021-08-27 01:11:30
+image: /images/copenhell.jpeg
 tags: css
 order: 1
 eleventyExcludeFromCollections: false
