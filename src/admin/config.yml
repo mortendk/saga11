@@ -110,3 +110,13 @@ collections:
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
 
+      - label: "layout"
+        name: "layout"
+        widget: "select"
+        multiple: false
+        required: true
+        options:
+          - { label: "Post template", value: "page-post.njk" }
+          - { label: "page template", value: "page.njk" }
+        default: ["page-post"]
+
