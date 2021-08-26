@@ -21,13 +21,11 @@ search: true
 
 # Local
 # Please run "npx netlify-cms-proxy-server" for local backend
-local_backend: true
+# local_backend: true
 # when using a custom proxy server port
-url: http://localhost:8085/api/v1
+# url: http://localhost:8085/api/v1
 # when accessing the local site from a host other than 'localhost' or '127.0.0.1'
-allowed_hosts: ['192.168.0.1']
-# allowed_hosts: ['https://webinardays.com/']
-
+# allowed_hosts: ['192.168.0.1']
 
 slug:
   encoding: "ascii"
@@ -36,19 +34,19 @@ slug:
 
 collections:
   # SESSIONS
-  - label: "Session"
-    name: "session"
-    folder: "src/content/session"
+  - label: "post"
+    name: "post"
+    folder: "src/content/post"
     preview_path: session/{{slug}}
     create: true
     delete: true
-    slug: "{{title}}-{{speaker}}-{{day}}-{{month}}" # filename
+    # slug: "{{title}}-{{speaker}}-{{day}}-{{month}}" # filename
     editor:
       preview: true
     # Overview
-    description: "WebinarDays 2021 Sessions"
-    summary: "{{speaker}} {{title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
-    sortable_fields: ['speaker', 'title', 'date']
+    description: "Post"
+    summary: "{{title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
+    sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
     # SESSION FILTERS
     view_filters:
       - label: "Day 1"
@@ -114,25 +112,3 @@ collections:
         default: ["none"]
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
-
-# ------------------------------------------
-# INFO
-# ------------------------------------------
-  - label: "info"
-    name: "info"
-    description: "Info paragrahps"
-    folder: "src/content/info"
-    preview_path: info/{{slug}}
-    create: true
-    delete: false
-    slug: "{{slug}}"
-    editor:
-      preview: true
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "subject", name: "subject", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "order", name: "order", widget: "string" }
-      - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true}
-      - { label: "Body", name: "body", widget: "markdown" }
-
