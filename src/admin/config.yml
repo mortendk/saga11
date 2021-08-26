@@ -118,9 +118,9 @@ collections:
           - { label: "page template", value: "page.njk" }
         default: ["page-post.njk"]
 
-        - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
-          name: "eleventyNavigation"
-          widget: "object"
-          fields:
-            - { label: "Key", name: "key", widget: "string" }
-            - { label: "Order", name: "order", widget: "number", default: 0 }
+        # - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+        #   name: "eleventyNavigation"
+        #   widget: "object"
+        #   fields:
+        #     - { label: "Key", name: "key", widget: "string" }
+        #     - { label: "Order", name: "order", widget: "number", default: 0 }
