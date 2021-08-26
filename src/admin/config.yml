@@ -107,7 +107,7 @@ collections:
 
         # 11ty settings
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, hint: "Is the session Hidden on the site"}
+      - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false, hint: "Is it Hidden on the site"}
 
       # Template selector
       - label: "Layout template"
@@ -115,7 +115,7 @@ collections:
         widget: "select"
         multiple: false
         required: true
-        default: ["page-post.njk"]
+        default: page.njk
         options: ["page-post.njk", "page.njk"]
       # Navigation
       - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
@@ -132,13 +132,13 @@ collections:
         widget: "list"
         summary: '{{fields.quote}} - {{fields.author.name}}'
         fields:
-          - {label: Quote, name: quote, widget: string, default: "Everything is awesome!"}
+          - {label: Quote, name: quote, widget: text, default: "Everything is awesome!"}
           - label: Author
             name: author
             widget: object
             fields:
               - {label: Name, name: name, widget: string, default: "Emmet"}
-              - {label: Avatar, name: avatar, widget: image, default: "/img/emmet.jpg"}
+              - {label: Avatar, name: avatar, widget: image }
       # Refes
       - label: "Post Author"
         name: "author"

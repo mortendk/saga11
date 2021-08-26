@@ -2,6 +2,14 @@
 layout: layout/default.njk
 ---
 
+{% for item in testimonials %}
+<div>
+  {{ item.quote  }}
+  {% imageresize "src" + item.author.avatar, item.author.name, "(min-width: 30em) 50vw, 100vw", css %}
+ {{ item.author.name  }}
+ </div>
+{% endfor %}
+
 
 {% if image %}
   {% set img =  "src/" + image %}

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
-    "clean": "rm -rf _site & rm -rf src/img & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
+    "clean": "rm -rf _site & rm & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
     "tailwind:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
     "netlify": "netlify dev",
