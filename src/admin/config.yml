@@ -87,7 +87,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       # TIME
-      - label: "date published"
+      - label: "Date published"
         name: "date"
         widget: "datetime"
         date_format: "DD.MM.YYYY"
@@ -98,7 +98,7 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      - label: "Collections"
+      - label: "Tags"
         name: "tags"
         widget: "select"
         multiple: true
@@ -120,3 +120,9 @@ collections:
           - { label: "page template", value: "page.njk" }
         default: ["page-post"]
 
+        - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+          name: "eleventyNavigation"
+          widget: "object"
+          fields:
+            - { label: "Key", name: "key", widget: "string" }
+            - { label: "Order", name: "order", widget: "number", default: 0 }
