@@ -727,6 +727,21 @@ a {
   background-color: rgba(113, 113, 122, var(--tw-bg-opacity));
 }
 
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 228, 230, var(--tw-bg-opacity));
+}
+
+.bg-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(220, 252, 231, var(--tw-bg-opacity));
+}
+
+.bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -762,6 +777,10 @@ a {
 
 .text-3xl {
   font-size: 3rem;
+}
+
+.text-2xl {
+  font-size: 2.25rem;
 }
 
 .font-bold {

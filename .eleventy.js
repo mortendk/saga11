@@ -121,9 +121,19 @@ module.exports = function (eleventyConfig) {
 
   // -----------------------------------------------------------------
   // Collection example
-  eleventyConfig.addCollection("collectionByTitle", function (collectionApi) {
+    // Creates custom collection "myPosts"
+  eleventyConfig.addCollection("allPost", function(collection) {
+     return collection.getFilteredByGlob("./src/content/post/*.md");
+  });
+
+  // Recent post
+  eleventyConfig.addCollection("recentPosts", function(collection) {
+    return collection.getAllSorted().reverse().slice(0, 3);
+  });
+
+  eleventyConfig.addCollection("postByTitle", function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob("./src/section/*.md")
+      .getFilteredByGlob("./src/content/post/*.md")
       .sort(function (a, b) {
         let nameA = a.data.title.toUpperCase();
         let nameB = b.data.title.toUpperCase();
