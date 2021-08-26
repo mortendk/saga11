@@ -1,7 +1,6 @@
 _site/
 src/img
 node_modules/
-package-lock.json
 .DS_Store
 
 # Local Netlify folder
