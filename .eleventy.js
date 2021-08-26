@@ -13,7 +13,7 @@ async function imageShortcode(src, alt, sizes, css) {
   let metadata = await Image(src, {
     widths: [300, 600],
     // formats: ["avif", "jpeg"],
-    outputDir: "./src/img/",
+    outputDir: "src/img/",
     urlPath: "/img/",
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
