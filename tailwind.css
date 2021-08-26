@@ -10,6 +10,7 @@
     @apply text-red-900;
   }
   .pagewidth {
+    @apply md:max-w-7xl	mx-auto;
   }
 
 }

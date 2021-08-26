@@ -4,9 +4,42 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
 
+// Image Handling
+const Image = require("@11ty/eleventy-img");
+
+async function imageShortcode(src, alt, sizes, css) {
+  let metadata = await Image(src, {
+    widths: [300, 600],
+    // formats: ["avif", "jpeg"],
+    outputDir: "./src/img/",
+    urlPath: "/img/",
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src);
+      const name = path.basename(src, extension);
+
+      return `${name}-${width}w.${format}`;
+    }
+  });
+
+  let imageAttributes = {
+    class: css,
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
+
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return Image.generateHTML(metadata, imageAttributes);
+}
+
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  // shortcode
+  eleventyConfig.addNunjucksAsyncShortcode("imageresize", imageShortcode);
 
   // passThrough
   eleventyConfig.addPassthroughCopy("src/assets");
