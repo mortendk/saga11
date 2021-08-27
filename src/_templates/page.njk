@@ -2,6 +2,11 @@
 layout: layout/default.njk
 ---
 
+{{ files }}
+<br>
+<a href="{{ files | replace("src", "") }}">{{ files | replace("src/", "") }}</a>
+
+
 {% for item in testimonials %}
 <div>
   {{ item.quote  }}
