@@ -21,6 +21,7 @@ testimonials:
     author:
       name: mdkEmmet
       avatar: /images/copenhell.jpeg
+files: src/files/webinardays_-_version_2.1.jpg
 manual_pdf: src/files/webinardays_-_version_2.1.jpg
 ---
 
