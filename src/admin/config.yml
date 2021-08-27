@@ -40,7 +40,16 @@ slug:
   sanitize_replacement: "_"
 
 collections:
-  # SESSIONS
+  - name: authors
+    label: Authors
+    folder: "authors"
+    create: true
+    fields:
+      - {name: name, label: Name}
+      - {name: twitterHandle, label: "Twitter Handle"}
+      - {name: bio, label: Bio, widget: text}
+
+  # Post
   - label: "posts"
     label_singular: "post"
     name: "posts"
@@ -98,6 +107,13 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
+      - name: author
+        label: Author
+        widget: relation
+        collection: authors
+        searchFields: [name, twitterHandle]
+        valueField: name
+
       - label: "Tags"
         name: "tags"
         widget: "select"
@@ -140,19 +156,11 @@ collections:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image }
 
-      - label: "Manual PDF"
-        name: "manual_pdf"
-        widget: "file"
-        default: "/uploads/general-manual.pdf"
-        media_library:
-          config:
-            multiple: true
-      # Refes
-      # - label: "Post Author"
-      #   name: "author"
-      #   widget: "relation"
-      #   collection: "authors"
-      #   required: false
-      #   search_fields: ["name.first", "twitterHandle"]
-      #   value_field: "name.first"
-      #   display_fields: ["twitterHandle", "followerCount"]
+      # - label: "Manual PDF"
+      #   name: "manual_pdf"
+      #   widget: "file"
+      #   media_library:
+      #     config:
+      #       multiple: true
+
+
