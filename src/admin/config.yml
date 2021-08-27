@@ -162,8 +162,7 @@ collections:
         name: "manual_pdf"
         widget: "file"
         choose_url: false
-        media_folder: "/src/files"
-        public_folder: "/files"
+        media_folder: "files"
         media_library:
           config:
             multiple: true
