@@ -158,10 +158,10 @@ collections:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image }
 
-      - label: "Manual PDF"
-        name: "manual_pdf"
+      - label: "Files"
+        name: "files"
         widget: "file"
-        choose_url: false
+        choose_url: true
         media_folder: "src/files"
         media_library:
           config:
