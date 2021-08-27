@@ -162,11 +162,7 @@ collections:
         name: "files"
         widget: "file"
         choose_url: true
-        allow_multiple: true
         media_folder: "src/files"
-        media_library:
-          config:
-            multiple: true
 
 
 
