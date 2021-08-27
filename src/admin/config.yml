@@ -152,9 +152,11 @@ collections:
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
 
       # Files
-      - label: "Files"
-        name: "files"
-        widget: "file"
-        required: false
-        choose_url: true
+      - { label: 'File', name: 'file', widget: 'file', required: false }
+
+      # - label: "Files"
+      #   name: "files"
+      #   widget: "file"
+      #   required: false
+      #   choose_url: true
         # media_folder: "/src/files"
