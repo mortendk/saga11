@@ -109,6 +109,13 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
+      - name: image_gallery
+        label: gallery
+        widget: "image"
+        required: false
+
+
+
       - name: author
         label: Author
         widget: relation
@@ -135,6 +142,7 @@ collections:
         required: true
         default: page.njk
         options: ["page-post.njk", "page.njk"]
+
       # Navigation
       - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
         name: "eleventyNavigation"
@@ -157,12 +165,12 @@ collections:
             fields:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image }
-
+      # Files
       - label: "Files"
         name: "files"
         widget: "file"
         choose_url: true
-        media_folder: "src/files"
+        media_folder: "/src/files"
 
 
 
