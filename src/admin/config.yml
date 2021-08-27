@@ -165,6 +165,6 @@ collections:
           config:
             multiple: true
             choose_url: false
-            media_folder: "/files"
+            media_folder: "/src/files"
 
 
