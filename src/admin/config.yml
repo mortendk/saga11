@@ -44,7 +44,7 @@ slug:
 collections:
   - name: authors
     label: Authors
-    folder: "authors"
+    folder: "src/content/authors"
     create: true
     fields:
       - {name: name, label: Name}
