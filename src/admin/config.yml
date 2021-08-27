@@ -25,13 +25,9 @@ logo_url: https://URL/assets/img/bars.svg
 site_url: https://URL
 display_url: https://URL
 
-
-
-
 show_preview_links: true
 search: true
 # publish_mode: editorial_workflow
-
 
 slug:
   encoding: "ascii"
@@ -58,6 +54,18 @@ collections:
           config:
             media_folder: '/{{media_folder}}/blog/images/widget/image'
             public_folder: '{{public_folder}}/blog/images/widget/image'
+      - label: "Files"
+        name: "files"
+        widget: "file"
+        required: false
+        choose_url: true
+        allow_multiple: true
+        media_library:
+          config:
+            media_folder: 'src/content/files'
+            public_folder: 'src/content/files'
+
+
       - label: Publish Date
         name: date
         widget: datetime
@@ -65,6 +73,8 @@ collections:
         name: 'entryimage'
         widget: 'image'
         required: false
+
+
       - label: Body
         name: body
         widget: markdown
