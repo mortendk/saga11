@@ -109,11 +109,18 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      # textimotional
+      - label: "Gallery"
+        name: "galleryImages"
+        widget: "list"
+        summary: '{{fields.image}}'
+        field: {label: Image, name: image, widget: image}
+
+      # GAllery
       - label: "Image Gallery"
         name: "image_gallery"
         widget: object
         collapsed: true
+
         fields:
           - {label: image, name: imageyo, widget: image, required: false }
           - {label: caption, name: figcaption, widget: text, required: false}
@@ -155,6 +162,7 @@ collections:
         fields:
           - { label: "Key", name: "key", widget: "string", required: false }
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+
       # textimotional
       - label: "Testimonials"
         name: "testimonials"
