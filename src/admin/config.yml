@@ -116,7 +116,7 @@ collections:
         widget: "list"
         # summary: '{{fields.quote}} - {{fields.author.name}}'
         fields:
-          - {label: Description, name: figcaption, widget: text, default: "Everything is awesome!"}
+          # - {label: Description, name: figcaption, widget: text, default: "Everything is awesome!"}
           - label: image
             name: image
             widget: object
