@@ -21,7 +21,7 @@ testimonials:
     author:
       name: mdkEmmet
       avatar: /images/copenhell.jpeg
-manual_pdf: /images/vimeo2.pdf
+manual_pdf: /src/files/vimeo-1.pdf
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
