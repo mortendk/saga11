@@ -13,3 +13,4 @@ layout: page.njk
 eleventyNavigation:
   order: 0
 ---
+![](/images/morten-freya.jpeg)
