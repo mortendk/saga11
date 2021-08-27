@@ -161,12 +161,12 @@ collections:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image }
       # # Files
-      # - label: "Files"
-      #   name: "files"
-      #   widget: "file"
-      #   required: false
-      #   choose_url: true
-      #   media_folder: "/src/files"
+      - label: "Files"
+        name: "files"
+        widget: "file"
+        required: false
+        choose_url: true
+        media_folder: "/src/files"
 
 
 
