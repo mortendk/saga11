@@ -2,6 +2,9 @@
 title: testimonials
 date: 2021-08-27 01:24:31
 image: /images/copenhell.jpeg
+image_gallery:
+  imageyo: /images/webinardays_-_speaker_page.jpg
+  figcaption: dfsdfs
 author: morten
 tags:
   - css
