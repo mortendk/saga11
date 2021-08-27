@@ -2,6 +2,7 @@
 title: testimonials
 date: 2021-08-27 01:24:31
 image: /images/copenhell.jpeg
+author: morten
 tags:
   - css
   - a11y
