@@ -50,20 +50,20 @@ collections:
         name: 'image'
         widget: 'image'
         required: false
-        media_library:
-          config:
-            media_folder: 'src/images/blog'
-            public_folder: '/images/blog'
-      - label: "Files"
-        name: "files"
-        widget: "file"
-        required: false
-        choose_url: false
-        allow_multiple: true
-        media_library:
-          config:
-            media_folder: 'src/files'
-            public_folder: 'files'
+        # media_library:
+        #   config:
+        #     media_folder: 'src/images/blog/image'
+        #     public_folder: '/images/blog'
+      # - label: "Files"
+      #   name: "files"
+      #   widget: "file"
+      #   required: false
+      #   choose_url: false
+      #   allow_multiple: true
+      #   media_library:
+      #     config:
+      #       media_folder: 'src/files'
+      #       public_folder: 'files'
 
   - name: authors
     label: Authors
