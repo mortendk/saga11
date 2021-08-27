@@ -1,5 +1,5 @@
 ---
 name: morten
-twitterHandle: moretndk
+twitterHandle: mortendk
 bio: sdfg
 ---
