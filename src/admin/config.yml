@@ -46,14 +46,14 @@ collections:
       - label: Title
         name: title
         widget: string
-      - label: 'Cover Image'
+      - label: 'Cover Image XX'
         name: 'image'
         widget: 'image'
         required: false
         media_library:
           config:
             media_folder: 'src/images/blog/image'
-            public_folder: '/images/blog'
+            public_folder: '/images/blog/image'
       # - label: "Files"
       #   name: "files"
       #   widget: "file"
