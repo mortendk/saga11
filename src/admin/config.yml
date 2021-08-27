@@ -14,7 +14,7 @@ backend:
   # main
   ### enable below lines for github integration ###
   # name: github
-  use_large_media_transforms_in_media_library: false
+  # use_large_media_transforms_in_media_library: false
 
 # IMAGES
 media_folder: "src/images"
@@ -24,17 +24,14 @@ public_folder: "/images"
 logo_url: https://URL/assets/img/bars.svg
 site_url: https://URL
 display_url: https://URL
+
+
+
+
 show_preview_links: true
 search: true
 # publish_mode: editorial_workflow
 
-# Local
-# Please run "npx netlify-cms-proxy-server" for local backend
-# local_backend: true
-# when using a custom proxy server port
-# url: http://localhost:8085/api/v1
-# when accessing the local site from a host other than 'localhost' or '127.0.0.1'
-# allowed_hosts: ['192.168.0.1']
 
 slug:
   encoding: "ascii"
@@ -42,6 +39,44 @@ slug:
   sanitize_replacement: "_"
 
 collections:
+  - name: blog
+    label: blog
+    label_singular: 'blog'
+    folder: src/content/blog
+    create: true
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - label: Template
+        name: template
+        widget: hidden
+        default: post
+      - label: Title
+        name: title
+        widget: string
+      - label: 'Cover Image'
+        name: 'image'
+        widget: 'image'
+        required: false
+        media_library:
+          config:
+            media_folder: '/{{media_folder}}/posts/images/widget/image'
+            public_folder: '{{public_folder}}/posts/images/widget/image'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Entry Image
+        name: 'entryimage'
+        widget: 'image'
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
+        media_library:
+          config:
+            media_folder: '/{{media_folder}}/posts/images/widget/body'
+            public_folder: '{{public_folder}}/posts/images/widget/body'
+
   - name: authors
     label: Authors
     folder: "src/content/authors"
@@ -152,11 +187,10 @@ collections:
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
 
       # Files
-      - { label: 'File', name: 'file', widget: 'file', required: false }
-
-      # - label: "Files"
-      #   name: "files"
-      #   widget: "file"
-      #   required: false
-      #   choose_url: true
-        # media_folder: "/src/files"
+      - label: "Files"
+        name: "files"
+        widget: "file"
+        required: false
+        choose_url: true
+        allow_multiple: true
+        media_folder: "/src/files"
