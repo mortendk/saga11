@@ -46,6 +46,7 @@ collections:
     label: Authors
     folder: "src/content/authors"
     create: true
+    required: false
     fields:
       - {name: name, label: Name}
       - {name: twitterHandle, label: "Twitter Handle"}
@@ -114,7 +115,6 @@ collections:
       - label: "Gallery"
         name: "gallery"
         widget: "list"
-        summary: '{{fields.image}} - {{fields.title}}'
         fields:
           - label: image
             name: image
