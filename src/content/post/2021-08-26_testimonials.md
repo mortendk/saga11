@@ -1,7 +1,7 @@
 ---
 title: testimonials
 date: 2021-08-27 01:24:31
-image: /images/copenhell.jpeg
+image: /images/webinardays_-_version_2.1.jpg
 galleryImages:
   - /images/webinardays_-_version_2.1_-_about_page.jpg
   - /images/webinardays_-_version_2.1.jpg
