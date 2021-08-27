@@ -112,16 +112,11 @@ collections:
       # textimotional
       - label: "Image Gallery"
         name: "image_gallery"
-        widget: "list"
-        summary: '{{fields.quote}} - {{fields.author.name}}'
+        widget: object
+        collapsed: true
         fields:
-          - label: images
-            name: images
-            widget: object
-            collapsed: true
-            fields:
-              - {label: image, name: imageyo, widget: image }
-              - {label: caption, name: figcaption, widget: text, required: false}
+          - {label: image, name: imageyo, widget: image, required: false }
+          - {label: caption, name: figcaption, widget: text, required: false}
 
       # Relation
       - name: author
