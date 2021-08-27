@@ -70,18 +70,6 @@ collections:
     sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
     # SESSION FILTERS
     view_filters:
-      # - label: "Day 1"
-      #   field: tags
-      #   pattern: 'dayone'
-      # - label: "Day 2"
-      #   field: tags
-      #   pattern: 'daytwo'
-      # - label: "Day 3"
-      #   field: tags
-      #   pattern: 'daythree'
-      # - label: "featured"
-      #   field: tags
-      #   pattern: 'featuredsession'
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
@@ -169,4 +157,4 @@ collections:
         widget: "file"
         required: false
         choose_url: true
-        media_folder: "/src/files"
+        # media_folder: "/src/files"
