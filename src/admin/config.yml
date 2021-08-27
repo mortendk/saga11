@@ -169,6 +169,7 @@ collections:
       - label: "Files"
         name: "files"
         widget: "file"
+        required: false
         choose_url: true
         media_folder: "/src/files"
 
