@@ -161,10 +161,12 @@ collections:
       - label: "Manual PDF"
         name: "manual_pdf"
         widget: "file"
+        choose_url: false
+        media_folder: "/src/files"
         media_library:
           config:
             multiple: true
-            choose_url: false
-            media_folder: "/src/files"
+
+
 
 
