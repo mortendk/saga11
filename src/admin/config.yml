@@ -114,15 +114,15 @@ collections:
       - label: "Gallery"
         name: "gallery"
         widget: "list"
-        # summary: '{{fields.quote}} - {{fields.author.name}}'
+        summary: '{{fields.image}} - {{fields.title}}'
         fields:
-          # - {label: Description, name: figcaption, widget: text, default: "Everything is awesome!"}
           - label: image
             name: image
             widget: object
             fields:
-              - {label: title, name: title, widget: string, default: "Emmet"}
               - {label: image, name: image, widget: image }
+              - {label: title, name: title, widget: string, required: false}
+              - {label: Description, name: figcaption, widget: text, required: false}
 
 
       # Relation
