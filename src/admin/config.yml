@@ -109,6 +109,22 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
+
+      # textimotional
+      - label: "Image gallery"
+        name: "gallery"
+        widget: "list"
+        # summary: '{{fields.quote}} - {{fields.author.name}}'
+        fields:
+          - {label: Description, name: figcaption, widget: text, default: "Everything is awesome!"}
+          - label: image
+            name: image
+            widget: object
+            fields:
+              - {label: title, name: title, widget: string, default: "Emmet"}
+              - {label: image, name: image, widget: image }
+
+
       # Relation
       - name: author
         label: Author
@@ -146,28 +162,4 @@ collections:
         fields:
           - { label: "Key", name: "key", widget: "string", required: false }
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-
-      # textimotional
-      - label: "Testimonials"
-        name: "testimonials"
-        widget: "list"
-        summary: '{{fields.quote}} - {{fields.author.name}}'
-        fields:
-          - {label: Quote, name: quote, widget: text, default: "Everything is awesome!"}
-          - label: Author
-            name: author
-            widget: object
-            fields:
-              - {label: Name, name: name, widget: string, default: "Emmet"}
-              - {label: Avatar, name: avatar, widget: image }
-      # # Files
-      - label: "Files"
-        name: "files"
-        widget: "file"
-        required: false
-        choose_url: true
-        media_folder: "/src/files"
-
-
-
 
