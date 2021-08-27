@@ -47,10 +47,6 @@ collections:
     media_folder: ''
     public_folder: ''
     fields:
-      - label: Template
-        name: template
-        widget: hidden
-        default: post
       - label: Title
         name: title
         widget: string
@@ -60,8 +56,8 @@ collections:
         required: false
         media_library:
           config:
-            media_folder: '/{{media_folder}}/posts/images/widget/image'
-            public_folder: '{{public_folder}}/posts/images/widget/image'
+            media_folder: '/{{media_folder}}/blog/images/widget/image'
+            public_folder: '{{public_folder}}/blog/images/widget/image'
       - label: Publish Date
         name: date
         widget: datetime
@@ -74,8 +70,8 @@ collections:
         widget: markdown
         media_library:
           config:
-            media_folder: '/{{media_folder}}/posts/images/widget/body'
-            public_folder: '{{public_folder}}/posts/images/widget/body'
+            media_folder: '/{{media_folder}}/blog/images/widget/body'
+            public_folder: '{{public_folder}}/blog/images/widget/body'
 
   - name: authors
     label: Authors
