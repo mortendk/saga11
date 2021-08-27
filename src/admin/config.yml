@@ -56,7 +56,7 @@ collections:
   - label: "posts"
     label_singular: "post"
     name: "posts"
-    description: "All the Post"
+    description: "All Posts"
     folder: "src/content/post"
     slug: "{{year}}-{{month}}-{{day}}_{{title}}"
     preview_path: session/{{slug}}
@@ -142,7 +142,7 @@ collections:
 
         # 11ty settings
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false, hint: "Is it Hidden on the site"}
+      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
 
       # Template selector
       - label: "Layout template"
@@ -163,3 +163,10 @@ collections:
           - { label: "Key", name: "key", widget: "string", required: false }
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
 
+      # Files
+      - label: "Files"
+        name: "files"
+        widget: "file"
+        required: false
+        choose_url: true
+        media_folder: "/src/files"
