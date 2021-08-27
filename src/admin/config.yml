@@ -111,7 +111,7 @@ collections:
 
 
       # textimotional
-      - label: "Image gallery"
+      - label: "Gallery"
         name: "gallery"
         widget: "list"
         # summary: '{{fields.quote}} - {{fields.author.name}}'
