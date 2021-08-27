@@ -52,8 +52,8 @@ collections:
         required: false
         media_library:
           config:
-            media_folder: '/src/images/blog'
-            public_folder: 'images/blog'
+            media_folder: 'src/images/blog'
+            public_folder: '/images/blog'
       - label: "Files"
         name: "files"
         widget: "file"
