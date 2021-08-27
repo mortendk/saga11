@@ -52,36 +52,18 @@ collections:
         required: false
         media_library:
           config:
-            media_folder: '/{{media_folder}}/blog/images/widget/image'
-            public_folder: '{{public_folder}}/blog/images/widget/image'
+            media_folder: '/src/images/blog'
+            public_folder: 'images/blog'
       - label: "Files"
         name: "files"
         widget: "file"
         required: false
-        choose_url: true
+        choose_url: false
         allow_multiple: true
         media_library:
           config:
-            media_folder: 'src/content/files'
-            public_folder: 'src/content/files'
-
-
-      - label: Publish Date
-        name: date
-        widget: datetime
-      - label: Entry Image
-        name: 'entryimage'
-        widget: 'image'
-        required: false
-
-
-      - label: Body
-        name: body
-        widget: markdown
-        media_library:
-          config:
-            media_folder: '/{{media_folder}}/blog/images/widget/body'
-            public_folder: '{{public_folder}}/blog/images/widget/body'
+            media_folder: 'src/files'
+            public_folder: 'files'
 
   - name: authors
     label: Authors
