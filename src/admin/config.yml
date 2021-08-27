@@ -109,22 +109,6 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      - label: "Gallery"
-        name: "galleryImages"
-        widget: "list"
-        summary: '{{fields.image}}'
-        field: {label: Image, name: image, widget: image}
-
-      # GAllery
-      - label: "Image Gallery"
-        name: "image_gallery"
-        widget: object
-        collapsed: true
-
-        fields:
-          - {label: image, name: imageyo, widget: image, required: false }
-          - {label: caption, name: figcaption, widget: text, required: false}
-
       # Relation
       - name: author
         label: Author
@@ -176,13 +160,13 @@ collections:
             fields:
               - {label: Name, name: name, widget: string, default: "Emmet"}
               - {label: Avatar, name: avatar, widget: image }
-      # Files
-      - label: "Files"
-        name: "files"
-        widget: "file"
-        required: false
-        choose_url: true
-        media_folder: "/src/files"
+      # # Files
+      # - label: "Files"
+      #   name: "files"
+      #   widget: "file"
+      #   required: false
+      #   choose_url: true
+      #   media_folder: "/src/files"
 
 
 
