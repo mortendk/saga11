@@ -109,13 +109,21 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      - name: image_gallery
-        label: gallery
-        widget: "image"
-        required: false
+      # textimotional
+      - label: "Image Gallery"
+        name: "image_gallery"
+        widget: "list"
+        summary: '{{fields.quote}} - {{fields.author.name}}'
+        fields:
+          - label: images
+            name: images
+            widget: object
+            collapsed: true
+            fields:
+              - {label: image, name: imageyo, widget: image }
+              - {label: caption, name: figcaption, widget: text, required: false}
 
-
-
+      # Relation
       - name: author
         label: Author
         widget: relation

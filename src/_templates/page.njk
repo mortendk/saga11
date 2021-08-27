@@ -2,9 +2,11 @@
 layout: layout/default.njk
 ---
 
-{{ files }}
-<br>
-<a href="{{ files | replace("src", "") }}">{{ files | replace("src/", "") }}</a>
+
+{% if files %}
+  <a href="{{ files | replace("src/", "") }}">{{ files | replace("/src/files/", "") }}</a>
+{% endif %}
+
 
 
 {% for item in testimonials %}

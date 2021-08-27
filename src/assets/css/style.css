@@ -832,39 +832,3 @@ video {
     display: none;
   }
 }
- color: rgba(63, 63, 70, var(--tw-text-opacity));
-}
-
-@media (min-width: 640px) {
-  .sm\:ml-6 {
-    margin-left: 1.5rem;
-  }
-
-  .sm\:flex {
-    display: flex;
-  }
-
-  .sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(2rem * var(--tw-space-x-reverse));
-    margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-}
-
-@media (min-width: 768px) {
-  .md\:mt-20 {
-    margin-top: 5rem;
-  }
-
-  .md\:mb-16 {
-    margin-bottom: 4rem;
-  }
-
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:hidden {
-    display: none;
-  }
-}
