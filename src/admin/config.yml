@@ -113,6 +113,7 @@ collections:
         searchFields: [name, twitterHandle]
         # valueField: name
         valueField: "{{slug}}"
+        display_fields: ["twitterHandle", "followerCount"]
 
       - label: "Tags"
         name: "tags"
