@@ -112,7 +112,7 @@ collections:
         collection: authors
         searchFields: [name, twitterHandle]
         # valueField: name
-        value_field: "{{slug}}"
+        valueField: "{{slug}}"
 
       - label: "Tags"
         name: "tags"
