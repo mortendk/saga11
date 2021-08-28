@@ -92,7 +92,7 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      # textimotional
+      # Image gallery
       - label: "Gallery"
         name: "gallery"
         widget: "list"
@@ -106,12 +106,12 @@ collections:
               - {label: Description, name: figcaption, widget: text, required: false}
 
       # Relation
-      - name: author
-        label: Author
-        widget: relation
-        collection: authors
-        searchFields: [name, twitterHandle]
-        value_field: "{{slug}}"
+      # - name: author
+      #   label: Author
+      #   widget: relation
+      #   collection: authors
+      #   searchFields: [name, twitterHandle]
+      #   value_field: "{{slug}}"
 
 
       - label: "Tags"
