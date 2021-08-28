@@ -35,36 +35,6 @@ slug:
   sanitize_replacement: "_"
 
 collections:
-  - name: blog
-    label: blog
-    label_singular: 'blog'
-    folder: src/content/blog
-    create: true
-    media_folder: ''
-    public_folder: ''
-    fields:
-      - label: Title
-        name: title
-        widget: string
-      - label: 'Cover Image'
-        name: 'image'
-        widget: 'image'
-        required: false
-        media_library:
-          config:
-            media_folder: 'src/images/blog'
-            public_folder: '/images/blog'
-      # - label: "Files"
-      #   name: "files"
-      #   widget: "file"
-      #   required: false
-      #   choose_url: false
-      #   allow_multiple: true
-      #   media_library:
-      #     config:
-      #       media_folder: 'src/files'
-      #       public_folder: 'files'
-
   - name: authors
     label: Authors
     folder: "src/content/authors"
@@ -72,8 +42,8 @@ collections:
     required: false
     fields:
       - {name: name, label: Name}
-      - {name: twitterHandle, label: "Twitter Handle"}
-      - {name: bio, label: Bio, widget: text}
+      - {name: twitterHandle, label: "Twitter Handle", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
 
   # Post
   - label: "posts"
