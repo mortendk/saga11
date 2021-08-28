@@ -7,7 +7,7 @@ gallery:
       image: /images/morten-freya.jpeg
   - image:
       image: /images/copenhell.jpeg
-author: morten
+author: map_name_morten_twitterhandle_moretndk_bio_sdfg
 eleventyExcludeFromCollections: true
 layout: page.njk
 eleventyNavigation:
