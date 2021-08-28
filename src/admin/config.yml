@@ -41,7 +41,6 @@ collections:
     folder: "src/content/authors"
     create: true
     delete: true
-    # slug: "{{title}}"
     fields:
       - {name: name, label: Name}
       - {name: twitterHandle, label: "Twitter Handle"}
