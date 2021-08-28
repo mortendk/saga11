@@ -35,12 +35,41 @@ slug:
   sanitize_replacement: "_"
 
 collections:
+  - name: blog
+    label: blog
+    label_singular: 'blog'
+    folder: src/content/blog
+    create: true
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: 'Cover Image'
+        name: 'image'
+        widget: 'image'
+        required: false
+        media_library:
+          config:
+            media_folder: 'src/images/blog'
+            public_folder: '/images/blog'
+      # - label: "Files"
+      #   name: "files"
+      #   widget: "file"
+      #   required: false
+      #   choose_url: false
+      #   allow_multiple: true
+      #   media_library:
+      #     config:
+      #       media_folder: 'src/files'
+      #       public_folder: 'files'
 
   - name: authors
     label: Authors
     folder: "src/content/authors"
     create: true
-    delete: true
+    required: false
     fields:
       - {name: name, label: Name}
       - {name: twitterHandle, label: "Twitter Handle"}
@@ -80,7 +109,7 @@ collections:
     # FIELDS
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      # Date
+      # TIME
       - label: "Date published"
         name: "date"
         widget: "datetime"
@@ -92,7 +121,8 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
-      # Image gallery
+
+      # textimotional
       - label: "Gallery"
         name: "gallery"
         widget: "list"
@@ -105,14 +135,14 @@ collections:
               - {label: title, name: title, widget: string, required: false}
               - {label: Description, name: figcaption, widget: text, required: false}
 
-      # Relation
-      # - name: author
-      #   label: Author
-      #   widget: relation
-      #   collection: authors
-      #   searchFields: [name, twitterHandle]
-      #   value_field: "{{slug}}"
 
+      # Relation
+      - name: author
+        label: Author
+        widget: relation
+        collection: authors
+        searchFields: [name, twitterHandle]
+        valueField: name
 
       - label: "Tags"
         name: "tags"
