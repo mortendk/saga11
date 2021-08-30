@@ -1,0 +1,37 @@
+---
+layout: layout/default.njk
+eleventyComputed:
+  title: Tagged “{{ tag }}”
+permalink: /tags/{{ tag | slug }}/
+
+
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+---
+
+<ol>
+{% for post in collections[ tag ] | reverse %}
+  <li class="{% if post.url == url %} font-bold{% endif %}">
+
+    <a href="{{ post.url | url }}" >
+      {{ post.data.title }}
+      {# List all tags for this post #}
+      {% for tag in post.data.tags  %}
+        {# | filterTagList #}
+        {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="font-bold border-red-500 border rounded-sm p-1 bg-red-50 inline-block">{{ tag }}</a>
+      {% endfor %}
+  </li>
+{% endfor %}
+</ol>
+
+<a href="{{ '/tags/' | url }}">all tags</a>

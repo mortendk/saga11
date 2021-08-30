@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -8,7 +9,7 @@ const Image = require("@11ty/eleventy-img");
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
 
-
+// Image shortcode
 async function imageShortcode(src, alt, sizes, css) {
   let metadata = await Image(src, {
     widths: [300, 600],
@@ -43,7 +44,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // shortcode
-  eleventyConfig.addNunjucksAsyncShortcode("imageresize", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("imageResize", imageShortcode);
 
   // passThrough
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -51,25 +52,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/files");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
-
-  // Browser config
-  eleventyConfig.setBrowserSyncConfig({
-    // Open browser by default
-    open: true,
-    callbacks: {
-      ready: function(err, bs) {
-
-        bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync('_site/404.html');
-          // Add 404 http status code in request header.
-          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          res.end();
-        });
-      }
-    }
-  });
 
   // -----------------------------------------------------------------
   // FILTERS
@@ -80,12 +62,8 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
   });
 
-  eleventyConfig.addFilter('hour', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('HH:mm');
-  });
-
-  eleventyConfig.addFilter('monthDay', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('LLLL d');
+  eleventyConfig.addFilter('monthDayYear', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy');
   });
 
   // SLUG
@@ -125,7 +103,7 @@ module.exports = function (eleventyConfig) {
   // Collection example
 
   // Creates custom collection "post"
-  eleventyConfig.addCollection("allPost", function(collection) {
+  eleventyConfig.addCollection("allPosts", function(collection) {
      return collection.getFilteredByGlob("./src/content/post/*.md");
   });
 
@@ -147,8 +125,43 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // TAGS
+  //  grapped from https://github.com/11ty/eleventy-base-blog
+  function filterTagList(tags) {
+    return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+  }
+
+  eleventyConfig.addFilter("filterTagList", filterTagList)
+
+  // Create an array of all tags
+  eleventyConfig.addCollection("tagList", function(collection) {
+    let tagSet = new Set();
+    collection.getAll().forEach(item => {
+      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+    });
+
+    return filterTagList([...tagSet]);
+  });
 
 
+  // Browser config
+  eleventyConfig.setBrowserSyncConfig({
+    // Open browser by default
+    open: true,
+    callbacks: {
+      ready: function(err, bs) {
+
+        bs.addMiddleware("*", (req, res) => {
+          const content_404 = fs.readFileSync('_site/404.html');
+          // Add 404 http status code in request header.
+          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          res.end();
+        });
+      }
+    }
+  });
 
   // -----------------------------------------------------------------
   // Directory setup

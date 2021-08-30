@@ -12,6 +12,10 @@ eleventyExcludeFromCollections: false
 layout: page.njk
 eleventyNavigation:
   order: 0
+tags:
+  - html
+  - css
+
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
