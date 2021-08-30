@@ -42,7 +42,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-
   // shortcode
   eleventyConfig.addNunjucksAsyncShortcode("imageresize", imageShortcode);
 
@@ -73,19 +72,10 @@ module.exports = function (eleventyConfig) {
   });
 
   // -----------------------------------------------------------------
-  // Shortcode
+  // FILTERS
   // -----------------------------------------------------------------
-  // eleventyConfig.addFilter('countDown', (dateObj) => {
-    // set end = DateTime.fromISO('2017-03-13');
-    // start = DateTime.fromISO('2017-02-15');
-    // return end.diff(dateObj, ['months', 'days']); //=> { months: 1, days: 2 }
-  // });
 
-  // -----------------------------------------------------------------
-  // FILTER DATE FORMAT
-  // -----------------------------------------------------------------
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-
   eleventyConfig.addFilter('dateFormat', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
   });
@@ -105,6 +95,12 @@ module.exports = function (eleventyConfig) {
       replacement: "-",
       remove: /[*+~.·,()'"`´%!?¿:@]/g
     });
+  });
+
+  // Get page
+  // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
+  eleventyConfig.addFilter("getpage", (arr, url) => {
+    return arr.filter(item => item.url == url);
   });
 
   // -----------------------------------------------------------------
@@ -128,7 +124,7 @@ module.exports = function (eleventyConfig) {
   // -----------------------------------------------------------------
   // Collection example
 
-  // Creates custom collection "myPosts"
+  // Creates custom collection "post"
   eleventyConfig.addCollection("allPost", function(collection) {
      return collection.getFilteredByGlob("./src/content/post/*.md");
   });
@@ -150,6 +146,9 @@ module.exports = function (eleventyConfig) {
         else return 0;
       });
   });
+
+
+
 
   // -----------------------------------------------------------------
   // Directory setup

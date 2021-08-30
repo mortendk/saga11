@@ -38,12 +38,15 @@ collections:
   - name: authors
     label: Authors
     folder: "src/content/authors"
+    slug: "{{title}}"
     create: true
     required: false
     fields:
-      - {name: name, label: Name}
-      - {name: twitterHandle, label: "Twitter Handle", required: false }
+      - { label: "Title", name: "title", widget: "string" }
+      - { name: name, label: Name}
+      - { name: twitter, label: "Twitter @", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
 
   # Post
   - label: "posts"

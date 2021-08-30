@@ -7,10 +7,19 @@ gallery:
       image: /images/morten-freya.jpeg
   - image:
       image: /images/copenhell.jpeg
-author: map_name_morten_twitterhandle_moretndk_bio_sdfg
-eleventyExcludeFromCollections: true
+author: mortendk
+eleventyExcludeFromCollections: false
 layout: page.njk
 eleventyNavigation:
   order: 0
 ---
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+
+
+
+inline img test
+
+
+
 ![](/images/morten-freya.jpeg)

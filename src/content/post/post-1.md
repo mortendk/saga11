@@ -1,5 +1,5 @@
 ---
-title: image test
+title: Post 1
 date: 2021-08-26 16:08:00
 image: /images/morten-freya.jpeg
 tags:

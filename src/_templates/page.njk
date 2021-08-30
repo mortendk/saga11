@@ -2,6 +2,24 @@
 layout: layout/default.njk
 ---
 
+{% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
+  <div class="font-bold">
+  Author : {{ author}}
+  </div>
+  <a href="{{ item.url }}">{{item.data.name}}</a>
+{% endfor %}
+
+
+
+
+{{ content | safe }}
+
+{% for item in collections.all | getpage("/page2/") -%}
+<p><a href="{{ item.url }}" title="{{ item.data.description }}">{{ item.data.title }}</a></p>
+{% endfor %}
+
+
+
 {% for item in testimonials %}
 <div>
   {{ item.quote  }}
