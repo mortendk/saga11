@@ -23,18 +23,17 @@ layout: layout/default.njk
 
 </footer>
 
-{# {{ content | safe }} #}
-{{gallery}}
+{{ content | safe }}
+
+{# image gallery #}
 {% for item in gallery %}
-{{ item | dump }}
-
-
- {{ item.author.name  }}
- </div>
+<figure>
+  {% set img =  "src/" + item.image.image  %}
+  {% imageResize img, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
+  <figcaption>{{ item.image.figcaption | safe }}</figcaption>
+</figure>
 {% endfor %}
 
-
- {{image}}
 
 {% if image %}
   {% set img =  "src/" + image %}
