@@ -4,13 +4,17 @@ layout: layout/default.njk
 
 <footer>
   {# Author #}
+
+{% if author %}
   {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
   <div class="bg-bluegray-200">
     <div class="font-bold">Author : {{ author}}</div>
     <a href="{{ item.url }}" title="{{item.data.name}}">{{item.data.name}}</a>
   </div>
   {% endfor %}
+{% endif %}
   {# /Author #}
+
 
   <div>{{ date | monthDayYear }}</div>
 

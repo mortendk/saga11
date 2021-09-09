@@ -8,7 +8,8 @@
 - eleventy https://www.11ty.dev
 - tailwindcss
 - Nunjucks https://mozilla.github.io/nunjucks/
--
+- cms admin Netlifycms
+
 
 ## installation
 (Install node)
@@ -22,6 +23,7 @@ npm install
 ```
 
 ### npm run dev
+
 ```
 npm run dev
 ```
@@ -30,6 +32,16 @@ npm run dev
 ```
 npx tailwindcss -i src/css/tailwind.css -o src/css/style.min.css --minify
 ```
+
+## CMS (Netlify CMS)
+first run
+ npx netlify-cms-proxy-server
+  npm run  admin
+
+ then start the build
+ npm run start
+
+go to /admin
 
 ## Visual regression test
 Install Backstop for visual regression test on local setup
@@ -60,7 +72,6 @@ If its cool and approved we can add the changes to the references with approve
 inside _data/site.son general meta data is added like sitename etc
 
 ## RSS feed
-
 
 ## Favicon
 
@@ -95,3 +106,4 @@ eleventyNavigation:
 
 ## Template
 https://mozilla.github.io/nunjucks/templating.html
+

@@ -14,7 +14,8 @@
     "backstop:test": "backstop test",
     "backstop:approve": "backstop approve",
     "debug": "DEBUG=* eleventy",
-    "build": "npm run tailwind:build && npm run debug "
+    "build": "npm run tailwind:build && npm run debug ",
+    "admin": "npx netlify-cms-proxy-server"
   },
   "keywords": [],
   "author": "",

@@ -75,7 +75,7 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // Get page
+  // Get page filter
   // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
   eleventyConfig.addFilter("getpage", (arr, url) => {
     return arr.filter(item => item.url == url);
@@ -106,6 +106,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("allPosts", function(collection) {
      return collection.getFilteredByGlob("./src/content/post/*.md");
   });
+
+  // Creates custom collection "post"
+  eleventyConfig.addCollection("allPages", function(collection) {
+    return collection.getFilteredByGlob("./src/content/page/*.md");
+ });
+
+
+
 
   // Recent post
   eleventyConfig.addCollection("recentPosts", function(collection) {

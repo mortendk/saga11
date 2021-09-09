@@ -1,5 +1,5 @@
-# Setup for
-# Add users aka identity
+# Setup
+# Add users netlify identity
 # https://app.netlify.com/sites/[SITENAME]/settings/identity#external-providers
 # enable git gateway
 # https://app.netlify.com/sites/[SITENAME]/settings/identity#git-gateway
@@ -11,20 +11,16 @@ backend:
   # Use netlify identity as backend
   name: git-gateway
   branch: main
-  # main
-  ### enable below lines for github integration ###
-  # name: github
-  # use_large_media_transforms_in_media_library: false
+  #  branch: main
 
-# IMAGES
-media_folder: "src/images"
-public_folder: "/images"
+local_backend: true
 
 #SETTINGS
-logo_url: https://URL/assets/img/bars.svg
-site_url: https://URL
+site_url: https://localhost:8080
+logo_url: https://localhost:8080/img/favicon-196x196
 display_url: https://URL
-
+media_folder: "src/images"
+public_folder: "/images"
 show_preview_links: true
 search: true
 # publish_mode: editorial_workflow
@@ -35,6 +31,9 @@ slug:
   sanitize_replacement: "_"
 
 collections:
+  # -----------------------------------------------------------------
+  # Collection Authors
+  # -----------------------------------------------------------------
   - name: authors
     label: Authors
     folder: "src/content/authors"
@@ -43,12 +42,39 @@ collections:
     required: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { name: name, label: Name}
+      - { name: name, label: Name, required: false }
       - { name: twitter, label: "Twitter @", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
 
-  # Post
+  # -----------------------------------------------------------------
+  # Collection Pages
+  # -----------------------------------------------------------------
+  - name: Page
+    label: Page
+    folder: "src/content/page"
+    slug: "{{title}}"
+    create: true
+    required: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { name: slugcustom, label: "slug", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      # Author
+      - name: author
+        label: Author
+        widget: relation
+        collection: authors
+        searchFields: [name, title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+  # -----------------------------------------------------------------
+  # Post Collection
+  # -----------------------------------------------------------------
   - label: "posts"
     label_singular: "post"
     name: "posts"
@@ -82,15 +108,6 @@ collections:
     # FIELDS
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      # TIME
-      - label: "Date published"
-        name: "date"
-        widget: "datetime"
-        date_format: "DD.MM.YYYY"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: false
-
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
@@ -107,17 +124,26 @@ collections:
               - {label: title, name: title, widget: string, required: false}
               - {label: Description, name: figcaption, widget: text, required: false}
 
-
-      # Relation
+      # Author
       - name: author
         label: Author
         widget: relation
         collection: authors
-        searchFields: [name, twitterHandle]
-        # valueField: name
+        searchFields: [name, title]
         valueField: "{{slug}}"
-        display_fields: ["twitterHandle", "followerCount"]
+        display_fields: ["title"]
+        required: false
 
+      # Date
+      - label: "Date published"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: false
+
+      # Tags
       - label: "Tags"
         name: "tags"
         widget: "select"
@@ -139,14 +165,14 @@ collections:
         options: ["page-post.njk", "page.njk"]
 
       # Navigation
-      - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
-        name: "eleventyNavigation"
-        required: false
-        widget: "object"
-        collapsed: true
-        fields:
-          - { label: "Key", name: "key", widget: "string", required: false }
-          - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+      # - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+      #   name: "eleventyNavigation"
+      #   required: false
+      #   widget: "object"
+      #   collapsed: true
+      #   fields:
+      #     - { label: "Key", name: "key", widget: "string", required: false }
+      #     - { label: "Order", name: "order", widget: "number", default: 0, required: false }
 
       # Files
       - label: "Files"
@@ -156,3 +182,33 @@ collections:
         choose_url: true
         allow_multiple: true
         media_folder: "/src/files"
+
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "src/content/about.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Position, name: position, widget: string}
+              - {label: Photo, name: photo, widget: image}
+      - label: "Locations Page"
+        name: "locations"
+        file: "src/content/locations.yml"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - label: Locations
+            name: locations
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Address, name: address, widget: string}
