@@ -76,6 +76,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Get page filter
+  //  Now we can grap all the data from another markdown file
   // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
   eleventyConfig.addFilter("getpage", (arr, url) => {
     return arr.filter(item => item.url == url);

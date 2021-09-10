@@ -168,7 +168,7 @@ collections:
   # Default pages
   # -----------------------------------------------------------------
   - label: "Default Pages"
-    name: "pages"
+    name: "defaultpages"
     files:
       - label: "Frontpage"
         name: "frontpage"
@@ -186,7 +186,7 @@ collections:
               - { label: "Key", name: "key", widget: "string", required: false }
               - { label: "title", name: "title", widget: "string", required: false }
               - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-              - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
+              - { label: "parent", name: "parent", widget: "string", default: 0, required: false }
               - { label: "excerpt", name: "excerpt", widget: "text"}
 
       - label: "Contact"
@@ -210,11 +210,7 @@ collections:
               - { label: "Order", name: "order", widget: "number", default: 0, required: false }
               - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
               - { label: "excerpt", name: "excerpt", widget: "text"}
-
-
-
-
-      - label: "Contact Success"
+      - label: "Contact: Success"
         name: "contanctsuccess"
         file: "src/content/contact/success.md"
         fields:
