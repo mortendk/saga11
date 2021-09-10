@@ -1,4 +1,4 @@
 {
   "layout" : "page.njk",
-  "permalink": "{{ page.fileSlug }}/"
+  "permalink": "/{{ slugcustom | slug }}/"
 }

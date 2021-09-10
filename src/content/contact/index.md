@@ -1,8 +1,8 @@
 ---
 title: Contact
-
+slugcustom: contact me yo
 eleventyNavigation:
-  key: contact
+  key: Contact
   title: Contact
   order: 30
 ---

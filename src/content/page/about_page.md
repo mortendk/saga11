@@ -1,6 +1,6 @@
 ---
-title: About page y
-slugcustom: about us
+title: custom  landing page  yo
+slugcustom: Meta custom
 author: mortendk
 ---
 ```html

@@ -32,55 +32,14 @@ slug:
 
 collections:
   # -----------------------------------------------------------------
-  # Collection Authors
-  # -----------------------------------------------------------------
-  - name: authors
-    label: Authors
-    folder: "src/content/authors"
-    slug: "{{title}}"
-    create: true
-    required: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { name: name, label: Name, required: false }
-      - { name: twitter, label: "Twitter @", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
-
-  # -----------------------------------------------------------------
-  # Collection Pages
-  # -----------------------------------------------------------------
-  - name: Page
-    label: Page
-    folder: "src/content/page"
-    slug: "{{title}}"
-    create: true
-    required: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { name: slugcustom, label: "slug", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      # Author
-      - name: author
-        label: Author
-        widget: relation
-        collection: authors
-        searchFields: [name, title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-        multiple: true
-
-  # -----------------------------------------------------------------
   # Post Collection
   # -----------------------------------------------------------------
-  - label: "posts"
-    label_singular: "post"
+  - label: "Posts"
+    label_singular: Post
     name: "posts"
     description: "All Posts"
     folder: "src/content/post"
-    slug: "{{year}}-{{month}}-{{day}}_{{title}}"
+    slug: "{{title}}-{{year}}-{{month}}-{{day}}"
     preview_path: session/{{slug}}
     create: true
     delete: true
@@ -164,16 +123,6 @@ collections:
         default: page.njk
         options: ["page-post.njk", "page.njk"]
 
-      # Navigation
-      # - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
-      #   name: "eleventyNavigation"
-      #   required: false
-      #   widget: "object"
-      #   collapsed: true
-      #   fields:
-      #     - { label: "Key", name: "key", widget: "string", required: false }
-      #     - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-
       # Files
       - label: "Files"
         name: "files"
@@ -184,31 +133,109 @@ collections:
         media_folder: "/src/files"
 
 
-  - label: "Pages"
+  # -----------------------------------------------------------------
+  # Collection Pages
+  # -----------------------------------------------------------------
+  - label: Pages
+    label_singular: Page
+    name: Page
+    folder: "src/content/page"
+    slug: "{{title}}"
+    create: true
+    required: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+        # 11ty settings
+      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
+      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
+      - { label: "Permalink", name: slugcustom,  required: false }
+      - label: "Navigation"
+        name: "eleventyNavigation"
+        required: false
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Key", name: "key", widget: "string", required: false }
+          - { label: "title", name: "title", widget: "string", required: false }
+          - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+          - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
+          - { label: "excerpt", name: "excerpt", widget: "text"}
+
+  # -----------------------------------------------------------------
+  # Default pages
+  # -----------------------------------------------------------------
+  - label: "Default Pages"
     name: "pages"
     files:
-      - label: "About Page"
-        name: "about"
-        file: "src/content/about.yml"
+      - label: "Frontpage"
+        name: "frontpage"
+        file: "src/content/index.md"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Intro, name: intro, widget: markdown}
-          - label: Team
-            name: team
-            widget: list
+          - { label: Title, name: title, widget: string}
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
+            name: "eleventyNavigation"
+            required: false
+            widget: "object"
+            collapsed: true
             fields:
-              - {label: Name, name: name, widget: string}
-              - {label: Position, name: position, widget: string}
-              - {label: Photo, name: photo, widget: image}
-      - label: "Locations Page"
-        name: "locations"
-        file: "src/content/locations.yml"
+              - { label: "Key", name: "key", widget: "string", required: false }
+              - { label: "title", name: "title", widget: "string", required: false }
+              - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+              - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
+              - { label: "excerpt", name: "excerpt", widget: "text"}
+
+      - label: "Contact"
+        name: "contact"
+        file: "src/content/contact/index.md"
         fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Intro, name: intro, widget: markdown}
-          - label: Locations
-            name: locations
-            widget: list
+          - { label: Title, name: title, widget: string}
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+            # 11ty settings
+          - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
+          - { label: "Permalink", name: slugcustom,  required: false }
+          - label: "Navigation"
+            name: "eleventyNavigation"
+            required: false
+            widget: "object"
+            collapsed: true
             fields:
-              - {label: Name, name: name, widget: string}
-              - {label: Address, name: address, widget: string}
+              - { label: "Key", name: "key", widget: "string", required: false }
+              - { label: "title", name: "title", widget: "string", required: false }
+              - { label: "Order", name: "order", widget: "number", default: 0, required: false }
+              - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
+              - { label: "excerpt", name: "excerpt", widget: "text"}
+
+
+
+
+      - label: "Contact Success"
+        name: "contanctsuccess"
+        file: "src/content/contact/success.md"
+        fields:
+          - { label: Title, name: title, widget: string}
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+
+  # -----------------------------------------------------------------
+  # Relation Authors
+  # -----------------------------------------------------------------
+  - name: authors
+    label_singular: Author
+    label: "Relation Authors"
+    folder: "src/content/authors"
+    slug: "{{title}}"
+    hide: false
+    create: true
+    required: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { name: name, label: Name, required: false }
+      - { name: twitter, label: "Twitter @", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
