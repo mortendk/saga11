@@ -2,5 +2,87 @@
 layout: layout/default.njk
 ---
 
-This is the landing page for all post
-so we need a list of the content here
+<footer>
+  {# Author #}
+  {% if author %}
+    {% for item in collections.all |  getPage("/authors/" + author + "/" ) %}
+    <div class="bg-bluegray-200">
+      <div class="font-bold">Author : {{ author}}</div>
+      <a href="{{ item.url }}" title="{{item.data.name}}">{{item.data.name}}</a>
+    </div>
+    {% endfor %}
+  {% endif %}
+  {# /Author #}
+
+  {% if date %}
+  <time>{{ date | monthDayYear }}</time>
+  {% endif %}
+
+
+  {# Tags #}
+  {%- for tag in tags | filterTagList -%}
+  {% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
+    <a href="{{ tagUrl | url }}" class="underline">{{ tag | replace("_", " " )}}</a> |
+  {% endfor %}
+  {# /Tags #}
+
+</footer>
+
+{{ content | safe }}
+
+{# image gallery #}
+{% for item in gallery %}
+<figure>
+  {% set img =  "src/" + item.image.image  %}
+  {% imageResize img, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
+  <figcaption>{{ item.image.figcaption | safe }}</figcaption>
+</figure>
+{% endfor %}
+
+
+{% if image %}
+  {% set img =  "src/" + image %}
+  {% set alt = "Image of " + title %}
+  {% set css = "border-4 border-red-400" %}
+  {% imageResize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
+{% endif %}
+
+<hr>
+bottom
+{# Previous and next post #}
+<nav class="bg-red-400">
+{%- if collections.posts %}
+  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+  {%- if nextPost or previousPost %}
+
+    {%- if nextPost %}
+      Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a>
+    {% endif %}
+|
+    {%- if previousPost %}
+      Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a>
+    {% endif %}
+
+  {%- endif %}
+{%- endif %}
+</nav>
+
+
+
+
+<div class="bg-blue-100">
+<div class="text-2xl">all post</div>
+{% for item in collections.allPosts %}
+    {% if item.url in page.url %}
+    !
+    {%- endif %}
+ - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
+
+{% endfor %}
+</div>
+
+
+
+
+

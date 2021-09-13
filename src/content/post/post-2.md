@@ -5,7 +5,7 @@ image: /images/copenhell.jpeg
 tags: css
 order: 1
 eleventyExcludeFromCollections: false
-layout: page.njk
+layout: post.njk
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.sadsad
 

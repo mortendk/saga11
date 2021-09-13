@@ -3,11 +3,10 @@ title: Post 1
 image: /images/morten-freya.jpeg
 tags:
   - css
-  - emne_1
 date: 2021-08-26 16:08:00
 order: 1
 eleventyExcludeFromCollections: false
-layout: page.njk
+layout: post.njk
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

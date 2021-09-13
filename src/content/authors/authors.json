@@ -1,4 +1,0 @@
-{
-  "layout" : "page.njk",
-  "permalink": "/authors/{{ page.fileSlug }}/"
-}

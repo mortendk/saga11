@@ -15,13 +15,12 @@ gallery:
         eiusmod tempor incididunt ut labore et dolore magna aliqua.  "
 author: mortendk
 tags:
-  - html
   - a11y
   - 11ty
   - css
 order: 20
 eleventyExcludeFromCollections: false
-layout: page.njk
+layout: post.njk
 eleventyNavigation:
   order: 0
 ---

@@ -1,4 +1,3 @@
 ---
 title: emne
-slugcustom: emne
 ---

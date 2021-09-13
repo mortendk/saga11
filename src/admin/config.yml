@@ -232,12 +232,12 @@ collections:
           - { label: "Image", name: "image", widget: "image", required: false }
 
   # -----------------------------------------------------------------
-  # Relation Authors
+  # Relations
   # -----------------------------------------------------------------
   - name: authors
     label_singular: Author
     label: "Relation Authors"
-    folder: "src/content/authors"
+    folder: "src/content/relation-authors"
     slug: "{{title}}"
     hide: false
     create: true
@@ -252,13 +252,35 @@ collections:
   - name: tags
     label_singular: tag
     label: "Relation Tags"
-    folder: "src/content/tags"
+    folder: "src/content/relation-tag"
     slug: "{{title}}"
     hide: false
     create: true
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Permalink", name: slugcustom,  required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
+
+
+  # -----------------------------------------------------------------
+  # Setings
+  # -----------------------------------------------------------------
+  - label: "Settings"
+    name: "settings"
+    files:
+      - label: "settings data"
+        name: "frontpage"
+        file: "src/_data/site.json"
+        fields:
+          - { label: name, name: name, widget: string}
+          - { label: url, name: url, widget: string}
+          - { label: description, name: description, widget: text,  required: false }
+          - { label: keywords, name: keywords, widget: text,  required: false }
+          - { label: color, name: color, widget: color,  required: false }
+          - { label: facebook, name: facebook, widget: string,  required: false }
+          - { label: twitter, name: twitter, widget: string,  required: false }
+          - { label: linkedin, name: linkedin, widget: string,  required: false }
+          - { label: Author (rss), name: authorname, widget: string,  required: false, hint: "Feed Author name" }
+          - { label: Aurthor Email (rss), name: authoremail, widget: string,  required: false, hint: "Feed Author name" }
+          - { label: Generator, name: generator, widget: string,  required: false }

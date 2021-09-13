@@ -1,5 +1,5 @@
 ---
 permalink: feed.xml
 eleventyExcludeFromCollections: true
-layout: layout/clean.njk
+layout: layout/system-feed.njk
 ---

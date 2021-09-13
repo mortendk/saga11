@@ -78,7 +78,8 @@ module.exports = function (eleventyConfig) {
   // Get page filter
   //  Now we can grap all the data from another markdown file
   // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
-  eleventyConfig.addFilter("getpage", (arr, url) => {
+  // Credits https://github.com/11ty/eleventy/discussions/1848
+  eleventyConfig.addFilter("getPage", (arr, url) => {
     return arr.filter(item => item.url == url);
   });
 
@@ -108,20 +109,17 @@ module.exports = function (eleventyConfig) {
      return collection.getFilteredByGlob("./src/content/post/*.md");
   });
 
-  // Creates custom collection "post"
+  // Creates custom collection "page"
   eleventyConfig.addCollection("allPages", function(collection) {
     return collection.getFilteredByGlob("./src/content/page/*.md");
  });
-
-
-
 
   // Recent post
   eleventyConfig.addCollection("recentPosts", function(collection) {
     return collection.getAllSorted().reverse().slice(0, 5);
   });
 
-  // post by title
+  // post order by title
   eleventyConfig.addCollection("postByTitle", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./src/content/post/*.md")
@@ -137,7 +135,8 @@ module.exports = function (eleventyConfig) {
   // TAGS
   //  grapped from https://github.com/11ty/eleventy-base-blog
   function filterTagList(tags) {
-    return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+    return (tags || []).filter(tag => ["nav", "relation"].indexOf(tag) === -1);
+
   }
 
   eleventyConfig.addFilter("filterTagList", filterTagList)

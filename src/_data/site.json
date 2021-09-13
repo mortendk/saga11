@@ -1,13 +1,13 @@
 {
-  "name": "this one goes to 11",
-  "url": "https://webiste.foo",
-  "generator": "11ty",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  ",
-  "keywords": "",
   "color": "#0067B1",
-  "twitter": "twitter",
-  "authorname": "morten birch",
-  "authoremail": "amazing@morten.dk",
   "facebook": "https://facebook.com/mortendk",
+  "keywords": "keywords, is, dumb",
+  "name": "Saga Test site",
+  "url": "https://webiste.foo",
+  "authoremail": "amazing@morten.dk",
+  "twitter": "twitter",
+  "generator": "11ty",
+  "authorname": "morten birch",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  ",
   "linkedin": "https://linkedin.com/mortendk"
 }
