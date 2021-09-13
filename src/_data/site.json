@@ -1,13 +1,13 @@
 {
   "name": "this one goes to 11",
-  "url": "https://domaine.com",
-  "generator": "theme machine",
+  "url": "https://webiste.foo",
+  "generator": "11ty",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  ",
   "keywords": "",
   "color": "#0067B1",
-  "twitter": "mortendk",
-  "authorname": "11ty",
-  "authoremail": "11@morten.dk",
+  "twitter": "twitter",
+  "authorname": "morten birch",
+  "authoremail": "amazing@morten.dk",
   "facebook": "https://facebook.com/mortendk",
   "linkedin": "https://linkedin.com/mortendk"
 }

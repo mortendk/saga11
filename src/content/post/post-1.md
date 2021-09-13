@@ -1,10 +1,10 @@
 ---
 title: Post 1
-date: 2021-08-26 16:08:00
 image: /images/morten-freya.jpeg
 tags:
-  - html
   - css
+  - emne_1
+date: 2021-08-26 16:08:00
 order: 1
 eleventyExcludeFromCollections: false
 layout: page.njk

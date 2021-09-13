@@ -1,0 +1,11 @@
+{# All tags #}
+<nav class="">
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  {% if loop.last %}
+    <a href="{{ tagUrl | url }}" title="{{ tag }}" class="underline text-red-500">{{ tag }}</a>
+  {% else %}
+    <a href="{{ tagUrl | url }}" title="{{ tag }}" class="underline text-red-500">{{ tag }}</a>,
+  {% endif %}
+{% endfor %}
+</nav>

@@ -16,8 +16,8 @@ backend:
 local_backend: true
 
 #SETTINGS
-site_url: https://localhost:8080
-logo_url: https://localhost:8080/img/favicon-196x196
+site_url: http://localhost:8080
+logo_url: http://localhost:8080/img/favicon-196x196
 display_url: https://URL
 media_folder: "src/images"
 public_folder: "/images"
@@ -70,6 +70,28 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
+      # Author
+      - name: author
+        label: Author
+        widget: relation
+        collection: authors
+        searchFields: [name, title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+
       # Gallery
       - label: "Gallery"
         name: "gallery"
@@ -83,15 +105,6 @@ collections:
               - {label: title, name: title, widget: string, required: false}
               - {label: Description, name: figcaption, widget: text, required: false}
 
-      # Author
-      - name: author
-        label: Author
-        widget: relation
-        collection: authors
-        searchFields: [name, title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
 
       # Date
       - label: "Date published"
@@ -103,16 +116,16 @@ collections:
         picker_utc: false
 
       # Tags
-      - label: "Tags"
-        name: "tags"
-        widget: "select"
-        multiple: true
-        required: false
-        options: ["css", "html", "11ty", "a11y"]
+      # - label: "Tags"
+      #   name: "tags"
+      #   widget: "select"
+      #   multiple: true
+      #   required: false
+      #   options: ["css", "html", "11ty", "a11y"]
 
         # 11ty settings
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
+      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false, hint: "is this a draft ?" }
 
       # Template selector
       - label: "Layout template"
@@ -233,5 +246,19 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { name: name, label: Name, required: false }
       - { name: twitter, label: "Twitter @", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+
+  - name: tags
+    label_singular: tag
+    label: "Relation Tags"
+    folder: "src/content/tags"
+    slug: "{{title}}"
+    hide: false
+    create: true
+    delete: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Permalink", name: slugcustom,  required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
