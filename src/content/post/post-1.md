@@ -1,5 +1,5 @@
 ---
-title: Post 1
+title: code examples
 image: /images/morten-freya.jpeg
 tags:
   - css

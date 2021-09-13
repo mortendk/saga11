@@ -128,13 +128,13 @@ collections:
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false, hint: "is this a draft ?" }
 
       # Template selector
-      - label: "Layout template"
-        name: "layout"
-        widget: "select"
-        multiple: false
-        required: true
-        default: page.njk
-        options: ["page-post.njk", "page.njk"]
+      # - label: "Layout template"
+      #   name: "layout"
+      #   widget: "select"
+      #   multiple: false
+      #   required: true
+      #   default: page.njk
+      #   options: ["page-post.njk", "page.njk"]
 
       # Files
       - label: "Files"
@@ -269,8 +269,8 @@ collections:
   - label: "Settings"
     name: "settings"
     files:
-      - label: "settings data"
-        name: "frontpage"
+      - label: "settings Site"
+        name: "sitesettings"
         file: "src/_data/site.json"
         fields:
           - { label: title, name: title, widget: string}
@@ -278,9 +278,17 @@ collections:
           - { label: description, name: description, widget: text,  required: false }
           - { label: keywords, name: keywords, widget: text,  required: false }
           - { label: color, name: color, widget: color,  required: false }
-          - { label: facebook, name: facebook, widget: string,  required: false }
-          - { label: twitter, name: twitter, widget: string,  required: false }
-          - { label: linkedin, name: linkedin, widget: string,  required: false }
           - { label: Author (rss), name: authorname, widget: string,  required: false, hint: "Feed Author name" }
           - { label: Aurthor Email (rss), name: authoremail, widget: string,  required: false, hint: "Feed Author name" }
           - { label: Generator, name: generator, widget: string,  required: false }
+
+      - label: "Social Network links"
+        name: "some"
+        file: "src/_data/some.json"
+        fields:
+          - { label: facebook, name: facebook, widget: string,  required: false }
+          - { label: twitter, name: twitter, widget: string,  required: false }
+          - { label: linkedin, name: linkedin, widget: string,  required: false }
+          - { label: instagram, name: instagram, widget: string,  required: false }
+          - { label: "github profile", name: github, widget: string,  required: false }
+          - { label: webmention, name: webmention, widget: string,  required: false }

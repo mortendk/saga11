@@ -12,7 +12,7 @@ const slugify = require("slugify");
 // Image shortcode
 async function imageShortcode(src, alt, sizes, css) {
   let metadata = await Image(src, {
-    widths: [300, 600],
+    widths: [300, 600,1600],
     // formats: ["avif", "jpeg"],
     outputDir: "_site/img/", // we push this image directly to the siter build
     urlPath: "/img/",
@@ -102,7 +102,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // -----------------------------------------------------------------
-  // Collection example
+  // Collections
 
   // Creates custom collection "post"
   eleventyConfig.addCollection("allPosts", function(collection) {

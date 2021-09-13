@@ -833,16 +833,8 @@ main a {
   font-size: 1.25rem;
 }
 
-.text-3xl {
-  font-size: 3rem;
-}
-
 .font-bold {
   font-weight: 700;
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
 
 .text-black {

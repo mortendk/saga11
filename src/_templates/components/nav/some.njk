@@ -1,0 +1,26 @@
+
+{% if some.webmention %}
+<link rel="webmention" href="https://webmention.io/{{some.webmention}}/webmention" />
+<link rel="pingback" href="https://webmention.io/{{some.webmention}}/xmlrpc" />
+{% endif %}
+
+{% if some.twitter %}
+<a href="{{some.twitter}}">twitter</a>
+{% endif %}
+
+{% if some.facebook %}
+<a href="{{some.facebook}}">facebook</a>
+{% endif %}
+
+{% if some.linkedin %}
+<a href="{{some.linkedin}}">linikedin</a>
+{% endif %}
+
+{% if some.instagram %}
+<a href="{{some.instagram}}">insta</a>
+{% endif %}
+
+{% if some.github %}
+<a href="{{some.github}}">github</a>
+{% endif %}
+

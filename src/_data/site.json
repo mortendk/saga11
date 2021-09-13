@@ -1,13 +1,10 @@
 {
   "color": "#0067B1",
-  "facebook": "https://facebook.com/mortendk",
   "keywords": "keywords, is, dumb",
-  "title": "Saga Test site",
   "url": "https://webiste.foo",
   "authoremail": "amazing@morten.dk",
-  "twitter": "twitter",
   "generator": "11ty",
   "authorname": "morten birch",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  ",
-  "linkedin": "https://linkedin.com/mortendk"
+  "title": "Saga site donme",
+  "description": "Lorem ipsum dolor sit amet"
 }
