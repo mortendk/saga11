@@ -273,7 +273,7 @@ collections:
         name: "frontpage"
         file: "src/_data/site.json"
         fields:
-          - { label: name, name: name, widget: string}
+          - { label: title, name: title, widget: string}
           - { label: url, name: url, widget: string}
           - { label: description, name: description, widget: text,  required: false }
           - { label: keywords, name: keywords, widget: text,  required: false }

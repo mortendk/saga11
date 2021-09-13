@@ -3,9 +3,9 @@
 
   {#- Large sreen main menu -#}
   <div class="hidden md:flex items-center justify-between">
-    <a href="/" title="{{site.name}}" class="">
-      {{ site.name}}
-      <span class="sr-only">{{site.name}}</span>
+    <a href="/" title="{{site.title}}" class="">
+      {{ site.title}}
+      <span class="sr-only">{{site.title}}</span>
     </a>
 
     {% set cssMenu = "" %}
@@ -23,9 +23,9 @@
   {# mobile menu items #}
 	<div class="md:hidden flex flex-grow justify-between pt-4">
     <div class="w-64 ml-4">
-      <a href="/" title="{{site.name}}" class="h-12">
+      <a href="/" title="{{site.title}}" class="h-12">
         LOGO
-        <span class="sr-only">{{site.name}}</span>
+        <span class="sr-only">{{site.title}}</span>
       </a>
     </div>
 		{# Hamburger #}
