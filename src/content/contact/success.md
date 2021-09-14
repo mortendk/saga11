@@ -1,10 +1,6 @@
 ---
 title: Contact Success
 slugcustom: success
-eleventyNavigation:
-  key: success
-  parent: key
-  title: Contact
-  order: 30
+template: page.njk
 ---
 Its a succe hurray

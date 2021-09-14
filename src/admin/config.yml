@@ -47,7 +47,6 @@ collections:
       preview: true
     # Overview
 
-    # summary: "{{ title }} | {{date | date('DD MMM hh:mm yy')}} | order: {{order}} // Draft: {{eleventyExcludeFromCollections}}"
     sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
     # SESSION FILTERS
     view_filters:
@@ -68,7 +67,24 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      # Gallery
+      - label: "Image Gallery"
+        name: "gallery"
+        widget: "list"
+        collapsed: true
+        summary: 'Image {{fields.image.fields.image}}'
+        fields:
+          - label: image
+            name: image
+            widget: object
+            summary: '{{fields.image}}: {{fields.title}}'
+            fields:
+              - {label: image, name: image, widget: image }
+              - {label: title, name: title, widget: string, required: false}
+              - {label: Description, name: figcaption, widget: text, required: false}
 
       # Author
       - name: author
@@ -91,21 +107,6 @@ collections:
         required: false
         multiple: true
 
-
-      # Gallery
-      - label: "Gallery"
-        name: "gallery"
-        widget: "list"
-        fields:
-          - label: image
-            name: image
-            widget: object
-            fields:
-              - {label: image, name: image, widget: image }
-              - {label: title, name: title, widget: string, required: false}
-              - {label: Description, name: figcaption, widget: text, required: false}
-
-
       # Date
       - label: "Date published"
         name: "date"
@@ -115,36 +116,18 @@ collections:
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: false
 
-      # Tags
-      # - label: "Tags"
-      #   name: "tags"
-      #   widget: "select"
-      #   multiple: true
-      #   required: false
-      #   options: ["css", "html", "11ty", "a11y"]
-
-        # 11ty settings
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false, hint: "is this a draft ?" }
 
-      # Template selector
-      # - label: "Layout template"
-      #   name: "layout"
-      #   widget: "select"
-      #   multiple: false
-      #   required: true
-      #   default: page.njk
-      #   options: ["page-post.njk", "page.njk"]
-
-      # Files
-      - label: "Files"
-        name: "files"
-        widget: "file"
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: posttemplates
+        searchFields: [layoutname]
+        valueField: "{{filename}}.{{extension}}"
+        displayFields: ["layoutname", " (File: templates/post/{{filename}}.{{extension}})"]
         required: false
-        choose_url: true
-        allow_multiple: true
-        media_folder: "/src/files"
-
 
   # -----------------------------------------------------------------
   # Collection Pages
@@ -175,7 +158,7 @@ collections:
           - { label: "title", name: "title", widget: "string", required: false }
           - { label: "Order", name: "order", widget: "number", default: 0, required: false }
           - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
-          - { label: "excerpt", name: "excerpt", widget: "text"}
+          - { label: "excerpt", name: "excerpt", widget: "text", required: false }
 
   # -----------------------------------------------------------------
   # Default pages
@@ -212,17 +195,6 @@ collections:
             # 11ty settings
           - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
           - { label: "Permalink", name: slugcustom,  required: false }
-          - label: "Navigation"
-            name: "eleventyNavigation"
-            required: false
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Key", name: "key", widget: "string", required: false }
-              - { label: "title", name: "title", widget: "string", required: false }
-              - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-              - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
-              - { label: "excerpt", name: "excerpt", widget: "text"}
       - label: "Contact: Success"
         name: "contanctsuccess"
         file: "src/content/contact/success.md"
@@ -262,6 +234,47 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
 
+  # NAVIGATION
+  - name: navigation
+    label_singular: nav
+    label: "Navigation"
+    folder: "src/content/navigation"
+    slug: "{{title}}"
+    hide: false
+    create: true
+    delete: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "tags", name: "tags", widget: "hidden", default: "nav"}
+
+      # Gallery
+      - label: "menu"
+        name: "menu"
+        widget: "list"
+        fields:
+          - label: menu item
+            name: menu
+            widget: object
+            fields:
+              - {label: title, name: title, widget: string}
+              - {label: text, name: text, widget: text, required: false}
+              - {label: url, name: url, widget: string}
+
+
+
+  - name: posttemplates
+    label_singular: template
+    label: "Post Templates"
+    folder: "src/_templates/post"
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
 
   # -----------------------------------------------------------------
   # Setings
@@ -269,7 +282,7 @@ collections:
   - label: "Settings"
     name: "settings"
     files:
-      - label: "settings Site"
+      - label: "Site Settings"
         name: "sitesettings"
         file: "src/_data/site.json"
         fields:
@@ -277,7 +290,7 @@ collections:
           - { label: url, name: url, widget: string}
           - { label: description, name: description, widget: text,  required: false }
           - { label: keywords, name: keywords, widget: text,  required: false }
-          - { label: color, name: color, widget: color,  required: false }
+
           - { label: Author (rss), name: authorname, widget: string,  required: false, hint: "Feed Author name" }
           - { label: Aurthor Email (rss), name: authoremail, widget: string,  required: false, hint: "Feed Author name" }
           - { label: Generator, name: generator, widget: string,  required: false }
@@ -292,3 +305,9 @@ collections:
           - { label: instagram, name: instagram, widget: string,  required: false }
           - { label: "github profile", name: github, widget: string,  required: false }
           - { label: webmention, name: webmention, widget: string,  required: false }
+
+      - label: "Colors"
+        name: "colors"
+        file: "src/_data/colors.json"
+        fields:
+          - { label: browesercolor, name: browesercolor, widget: color,  required: false }

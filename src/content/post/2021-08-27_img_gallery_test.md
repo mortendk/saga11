@@ -20,7 +20,7 @@ tags:
   - css
 order: 20
 eleventyExcludeFromCollections: false
-layout: post.njk
+layout: post/post.njk
 eleventyNavigation:
   order: 0
 ---

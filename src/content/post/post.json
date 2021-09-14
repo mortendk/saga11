@@ -1,4 +1,4 @@
 {
-  "layout" : "post.njk",
+  "layout" : "post/post.njk",
   "permalink": "/post/{{ page.fileSlug }}/"
 }

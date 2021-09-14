@@ -6,7 +6,7 @@ tags:
 date: 2021-08-26 16:08:00
 order: 1
 eleventyExcludeFromCollections: false
-layout: post.njk
+layout: post/post.njk
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

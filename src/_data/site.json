@@ -1,10 +1,10 @@
 {
   "color": "#0067B1",
-  "keywords": "keywords, is, dumb",
-  "url": "https://webiste.foo",
+  "keywords": "some keywords to add to the headers",
+  "url": "https://saga.thememachine.dev",
   "authoremail": "amazing@morten.dk",
   "generator": "11ty",
   "authorname": "morten birch",
-  "title": "Saga site donme",
-  "description": "Lorem ipsum dolor sit amet"
+  "title": "Saga test site",
+  "description": "This is a site"
 }

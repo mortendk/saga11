@@ -1,0 +1,20 @@
+{% set cssMenu ="inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium" %}
+{% set cssMenuActive ="border-red-500 text-gray-900" %}
+{% set cssMenuDefault ="border-transparent text-gray-500 hover:border-red-100 hover:text-gray-700" %}
+
+<nav class="">
+  {% for entry in collections.all | eleventyNavigation -%}
+    {# active #}
+    {% if entry.url in page.url -%}
+      <a href="{{ entry.url | url }}" title="{{entry.excerpt}}" class="{{ cssMenu }} {{ cssMenuActive }}">
+        {{ entry.title }}
+      </a>
+    {%- else -%}
+    {# default #}
+      <a href="{{ entry.url | url }}" title="{{entry.excerpt}}" class="{{cssMenu}} {{cssMenuDefault}}">
+        {{ entry.title }}
+      </a>
+    {%- endif %}
+
+  {%- endfor %}
+</nav>
