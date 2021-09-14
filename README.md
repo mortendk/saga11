@@ -8,20 +8,21 @@ into any ftp server and be done with.
 ## Core Values
 - No database setup
 - 100% Markup control
-- Small tech stack
-- Build for web designers
+- Small tech stack (ish...)
+- Build for Web designers that knows html
 - Easy to hand down to others
 - Able to deploy on netlify/github pages or move to other host
 - At the end its just html, css, js and a some images
+- Easy to build the site with no interfearence from the system
 
 ## Tech stack
 - markdown, json and nunjucks templates
 - 11ty to generate the html files
-- git for data storage (github)
-- sftp or Netlify or github pages for deployment
+- git for storage (github etc)
+- Deploy on what you want (ftp / netlify / github pages)
 - Netlifycms for online content editing
-- Tailwind for css (easy to hand over to dev teams)
-- Alpine for interactivity
+- Tailwind for css (easy to hand over to dev teams) - easy to remove
+- Alpine for interactivity (also easy to remove)
 
 ## But i want a CMS
 - Netlifycms can handle the generating of markdown and json files
@@ -29,6 +30,7 @@ into any ftp server and be done with.
 - netlifycms can also run locally so no dependencies on netlify
 - Its just markdown files so its easy to edit by hand by the webdesigner
 
+---
 
 ## Quick start
 1. open terminal do an `npm install`
