@@ -57,6 +57,7 @@ module.exports = function (eleventyConfig) {
   // FILTERS
   // -----------------------------------------------------------------
 
+  //DATE Filters
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('dateFormat', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
@@ -100,9 +101,6 @@ module.exports = function (eleventyConfig) {
     arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
     return arr;
   });
-
-  // -----------------------------------------------------------------
-  // Collections
 
   // Creates custom collection "post"
   eleventyConfig.addCollection("allPosts", function(collection) {

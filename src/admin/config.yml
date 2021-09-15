@@ -124,9 +124,9 @@ collections:
         label: "Layout Selector"
         widget: relation
         collection: posttemplates
-        searchFields: [layoutname]
-        valueField: "{{filename}}.{{extension}}"
-        displayFields: ["layoutname", " (File: templates/post/{{filename}}.{{extension}})"]
+        searchFields: [saga-template-name]
+        valueField: "post/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
         required: false
 
   # -----------------------------------------------------------------
@@ -260,8 +260,7 @@ collections:
               - {label: text, name: text, widget: text, required: false}
               - {label: url, name: url, widget: string}
 
-
-
+  #Templates
   - name: posttemplates
     label_singular: template
     label: "Post Templates"
