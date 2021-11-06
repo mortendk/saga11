@@ -1,81 +1,75 @@
 # What is this
-Saga is a super small content managament system build for webdesigners who wants to
-control their markup and not have to battle with database setup or complex techstacks
+Saga is a  small cms build for webdesigners who wants to control the markup & not have to hassle with databases
 
-Its a try to get back to the late 90'ies and build flatfile sites that could be dropped
-into any ftp server and be done with.
+Its a try to get back to the late 90'ies and build flatfile sites that could be dropped into any ftp server ... oooh the glory days!
 
 ## Core Values
-- No database setup
+- No DB markdown ftw
 - 100% Markup control
 - Small tech stack (ish...)
-- Build for Web designers that knows html
-- Easy to hand down to others
-- Able to deploy on netlify/github pages or move to other host
-- At the end its just html, css, js and a some images
-- Easy to build the site with no interfearence from the system
+- Build for Web Designers
+- Easy to hand down to
+- Able to deploy on netlify/github pages or move to other host for simple sftp deployment
+- Easy to build the site with no interfearence from a system
+- At the end "its just html, css, js" :)
 
 ## Tech stack
-- markdown, json and nunjucks templates
-- 11ty to generate the html files
-- git for storage (github etc)
-- Deploy on what you want (ftp / netlify / github pages)
-- Netlifycms for online content editing
-- Tailwind for css (easy to hand over to dev teams) - easy to remove
-- Alpine for interactivity (also easy to remove)
+- 11ty generating the html.
+- Markdown, json and nunjucks.
+- Git for storage (github).
+- Deploy on what you want (ftp / netlify / github pages).
+- Netlifycms for online editing.
+- Tailwind for css
+- Alpine js for interactivity
 
-## But i want a CMS
-- Netlifycms can handle the generating of markdown and json files
-- netlify hosting handles the user login stuff
-- netlifycms can also run locally so no dependencies on netlify
-- Its just markdown files so its easy to edit by hand by the webdesigner
+## But I want a CMS for a client
+saga uses netlifycms out the box for easy administration of the markdown files
 
 ---
 
 ## Quick start
-1. open terminal do an `npm install`
-2. spin up the site `npm run start`
-3. build minified css 'npm run tailwind:build'
-
-## Requirements:
-- node
-- eleventy https://www.11ty.dev
-- tailwindcss
-- Nunjucks https://mozilla.github.io/nunjucks/
-- cms admin Netlifycms
-
-
-## installation
-(Install node)
-
+0. get 11ty
 ```
 npm install -g @11ty/eleventy
 ```
 
+1. install saga
 ```
 npm install
 ```
-
-### npm run dev
-
+2. spin up the site
 ```
-npm run dev
-```
-### npm run build (build css minified)
-
-```
-npx tailwindcss -i src/css/tailwind.css -o src/css/style.min.css --minify
+npm run start
 ```
 
-## CMS (Netlify CMS)
-first run
- npx netlify-cms-proxy-server
-  npm run  admin
+3. build minified css
+```
+npm run tailwind:build
+```
 
- then start the build
- npm run start
+## Requirements:
+- node
+- eleventy https://11ty.dev
+- tailwindcss  https://tailwindcss.com/
+- Nunjucks https://mozilla.github.io/nunjucks/
 
-go to /admin
+CMS interface for markdown files
+- Netlifycms https://www.netlifycms.org/
+
+
+## CMS -Netlify CMS
+To make the cms editing to work locally
+first run the cmsproxy
+```
+npx netlify-cms-proxy-server
+```
+
+then start the build
+```
+npm run start
+```
+
+http://localhost:8080/admin
 
 ## Visual regression test
 Install Backstop for visual regression test on local setup
@@ -86,7 +80,6 @@ configure in `backstop.json`
 
 ### Workflow:
 First make sure a local version is running as production `netlify dev`
-
 
 #### First run
 ``` $ netlify dev```
@@ -102,8 +95,6 @@ If its cool and approved we can add the changes to the references with approve
 `backstop openReport`
 
 
-## Setup
-inside _data/site.son general meta data is added like sitename etc
 
 ## RSS feed
 
@@ -117,7 +108,7 @@ https://tailwindcss.com/
 alphine is downloaded local and uses 3+
 https://alpinejs.dev/
 
-### markdown template
+### content template
 
 ```
 ---
@@ -138,6 +129,31 @@ eleventyNavigation:
 ---
 ```
 
-## Template
+## Template engine
 https://mozilla.github.io/nunjucks/templating.html
 
+
+
+## Structure
+###  /_site
+The is where 11ty compiles the website.
+for sweet n easy sftp
+
+### node_modules
+All the node stuff
+
+## Config
+---
+- .editorconfig : 2 spaces!
+- .eleventy.js : Config of eleventy
+- .gitignore :
+- backstop.json : setup visual regression
+- .netlify.toml : setup for netlify
+- .package.json
+- .tailwind.config.js
+
+
+
+#### /src
+
+inside _data/site.son general meta data is added like sitename etc
