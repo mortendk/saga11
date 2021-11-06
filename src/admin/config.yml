@@ -285,6 +285,7 @@ collections:
         name: "sitesettings"
         file: "src/_data/site.json"
         fields:
+          - { label: browesercolor, name: color, widget: color,  required: false }
           - { label: title, name: title, widget: string}
           - { label: url, name: url, widget: string}
           - { label: description, name: description, widget: text,  required: false }
@@ -304,9 +305,3 @@ collections:
           - { label: instagram, name: instagram, widget: string,  required: false }
           - { label: "github profile", name: github, widget: string,  required: false }
           - { label: webmention, name: webmention, widget: string,  required: false }
-
-      - label: "Colors"
-        name: "colors"
-        file: "src/_data/colors.json"
-        fields:
-          - { label: browesercolor, name: browesercolor, widget: color,  required: false }
