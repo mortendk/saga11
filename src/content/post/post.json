@@ -1,4 +1,6 @@
 {
   "layout" : "post/post.njk",
-  "permalink": "/post/{{ page.fileSlug }}/"
+  "permalink": "/post/{{ page.fileSlug }}/",
+  "date-updated" : "Last Modified",
+  "date-created": "Created"
 }

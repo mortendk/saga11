@@ -19,7 +19,6 @@ saga-template-name: Default post template
   <time>{{ date | monthDayYear }}</time>
   {% endif %}
 
-
   {# Tags #}
   {%- for tag in tags | filterTagList -%}
   {% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
