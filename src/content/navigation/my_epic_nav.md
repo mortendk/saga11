@@ -1,13 +1,13 @@
 ---
 title: Main navigation
-tags: nav
+tags: navigation
 menu:
-  - menu:
-      title: Home
-      text: This is the home page
-      url: /
   - menu:
       title: contact
       text: "contact page "
-      url: contact
+      url: /contact
+  - menu:
+      title: "meta meta "
+      text: another on
+      url: /meta-custom
 ---

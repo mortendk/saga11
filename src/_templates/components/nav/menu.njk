@@ -1,9 +1,15 @@
-{% for item in collections.nav %}
+{% for item in collections.navigation %}
 
  {% for item in item.data.menu %}
 
-    {% if item.menu.url in page.url -%} ! {% endif %}
-    <a href="{{ item.menu.url }}" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
+    {% if item.menu.url in page.url -%}
+
+      <a href="{{ item.menu.url }}" class="font-bold" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
+
+      {% else %}
+
+      <a href="{{ item.menu.url }}" class="" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
+    {% endif %}
 
  {% endfor %}
 
