@@ -1,10 +1,10 @@
 {
-  "color": "#0067B1",
-  "keywords": "some keywords to add to the headers",
+  "color": "#c3c3c3",
+  "keywords": "keywords",
   "url": "https://saga.thememachine.dev",
-  "authoremail": "amazing@morten.dk",
+  "authoremail": "saga@thememachine.io",
   "generator": "11ty",
-  "authorname": "morten birch",
-  "title": "Saga test site",
-  "description": "This is a site"
+  "authorname": "mortendk",
+  "title": "Saga",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
 }

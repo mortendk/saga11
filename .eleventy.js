@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+// const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const Image = require("@11ty/eleventy-img");
 
@@ -40,7 +40,7 @@ async function imageShortcode(src, alt, sizes, css) {
 module.exports = function (eleventyConfig) {
   //plugins
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  // eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // shortcode
@@ -133,8 +133,8 @@ module.exports = function (eleventyConfig) {
   // TAGS
   //  grapped from https://github.com/11ty/eleventy-base-blog
   function filterTagList(tags) {
-    return (tags || []).filter(tag => ["nav", "relation"].indexOf(tag) === -1);
-
+    // Filtes that are used by the system
+    return (tags || []).filter(tag => ["navigation", "relation"].indexOf(tag) === -1);
   }
 
   eleventyConfig.addFilter("filterTagList", filterTagList)

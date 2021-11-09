@@ -1,5 +1,5 @@
 {# List of all tags  #}
-<nav class="">
+<nav class="tags">
 {% for tag in collections.tagList %}
   {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
   {% if loop.last %}

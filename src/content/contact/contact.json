@@ -1,4 +1,4 @@
 {
-  "layout" : "page.njk",
+  "layout" : "page-contact.njk",
   "permalink": "/{{ slugcustom | slug }}/"
 }

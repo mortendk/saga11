@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
+    "cms / admin": "npx netlify-cms-proxy-server & npm run start",
     "clean": "rm -rf _site & rm & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
     "tailwind:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
@@ -14,8 +15,7 @@
     "backstop:test": "backstop test",
     "backstop:approve": "backstop approve",
     "debug": "DEBUG=* eleventy",
-    "build": "npm run tailwind:build && npm run debug ",
-    "admin": "npx netlify-cms-proxy-server"
+    "build": "npm run tailwind:build && npm run debug "
   },
   "keywords": [],
   "author": "",

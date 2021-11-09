@@ -3,4 +3,5 @@ title: Contact Success
 slugcustom: success
 template: page.njk
 ---
-Its a succe hurray
+## Contact page success send
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
