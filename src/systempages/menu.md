@@ -1,6 +1,6 @@
 ---
 title: menu test
-tags: nav
+tags: navigation
 menu:
   - menu:
       title: Frontpage

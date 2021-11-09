@@ -148,17 +148,6 @@ collections:
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
       - { label: "Permalink", name: slugcustom,  required: false }
-      - label: "Navigation"
-        name: "eleventyNavigation"
-        required: false
-        widget: "object"
-        collapsed: true
-        fields:
-          - { label: "Key", name: "key", widget: "string", required: false }
-          - { label: "title", name: "title", widget: "string", required: false }
-          - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-          - { label: "parentKey", name: "parentKey", widget: "string", default: 0, required: false }
-          - { label: "excerpt", name: "excerpt", widget: "text", required: false }
 
   # -----------------------------------------------------------------
   # Default pages
@@ -173,17 +162,6 @@ collections:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-          - label: "Navigation" # https://www.11ty.dev/docs/plugins/navigation/
-            name: "eleventyNavigation"
-            required: false
-            widget: "object"
-            collapsed: true
-            fields:
-              - { label: "Key", name: "key", widget: "string", required: false }
-              - { label: "title", name: "title", widget: "string", required: false }
-              - { label: "Order", name: "order", widget: "number", default: 0, required: false }
-              - { label: "parent", name: "parent", widget: "string", default: 0, required: false }
-              - { label: "excerpt", name: "excerpt", widget: "text"}
 
       - label: "Contact"
         name: "contact"

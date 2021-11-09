@@ -622,9 +622,7 @@ video {
 h1 {
   font-size: 2.25rem;
   line-height: 2.5rem;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgba(239, 68, 68, var(--tw-text-opacity))
+  font-weight: 700
 }
 
 h2 {
