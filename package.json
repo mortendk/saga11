@@ -1,11 +1,11 @@
 {
-  "name": "thisonegoestoeleven",
-  "version": "1.0.0",
-  "description": "This One Goes to Eleven",
+  "name": "saga",
+  "version": "0.1.1",
+  "description": "sage cms",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
-    "cms / admin": "npx netlify-cms-proxy-server & npm run start",
+    "start cms": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
+    "start cms & admin": "npx netlify-cms-proxy-server & npm run start",
     "clean": "rm -rf _site & rm & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
     "tailwind:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
