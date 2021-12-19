@@ -4,10 +4,14 @@
 
     {% if item.menu.url in page.url -%}
 
+      <a href="{{ item.menu.url }}"
+        class="block bg-gray-100 font-bold text-lightblue-500"
       <a href="{{ item.menu.url }}" class="font-bold" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
 
       {% else %}
 
+      <a href="{{ item.menu.url }}"
+      class="block"
       <a href="{{ item.menu.url }}" class="" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
     {% endif %}
 

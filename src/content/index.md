@@ -1,6 +1,6 @@
 ---
 title: Welcome
-layout: frontpage.njk
+layout: page/frontpage.njk
 permalink: /
 ---
 

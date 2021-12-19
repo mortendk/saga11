@@ -617,7 +617,7 @@ video {
   }
 }
 
-/* defailt markup */
+/* default markup */
 
 h1 {
   font-size: 2.25rem;
@@ -638,9 +638,6 @@ h3 {
 }
 
 main a {
-  --tw-text-opacity: 1;
-  color: rgba(185, 28, 28, var(--tw-text-opacity));
-  text-decoration: underline
 }
 
 /* apply base settings */

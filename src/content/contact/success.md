@@ -1,7 +1,8 @@
 ---
 title: Contact Success
-slugcustom: success
-template: page.njk
+slugcustom: contact-success
+layout: page/page.njk
 ---
 ## Contact page success send
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

@@ -127,7 +127,8 @@ collections:
         searchFields: [saga-template-name]
         valueField: "post/{{filename}}.{{extension}}"
         displayFields: ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
-        required: false
+        default: "post/post.njk"
+        required: true
 
   # -----------------------------------------------------------------
   # Collection Pages
@@ -136,7 +137,6 @@ collections:
     label_singular: Page
     name: Page
     folder: "src/content/page"
-    slug: "{{title}}"
     create: true
     required: false
     fields:
@@ -144,10 +144,36 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
 
+      - { label: "Teaser Title", name: "title_teaser", widget: "string", required: false }
+      - { label: "teaser", name: "teaser", widget: "markdown", required: false }
+
         # 11ty settings
+      - { label: "url", name: slugcustom,  required: true }
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
-      - { label: "Permalink", name: slugcustom,  required: false }
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
+        required: false
+        default: "page/page.njk"
+
 
   # -----------------------------------------------------------------
   # Default pages
@@ -162,7 +188,6 @@ collections:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-
       - label: "Contact"
         name: "contact"
         file: "src/content/contact/index.md"
@@ -172,9 +197,8 @@ collections:
           - { label: "Image", name: "image", widget: "image", required: false }
             # 11ty settings
           - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
-          - { label: "Permalink", name: slugcustom,  required: false }
       - label: "Contact: Success"
-        name: "contanctsuccess"
+        name: "contactsuccess"
         file: "src/content/contact/success.md"
         fields:
           - { label: Title, name: title, widget: string}
@@ -243,6 +267,19 @@ collections:
     label_singular: template
     label: "Post Templates"
     folder: "src/_templates/post"
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  - name: pagetemplates
+    label_singular: template
+    label: "page Templates"
+    folder: "src/_templates/page"
     slug: "{{title}}"
     hide: true
     create: false
