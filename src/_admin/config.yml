@@ -314,9 +314,10 @@ collections:
         name: "some"
         file: "src/_data/some.json"
         fields:
-          - { label: facebook, name: facebook, widget: string,  required: false }
-          - { label: twitter, name: twitter, widget: string,  required: false }
-          - { label: linkedin, name: linkedin, widget: string,  required: false }
-          - { label: instagram, name: instagram, widget: string,  required: false }
-          - { label: "github profile", name: github, widget: string,  required: false }
-          - { label: webmention, name: webmention, widget: string,  required: false }
+          - { label: facebook, name: facebook, widget: string,  required: false, hint: "https://www.facebook.com/..."  }
+          - { label: twitter, name: twitter, widget: string,  required: false, hint: "https://www.twitter.com/..."  }
+          - { label: linkedin, name: linkedin, widget: string,  required: false, hint: "https://www.linkedin.com/in/..."  }
+          - { label: instagram, name: instagram, widget: string,  required: false, hint: "https://www.instagram.com/..."  }
+          - { label: github, name: github, widget: string,  required: false, hint: "https://github.com/..." }
+          - { label: webmention, name: webmention, widget: string,  required: false,hint: "name" }
+          - { label: dribble, name: dribble, widget: string,  required: false, hint: "https://dribbble.com/..."  }
