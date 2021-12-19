@@ -1,9 +1,11 @@
 const path = require("path");
 const fs = require("fs");
 
+const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 const Image = require("@11ty/eleventy-img");
 
 const { DateTime } = require("luxon");
@@ -52,9 +54,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy("src/_admin");
 
+  const md = new markdownIt({
+    html: true,
+  });
+
   // -----------------------------------------------------------------
   // FILTERS
   // -----------------------------------------------------------------
+
+  // markdwon {{ item.foo | markdown | safe }}
+  eleventyConfig.addFilter("markdown", (content) => {
+    return md.render(content);
+  });
 
   // Sort: order
   // {% for item in collections.tag | sortByOrder %}

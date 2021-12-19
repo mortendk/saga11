@@ -300,14 +300,14 @@ collections:
         name: "sitesettings"
         file: "src/_data/site.json"
         fields:
-          - { label: browesercolor, name: color, widget: color,  required: false }
           - { label: title, name: title, widget: string}
           - { label: url, name: url, widget: string}
           - { label: description, name: description, widget: text,  required: false }
           - { label: keywords, name: keywords, widget: text,  required: false }
-
+          - { label: footer, name: footer, widget: markdown,  required: false }
           - { label: Author (rss), name: authorname, widget: string,  required: false, hint: "Feed Author name" }
           - { label: Aurthor Email (rss), name: authoremail, widget: string,  required: false, hint: "Feed Author name" }
+          - { label: browesercolor, name: color, widget: color,  required: false }
           - { label: Generator, name: generator, widget: string,  required: false }
 
       - label: "Social Network links"
