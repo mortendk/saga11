@@ -9,7 +9,6 @@ module.exports = {
     'src/assets/js/*.js',
   ],
   safelist: [
-    'bg-red-500',
     'text-3xl',
     'lg:text-4xl',
   ],
