@@ -18,7 +18,7 @@ local_backend: true
 #SETTINGS
 site_url: http://localhost:8080
 logo_url: http://localhost:8080/img/favicon-196x196
-display_url: https://URL
+display_url: http://localhost:8080
 media_folder: "src/images"
 public_folder: "/images"
 show_preview_links: true

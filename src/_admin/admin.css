@@ -1,6 +1,10 @@
 body {
-  background-color: rosybrown;
+  background-color: gainsboro;
+  margin: 1rem;
+  font-size: 1.5rem;;
 }
-header {
-  border: 1px solid red;
+
+div {
+  margin: 0.5rem 0;
 }
+
