@@ -8,8 +8,7 @@ saga-template-name: Post Default
   {% if author %}
     {% for item in collections.all |  getPage("/authors/" + author + "/" ) %}
       <div class="bg-gray-100">
-        <div class="font-bold">Author : {{ item.data.title}}</div>
-        {# <a href="{{ item.url }}" title="{{item.data.name}}">{{item.data.name}}</a> #}
+        <div>Author : {{ item.data.title}}</div>
       </div>
     {% endfor %}
   {% endif %}
@@ -20,12 +19,11 @@ saga-template-name: Post Default
   {% endif %}
 
   {# Tags #}
-  {# List all tags filtered from internalt machine tags#}
   <div>
   {%- for tag in tags | filterTagList -%}
     {# grap the markdown files and loop through them #}
     {% for item in collections.all |  getPage("/relation-tag/" + tag + "/" ) %}
-      <a href="/tags/{{ tag }}">{{ item.data.title}}</a>,
+      <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
     {% endfor %}
   {% endfor %}
   {# /Tags #}
