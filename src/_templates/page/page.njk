@@ -11,10 +11,10 @@ saga-template-name: Page default
 
 {# image #}
 
-{# {% if image %}
+{% if image %}
   {% set img =  "src/" + image %}
   {% set alt = "Image of " + title %}
   {% set css = "absolute inset-0 w-full h-full object-cover rounded-lg" %}
   {% imageResize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
-{% endif %} #}
+{% endif %}
 

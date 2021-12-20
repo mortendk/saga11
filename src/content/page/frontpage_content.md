@@ -1,6 +1,6 @@
 ---
-title: "Frontpage content test yo "
-eleventyExcludeFromCollections: true
+title: Section page
+eleventyExcludeFromCollections: false
 layout: page/page.njk
 ---
-this is a frontpage sometihng
+I want this to be a specfic section

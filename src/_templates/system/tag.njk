@@ -18,4 +18,6 @@ saga-template-name: Tag
   - {{ loop.index }} <a href="{{ item.url | url }}">{{ item.data.title }}</a>
 {% endfor %}
 
+<hr>
+nav tags:
 {% include "components/nav/tags.njk" %}

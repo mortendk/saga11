@@ -4,18 +4,12 @@ saga-template-name: Frontpage
 ---
 
 <h2>Pages:</h2>
-
-{% for item in collections.allPages | sortByOrder%}
+{% for item in collections.allPages | sortByOrder %}
   - <a href="{{ item.url }}">{{item.data.title}} ({{ item.url }})</a><br>
 {% endfor %}
 
-<section class="py-8">
-  {# tags #}
-  {% for tag in collections.tagList %}
-    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-    <a href="{{ tagUrl | url }}">{{ tag }}</a>,
-  {% endfor %}
-</section>
+
+{% include "components/nav/tags.njk" %}
 
 
 {{ content | safe}}
