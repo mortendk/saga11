@@ -1,7 +1,13 @@
 <footer class="pagewidth flex flex-col justify-center mt-8 md:mt-20" role="contentinfo">
-  {theme | machine }
 
-  {# {{ page.inputPath }} #}
+  {% include "components/nav/some.njk" %}
 
-{% include "components/nav/some.njk" %}
+  <div class="text-gray-400">
+    <h3>{{ site.title }}</h3>
+    {{ site.footer | markdown | safe }}
+    <a href="https://thememachine.io">{theme | machine }</a>
+
+    </div>
+  </div>
+
 </footer>

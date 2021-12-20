@@ -1,9 +1,11 @@
 const path = require("path");
 const fs = require("fs");
 
+const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 const Image = require("@11ty/eleventy-img");
 
 const { DateTime } = require("luxon");
@@ -36,7 +38,6 @@ async function imageShortcode(src, alt, sizes, css) {
   return Image.generateHTML(metadata, imageAttributes);
 }
 
-
 module.exports = function (eleventyConfig) {
   //plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -50,45 +51,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/files");
-  eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/_admin");
+
+  const md = new markdownIt({
+    html: true,
+  });
 
   // -----------------------------------------------------------------
   // FILTERS
   // -----------------------------------------------------------------
 
-  //DATE Filters
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('dateFormat', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
+  // markdwon {{ item.foo | markdown | safe }}
+  eleventyConfig.addFilter("markdown", (content) => {
+    return md.render(content);
   });
 
-  eleventyConfig.addFilter('monthDayYear', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy');
-  });
-
-  // SLUG
-  eleventyConfig.addFilter("slugify", function (str) {
-    return slugify(str, {
-      lower: true,
-      replacement: "-",
-      remove: /[*+~.·,()'"`´%!?¿:@]/g
-    });
-  });
-
-  // Get page filter
-  //  Now we can grap all the data from another markdown file
-  // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
-  // Credits https://github.com/11ty/eleventy/discussions/1848
-  eleventyConfig.addFilter("getPage", (arr, url) => {
-    return arr.filter(item => item.url == url);
-  });
-
-  // -----------------------------------------------------------------
-  // COLLECTIONS
-  // https://www.11ty.dev/docs/collections/
-  // -----------------------------------------------------------------
-  // SORT: order
+  // Sort: order
   // {% for item in collections.tag | sortByOrder %}
   eleventyConfig.addFilter("sortByOrder", (arr) => {
     arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
@@ -101,6 +80,39 @@ module.exports = function (eleventyConfig) {
     arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
     return arr;
   });
+
+  // Date Filters
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  eleventyConfig.addFilter('dateFormat', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
+  });
+
+  eleventyConfig.addFilter('monthDayYear', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy');
+  });
+
+  // Slug filter
+  eleventyConfig.addFilter("slugify", function (str) {
+    return slugify(str, {
+      lower: true,
+      replacement: "-",
+      remove: /[*+~.·,()'"`´%!?¿:@]/g
+    });
+  });
+
+  // Get page filter
+  // Get the data from another markdown file
+  // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
+  // Credits https://github.com/11ty/eleventy/discussions/1848
+  eleventyConfig.addFilter("getPage", (arr, url) => {
+    return arr.filter(item => item.url == url);
+  });
+
+  // -----------------------------------------------------------------
+  // COLLECTIONS
+  // https://www.11ty.dev/docs/collections/
+  // -----------------------------------------------------------------
+  // {% for item in collections.COLLECTION %}
 
   // Creates custom collection "post"
   eleventyConfig.addCollection("allPosts", function(collection) {
@@ -131,9 +143,9 @@ module.exports = function (eleventyConfig) {
   });
 
   // TAGS
-  //  grapped from https://github.com/11ty/eleventy-base-blog
+  // Grapped from https://github.com/11ty/eleventy-base-blog
   function filterTagList(tags) {
-    // Filtes that are used by the system
+    // Filtes that are used by the system that we dont want in our collections
     return (tags || []).filter(tag => ["navigation", "relation"].indexOf(tag) === -1);
   }
 
@@ -150,7 +162,7 @@ module.exports = function (eleventyConfig) {
   });
 
 
-  // Browser config
+  // Browser config - set 404 page
   eleventyConfig.setBrowserSyncConfig({
     // Open browser by default
     open: true,

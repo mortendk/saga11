@@ -1,9 +1,8 @@
 ---
 layout: base/base.njk
 ---
+{%- include "layout/_layout-header.njk" %}
 
-<main role="main" class="pagewidth">
-  <h1>{{ title}}</h1>
-  {{ content | safe }}
-</main>
+{{ content | safe }}
 
+{%- include "layout/_layout-footer.njk" %}

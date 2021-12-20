@@ -4,8 +4,8 @@
   "description": "sage cms",
   "main": "index.js",
   "scripts": {
-    "start cms": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
-    "start cms & admin": "npx netlify-cms-proxy-server & npm run start",
+    "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
+    "admin": "npx netlify-cms-proxy-server & npm run start",
     "clean": "rm -rf _site & rm & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
     "tailwind:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
@@ -30,6 +30,8 @@
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
-    "tailwindcss": "^2.2.4"
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.7"
   }
 }

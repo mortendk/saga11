@@ -9,7 +9,7 @@
   .pagewidth {
     @apply md:max-w-7xl	mx-auto;
   }
-  /* defailt markup */
+  /* default markup */
   h1 {
     @apply font-bold text-4xl
   }
@@ -19,9 +19,11 @@
   h3 {
     @apply font-bold text-2xl
   }
+
   main a {
-    @apply underline text-red-700
+    @apply underline text-cyan-500
   }
+
 }
 
 /* custom */

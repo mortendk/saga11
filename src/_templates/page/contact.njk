@@ -1,0 +1,13 @@
+---
+layout: layout/default.njk
+saga-template-name: contact
+---
+
+<h1>{{ title }}</h1>
+
+<div>
+{{ content | safe }}
+</div>
+
+
+{% include "components/contactform.njk" %}

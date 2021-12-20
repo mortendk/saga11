@@ -9,8 +9,9 @@
   <meta name="keywords" content="{{ site.keywords}}">
   <meta name="theme-color" content="{{site.color}}">
   <meta name="generator" content="{{site.generator}}">
+
   {#  opengraph & faveicon #}
-  {%- include "base/base-opengraph.njk" %}
+  {%- include "base/base-opengraph.njk" -%}
   {%- include "base/base-favicon.njk" -%}
   {#- CSS #}
 
@@ -19,6 +20,7 @@
   {% else %}
   <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" rel="preload">
   {% endif -%}
+
   {# fonts #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +29,7 @@
   <link href="{{ '/assets/css/prism-synthwave.css' | url }}" rel="stylesheet" rel="preload">
 </head>
 
-<body class="font-sansserif">
+<body class="">
 
 {{ content | safe }}
 

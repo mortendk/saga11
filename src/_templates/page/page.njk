@@ -1,0 +1,20 @@
+---
+layout: layout/default.njk
+saga-template-name: Page default
+---
+<h1>{{ title }}</h1>
+
+<div class="prose lg:prose-xl mt-4">
+  {{ content | safe}}
+</div>
+
+
+{# image #}
+
+{% if image %}
+  {% set img =  "src/" + image %}
+  {% set alt = "Image of " + title %}
+  {% set css = "absolute inset-0 w-full h-full object-cover rounded-lg" %}
+  {% imageResize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
+{% endif %}
+

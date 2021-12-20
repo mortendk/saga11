@@ -17,8 +17,8 @@ local_backend: true
 
 #SETTINGS
 site_url: http://localhost:8080
-logo_url: http://localhost:8080/img/favicon-196x196
-display_url: https://URL
+logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
+display_url: http://localhost:8080
 media_folder: "src/images"
 public_folder: "/images"
 show_preview_links: true
@@ -127,16 +127,16 @@ collections:
         searchFields: [saga-template-name]
         valueField: "post/{{filename}}.{{extension}}"
         displayFields: ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
-        required: false
+        default: "post/post.njk"
+        required: true
 
   # -----------------------------------------------------------------
   # Collection Pages
   # -----------------------------------------------------------------
   - label: Pages
     label_singular: Page
-    name: Page
+    name: page
     folder: "src/content/page"
-    slug: "{{title}}"
     create: true
     required: false
     fields:
@@ -144,10 +144,35 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
 
+      - { label: "Teaser Title", name: "title_teaser", widget: "string", required: false }
+      - { label: "teaser", name: "teaser", widget: "markdown", required: false }
+
         # 11ty settings
+      # - { label: "url", name: slugcustom,  required: true }
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
-      - { label: "Permalink", name: slugcustom,  required: false }
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
+        required: false
+        default: "page/page.njk"
 
   # -----------------------------------------------------------------
   # Default pages
@@ -162,7 +187,6 @@ collections:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-
       - label: "Contact"
         name: "contact"
         file: "src/content/contact/index.md"
@@ -172,9 +196,8 @@ collections:
           - { label: "Image", name: "image", widget: "image", required: false }
             # 11ty settings
           - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
-          - { label: "Permalink", name: slugcustom,  required: false }
       - label: "Contact: Success"
-        name: "contanctsuccess"
+        name: "contactsuccess"
         file: "src/content/contact/success.md"
         fields:
           - { label: Title, name: title, widget: string}
@@ -212,33 +235,9 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
 
-  # NAVIGATION
-  - name: navigation
-    label_singular: nav
-    label: "Navigation"
-    folder: "src/content/navigation"
-    slug: "{{title}}"
-    hide: false
-    create: true
-    delete: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "tags", name: "tags", widget: "hidden", default: "nav"}
-
-      # Gallery
-      - label: "menu"
-        name: "menu"
-        widget: "list"
-        fields:
-          - label: menu item
-            name: menu
-            widget: object
-            fields:
-              - {label: title, name: title, widget: string}
-              - {label: text, name: text, widget: text, required: false}
-              - {label: url, name: url, widget: string}
-
-  #Templates
+  # -----------------------------------------------------------------
+  # Templates
+  # -----------------------------------------------------------------
   - name: posttemplates
     label_singular: template
     label: "Post Templates"
@@ -252,6 +251,55 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
+  - name: pagetemplates
+    label_singular: template
+    label: "page Templates"
+    folder: "src/_templates/page"
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+
+  # -----------------------------------------------------------------
+  # Navigation
+  # -----------------------------------------------------------------
+  # - name: navigation
+  #   label: "Navigation"
+  #   folder: "src/content/navigation"
+  #   slug: "{{title}}"
+  #   hide: false
+  #   create: true
+  #   delete: false
+  #   fields:
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - label: "Menu"
+  #       name: "menu"
+  #       widget: "list"
+  #       collapsed: false
+  #       fields:
+  #         - label: menu item
+  #           name: menu-item
+  #           widget: object
+  #           fields:
+  #             - {label: title, name: title, widget: string,required: false }
+  #             - {label: text, name: text, widget: text, required: false}
+  #             - {label: url, name: url, widget: string,required: false}
+
+  #             # Layout selector
+  #             - name: "link"
+  #               label: "link"
+  #               widget: relation
+  #               collection: page
+  #               searchFields: [saga-template-name]
+  #               valueField: "page/{{filename}}.{{extension}}"
+  #               displayFields: ["title", " (File: content/page/{{filename}}.{{extension}})"]
+  #               required: false
+  #               default: "page/page.njk"
 
   # -----------------------------------------------------------------
   # Setings
@@ -263,23 +311,38 @@ collections:
         name: "sitesettings"
         file: "src/_data/site.json"
         fields:
-          - { label: browesercolor, name: color, widget: color,  required: false }
           - { label: title, name: title, widget: string}
           - { label: url, name: url, widget: string}
           - { label: description, name: description, widget: text,  required: false }
           - { label: keywords, name: keywords, widget: text,  required: false }
-
+          - { label: footer, name: footer, widget: markdown,  required: false }
           - { label: Author (rss), name: authorname, widget: string,  required: false, hint: "Feed Author name" }
           - { label: Aurthor Email (rss), name: authoremail, widget: string,  required: false, hint: "Feed Author name" }
+          - { label: browesercolor, name: color, widget: color,  required: false }
           - { label: Generator, name: generator, widget: string,  required: false }
 
       - label: "Social Network links"
         name: "some"
         file: "src/_data/some.json"
         fields:
-          - { label: facebook, name: facebook, widget: string,  required: false }
-          - { label: twitter, name: twitter, widget: string,  required: false }
-          - { label: linkedin, name: linkedin, widget: string,  required: false }
-          - { label: instagram, name: instagram, widget: string,  required: false }
-          - { label: "github profile", name: github, widget: string,  required: false }
-          - { label: webmention, name: webmention, widget: string,  required: false }
+          - { label: facebook, name: facebook, widget: string,  required: false, hint: "https://www.facebook.com/..."  }
+          - { label: twitter, name: twitter, widget: string,  required: false, hint: "https://www.twitter.com/..."  }
+          - { label: linkedin, name: linkedin, widget: string,  required: false, hint: "https://www.linkedin.com/in/..."  }
+          - { label: instagram, name: instagram, widget: string,  required: false, hint: "https://www.instagram.com/..."  }
+          - { label: github, name: github, widget: string,  required: false, hint: "https://github.com/..." }
+          - { label: webmention, name: webmention, widget: string,  required: false,hint: "name" }
+          - { label: dribble, name: dribble, widget: string,  required: false, hint: "https://dribbble.com/..."  }
+
+      - label: "Menu"
+        name: "menu"
+        file: "src/_data/menu.json"
+        fields:
+          - label: Menu
+            name: main
+            widget: list
+            collapsed: false
+            fields:
+              - {label: title, name: title, widget: string}
+              - {label: url, name: url, widget: string, hint: "Relative url"}
+              - {label: text, name: text, widget: string, required: false}
+
