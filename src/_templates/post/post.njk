@@ -56,7 +56,7 @@ saga-template-name: Post Default
 
 {# Previous and next post #}
 
-<nav class="bg-red-400">
+<nav class="">
 {%- if collections.allPosts %}
   {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
   {%- set previousPost = collections.allPosts | getPreviousCollectionItem(page) %}

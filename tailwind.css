@@ -21,7 +21,7 @@
   }
 
   main a {
-    @apply underline text-cyan-500
+    @apply underline text-cyan-900
   }
 
 }

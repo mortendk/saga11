@@ -14,7 +14,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
+      sans: ['montserrat', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
     extend: {},

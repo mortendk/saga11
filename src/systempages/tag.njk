@@ -1,6 +1,8 @@
 ---
 layout: system/tag.njk
 permalink: /tag/{{ tag | slug }}/
+eleventyComputed:
+  title: "tag - {{ tag }}"
 
 pagination:
   data: collections
