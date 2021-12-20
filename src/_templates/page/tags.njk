@@ -3,28 +3,22 @@ layout: layout/default.njk
 saga-template-name: Tags
 ---
 
-<h2>All post with "{{ tag | replace("_", " ") | title}}" </h2>
-
 {# get the data that storesd with the tag in the replation tag file #}
 {% for item in collections.all |  getPage("/relation-tag/" + tag + "/" ) %}
+
+  <h1>{{ item.data.title }} </h1>
+
   <article>
+  <img src="{{ item.data.image }}" alt="" class="w-20">
    {{item.templateContent | safe}}
   </article>
+
+
 {% endfor %}
 
-
-
-{# List all the post that have the selected tag #}
+<h3>Contains this tag:</h3>
 {% for item in collections[ tag ]  %}
-
-  <a href="{{ item.url | url }}"><h3>{{ item.data.title }} </h3></a>
-  {# tag list for this content ...  #}
-  {# {% for tag in item.data.tags  %}
-    {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-    <a href="{{ tagUrl | url }}">{{ tag }}</a>,
-  {% endfor %} #}
+ - {{ loop.index }} <a href="{{ item.url | url }}">{{ item.data.title }}</a>
 {% endfor %}
-
-<hr>
 
 {% include "components/nav/tags.njk" %}

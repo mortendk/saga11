@@ -7,28 +7,34 @@ saga-template-name: Post Default
   {# Author #}
   {% if author %}
     {% for item in collections.all |  getPage("/authors/" + author + "/" ) %}
-    <div class="bg-bluegray-200">
-      <div class="font-bold">Author : {{ author}}</div>
-      <a href="{{ item.url }}" title="{{item.data.name}}">{{item.data.name}}</a>
-    </div>
+      <div class="bg-gray-100">
+        <div class="font-bold">Author : {{ item.data.title}}</div>
+        {# <a href="{{ item.url }}" title="{{item.data.name}}">{{item.data.name}}</a> #}
+      </div>
     {% endfor %}
   {% endif %}
   {# /Author #}
 
   {% if date %}
-  <time>{{ date | monthDayYear }}</time>
+    <time>{{ date | monthDayYear }}</time>
   {% endif %}
 
   {# Tags #}
+  {# List all tags filtered from internalt machine tags#}
+  <div>
   {%- for tag in tags | filterTagList -%}
-  {% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
-    <a href="{{ tagUrl | url }}" class="underline">{{ tag | replace("_", " " )}}</a> |
+    {# grap the markdown files and loop through them #}
+    {% for item in collections.all |  getPage("/relation-tag/" + tag + "/" ) %}
+      <a href="/tags/{{ tag }}">{{ item.data.title}}</a>,
+    {% endfor %}
   {% endfor %}
   {# /Tags #}
-
+  </div>
 </footer>
 
-{{ content | safe }}
+<div>
+  {{ content | safe }}
+</div>
 
 {# image gallery #}
 {% for item in gallery %}
@@ -51,6 +57,7 @@ saga-template-name: Post Default
 
 
 {# Previous and next post #}
+
 <nav class="bg-red-400">
 {%- if collections.allPosts %}
   {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
@@ -61,31 +68,19 @@ saga-template-name: Post Default
       Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a>
     {% endif %}
 
-
     {%- if nextPost %}
       Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a>
     {% endif %}
-
 
   {%- endif %}
 {%- endif %}
 </nav>
 
-
-
-
 <div class="bg-blue-100">
-<div class="text-2xl">all post</div>
+<div class="text-2xl">All post</div>
 {% for item in collections.allPosts %}
-    {% if item.url in page.url %}
-    !
-    {%- endif %}
- - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
+  {% if item.url in page.url %} ! {%- endif %}
+   - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
 
 {% endfor %}
 </div>
-
-
-
-
-

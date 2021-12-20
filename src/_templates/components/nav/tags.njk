@@ -1,11 +1,18 @@
 {# List of all tags  #}
-<nav class="tags">
+<h3>tags menu:</h3>
+
+<nav>
 {% for tag in collections.tagList %}
-  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-  {% if loop.last %}
-    <a href="{{ tagUrl | url }}" title="{{ tag }}" >{{ tag | replace("_", " ") }}</a>
-  {% else %}
-    <a href="{{ tagUrl | url }}" title="{{ tag }}">{{ tag | replace("_", " ") }}</a>,
-  {% endif %}
+
+  {% for item in collections.all |  getPage("/relation-tag/" + tag + "/" ) %}
+    {% if item in page.url -%}
+    {% endif %}
+
+    <a href="/tags/{{ tag }}"> {{ item.data.title}}</a> <br>
+  {% endfor %}
+
+
 {% endfor %}
+
 </nav>
+

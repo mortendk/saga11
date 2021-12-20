@@ -17,7 +17,7 @@ local_backend: true
 
 #SETTINGS
 site_url: http://localhost:8080
-logo_url: http://localhost:8080/img/favicon-196x196
+logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
 display_url: http://localhost:8080
 media_folder: "src/images"
 public_folder: "/images"
@@ -135,7 +135,7 @@ collections:
   # -----------------------------------------------------------------
   - label: Pages
     label_singular: Page
-    name: Page
+    name: page
     folder: "src/content/page"
     create: true
     required: false
@@ -148,7 +148,7 @@ collections:
       - { label: "teaser", name: "teaser", widget: "markdown", required: false }
 
         # 11ty settings
-      - { label: "url", name: slugcustom,  required: true }
+      # - { label: "url", name: slugcustom,  required: true }
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
 
@@ -173,7 +173,6 @@ collections:
         displayFields: ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/page.njk"
-
 
   # -----------------------------------------------------------------
   # Default pages
@@ -236,33 +235,9 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
 
-  # NAVIGATION
-  - name: navigation
-    label_singular: nav
-    label: "Navigation"
-    folder: "src/content/navigation"
-    slug: "{{title}}"
-    hide: false
-    create: true
-    delete: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "tags", name: "tags", widget: "hidden", default: "nav"}
-
-      # Gallery
-      - label: "menu"
-        name: "menu"
-        widget: "list"
-        fields:
-          - label: menu item
-            name: menu
-            widget: object
-            fields:
-              - {label: title, name: title, widget: string}
-              - {label: text, name: text, widget: text, required: false}
-              - {label: url, name: url, widget: string}
-
-  #Templates
+  # -----------------------------------------------------------------
+  # Templates
+  # -----------------------------------------------------------------
   - name: posttemplates
     label_singular: template
     label: "Post Templates"
@@ -289,6 +264,42 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
+
+  # -----------------------------------------------------------------
+  # Navigation
+  # -----------------------------------------------------------------
+  # - name: navigation
+  #   label: "Navigation"
+  #   folder: "src/content/navigation"
+  #   slug: "{{title}}"
+  #   hide: false
+  #   create: true
+  #   delete: false
+  #   fields:
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - label: "Menu"
+  #       name: "menu"
+  #       widget: "list"
+  #       collapsed: false
+  #       fields:
+  #         - label: menu item
+  #           name: menu-item
+  #           widget: object
+  #           fields:
+  #             - {label: title, name: title, widget: string,required: false }
+  #             - {label: text, name: text, widget: text, required: false}
+  #             - {label: url, name: url, widget: string,required: false}
+
+  #             # Layout selector
+  #             - name: "link"
+  #               label: "link"
+  #               widget: relation
+  #               collection: page
+  #               searchFields: [saga-template-name]
+  #               valueField: "page/{{filename}}.{{extension}}"
+  #               displayFields: ["title", " (File: content/page/{{filename}}.{{extension}})"]
+  #               required: false
+  #               default: "page/page.njk"
 
   # -----------------------------------------------------------------
   # Setings
@@ -321,3 +332,17 @@ collections:
           - { label: github, name: github, widget: string,  required: false, hint: "https://github.com/..." }
           - { label: webmention, name: webmention, widget: string,  required: false,hint: "name" }
           - { label: dribble, name: dribble, widget: string,  required: false, hint: "https://dribbble.com/..."  }
+
+      - label: "Menu"
+        name: "menu"
+        file: "src/_data/menu.json"
+        fields:
+          - label: Menu
+            name: main
+            widget: list
+            collapsed: false
+            fields:
+              - {label: title, name: title, widget: string}
+              - {label: url, name: url, widget: string, hint: "Relative url"}
+              - {label: text, name: text, widget: string, required: false}
+

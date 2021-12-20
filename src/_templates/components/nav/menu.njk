@@ -1,20 +1,10 @@
-{% for item in collections.navigation %}
-
- {% for item in item.data.menu %}
-
-    {% if item.menu.url in page.url -%}
-
-      <a href="{{ item.menu.url }}"
-        class="block bg-gray-100 font-bold text-lightblue-500"
-      <a href="{{ item.menu.url }}" class="font-bold" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
-
-      {% else %}
-
-      <a href="{{ item.menu.url }}"
-      class="block"
-      <a href="{{ item.menu.url }}" class="" title="{{ item.menu.text}}">{{ item.menu.title  }}</a>
-    {% endif %}
-
- {% endfor %}
+{% for item in menu.main %}
+{# text if its an active menu #}
+  {% if item.url in page.url -%}
+    <a href="{{ item.url }}" class="block bg-gray-100 font-bold text-lightblue-500"
+    title="{{ item.text}}">{{ item.title  }}</a>
+  {% else %}
+    <a href="{{ item.url }}" class="" title="{{ item.text}}">{{ item.title  }}</a>
+  {% endif %}
 
 {% endfor %}

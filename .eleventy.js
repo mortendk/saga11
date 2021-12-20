@@ -129,11 +129,6 @@ module.exports = function (eleventyConfig) {
     return collection.getAllSorted().reverse().slice(0, 5);
   });
 
-  // Special
-  eleventyConfig.addCollection("specialCollection", function (collection) {
-    return collection.getAll().filter((item) => item.data.customKey);
-  });
-
   // post order by title
   eleventyConfig.addCollection("postByTitle", function (collectionApi) {
     return collectionApi
