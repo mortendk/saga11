@@ -1,14 +1,14 @@
 {
   "main": [
     {
-      "title": "mrnu second",
-      "url": "5",
-      "text": "55"
+      "title": "Home",
+      "url": "/",
+      "text": "Home"
     },
     {
-      "title": "menu first",
-      "url": "2",
-      "text": "5123"
+      "title": "contact",
+      "url": "/contact",
+      "text": "Contact"
     }
   ]
 }

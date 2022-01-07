@@ -3,10 +3,16 @@ layout: layout/default.njk
 saga-template-name: contact
 ---
 
-<h1>{{ title }}</h1>
+{# image #}
+{% if image %}
+  {% set img =  "src/" + image %}
+  {% set alt = "Image of " + title %}
+  {% set css = "border-4 border-red-400" %}
+  {% imageResize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
+{% endif %}
 
-<div>
-{{ content | safe }}
+<div class="prose lg:prose-xl">
+  {{ content | safe }}
 </div>
 
 

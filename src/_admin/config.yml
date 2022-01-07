@@ -86,16 +86,6 @@ collections:
               - {label: title, name: title, widget: string, required: false}
               - {label: Description, name: figcaption, widget: text, required: false}
 
-      # Author
-      - name: author
-        label: Author
-        widget: relation
-        collection: authors
-        searchFields: [name, title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-
       # Tags
       - name: tags
         label: tags
@@ -106,6 +96,17 @@ collections:
         display_fields: ["title"]
         required: false
         multiple: true
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: posttemplates
+        searchFields: [saga-template-name]
+        valueField: "post/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
+        default: "post/post.njk"
+        required: true
 
       # Date
       - label: "Date published"
@@ -119,16 +120,16 @@ collections:
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false, hint: "is this a draft ?" }
 
-      # Layout selector
-      - name: "layout"
-        label: "Layout Selector"
+      # Author
+      - name: author
+        label: Author
         widget: relation
-        collection: posttemplates
-        searchFields: [saga-template-name]
-        valueField: "post/{{filename}}.{{extension}}"
-        displayFields: ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
-        default: "post/post.njk"
-        required: true
+        collection: authors
+        searchFields: [name, title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+
 
   # -----------------------------------------------------------------
   # Collection Pages

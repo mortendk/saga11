@@ -16,11 +16,11 @@ Its a try to get back to the late 90'ies and build flatfile sites that could be 
 ## Tech stack
 - 11ty generating the html.
 - Markdown, json and nunjucks.
-- Git for storage (github).
+- Github for storage
 - Deploy on what you want (ftp / netlify / github pages).
-- Netlifycms for online editing.
+- Netlifycms for online editing
 - Tailwind for css
-- Alpine js for interactivity
+- Alpine js for interactivity ?
 
 ## But I want a CMS for a client
 saga uses netlifycms out the box for easy administration of the markdown files

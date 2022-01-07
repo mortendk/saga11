@@ -2,7 +2,13 @@
 title: Contact
 permalink: /contact/
 layout: page/contact.njk
+image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
 ---
-This is a contact page
+Contact us 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+morten b
+flensborgade 32 st th
+16669 kbh v
+
++45 12345678
+foo@bar.dk
