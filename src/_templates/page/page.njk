@@ -4,7 +4,24 @@ saga-template-name: Page default
 ---
 <h1>{{ title }}</h1>
 
+{% if image %}
+  {% set alt = "Image of " + image  %}
+  {% set width = "600" %}
+  {% set css = "border-4 border-red-400" %}
+  {% createImage image, width, alt, css %}
+{% endif %}
+
 <div class="prose lg:prose-xl mt-4">
   {{ content | safe}}
 </div>
 
+<section>
+  <h2 class="text-4xl bg-blue-500">Pages:</h2>
+  <nav>
+  <ul>
+  {% for item in collections.allPages | sortByOrder %}
+    <li><a href="{{ item.url }}" title="opens {{ item.url }}">{{item.data.title}}</a></li>
+  {% endfor %}
+  </ul>
+  </nav>
+</section>

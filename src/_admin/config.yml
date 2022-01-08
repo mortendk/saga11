@@ -142,16 +142,9 @@ collections:
     required: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
-
-      - { label: "Teaser Title", name: "title_teaser", widget: "string", required: false }
       - { label: "teaser", name: "teaser", widget: "markdown", required: false }
-
-        # 11ty settings
-      # - { label: "url", name: slugcustom,  required: true }
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
+      - { label: "Body", name: "body", widget: "markdown", required: false }
 
       # Tags
       - name: tags
@@ -174,6 +167,11 @@ collections:
         displayFields: ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/page.njk"
+
+      # 11ty settings
+      # - { label: "url", name: slugcustom,  required: true }
+      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
+      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
 
   # -----------------------------------------------------------------
   # Default pages

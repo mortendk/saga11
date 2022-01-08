@@ -12,6 +12,7 @@ gallery:
       image: /images/veeterzy-sMQiL_2v4vs-unsplash.jpg
 tags:
   - foobar
+  - test-er-fedt
 layout: post/post.njk
 date: 2021-11-18 09:20:10
 order: 1
