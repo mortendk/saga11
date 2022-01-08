@@ -13,6 +13,7 @@ gallery:
 tags:
   - foobar
   - test-er-fedt
+section: awesome_section
 layout: post/post.njk
 date: 2021-11-18 09:20:10
 order: 1

@@ -140,22 +140,14 @@ module.exports = function (eleventyConfig) {
     return collection.getFilteredByGlob("./src/content/page/*.md");
  });
 
+  // Creates custom collection "section"
+  eleventyConfig.addCollection("allSections", function(collection) {
+    return collection.getFilteredByGlob("./src/content/section/*.md");
+ });
+
   // Recent post
   eleventyConfig.addCollection("recentPosts", function(collection) {
     return collection.getAllSorted().reverse().slice(0, 5);
-  });
-
-  // post order by title
-  eleventyConfig.addCollection("postByTitle", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("./src/content/post/*.md")
-      .sort(function (a, b) {
-        let nameA = a.data.title.toUpperCase();
-        let nameB = b.data.title.toUpperCase();
-        if (nameA < nameB) return -1;
-        else if (nameA > nameB) return 1;
-        else return 0;
-      });
   });
 
   // TAGS
@@ -176,7 +168,6 @@ module.exports = function (eleventyConfig) {
 
     return filterTagList([...tagSet]);
   });
-
 
   // Browser config - set 404 page
   eleventyConfig.setBrowserSyncConfig({

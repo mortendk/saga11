@@ -4,26 +4,27 @@ saga-template-name: Tag
 ---
 
 {# get the data that storesd with the tag in the replation tag file #}
-{% for item in collections.all |  getPage("/relation-tag/" + tag + "/" ) %}
-  <h1>{{ item.data.title }}</h1>
+{% for item in collections.all | getPage("/relation-tag/" + tag + "/" ) %}
+  <h2>{{ item.data.title }}</h2>
   <article>
     <img src="{{ item.data.image }}" alt="" class="w-20">
     {{item.templateContent | safe}}
   </article>
 {% endfor %}
 
-<section>
-<h2>Content with this tag</h2>
-<nav>
-<ul>
-{% for item in collections[ tag ]  %}
-  <li>
-  <a href="{{ item.url | url }}">{{ item.data.title }}</a>
-  </li>
-{% endfor %}
-</ul>
-</nav>
-</section>
 
+<section>
+  <h2>Content with this tag</h2>
+
+  <nav>
+  <ul>
+  {% for item in collections[ tag ]  %}
+    <li>
+    <a href="{{ item.url | url }}">{{ item.data.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+  </nav>
+</section>
 
 {% include "components/nav/tags.njk" %}
