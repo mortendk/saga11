@@ -207,3 +207,4 @@ saga-template-name: Post with contact form
 
 
 ## Image resizing
+{% image imageurl 400 alt%}

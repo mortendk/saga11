@@ -3,15 +3,13 @@ layout: layout/default.njk
 saga-template-name: Frontpage
 ---
 
-
 {{ content | safe}}
 
 {% if image %}
-
   {% set alt = "Image of " + image  %}
   {% set width = "600" %}
   {% set css = "border-4 border-red-400" %}
-  {% image image, width, alt, css %}
+  {% createImage image, width, alt, css %}
 {% endif %}
 
 

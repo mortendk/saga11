@@ -60,8 +60,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // shortcode
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addNunjucksAsyncShortcode("picture", pictureShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("createPicture", pictureShortcode);
 
   // passThrough
   eleventyConfig.addPassthroughCopy("src/assets");

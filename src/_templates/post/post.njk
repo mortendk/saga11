@@ -45,17 +45,16 @@ saga-template-name: Post Default
 {% endfor %} #}
 
 
-{% image image, 100 %}
+{% createImage image, 100 %}
 
 {% if image %}
-
   {% set alt = "Image of" %}
   {% set css = "border-4 border-red-400" %}
   {% set width = [200,400,400] %}
+  {% set sizes = "(min-width: 30em) 50vw, 100vw"%}
+  {% createPicture image, width, sizes,  alt, css %}
 
-  {% picture image, width, "(min-width: 30em) 50vw, 100vw", alt, css %}
-
-  {% picture image %}
+  {% createPicture image %}
 {% endif %}
 
 
