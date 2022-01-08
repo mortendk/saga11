@@ -2,6 +2,7 @@
 layout: layout/default.njk
 saga-template-name: Post Default
 ---
+{{ title }}
 
 <footer>
   {# Author #}
@@ -35,23 +36,28 @@ saga-template-name: Post Default
 </div>
 
 {# image gallery #}
-{% for item in gallery %}
+{# {% for item in gallery %}
 <figure>
   {% set img =  "src/" + item.image.image  %}
   {% imageResize img, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
   <figcaption>{{ item.image.figcaption | safe }}</figcaption>
 </figure>
-{% endfor %}
+{% endfor %} #}
 
-{# image #}
+
+{% image image, 100 %}
+
 {% if image %}
-  {% set img =  "src/" + image %}
-  {% set alt = "Image of " + title %}
+
+  {% set alt = "Image of" %}
   {% set css = "border-4 border-red-400" %}
-  {% imageResize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
+  {% set width = [200,400,400] %}
+
+  {% picture image, width, "(min-width: 30em) 50vw, 100vw", alt, css %}
+
+  {% picture image %}
 {% endif %}
 
-<hr>
 
 
 {# Previous and next post #}

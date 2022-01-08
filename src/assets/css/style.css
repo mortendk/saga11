@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.12 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -426,6 +426,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 body {
   font-family: montserrat, sans-serif;
   font-size: 1rem;
+  line-height: 1.5rem;
   line-height: 1.5;
 }
 
@@ -587,19 +588,41 @@ button[type="reset"] {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
-  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
-  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
-  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
-  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
-  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
-  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
-  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 
 /* apply base settings */
@@ -616,17 +639,6 @@ button[type="reset"] {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.inset-0 {
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
 }
 
 .col-span-2 {
@@ -678,10 +690,6 @@ button[type="reset"] {
   height: 1.5rem;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .w-1\/3 {
   width: 33.333333%;
 }
@@ -692,10 +700,6 @@ button[type="reset"] {
 
 .w-6 {
   width: 1.5rem;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-20 {
@@ -711,7 +715,7 @@ button[type="reset"] {
 }
 
 .transform {
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .flex-col {
@@ -750,10 +754,6 @@ button[type="reset"] {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .border-4 {
   border-width: 4px;
 }
@@ -786,6 +786,11 @@ button[type="reset"] {
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
 .bg-blue-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
@@ -799,11 +804,6 @@ button[type="reset"] {
 .bg-red-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .p-2 {
@@ -833,6 +833,11 @@ button[type="reset"] {
 
 .text-center {
   text-align: center;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-2xl {
@@ -889,7 +894,7 @@ button[type="reset"] {
 }
 
 .filter {
-  filter: var(--tw-filter);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {

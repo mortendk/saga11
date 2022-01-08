@@ -1,7 +1,7 @@
 {
   "name": "saga",
-  "version": "0.1.1",
-  "description": "sage cms",
+  "version": "0.1.2",
+  "description": "Saga cms",
   "main": "index.js",
   "scripts": {
     "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",

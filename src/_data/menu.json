@@ -2,11 +2,11 @@
   "main": [
     {
       "title": "Home",
-      "url": "/",
+      "url": "/index.html",
       "text": "Home"
     },
     {
-      "title": "contact",
+      "title": "Contact",
       "url": "/contact",
       "text": "Contact"
     }

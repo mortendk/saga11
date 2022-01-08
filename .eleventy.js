@@ -5,18 +5,19 @@ const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 // const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
-const Image = require("@11ty/eleventy-img");
-
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
 
+const Image = require("@11ty/eleventy-img");
+
 // Image shortcode
-async function imageShortcode(src, alt, sizes, css) {
+async function pictureShortcode(img, width=[300,600,1200], sizes="(min-width: 30em) 50vw, 100vw", alt="image", css ) {
+  src = "src/" + img;
   let metadata = await Image(src, {
-    widths: [300, 600,1600],
+    widths: width,
     // formats: ["avif", "jpeg"],
-    outputDir: "_site/img/", // we push this image directly to the siter build
+    // widths: [300, 800, 1600],
+    outputDir: "_site/img/", // we push this image directly to the site build
     urlPath: "/img/",
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
@@ -38,6 +39,20 @@ async function imageShortcode(src, alt, sizes, css) {
   return Image.generateHTML(metadata, imageAttributes);
 }
 
+// img shortcode takes width as a variable
+async function imageShortcode(img, width="400", alt="image", css) {
+  src = "src/" + img;
+  let metadata = await Image(src, {
+    widths: [width],
+    formats: ["jpeg"],
+    outputDir: "_site/img/", // we push this image directly to the site build
+    urlPath: "/img/",
+  });
+
+  let data = metadata.jpeg[metadata.jpeg.length - 1];
+  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" css="${css}" loading="lazy" decoding="async">`;
+}
+
 module.exports = function (eleventyConfig) {
   //plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -45,7 +60,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // shortcode
-  eleventyConfig.addNunjucksAsyncShortcode("imageResize", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("picture", pictureShortcode);
 
   // passThrough
   eleventyConfig.addPassthroughCopy("src/assets");
