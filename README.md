@@ -184,14 +184,14 @@ add inline of use tailwind.css and @apply
 
 ## Netlifycms Setup
 1 Push code to github
-2 Crete site on netlify - get site from github
+2 Create site on netlify - get site from github
 3 Enable identity https://app.netlify.com/sites/[SITE]/identity
 4 add external providers (ex google)
 https://app.netlify.com/sites/[SITE]/settings/identity#external-providers
 5 Add Git Gateway
 https://app.netlify.com/sites/[SITE]/settings/identity#git-gateway
 
-## Posttemplates
+## Post templates
 Heres the different templates that a post can select in netlifycms
 the templates get add automatically id they are put into _templates/post/{template}.njk
 
@@ -205,3 +205,6 @@ saga-template-name: Post with contact form
 
 
 
+
+## Image resizing
+{% image imageurl 400 alt%}

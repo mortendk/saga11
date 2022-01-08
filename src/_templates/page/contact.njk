@@ -5,11 +5,9 @@ saga-template-name: contact
 
 {# image #}
 {% if image %}
-  {% set img =  "src/" + image %}
-  {% set alt = "Image of " + title %}
-  {% set css = "border-4 border-red-400" %}
-  {% imageResize img, alt, "(min-width: 30em) 50vw, 100vw", css %}
+<img src="src/" + image" alt="Image of {{ title }} " css="border-4 border-red-400">
 {% endif %}
+
 
 <div class="prose lg:prose-xl">
   {{ content | safe }}

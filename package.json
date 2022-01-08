@@ -1,7 +1,7 @@
 {
   "name": "saga",
-  "version": "0.1.1",
-  "description": "sage cms",
+  "version": "0.1.2",
+  "description": "Saga cms",
   "main": "index.js",
   "scripts": {
     "start": "rm -rf _site & eleventy --serve & npm run tailwind:watch",
@@ -10,10 +10,6 @@
     "tailwind:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
     "netlify": "netlify dev",
-    "backstop:clean": "rm -rf backstop_data",
-    "backstop:build": "backstop reference",
-    "backstop:test": "backstop test",
-    "backstop:approve": "backstop approve",
     "debug": "DEBUG=* eleventy",
     "build": "npm run tailwind:build && npm run debug "
   },
@@ -30,8 +26,6 @@
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.3.0",
     "@tailwindcss/typography": "^0.5.0",
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
     "tailwindcss": "^3.0.12"
   }
 }

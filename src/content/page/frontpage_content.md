@@ -1,6 +1,6 @@
 ---
-title: contact page yo
+title: Contact page
 eleventyExcludeFromCollections: false
 layout: page/contact.njk
 ---
-I want this to be a specfic section
+The contact page 
