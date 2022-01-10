@@ -11,7 +11,7 @@
     "tailwind:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
     "netlify": "netlify dev",
     "debug": "DEBUG=* eleventy",
-    "build": "npm run tailwind:watch && npm run debug "
+    "build": "npm run debug "
   },
   "keywords": [],
   "author": "",
