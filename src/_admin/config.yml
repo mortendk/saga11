@@ -139,11 +139,17 @@ collections:
     name: page
     folder: "src/content/page"
     create: true
-    required: false
+    delete: true
+    preview_path: /{{url}}
+    editor:
+      preview: true
+
+
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "url", name: "url", widget: "string"}
       - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "teaser", name: "teaser", widget: "markdown", required: false }
+      - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
       # Tags
@@ -156,6 +162,17 @@ collections:
         display_fields: ["title"]
         required: false
         multiple: true
+
+      # section
+      - name: section
+        label: section
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: false
 
       # Layout selector
       - name: "layout"
@@ -171,7 +188,7 @@ collections:
       # 11ty settings
       # - { label: "url", name: slugcustom,  required: true }
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
+      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false}
 
   # -----------------------------------------------------------------
   # Default pages

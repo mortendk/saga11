@@ -2,6 +2,13 @@
 layout: layout/default.njk
 saga-template-name: Frontpage
 ---
+<h1 class="pagewidth">{{title}}</h1>
+Tags:
+{% set tag ="test-er-fedt" %}
+{% for item in collections[ tag ] %}
+ - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
+{% endfor %}
+
 
 {% if image %}
   {% set alt = "Image of " + image  %}
@@ -20,8 +27,3 @@ saga-template-name: Frontpage
 
 {% include "components/nav/posts-new.njk" %}
 
-
-{% set tag ="foobar" %}
-{% for item in collections[ tag ] %}
- - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
-{% endfor %}
