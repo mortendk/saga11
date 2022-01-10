@@ -1,6 +1,6 @@
 {
   "name": "saga",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Saga cms",
   "main": "index.js",
   "scripts": {
