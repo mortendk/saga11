@@ -45,8 +45,6 @@ saga-template-name: Post Default
 {% endfor %} #}
 
 
-
-
 {% if image %}
   {% set alt = "Image of" %}
   {% set css = "border-4 border-red-400" %}
@@ -56,8 +54,6 @@ saga-template-name: Post Default
 
   {% createPicture image %}
 {% endif %}
-
-
 
 
 {# Previous and next post #}
@@ -85,6 +81,5 @@ saga-template-name: Post Default
 {% for item in collections.allPosts %}
   {% if item.url in page.url %} ! {%- endif %}
    - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
-
 {% endfor %}
 </div>
