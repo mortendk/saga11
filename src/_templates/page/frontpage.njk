@@ -2,8 +2,13 @@
 layout: layout/default.njk
 saga-template-name: Frontpage
 ---
+<h1 class="pagewidth">{{title}}</h1>
+Tags:
+{% set tag ="test-er-fedt" %}
+{% for item in collections[ tag ] %}
+ - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
+{% endfor %}
 
-{{ content | safe}}
 
 {% if image %}
   {% set alt = "Image of " + image  %}
@@ -12,35 +17,13 @@ saga-template-name: Frontpage
   {% createImage image, width, alt, css %}
 {% endif %}
 
+{{ content | safe}}
 
-<section>
-  <h2 class="text-4xl bg-blue-500">Pages:</h2>
-  <nav>
-  <ul>
-  {% for item in collections.allPages | sortByOrder %}
-    <li><a href="{{ item.url }}" title="opens {{ item.url }}">{{item.data.title}}</a></li>
-  {% endfor %}
-  </ul>
-  </nav>
-</section>
-
+{% include "components/nav/pages.njk" %}
 
 {% include "components/nav/tags.njk" %}
 
+{% include "components/nav/posts.njk" %}
 
-<h2 class="text-2xl">all post</h2>
-<div class="bg-blue-100">
-{% for item in collections.allPosts %}
- - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
-{% endfor %}
-</div>
-
-
-
-<div class="text-2xl">Recent Post</div>
-<div class="bg-blue-100">
-{% for item in collections.recentPosts %}
-  - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
-{% endfor %}
-</div>
+{% include "components/nav/posts-new.njk" %}
 

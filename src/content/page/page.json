@@ -1,4 +1,4 @@
 {
   "layout" : "page.njk",
-  "permalink" : "/{{ title | slugify}}/"
+  "permalink": "/{{ url | slug }}/"
 }
