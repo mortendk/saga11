@@ -203,18 +203,10 @@ collections:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-      - label: "Contact"
-        name: "contact"
-        file: "src/content/contact/index.md"
-        fields:
-          - { label: Title, name: title, widget: string}
-          - { label: "Body", name: "body", widget: "markdown", required: false }
-          - { label: "Image", name: "image", widget: "image", required: false }
-            # 11ty settings
-          - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
       - label: "Contact: Success"
         name: "contactsuccess"
-        file: "src/content/contact/success.md"
+        preview_path: /contact-success
+        file: "src/content/contact-success.md"
         fields:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
