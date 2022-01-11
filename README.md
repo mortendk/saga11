@@ -166,6 +166,8 @@ This is where all the files to generate _site is places - this is where we all t
 ## CSS
 add inline of use tailwind.css and @apply
 
+
+
 ## Config
 ---
 - .editorconfig : 2 spaces!
@@ -190,6 +192,22 @@ add inline of use tailwind.css and @apply
 https://app.netlify.com/sites/[SITE]/settings/identity#external-providers
 5 Add Git Gateway
 https://app.netlify.com/sites/[SITE]/settings/identity#git-gateway
+
+
+
+## content types
+
+#### Pages
+Pages can be used for single pages
+- Section page (list of post with a tag)
+- contact page
+- gallery page
+a page have a specfic url custom url site/foo-bar/
+
+#### Posts
+Post can be used to create collections of data
+ex blog post, products collections
+Post can be tagged and be collected in a section
 
 ## Post templates
 Heres the different templates that a post can select in netlifycms
