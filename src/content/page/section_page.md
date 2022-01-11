@@ -1,13 +1,8 @@
 ---
-title: section page
+title: Section page
 url: section-page
-image: /images/copenhell.jpeg
-teaser: tester e
-tags:
-  - foobar
-  - test-er-fedt
-section: foobar
+tags: []
+section: tag
 layout: page/section.njk
 eleventyExcludeFromCollections: false
 ---
-text 

@@ -1,11 +1,11 @@
 {
   "color": "#c3c3c3",
-  "keywords": "keywords",
+  "keywords": "",
   "url": "https://saga.thememachine.dev",
   "authoremail": "morten@thememachine.io",
   "generator": "11ty",
   "authorname": "mortendk",
   "title": "Saga",
   "footer": "Saga powered by 11ty ",
-  "description": "Saga is a simple systen for websites build on 11ty with Netlify cms"
+  "description": "Saga is a simple system for building websites"
 }

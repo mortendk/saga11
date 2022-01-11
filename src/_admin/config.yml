@@ -40,7 +40,7 @@ collections:
     description: "All Posts"
     folder: "src/content/post"
     slug: "{{title}}-{{year}}-{{month}}-{{day}}"
-    preview_path: session/{{slug}}
+    preview_path: post/{{title}}
     create: true
     delete: true
     editor:
@@ -66,6 +66,7 @@ collections:
     # FIELDS
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
@@ -144,7 +145,6 @@ collections:
     editor:
       preview: true
 
-
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "url", name: "url", widget: "string"}
@@ -203,7 +203,8 @@ collections:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-      - label: "Contact: Success"
+
+      - label: "Form Success"
         name: "contactsuccess"
         preview_path: /success
         file: "src/content/success.md"
