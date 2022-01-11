@@ -205,8 +205,8 @@ collections:
           - { label: "Image", name: "image", widget: "image", required: false }
       - label: "Contact: Success"
         name: "contactsuccess"
-        preview_path: /contact-success
-        file: "src/content/contact-success.md"
+        preview_path: /success
+        file: "src/content/success.md"
         fields:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
