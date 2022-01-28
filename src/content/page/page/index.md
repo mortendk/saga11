@@ -1,6 +1,6 @@
 ---
-title: "long title use dash "
-url: Secret-url-yeah
+title: page
+url: page
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---

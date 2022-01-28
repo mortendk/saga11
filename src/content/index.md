@@ -2,7 +2,7 @@
 title: Welcome
 layout: page/frontpage.njk
 permalink: /
-image: /images/copenhell.jpeg
+image: ""
 ---
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 

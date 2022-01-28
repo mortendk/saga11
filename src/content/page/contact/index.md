@@ -1,10 +1,6 @@
 ---
 title: contact
-url: contact-us
-teaser: Contact page
-tags:
-  - test-er-fedt
+url: contact
 layout: page/contact.njk
 eleventyExcludeFromCollections: false
 ---
-contact page body

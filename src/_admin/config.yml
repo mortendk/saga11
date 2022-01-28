@@ -28,7 +28,7 @@ search: true
 slug:
   encoding: "ascii"
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: "-"
 
 collections:
   # -----------------------------------------------------------------
@@ -39,8 +39,13 @@ collections:
     name: "posts"
     description: "All Posts"
     folder: "src/content/post"
-    slug: "{{title}}-{{year}}-{{month}}-{{day}}"
-    preview_path: session/{{slug}}
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: '{{title}}'
+    # folder/index creates a folder structure
+    slug: "{{year}}-{{month}}/{{title}}/index"
+    #preview_path must match the settings from post.json permalink
+    preview_path: post/{{url}}
     create: true
     delete: true
     editor:
@@ -66,6 +71,7 @@ collections:
     # FIELDS
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
@@ -138,12 +144,17 @@ collections:
     label_singular: Page
     name: page
     folder: "src/content/page"
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
     create: true
     delete: true
-    preview_path: /{{url}}
+    slug: "{{url}}/index"
+    preview_path: /{{url}}/
+    media_folder: ''
+    public_folder: ''
     editor:
       preview: true
-
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -151,6 +162,23 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      # Gallery
+      - label: "Images"
+        name: "gallery"
+        widget: "list"
+        collapsed: true
+        summary: 'Image {{fields.image.fields.image}}'
+        fields:
+          - label: image
+            name: image
+            widget: object
+            summary: '{{fields.image}}: {{fields.title}}'
+            fields:
+              - {label: image, name: image, widget: image, choose_url: false, }
+              - {label: title, name: title, widget: string, required: false}
+              - {label: Description, name: figcaption, widget: text, required: false}
+
 
       # Tags
       - name: tags
@@ -203,18 +231,11 @@ collections:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-      - label: "Contact"
-        name: "contact"
-        file: "src/content/contact/index.md"
-        fields:
-          - { label: Title, name: title, widget: string}
-          - { label: "Body", name: "body", widget: "markdown", required: false }
-          - { label: "Image", name: "image", widget: "image", required: false }
-            # 11ty settings
-          - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: true, required: false}
-      - label: "Contact: Success"
+
+      - label: "Form Success"
         name: "contactsuccess"
-        file: "src/content/contact/success.md"
+        preview_path: /success
+        file: "src/content/success.md"
         fields:
           - { label: Title, name: title, widget: string}
           - { label: "Body", name: "body", widget: "markdown", required: false }
@@ -280,43 +301,6 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
-
-  # -----------------------------------------------------------------
-  # Navigation
-  # -----------------------------------------------------------------
-  # - name: navigation
-  #   label: "Navigation"
-  #   folder: "src/content/navigation"
-  #   slug: "{{title}}"
-  #   hide: false
-  #   create: true
-  #   delete: false
-  #   fields:
-  #     - { label: "Title", name: "title", widget: "string" }
-  #     - label: "Menu"
-  #       name: "menu"
-  #       widget: "list"
-  #       collapsed: false
-  #       fields:
-  #         - label: menu item
-  #           name: menu-item
-  #           widget: object
-  #           fields:
-  #             - {label: title, name: title, widget: string,required: false }
-  #             - {label: text, name: text, widget: text, required: false}
-  #             - {label: url, name: url, widget: string,required: false}
-
-  #             # Layout selector
-  #             - name: "link"
-  #               label: "link"
-  #               widget: relation
-  #               collection: page
-  #               searchFields: [saga-template-name]
-  #               valueField: "page/{{filename}}.{{extension}}"
-  #               displayFields: ["title", " (File: content/page/{{filename}}.{{extension}})"]
-  #               required: false
-  #               default: "page/page.njk"
-
   # -----------------------------------------------------------------
   # Setings
   # -----------------------------------------------------------------
@@ -361,4 +345,3 @@ collections:
               - {label: title, name: title, widget: string}
               - {label: url, name: url, widget: string, hint: "Relative url"}
               - {label: text, name: text, widget: string, required: false}
-
