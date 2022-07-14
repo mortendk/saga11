@@ -1,7 +1,8 @@
+{# List of menu  #}
 {% for item in menu.main %}
 {# text if its an active menu #}
   {% if item.url in page.url -%}
-    <a href="{{ item.url }}" class="block bg-gray-100 font-bold text-lightblue-500"
+    <a href="{{ item.url }}" class="block bg-gray-900 font-bold"
     title="{{ item.text}}">{{ item.title  }}</a>
   {% else %}
     <a href="{{ item.url }}" class="" title="{{ item.text}}">{{ item.title  }}</a>

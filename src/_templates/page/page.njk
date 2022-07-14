@@ -15,13 +15,13 @@ saga-template-name: Page default
   {{ content | safe}}
 </div>
 
-<section>
-  <h2 class="text-4xl bg-blue-500">Pages:</h2>
-  <nav>
-  <ul>
-  {% for item in collections.allPages | sortByOrder %}
-    <li><a href="{{ item.url }}" title="opens {{ item.url }}">{{item.data.title}}</a></li>
-  {% endfor %}
-  </ul>
-  </nav>
+{# image gallery #}
+<section class="grid grid-cols-4">
+{% for item in gallery %}
+<figure>
+  {% createImage item.image.image, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
+  <figcaption>{{ item.image.figcaption | safe }}</figcaption>
+</figure>
+{% endfor %}
 </section>
+

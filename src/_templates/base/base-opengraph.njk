@@ -1,4 +1,12 @@
   {# opengraph #}
+{% if image %}
+
+  {% set width = "600" %}
+
+  {% createImage image, width %}
+{% endif %}
+
+
   <meta property="og:site_name" content="{{site.title}}">
   <meta property="og:title" content="{{site.title}}">
   <meta property="og:url" content="{{ site.url }}">

@@ -1,0 +1,22 @@
+@tailwind utilities;
+
+@layer utilities {
+  .center-center {
+    @apply flex items-center justify-center;
+  }
+
+  .pagewidth {
+    @apply mx-auto
+      px-2
+      lg:max-w-screen-lg
+      lg:px-0
+      xl:max-w-screen-xl
+      2xl:max-w-screen-2xl;
+  }
+
+  .fullwidth {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}

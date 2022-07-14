@@ -1,0 +1,134 @@
+@tailwind base;
+
+@layer base {
+  /* basefont */
+
+  html {
+    /* font-family: TT, system-ui, sans-serif; */
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply text-lg;
+  }
+
+  h1 span,
+  h2 span,
+  h3 span {
+    @apply text-green;
+  }
+
+  p {
+    @apply my-2;
+  }
+
+  pre {
+    @apply bg-mist p-4 font-mono;
+  }
+
+  mark {
+    @apply bg-green-1/20 px-4;
+  }
+
+  blockquote {
+    @apply bg-mist p-2  text-lg;
+  }
+
+  /* list */
+  .wysiwyg ul {
+    @apply list-inside list-disc;
+  }
+
+  dl {
+    @apply mt-4;
+  }
+  dt {
+    @apply font-bold;
+  }
+  dd {
+    @apply mb-4;
+  }
+  nav ul {
+    @apply list-none;
+  }
+
+  /* links */
+
+  .wysiwyg a {
+    @apply cursor-pointer  underline hover:bg-mist;
+  }
+
+  /* form  */
+  label {
+    @apply font-bold;
+  }
+
+  input {
+    @apply rounded-sm border border-mist-darker p-2 font-normal placeholder-gray-dark
+    required:border-red
+    required:placeholder-red hover:bg-mist
+    focus:ring-1 focus:ring-green required:focus:border-green required:focus:ring-green
+
+    disabled:border-gray disabled:bg-gray
+    disabled:text-gray-dark disabled:text-white;
+  }
+
+  input[type="checkbox"] {
+    @apply accent-green-1;
+  }
+
+  input[type="radio"] {
+    @apply accent-green-1 focus:outline-none focus:ring-0;
+  }
+
+  select {
+    @apply rounded-sm border border-green bg-mist py-2 px-4  shadow-sm;
+  }
+
+  textarea {
+    @apply h-40 w-1/2 rounded-sm border border-mist-darker p-2 font-normal placeholder-gray-dark;
+  }
+
+  fieldset {
+    @apply border border-mist py-4;
+  }
+
+  form button,
+  .btn {
+    @apply rounded bg-green px-4 py-2 text-white
+    no-underline
+    hover:bg-green-2
+    focus:outline-none
+    focus:ring focus:ring-green-2 active:bg-green-2;
+  }
+
+  /* table */
+  table {
+    @apply w-full border-collapse text-left text-left;
+  }
+  th {
+    @apply bg-gray-light p-2;
+  }
+  td {
+    @apply border-t border-gray;
+  }
+  td {
+    @apply p-1 align-top;
+  }
+  tfoot th {
+    @apply text-sm;
+  }
+}
