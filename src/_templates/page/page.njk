@@ -4,6 +4,19 @@ saga-template-name: Page default
 ---
 <h1>{{ title }}</h1>
 
+<h2>Gallery</h2>
+{% for item in gallery %}
+<figure>
+  {% createImage item.image.image, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
+  <figcaption class="font-bold">
+      {{ item.image.title | safe }}
+      <br><br>
+      {{ item.image.figcaption | safe }}
+    </figcaption>
+</figure>
+{% endfor %}
+
+
 {% if image %}
   {% set alt = "Image of " + image  %}
   {% set width = "600" %}
@@ -14,14 +27,4 @@ saga-template-name: Page default
 <div class="prose lg:prose-xl mt-4">
   {{ content | safe}}
 </div>
-
-{# image gallery #}
-<section class="grid grid-cols-4">
-{% for item in gallery %}
-<figure>
-  {% createImage item.image.image, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
-  <figcaption>{{ item.image.figcaption | safe }}</figcaption>
-</figure>
-{% endfor %}
-</section>
 

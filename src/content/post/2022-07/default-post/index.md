@@ -12,6 +12,7 @@ gallery:
       image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
 tags:
   - test
+  - super-tag
 layout: post/post.njk
 date: 2022-07-14 15:49:23
 eleventyExcludeFromCollections: false

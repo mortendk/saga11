@@ -15,15 +15,17 @@ saga-template-name: Post Default
   {% endif %}
   {# /Author #}
 
-  {# {% if date %}
+  {% if date %}
     <time>{{ date | monthDayYear }}</time>
-  {% endif %} #}
+  {% endif %}
 
   {# Tags #}
   <div>
+    tag:
   {%- for tag in tags | filterTagList -%}
+  {{tag}}
     {# grap the markdown files and loop through them #}
-    {% for item in collections.all |  getPage("/relation-tag/" + tag + "/" ) %}
+    {% for item in collections.all |  getPage("/tag/" + tag + "/" ) %}
       <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
     {% endfor %}
   {% endfor %}

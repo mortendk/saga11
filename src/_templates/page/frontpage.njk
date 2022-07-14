@@ -3,14 +3,6 @@ layout: layout/default.njk
 saga-template-name: Frontpage
 ---
 
-
-{# .test is the tag name  #}
-{%- for item in collections.test -%}
-- <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
-{%- endfor -%}
-
-
-
 <h1 class="text-4xl">{{title}}</h1>
 
 <section class="grid grid-cols-2">
@@ -27,6 +19,25 @@ saga-template-name: Frontpage
   {{ content | safe}}
 </article>
 </section>
+
+{# .test is the tag name  #}
+<h2>tagged with test</h2>
+{%- for item in collections.test -%}
+- <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
+{%- endfor -%}
+
+foo
+<ul>
+  {% for item in collections.all |  getPage("/tag/" + tag + "/" ) %}
+  <li>
+    {% if tag in page.url -%}
+      <a href="/tag/{{ tag }}" class="block font-bold"> {{ item.data.title}}</a>
+    {% else %}
+      <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
 
 
 
