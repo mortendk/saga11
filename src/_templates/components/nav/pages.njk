@@ -1,13 +1,6 @@
-<section>
-  <h2 class="text-4xl bg-blue-500">Pages:</h2>
-  <nav>
-  <ul>
+<div>
+  <h3>pages</h3>
   {% for item in collections.allPages | sortByOrder %}
-
-    <li><a href="{{ item.url }}" title="opens {{ item.url }}">{{item.data.title}}</a></li>
-
+    <a href="{{ item.url }}" title="opens {{ item.url }}">{{item.data.title}}</a> <br>
   {% endfor %}
-
-  </ul>
-  </nav>
-</section>
+</div>

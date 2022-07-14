@@ -2,17 +2,15 @@
 layout: layout/default.njk
 saga-template-name: Section
 ---
-<h1 class="pagewidth">{{title}}</h1>
-<h1>section {{ section }}</h1>
-teaser: {{ teaser }} /
- <br>
 
 
-
-{# {% set tag ="test-er-fedt" %} #}
-{% for item in collections[ section ] %}
- <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
-{% endfor %}
+<h1 class="text-5xl">{{title}}</h1>
+<div class="text-lg">
+  {{ teaser }}
+</div>
+<div>
+{{ content | safe}}
+</div>
 
 {% if image %}
   {% set alt = "Image of " + image  %}
@@ -21,5 +19,12 @@ teaser: {{ teaser }} /
   {% createImage image, width, alt, css %}
 {% endif %}
 
-{{ content | safe}}
-tags {{ tags }} /
+
+tags: {{ tags }}
+
+
+{# {% set tag ="test-er-fedt" %} #}
+{% for item in collections[ section ] %}
+ <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
+{% endfor %}
+

@@ -8,6 +8,7 @@
   .pagewidth {
     @apply mx-auto
       px-2
+      w-full
       lg:max-w-screen-lg
       lg:px-0
       xl:max-w-screen-xl

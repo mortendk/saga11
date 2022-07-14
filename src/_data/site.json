@@ -1,7 +1,7 @@
 {
-  "color": "#000000",
+  "color": "#a02b2b",
   "opengraph": "/assets/site/quuen.jpeg",
-  "keywords": "",
+  "keywords": "foo, bar ,baz",
   "url": "https://saga.thememachine.dev",
   "authoremail": "morten@thememachine.io",
   "generator": "11ty",

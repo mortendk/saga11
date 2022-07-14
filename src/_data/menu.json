@@ -9,6 +9,15 @@
       "title": "Contact",
       "url": "/contact",
       "text": "Contact"
+    },
+    {
+      "title": "page",
+      "url": "/page",
+      "text": "Page"
+    },
+    {
+      "url": "/section-page",
+      "title": "section"
     }
   ]
 }

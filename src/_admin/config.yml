@@ -41,7 +41,7 @@ collections:
     folder: "src/content/post"
     nested:
       depth: 100 # max depth to show in the collection tree
-      summary: '{{title}}'
+      summary: "{{title}}"
     # folder/index creates a folder structure
     slug: "{{year}}-{{month}}/{{title}}/index"
     #preview_path must match the settings from post.json permalink
@@ -52,7 +52,7 @@ collections:
       preview: true
     # Overview
 
-    sortable_fields: ['eleventyExcludeFromCollections', 'title', 'date']
+    sortable_fields: ["eleventyExcludeFromCollections", "title", "date"]
     # SESSION FILTERS
     view_filters:
       - label: Drafts
@@ -81,16 +81,21 @@ collections:
         name: "gallery"
         widget: "list"
         collapsed: true
-        summary: 'Image {{fields.image.fields.image}}'
+        summary: "Image {{fields.image.fields.image}}"
         fields:
           - label: image
             name: image
             widget: object
-            summary: '{{fields.image}}: {{fields.title}}'
+            summary: "{{fields.image}}: {{fields.title}}"
             fields:
-              - {label: image, name: image, widget: image }
-              - {label: title, name: title, widget: string, required: false}
-              - {label: Description, name: figcaption, widget: text, required: false}
+              - { label: image, name: image, widget: image }
+              - { label: title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: figcaption,
+                  widget: text,
+                  required: false,
+                }
 
       # Tags
       - name: tags
@@ -110,7 +115,11 @@ collections:
         collection: posttemplates
         searchFields: [saga-template-name]
         valueField: "post/{{filename}}.{{extension}}"
-        displayFields: ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
+        displayFields:
+          [
+            "saga-template-name",
+            " (File: templates/post/{{filename}}.{{extension}})",
+          ]
         default: "post/post.njk"
         required: true
 
@@ -123,8 +132,21 @@ collections:
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: false
 
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false, hint: "is this a draft ?" }
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          required: false,
+          default="100",
+        }
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+          hint: "is this a draft ?",
+        }
 
       # Author
       - name: author
@@ -136,7 +158,6 @@ collections:
         display_fields: ["title"]
         required: false
 
-
   # -----------------------------------------------------------------
   # Collection Pages
   # -----------------------------------------------------------------
@@ -146,19 +167,19 @@ collections:
     folder: "src/content/page"
     nested:
       depth: 100 # max depth to show in the collection tree
-      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
+      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
     create: true
     delete: true
     slug: "{{url}}/index"
     preview_path: /{{url}}/
-    media_folder: ''
-    public_folder: ''
+    # media_folder: ''
+    # public_folder: ''
     editor:
       preview: true
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "url", name: "url", widget: "string"}
+      - { label: "url", name: "url", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
@@ -168,17 +189,21 @@ collections:
         name: "gallery"
         widget: "list"
         collapsed: true
-        summary: 'Image {{fields.image.fields.image}}'
+        summary: "Image {{fields.image.fields.image}}"
         fields:
           - label: image
             name: image
             widget: object
-            summary: '{{fields.image}}: {{fields.title}}'
+            summary: "{{fields.image}}: {{fields.title}}"
             fields:
-              - {label: image, name: image, widget: image, choose_url: false, }
-              - {label: title, name: title, widget: string, required: false}
-              - {label: Description, name: figcaption, widget: text, required: false}
-
+              - { label: image, name: image, widget: image, choose_url: false }
+              - { label: title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: figcaption,
+                  widget: text,
+                  required: false,
+                }
 
       # Tags
       - name: tags
@@ -209,14 +234,30 @@ collections:
         collection: pagetemplates
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
-        displayFields: ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
+        displayFields:
+          [
+            "saga-template-name",
+            " (File: templates/page/{{filename}}.{{extension}})",
+          ]
         required: false
         default: "page/page.njk"
 
       # 11ty settings
       # - { label: "url", name: slugcustom,  required: true }
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - { label: "Draft Mode", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false}
+      - {
+          label: "Order",
+          name: "order",
+          widget: "number",
+          required: false,
+          default="100",
+        }
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
 
   # -----------------------------------------------------------------
   # Default pages
@@ -228,7 +269,7 @@ collections:
         name: "frontpage"
         file: "src/content/index.md"
         fields:
-          - { label: Title, name: title, widget: string}
+          - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
 
@@ -237,7 +278,7 @@ collections:
         preview_path: /success
         file: "src/content/success.md"
         fields:
-          - { label: Title, name: title, widget: string}
+          - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
 
@@ -311,27 +352,96 @@ collections:
         name: "sitesettings"
         file: "src/_data/site.json"
         fields:
-          - { label: title, name: title, widget: string}
-          - { label: url, name: url, widget: string}
-          - { label: description, name: description, widget: text,  required: false }
-          - { label: keywords, name: keywords, widget: text,  required: false }
-          - { label: footer, name: footer, widget: markdown,  required: false }
-          - { label: Author (rss), name: authorname, widget: string,  required: false, hint: "Feed Author name" }
-          - { label: Aurthor Email (rss), name: authoremail, widget: string,  required: false, hint: "Feed Author name" }
-          - { label: browesercolor, name: color, widget: color,  required: false }
-          - { label: Generator, name: generator, widget: string,  required: false }
+          - { label: title, name: title, widget: string }
+          - { label: url, name: url, widget: string }
+          - {
+              label: description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - { label: keywords, name: keywords, widget: text, required: false }
+          - { label: footer, name: footer, widget: markdown, required: false }
+          - {
+              label: Author (rss),
+              name: authorname,
+              widget: string,
+              required: false,
+              hint: "Feed Author name",
+            }
+          - {
+              label: Aurthor Email (rss),
+              name: authoremail,
+              widget: string,
+              required: false,
+              hint: "Feed Author name",
+            }
+          - {
+              label: browesercolor,
+              name: color,
+              widget: color,
+              required: false,
+            }
+          - {
+              label: Generator,
+              name: generator,
+              widget: string,
+              required: false,
+            }
 
       - label: "Social Network links"
         name: "some"
         file: "src/_data/some.json"
         fields:
-          - { label: facebook, name: facebook, widget: string,  required: false, hint: "https://www.facebook.com/..."  }
-          - { label: twitter, name: twitter, widget: string,  required: false, hint: "https://www.twitter.com/..."  }
-          - { label: linkedin, name: linkedin, widget: string,  required: false, hint: "https://www.linkedin.com/in/..."  }
-          - { label: instagram, name: instagram, widget: string,  required: false, hint: "https://www.instagram.com/..."  }
-          - { label: github, name: github, widget: string,  required: false, hint: "https://github.com/..." }
-          - { label: webmention, name: webmention, widget: string,  required: false,hint: "name" }
-          - { label: dribble, name: dribble, widget: string,  required: false, hint: "https://dribbble.com/..."  }
+          - {
+              label: facebook,
+              name: facebook,
+              widget: string,
+              required: false,
+              hint: "https://www.facebook.com/...",
+            }
+          - {
+              label: twitter,
+              name: twitter,
+              widget: string,
+              required: false,
+              hint: "https://www.twitter.com/...",
+            }
+          - {
+              label: linkedin,
+              name: linkedin,
+              widget: string,
+              required: false,
+              hint: "https://www.linkedin.com/in/...",
+            }
+          - {
+              label: instagram,
+              name: instagram,
+              widget: string,
+              required: false,
+              hint: "https://www.instagram.com/...",
+            }
+          - {
+              label: github,
+              name: github,
+              widget: string,
+              required: false,
+              hint: "https://github.com/...",
+            }
+          - {
+              label: webmention,
+              name: webmention,
+              widget: string,
+              required: false,
+              hint: "name",
+            }
+          - {
+              label: dribble,
+              name: dribble,
+              widget: string,
+              required: false,
+              hint: "https://dribbble.com/...",
+            }
 
       - label: "Menu"
         name: "menu"
@@ -342,6 +452,6 @@ collections:
             widget: list
             collapsed: false
             fields:
-              - {label: title, name: title, widget: string}
-              - {label: url, name: url, widget: string, hint: "Relative url"}
-              - {label: text, name: text, widget: string, required: false}
+              - { label: title, name: title, widget: string }
+              - { label: url, name: url, widget: string, hint: "Relative url" }
+              - { label: text, name: text, widget: string, required: false }

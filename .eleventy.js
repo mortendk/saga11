@@ -11,7 +11,13 @@ const slugify = require("slugify");
 const Image = require("@11ty/eleventy-img");
 
 // Image shortcode
-async function pictureShortcode(img, width=[300,600,1200], sizes="(min-width: 30em) 50vw, 100vw", alt="image", css ) {
+async function pictureShortcode(
+  img,
+  width = [300, 600, 1200],
+  sizes = "(min-width: 30em) 50vw, 100vw",
+  alt = "image",
+  css
+) {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: width,
@@ -24,7 +30,7 @@ async function pictureShortcode(img, width=[300,600,1200], sizes="(min-width: 30
       const name = path.basename(src, extension);
 
       return `${name}-${width}w.${format}`;
-    }
+    },
   });
 
   let imageAttributes = {
@@ -40,7 +46,7 @@ async function pictureShortcode(img, width=[300,600,1200], sizes="(min-width: 30
 }
 
 // img shortcode takes width as a variable
-async function imageShortcode(img, width="400", alt="image", css) {
+async function imageShortcode(img, width = "400", alt = "image", css) {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: [width],
@@ -99,12 +105,16 @@ module.exports = function (eleventyConfig) {
 
   // Date Filters
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('dateFormat', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy hh:mm - cccc');
+  eleventyConfig.addFilter("dateFormat", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+      "d LLLL yyyy hh:mm - cccc"
+    );
   });
 
-  eleventyConfig.addFilter('monthDayYear', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('d LLLL yyyy');
+  eleventyConfig.addFilter("monthDayYear", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+      "d LLLL yyyy"
+    );
   });
 
   // Slug filter
@@ -112,7 +122,7 @@ module.exports = function (eleventyConfig) {
     return slugify(str, {
       lower: true,
       replacement: "-",
-      remove: /[*+~.·,()'"`´%!?¿:@]/g
+      remove: /[*+~.·,()'"`´%!?¿:@]/g,
     });
   });
 
@@ -121,7 +131,7 @@ module.exports = function (eleventyConfig) {
   // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
   // Credits https://github.com/11ty/eleventy/discussions/1848
   eleventyConfig.addFilter("getPage", (arr, url) => {
-    return arr.filter(item => item.url == url);
+    return arr.filter((item) => item.url == url);
   });
 
   // -----------------------------------------------------------------
@@ -131,39 +141,31 @@ module.exports = function (eleventyConfig) {
   // {% for item in collections.COLLECTION %}
 
   // Creates custom collection "post"
-  eleventyConfig.addCollection("allPosts", function(collection) {
-     return collection.getFilteredByGlob("./src/content/post/*.md");
+  eleventyConfig.addCollection("allPosts", function (collection) {
+    return collection.getFilteredByGlob("./src/content/post/**/*.md");
   });
 
   // Creates custom collection "page"
-  eleventyConfig.addCollection("allPages", function(collection) {
-    return collection.getFilteredByGlob("./src/content/page/*.md");
- });
-
-  // Creates custom collection "section"
-  eleventyConfig.addCollection("allSections", function(collection) {
-    return collection.getFilteredByGlob("./src/content/section/*.md");
- });
-
-  // Recent post
-  eleventyConfig.addCollection("recentPosts", function(collection) {
-    return collection.getAllSorted().reverse().slice(0, 5);
+  eleventyConfig.addCollection("allPages", function (collection) {
+    return collection.getFilteredByGlob("./src/content/page/**/*.md");
   });
 
   // TAGS
   // Grapped from https://github.com/11ty/eleventy-base-blog
   function filterTagList(tags) {
     // Filtes that are used by the system that we dont want in our collections
-    return (tags || []).filter(tag => ["navigation", "relation"].indexOf(tag) === -1);
+    return (tags || []).filter(
+      (tag) => ["navigation", "relation"].indexOf(tag) === -1
+    );
   }
 
-  eleventyConfig.addFilter("filterTagList", filterTagList)
+  eleventyConfig.addFilter("filterTagList", filterTagList);
 
   // Create an array of all tags
-  eleventyConfig.addCollection("tagList", function(collection) {
+  eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
-    collection.getAll().forEach(item => {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag));
+    collection.getAll().forEach((item) => {
+      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
     });
 
     return filterTagList([...tagSet]);
@@ -174,26 +176,25 @@ module.exports = function (eleventyConfig) {
     // Open browser by default
     open: true,
     callbacks: {
-      ready: function(err, bs) {
-
+      ready: function (err, bs) {
         bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync('_site/404.html');
+          const content_404 = fs.readFileSync("_site/404.html");
           // Add 404 http status code in request header.
           res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
           // Provides the 404 content without redirect.
           res.write(content_404);
           res.end();
         });
-      }
-    }
+      },
+    },
   });
 
   // -----------------------------------------------------------------
   // Directory setup
   return {
-    markdownTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
+    markdownTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
     dir: {
       input: "src/",
       output: "_site",
@@ -201,5 +202,4 @@ module.exports = function (eleventyConfig) {
       data: "_data",
     },
   };
-
 };
