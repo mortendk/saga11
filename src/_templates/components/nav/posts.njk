@@ -1,5 +1,6 @@
 {# list all post  #}
 <nav>
+  {# TODO: can we sort this by date order not created order ? #}
 {% for item in collections.allPosts %}
   <div class="border-b border-slate-200 mb-4">
   {% if item.url in page.url -%}

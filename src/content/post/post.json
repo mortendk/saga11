@@ -1,6 +1,6 @@
 {
   "layout": "post/post.njk",
-  "permalink": "/{{ title | slug }}-{{ page.date | yearmonth }}/",
+  "permalink": "/{{ title | slugify }}-{{ page.date | yearmonth }}/",
   "date-updated": "Last Modified",
   "date-created": "Created"
 }

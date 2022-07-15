@@ -1,5 +1,5 @@
 ---
-title: "Thanks "
-image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
+title: Huginn and Muninn
+image: /images/cristina-glebova-gko-x1mhar4-unsplash.jpg
 ---
-Thanks form have been fired off
+Huginn and Muninn is on the way

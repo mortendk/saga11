@@ -206,9 +206,9 @@ collections:
         required: false
         multiple: true
 
-      # section
-      - name: section
-        label: section
+      # collection
+      - name: collection
+        label: collection
         widget: relation
         collection: tags
         searchFields: [title]
@@ -263,9 +263,9 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
-          # section
-          - name: section
-            label: section
+          # collection
+          - name: collection
+            label: collection
             widget: relation
             collection: tags
             searchFields: [title]

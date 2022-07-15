@@ -2,8 +2,9 @@
 title: "Sage Frontpage "
 layout: page/frontpage.njk
 permalink: /
-image: /images/veeterzy-sMQiL_2v4vs-unsplash.jpg
+image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
 section: frontpage
+collection: collection
 ---
 
 # This is the frontpage body field

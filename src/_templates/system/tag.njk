@@ -14,14 +14,18 @@ saga-template-name: Tag
 <section class="grid grid-cols-3 gap-2">
 {% for item in collections[ tag ]  %}
   <article class="p-2 shadow border m-1">
-    <a href="{{ item.url | url }}" class="text-xl font-bold">{{ item.data.title }}</a>
-    <img src="{{ item.data.image }}" alt="">
+    <a href="{{ item.url | url }}" class="text-xl font-bold">{{ item.data.title }}
+      {# TODO:: resize image #}
+      <img src="{{ item.data.image }}" alt="">
+    </a>
     <p class="mt-2">{{ item.data.teaser }}</p>
 </article>
 {% endfor %}
 
 
 </section>
+
+
 
 
 {% include "components/nav/tags.njk" %}

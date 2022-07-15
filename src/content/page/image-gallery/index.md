@@ -1,7 +1,7 @@
 ---
 title: image galllery
 url: image gallery
-image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
+image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
 gallery:
   - image:
       image: /images/veeterzy-sMQiL_2v4vs-unsplash.jpg
@@ -20,5 +20,6 @@ gallery:
 tags:
   - frontpage
 layout: page/page.njk
+order: 20
 eleventyExcludeFromCollections: false
 ---

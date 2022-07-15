@@ -18,7 +18,7 @@
     <div class="flex space-x-4">
 
       {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
-
+      {# TODO:: Add a controller for each page to add it to the menu #}
       {% for item in collections.allPages | sortByOrder %}
         {% if item.url in page.url -%}
         <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{item.data.title}}</a> <br>

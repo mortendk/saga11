@@ -1,11 +1,12 @@
 ---
-title: Green Section
-url: green section long name
-image: ""
-teaser: Welcome to the green section
+section: collection
+title: Section page
+url: section page
+image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
+teaser: "This is a demo of the simple section / collection "
 tags:
   - frontpage
-section: green
+collection: collection
 layout: page/page.njk
 order: 10
 eleventyExcludeFromCollections: false

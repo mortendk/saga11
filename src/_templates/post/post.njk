@@ -9,13 +9,7 @@ saga-template-name: Post Default
     <h1 class="text-5xl">{{ title }}</h1>
 
     {# image #}
-    {% if image %}
-      {% set alt = "Image of" %}
-      {% set css = "shadow-lg" %}
-      {% set width = [200,400,400] %}
-      {% set sizes = "(min-width: 30em) 50vw, 100vw"%}
-      {# {% createPicture image, width, sizes,  alt, css %} #}
-    {% endif %}
+    {% include "components/image.njk" %}
 
     <p class="text-xl my-4">
       {{ teaser | safe }}

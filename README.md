@@ -81,12 +81,12 @@ https://alpinejs.dev/
 ## RSS feed
 
 Rss feed is generated with ...
-todo:
+TODO::
 
 ## Favicon
 
 favicon is in ...
-todo:
+TODO::
 
 # content template
 

@@ -1,6 +1,6 @@
 {# List of all tags  #}
 <section>
-{% for tag in collections.tagList %}
+{% for tag in collections.tagList | sortByOrder  %}
 <nav>
   {% for item in collections.all |  getPage("/tags/" + tag + "/" ) %}
 

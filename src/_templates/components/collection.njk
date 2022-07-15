@@ -1,0 +1,17 @@
+{# collection  #}
+{% if collection %}
+<h2 class="text-2xl mt-4">collection</h2>
+<collection class="grid grid-cols-3">
+
+  {% for item in collections[ collection ] | sortByOrder %}
+    <article class="p-2 shadow border m-1">
+      <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
+      {# TODO:: create an responsive image snippet #}
+      <img src="{{ item.data.image }}" alt="image for {{item.data.title}}" class="">
+      </a>
+      <p class="mt-2">{{ item.data.teaser }}</p>
+    </article>
+  {% endfor %}
+
+</collection>
+{% endif %}
