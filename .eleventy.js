@@ -50,13 +50,13 @@ async function imageShortcode(img, width = "400", alt = "image", css) {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: [width],
-    formats: ["jpeg"],
+    formats: ["jpeg", "png"],
     outputDir: "_site/img/", // we push this image directly to the site build
     urlPath: "/img/",
   });
-
+  // item.data.image
   let data = metadata.jpeg[metadata.jpeg.length - 1];
-  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" css="${css}" loading="lazy" decoding="async">`;
+  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" class="${css}" loading="lazy" decoding="async">`;
 }
 
 module.exports = function (eleventyConfig) {

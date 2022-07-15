@@ -3,9 +3,9 @@ layout: layout/default.njk
 saga-template-name: Posts list
 ---
 
-<h1 class="text-5xl my-8">{{ title }} </h1>
+<h1 class="text-5xl">{{ title }} </h1>
 
-<section class="grid grid-cols-3 gap-4">
+<section class="grid grid-cols-3 gap-4 mt-4">
 {# collection all post #}
   {% for item in collections.allPosts  %}
     <article class="p-2 shadow border m-1">
