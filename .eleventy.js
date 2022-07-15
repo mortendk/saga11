@@ -163,7 +163,8 @@ module.exports = function (eleventyConfig) {
   function filterTagList(tags) {
     // Filtes that are used by the system that we dont want in our collections
     return (tags || []).filter(
-      (tag) => ["navigation", "relation", "frontpage"].indexOf(tag) === -1
+      (tag) =>
+        ["navigation", "menu", "relation", "frontpage"].indexOf(tag) === -1
     );
   }
 

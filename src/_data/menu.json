@@ -1,14 +1,9 @@
 {
   "main": [
     {
-      "title": "page",
-      "url": "/page",
-      "text": "Page"
-    },
-    {
-      "title": "Contact",
-      "url": "/contact",
-      "text": "Contact"
+      "title": "11ty",
+      "url": "https://www.11ty.dev/",
+      "text": "11ty Documentation"
     }
   ]
 }

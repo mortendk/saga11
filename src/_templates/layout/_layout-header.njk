@@ -3,8 +3,7 @@
 
 <div class="pagewidth flex flex-row h-full">
 
-
-  {# site title + icon if have  #}
+  {# site title + TODO: icon if have one #}
   <a href="/" title="{{site.title}}" class="flex items-center  border-b-4 border-transparent mr-4">
     {{ site.title}}
     <span class="sr-only">{{site.title}}</span>
@@ -13,19 +12,26 @@
 
 <nav class="js-menu hidden md:block h-full">
   <div class="flex justify-between h-full">
-    {# h-20  #}
+
 
     <div class="flex space-x-4">
-
       {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
-      {# TODO:: Add a controller for each page to add it to the menu #}
-      {% for item in collections.allPages | sortByOrder %}
+      {# TODO: Add a controller for each page to add it to the menu add tag to selector#}
+      {% for item in collections.menu | sortByOrder %}
         {% if item.url in page.url -%}
-        <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{item.data.title}}</a> <br>
+          <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{item.data.title}}</a> <br>
         {% else %}
-        <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{item.data.title}}</a> <br>
+          <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{item.data.title}}</a> <br>
         {% endif %}
+      {% endfor %}
 
+      {# Graps the menu from the settings config (set in _data/menu.json) #}
+      {% for item in menu.main %}
+        {% if item.url in page.url -%}
+          <a href="{{ item.url }}" class="{{ menuclasses }} border-red-400" title="{{ item.text}}">{{ item.title }}</a>
+        {% else %}
+          <a href="{{ item.url }}" class="{{ menuclasses }} border-transparent"  title="{{ item.text}}">{{ item.title }}</a>
+        {% endif %}
       {% endfor %}
 
 
@@ -34,8 +40,8 @@
 </nav>
 
 
-{# Toggle menu #}
-
+  {# Toggle menu #}
+  {# TODO: fix mobile menu #}
   <button class="js-menu-toggle mr-4">
 
     <div class="">

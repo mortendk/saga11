@@ -7,6 +7,11 @@
   action="/success/"
   x-data="{ email: ''}"
 >
+
+<label for="first-name" class="block">Name:</label>
+<input type="text" name="first-name" id="first-name" placeholder="First Name" class="form-input rounded" required />
+
+
 {# action points to the  #}
   <div class="flex flex-col">
     <label for="first-name">First name: *</label>
@@ -31,8 +36,9 @@
               }"
       required />
   </div>
-<label for="text">text</label><br>
-<textarea name="" id="" cols="30" rows="10"></textarea>
+
+<label for="text">text</label>
+<textarea name="message" id="" cols="30" rows="10" class="form-textarea"></textarea>
 
   {#  <div data-netlify-recaptcha="true"></div> #}
   <div class="hidden">

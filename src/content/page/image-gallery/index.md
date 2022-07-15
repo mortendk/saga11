@@ -19,6 +19,7 @@ gallery:
       image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
 tags:
   - frontpage
+  - menu
 layout: page/page.njk
 order: 20
 eleventyExcludeFromCollections: false
