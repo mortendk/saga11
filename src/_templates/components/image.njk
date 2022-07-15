@@ -1,0 +1,6 @@
+{% if image %}
+  {% set alt = "Image of " + image  %}
+  {% set width = "600" %}
+  {% set css = "border-4 border-red-400" %}
+  {% createImage image, width, alt, css %}
+{% endif %}

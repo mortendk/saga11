@@ -1,23 +1,14 @@
 {
   "main": [
     {
-      "title": "Home",
-      "url": "/index.html",
-      "text": "Home"
-    },
-    {
-      "title": "Contact",
-      "url": "/contact",
-      "text": "Contact"
-    },
-    {
       "title": "page",
       "url": "/page",
       "text": "Page"
     },
     {
-      "url": "/section-page",
-      "title": "section"
+      "title": "Contact",
+      "url": "/contact",
+      "text": "Contact"
     }
   ]
 }

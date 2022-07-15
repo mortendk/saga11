@@ -8,7 +8,7 @@
   }
 
   a {
-    @apply underline text-red-600;
+    @apply text-red-600;
   }
   h1 {
   }

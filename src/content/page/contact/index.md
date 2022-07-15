@@ -1,9 +1,10 @@
 ---
 title: contact
 url: contact
-image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
-tags:
-  - test
+image: ""
+tags: []
+section: ""
 layout: page/contact.njk
+order: 100
 eleventyExcludeFromCollections: false
 ---

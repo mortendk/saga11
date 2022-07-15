@@ -126,6 +126,13 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  //filter for nice urls
+  eleventyConfig.addFilter("yearmonth", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+      "yyyy-LLLL-d"
+    );
+  });
+
   // Get page filter
   // Get the data from another markdown file
   // {% for item in collections.all |  getpage("/tags/" + tag + "/" ) %}
@@ -156,7 +163,7 @@ module.exports = function (eleventyConfig) {
   function filterTagList(tags) {
     // Filtes that are used by the system that we dont want in our collections
     return (tags || []).filter(
-      (tag) => ["navigation", "relation"].indexOf(tag) === -1
+      (tag) => ["navigation", "relation", "frontpage"].indexOf(tag) === -1
     );
   }
 

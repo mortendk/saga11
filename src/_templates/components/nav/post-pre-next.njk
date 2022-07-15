@@ -1,0 +1,24 @@
+{%- if collections.allPosts %}
+<nav class="flex flex-row justify-between w-full">
+  {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
+  {%- set previousPost = collections.allPosts | getPreviousCollectionItem(page) %}
+  {%- if nextPost or previousPost %}
+  {# previous #}
+  {%- if previousPost %}
+    <a href="{{ previousPost.url | url }}" title="{{ previousPost.data.title }}" class="flex flex-row items-center w-full">
+      <div class="w-8 text-black">{% include "components/svg/left.njk" %}</div>
+      <div>{{ previousPost.data.title }}</div>
+    </a>
+  {% endif %}
+  {# Next #}
+  {%- if nextPost %}
+    <a href="{{ nextPost.url | url }}" title="{{ nextPost.data.title }}" class="flex flex-row items-center justify-end w-full">
+      <div>{{ nextPost.data.title }}</div>
+      <div class="w-8 text-black">{% include "components/svg/right.njk" %}</div>
+   </a>
+  {% endif %}
+  {# /if pre of next #}
+  {%- endif %}
+</nav>
+{%- endif %}
+

@@ -3,52 +3,25 @@ layout: layout/default.njk
 saga-template-name: Frontpage
 ---
 
-<h1 class="text-4xl">{{title}}</h1>
-
-<section class="grid grid-cols-2">
-<div class=" ">
-{% if image %}
-  {% set alt = "Image of " + image  %}
-  {% set width = "600" %}
-  {% set css = "border-4 border-red-400" %}
-  {% createImage image, width, alt, css %}
-{% endif %}
+{# Default data #}
+{% include "components/image.njk" %}
+<h1 class="text-5xl">{{title}}</h1>
+<div class="my-4">
+  {{ content | safe}}
 </div>
 
-<article class="">
-  {{ content | safe}}
-</article>
-</section>
+{# Section is set as a  {{ section }} #}
 
-{# .test is the tag name  #}
-<h2>tagged with test</h2>
-{%- for item in collections.test -%}
-- <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
-{%- endfor -%}
-
-foo
-<ul>
-  {% for item in collections.all |  getPage("/tag/" + tag + "/" ) %}
-  <li>
-    {% if tag in page.url -%}
-      <a href="/tag/{{ tag }}" class="block font-bold"> {{ item.data.title}}</a>
-    {% else %}
-      <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
-
+{% include "components/section.njk" %}
 
 
 
 <div class="grid grid-cols-3">
+  {% include "components/nav/pages.njk" %}
 
-{% include "components/nav/pages.njk" %}
+  {% include "components/nav/tags.njk" %}
 
-{% include "components/nav/tags.njk" %}
-
-{% include "components/nav/posts.njk" %}
+  {% include "components/nav/posts.njk" %}
 
 </div>
 

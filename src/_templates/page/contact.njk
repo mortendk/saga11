@@ -3,15 +3,11 @@ layout: page/page.njk
 saga-template-name: Contact page
 ---
 
-{# image #}
-{% if image %}
-<img src="src/" + image" alt="Image of {{ title }} " css="border-4 border-red-400">
-{% endif %}
+<p class="text-xl">{{ teaser }}</p>
 
-
-<div class="prose lg:prose-xl">
-  {{ content | safe }}
-</div>
+<p class="">
+  {{ content | safe}}
+</p>
 
 
 {% include "components/contactform.njk" %}

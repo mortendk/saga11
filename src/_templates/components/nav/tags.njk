@@ -1,23 +1,18 @@
 {# List of all tags  #}
-tag list
 <section>
-
 {% for tag in collections.tagList %}
 <nav>
-<ul>
-
   {% for item in collections.all |  getPage("/tags/" + tag + "/" ) %}
-  <li>
+
     {% if tag in page.url -%}
       <a href="/tag/{{ tag }}" class="block font-bold"> {{ item.data.title}}</a>
     {% else %}
       <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
     {% endif %}
-  </li>
+
   {% endfor %}
-</ul>
 </nav>
 {% endfor %}
 
-
 </section>
+

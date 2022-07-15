@@ -1,6 +1,14 @@
-<div>
-  <h3>pages</h3>
-  {% for item in collections.allPages | sortByOrder %}
-    <a href="{{ item.url }}" title="opens {{ item.url }}">{{item.data.title}}</a> <br>
-  {% endfor %}
-</div>
+
+<nav>
+{% for item in collections.allPages | sortByOrder %}
+  <div class="border-b border-slate-200 mb-4">
+  {% if item.url in page.url -%}
+    <a href="{{ item.url }}" title="{{item.data.title}}" class="block font-bold">
+      {{item.data.title}}
+    </a>
+  {% else %}
+   <a href="{{ item.url }}" title="{{item.data.title}}" class="block ">{{item.data.title}}</a>
+  {% endif %}
+  </div>
+{% endfor %}
+</nav>

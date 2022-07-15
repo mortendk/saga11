@@ -2,33 +2,26 @@
 layout: layout/default.njk
 saga-template-name: Tag
 ---
-
 {% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
-  <h2 class="font-bold text-3xl">{{ item.data.title }}</h2>
-  <article>
-    <img src="{{ item.data.image }}" alt="" class="w-20">
-    {{item.templateContent | safe}}
-  </article>
+<article>
+  <h1 class="text-5xl">{{ item.data.title }}</h1>
+  <img src="{{ item.data.image }}" alt="" class="w-20">
+  {{item.templateContent | safe}}
+</article>
 {% endfor %}
 
 
+<section class="grid grid-cols-3 gap-2">
+{% for item in collections[ tag ]  %}
+  <article class="p-2 shadow border m-1">
+    <a href="{{ item.url | url }}" class="text-xl font-bold">{{ item.data.title }}</a>
+    <img src="{{ item.data.image }}" alt="">
+    <p class="mt-2">{{ item.data.teaser }}</p>
+</article>
+{% endfor %}
 
 
-
-<h3 class="text-xl">Content with this {{ tag }} </h3>
-<section>
-  <nav>
-    <ul>
-    {% for item in collections[ tag ]  %}
-      <li>
-        <a href="{{ item.url | url }}">{{ item.data.title }}</a>
-      </li>
-    {% endfor %}
-    </ul>
-  </nav>
 </section>
 
-
-All tags:
 
 {% include "components/nav/tags.njk" %}

@@ -21,7 +21,7 @@ logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
 display_url: http://localhost:8080
 media_folder: "src/images"
 public_folder: "/images"
-show_preview_links: true
+show_preview_links: false
 search: true
 # publish_mode: editorial_workflow
 
@@ -216,6 +216,7 @@ collections:
         display_fields: ["title"]
         required: false
         multiple: false
+        hint: "This will select a tag and print teasers on the page"
 
       # Layout selector
       - name: "layout"
@@ -262,6 +263,17 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
+          # section
+          - name: section
+            label: section
+            widget: relation
+            collection: tags
+            searchFields: [title]
+            valueField: "{{slug}}"
+            display_fields: ["title"]
+            required: false
+            multiple: false
+            hint: "This will select a tag and print teasers on the page"
 
       - label: "Form Success"
         name: "contactsuccess"

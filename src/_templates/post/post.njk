@@ -3,77 +3,55 @@ layout: layout/default.njk
 saga-template-name: Post Default
 ---
 
+<article class="flex flex-col md:flex-row ">
+  <div class="md:w-2/3 ">
+    {# main content #}
+    <h1 class="text-5xl">{{ title }}</h1>
 
-{{ title }}
+    {# image #}
+    {% if image %}
+      {% set alt = "Image of" %}
+      {% set css = "shadow-lg" %}
+      {% set width = [200,400,400] %}
+      {% set sizes = "(min-width: 30em) 50vw, 100vw"%}
+      {% createPicture image, width, sizes,  alt, css %}
+    {% endif %}
 
-<footer>
+    <p class="text-xl my-4">
+      {{ teaser | safe }}
+    </p>
 
-  {# Tags #}
-  <div>
-  tags:
-  {%- for tag in tags | filterTagList -%}
-    {# grap the markdown files and loop through them #}
-    {% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
-      <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
-    {% endfor %}
-  {% endfor %}
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+
+    {% include "components/gallery.njk" %}
+
+    {% include "components/nav/post-pre-next.njk" %}
+
   </div>
+  <div class="md:w-1/3 md:ml-4">
 
-  {% if date %}
-    <time>{{ date | monthDayYear }}</time>
-  {% endif %}
+    <footer class="mb-4">
+    {%- for tag in tags | filterTagList -%}
+      {# grap the markdown files and loop through them #}
+      {% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
+        <a href="/tag/{{ tag }}">{{ item.data.title}}</a>
+      {% endfor %}
+      {# divider #}
+      {% if not loop.last %} | {% endif %}
+    {% endfor %}
 
-</footer>
-
-<div>
-  {{ content | safe }}
-</div>
-
-{# image gallery #}
-{# {% for item in gallery %}
-<figure>
-  {% set img =  "src/" + item.image.image  %}
-  {% imageResize img, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
-  <figcaption>{{ item.image.figcaption | safe }}</figcaption>
-</figure>
-{% endfor %} #}
-
-
-{% if image %}
-  {% set alt = "Image of" %}
-  {% set css = "border-4 border-red-400" %}
-  {% set width = [200,400,400] %}
-  {% set sizes = "(min-width: 30em) 50vw, 100vw"%}
-  {% createPicture image, width, sizes,  alt, css %}
-
-  {% createPicture image %}
-{% endif %}
-
-
-{# Previous and next post #}
-
-<nav class="">
-{%- if collections.allPosts %}
-  {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
-  {%- set previousPost = collections.allPosts | getPreviousCollectionItem(page) %}
-  {%- if nextPost or previousPost %}
-
-    {%- if previousPost %}
-      Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a>
+    {% if date %}
+      <time>{{ date | monthDayYear }}</time>
     {% endif %}
+  </footer>
 
-    {%- if nextPost %}
-      Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a>
-    {% endif %}
 
-  {%- endif %}
-{%- endif %}
-</nav>
+    {% include "components/nav/posts.njk" %}
+    <h2 class="mt-4">Tag cloud</h2>
+    {% include "components/nav/tags.njk" %}
+  </div>
+</article>
 
-<div class="bg-blue-100">
-<div class="text-2xl">All post</div>
-{% for item in collections.allPosts %}
-  {% if item.url in page.url %} ! {%- endif %}
-   - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a> <br>
-{% endfor %}
-</div>
+
