@@ -1,18 +1,21 @@
-<header role="banner" class="">
 
-<nav class="bg-white shadow fixed w-full">
-  <div class="flex h-20 justify-between pagewidth">
+<header role="banner" class="js-header bg-white shadow fixed w-full bg-white h-20 transition ease-in-out duration-300 ">
+
+<div class="pagewidth flex flex-row h-full">
+
+
+  {# site title + icon if have  #}
+  <a href="/" title="{{site.title}}" class="flex items-center  border-b-4 border-transparent mr-4">
+    {{ site.title}}
+    <span class="sr-only">{{site.title}}</span>
+  </a>
+
+
+<nav class="js-menu hidden md:block h-full">
+  <div class="flex justify-between h-full">
+    {# h-20  #}
 
     <div class="flex space-x-4">
-      <div class="flex items-center">
-
-        {# site title #}
-        <a href="/" title="{{site.title}}" class="font-bold uppercase">
-          {{ site.title}}
-          <span class="sr-only">{{site.title}}</span>
-        </a>
-
-      </div>
       {# menu list (set in _data/menu.json)  #}
       {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
       {% for item in menu.main %}
@@ -37,4 +40,20 @@
 </nav>
 
 
+{# Toggle menu #}
+
+  <button class="js-menu-toggle mr-4">
+
+    <div class="">
+      <div class="w-12 h-12 text-red-400">{% include "components/svg/menubars.njk" %}</div>
+    </div>
+
+    <div class="hidden">
+      <div class="w-12 h-12 ">{% include "components/svg/close.njk" %}</div>
+    </div>
+
+  </button>
+
+</div>
 </header>
+

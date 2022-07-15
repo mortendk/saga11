@@ -148,16 +148,6 @@ collections:
           hint: "is this a draft ?",
         }
 
-      # Author
-      - name: author
-        label: Author
-        widget: relation
-        collection: authors
-        searchFields: [name, title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-
   # -----------------------------------------------------------------
   # Collection Pages
   # -----------------------------------------------------------------
@@ -285,20 +275,6 @@ collections:
   # -----------------------------------------------------------------
   # Relations
   # -----------------------------------------------------------------
-  - name: authors
-    label_singular: Author
-    label: "Relation Authors"
-    folder: "src/content/relation-authors"
-    slug: "{{title}}"
-    hide: false
-    create: true
-    required: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { name: name, label: Name, required: false }
-      - { name: twitter, label: "Twitter @", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
 
   - name: tags
     label_singular: tag

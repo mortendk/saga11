@@ -1,9 +1,14 @@
-<footer class="flex flex-col justify-center pagewidth bg-slate-400" role="contentinfo">
+<footer class="flex flex-col justify-center pagewidth" role="contentinfo">
 
   {% include "components/nav/some.njk" %}
 
   <div class="text-gray-800 text-center text-sm mt-8">
     {{ site.footer | markdown | safe }}
+  </div>
+
+  <div class="flex justify-center text-sm text-slate-600">
+    made with
+    <div class="w-3 pt-1 text-yellow-500">{% include "components/svg/lightning.njk" %}</div>
   </div>
 
 </footer>

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "rm -rf _site & eleventy --serve & npm run tw:watch",
-    "admin": "npx netlify-cms-proxy-server & npm run start",
+    "admin": "npx netlify-cms-proxy-server & npm run start && open:admin",
     "clean": "rm -rf _site & rm & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
     "tw:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",

@@ -128,8 +128,9 @@ module.exports = function (eleventyConfig) {
 
   // Get page filter
   // Get the data from another markdown file
-  // {% for item in collections.all |  getpage("/authors/" + author + "/" ) %}
+  // {% for item in collections.all |  getpage("/tags/" + tag + "/" ) %}
   // Credits https://github.com/11ty/eleventy/discussions/1848
+  // Note to self: the url is define in the relations-foo/.json
   eleventyConfig.addFilter("getPage", (arr, url) => {
     return arr.filter((item) => item.url == url);
   });

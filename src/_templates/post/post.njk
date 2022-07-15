@@ -2,35 +2,27 @@
 layout: layout/default.njk
 saga-template-name: Post Default
 ---
+
+
 {{ title }}
 
 <footer>
-  {# Author #}
-  {% if author %}
-    {% for item in collections.all |  getPage("/authors/" + author + "/" ) %}
-      <div class="bg-gray-100">
-        <div>Author : {{ item.data.title}}</div>
-      </div>
+
+  {# Tags #}
+  <div>
+  tags:
+  {%- for tag in tags | filterTagList -%}
+    {# grap the markdown files and loop through them #}
+    {% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
+      <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
     {% endfor %}
-  {% endif %}
-  {# /Author #}
+  {% endfor %}
+  </div>
 
   {% if date %}
     <time>{{ date | monthDayYear }}</time>
   {% endif %}
 
-  {# Tags #}
-  <div>
-    tag:
-  {%- for tag in tags | filterTagList -%}
-  {{tag}}
-    {# grap the markdown files and loop through them #}
-    {% for item in collections.all |  getPage("/tag/" + tag + "/" ) %}
-      <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
-    {% endfor %}
-  {% endfor %}
-  {# /Tags #}
-  </div>
 </footer>
 
 <div>
