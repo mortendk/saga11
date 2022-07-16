@@ -1,11 +1,13 @@
 {
-  "color": "#c3c3c3",
-  "keywords": "",
-  "url": "https://saga.thememachine.dev",
+  "color": "#11c5e4",
+  "opengraph": "/assets/site/quuen.jpeg",
+  "keywords": "netlifycms, flatfilecms",
+  "url": "sagacms.netlify.app",
   "authoremail": "morten@thememachine.io",
   "generator": "11ty",
+  "favicon": "/assets/site/quuen.jpeg",
   "authorname": "mortendk",
-  "title": "Saga",
+  "title": "Saga test site",
   "footer": "Saga powered by 11ty ",
-  "description": "Saga is a simple system for building websites"
+  "description": "Flatfile based cms based on 11ty and netlifycms "
 }

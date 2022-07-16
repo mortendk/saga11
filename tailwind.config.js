@@ -1,25 +1,25 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: [
     // Example content paths...
-    'src/_templates/*.njk',
-    'src/_templates/**/*.njk',
-    'src/**/**/*.njk',
-    'src/assets/js/*.js',
+    "src/_templates/*.njk",
+    "src/_templates/**/*.njk",
+    "src/**/**/*.njk",
+    "src/assets/js/*.js",
   ],
-  safelist: [
-    'text-3xl',
-    'lg:text-4xl',
-  ],
+  darkMode: "class",
+  safelist: [],
   theme: {
     fontFamily: {
-      sans: ['montserrat', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ["montserrat", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+      mono: ["fira", "mono"],
     },
-    extend: {},
+    extend: {
+      fontSize: {},
+      colors: {},
+    },
   },
-  plugins: [
-  ],
-}
-
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+};

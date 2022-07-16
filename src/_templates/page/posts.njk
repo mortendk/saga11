@@ -1,0 +1,20 @@
+---
+layout: layout/default.njk
+saga-template-name: Posts list
+---
+
+<h1 class="text-5xl">{{ title }} </h1>
+
+<section class="grid grid-cols-3 gap-4 mt-4">
+{# collection all post #}
+  {% for item in collections.allPosts  %}
+    <article class="p-2 shadow border m-1">
+      <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
+      {# TODO: create an responsive image snippet #}
+      <img src="{{ item.data.image }}" alt="image for {{item.data.title}}" class="">
+      </a>
+      <p class="mt-2">{{ item.data.teaser }}</p>
+    </article>
+  {% endfor %}
+
+</section>

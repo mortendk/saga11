@@ -2,28 +2,18 @@
 layout: layout/default.njk
 saga-template-name: Frontpage
 ---
-<h1 class="pagewidth">{{title}}</h1>
-Tags:
-{% set tag ="test-er-fedt" %}
-{% for item in collections[ tag ] %}
- - <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a><br>
-{% endfor %}
 
+{# Default data #}
+{% include "components/image.njk" %}
+<h1 class="text-5xl">{{title}}</h1>
+<div class="my-4">
+  {{ content | safe}}
+</div>
 
-{% if image %}
-  {% set alt = "Image of " + image  %}
-  {% set width = "600" %}
-  {% set css = "border-4 border-red-400" %}
-  {% createImage image, width, alt, css %}
-{% endif %}
+{# collection is set as a  {{ collection }} #}
 
-{{ content | safe}}
-
-{% include "components/nav/pages.njk" %}
-
-{% include "components/nav/tags.njk" %}
+{% include "components/collection.njk" %}
 
 {% include "components/nav/posts.njk" %}
 
-{% include "components/nav/posts-new.njk" %}
-
+</div>

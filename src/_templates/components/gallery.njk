@@ -1,0 +1,14 @@
+
+<section class="grid grid-cols-2 gap-2 border-1">
+
+{% for item in gallery %}
+<figure>
+  {% createImage item.image.image, item.image.title, "(min-width: 30em) 50vw, 100vw" %}
+  <figcaption>
+    {{ item.image.title | safe }}
+    <br>
+    {{ item.image.figcaption | safe }}
+  </figcaption>
+</figure>
+{% endfor %}
+</section>

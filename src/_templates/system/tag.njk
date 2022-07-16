@@ -2,29 +2,30 @@
 layout: layout/default.njk
 saga-template-name: Tag
 ---
-
-{# get the data that storesd with the tag in the replation tag file #}
-{% for item in collections.all | getPage("/relation-tag/" + tag + "/" ) %}
-  <h2>{{ item.data.title }}</h2>
-  <article>
-    <img src="{{ item.data.image }}" alt="" class="w-20">
-    {{item.templateContent | safe}}
-  </article>
+{% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
+<article>
+  <h1 class="text-5xl">{{ item.data.title }}</h1>
+  <img src="{{ item.data.image }}" alt="" class="w-20">
+  {{item.templateContent | safe}}
+</article>
 {% endfor %}
 
 
-<section>
-  <h2>Content with this tag</h2>
+<section class="grid grid-cols-3 gap-2">
+{% for item in collections[ tag ]  %}
+  <article class="p-2 shadow border m-1">
+    <a href="{{ item.url | url }}" class="text-xl font-bold">{{ item.data.title }}
+      {# TODO:: resize image #}
+      <img src="{{ item.data.image }}" alt="">
+    </a>
+    <p class="mt-2">{{ item.data.teaser }}</p>
+</article>
+{% endfor %}
 
-  <nav>
-  <ul>
-  {% for item in collections[ tag ]  %}
-    <li>
-    <a href="{{ item.url | url }}">{{ item.data.title }}</a>
-    </li>
-  {% endfor %}
-  </ul>
-  </nav>
+
 </section>
+
+
+
 
 {% include "components/nav/tags.njk" %}

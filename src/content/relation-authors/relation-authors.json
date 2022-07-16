@@ -1,4 +1,0 @@
-{
-  "tags": "relation",
-  "permalink": "/authors/{{ page.fileSlug }}/"
-}

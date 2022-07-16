@@ -1,1 +1,0 @@
-Netlifycms images

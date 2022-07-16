@@ -1,0 +1,75 @@
+@tailwind base;
+
+@layer base {
+  /* basefont */
+
+  html {
+    /* font-family: TT, system-ui, sans-serif; */
+  }
+
+  a {
+    @apply text-red-600;
+  }
+  h1 {
+  }
+
+  h2 {
+  }
+
+  h3 {
+  }
+
+  h4,
+  h5,
+  h6 {
+  }
+
+  p {
+  }
+
+  pre {
+  }
+
+  mark {
+  }
+
+  blockquote {
+  }
+
+  /* list */
+
+  dl {
+  }
+  dt {
+  }
+  dd {
+  }
+  nav ul {
+  }
+
+  /* form  */
+  label {
+  }
+
+  input {
+  }
+
+  input[type="checkbox"] {
+  }
+
+  input[type="radio"] {
+  }
+
+  select {
+  }
+
+  textarea {
+  }
+
+  fieldset {
+  }
+
+  form button,
+  .btn {
+  }
+}
