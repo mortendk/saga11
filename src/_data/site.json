@@ -1,5 +1,5 @@
 {
-  "color": "#a02b2b",
+  "color": "#11c5e4",
   "opengraph": "/assets/site/quuen.jpeg",
   "keywords": "netlifycms, flatfilecms",
   "url": "sagacms.netlify.app",
@@ -7,7 +7,7 @@
   "generator": "11ty",
   "favicon": "/assets/site/quuen.jpeg",
   "authorname": "mortendk",
-  "title": "Saga",
+  "title": "Saga test site",
   "footer": "Saga powered by 11ty ",
-  "description": "Flatfile based cms"
+  "description": "Flatfile based cms based on 11ty and netlifycms "
 }

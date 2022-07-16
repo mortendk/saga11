@@ -1,7 +1,7 @@
 {# collection  #}
 {% if collection %}
 
-  <section class="grid md:grid-cols-3 md:gap-4 my-4">
+  <section class="grid md:grid-cols-3 gap-4 my-4">
 
     {% for item in collections[collection] | sortByOrder %}
       <article class="p-4 shadow border rounded">

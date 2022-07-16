@@ -3,11 +3,9 @@ const fs = require("fs");
 
 const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-// const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { DateTime } = require("luxon");
 const slugify = require("slugify");
-
 const Image = require("@11ty/eleventy-img");
 
 // Image shortcode
@@ -62,7 +60,6 @@ async function imageShortcode(img, width = "400", alt = "image", css) {
 module.exports = function (eleventyConfig) {
   //plugins
   eleventyConfig.addPlugin(pluginRss);
-  // eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // shortcode

@@ -8,6 +8,7 @@ module.exports = {
     "src/**/**/*.njk",
     "src/assets/js/*.js",
   ],
+  darkMode: "class",
   safelist: [],
   theme: {
     fontFamily: {
