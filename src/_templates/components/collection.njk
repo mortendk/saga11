@@ -8,7 +8,10 @@
         <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
           {# TODO:: create an responsive image snippet #}
           <div class="border border-red-500 aspect-video overflow-hidden">
-            {% createImage item.data.image,'800px', item.data.title, "" %}
+            {% createImage item.data.image,
+            '800px',
+            item.data.title,
+            "" %}
           </div>
           {# <img src="{{ item.data.image }}" alt="image for {{item.data.title}}" class=""> #}
         </a>

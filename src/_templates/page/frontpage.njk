@@ -5,7 +5,9 @@ saga-template-name: Frontpage
 
 {# Default data #}
 
-{% createImage image, '1200px', "frontpage image","shadow-lg" %}
+{# {% createImage image, '1200px', "frontpage image","shadow-lg" %} #}
+
+{% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "border border-red-500", "no lazy" %}
 
 <h1 class="text-5xl">{{title}}</h1>
 <div class="my-4">

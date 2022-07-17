@@ -14,7 +14,8 @@ async function pictureShortcode(
   width = [300, 600, 1200],
   sizes = "(min-width: 30em) 50vw, 100vw",
   alt = "image",
-  css
+  css,
+  loading = "lazy"
 ) {
   src = "src/" + img;
   let metadata = await Image(src, {
@@ -35,7 +36,7 @@ async function pictureShortcode(
     class: css,
     alt,
     sizes,
-    loading: "lazy",
+    loading,
     decoding: "async",
   };
 
