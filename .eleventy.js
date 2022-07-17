@@ -14,7 +14,8 @@ async function pictureShortcode(
   width = [300, 600, 1200],
   sizes = "(min-width: 30em) 50vw, 100vw",
   alt = "image",
-  css
+  css,
+  loading = "lazy"
 ) {
   src = "src/" + img;
   let metadata = await Image(src, {
@@ -35,7 +36,7 @@ async function pictureShortcode(
     class: css,
     alt,
     sizes,
-    loading: "lazy",
+    loading,
     decoding: "async",
   };
 
@@ -66,12 +67,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("createPicture", pictureShortcode);
 
-  // passThrough
+  // passThrough - copy directly to site
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/files");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy("src/_admin");
+  eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   const md = new markdownIt({
     html: true,

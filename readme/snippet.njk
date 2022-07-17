@@ -23,9 +23,9 @@ LISTING
 {# All post #}
 {% for item in collections.allPosts %}
   {% if item.url in page.url -%}
-  <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
+    <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
   {% else %}
-      <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
+    <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
   {% endif %}
 {% endfor %}
 
@@ -47,18 +47,25 @@ LISTING
 {%- endif %}
 
 {# Tags #}
-  {%- for tag in tags | filterTagList -%}
-    {# grap the markdown files from relation-tag and loop through them  get page gets the  permalink set in relation-tag.json#}
-    {% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
-      <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
+{%- for tag in tags | filterTagList -%}
+  {# grap the markdown files from relation-tag and loop through them  get page gets the  permalink set in relation-tag.json#}
+  {% for item in collections.all | getPage("/tags/" + tag + "/") %}
+    <a href="/tag/{{ tag }}">{{ item.data.title}}</a>,
     {% endfor %}
-  {% endfor %}
+{% endfor %}
 
 {# Section is set as a  {{ section }} #}
 {% if section %}
-  {% for item in collections[ section ] %}
+  {% for item in collections[section] %}
     <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
     <p>{{ item.data.teaser }}</p>
     <div>{{ item.data.image }}</div>
   {% endfor %}
 {% endif %}
+
+{# ------------------------------------------------------
+Images
+--------------------------------------------------------#}
+{% createImage image, '1200px', "frontpage image","shadow-lg" %}
+
+{% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "shadow-lg", "no lazy" %}
