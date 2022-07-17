@@ -66,11 +66,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("createPicture", pictureShortcode);
 
-  // passThrough
+  // passThrough - copy directly to site
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/files");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy("src/_admin");
 
   const md = new markdownIt({
