@@ -17,22 +17,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/icon-safari.png">
 
     {# only load this on the frontpage ? #}
-    {# {%- include "base/base-startup.njk" -%} #}
+    {%- include "base/base-startup.njk" -%}
 
     <link rel="manifest" href="/manifest.json">
 
+    {# fonts #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     {#- CSS #}
     {%- if meta.env == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet" rel="preload">
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" rel="preload">
     {% endif -%}
-
-    {# fonts #}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-
     {# syntax highlight #}
     <link href="{{ '/assets/css/prism-synthwave.css' | url }}" rel="stylesheet" rel="preload">
   </head>
