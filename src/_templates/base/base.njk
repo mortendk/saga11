@@ -22,9 +22,9 @@
     <link rel="manifest" href="/manifest.json">
 
     {# fonts #}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    {# <link rel="preconnect" href="https://fonts.googleapis.com"> #}
+    {# <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> #}
+    {# <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> #}
     {#- CSS #}
     {%- if meta.env == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet" rel="preload">
@@ -46,6 +46,7 @@
           .register('service-workers.js');
       }
     </script>
+
     <script src="/assets/js/script.js"></script>
 
   </body>
