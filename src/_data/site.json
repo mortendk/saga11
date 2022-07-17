@@ -2,7 +2,7 @@
   "color": "#11c5e4",
   "opengraph": "/assets/site/quuen.jpeg",
   "keywords": "netlifycms, flatfilecms",
-  "url": "sagacms.netlify.app",
+  "url": "https://sagacms.netlify.app",
   "authoremail": "morten@thememachine.io",
   "generator": "11ty",
   "favicon": "/assets/site/quuen.jpeg",
