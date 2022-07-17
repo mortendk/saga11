@@ -70,6 +70,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/_admin");
+  eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   const md = new markdownIt({
     html: true,

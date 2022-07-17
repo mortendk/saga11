@@ -4,7 +4,9 @@ saga-template-name: Frontpage
 ---
 
 {# Default data #}
-{% include "components/image.njk" %}
+
+{% createImage image, '1200px', "frontpage image","shadow-lg" %}
+
 <h1 class="text-5xl">{{title}}</h1>
 <div class="my-4">
   {{ content | safe}}
