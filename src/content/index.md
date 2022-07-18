@@ -2,7 +2,7 @@
 title: "Sage Frontpage "
 layout: page/frontpage.njk
 permalink: /
-image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
+image: /images/hacker.gif
 section: frontpage
 collection: collection
 ---
