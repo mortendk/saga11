@@ -11,8 +11,6 @@ saga-template-name: Post Default
     <footer class="mb-4">
     {%- for tag in tags | filterTagList -%}
       {# grap the markdown files and loop through them #}
-
-
       {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
         <a href="/tag/{{ tag }}">{{ item.data.title}}</a>
       {% endfor %}

@@ -29,6 +29,6 @@ a {
   }
 ```
 
-## Image test 
+## Image test
 
-![Hacker man](/images/hacker.gif "Hacker man takes care of business.")
+![Hacker man]( "Hacker man takes care of business.")

@@ -260,6 +260,13 @@ collections:
           default="100",
         }
       - {
+          label: "Menu Label",
+          name: "menulabel",
+          widget: "string",
+          required: false,
+          hint: "Optional Menu item title if this page is tagged with menu. Overwrites the pages title for the navigation",
+        }
+      - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",
           widget: "boolean",
@@ -327,8 +334,6 @@ collections:
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
 
   # -----------------------------------------------------------------
   # Templates
