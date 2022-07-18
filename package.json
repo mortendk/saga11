@@ -16,10 +16,8 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "@11ty/eleventy": "^0.12.1"
-  },
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
