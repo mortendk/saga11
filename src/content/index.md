@@ -2,7 +2,7 @@
 title: "Sage Frontpage "
 layout: page/frontpage.njk
 permalink: /
-image: /images/gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
+image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
 section: frontpage
 collection: collection
 ---
