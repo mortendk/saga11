@@ -421,7 +421,7 @@ collections:
               name: webmention,
               widget: string,
               required: false,
-              hint: "name",
+              hint: "name - https://webmention.io/",
             }
           - {
               label: dribble,
@@ -429,6 +429,27 @@ collections:
               widget: string,
               required: false,
               hint: "https://dribbble.com/...",
+            }
+          - {
+              label: tiktok,
+              name: tiktok,
+              widget: string,
+              required: false,
+              hint: "https://tiktok.com/@...",
+            }
+          - {
+              label: Soundcloud,
+              name: soundcloud,
+              widget: string,
+              required: false,
+              hint: "https://soundcloud.com/...",
+            }
+          - {
+              label: Bandcamp,
+              name: bandcamp,
+              widget: string,
+              required: false,
+              hint: "https://[name].bandcamp.com/",
             }
 
       - label: "Menu"
