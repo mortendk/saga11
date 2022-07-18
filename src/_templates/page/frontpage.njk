@@ -3,10 +3,6 @@ layout: _layout/default.njk
 saga-template-name: Frontpage
 ---
 
-{# Default data #}
-
-{# {% createImage image, '1200px', "frontpage image","shadow-lg" %} #}
-
 {% if image %}
   {% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "border border-red-500", "no lazy" %}
 {% endif %}
@@ -16,18 +12,6 @@ saga-template-name: Frontpage
   {{ content | safe}}
 </div>
 
-{% if image %}
-  {% createImage image %}
-  {% createImageUrl image %}
-{% endif %}
-
-{# <div
-class="block bg-local h-80 bg-no-repeat bg-red-300"
-style="background-image: url({% createImageUrl image, 1200 %})"
-> #}
-
-  yes sirs
-</div>
 
 {% include "components/collection.njk" %}
 

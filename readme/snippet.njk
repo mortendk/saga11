@@ -77,3 +77,9 @@ Images
   {% set format = "jpeg" %}
   {% createImage image,  format, width, alt, css %}
 {% endif %}
+
+<div class="block bg-local h-80 bg-no-repeat bg-slate-400"
+{% if image %}{% createinlinestylebg image , 1200 %}{% endif %}
+ >
+
+</div>

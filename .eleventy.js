@@ -28,7 +28,6 @@ async function pictureShortcode(
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
-
       return `${name}-${width}w.${format}`;
     },
   });
@@ -41,8 +40,9 @@ async function pictureShortcode(
     decoding: "async",
   };
 
-  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-  return Image.generateHTML(metadata, imageAttributes);
+  return Image.generateHTML(metadata, imageAttributes, {
+    whitespaceMode: "inline",
+  });
 }
 
 // <img></img> shortcode
@@ -60,8 +60,9 @@ async function imageShortcode(img, width = "400", alt = "image", css) {
   return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" class="${css}" loading="lazy" decoding="async">`;
 }
 
-// imageurl shortcode
-async function imageUrlShortcode(img, width = "400") {
+// inlineStyleImgShortcode shortcode
+// {% if image %}{% createinlinestylebg image , 1200 %}{% endif %}
+async function inlineStyleImgShortcode(img, width = "400") {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: [width],
@@ -71,7 +72,7 @@ async function imageUrlShortcode(img, width = "400") {
   });
   // item.data.image
   let data = metadata.jpeg[metadata.jpeg.length - 1];
-  return `${data.url}`;
+  return `style="background-image: url(${data.url})"`;
 }
 
 module.exports = function (eleventyConfig) {
@@ -82,7 +83,10 @@ module.exports = function (eleventyConfig) {
   // shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("createPicture", pictureShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
-  eleventyConfig.addNunjucksAsyncShortcode("createImageUrl", imageUrlShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode(
+    "createinlinestylebg",
+    inlineStyleImgShortcode
+  );
 
   // passThrough - copy directly to site
   eleventyConfig.addPassthroughCopy("src/assets");

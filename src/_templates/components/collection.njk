@@ -1,20 +1,27 @@
 {# collection  #}
 {% if collection %}
+<section class="grid md:grid-cols-3 gap-4 my-4">
 
-  <section class="grid md:grid-cols-3 gap-4 my-4">
+{% for item in collections[collection] | sortByOrder %}
+  <article class="p-4 shadow border rounded">
+    <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
 
-    {% for item in collections[collection] | sortByOrder %}
-      <article class="p-4 shadow border rounded">
-        <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
-          {# TODO:: create an responsive image snippet #}
-          <div class="border border-red-500 aspect-video overflow-hidden">
-            {% createImage item.data.image, '800px',item.data.title,"" %}
-          </div>
+      <div class="border border-red-500 aspect-video overflow-hidden">
 
-        </a>
-        <p class="mt-2">{{ item.data.teaser }}</p>
-      </article>
-    {% endfor %}
+        {% if item.data.image %}
+          {% createImage item.data.image, '800px',item.data.title,"" %}
 
-  </section>
+          {#
+           TODO:create an responsive image snippet but atm createPicture throws an error with image.data.image
+          {% createPicture image.data.image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "border border-red-500", "no lazy" %}
+           #}
+      {% endif %}
+      </div>
+
+    </a>
+    <p class="mt-2">{{ item.data.teaser }}</p>
+  </article>
+{% endfor %}
+
+</section>
 {% endif %}

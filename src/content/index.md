@@ -2,7 +2,7 @@
 title: "Sage Frontpage "
 layout: page/frontpage.njk
 permalink: /
-image: /images/hacker.gif
+image: /images/gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
 section: frontpage
 collection: collection
 ---
