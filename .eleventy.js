@@ -8,7 +8,8 @@ const { DateTime } = require("luxon");
 const slugify = require("slugify");
 const Image = require("@11ty/eleventy-img");
 
-// Image shortcode
+// <picture></picture> shortcode
+// {% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "alt", "css classes", "lazy" %}
 async function pictureShortcode(
   img,
   width = [300, 600, 1200],
@@ -44,12 +45,13 @@ async function pictureShortcode(
   return Image.generateHTML(metadata, imageAttributes);
 }
 
-// img shortcode takes width as a variable
+// <img></img> shortcode
+// {# {% createImage image, '1200px', "alt","css classes" %} #}
 async function imageShortcode(img, width = "400", alt = "image", css) {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: [width],
-    formats: ["jpeg", "png"],
+    // formats: [format], // 'png' 'webp', 'gif'
     outputDir: "_site/img/", // we push this image directly to the site build
     urlPath: "/img/",
   });
@@ -58,14 +60,29 @@ async function imageShortcode(img, width = "400", alt = "image", css) {
   return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" class="${css}" loading="lazy" decoding="async">`;
 }
 
+// imageurl shortcode
+async function imageUrlShortcode(img, width = "400") {
+  src = "src/" + img;
+  let metadata = await Image(src, {
+    widths: [width],
+    formats: ["jpeg", "png"], // 'webp', 'gif'
+    outputDir: "_site/img/", // we push this image directly to the site build
+    urlPath: "/img/",
+  });
+  // item.data.image
+  let data = metadata.jpeg[metadata.jpeg.length - 1];
+  return `${data.url}`;
+}
+
 module.exports = function (eleventyConfig) {
   //plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  // shortcode
-  eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
+  // shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("createPicture", pictureShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("createImageUrl", imageUrlShortcode);
 
   // passThrough - copy directly to site
   eleventyConfig.addPassthroughCopy("src/assets");

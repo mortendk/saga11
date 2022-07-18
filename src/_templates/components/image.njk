@@ -1,6 +1,7 @@
 {% if image %}
-  {% set alt = "Image of " + image  %}
+  {% set alt = "Image of " + image %}
   {% set width = "600" %}
   {% set css = "400" %}
-  {% createImage image, width, alt, css %}
+  {% set format = "jpeg" %}
+  {% createImage image,  format, width, alt, css %}
 {% endif %}
