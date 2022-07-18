@@ -24,7 +24,10 @@ saga-template-name: Post Default
   </footer>
 
     {# image #}
-    {% include "components/image.njk" %}
+    {% if image %}
+      {% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "border border-red-500", "no lazy" %}
+    {% endif %}
+
 
     <p class="text-xl my-4">
       {{ teaser | safe }}
