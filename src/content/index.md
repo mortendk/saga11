@@ -1,10 +1,10 @@
 ---
-title: "Sage Frontpage "
+title: Write you own sage
 layout: page/frontpage.njk
 permalink: /
-image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
+image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
 section: frontpage
-collection: collection
+collection: frontpage
 ---
 
 # This is the frontpage body field

@@ -1,8 +1,8 @@
 <section class="border-1 grid grid-cols-2 gap-2">
   {% for item in gallery %}
     <figure>
-      {% createImage item.image.image, jpeg, item.image.title, "(min-width: 30em) 50vw,
-    100vw" %}
+
+      {% createPicture item.image.image %}
       <figcaption>
         <div class="text-lg font-bold">
           {{ item.image.title | safe }}
