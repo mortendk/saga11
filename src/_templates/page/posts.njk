@@ -1,20 +1,29 @@
 ---
-layout: layout/default.njk
+layout: _layout/default.njk
 saga-template-name: Posts list
 ---
 
 <h1 class="text-5xl">{{ title }} </h1>
+<section class="grid md:grid-cols-3 gap-4">
+{# collection of all post #}
+{% for item in collections.allPosts  %}
 
-<section class="grid grid-cols-3 gap-4 mt-4">
-{# collection all post #}
-  {% for item in collections.allPosts  %}
-    <article class="p-2 shadow border m-1">
-      <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
-      {# TODO: create an responsive image snippet #}
-      <img src="{{ item.data.image }}" alt="image for {{item.data.title}}" class="">
-      </a>
-      <p class="mt-2">{{ item.data.teaser }}</p>
-    </article>
-  {% endfor %}
+  <article class="p-2 shadow border m-1">
+    <a href="{{ item.url }}" class="text-xl font-bold">
+    <div class="shadow-lg aspect-video overflow-hidden mb-4">
+    {% if item.data.image %}
+      {% createImage item.data.image, '600px', 'image for the article' + item.data.title ,"shadow-lg" %}
+      {# {% createImage item.data.image, "600" , {{ item.data.title }} %} #}
+      {# {% createPicture item.data.image %} #}
+    {% endif %}
+    </div>
+    <div class="font-lg">
+      {{item.data.title}}
+    </div>
+    </a>
+    <p class="mt-2">{{ item.data.teaser }}</p>
+  </article>
+
+{% endfor %}
 
 </section>

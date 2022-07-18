@@ -1,16 +1,12 @@
 <form
-  class=""
+  class="flex flex-col space-y-4 mb-8"
   name="signup"
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
   action="/success/"
-  x-data="{ email: ''}"
+
 >
-
-<label for="first-name" class="block">Name:</label>
-<input type="text" name="first-name" id="first-name" placeholder="First Name" class="form-input rounded" required />
-
 
 {# action points to the  #}
   <div class="flex flex-col">
@@ -23,44 +19,26 @@
     <input type="text" name="last-name" id="last-name" placeholder="Last Name" required/>
   </div>
 
-  <div class="flex flex-col col-span-2">
-    <div class="flex justify-between">
-      <label for="email">E-mail *:</label>
-      <small x-show="email.length >= 1 && !(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email))" class="text-theme-gray-dark">That does not look like an email</small>
-    </div>
-
-    <input type="email" name="email" placeholder="Email" id="email"
-      x-model="email"
-      :class="{ 'input-error'   : email.length >= 1 && !(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) ,
-                'input-success' :  /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)
-              }"
-      required />
+  <div class="flex flex-col">
+    <label for="email">E-mail *:</label>
+    <input type="email" name="email" placeholder="Email" id="email" required />
   </div>
 
-<label for="text">text</label>
-<textarea name="message" id="" cols="30" rows="10" class="form-textarea"></textarea>
+  <div class="flex flex-col">
+    <label for="message">Message</label>
+    <textarea name="message" id="" cols="30" rows="10" class="form-textarea"></textarea>
 
-  {#  <div data-netlify-recaptcha="true"></div> #}
+   {# <div data-netlify-recaptcha="true"></div> #}
   <div class="hidden">
     <label for="supersecret">secret</label>
     <input name="bot-field" id="supersecret" />
   </div>
 
   {# submit button #}
-  <div class="">
-    <button type="submit" disabled aria-label="Submit form"
-      class="
-      disabled:bg-gray-400 disabled:cursor-not-allowed disabled:text-black
-      inline-flex items-center text-white h-12
-      no-underline bg-red-500
-      hover:bg-green-500 hover:text-white
-      focus:bg-theme-blue
-      active:bg-theme-yellow"
 
-      :disabled="
-        !( /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email) )
-      ">
+    <button type="submit" aria-label="Submit form"
+      class="bg-green-200">
+      Send
     </button>
-  </div>
 
-  </form>
+</form>

@@ -1,4 +1,4 @@
 {
   "permalink": "/tags/{{ page.fileSlug }}/",
-  "tags": "relation"
+  "layout": ""
 }

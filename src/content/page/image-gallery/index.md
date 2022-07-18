@@ -1,7 +1,8 @@
 ---
-title: image galllery
+title: Image galllery
 url: image gallery
-image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
+image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
+teaser: This is an example of an image gallery
 gallery:
   - image:
       image: /images/veeterzy-sMQiL_2v4vs-unsplash.jpg
@@ -24,3 +25,4 @@ layout: page/page.njk
 order: 20
 eleventyExcludeFromCollections: false
 ---
+Bodytext of the image gallery

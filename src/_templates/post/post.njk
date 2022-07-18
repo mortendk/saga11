@@ -1,5 +1,5 @@
 ---
-layout: layout/default.njk
+layout: _layout/default.njk
 saga-template-name: Post Default
 ---
 
@@ -11,7 +11,7 @@ saga-template-name: Post Default
     <footer class="mb-4">
     {%- for tag in tags | filterTagList -%}
       {# grap the markdown files and loop through them #}
-      {% for item in collections.all | getPage("/tags/" + tag + "/" ) %}
+      {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
         <a href="/tag/{{ tag }}">{{ item.data.title}}</a>
       {% endfor %}
       {# divider #}
@@ -24,7 +24,10 @@ saga-template-name: Post Default
   </footer>
 
     {# image #}
-    {% include "components/image.njk" %}
+    {% if image %}
+      {% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "border border-red-500", "no lazy" %}
+    {% endif %}
+
 
     <p class="text-xl my-4">
       {{ teaser | safe }}

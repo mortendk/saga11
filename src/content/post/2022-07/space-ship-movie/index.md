@@ -27,5 +27,8 @@ a {
   }
   h1 {
   }
-
 ```
+
+## Image test
+
+![Hacker man]( "Hacker man takes care of business.")

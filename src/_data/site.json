@@ -8,6 +8,7 @@
   "favicon": "/assets/site/quuen.jpeg",
   "authorname": "mortendk",
   "title": "Saga test site",
+  "image": "/images/toaster-clean.png",
   "footer": "Saga powered by 11ty ",
   "description": "Flatfile based cms based on 11ty and netlifycms "
 }

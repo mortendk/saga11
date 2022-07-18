@@ -1,7 +1,6 @@
 <header role="banner" class="js-header bg-white shadow fixed w-full bg-white h-16 md:h-20">
 
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    <div class="flex items-center">logo</div>
     {# site title + TODO: icon if have one #}
     <a href="/" title="{{site.title}}" class="flex items-center  border-b-4 border-transparent mr-4">
       {{ site.title}}
@@ -16,10 +15,19 @@
           {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
 
           {% for item in collections.menu | sortByOrder %}
+            {# grap the correct title for the page  #}
+            {% set menutitle %}
+              {% if item.data.menulabel %}
+                {{ item.data.menulabel }}
+              {% else %}
+                {{ item.data.title }}
+              {% endif %}
+            {% endset %}
+
             {% if item.url in page.url -%}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{item.data.title}}</a>
+              <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{ menutitle }}</a>
             {% else %}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{item.data.title}}</a>
+              <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{ menutitle }}</a>
             {% endif %}
           {% endfor %}
 
@@ -54,10 +62,19 @@
   {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
   {# TODO: Add a controller for each page to add it to the menu add tag to selector#}
   {% for item in collections.menu | sortByOrder %}
+    {# grap the correct title for the page  #}
+    {% set menutitle %}
+      {% if item.data.menulabel %}
+        {{ item.data.menulabel }}
+      {% else %}
+        {{ item.data.title }}
+      {% endif %}
+    {% endset %}
+
     {% if item.url in page.url -%}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-red-400">{{item.data.title}}</a>
+      <a href="{{ item.url }}" class="{{ mobileclasses }} border-red-400">{{ menutitle }}</a>
     {% else %}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent">{{item.data.title}}</a>
+      <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent">{{ menutitle }}</a>
     {% endif %}
   {% endfor %}
 

@@ -9,15 +9,21 @@
     <meta name="keywords" content="{{ site.keywords}}">
     <meta name="generator" content="{{site.generator}}">
     <meta name="theme-color" content="{{site.color}}">
+    {# webmention #}
+    {% if some.webmention %}
+      <link rel="webmention" href="https://webmention.io/{{some.webmention}}/webmention" />
+      <link rel="pingback" href="https://webmention.io/{{some.webmention}}/xmlrpc" />
+    {% endif %}
 
-    {%- include "base/base-opengraph.njk" -%}
+
+    {%- include "_base/base-opengraph.njk" -%}
 
     <link rel="icon" href="/assets/icon/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/icon-apple-touch.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/icon-safari.png">
 
     {# only load this on the frontpage ? #}
-    {%- include "base/base-startup.njk" -%}
+    {%- include "_base/base-startup.njk" -%}
 
     <link rel="manifest" href="/manifest.json">
 
@@ -39,6 +45,7 @@
 
     {{ content | safe }}
 
+    {# Service worker #}
     <script>
       if (navigator && navigator.serviceWorker) {
         navigator
@@ -46,7 +53,6 @@
           .register('service-workers.js');
       }
     </script>
-
     <script src="/assets/js/script.js"></script>
 
   </body>

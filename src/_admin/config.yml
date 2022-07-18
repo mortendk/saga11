@@ -72,7 +72,13 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          required: false,
+          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+        }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
@@ -88,7 +94,12 @@ collections:
             widget: object
             summary: "{{fields.image}}: {{fields.title}}"
             fields:
-              - { label: image, name: image, widget: image }
+              - {
+                  label: image,
+                  name: image,
+                  widget: image,
+                  hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+                }
               - { label: title, name: title, widget: string, required: false }
               - {
                   label: Description,
@@ -170,7 +181,13 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false }
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          required: false,
+          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+        }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
@@ -243,6 +260,13 @@ collections:
           default="100",
         }
       - {
+          label: "Menu Label",
+          name: "menulabel",
+          widget: "string",
+          required: false,
+          hint: "Optional Menu item title if this page is tagged with menu. Overwrites the pages title for the navigation",
+        }
+      - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",
           widget: "boolean",
@@ -262,7 +286,13 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
-          - { label: "Image", name: "image", widget: "image", required: false }
+          - {
+              label: "Image",
+              name: "image",
+              widget: "image",
+              required: false,
+              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+            }
           # collection
           - name: collection
             label: collection
@@ -273,7 +303,7 @@ collections:
             display_fields: ["title"]
             required: false
             multiple: false
-            hint: "This will select a tag and print teasers on the page"
+            hint: "Select a collection that will be added to the page - if the template wants that ;)"
 
       - label: "Form Success"
         name: "contactsuccess"
@@ -282,7 +312,13 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
-          - { label: "Image", name: "image", widget: "image", required: false }
+          - {
+              label: "Image",
+              name: "image",
+              widget: "image",
+              required: false,
+              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+            }
 
   # -----------------------------------------------------------------
   # Relations Tags
@@ -290,16 +326,14 @@ collections:
 
   - name: tags
     label_singular: tag
-    label: "Relation Tags"
-    folder: "src/content/relation-tag"
+    label: "Tags"
+    folder: "src/content/tags"
     slug: "{{title}}"
     hide: false
     create: true
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
-      - { label: "Image", name: "image", widget: "image", required: false }
 
   # -----------------------------------------------------------------
   # Templates
@@ -421,7 +455,7 @@ collections:
               name: webmention,
               widget: string,
               required: false,
-              hint: "name",
+              hint: "name - https://webmention.io/",
             }
           - {
               label: dribble,
@@ -429,6 +463,27 @@ collections:
               widget: string,
               required: false,
               hint: "https://dribbble.com/...",
+            }
+          - {
+              label: tiktok,
+              name: tiktok,
+              widget: string,
+              required: false,
+              hint: "https://tiktok.com/@...",
+            }
+          - {
+              label: Soundcloud,
+              name: soundcloud,
+              widget: string,
+              required: false,
+              hint: "https://soundcloud.com/...",
+            }
+          - {
+              label: Bandcamp,
+              name: bandcamp,
+              widget: string,
+              required: false,
+              hint: "https://[name].bandcamp.com/",
             }
 
       - label: "Menu"

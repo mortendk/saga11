@@ -1,20 +1,22 @@
 {# collection  #}
 {% if collection %}
+<section class="grid md:grid-cols-3 gap-4 my-4">
 
-  <section class="grid md:grid-cols-3 gap-4 my-4">
+{% for item in collections[collection] | sortByOrder %}
+  <article class="p-4 shadow border rounded">
+    <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
 
-    {% for item in collections[collection] | sortByOrder %}
-      <article class="p-4 shadow border rounded">
-        <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
-          {# TODO:: create an responsive image snippet #}
-          <div class="border border-red-500 aspect-video overflow-hidden">
-            {% createImage item.data.image, '800px',item.data.title,"" %}
-          </div>
+      <div class= "aspect-video overflow-hidden">
 
-        </a>
-        <p class="mt-2">{{ item.data.teaser }}</p>
-      </article>
-    {% endfor %}
+        {% if item.data.image %}
+          {% createImage item.data.image, '800px',item.data.title,"" %}
+      {% endif %}
+      </div>
 
-  </section>
+    </a>
+    <p class="mt-2">{{ item.data.teaser }}</p>
+  </article>
+{% endfor %}
+
+</section>
 {% endif %}
