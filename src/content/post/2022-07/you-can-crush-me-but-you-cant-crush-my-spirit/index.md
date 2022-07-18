@@ -7,6 +7,7 @@ teaser: Tell her you just want to talk. It has nothing to do with mating. Do a
   Saucier, which I just made up. Uhh… also, comes with double prize money.
 tags:
   - collection
+  - collection2
 layout: post/post.njk
 date: 2022-07-10 20:07:20
 order: ""

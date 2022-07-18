@@ -319,8 +319,8 @@ collections:
 
   - name: tags
     label_singular: tag
-    label: "Relation Tags"
-    folder: "src/content/relation-tag"
+    label: "Tags"
+    folder: "src/content/tags"
     slug: "{{title}}"
     hide: false
     create: true

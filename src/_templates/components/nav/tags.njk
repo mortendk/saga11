@@ -3,13 +3,9 @@
 
 {% for tag in collections.tagList   %}
   <nav>
-    {% for item in collections.all |  getPage("/tags/" + tag + "/" ) %}
+    {% for item in collections.all |  getPage("/tag/" + tag + "/" ) %}
 
-      {% if tag in page.url -%}
-        <a href="/tag/{{ tag }}" class="block font-bold"> {{ item.data.title}}</a>
-      {% else %}
-        <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
-      {% endif %}
+      <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
 
     {% endfor %}
   </nav>

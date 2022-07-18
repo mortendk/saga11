@@ -9,6 +9,12 @@
     <meta name="keywords" content="{{ site.keywords}}">
     <meta name="generator" content="{{site.generator}}">
     <meta name="theme-color" content="{{site.color}}">
+    {# webmention #}
+    {% if some.webmention %}
+      <link rel="webmention" href="https://webmention.io/{{some.webmention}}/webmention" />
+      <link rel="pingback" href="https://webmention.io/{{some.webmention}}/xmlrpc" />
+    {% endif %}
+
 
     {%- include "_base/base-opengraph.njk" -%}
 
