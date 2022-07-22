@@ -21,7 +21,7 @@ Global header for the site
         <div class="flex space-x-4">
           {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
 
-          {% for item in collections.menu | sortByOrder %}
+          {% for item in collections.menu  %}
             {# grap the correct title for the page  #}
             {% set menutitle %}
               {% if item.data.menulabel %}
@@ -60,7 +60,7 @@ Global header for the site
 
   {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
   {# TODO: Add a controller for each page to add it to the menu add tag to selector#}
-  {% for item in collections.menu | sortByOrder %}
+  {% for item in collections.menu  %}
     {# grap the correct title for the page  #}
     {% set menutitle %}
       {% if item.data.menulabel %}
