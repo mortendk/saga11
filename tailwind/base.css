@@ -7,8 +7,7 @@
     /* font-family: TT, system-ui, sans-serif; */
   }
 
-  a {
-    @apply text-red-600;
+  main a {
   }
   h1 {
   }
@@ -52,6 +51,14 @@
   }
 
   input {
+    @apply block
+    w-full
+    rounded-sm
+    border-red-200
+    border-gray-300
+    shadow-sm
+    required:mt-1
+    focus:border-teal-500 focus:ring focus:ring-teal-200 focus:ring-opacity-50;
   }
 
   input[type="checkbox"] {

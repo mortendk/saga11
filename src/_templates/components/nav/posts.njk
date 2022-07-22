@@ -10,7 +10,9 @@
   {% else %}
    <a href="{{ item.url }}" class="block ">{{item.data.title}}</a>
   {% endif %}
-  <div class="text-sm">{{item.data.date | monthDayYear}}</div>
+  <div class="text-sm">
+    {{ item.data.date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+  </div>
 
   </div>
 {% endfor %}

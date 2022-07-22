@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <title>{{ site.title }} | {{ title }}</title>
+    <!--
+       __  _____ _                           _  ___  ___           _     _             __
+  / / |_   _| |                         | | |  \/  |          | |   (_)            \ \
+ | |    | | | |__   ___ _ __ ___   ___  | | | .  . | __ _  ___| |__  _ _ __   ___   | |
+/ /     | | | '_ \ / _ \ '_ ` _ \ / _ \ | | | |\/| |/ _` |/ __| '_ \| | '_ \ / _ \   \ \
+\ \     | | | | | |  __/ | | | | |  __/ | | | |  | | (_| | (__| | | | | | | |  __/   / /
+ | |    \_/ |_| |_|\___|_| |_| |_|\___| | | \_|  |_/\__,_|\___|_| |_|_|_| |_|\___|  | |
+  \_\                                   | |                                        /_/
+                                        |_|
+    mortendk
+    https://thememachine.io
+     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,17 +27,18 @@
       <link rel="pingback" href="https://webmention.io/{{some.webmention}}/xmlrpc" />
     {% endif %}
 
+    <link rel="author" href="humans.txt" />
 
     {%- include "_base/base-opengraph.njk" -%}
 
     <link rel="icon" href="/assets/icon/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/icon-apple-touch.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/icon-safari.png">
+    <link rel="manifest" href="/manifest.json">
 
-    {# only load this on the frontpage ? #}
     {%- include "_base/base-startup.njk" -%}
 
-    <link rel="manifest" href="/manifest.json">
+    {# css is build in tailwind /tailwind.css #}
 
     {# fonts #}
     {# <link rel="preconnect" href="https://fonts.googleapis.com"> #}
@@ -37,8 +50,7 @@
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" rel="preload">
     {% endif -%}
-    {# syntax highlight #}
-    <link href="{{ '/assets/css/prism-synthwave.css' | url }}" rel="stylesheet" rel="preload">
+
   </head>
 
   <body class="flex flex-col h-screen">
@@ -50,9 +62,10 @@
       if (navigator && navigator.serviceWorker) {
         navigator
           .serviceWorker
-          .register('service-workers.js');
+          .register('/service-workers.js');
       }
     </script>
+
     <script src="/assets/js/script.js"></script>
 
   </body>

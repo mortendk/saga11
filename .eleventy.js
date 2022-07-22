@@ -8,20 +8,21 @@ const { DateTime } = require("luxon");
 const slugify = require("slugify");
 const Image = require("@11ty/eleventy-img");
 
-// <picture></picture> shortcode
-// {% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "alt", "css classes", "lazy" %}
-async function pictureShortcode(
+//  {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %}
+// {% image item.data.image, [100],"",['webp'] %}
+async function image(
   img,
   width = [300, 600, 1200],
   sizes = "(min-width: 30em) 50vw, 100vw",
+  format = ["webp", "jpeg"],
   alt = "image",
-  css,
+  css = "",
   loading = "lazy"
 ) {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: width,
-    // formats: ["avif", "jpeg"],
+    formats: format,
     // widths: [300, 800, 1600],
     outputDir: "_site/img/", // we push this image directly to the site build
     urlPath: "/img/",
@@ -34,7 +35,7 @@ async function pictureShortcode(
 
   let imageAttributes = {
     class: css,
-    alt,
+    alt: alt,
     sizes,
     loading,
     decoding: "async",
@@ -45,35 +46,40 @@ async function pictureShortcode(
   });
 }
 
-// <img></img> shortcode
-// {# {% createImage image, '1200px', "alt","css classes" %} #}
-async function imageShortcode(img, width = "400", alt = "image", css) {
+// {% imageBackgroundStyle "image", “size”, "gif”  %}
+async function imagebackgroundstyle(img, width = "800", format = "webp") {
   src = "src/" + img;
   let metadata = await Image(src, {
     widths: [width],
-    // formats: [format], // 'png' 'webp', 'gif'
+    formats: [format],
+    // widths: [300, 800, 1600],
     outputDir: "_site/img/", // we push this image directly to the site build
     urlPath: "/img/",
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src);
+      const name = path.basename(src, extension);
+      return `${name}-${width}w.${format}`;
+    },
   });
-  // item.data.image
-  let data = metadata.jpeg[metadata.jpeg.length - 1];
-  return `<img src="${data.url}" width="${data.width}" height="${data.height}" alt="${alt}" class="${css}" loading="lazy" decoding="async">`;
+
+  // console.log(format);
+  let backgroundimg;
+  if (format == "jpeg") {
+    backgroundimg = metadata.jpeg[0].url;
+  } else if (format == "png") {
+    backgroundimg = metadata.png[0].url;
+  } else if (format == "gif") {
+    backgroundimg = metadata.gif[0].url;
+  } else {
+    backgroundimg = metadata.webp[0].url;
+  }
+  return `style="background-image: url(${backgroundimg})"`;
 }
 
-// inlineStyleImgShortcode shortcode
-// {% if image %}{% createinlinestylebg image , 1200 %}{% endif %}
-async function inlineStyleImgShortcode(img, width = "400") {
-  src = "src/" + img;
-  let metadata = await Image(src, {
-    widths: [width],
-    formats: ["jpeg", "png"], // 'webp', 'gif'
-    outputDir: "_site/img/", // we push this image directly to the site build
-    urlPath: "/img/",
-  });
-  // item.data.image
-  let data = metadata.jpeg[metadata.jpeg.length - 1];
-  return `style="background-image: url(${data.url})"`;
-}
+// module.exports = function (date, format, locale = "en") {
+//   date = new Date(date);
+//   return DateTime.fromJSDate(date).setLocale(locale).toFormat(format);
+// };
 
 module.exports = function (eleventyConfig) {
   //plugins
@@ -81,12 +87,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // shortcodes
-  eleventyConfig.addNunjucksAsyncShortcode("createPicture", pictureShortcode);
-  eleventyConfig.addNunjucksAsyncShortcode("createImage", imageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode(
-    "createinlinestylebg",
-    inlineStyleImgShortcode
+    "imageBackgroundStyle",
+    imagebackgroundstyle
   );
+  eleventyConfig.addNunjucksAsyncShortcode("image", image);
 
   // passThrough - copy directly to site
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -123,17 +128,9 @@ module.exports = function (eleventyConfig) {
 
   // Date Filters
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter("dateFormat", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "d LLLL yyyy hh:mm - cccc"
-    );
-  });
-
-  eleventyConfig.addFilter("monthDayYear", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "d LLLL yyyy"
-    );
-  });
+  //  https://github.com/moment/luxon/blob/master/docs/formatting.md
+  //  {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+  eleventyConfig.addFilter("formatDate", require("./src/_11ty/formatDate.js"));
 
   // Slug filter
   eleventyConfig.addFilter("slugify", function (str) {

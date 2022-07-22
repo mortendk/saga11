@@ -6,11 +6,11 @@
   "scripts": {
     "start": "npx @11ty/eleventy --serve & npm run tw:watch",
     "admin": "npx netlify-cms-proxy-server & npm run start",
-    "clean": "rm -rf _site & rm & rm src/assets/css/style.css & rm  src/assets/css/style.min.css",
     "tw:watch": "npx tailwindcss -i tailwind.css -o src/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i tailwind.css -o src/assets/css/style.min.css --minify",
+    "clean build": "rm -rf _site & rm src/assets/css/style.css",
     "netlify": "netlify dev",
-    "debug": "DEBUG=* eleventy",
+    "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug "
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.4",
+    "luxon": "^3.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.12",
     "tailwindcss": "^3.1.6"

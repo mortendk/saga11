@@ -2,7 +2,7 @@
   {% for item in gallery %}
     <figure>
 
-      {% createPicture item.image.image %}
+      {# {% image item.data.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %} #}
       <figcaption>
         <div class="text-lg font-bold">
           {{ item.image.title | safe }}
