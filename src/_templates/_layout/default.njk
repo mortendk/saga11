@@ -1,1 +1,14 @@
-nope
+{# DEFAULT
+------------------------------------------------
+Calls the _base/base.njk that is holding all the basic html
+#}
+{%- if meta.env != 'prod' %}<!-- _layout/default.njk  -->{%- endif -%}
+
+
+
+
+<main id="main" tabindex="-1" class="pagewidth flex-grow mt-24">
+  {{ content | safe }}
+</main>
+
+
