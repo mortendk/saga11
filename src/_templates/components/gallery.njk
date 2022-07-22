@@ -1,28 +1,28 @@
-{# simple image gallery / slider #}
+{# GALLERY
+------------------------------------------------
+simple image gallery / slider
+#}
+{%- if meta.env != 'prod' %}<!-- components/contactform.njk  -->{%- endif -%}
 
-
-{# <div class="w-96 aspect-video overflow-auto scrollbar">
-<img src="http://localhost:8080/img/vera-gorbunova-cNcSBya05FU-unsplash-1200w.webp" alt="" class="">
-</div> #}
-
-
-{# gallery loop #}
-<section class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar">
+<section>
+{# Image wrapper for the gallery #}
+<div class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar z-0">
 
 {% for item in gallery %}
   <article aria-label="image "
     class="
     flex flex-shrink-0  overflow-auto relative
-    w-5/6 aspect-video mr-4
+    w-11/12 aspect-video mr-4
     snap-center
     transition"
     id="slide-{{ loop.index }}"
   >
   {% if item.image.image %}
     {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text",
-    'absolute top-0 left-0 w-full h-full object-cover shadow-md' %}
+    'absolute top-0 left-0 h-full object-cover shadow-md' %}
   {% endif %}
-
+    {# title and figcap #}
+    {% if item.image.title or item.image.figcaption %}
     <div class="absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
       <div class="text-3xl">
         {{ item.image.title}}
@@ -30,30 +30,28 @@
       <div class="text-lg">
         {{ item.image.figcaption}}
       </div>
-
-
     </div>
+    {% endif %}
+
   </article>
 {% endfor %}
 
-</section>
+</div>
 
-
-
-<nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto border border-yellow-600">
+{# gallery navigation #}
+<nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
 {% for item in gallery %}
-<article class="">
 
-  <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden">
+  <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none">
     {% if item.image.image %}
       {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text", 'shadow' %}
     {% endif %}
   </a>
 
-</article>
 {% endfor %}
 </nav>
 
+</section>
 
 
 
@@ -65,6 +63,4 @@
 .slides {
   -webkit-overflow-scrolling: touch;
 }
-
-
 </style>

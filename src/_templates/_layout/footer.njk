@@ -1,3 +1,9 @@
+{# FOOTER
+------------------------------------------------
+Global header for the site
+ #}
+{%- if meta.env != 'prod' %}<!-- _layout/footer.njk  -->{%- endif  -%}
+
 <footer class="flex flex-col justify-center pagewidth">
 
   {% include "components/nav/some.njk" %}

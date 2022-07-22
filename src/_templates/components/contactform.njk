@@ -1,3 +1,9 @@
+{# CONTACT FORM
+------------------------------------------------
+Basic form that works out of the box on netlify
+#}
+{%- if meta.env != 'prod' %}<!-- components/contactform.njk  -->{%- endif -%}
+
 <form
   class="flex flex-col space-y-4 mb-8"
   name="Contact"
@@ -5,10 +11,8 @@
   data-netlify="true"
   netlify-honeypot="bot-field"
   action="/success/"
-
 >
 
-{# action points to the  #}
   <div class="flex flex-col">
     <label for="first-name">First name: *</label>
     <input type="text" name="first-name" id="first-name" placeholder="First Name" required />
@@ -35,10 +39,9 @@
   </div>
 
   {# submit button #}
-
-    <button type="submit" aria-label="Submit form"
-      class="bg-green-200">
-      Send
-    </button>
+  <button type="submit" aria-label="Submit form"
+    class="bg-green-200">
+    Send
+  </button>
 
 </form>

@@ -1,6 +1,11 @@
+{# SOME NAVIGATION
+------------------------------------------------
+Graps all the data thats added to the _data/some.json file
+#}
+{%- if meta.env != 'prod' %}<!-- nav/some.njk  -->{%- endif  -%}
+
 
 {% set css = "w-8 h-8 block text-red-500 hover:text-red-700 " %}
-
 
 <nav class="flex flex-wrap justify-center flex-grow mx-auto space-x-4" aria-label="Menu Social media links">
 
@@ -110,10 +115,6 @@
     {% include "svg/bandcamp.njk" %}
   </a>
 {% endif %}
-
-
-
-
 
 </nav>
 

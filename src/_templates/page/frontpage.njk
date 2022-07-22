@@ -2,6 +2,15 @@
 layout: _layout/default.njk
 saga-template-name: Frontpage
 ---
+{# PAGE TEMPLATE FRONTPAGE
+------------------------------------------------
+Template for the frontpage
+#}
+{%- if meta.env != 'prod' %}<!-- page/frontpage.njk  -->{%- endif -%}
+
+title  : {{ title }} {{ url }}
+data: {{ data.inputPath }}
+
 
 {% if image %}
   {% image image, [400,800, 1200],"(min-width: 1200px) 50vw, 100vw",['webp'],"Welcome image","shadow","notlazy" %}
@@ -13,5 +22,3 @@ saga-template-name: Frontpage
 </div>
 
 {% include "components/collection.njk" %}
-
-</div>

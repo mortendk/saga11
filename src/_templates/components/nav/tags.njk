@@ -1,4 +1,8 @@
-{# List of all tags  #}
+{# ALL TAGS
+------------------------------------------------
+List of all tags
+#}
+{%- if meta.env != 'prod' %}<!-- nav/tags.njk  -->{%- endif  -%}
 
 {% for tag in collections.tagList   %}
   <nav aria-label="All Tags">

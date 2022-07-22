@@ -1,4 +1,9 @@
-<header role="banner" class="js-header bg-white shadow fixed w-full bg-white h-16 md:h-20" >
+{# HEADER
+------------------------------------------------
+Global header for the site
+ #}
+{%- if meta.env != 'prod' %}<!-- _layout/header.njk  -->{%- endif  -%}
+<header role="banner" class="js-header bg-white shadow fixed w-full bg-white z-50 h-16 md:h-20" >
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 

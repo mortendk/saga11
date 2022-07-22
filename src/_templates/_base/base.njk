@@ -1,3 +1,8 @@
+{# BASE
+------------------------------------------------
+The basic html page
+{%- if meta.env != 'prod' %}<!-- _baselayout/base.njk  -->{%- endif -%}
+#}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -29,22 +34,24 @@
 
     <link rel="author" href="humans.txt" />
 
-    {%- include "_base/base-opengraph.njk" -%}
+    {%- include "_base/opengraph.njk" -%}
 
     <link rel="icon" href="/assets/icon/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/icon-apple-touch.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/icon-safari.png">
     <link rel="manifest" href="/manifest.json">
 
-    {%- include "_base/base-startup.njk" -%}
+    {%- include "_base/applestartupscreens.njk" -%}
 
-    {# css is build in tailwind /tailwind.css #}
+
 
     {# fonts #}
     {# <link rel="preconnect" href="https://fonts.googleapis.com"> #}
     {# <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> #}
     {# <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> #}
+
     {#- CSS #}
+    {# css is build in tailwind /tailwind.css #}
     {%- if meta.env == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet" rel="preload">
     {% else %}
