@@ -1,49 +1,12 @@
 @tailwind base;
 
 @layer base {
-  /* basefont */
-
-  html {
-    /* font-family: TT, system-ui, sans-serif; */
+  /* a11y  */
+  a {
+    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
   }
-
-  main a {
-  }
-  h1 {
-  }
-
-  h2 {
-  }
-
-  h3 {
-  }
-
-  h4,
-  h5,
-  h6 {
-  }
-
-  p {
-  }
-
-  pre {
-  }
-
-  mark {
-  }
-
-  blockquote {
-  }
-
-  /* list */
-
-  dl {
-  }
-  dt {
-  }
-  dd {
-  }
-  nav ul {
+  form button {
+    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
   }
 
   /* form  */
@@ -74,9 +37,5 @@
   }
 
   fieldset {
-  }
-
-  form button,
-  .btn {
   }
 }

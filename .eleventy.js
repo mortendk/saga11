@@ -8,7 +8,7 @@ const { DateTime } = require("luxon");
 const slugify = require("slugify");
 const Image = require("@11ty/eleventy-img");
 
-//  {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %}
+//  {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
   img,
