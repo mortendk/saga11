@@ -1,5 +1,10 @@
-{# TODO: add opengraph from a page #}
-{# opengraph #}
+{# OPENGRAPH
+------------------------------------------------
+Global header for the site
+ #}
+{%- if meta.env != 'prod' %}<!-- _base/opengraph.njk  -->{%- endif  -%}
+
+
 
 {# get image from a page TODO: a post or page should be able to change this
 {% if image %}

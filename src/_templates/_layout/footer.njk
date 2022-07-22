@@ -1,3 +1,9 @@
+{# FOOTER
+------------------------------------------------
+Global header for the site
+ #}
+{%- if meta.env != 'prod' %}<!-- _layout/footer.njk  -->{%- endif  -%}
+
 <footer class="flex flex-col justify-center pagewidth">
 
   {% include "components/nav/some.njk" %}
@@ -17,7 +23,7 @@
 
   <div class="flex justify-center text-sm text-slate-600">
     Made with
-    <div class="w-3 pt-1 text-yellow-500">{% include "components/svg/lightning.njk" %}</div>
+    <div class="w-3 pt-1 text-yellow-500">{% include "svg/lightning.njk" %}</div>
   </div>
 
 </footer>

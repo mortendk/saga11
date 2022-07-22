@@ -2,6 +2,12 @@
 layout: _layout/default.njk
 saga-template-name: Post Default
 ---
+{# POST
+------------------------------------------------
+Base post template - white is different from the pages
+#}
+{%- if meta.env != 'prod' %}<!-- post/post.njk  -->{%- endif -%}
+
 
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
