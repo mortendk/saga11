@@ -473,21 +473,43 @@ collections:
               name: dribble,
               widget: string,
               required: false,
-              hint: "https://dribbble.com/...",
+              hint: "https://dribbble.com/[name]",
             }
           - {
               label: tiktok,
               name: tiktok,
               widget: string,
               required: false,
-              hint: "https://tiktok.com/@...",
+              hint: "https://tiktok.com/@[name]",
             }
+          - {
+              label: Twitch,
+              name: twitch,
+              widget: string,
+              required: false,
+              hint: "https://twitch.tv/[name]",
+            }
+          - {
+              label: Patreon,
+              name: patreon,
+              widget: string,
+              required: false,
+              hint: "https://patreon.com/[name]",
+            }
+          - {
+              label: Discord,
+              name: discord,
+              widget: string,
+              required: false,
+              hint: "https://discord.gg/[name]",
+            }
+
           - {
               label: Soundcloud,
               name: soundcloud,
               widget: string,
               required: false,
-              hint: "https://soundcloud.com/...",
+              hint: "https://soundcloud.com/[name]",
             }
           - {
               label: Bandcamp,
