@@ -41,15 +41,16 @@ The basic html page
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/icon-safari.png">
     <link rel="manifest" href="/manifest.json">
 
-    {%- include "_base/startupscreen.njk" -%}
 
-    {# css is build in tailwind /tailwind.css #}
+    {%- include "_base/startupscreen.njk" -%}
 
     {# fonts #}
     {# <link rel="preconnect" href="https://fonts.googleapis.com"> #}
     {# <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> #}
     {# <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> #}
+
     {#- CSS #}
+    {# css is build in tailwind /tailwind.css #}
     {%- if meta.env == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet" rel="preload">
     {% else %}
@@ -58,7 +59,7 @@ The basic html page
 
   </head>
 
-  <body class="flex flex-col h-screen">
+  <body class="flex flex-col h-screen bg-slate-100">
 
     {{ content | safe }}
 
