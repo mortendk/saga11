@@ -2,14 +2,19 @@
 layout: _layout/default.njk
 saga-template-name: Page default
 ---
+{# PAGE DEFAULT TEAMPLATE
+------------------------------------------------
+This is the default template for the page type
+#}
+{%- if meta.env != 'prod' %}<!-- page/page.njk  -->{%- endif -%}
+
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3">
 
     <h1 class="text-5xl">{{ title }}</h1>
 
     {% if image %}
-      {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %}
-
+      {# {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %} #}
     {% endif %}
 
     <p class="text-xl my-4">
@@ -20,12 +25,12 @@ saga-template-name: Page default
       {{ content | safe }}
     </div>
 
-    {% include "components/gallery.njk" %}
-
   </div>
   <div class="md:w-1/3">
 
   </div>
 </article>
+
+{% include "components/gallery.njk" %}
 
 {% include "components/collection.njk" %}

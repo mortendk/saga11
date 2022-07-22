@@ -1,10 +1,10 @@
 # What is this
 
-Saga is a super small cms build for awesome webdesigners who wants to control the markup & not have to hassle with databases and other boring stuff.
+Saga is a small cms build for webdesigners who wants to control the markup & not have to hassle with databases
 
 ### Retro web!
 
-Its a try to get back to the late 90'ies and build flatfile sites that could be dropped into any ftp server ... oooh the glory days!
+Its a try to get back to the late 90' and build flat sites that could be dropped into any ftp server ... oooh the glory days!
 
 ## Core Values
 
@@ -22,10 +22,9 @@ Its a try to get back to the late 90'ies and build flatfile sites that could be 
 - 11ty generating the html.
 - Markdown, json and nunjucks.
 - Github for storage
-- Deploy on what you want (ftp / netlify / github pages).
 - Netlifycms for online editing
-
 - Tailwind for css cause devs likes it
+- Vanilla js ?
 
 ---
 
@@ -51,7 +50,7 @@ npm run start
 
 http://localhost:8080
 
-3. build website in /\_site
+3. build the production site
 
 ```
 npm run build
@@ -59,8 +58,8 @@ npm run build
 
 ## CMS -Netlify CMS
 
-To make the cms editing to work locally
-first run the netlify cmsproxy
+Saga is build with netlify cms for online editing
+To make it work work locally
 
 ```
 npm run admin
@@ -68,50 +67,16 @@ npm run admin
 
 http://localhost:8080/\_admin/
 
-## CSS Setup
-
-Tailwin config /tailwin.config.js setup all the specific here
-https://tailwindcss.com
-
-## js alphine
-
-alphine is downloaded local and uses 3+
-https://alpinejs.dev/
-
-## RSS feed
-
-Rss feed is generated with ...
-TODO::
-
-## Favicon
-
-favicon is in ...
-TODO::
-
-# content template
-
-```
----
-title: my title
-layout: base.njk
-eleventyExcludeFromCollections: false
-
-permalink: "mega-awesome-stuff/"
-tags: post
-date: Last Modified
-
-
-eleventyNavigation:
-  key: contact
-  parent: about
-  order: 1
-
----
-```
-
-## Template engine
+## Nunjucks
 
 https://mozilla.github.io/nunjucks/templating.html
+
+## CSS Setup
+
+Tailwin config
+/tailwin.config.js setup all the specific here
+
+# content template
 
 ## Structure
 
@@ -142,19 +107,19 @@ This is where all the files to generate \_site is places - this is where we all 
 
 ### Content
 
-- /content/ Add all content markdown here
+- /content/
+
+Add all content markdown here
 
 ### Images
+
+Images to the content is living in the /images folder
+
+- /images/ uploaded images from cms
 
 ### Systempages
 
 /systempages/ -
-
-- /images/ uploaded images from cms
-
-## CSS
-
-add inline of use tailwind.css and @apply
 
 ## Config
 
@@ -162,18 +127,12 @@ add inline of use tailwind.css and @apply
 
 - .editorconfig : 2 spaces!
 - .eleventy.js : Config of eleventy
-- .gitignore :
-- backstop.json : setup visual regression
+- .gitignore : ignores style.css + style.min.css
 - .netlify.toml : setup for netlify
 - .package.json
 - .tailwind.config.js
 
-## TODO
-
-- implement 11ty menu or a simple "add links by hand or dropdown like a related item
--
-
-## Netlifycms Setup
+## Netlifycms Setup on netlify
 
 1 Push code to github
 2 Create site on netlify - get site from github
@@ -185,7 +144,7 @@ https://app.netlify.com/sites/[SITE]/settings/identity#git-gateway
 
 ## content types
 
-#### Pages
+### Pages
 
 Pages can be used for single pages
 
@@ -194,7 +153,7 @@ Pages can be used for single pages
 - gallery page
   a page have a specfic url custom url site/foo-bar/
 
-#### Posts
+### Posts
 
 Post can be used to create collections of data
 ex blog post, products collections
@@ -212,18 +171,10 @@ post posttemplates
 
 ## saga-template-name: Post with contact form
 
-## Image resizing
-
-{% image imageurl 400 alt%}
-
 ## Requirements:
 
-- node
 - eleventy https://11ty.dev
-- tailwindcss https://tailwindcss.com/
 - Nunjucks https://mozilla.github.io/nunjucks/
 - Netlifycms https://www.netlifycms.org/
 
-```
-
-```
+- tailwindcss https://tailwindcss.com/
