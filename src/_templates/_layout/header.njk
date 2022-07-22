@@ -21,20 +21,3 @@ Global header for the site
         <div class="flex space-x-4">
           {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
 
-          {% for item in collections.menu | sortByOrder %}
-            {# grap the correct title for the page  #}
-            {% set menutitle %}
-              {% if item.data.menulabel %}
-                {{ item.data.menulabel }}
-              {% else %}
-                {{ item.data.title }}
-              {% endif %}
-            {% endset %}
-
-            {% if item.url in page.url -%}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{ menutitle }}</a>
-            {% else %}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{ menutitle }}</a>
-            {% endif %}
-          {% endfor %}
-
