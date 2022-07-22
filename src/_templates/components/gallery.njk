@@ -4,7 +4,7 @@ simple image gallery / slider
 #}
 {%- if meta.env != 'prod' %}<!-- components/contactform.njk  -->{%- endif -%}
 
-<section>
+<section class="">
 {# Image wrapper for the gallery #}
 <div class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar z-0">
 
@@ -55,7 +55,7 @@ simple image gallery / slider
 
 
 
-<style>
+{# <style>
 .slides > div {
   transition: transform 0.5s;
 }
@@ -63,4 +63,4 @@ simple image gallery / slider
 .slides {
   -webkit-overflow-scrolling: touch;
 }
-</style>
+</style> #}
