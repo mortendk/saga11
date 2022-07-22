@@ -12,7 +12,7 @@ https://www.11ty.dev/docs/collections/
 {% if collection %}
 <section class="grid md:grid-cols-3 gap-4 my-4">
 
-{% for item in collections[collection] | sortByOrder %}
+{% for item in collections[collection]  %}
   {# for debugging measure shows us where this data is coming from  #}
   {%- if meta.env != 'prod' %}<!-- input path: {{ item.inputPath }}  -->{%- endif -%}
 

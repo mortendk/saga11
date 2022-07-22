@@ -6,7 +6,7 @@ use:
 {%- if meta.env != 'prod' %}<!-- nav/pagesnjk  -->{%- endif  -%}
 
 <nav class="" aria-label="Pages menu">
-{% for item in collections.allPages | sortByOrder %}
+{% for item in collections.allPages  %}
   {# Defines a menu title based on the user input  #}
   {% set menutitle %}
     {% if item.data.menulabel %}
