@@ -1,7 +1,10 @@
-{#
+{# APPLE STARTUP SCREEM
+------------------------------------------------
   apple startup screen
   https://blog.expo.dev/enabling-ios-splash-screens-for-progressive-web-apps-34f06f096e5c
 #}
+{%- if meta.env != 'prod' %}<!-- _base/applestartupscreens.njk  -->{%- endif -%}
+
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-touch-fullscreen" content="yes"/>
 <meta name="apple-mobile-web-app-title" content="Expo"/>
