@@ -5,10 +5,10 @@ Calls the _base/base.njk that is holding all the basic html
 {%- if meta.env != 'prod' %}<!-- _layout/default.njk  -->{%- endif -%}
 
 
-{%- include "_layout/header.njk" %}
+{# {%- include "_layout/header.njk" %} #}
 
 <main id="main" tabindex="-1" class="pagewidth flex-grow mt-24">
   {{ content | safe }}
 </main>
 
-{# {%- include "_layout/footer.njk" %} #}
+{%- include "_layout/footer.njk" %}
