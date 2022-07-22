@@ -33,14 +33,6 @@
             {% endif %}
           {% endfor %}
 
-          {# Graps the menu from the settings config (set in _data/menu.json) #}
-          {% for item in menu.main %}
-            {% if item.url in page.url -%}
-              <a href="{{ item.url }}" class="{{ menuclasses }} border-red-400" title="{{ item.text}}">{{ item.title }}</a>
-            {% else %}
-              <a href="{{ item.url }}" class="{{ menuclasses }} border-transparent"  title="{{ item.text}}">{{ item.title }}</a>
-            {% endif %}
-          {% endfor %}
 
         </div>
 
@@ -50,8 +42,8 @@
     {# Toggle menu #}
     {# TODO: fix mobile menu #}
     <button class="js-menu-toggle mr-4 block md:hidden">
-      <div class="w-8 h-8 text-red-400">{% include "components/svg/menubars.njk" %}</div>
-      <div class="w-8 h-8 hidden">{% include "components/svg/close.njk" %}</div>
+      <div class="w-8 h-8 text-red-400">{% include "svg/menubars.njk" %}</div>
+      <div class="w-8 h-8 hidden">{% include "svg/close.njk" %}</div>
     </button>
 
   </div>

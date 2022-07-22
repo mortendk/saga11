@@ -2,13 +2,22 @@
 
   {% include "components/nav/some.njk" %}
 
+  <nav class="flex space-x-4 justify-between max-w-lg mx-auto" aria-label="Footer Menu">
+    {# Graps the menu from the settings config (set in _data/menu.json) #}
+    {% for item in menu.main %}
+        <a href="{{ item.url }}" class="underline">
+        {{ item.title }}
+        </a>
+    {% endfor %}
+  </nav>
+
   <div class="text-gray-800 text-center text-sm mt-8">
     {{ site.footer | markdown | safe }}
   </div>
 
   <div class="flex justify-center text-sm text-slate-600">
     Made with
-    <div class="w-3 pt-1 text-yellow-500">{% include "components/svg/lightning.njk" %}</div>
+    <div class="w-3 pt-1 text-yellow-500">{% include "svg/lightning.njk" %}</div>
   </div>
 
 </footer>

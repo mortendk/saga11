@@ -1,1 +1,3 @@
-These templates can be selected from the netlifycms
+Templates used for page types
+All templates here can be selected from netlifycms
+layout: page/frontpage.njk
