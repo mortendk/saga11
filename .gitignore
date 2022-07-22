@@ -6,3 +6,7 @@ node_modules/
 .netlify
 .env
 .cache
+
+# saga build
+src/assets/css/style.css
+src/assets/css/style.min.css

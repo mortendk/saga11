@@ -18,7 +18,9 @@ module.exports = {
     },
     extend: {
       fontSize: {},
-      colors: {},
+      colors: {
+        tabcolor: "red",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

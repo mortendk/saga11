@@ -65,7 +65,7 @@ collections:
         pattern: "([0-9]+(-[0-9]+)+)"
       - label: Drafts
         field: eleventyExcludeFromCollections
-      - label: collections
+      - label: Tags
         field: tags
 
     # FIELDS
@@ -382,6 +382,14 @@ collections:
               widget: text,
               required: false,
             }
+          - {
+              label: "Image",
+              name: "image",
+              widget: "image",
+              required: false,
+              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+            }
+
           - { label: keywords, name: keywords, widget: text, required: false }
           - { label: footer, name: footer, widget: markdown, required: false }
           - {
@@ -410,6 +418,9 @@ collections:
               widget: string,
               required: false,
             }
+          - { label: "map", name: "map", widget: "map", required: false }
+          - { label: "Adress", name: "adress", widget: "string" }
+          - { label: "zip", name: "zip", widget: "string" }
 
       - label: "Social Network links"
         name: "some"

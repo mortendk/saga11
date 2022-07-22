@@ -3,13 +3,12 @@
 <section class="grid md:grid-cols-3 gap-4 my-4">
 
 {% for item in collections[collection] | sortByOrder %}
-  <article class="p-4 shadow border rounded">
-    <a href="{{ item.url }}" title="{{item.data.title}}" class="text-xl font-bold">{{item.data.title}}
+  <article class="p-4 shadow border rounded" aria-label="Post {{ item.data.title}}" >
 
+    <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">{{item.data.title}}
       <div class= "aspect-video overflow-hidden">
-
         {% if item.data.image %}
-          {% createImage item.data.image, '800px',item.data.title,"" %}
+          {% image item.data.image, [500,800],"(min-width: 30em) 50vw, 33vw",['webp'],"","shadow","lazy" %}
       {% endif %}
       </div>
 

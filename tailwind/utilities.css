@@ -7,8 +7,8 @@
 
   .pagewidth {
     @apply mx-auto
-      px-2
       w-full
+      px-2
       lg:max-w-screen-lg
       lg:px-0
       xl:max-w-screen-xl
@@ -19,5 +19,9 @@
     width: 100vw;
     margin-left: 50%;
     transform: translateX(-50%);
+  }
+
+  .sr-tab {
+    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
   }
 }

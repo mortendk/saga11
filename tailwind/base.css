@@ -1,50 +1,12 @@
 @tailwind base;
 
 @layer base {
-  /* basefont */
-
-  html {
-    /* font-family: TT, system-ui, sans-serif; */
-  }
-
+  /* a11y  */
   a {
-    @apply text-red-600;
+    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
   }
-  h1 {
-  }
-
-  h2 {
-  }
-
-  h3 {
-  }
-
-  h4,
-  h5,
-  h6 {
-  }
-
-  p {
-  }
-
-  pre {
-  }
-
-  mark {
-  }
-
-  blockquote {
-  }
-
-  /* list */
-
-  dl {
-  }
-  dt {
-  }
-  dd {
-  }
-  nav ul {
+  form button {
+    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
   }
 
   /* form  */
@@ -52,6 +14,14 @@
   }
 
   input {
+    @apply block
+    w-full
+    rounded-sm
+    border-red-200
+    border-gray-300
+    shadow-sm
+    required:mt-1
+    focus:border-teal-500 focus:ring focus:ring-teal-200 focus:ring-opacity-50;
   }
 
   input[type="checkbox"] {
@@ -67,9 +37,5 @@
   }
 
   fieldset {
-  }
-
-  form button,
-  .btn {
   }
 }

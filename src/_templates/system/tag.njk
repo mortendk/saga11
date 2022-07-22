@@ -14,9 +14,7 @@ saga-template-name: Tag
     <a href="{{ item.url }}" class="text-xl font-bold">
     <div class="shadow-lg aspect-video overflow-hidden mb-4">
     {% if item.data.image %}
-      {% createImage item.data.image, '600px', 'image for the article' + item.data.title ,"shadow-lg" %}
-      {# {% createImage item.data.image, "600" , {{ item.data.title }} %} #}
-      {# {% createPicture item.data.image %} #}
+      {% image item.data.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %}
     {% endif %}
     </div>
     <div class="font-lg">

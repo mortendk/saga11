@@ -19,13 +19,15 @@ saga-template-name: Post Default
     {% endfor %}
 
     {% if date %}
-      <time>{{ date | monthDayYear }}</time>
+      <time>
+      {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+      </time>
     {% endif %}
   </footer>
 
     {# image #}
     {% if image %}
-      {% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "border border-red-500", "no lazy" %}
+      {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %}
     {% endif %}
 
 

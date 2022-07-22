@@ -66,20 +66,8 @@ LISTING
 {# ------------------------------------------------------
 Images
 --------------------------------------------------------#}
-{% createImage image, '1200px', "frontpage image","shadow-lg" %}
+{# {% imageBackgroundStyle "image", “size”, “format webp/png/jpg/gif”  %} #}
+{# size: [null] format [null] #}
+{% imageBackgroundStyle "assets/img/ident.png", “150” %}
 
-{% createPicture image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "shadow-lg", "no lazy" %}
-
-{% if image %}
-  {% set alt = "Image of " + image %}
-  {% set width = "600" %}
-  {% set css = "400" %}
-  {% set format = "jpeg" %}
-  {% createImage image,  format, width, alt, css %}
-{% endif %}
-
-<div class="block bg-local h-80 bg-no-repeat bg-slate-400"
-{% if image %}{% createinlinestylebg image , 1200 %}{% endif %}
- >
-
-</div>
+{% image image, [320, 600, 1200], "(min-width: 30em) 50vw, 100vw", "a picture", "shadow-lg", "no lazy" %}

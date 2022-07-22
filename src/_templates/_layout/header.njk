@@ -1,4 +1,6 @@
-<header role="banner" class="js-header bg-white shadow fixed w-full bg-white h-16 md:h-20">
+<header role="banner" class="js-header bg-white shadow fixed w-full bg-white h-16 md:h-20" >
+  {# skip link #}
+  <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
     {# site title + TODO: icon if have one #}
@@ -8,7 +10,7 @@
     </a>
 
     {# Menu desktop #}
-    <nav class="h-full hidden md:block">
+    <nav class="h-full hidden md:block" aria-label="Main Menu">
       <div class="flex justify-between h-full">
 
         <div class="flex space-x-4">
@@ -57,7 +59,7 @@
 
 {# TODO: is it to fugly to have 2 menus added here ? ... its defo easier #}
 {# Mobile menu #}
-<div class="js-menu md:hidden fixed z-100 -left-full top-16 w-11/12 h-full bg-white duration-300 shadow-xl">
+<nav class="js-menu md:hidden fixed z-100 -left-full top-16 w-11/12 h-full bg-white duration-300 shadow-xl" aria-label="Mobile Menu">
 
   {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
   {# TODO: Add a controller for each page to add it to the menu add tag to selector#}
@@ -87,4 +89,4 @@
     {% endif %}
   {% endfor %}
 
-</div>
+</nav>
