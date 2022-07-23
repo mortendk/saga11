@@ -16,7 +16,23 @@ Graps all the data thats added to the _data/some.json file
   </a>
 {% endif %}
 
+{% if some.linkedin %}
+  <a href="https://linkedin.com/in/{{ some.linkedin }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">LinkedIn</span>
+    {% include "svg/linkedin.njk" %}
+   </a>
+{% endif %}
 
+{% if some.facebook %}
+  <a href="https://facebook.com/{{ some.facebook }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">Facebook</span>
+    {% include "svg/facebook.njk" %}
+  </a>
+{% endif %}
 
-</nav>
-
+{% if some.instagram %}
+  <a href="https://instagram.com/{{ some.instagram }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">Instagram</span>
+    {% include "svg/instagram.njk" %}
+  </a>
+{% endif %}
