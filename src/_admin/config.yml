@@ -382,14 +382,6 @@ collections:
               widget: text,
               required: false,
             }
-          - {
-              label: "Image",
-              name: "image",
-              widget: "image",
-              required: false,
-              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-            }
-
           - { label: keywords, name: keywords, widget: text, required: false }
           - { label: footer, name: footer, widget: markdown, required: false }
           - {
@@ -412,7 +404,6 @@ collections:
               widget: color,
               required: false,
             }
-
           - {
               label: "Adress",
               name: "adress",

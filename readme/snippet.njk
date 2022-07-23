@@ -1,13 +1,30 @@
+{#
+a11y
+
+aria-label="breadcrumbs"
+
+ aria-expanded="false"
+ aria-expanded="true"
+ tabindex="0"
+
+aria-current="page"
+
+
+aria-controls="nav-menu-ex-2"
+ #}
+
+
 {# ------------------------------------------------------
 LISTING
 --------------------------------------------------------#}
 
 {# Graps the menu from the settings config (set in _data/menu.json) #}
 {% for item in menu.main %}
+  {# if the menu url is part of this link  ex /post/ for an item in /post/foobar #}
   {% if item.url in page.url -%}
-    <a href="{{ item.url }}" class="font-bold" title="{{ item.text}}">{{ item.title }}</a>
+    <a href="{{ item.url }}" class="font-bold">{{ item.title }}</a>
   {% else %}
-    <a href="{{ item.url }}" class=""   title="{{ item.text}}">{{ item.title }}</a>
+    <a href="{{ item.url }}">{{ item.title }}</a>
   {% endif %}
 {% endfor %} #}
 
@@ -23,9 +40,9 @@ LISTING
 {# All post #}
 {% for item in collections.allPosts %}
   {% if item.url in page.url -%}
-    <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
+    <a href="{{ item.url }}">{{item.data.title}}</a>
   {% else %}
-    <a href="{{ item.url }}" title="{{item.data.title}}">{{item.data.title}}</a>
+    <a href="{{ item.url }}">{{item.data.title}}</a>
   {% endif %}
 {% endfor %}
 
