@@ -59,3 +59,25 @@ Graps all the data thats added to the _data/some.json file
     {% include "svg/github.njk" %}
   </a>
 {% endif %}
+
+{% if some.dribble %}
+  <a href="https://dribbble.com/{{ some.dribble }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">Dribbble</span>
+    {% include "svg/dribble.njk" %}
+  </a>
+{% endif %}
+
+{% if some.webmention %}
+  <a href="#" class="{{css}}">
+    <span class="sr-only">Webmention</span>
+    {% include "svg/webmention.njk" %}
+  </a>
+{% endif %}
+
+
+{% if some.tiktok %}
+  <a href="https://tiktok.com/@{{ some.tiktok }}" class="{{ css }}">
+    <span class="sr-only">tiktok</span>
+    {% include "svg/tiktok.njk" %}
+  </a>
+{% endif %}
