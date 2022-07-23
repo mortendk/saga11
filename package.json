@@ -1,7 +1,7 @@
 {
-  "name": "saga",
-  "version": "0.1.4",
-  "description": "Saga ",
+  "name": "Saga 11 ",
+  "version": "0.1.5",
+  "description": "A system to build small websites - powered by 11ty",
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve & npm run tw:watch",
