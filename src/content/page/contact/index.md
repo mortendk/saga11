@@ -1,10 +1,7 @@
 ---
-section: ""
 title: contact
 url: contact
-image: /images/cristina-glebova-gko-x1mhar4-unsplash.jpg
-teaser: "contact Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. \t"
+teaser: "Contact page"
 tags:
   - frontpage
   - menu

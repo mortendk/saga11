@@ -3,12 +3,16 @@
 Global header for the site
  #}
 {%- if meta.env != 'prod' %}<!-- _layout/header.njk  -->{%- endif  -%}
+
+{% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
 <header role="banner" class="js-header bg-white shadow fixed w-full bg-white z-50 h-16 md:h-20" >
+
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    <a href="/" title="{{site.title}}" class="flex items-center  border-b-4 border-transparent mr-4">
+
+    <a href="/" title="{{site.title}}" class="{{ menuclasses }} mr-4">
     {# site title + TODO: icon if have one #}
       {{ site.title}}
       <span class="sr-only">{{site.title}}</span>
@@ -19,7 +23,7 @@ Global header for the site
       <div class="flex justify-between h-full">
 
         <div class="flex space-x-4">
-          {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
+
 
           {% for item in collections.menu | sortByOrder %}
             {# grap the correct title for the page  #}

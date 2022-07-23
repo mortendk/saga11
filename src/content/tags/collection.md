@@ -1,5 +1,3 @@
 ---
-title: collection
-image: /images/cristina-glebova-gko-x1mhar4-unsplash.jpg
+title: Collection
 ---
-This is a tag page

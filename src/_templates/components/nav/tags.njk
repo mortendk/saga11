@@ -5,9 +5,9 @@ List of all tags
 {%- if meta.env != 'prod' %}<!-- nav/tags.njk  -->{%- endif  -%}
 
 {% for tag in collections.tagList   %}
-  <nav aria-label="All Tags">
+  <nav aria-label="All Tags" class="flex flex-row">
     {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
-      <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
+      <a href="/tag/{{ tag }}"> {{ item.data.title}}</a> |
     {% endfor %}
   </nav>
 {% endfor %}

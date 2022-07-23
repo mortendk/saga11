@@ -7,12 +7,12 @@ teaser: Tell her you just want to talk. It has nothing to do with mating. Do a
   Saucier, which I just made up. Uhh… also, comes with double prize money.
 tags:
   - collection
-  - collection2
 layout: post/post.njk
 date: 2022-07-10 20:07:20
 order: ""
 eleventyExcludeFromCollections: false
 ---
+
 # You can crush me but you can't crush my spirit!
 
 Tell her you just want to talk. It has nothing to do with mating. Do a flip! I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money.
@@ -31,9 +31,9 @@ Are you crazy? I can't swallow that. As an interesting side note, as a head with
 
 That could be 'my' beautiful soul sitting naked on a couch. If I could just learn to play this stupid thing. Oh, all right, I am. But if anything happens to me, tell them I died robbing some old man. You, minion. Lift my arm. AFTER HIM!
 
-* Meh.
-* I guess if you want children beaten, you have to do it yourself.
-* Take me to your leader!
+- Meh.
+- I guess if you want children beaten, you have to do it yourself.
+- Take me to your leader!
 
 Good man. Nixon's pro-war and pro-family. Soothe us with sweet lies. You are the last hope of the universe. I'm sorry, guys. I never meant to hurt you. Just to destroy everything you ever believed in. Bender, you risked your life to save me!
 

@@ -21,8 +21,9 @@ gallery:
 tags:
   - frontpage
   - menu
+  - freya
 layout: page/page.njk
 order: 20
+menulabel: Gallery
 eleventyExcludeFromCollections: false
 ---
-Bodytext of the image gallery
