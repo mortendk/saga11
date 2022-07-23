@@ -6,7 +6,7 @@ List of all tags
 
 {% for tag in collections.tagList   %}
   <nav aria-label="All Tags">
-    {% for item in collections.all |  getPage("/tag/" + tag + "/" ) %}
+    {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
       <a href="/tag/{{ tag }}" class="block"> {{ item.data.title}}</a>
     {% endfor %}
   </nav>

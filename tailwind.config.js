@@ -1,8 +1,7 @@
-const colors = require("tailwindcss/colors");
+/** @type {import('tailwindcss').Config} */
 
 module.exports = {
   content: [
-    // Example content paths...
     "src/_templates/*.njk",
     "src/_templates/**/*.njk",
     "src/**/**/*.njk",
@@ -11,13 +10,8 @@ module.exports = {
   darkMode: "class",
   safelist: [],
   theme: {
-    fontFamily: {
-      sans: ["montserrat", "sans-serif"],
-      serif: ["Merriweather", "serif"],
-      mono: ["fira", "mono"],
-    },
+    fontFamily: {},
     extend: {
-      fontSize: {},
       colors: {
         tabcolor: "red",
       },
