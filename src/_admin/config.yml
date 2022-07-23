@@ -359,7 +359,7 @@ collections:
     files:
       - label: "Site Settings"
         name: "sitesettings"
-        file: "src/_data/site.json"
+        file: "src/data/site.json"
         fields:
           - { label: title, name: title, widget: string }
           - { label: url, name: url, widget: string }
@@ -401,7 +401,7 @@ collections:
 
       - label: "Social Network links"
         name: "some"
-        file: "src/_data/some.json"
+        file: "src/data/some.json"
         fields:
           - {
               label: facebook,
@@ -498,7 +498,7 @@ collections:
 
       - label: "Menu"
         name: "menu"
-        file: "src/_data/menu.json"
+        file: "src/data/menu.json"
         fields:
           - label: Menu
             name: main
