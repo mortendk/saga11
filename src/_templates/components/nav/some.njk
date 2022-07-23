@@ -36,3 +36,26 @@ Graps all the data thats added to the _data/some.json file
     {% include "svg/instagram.njk" %}
   </a>
 {% endif %}
+
+{% if some.youtube %}
+  <a href="https://instagram.com/{{ some.youtube }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">youtube</span>
+    {% include "svg/youtube.njk" %}
+  </a>
+{% endif %}
+
+
+
+{% if some.twitter %}
+  <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">Twitter</span>
+    {% include "svg/twitter.njk" %}
+  </a>
+{% endif %}
+
+{% if some.github %}
+  <a href="https://github.com/{{ some.github }}" target="_blank" rel="noreferrer" class="{{css}}">
+    <span class="sr-only">GitHub</span>
+    {% include "svg/github.njk" %}
+  </a>
+{% endif %}
