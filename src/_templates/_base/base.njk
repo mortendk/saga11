@@ -6,25 +6,23 @@ The basic html page
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <title>{{ site.title }} | {{ title }}</title>
+    {# title tag #}
+    {% if page.url =="/" %}
+      <title> {{ site.title }} </title>
+    {% else %}
+      <title>{{ title }} - {{ site.title }} </title>
+    {% endif %}
+
     <!--
-       __  _____ _                           _  ___  ___           _     _             __
-  / / |_   _| |                         | | |  \/  |          | |   (_)            \ \
- | |    | | | |__   ___ _ __ ___   ___  | | | .  . | __ _  ___| |__  _ _ __   ___   | |
-/ /     | | | '_ \ / _ \ '_ ` _ \ / _ \ | | | |\/| |/ _` |/ __| '_ \| | '_ \ / _ \   \ \
-\ \     | | | | | |  __/ | | | | |  __/ | | | |  | | (_| | (__| | | | | | | |  __/   / /
- | |    \_/ |_| |_|\___|_| |_| |_|\___| | | \_|  |_/\__,_|\___|_| |_|_|_| |_|\___|  | |
-  \_\                                   | |                                        /_/
-                                        |_|
-    mortendk
-    https://thememachine.io
+      https://sage11.dev
      -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{{ site.description }}">
-    <meta name="keywords" content="{{ site.keywords}}">
-    <meta name="generator" content="{{eleventy.generator}}">
+    {% if site.description %}<meta name="description" content="{{ site.description }}">{% endif %}
+    {% if site.keywords %}<meta name="keywords" content="{{ site.keywords}}">{% endif %}
+    {% if site.generator %}<meta name="generator" content="{{eleventy.generator}}">{% endif %}
+
     <meta name="theme-color" content="{{site.color}}">
 
     <link rel="author" href="humans.txt" />
@@ -38,14 +36,19 @@ The basic html page
     {%- include "_base/icon.njk" -%}
     {%- include "_base/applestartupscreens.njk" -%}
 
-    {# css is build in tailwind /tailwind.css #}
+    {# css is build in /tailwind/[...].css #}
     {%- if meta.env == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet" rel="preload">
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" rel="preload">
     {% endif -%}
+
   </head>
   <body class="flex flex-col h-screen bg-slate-100">
+
+
+
+
 
     {{ content | safe }}
 

@@ -223,7 +223,7 @@ module.exports = function (eleventyConfig) {
       input: "src/",
       output: "_site",
       includes: "_templates",
-      data: "_data",
+      data: "data",
     },
   };
 };
