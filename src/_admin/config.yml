@@ -52,16 +52,14 @@ collections:
     delete: true
     editor:
       preview: true
-    # Overview
 
-    sortable_fields: ["eleventyExcludeFromCollections", "title", "date"]
-    # SESSION FILTERS
+    # Overview
+    sortable_fields: ["title", "order", "date"]
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
 
-    # SESSION GROUPS
     view_groups:
       - label: "Date: "
         field: date
@@ -177,17 +175,13 @@ collections:
     slug: "{{url}}/index"
     preview_path: /{{url}}/
 
-    sortable_fields: ["eleventyExcludeFromCollections", "title", "order"]
-    # SESSION FILTERS
+    # Overview
+    sortable_fields: ["title", "order", "date"]
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
-
-    # SESSION GROUPS
     view_groups:
-      - label: Drafts
-        field: eleventyExcludeFromCollections
       - label: Tags
         field: tags
 
@@ -293,10 +287,10 @@ collections:
         }
 
   # -----------------------------------------------------------------
-  # Default pages
+  # System pages
   # -----------------------------------------------------------------
-  - label: "Default Pages"
-    name: "defaultpages"
+  - label: "System pages"
+    name: "systempages"
     files:
       - label: "Form Success"
         name: "contactsuccess"

@@ -9,7 +9,7 @@ tags:
   - collection
 layout: post/post.njk
 date: 2022-07-12 15:49:23
-eleventyExcludeFromCollections: true
+eleventyExcludeFromCollections: false
 ---
 
 Space ship people get up from sleeping coffin and have eat.
