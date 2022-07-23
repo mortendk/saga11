@@ -6,7 +6,7 @@ teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing
 gallery: []
 tags:
-  - collection
+  - odin
 layout: post/post.njk
 date: 2022-07-12 15:49:23
 eleventyExcludeFromCollections: false

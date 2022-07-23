@@ -1,11 +1,11 @@
 ---
 title: Bjorn the chair viking berserker sea berserker Beowulf sailing
 url: Bjorn the chair viking berserker sea berserker Beowulf sailing
-image: /images/gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
+image: /images/veeterzy-sMQiL_2v4vs-unsplash.jpg
 teaser: Bjorn the chair viking berserker sea berserker Beowulf sailing. Raiding
   lack the table swords longship berserker boats swords viking longship.
 tags:
-  - collection
+  - freya
 layout: post/post.njk
 date: 2022-07-23 22:25:10
 eleventyExcludeFromCollections: false
