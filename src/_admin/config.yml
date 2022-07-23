@@ -412,15 +412,14 @@ collections:
               widget: color,
               required: false,
             }
+
           - {
-              label: Generator,
-              name: generator,
-              widget: string,
+              label: "Adress",
+              name: "adress",
+              widget: "string",
               required: false,
             }
-          - { label: "map", name: "map", widget: "map", required: false }
-          - { label: "Adress", name: "adress", widget: "string" }
-          - { label: "zip", name: "zip", widget: "string" }
+          - { label: "zip", name: "zip", widget: "string", required: false }
 
       - label: "Social Network links"
         name: "some"

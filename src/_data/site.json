@@ -8,6 +8,6 @@
   "authorname": "Ragnar",
   "title": "Saga CMS",
   "image": "/images/toaster-clean.png",
-  "footer": "Saga powered by 11ty ",
+  "footer": "",
   "description": "Flatfile based cms based on 11ty and netlifycms "
 }
