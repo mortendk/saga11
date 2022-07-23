@@ -11,9 +11,9 @@ Global header for the site
   <nav class="flex space-x-4 justify-between max-w-lg mx-auto" aria-label="Footer Menu">
     {# Graps the menu from the settings config (set in _data/menu.json) #}
     {% for item in menu.main %}
-        <a href="{{ item.url }}" class="underline">
+      <a href="{{ item.url }}" class="underline">
         {{ item.title }}
-        </a>
+      </a>
     {% endfor %}
   </nav>
 
@@ -22,10 +22,8 @@ Global header for the site
   </div>
 
   <div class="flex justify-center text-sm text-slate-600 my-4">
-
-    {# <div class="w-3 pt-1 text-red-700">{% include "svg/lightning.njk" %}</div> #}
-    🎈 {{ eleventy.version}}
-    saga11 {{ saga11.version}}
+    Eleventy: {{ eleventy.version}} |
+    Saga Eleven: {{ saga11.version}}
   </div>
 
 </footer>

@@ -8,12 +8,7 @@ Uses the page templates include the contactform
 #}
 {%- if meta.env != 'prod' %}<!-- page/contact.njk  -->{%- endif -%}
 
-
-<div class="text-xl">
-  {{ teaser }}
-</div>
-
-<div class="">
+<div class="wysiwyg">
   {{ content | safe}}
 </div>
 
