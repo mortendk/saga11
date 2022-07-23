@@ -101,3 +101,20 @@ Graps all the data thats added to the _data/some.json file
     {% include "svg/discord.njk" %}
   </a>
 {% endif %}
+
+{% if some.soundcloud %}
+  <a href="https://soundcloud.com/{{ some.soundcloud }}" class="{{ css }}">
+    <span class="sr-only">Soundcloud</span>
+    {% include "svg/Soundcloud.njk" %}
+  </a>
+{% endif %}
+
+{% if some.bandcamp %}
+  <a href="https://{{ some.bandcamp }}.bandcamp.com"  class="{{ css }}">
+    <span class="sr-only">bandcamp</span>
+    {% include "svg/bandcamp.njk" %}
+  </a>
+{% endif %}
+
+</nav>
+
