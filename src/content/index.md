@@ -1,6 +1,6 @@
 ---
 title: Write you own saga
-
+layout: page/frontpage.njk
 permalink: /
 image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
 section: frontpage
