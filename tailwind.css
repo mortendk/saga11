@@ -2,7 +2,7 @@
 Tailwind setup
 Settings and definitions are in tailwin.config.js
 */
-/* @import "tailwind/fonts.css"; */
+@import "tailwind/fonts.css";
 
 @import "tailwind/base.css";
 

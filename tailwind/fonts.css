@@ -1,12 +1,18 @@
 /*
 the font paths are relative to the css file created with tailwind
-/style.css
-/fonts/tt/...
 */
 
+/*
+examplte
 @font-face {
-  font-family: "ApocalypseGrunge";
+  font-family: "[superdupername]";
   font-display: swap;
-  src: url("/assets/fonts/agrunge/agrunge.woff2") format("woff2"),
-    url("/assets/fonts/agrunge/agrunge.woff") format("woff");
+  src: url("/assets/fonts/[FAMILY]/[NAME].woff2") format("woff2"),
+    url("/assets/fonts/[FAMILY]/[NAME].woff") format("woff");
 }
+
+in tailwind.config.js
+    fontFamily: {superdupername},
+    class="font-superdupername"
+
+*/
