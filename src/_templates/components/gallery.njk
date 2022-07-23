@@ -18,8 +18,17 @@ simple image gallery / slider
     id="slide-{{ loop.index }}"
   >
   {% if item.image.image %}
+    {% if loop.index == "1" %}
+    {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text",
+    'absolute top-0 left-0 h-full object-cover shadow-md', 'nolazy' %}
+
+    {% else %}
     {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text",
     'absolute top-0 left-0 h-full object-cover shadow-md' %}
+
+    {% endif %}
+
+
   {% endif %}
     {# title and figcap #}
     {% if item.image.title or item.image.figcaption %}
