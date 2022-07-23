@@ -81,3 +81,23 @@ Graps all the data thats added to the _data/some.json file
     {% include "svg/tiktok.njk" %}
   </a>
 {% endif %}
+
+{% if some.twitch %}
+  <a href="https://twitch.tv/{{ some.twitch }}" class="{{ css }}">
+    <span class="sr-only">twitch</span>
+    {% include "svg/twitch.njk" %}
+  </a>
+{% endif %}
+
+{% if some.patron %}
+  <a href="https://patron.com/{{ some.patron }}" class="{{ css }}">
+    patron
+  </a>
+{% endif %}
+
+{% if some.discord %}
+  <a href="https://discord.gg/{{ some.discord }}" class="{{ css }}">
+    <span class="sr-only">discord</span>
+    {% include "svg/discord.njk" %}
+  </a>
+{% endif %}
