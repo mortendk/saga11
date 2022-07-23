@@ -1,13 +1,10 @@
 {
   "color": "#11c5e4",
   "keywords": "11ty, netlifycms, flatfile cms",
-  "url": "https://sagacms.netlify.app",
-  "authoremail": "foo@bar.io",
-  "generator": "11ty",
-  "favicon": "/assets/site/quuen.jpeg",
+  "url": "https://saga11.dev",
+  "authoremail": "foo@saga11.dev",
   "authorname": "Ragnar",
-  "title": "Saga CMS",
-  "image": "/images/toaster-clean.png",
+  "title": "Saga11",
   "footer": "",
   "description": "Flatfile based cms based on 11ty and netlifycms "
 }
