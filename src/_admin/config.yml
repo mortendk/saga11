@@ -43,7 +43,9 @@ collections:
       depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
     # folder/index creates a folder structure
-    slug: "{{year}}-{{month}}/{{title}}/index"
+    # {{year}}-{{month}}/{{title}}/index
+    # {{tags}}/{{title}}/index
+    slug: "/{{title}}/index"
     #preview_path must match the settings from post.json permalink
     preview_path: post/{{url}}
     create: true
@@ -58,6 +60,7 @@ collections:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
+
     # SESSION GROUPS
     view_groups:
       - label: "Date: "
@@ -173,6 +176,21 @@ collections:
     delete: true
     slug: "{{url}}/index"
     preview_path: /{{url}}/
+
+    sortable_fields: ["eleventyExcludeFromCollections", "title", "order"]
+    # SESSION FILTERS
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+
+    # SESSION GROUPS
+    view_groups:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+      - label: Tags
+        field: tags
+
     # media_folder: ''
     # public_folder: ''
     editor:
@@ -280,31 +298,6 @@ collections:
   - label: "Default Pages"
     name: "defaultpages"
     files:
-      - label: "Frontpage"
-        name: "frontpage"
-        file: "src/content/index.md"
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
-          - {
-              label: "Image",
-              name: "image",
-              widget: "image",
-              required: false,
-              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-            }
-          # collection
-          - name: collection
-            label: collection
-            widget: relation
-            collection: tags
-            searchFields: [title]
-            valueField: "{{slug}}"
-            display_fields: ["title"]
-            required: false
-            multiple: false
-            hint: "Select a collection that will be added to the page - if the template wants that ;)"
-
       - label: "Form Success"
         name: "contactsuccess"
         preview_path: /success

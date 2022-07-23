@@ -25,4 +25,3 @@ layout: page/page.njk
 order: 20
 eleventyExcludeFromCollections: false
 ---
-Bodytext of the image gallery
