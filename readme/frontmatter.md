@@ -1,6 +1,6 @@
 ---
 title: foobar
-tags: post
+tags: tagtag
 
 eleventyExcludeFromCollections: true
 ---
