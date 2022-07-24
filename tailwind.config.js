@@ -4,11 +4,9 @@ module.exports = {
   content: [
     "src/_templates/*.njk",
     "src/_templates/**/*.njk",
-    "src/**/**/*.njk",
     "src/assets/js/*.js",
   ],
   darkMode: "class",
-  safelist: [],
   theme: {
     fontFamily: {},
     extend: {
