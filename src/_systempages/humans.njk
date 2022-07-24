@@ -2,28 +2,14 @@
 permalink: /humans.txt
 eleventyExcludeFromCollections: true
 ---
+{{ site.title }}
+{{ site.url }}
+{{ eleventy.generator }}
+saga11: {{saga11.version }}
+---
 
-/* TEAM */
-Web Designer: Morten Birch / mortendk
-Site:
-From: Copenhagen, Denmark.
+{{ site.humantxt }}
 
-/* THANKS */
-
-/* SITE */
-Last update: YYYY/MM/DD
-Standards: HTML5, CSS3
-Build: 11ty, Vanilla js, Tailwind 3
-
-/* Software + Assets */
-Software:
-vscode: https://code.visualstudio.com
-responsively: https://responsively.app
-
+---
 Build:
-
-Saga 11 : saga11.dev
-11ty: 11ty.dev
-tailwind3: tailwindcss.com
-vanillajs: vanilla-js.com
-
+{{ page.date | formatDate("cccc d. MMMM yyyy HH:mm") }}

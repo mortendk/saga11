@@ -372,6 +372,19 @@ collections:
           - { label: keywords, name: keywords, widget: text, required: false }
           - { label: footer, name: footer, widget: markdown, required: false }
           - {
+              label: "404 Errorpage",
+              name: errorpage,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: "humans.txt",
+              name: humantxt,
+              widget: text,
+              required: false,
+            }
+
+          - {
               label: Author (rss),
               name: authorname,
               widget: string,
