@@ -83,10 +83,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(embedEverything, {
     add: ["soundcloud"],
-    use: ["vimeo", "instagram"],
+    use: ["vimeo", "youtube", "twitch"],
     twitch: {
       options: {
-        parent: ["https://saga11/.dev"],
+        parent: ["https://saga11/.dev", "https://netlify.app"],
       },
     },
   });
