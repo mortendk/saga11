@@ -1,8 +1,12 @@
+require("dotenv").config();
+
 const path = require("path");
 const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const Image = require("@11ty/eleventy-img");
+
+const env = require("./src/data/env.js");
 
 // -----------------------------------------------------------------
 // Shortcuts
@@ -95,6 +99,10 @@ module.exports = function (eleventyConfig) {
 
   // Transform
   // Minify
+  console.log("enviroment: " + process.env.ELEVENTY_ENV);
+  console.log(process.env.ELEVENTY_ROOT);
+  console.log(process.env.ELEVENTY_SOURCE);
+
   if (process.env.ELEVENTY_ENV == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }

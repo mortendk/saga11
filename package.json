@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
-    "watch": "npx @11ty/eleventy --serve --quiet --incremental & npm run tw:watch",
+    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "tw:watch": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
     "clean _site": "rm -rf _site & rm src/assets/css/style.css",
     "netlify": "netlify dev",
+    "test": "ELEVENTY_ENV=dev THEME=bar  && npm run start",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug "
   },
@@ -29,6 +30,7 @@
     "tailwindcss": "^3.1.6"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "html-minifier": "^4.0.0"
   }
 }
