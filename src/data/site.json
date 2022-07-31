@@ -7,6 +7,6 @@
   "authorname": "Ragnar",
   "errorpage": "ush It haz broken",
   "title": "Saga Eleven",
-  "footer": "",
+  "footer": "[saga11.dev](saga11.dev)\n",
   "description": "Flatfile based cms based on 11ty and netlifycms "
 }

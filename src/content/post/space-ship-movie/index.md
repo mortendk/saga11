@@ -11,16 +11,19 @@ layout: post/post.njk
 date: 2022-07-12 15:49:23
 eleventyExcludeFromCollections: false
 ---
-
 Space ship people get up from sleeping coffin and have eat.
 Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 
+this is a link by default [saga11.dev](https://saga11.dev)
+
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
 Astonauts is posses by eg demond and new egg demon is come when eat bad noodle. seven friends and cat all try to find egg demon before space ship go home but is hard working.
 
-- Who life life to escaping?
-- Who is bad milk blood robot?
+* Who life life to escaping?
+* Who is bad milk blood robot?
 
-_Scream not working because space make deaf_
+*Scream not working because space make deaf*
 
 code stuff
 
@@ -32,4 +35,4 @@ code stuff
 
 ## Image test
 
-![Hacker man]( "Hacker man takes care of business.")
+![Hackerman](/images/hacker.gif "Gif of Hackerman")
