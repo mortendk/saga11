@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.1",
+    "eleventy-plugin-youtube-embed": "^1.7.1",
     "html-minifier": "^4.0.0"
   }
 }
