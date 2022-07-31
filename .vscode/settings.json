@@ -1,9 +1,0 @@
-{
-  "window.zoomLevel": 0,
-  "editor.fontSize": 14,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#b61cce",
-    "statusBar.foreground": "#ffffff",
-    "statusBarItem.hoverBackground": "#d400ff"
-  }
-}
