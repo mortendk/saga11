@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const Image = require("@11ty/eleventy-img");
@@ -8,7 +7,6 @@ const Image = require("@11ty/eleventy-img");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
-
 // {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
@@ -96,7 +94,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // Transform
-  // only run min on prod
+  // Minify
   if (process.env.ELEVENTY_ENV == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }
@@ -105,24 +103,9 @@ module.exports = function (eleventyConfig) {
   // FILTERS
   // -----------------------------------------------------------------
 
-  // Sort: order
-  // {% for item in collections.tag | sortByOrder %}
-  eleventyConfig.addFilter("sortByOrder", (arr) => {
-    arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
-    return arr;
-  });
-
-  // Sort: title
-  // {% for item in collections.tag | sortByTitle %}
-  eleventyConfig.addFilter("sortByTitle", (arr) => {
-    arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
-    return arr;
-  });
-
-  // Date Filters
+  // {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   //  https://github.com/moment/luxon/blob/master/docs/formatting.md
-  //  {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
   eleventyConfig.addFilter(
     "formatDate",
     require("./src/_11ty/filter/formatDate.js")
@@ -143,6 +126,20 @@ module.exports = function (eleventyConfig) {
   // Note: the url is define in the tag/.json
   eleventyConfig.addFilter("getPage", (arr, url) => {
     return arr.filter((item) => item.url == url);
+  });
+
+  // Sort: order
+  // {% for item in collections.FOO | sortByOrder %}
+  eleventyConfig.addFilter("sortByOrder", (arr) => {
+    arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
+    return arr;
+  });
+
+  // Sort: title
+  // {% for item in collections.FOO | sortByTitle %}
+  eleventyConfig.addFilter("sortByTitle", (arr) => {
+    arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+    return arr;
   });
 
   // -----------------------------------------------------------------
