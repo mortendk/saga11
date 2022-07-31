@@ -3,6 +3,7 @@ const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const Image = require("@11ty/eleventy-img");
+const embedEverything = require("eleventy-plugin-embed-everything");
 
 // -----------------------------------------------------------------
 // Shortcuts
@@ -79,6 +80,16 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
+
+  eleventyConfig.addPlugin(embedEverything, {
+    add: ["soundcloud"],
+    use: ["vimeo", "instagram"],
+    twitch: {
+      options: {
+        parent: ["https://saga11/.dev"],
+      },
+    },
+  });
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode(
