@@ -1,11 +1,13 @@
 const path = require("path");
 const fs = require("fs");
-
 const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
 const Image = require("@11ty/eleventy-img");
+
+// -----------------------------------------------------------------
+// Shortcuts
+// -----------------------------------------------------------------
 
 // {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
