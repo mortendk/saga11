@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const markdownIt = require("markdown-it");
+
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const Image = require("@11ty/eleventy-img");
@@ -93,22 +93,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/_admin");
-
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  // Markdown Config
-  const md = new markdownIt({
-    html: true,
-  });
+  // Transforms
+  if (process.env.ELEVENTY_ENV == "prod") {
+    eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
+  }
 
   // -----------------------------------------------------------------
   // FILTERS
   // -----------------------------------------------------------------
-
-  // markdwon {{ item.foo | markdown | safe }}
-  eleventyConfig.addFilter("markdown", (content) => {
-    return md.render(content);
-  });
 
   // Sort: order
   // {% for item in collections.tag | sortByOrder %}
@@ -133,6 +127,13 @@ module.exports = function (eleventyConfig) {
     require("./src/_11ty/filter/formatDate.js")
   );
 
+  // markdwon {{ item.foo | markdown | safe }}
+  eleventyConfig.addFilter(
+    "markdown",
+    require("./src/_11ty/filter/markdown.js")
+  );
+
+  // Slugify - cleanup the path {{ title | slugify }}
   eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
 
   // Get the data from another markdown file
