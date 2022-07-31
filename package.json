@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
-    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "tw:watch": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
-    "clean _site": "rm -rf _site & rm src/assets/css/style.css",
+    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
+    "clean _site": "rm -rf _site",
     "netlify": "netlify dev",
     "test": "ELEVENTY_ENV=dev THEME=bar  && npm run start",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
