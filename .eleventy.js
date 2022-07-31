@@ -1,14 +1,13 @@
 const path = require("path");
 const fs = require("fs");
-
-const markdownIt = require("markdown-it");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const { DateTime } = require("luxon");
-const slugify = require("slugify");
 const Image = require("@11ty/eleventy-img");
 
-//  {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
+// -----------------------------------------------------------------
+// Shortcuts
+// -----------------------------------------------------------------
+// {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
   img,
@@ -76,85 +75,71 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
   return `style="background-image: url(${backgroundimg})"`;
 }
 
-// module.exports = function (date, format, locale = "en") {
-//   date = new Date(date);
-//   return DateTime.fromJSDate(date).setLocale(locale).toFormat(format);
-// };
-
 module.exports = function (eleventyConfig) {
-  //plugins
+  // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
-  // shortcodes
+  // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode(
     "imageBackgroundStyle",
     imagebackgroundstyle
   );
   eleventyConfig.addNunjucksAsyncShortcode("image", image);
 
-  // passThrough - copy directly to site
+  // PassThrough folders
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/_admin");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  const md = new markdownIt({
-    html: true,
-  });
+  // Transform
+  // Minify
+  if (process.env.ELEVENTY_ENV == "prod") {
+    eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
+  }
 
   // -----------------------------------------------------------------
   // FILTERS
   // -----------------------------------------------------------------
 
+  // {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  //  https://github.com/moment/luxon/blob/master/docs/formatting.md
+  eleventyConfig.addFilter(
+    "formatDate",
+    require("./src/_11ty/filter/formatDate.js")
+  );
+
   // markdwon {{ item.foo | markdown | safe }}
-  eleventyConfig.addFilter("markdown", (content) => {
-    return md.render(content);
+  eleventyConfig.addFilter(
+    "markdown",
+    require("./src/_11ty/filter/markdown.js")
+  );
+
+  // Slugify - cleanup the path {{ title | slugify }}
+  eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
+
+  // Get the data from another markdown file
+  // {% for item in collections.all |  getpage("/tags/" + tag + "/" ) %}
+  // Credits https://github.com/11ty/eleventy/discussions/1848
+  // Note: the url is define in the tag/.json
+  eleventyConfig.addFilter("getPage", (arr, url) => {
+    return arr.filter((item) => item.url == url);
   });
 
   // Sort: order
-  // {% for item in collections.tag | sortByOrder %}
+  // {% for item in collections.FOO | sortByOrder %}
   eleventyConfig.addFilter("sortByOrder", (arr) => {
     arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
     return arr;
   });
 
   // Sort: title
-  // {% for item in collections.tag | sortByTitle %}
+  // {% for item in collections.FOO | sortByTitle %}
   eleventyConfig.addFilter("sortByTitle", (arr) => {
     arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
     return arr;
-  });
-
-  // Date Filters
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  //  https://github.com/moment/luxon/blob/master/docs/formatting.md
-  //  {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
-  eleventyConfig.addFilter("formatDate", require("./src/_11ty/formatDate.js"));
-
-  // Slug filter
-  eleventyConfig.addFilter("slugify", function (str) {
-    return slugify(str, {
-      lower: true,
-      replacement: "-",
-      remove: /[*+~.·,()'"`´%!?¿:@]/g,
-    });
-  });
-
-  //filter for nice urls
-  eleventyConfig.addFilter("yearmonth", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "yyyy-LLLL-d"
-    );
-  });
-
-  // Get page filter
-  // Get the data from another markdown file
-  // {% for item in collections.all |  getpage("/tags/" + tag + "/" ) %}
-  // Credits https://github.com/11ty/eleventy/discussions/1848
-  // Note to self: the url is define in the relations-foo/.json
-  eleventyConfig.addFilter("getPage", (arr, url) => {
-    return arr.filter((item) => item.url == url);
   });
 
   // -----------------------------------------------------------------
