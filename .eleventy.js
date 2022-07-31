@@ -95,7 +95,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/_admin");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  // Transforms
+  // Transform
+  // only run min on prod
   if (process.env.ELEVENTY_ENV == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }
