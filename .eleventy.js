@@ -2,8 +2,8 @@ const path = require("path");
 const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const embedYouTube = require("eleventy-plugin-youtube-embed");
 const Image = require("@11ty/eleventy-img");
-const embedEverything = require("eleventy-plugin-embed-everything");
 
 // -----------------------------------------------------------------
 // Shortcuts
@@ -80,23 +80,14 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
-
-  eleventyConfig.addPlugin(embedEverything, {
-    add: ["soundcloud"],
-    use: ["vimeo", "youtube", "twitch"],
-    twitch: {
-      options: {
-        parent: ["https://saga11/.dev", "https://netlify.app"],
-      },
-    },
-  });
+  eleventyConfig.addPlugin(embedYouTube, require("./src/_11ty/youtube.js"));
 
   // Shortcodes
+  eleventyConfig.addNunjucksAsyncShortcode("image", image);
   eleventyConfig.addNunjucksAsyncShortcode(
     "imageBackgroundStyle",
     imagebackgroundstyle
   );
-  eleventyConfig.addNunjucksAsyncShortcode("image", image);
 
   // PassThrough folders
   eleventyConfig.addPassthroughCopy("src/assets");
