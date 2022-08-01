@@ -27,7 +27,7 @@ Global header for the site
 {% if title and  page.url != '/' %}
 <meta property="og:image" content="{% imageurl image, '1200' %}">
 {% else %}
-<meta property="og:image" content="{{ env.url }} /assets/opengraph/facebook.jpg">
+<meta property="og:image" content="{{ env.url }}/assets/opengraph/facebook.jpg">
 {% endif %}
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -40,7 +40,7 @@ Global header for the site
 {% if title and  page.url != '/' %}
 <meta name="twitter:image" content="{% imageurl image, '1200' %}">
 {% else %}
-<meta name="twitter:image" content="{{ env.url }} /assets/opengraph/twitter.jpg">
+<meta name="twitter:image" content="{{ env.url }}/assets/opengraph/twitter.jpg">
 {% endif %}
 
 
