@@ -1,13 +1,9 @@
 # What is this
 
-Saga is a small cms build for webdesigners who wants to control the markup & not have to hassle with databases
-
-### Retro web!
-
-Its a try to get back to the late 90' and build flat sites that could be dropped into any ftp server ... oooh the glory days!
+Saga11 is a small system build for webdesigners to build small brochure websites / blogs etc. 
+Its build on top of 11ty and with netlifycms as a backend for online editing.
 
 ## Core Values
-
 - No Database - Flatfile based
 - 100% Markup control
 - Small tech stack (yeah right)
@@ -18,13 +14,12 @@ Its a try to get back to the late 90' and build flat sites that could be dropped
 - At the end "its just html, css, js" :)
 
 ## Tech stack
-
 - 11ty generating the html.
 - Markdown, json and nunjucks.
 - Github for storage
 - Netlifycms for online editing
 - Tailwind for css cause devs likes it
-- Vanilla js ?
+- Vanilla js
 
 ---
 
@@ -65,7 +60,7 @@ To make it work work locally
 npm run admin
 ```
 
-http://localhost:8080/\_admin/
+http://localhost:8080/_admin/
 
 ## Nunjucks
 
@@ -121,16 +116,6 @@ Images to the content is living in the /images folder
 
 /systempages/ -
 
-## Config
-
----
-
-- .editorconfig : 2 spaces!
-- .eleventy.js : Config of eleventy
-- .gitignore : ignores style.css + style.min.css
-- .netlify.toml : setup for netlify
-- .package.json
-- .tailwind.config.js
 
 ## Netlifycms Setup on netlify
 
