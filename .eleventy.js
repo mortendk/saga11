@@ -89,7 +89,7 @@ module.exports = function (eleventyConfig) {
   // PassThrough folders
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/_admin");
+  // eleventyConfig.addPassthroughCopy("src/_admin");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // Transform
