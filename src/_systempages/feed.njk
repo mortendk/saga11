@@ -10,6 +10,11 @@ eleventyExcludeFromCollections: true
   <link href="{{ site.url }}/feed.xml" rel="self"/>
   <link href="{{ site.url }}"/>
 
+  <generator uri="https://11ty.dev">{{eleventy.generator}}</generator>
+
+  <logo>{{site.url}}/assets/icon/icon-safari.png</logo>
+  <icon>{{site.url}}/assets/icon/icon-safari.png</icon>
+
   <updated>
     {{ collections.rss | getNewestCollectionItemDate | dateToRfc3339 }}
   </updated>
@@ -29,14 +34,13 @@ eleventyExcludeFromCollections: true
     <entry>
       <title>{{ item.data.title }}</title>
       <link href="{{ absolutePostUrl }}"/>
-      <logo>{{site.url}}/assets/icon/icon-safari.png</logo>
-      <icon>{{site.url}}/assets/icon/icon-safari.png</icon>
       <summary> {{item.data.teaser }} </summary>
       <updated>{{ item.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-        {% image item.data.image, [640],"",['jpg'] %}
-        </img>
+
+        {% image item.data.image, [640],"",['jpg'] %}</img>
+
         {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
       </content>
     </entry>
