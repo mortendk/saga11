@@ -14,7 +14,7 @@ This is the default template for the page type
     <h1 class="text-5xl">{{ title }}</h1>
 
     {% if image %}
-      {# {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text" %} #}
+      {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],alt %}
     {% endif %}
 
     <p class="text-xl my-4">
