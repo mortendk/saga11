@@ -84,10 +84,7 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", image);
-  eleventyConfig.addNunjucksAsyncShortcode(
-    "imageBackgroundStyle",
-    imagebackgroundstyle
-  );
+  eleventyConfig.addNunjucksAsyncShortcode("imageBackgroundStyle", imagebackgroundstyle);
 
   // PassThrough folders
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -108,16 +105,10 @@ module.exports = function (eleventyConfig) {
   // {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   //  https://github.com/moment/luxon/blob/master/docs/formatting.md
-  eleventyConfig.addFilter(
-    "formatDate",
-    require("./src/_11ty/filter/formatDate.js")
-  );
+  eleventyConfig.addFilter("formatDate", require("./src/_11ty/filter/formatDate.js"));
 
   // markdwon {{ item.foo | markdown | safe }}
-  eleventyConfig.addFilter(
-    "markdown",
-    require("./src/_11ty/filter/markdown.js")
-  );
+  eleventyConfig.addFilter("markdown", require("./src/_11ty/filter/markdown.js"));
 
   // Slugify - cleanup the path {{ title | slugify }}
   eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
@@ -165,8 +156,7 @@ module.exports = function (eleventyConfig) {
   function filterTagList(tags) {
     // Filtes that are used by the system that we dont want in our collections
     return (tags || []).filter(
-      (tag) =>
-        ["navigation", "menu", "relation", "frontpage"].indexOf(tag) === -1
+      (tag) => ["navigation", "menu", "relation", "frontpage"].indexOf(tag) === -1
     );
   }
 
