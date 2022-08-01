@@ -24,9 +24,9 @@ site_url: http://localhost:8080
 logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
 display_url: http://localhost:8080
 {% else %}
-site_url: http://localhost:8080
-logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
-display_url: http://localhost:8080
+site_url: {{ site.url }}
+logo_url: {{ site.url }}/assets/img/favicon/favicon-196x196.png
+display_url: {{ site.url }}
 {% endif %}
 
 media_folder: "src/images"
