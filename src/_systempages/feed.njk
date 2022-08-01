@@ -38,10 +38,10 @@ eleventyExcludeFromCollections: true
       <updated>{{ item.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-
+        {{ env.url }}
         {% if item.data.image %}
           <![CDATA[
-            {% image item.data.image, [640],"",['jpeg'] %}
+            {% image item.data.image, [640],"",['jpeg'],'alt','css','nope', env.url %}
           ]]>
         {% endif %}
 

@@ -16,8 +16,9 @@ async function image(
   sizes = "(min-width: 30em) 50vw, 100vw",
   format = ["webp", "jpeg"],
   alt = "image",
-  css = "",
-  loading = "lazy"
+  css,
+  loading = "lazy",
+  urlpathprefix = ""
 ) {
   if (img == null) {
     console.log("dude wheres my image ?");
@@ -28,7 +29,7 @@ async function image(
       formats: format,
       // widths: [300, 800, 1600],
       outputDir: "_site/img/", // seind image directly to the site build
-      urlPath: "/img/",
+      urlPath: urlpathprefix + "/img/",
       filenameFormat: function (id, src, width, format, options) {
         const extension = path.extname(src);
         const name = path.basename(src, extension);
