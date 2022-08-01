@@ -2,6 +2,7 @@
 title: Space ship movie
 url: Space ship movie
 image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
+alt: Viking ship
 teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing
 gallery: []
@@ -13,6 +14,40 @@ eleventyExcludeFromCollections: false
 ---
 Space ship people get up from sleeping coffin and have eat.
 Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
+
+```js
+{%- if collections.allPosts %}
+
+<nav class="flex flex-row justify-between w-full" aria-label="Pre and Next post">
+  {#  #}
+  {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
+  {%- set previousPost = collections.allPosts | getPreviousCollectionItem(page) %}
+
+  {%- if nextPost or previousPost %}
+  {# previous  link #}
+  {%- if previousPost %}
+    <a href="{{ previousPost.url | url }}" title="{{ previousPost.data.title }}" class="flex flex-row items-center w-full">
+      <div class="w-8 text-black">{% include "svg/left.njk" %}</div>
+      <div>{{ previousPost.data.title }}</div>
+    </a>
+  {% endif %}
+  {# Next  linl #}
+  {%- if nextPost %}
+    <a href="{{ nextPost.url | url }}" title="{{ nextPost.data.title }}" class="flex flex-row items-center justify-end w-full">
+      <div>{{ nextPost.data.title }}</div>
+      <div class="w-8 text-black">{% include "svg/right.njk" %}</div>
+   </a>
+  {% endif %}
+  {# /if pre of next #}
+  {%- endif %}
+</nav>
+
+{%- endif %}
+
+
+```
+
+
 
 this is a link by default [saga11.dev](https://saga11.dev)
 

@@ -2,6 +2,7 @@
 title: Collection of tags
 url: "collection of tags "
 image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
+alt: Viking ship
 teaser: The collection of the tag called collection ...
 tags:
   - menu

@@ -2,6 +2,7 @@
 title: All Posts
 url: post
 image: /images/carla-santiago-7moqzyxa-o0-unsplash.jpg
+alt: Runes
 teaser: All sagas are written here
 tags:
   - frontpage
