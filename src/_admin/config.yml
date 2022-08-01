@@ -21,9 +21,9 @@ logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
 display_url: http://localhost:8080
 media_folder: "src/images"
 public_folder: "/images"
-show_preview_links: false
+show_preview_links: true
 search: true
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 slug:
   encoding: "ascii"
@@ -102,12 +102,7 @@ collections:
                   hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
                 }
               - { label: title, name: title, widget: string, required: false }
-              - {
-                  label: Description,
-                  name: figcaption,
-                  widget: text,
-                  required: false,
-                }
+              - { label: Description, name: figcaption, widget: text, required: false }
 
       # Tags
       - name: tags
@@ -128,10 +123,7 @@ collections:
         searchFields: [saga-template-name]
         valueField: "post/{{filename}}.{{extension}}"
         displayFields:
-          [
-            "saga-template-name",
-            " (File: templates/post/{{filename}}.{{extension}})",
-          ]
+          ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
         default: "post/post.njk"
         required: true
 
@@ -144,13 +136,7 @@ collections:
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: false
 
-      - {
-          label: "Order",
-          name: "order",
-          widget: "number",
-          required: false,
-          default="100",
-        }
+      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",
@@ -217,12 +203,7 @@ collections:
             fields:
               - { label: image, name: image, widget: image, choose_url: false }
               - { label: title, name: title, widget: string, required: false }
-              - {
-                  label: Description,
-                  name: figcaption,
-                  widget: text,
-                  required: false,
-                }
+              - { label: Description, name: figcaption, widget: text, required: false }
 
       # Tags
       - name: tags
@@ -255,22 +236,13 @@ collections:
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
         displayFields:
-          [
-            "saga-template-name",
-            " (File: templates/page/{{filename}}.{{extension}})",
-          ]
+          ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/page.njk"
 
       # 11ty settings
       # - { label: "url", name: slugcustom,  required: true }
-      - {
-          label: "Order",
-          name: "order",
-          widget: "number",
-          required: false,
-          default="100",
-        }
+      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
           label: "Menu Label",
           name: "menulabel",
@@ -363,26 +335,11 @@ collections:
         fields:
           - { label: title, name: title, widget: string }
           - { label: url, name: url, widget: string }
-          - {
-              label: description,
-              name: description,
-              widget: text,
-              required: false,
-            }
+          - { label: description, name: description, widget: text, required: false }
           - { label: keywords, name: keywords, widget: text, required: false }
           - { label: footer, name: footer, widget: markdown, required: false }
-          - {
-              label: "404 Errorpage",
-              name: errorpage,
-              widget: text,
-              required: false,
-            }
-          - {
-              label: "humans.txt",
-              name: humantxt,
-              widget: text,
-              required: false,
-            }
+          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
+          - { label: "humans.txt", name: humantxt, widget: text, required: false }
 
           - {
               label: Author (rss),
@@ -398,18 +355,8 @@ collections:
               required: false,
               hint: "Feed Author name",
             }
-          - {
-              label: browesercolor,
-              name: color,
-              widget: color,
-              required: false,
-            }
-          - {
-              label: "Adress",
-              name: "adress",
-              widget: "string",
-              required: false,
-            }
+          - { label: browesercolor, name: color, widget: color, required: false }
+          - { label: "Adress", name: "adress", widget: "string", required: false }
           - { label: "zip", name: "zip", widget: "string", required: false }
 
       - label: "Social Network links"
