@@ -29,9 +29,14 @@ eleventyExcludeFromCollections: true
     <entry>
       <title>{{ item.data.title }}</title>
       <link href="{{ absolutePostUrl }}"/>
+      <logo>{{site.url}}/assets/icon/icon-safari.png</logo>
+      <icon>{{site.url}}/assets/icon/icon-safari.png</icon>
+      <summary> {{item.data.teaser }} </summary>
       <updated>{{ item.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
+        {% image item.data.image, [640],"",['jpg'] %}
+        </img>
         {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
       </content>
     </entry>
