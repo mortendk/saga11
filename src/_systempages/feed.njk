@@ -40,7 +40,9 @@ eleventyExcludeFromCollections: true
       <content type="html">
 
         {% if item.data.image %}
-          {% image item.data.image, [640],"",['jpeg'] %}
+          <![CDATA[
+            {% image item.data.image, [640],"",['jpeg'] %}
+          ]]>
         {% endif %}
 
         {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
