@@ -24,9 +24,9 @@ The basic html page
     <meta name="theme-color" content="{{site.color}}">
     <link rel="author" href="humans.txt" />
 
-    {%- include "_base/opengraph.njk" -%}
-    {%- include "_base/icon.njk" -%}
-    {%- include "_base/applestartupscreens.njk" -%}
+    {%- include "head/opengraph.njk" -%}
+    {%- include "head/icon.njk" -%}
+    {%- include "head/applestartupscreens.njk" -%}
 
     {# css is build in /tailwind/[...].css #}
     {%- if meta.env == 'prod' %}

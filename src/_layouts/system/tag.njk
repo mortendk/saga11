@@ -1,5 +1,5 @@
 ---
-layout: _layout/default.njk
+layout: default.njk
 saga-template-name: Tag
 ---
 {# Tag
@@ -8,7 +8,7 @@ the tag page auto generated from srrc/systempages/tag.njk
 #}
 {%- if meta.env != 'prod' %}<!-- system/tag.njk  -->{%- endif -%}
 
-{% include "components/nav/tags.njk" %}
+{% include "nav/tags.njk" %}
 
 <h1 class="text-5xl">{{ title }}</h1>
 

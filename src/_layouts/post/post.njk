@@ -1,5 +1,5 @@
 ---
-layout: _layout/default.njk
+layout: default.njk
 saga-template-name: Post Default
 ---
 {# POST
@@ -45,19 +45,18 @@ Base post template - white is different from the pages
       {{ content | safe }}
     </div>
 
-    {% include "components/gallery.njk" %}
+    {% include "gallery.njk" %}
 
-    {% include "components/nav/post-pre-next.njk" %}
+    {% include "nav/post-pre-next.njk" %}
 
   </div>
   <div class="md:w-1/3 md:ml-4">
 
-
-
-    {% include "components/nav/posts.njk" %}
+    {% include "nav/posts.njk" %}
 
     <h2 class="mt-4">Tag cloud</h2>
-    {% include "components/nav/tags.njk" %}
+
+    {% include "nav/tags.njk" %}
   </div>
 </article>
 

@@ -136,7 +136,7 @@ collections:
         searchFields: [saga-template-name]
         valueField: "post/{{filename}}.{{extension}}"
         displayFields:
-          ["saga-template-name", " (File: templates/post/{{filename}}.{{extension}})"]
+          ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
         default: "post/post.njk"
         required: true
 
@@ -250,7 +250,7 @@ collections:
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
         displayFields:
-          ["saga-template-name", " (File: templates/page/{{filename}}.{{extension}})"]
+          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/page.njk"
 
@@ -315,7 +315,7 @@ collections:
   - name: posttemplates
     label_singular: template
     label: "Post Templates"
-    folder: "src/_templates/post"
+    folder: "src/_layouts/post"
     slug: "{{title}}"
     hide: true
     create: false
@@ -328,7 +328,7 @@ collections:
   - name: pagetemplates
     label_singular: template
     label: "page Templates"
-    folder: "src/_templates/page"
+    folder: "src/_layouts/page"
     slug: "{{title}}"
     hide: true
     create: false
