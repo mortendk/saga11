@@ -21,11 +21,11 @@ local_backend: true
 #SETTINGS
 {% if meta.env != 'prod' %}
 site_url: http://localhost:8080
-logo_url: http://localhost:8080/assets/img/favicon/favicon-196x196.png
+logo_url: http://localhost:8080/assets/icon/icon-192.png
 display_url: http://localhost:8080
 {% else %}
 site_url: {{ site.url }}
-logo_url: {{ site.url }}/assets/img/favicon/favicon-196x196.png
+logo_url: {{ site.url }}/assets/icon/icon-192.png
 display_url: {{ site.url }}
 {% endif %}
 
