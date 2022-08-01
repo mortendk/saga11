@@ -8,6 +8,7 @@ const env = require("./src/data/env.js");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
+// TODO: this image shortcut is not pretty and cumbersome but "works(tm)"
 // {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
@@ -18,7 +19,7 @@ async function image(
   alt = "image",
   css,
   loading = "lazy",
-  urlpathprefix = ""
+  urlpathprefix = "" //if we want fullpath urls
 ) {
   if (img == null) {
     console.log("dude wheres my image ?");
