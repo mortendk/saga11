@@ -24,11 +24,10 @@ https://www.11ty.dev/docs/collections/
           {% image item.data.image, [500,800],"(min-width: 30em) 50vw, 33vw",['webp'],item.data.alt,"shadow","lazy" %}
       {% endif %}
       </div>
-
     </a>
-    <p class="mt-2">
+    <div class="mt-2">
       {{ item.data.teaser }}
-      </p>
+    </div>
   </article>
 
 {% endfor %}

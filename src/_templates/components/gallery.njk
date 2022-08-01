@@ -4,11 +4,10 @@ simple image gallery / slider
 #}
 {%- if meta.env != 'prod' %}<!-- components/contactform.njk  -->{%- endif -%}
 
-<section class="">
+<section>
 
 {# Image wrapper for the gallery #}
 <div class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar z-0">
-
 {% for item in gallery %}
   <article aria-label="image "
     class="
@@ -18,21 +17,22 @@ simple image gallery / slider
     transition"
     id="slide-{{ loop.index }}"
   >
+
   {% if item.image.image %}
+    {# First image  #}
     {% if loop.index == "1" %}
-    {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
-    'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
-
+      {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
+      'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
+    {# The reste  #}
     {% else %}
-    {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
-    'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
-
+      {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
+      'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
     {% endif %}
 
-
   {% endif %}
-    {# title and figcap #}
-    {% if item.image.title or item.image.figcaption %}
+
+  {# title and figcap #}
+  {% if item.image.title or item.image.figcaption %}
     <div class="absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
       <div class="text-3xl">
         {{ item.image.title}}
@@ -41,7 +41,7 @@ simple image gallery / slider
         {{ item.image.figcaption}}
       </div>
     </div>
-    {% endif %}
+  {% endif %}
 
   </article>
 {% endfor %}
@@ -51,13 +51,11 @@ simple image gallery / slider
 {# gallery navigation #}
 <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
 {% for item in gallery %}
-
   <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none">
     {% if item.image.image %}
       {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'shadow' %}
     {% endif %}
   </a>
-
 {% endfor %}
 </nav>
 

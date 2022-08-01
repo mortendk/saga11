@@ -8,7 +8,7 @@ const env = require("./src/data/env.js");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
-// TODO: this image shortcut is not pretty and cumbersome but "works(tm)"
+// TODO: the image shortcut is cumbersome but "works(tm)" aka need some <3
 // {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
@@ -22,7 +22,7 @@ async function image(
   urlpathprefix = "" //if we want fullpath urls
 ) {
   if (img == null) {
-    console.log("dude wheres my image ?");
+    // console.log("dude wheres my image ?");
   } else {
     src = "src/" + img;
     let metadata = await Image(src, {
@@ -82,9 +82,9 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
 }
 
 // {% imageurl "image", “size”, "gif”  %}
-async function imageurl(img, width = "900", format = "webp") {
+async function imageurl(img, width = "1200", format = "webp") {
   if (img == null) {
-    console.log("dude wheres my image ?");
+    // console.log("dude wheres my image ?");
   } else {
     src = "src/" + img;
     let metadata = await Image(src, {
