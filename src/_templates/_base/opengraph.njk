@@ -4,13 +4,14 @@ Global header for the site
  #}
 {%- if meta.env != 'prod' %}<!-- _base/opengraph.njk  -->{%- endif  -%}
 
+wtf: {{ env.url }}
 {# test if we have a title from the page #}
 {% if title and  page.url != '/' %}
   {% set ogtitle = title %}
   {% set ogdescription = teaser %}
   {% set ogurl = env.url + page.url %}
-  {% set fbimage = env.url + '/assets/opengraph/facebook.jpg' %}
-  {% set twitterimage = env.url + '/assets/opengraph/twitter.jpg' %}
+  {% set fbimage = env.url + '/' + image  %}
+  {% set twitterimage = env.url + '/' + image  %}
 {# else use the site defaults #}
 {% else %}
   {% set ogtitle = site.title %}
@@ -20,6 +21,7 @@ Global header for the site
   {% set twitterimage = env.url + '/assets/opengraph/twitter.jpg' %}
 {% endif %}
 
+{# Facebook #}
 <meta property="og:site_name" content="{{site.title}}">
 <meta property="og:title" content="{{ ogtitle }}">
 <meta property="og:url" content="{{ ogurl }}">
@@ -35,4 +37,3 @@ Global header for the site
 <meta name="twitter:title" content="{{ ogtitle }}">
 <meta name="twitter:description" content="{{ ogdescription }}">
 <meta name="twitter:image" content="{{ twitterimage }}">
-
