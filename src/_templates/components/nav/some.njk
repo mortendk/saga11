@@ -67,14 +67,6 @@ Graps all the data thats added to the _data/some.json file
   </a>
 {% endif %}
 
-{% if some.webmention %}
-  <a href="https://webmention.io/" class="{{css}}">
-    <span class="sr-only">Webmention</span>
-    {% include "svg/webmention.njk" %}
-  </a>
-{% endif %}
-
-
 {% if some.tiktok %}
   <a href="https://tiktok.com/@{{ some.tiktok }}" class="{{ css }}">
     <span class="sr-only">tiktok</span>
