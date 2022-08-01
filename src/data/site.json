@@ -2,7 +2,6 @@
   "humantxt": "/* TEAM */\nMorten Birch aka mortendk\nFrom: Copenhagen, Denmark.\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty, Vanilla js, Tailwind 3\n\n/* Software + Assets */\nvscode: https://code.visualstudio.com\nresponsively: https://responsively.app\n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\nhttps://vanilla-js.com\n\nImages:\nhttps://unsplash.com/\nhttps://heroicons.com/\n",
   "color": "#11c5e4",
   "keywords": "11ty, netlifycms, flatfile cms",
-  "url": "https://saga11.dev",
   "authoremail": "foo@saga11.dev",
   "authorname": "Ragnar",
   "errorpage": "ush It haz broken",
