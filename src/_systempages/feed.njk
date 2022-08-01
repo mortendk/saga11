@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: true
   <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
   <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
   <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ env.url }}</id>
+  <id>{{ env.url }}/</id>
   <author>
     <name>{{ site.authorname }}</name>
     <email>{{ site.authoremail }}</email>
@@ -30,7 +30,6 @@ eleventyExcludeFromCollections: true
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
         {% if item.data.image %}
-          {% image item.data.image, [640],"",['jpeg'], item.data.title,'','no', env.url %}
           <![CDATA[
             {% image item.data.image, [640],"",['jpeg'],'alt','css','nope', env.url %}
           ]]>
