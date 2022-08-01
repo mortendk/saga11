@@ -10,8 +10,8 @@ wtf: {{ env.url }}
   {% set ogtitle = title %}
   {% set ogdescription = teaser %}
   {% set ogurl = env.url + page.url %}
-  {% set fbimage = env.url + '/' + image  %}
-  {% set twitterimage = env.url + '/' + image  %}
+  {% set fbimage = env.url + image  %}
+  {% set twitterimage = env.url + image  %}
 {# else use the site defaults #}
 {% else %}
   {% set ogtitle = site.title %}
