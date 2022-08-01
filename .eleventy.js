@@ -94,10 +94,9 @@ module.exports = function (eleventyConfig) {
   );
 
   // PassThrough folders
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/themes/nakinn/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/_admin");
-  eleventyConfig.addPassthroughCopy("src/service-workers.js");
+  eleventyConfig.addPassthroughCopy("src/themes/nakinn/service-workers.js");
 
   // Transform
   // Minify
@@ -217,7 +216,7 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src/",
       output: "_site",
-      includes: "_templates",
+      includes: "themes/" + env.theme + "/templates/",
       data: "data",
     },
   };

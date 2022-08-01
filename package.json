@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
-    "tw:watch": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.css --watch",
+    "11": "npx @11ty/eleventy --serve --quiet ",
+    "tw:watch": "npx tailwindcss -c src/themes/nakinn/tailwind.config.js -i src/themes/nakinn/tailwind/tailwind.css -o src/themes/nakinn/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "clean _site": "rm -rf _site",
     "netlify": "netlify dev",
-    "test": "ELEVENTY_ENV=dev THEME=bar  && npm run start",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug "
   },
@@ -30,7 +30,9 @@
     "tailwindcss": "^3.1.6"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
+    "dotenv-cli": "^6.0.0",
     "eleventy-plugin-youtube-embed": "^1.7.1",
     "html-minifier": "^4.0.0"
   }

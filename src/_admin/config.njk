@@ -1,5 +1,5 @@
 ---
-permalink: /_admin/config.yml
+permalink: _admin/config.yml
 eleventyExcludeFromCollections: true
 ---
 # Setup
@@ -332,7 +332,7 @@ collections:
   - name: posttemplates
     label_singular: template
     label: "Post Templates"
-    folder: "src/_templates/post"
+    folder: "src/themes/{{ env.theme }}/post"
     slug: "{{title}}"
     hide: true
     create: false
@@ -345,7 +345,7 @@ collections:
   - name: pagetemplates
     label_singular: template
     label: "page Templates"
-    folder: "src/_templates/page"
+    folder: "src/themes/{{ env.theme }}/page"
     slug: "{{title}}"
     hide: true
     create: false
