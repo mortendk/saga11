@@ -37,9 +37,9 @@ The basic html page
 
     {# css is build in /tailwind/[...].css #}
     {%- if meta.env == 'prod' %}
-      <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet" rel="preload">
+      <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
-      <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet" rel="preload">
+      <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
 
   </head>
