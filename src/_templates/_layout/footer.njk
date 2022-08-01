@@ -27,4 +27,12 @@ Global header for the site
   </div>
 </footer>
 
-mode: {{ env.mode }} | url | {{ env.url }}
+{% if env.mode == "dev" %}
+{% endif %}
+<pre>
+mode: {{ env.mode }}
+url: {{ env.url }}
+root: {{ env.root }}
+source: {{ env.source }}
+serverless: {{env.serverless}}
+</pre>
