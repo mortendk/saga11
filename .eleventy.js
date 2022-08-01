@@ -68,7 +68,6 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
     },
   });
 
-  // console.log(format);
   let backgroundimg;
   if (format == "jpeg") {
     backgroundimg = metadata.jpeg[0].url;
@@ -82,6 +81,39 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
   return `style="background-image: url(${backgroundimg})"`;
 }
 
+// {% imageurl "image", “size”, "gif”  %}
+async function imageurl(img, width = "900", format = "webp") {
+  if (img == null) {
+    console.log("dude wheres my image ?");
+  } else {
+    src = "src/" + img;
+    let metadata = await Image(src, {
+      widths: [width],
+      formats: [format],
+      // widths: [300, 800, 1600],
+      outputDir: "_site/img/", // we push this image directly to the site build
+      urlPath: "/img/",
+      filenameFormat: function (id, src, width, format, options) {
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+        return `${name}-${width}w.${format}`;
+      },
+    });
+
+    let backgroundimg;
+    if (format == "jpeg") {
+      backgroundimg = metadata.jpeg[0].url;
+    } else if (format == "png") {
+      backgroundimg = metadata.png[0].url;
+    } else if (format == "gif") {
+      backgroundimg = metadata.gif[0].url;
+    } else {
+      backgroundimg = metadata.webp[0].url;
+    }
+    return env.url + backgroundimg;
+  }
+}
+
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -91,6 +123,7 @@ module.exports = function (eleventyConfig) {
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", image);
   eleventyConfig.addNunjucksAsyncShortcode("imageBackgroundStyle", imagebackgroundstyle);
+  eleventyConfig.addNunjucksAsyncShortcode("imageurl", imageurl);
 
   // PassThrough folders
   eleventyConfig.addPassthroughCopy("src/assets");
