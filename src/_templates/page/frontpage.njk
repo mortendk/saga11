@@ -8,9 +8,8 @@ Template for the frontpage
 #}
 {%- if meta.env != 'prod' %}<!-- page/frontpage.njk  -->{%- endif -%}
 
-{% if image %}
-  {% image image, [400,800, 1200],"(min-width: 1200px) 50vw, 100vw",['webp'],"Welcome image","shadow","notlazy" %}
-{% endif %}
+
+  {% image image, [400,800, 1200],"(min-width: 1200px) 50vw, 100vw",['webp'],"Main Image for the frontpage","shadow","eager" %}
 
 <div class="my-4">
   {{ content | safe}}

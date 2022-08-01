@@ -6,10 +6,10 @@ Global header for the site
 
 <meta property="og:site_name" content="{{site.title}}">
 <meta property="og:title" content="{{site.title}}">
-<meta property="og:url" content="{{ site.url }}">
+<meta property="og:url" content="{{ env.url }}">
 <meta property="og:description" content="{{site.description}}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{{ site.url }}/assets/opengraph/facebook.jpg">
+<meta property="og:image" content="{{ env.url }}/assets/opengraph/facebook.jpg">
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 {# <meta name="twitter:card" content="summary" /> #}
@@ -17,4 +17,4 @@ Global header for the site
 <meta name="twitter:site" content="@{{site.twitter}}">
 <meta name="twitter:title" content="{{site.title}}">
 <meta name="twitter:description" content="{{site.description}}">
-<meta name="twitter:image" content="{{ site.url }}/assets/opengraph/twitter.jpg">
+<meta name="twitter:image" content="{{ env.url }}/assets/opengraph/twitter.jpg">

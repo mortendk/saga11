@@ -4,10 +4,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const embedYouTube = require("eleventy-plugin-youtube-embed");
 const Image = require("@11ty/eleventy-img");
-
+const env = require("./src/data/env.js");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
+// TODO: this image shortcut is not pretty and cumbersome but "works(tm)"
 // {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"alt text","css","lazy" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
@@ -16,34 +17,39 @@ async function image(
   sizes = "(min-width: 30em) 50vw, 100vw",
   format = ["webp", "jpeg"],
   alt = "image",
-  css = "",
-  loading = "lazy"
+  css,
+  loading = "lazy",
+  urlpathprefix = "" //if we want fullpath urls
 ) {
-  src = "src/" + img;
-  let metadata = await Image(src, {
-    widths: width,
-    formats: format,
-    // widths: [300, 800, 1600],
-    outputDir: "_site/img/", // we push this image directly to the site build
-    urlPath: "/img/",
-    filenameFormat: function (id, src, width, format, options) {
-      const extension = path.extname(src);
-      const name = path.basename(src, extension);
-      return `${name}-${width}w.${format}`;
-    },
-  });
+  if (img == null) {
+    console.log("dude wheres my image ?");
+  } else {
+    src = "src/" + img;
+    let metadata = await Image(src, {
+      widths: width,
+      formats: format,
+      // widths: [300, 800, 1600],
+      outputDir: "_site/img/", // seind image directly to the site build
+      urlPath: urlpathprefix + "/img/",
+      filenameFormat: function (id, src, width, format, options) {
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+        return `${name}-${width}w.${format}`;
+      },
+    });
 
-  let imageAttributes = {
-    class: css,
-    alt: alt,
-    sizes,
-    loading,
-    decoding: "async",
-  };
+    let imageAttributes = {
+      class: css,
+      alt: alt,
+      sizes,
+      loading,
+      decoding: "async",
+    };
 
-  return Image.generateHTML(metadata, imageAttributes, {
-    whitespaceMode: "inline",
-  });
+    return Image.generateHTML(metadata, imageAttributes, {
+      whitespaceMode: "inline",
+    });
+  }
 }
 
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
@@ -89,12 +95,11 @@ module.exports = function (eleventyConfig) {
   // PassThrough folders
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
-  // eleventyConfig.addPassthroughCopy("src/_admin");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // Transform
   // Minify
-  if (process.env.ELEVENTY_ENV == "prod") {
+  if (env.mode == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }
 
