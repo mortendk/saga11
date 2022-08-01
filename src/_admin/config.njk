@@ -55,13 +55,13 @@ collections:
     # folder/index creates a folder structure
     # {{year}}-{{month}}/{{title}}/index
     # {{tags}}/{{title}}/index
-    slug: "/{{title}}/index"
+    slug: "/{{ url }}/index"
     #preview_path must match the settings from post.json permalink
-    preview_path: post/{{url}}
+    preview_path: post/{{ slug }}
     create: true
     delete: true
     editor:
-      preview: true
+      preview: false
 
     # Overview
     sortable_fields: ["title", "order", "date"]
@@ -169,7 +169,7 @@ collections:
     create: true
     delete: true
     slug: "{{url}}/index"
-    preview_path: /{{url}}/
+    preview_path: /{{ slug }}/
 
     # Overview
     sortable_fields: ["title", "order", "date"]
@@ -184,7 +184,7 @@ collections:
     # media_folder: ''
     # public_folder: ''
     editor:
-      preview: true
+      preview: false
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
