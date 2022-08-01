@@ -9,4 +9,5 @@ order: 0
 menulabel: Home
 eleventyExcludeFromCollections: false
 ---
-New data on the front
+New data on the front \
+Corrected the text now
