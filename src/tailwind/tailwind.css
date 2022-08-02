@@ -2,7 +2,7 @@
 Tailwind setup
 Settings and definitions are in tailwin.config.js
 */
-@import "fonts.css";
+/* @import "fonts.css"; */
 
 @import "base.css";
 
@@ -10,4 +10,4 @@ Settings and definitions are in tailwin.config.js
 
 @import "utilities.css";
 
-@import "prism-synthwave.css";
+@import "prism-gh.css";

@@ -1,0 +1,18 @@
+---
+layout: default.njk
+saga-template-name: Frontpage
+---
+{# PAGE TEMPLATE FRONTPAGE
+------------------------------------------------
+Template for the frontpage
+#}
+{%- if env.mode != 'prod' %}<!-- _layouts/page/frontpage.njk  -->{%- endif -%}
+
+
+  {% image image, [400,800, 1200],"(min-width: 1200px) 50vw, 100vw",['webp'],alt,"shadow","eager" %}
+
+<div class="my-4">
+  {{ content | safe}}
+</div>
+
+{% include "collection.njk" %}
