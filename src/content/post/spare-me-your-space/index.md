@@ -2,6 +2,7 @@
 title: Spare me your space age technobabble, Attila the Hun!
 url: Spare me your space age technobabble Attila the Hun!
 image: /images/gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
+alt: Viking with axe
 teaser: And remember, don't do anything that affects anything, unless it turns
   out you were supposed to, in which case, for the love of God, don't not do it!
   All I want is to be a monkey of moderate intelligence who wears a suit… that's
