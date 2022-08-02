@@ -20,8 +20,15 @@ https://www.11ty.dev/docs/collections/
 
     <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">{{item.data.title}}
       <div class= "aspect-video overflow-hidden">
+        {# set first image to be eager loaded #}
+        {% if loop.index == "1" %}
+          {% set load = "eager" %}
+        {% else %}
+          {% set load = "lazy" %}
+        {% endif %}
+
         {% if item.data.image %}
-          {% image item.data.image, [500,800],"(min-width: 30em) 50vw, 33vw",['webp'],item.data.alt,"shadow","lazy" %}
+          {% image item.data.image, [500,800],"(min-width: 30em) 50vw, 33vw",['webp'],item.data.alt,"shadow",load %}
       {% endif %}
       </div>
     </a>
