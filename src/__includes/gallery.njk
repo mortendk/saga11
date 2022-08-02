@@ -4,9 +4,9 @@ simple image gallery / slider
 #}
 {%- if env.mode != 'prod' %}<!-- __includes/gallery.njk  -->{%- endif -%}
 
-<article class="relative">
+<article class="relative w-1/2">
 
-  <button class="js-image-toggle  absolute left-0 z-50 top-5 left-5 z-10 w-20 bg-red-500">
+  <button class="js-image-toggle  absolute inset-x-0 top-0 z-50  w-20 bg-pink-500">
     open {{ loop.index }}
   </button>
 
@@ -17,14 +17,10 @@ simple image gallery / slider
     {% for item in gallery %}
 
       <div aria-label="image" id="slide-{{ loop.index }}"
-        class="
+        class="js-image
         flex flex-shrink-0 overflow-auto relative
-        w-11/12
-        {# w-full #}
-        aspect-video
-        mr-2
-        snap-center
-        transition">
+        aspect-video w-11/12 mr-2
+        snap-center transition">
 
         {% if item.image.image %}
           {# First image  #}
