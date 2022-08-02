@@ -1,14 +1,14 @@
 ---
-layout: _layout/default.njk
+layout: default.njk
 saga-template-name: Page default
 ---
 {# PAGE DEFAULT TEAMPLATE
 ------------------------------------------------
 This is the default template for the page type
 #}
-{%- if meta.env != 'prod' %}<!-- page/page.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- _layouts/page/page.njk  -->{%- endif -%}
 
-<article class="flex flex-col md:flex-row">
+<article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3">
 
     <h1 class="text-5xl">{{ title }}</h1>
@@ -27,10 +27,10 @@ This is the default template for the page type
 
   </div>
   <div class="md:w-1/3">
-
+  {# sidebar #}
   </div>
 </article>
 
-{% include "components/gallery.njk" %}
+{% include "gallery.njk" %}
 
-{% include "components/collection.njk" %}
+{% include "collection.njk" %}

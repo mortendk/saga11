@@ -12,6 +12,7 @@ The basic html page
     {% else %}
       <title>{{ title }} - {{ site.title }} </title>
     {% endif %}
+
     <!--
       https://sage11.dev
      -->
@@ -24,19 +25,19 @@ The basic html page
     <meta name="theme-color" content="{{site.color}}">
     <link rel="author" href="humans.txt" />
 
-    {%- include "_base/opengraph.njk" -%}
-    {%- include "_base/icon.njk" -%}
-    {%- include "_base/applestartupscreens.njk" -%}
+    {%- include "head/opengraph.njk" -%}
+    {%- include "head/icon.njk" -%}
+    {%- include "head/applestartupscreens.njk" -%}
 
-    {# css is build in /tailwind/[...].css #}
-    {%- if meta.env == 'prod' %}
+    <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
+    {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
 
   </head>
-  <body class="flex flex-col h-screen bg-slate-100">
+  <body class="flex flex-col h-screen bg-slate-300">
 
     {{ content | safe }}
 
