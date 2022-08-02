@@ -6,7 +6,7 @@ saga-template-name: Tag
 ------------------------------------------------
 the tag page auto generated from srrc/systempages/tag.njk
 #}
-{%- if meta.env != 'prod' %}<!-- system/tag.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- _layouts/system/tag.njk  -->{%- endif -%}
 
 {% include "nav/tags.njk" %}
 

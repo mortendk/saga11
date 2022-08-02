@@ -1,8 +1,3 @@
-{# BASE
-------------------------------------------------
-The basic html page
-{%- if meta.env != 'prod' %}<!-- _baselayout/base.njk  -->{%- endif -%}
-#}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -28,8 +23,8 @@ The basic html page
     {%- include "head/icon.njk" -%}
     {%- include "head/applestartupscreens.njk" -%} #}
 
-    {# css is build in /tailwind/[...].css #}
-    {%- if meta.env == 'prod' %}
+
+    {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">

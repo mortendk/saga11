@@ -8,7 +8,7 @@
     "watch": "npx @11ty/eleventy --serve --quiet --incremental & npm run tw:watch",
     "tw:watch": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
-    "clean _site": "rm -rf _site & rm src/assets/css/style.css",
+    "clean _site": "rm -rf _site",
     "netlify": "netlify dev",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug "

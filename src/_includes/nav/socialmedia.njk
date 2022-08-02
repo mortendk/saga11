@@ -2,7 +2,7 @@
 ------------------------------------------------
 Graps all the data thats added to the _data/some.json file
 #}
-{%- if meta.env != 'prod' %}<!-- nav/some.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- nav/some.njk  -->{%- endif  -%}
 
 {% set css = "w-8 h-8 block text-red-700 hover:text-red-700 " %}
 

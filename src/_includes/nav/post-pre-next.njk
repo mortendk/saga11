@@ -3,7 +3,7 @@
 A simple pre / next nav for collections
 
  #}
-{%- if meta.env != 'prod' %}<!-- nav/post-pre-next.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- nav/post-pre-next.njk  -->{%- endif  -%}
 
 
 {%- if collections.allPosts %}

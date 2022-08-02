@@ -18,7 +18,7 @@ backend:
 local_backend: true
 
 #SETTINGS
-{% if meta.env != 'prod' %}
+{% if env.mode != 'prod' %}
 site_url: http://localhost:8080
 logo_url: http://localhost:8080/assets/icon/icon-apple-touch.png
 display_url: http://localhost:8080

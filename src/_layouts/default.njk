@@ -5,7 +5,7 @@ layout: base.njk
 ------------------------------------------------
 Calls the _base/base.njk that is holding all the basic html
 #}
-{%- if meta.env != 'prod' %}<!-- layouts/default.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- layouts/default.njk  -->{%- endif -%}
 
 {%- include "header.njk" %}
 

@@ -6,7 +6,7 @@ saga-template-name: Posts list
 ------------------------------------------------
 An example for a landing page for all the posts
 #}
-{%- if meta.env != 'prod' %}<!-- page/posts.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- _layouts/page/posts.njk  -->{%- endif -%}
 
 <h1 class="text-5xl">{{ title }} </h1>
 <section class="grid md:grid-cols-3 gap-4">

@@ -6,7 +6,7 @@ collection: tagname
 
 https://www.11ty.dev/docs/collections/
 #}
-{%- if meta.env != 'prod' %}<!-- collection.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- collection.njk  -->{%- endif -%}
 
 {# collection  #}
 {% if collection %}
@@ -14,7 +14,7 @@ https://www.11ty.dev/docs/collections/
 
 {% for item in collections[collection] | sortByOrder %}
   {# for debugging measure shows us where this data is coming from  #}
-  {%- if meta.env != 'prod' %}<!-- input path: {{ item.inputPath }}  -->{%- endif -%}
+  {%- if env.mode != 'prod' %}<!-- input path: {{ item.inputPath }}  -->{%- endif -%}
 
   <article class="p-4 shadow border rounded" aria-label="Post {{ item.data.title}}" >
 

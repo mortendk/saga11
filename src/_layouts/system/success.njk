@@ -7,7 +7,7 @@ saga-template-name: Page For big picture
 The succes page when the form from /component/contactform.njk
 
 #}
-{%- if meta.env != 'prod' %}<!-- system/success.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- _layouts/system/success.njk  -->{%- endif -%}
 
 <section class="flex items-center justify-center h-screen">
 
