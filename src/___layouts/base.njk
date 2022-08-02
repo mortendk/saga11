@@ -23,7 +23,6 @@
     {%- include "head/icon.njk" -%}
     {%- include "head/applestartupscreens.njk" -%}
 
-
     {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
@@ -31,12 +30,9 @@
     {% endif -%}
 
   </head>
-  <body class="flex flex-col h-screen bg-pink-400">
+  <body class="flex flex-col h-screen bg-slate-100">
 
-<div class="">adsf'lkjadlkgjfade;</div>
-
-
-    {# {{ content | safe }} #}
+    {{ content | safe }}
 
     {# Service worker #}
     <script>
