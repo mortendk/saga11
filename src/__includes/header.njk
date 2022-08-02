@@ -2,7 +2,7 @@
 ------------------------------------------------
 Global header for the site
  #}
-{%- if env.mode != 'prod' %}<!-- _includes/header.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- __includes/header.njk  -->{%- endif  -%}
 
 {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
 <header role="banner" class="js-header bg-white shadow fixed w-full bg-white z-50 h-16 md:h-20" >
@@ -49,7 +49,8 @@ Global header for the site
     </nav>
 
     {# Toggle menu #}
-    {# TODO: fix mobile menu #}
+    {# TODO: fix mobile menu : anumated menu#}
+
     <button class="js-menu-toggle mr-4 block md:hidden">
       <div class="w-8 h-8 text-red-400">{% include "svg/menubars.njk" %}</div>
       <div class="w-8 h-8 hidden">{% include "svg/close.njk" %}</div>

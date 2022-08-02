@@ -2,14 +2,14 @@
 ------------------------------------------------
 simple image gallery / slider
 #}
-{%- if env.mode != 'prod' %}<!-- contactform.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- __includes/contactform.njk  -->{%- endif -%}
 
 <section>
 
 {# Image wrapper for the gallery #}
 <div class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar z-0">
 {% for item in gallery %}
-  <article aria-label="image "
+  <div aria-label="image "
     class="
     flex flex-shrink-0  overflow-auto relative
     w-11/12 aspect-video mr-4
@@ -43,7 +43,7 @@ simple image gallery / slider
     </div>
   {% endif %}
 
-  </article>
+  </div>
 {% endfor %}
 
 </div>
@@ -52,6 +52,7 @@ simple image gallery / slider
 <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
 {% for item in gallery %}
   <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none">
+    <div class="sr-only"> link to image {{ loop.index }}</div>
     {% if item.image.image %}
       {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'shadow' %}
     {% endif %}
