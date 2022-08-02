@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
-    "watch": "npx @11ty/eleventy --serve --quiet --incremental & npm run tw:watch",
+    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "tw:watch": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",

@@ -2,30 +2,39 @@
 ------------------------------------------------
 simple image gallery / slider
 #}
-{%- if env.mode != 'prod' %}<!-- __includes/contactform.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- __includes/gallery.njk  -->{%- endif -%}
 
-<section>
+<article class="">
+
+  <a class="js-image-toggle bg-green-500 top-5 left-5 z-10 bg-red-500">
+    Toggle
+  </a>
 
 {# Image wrapper for the gallery #}
-<div class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar z-0">
+<div class="js-gallery flex overflow-x-auto scroll-smooth snap-mandatory snap-x scrollbar z-0 ">
 {% for item in gallery %}
-  <div aria-label="image "
+
+  <div aria-label="image"
     class="
-    flex flex-shrink-0  overflow-auto relative
-    w-11/12 aspect-video mr-4
+    js-image
+    flex flex-shrink-0 overflow-auto relative
+    w-11/12
+    aspect-video
+    mr-4
     snap-center
     transition"
     id="slide-{{ loop.index }}"
   >
 
+
   {% if item.image.image %}
     {# First image  #}
     {% if loop.index == "1" %}
-      {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
+      {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",
       'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
-    {# The reste  #}
+    {# The rest #}
     {% else %}
-      {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
+      {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",
       'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
     {% endif %}
 
@@ -42,6 +51,7 @@ simple image gallery / slider
       </div>
     </div>
   {% endif %}
+
 
   </div>
 {% endfor %}
@@ -60,4 +70,21 @@ simple image gallery / slider
 {% endfor %}
 </nav>
 
-</section>
+</article>
+
+
+<script>
+  let btnImageToggle = document.querySelector(".js-image-toggle");
+  let gallery = document.querySelector(".js-gallery");
+  let image = document.querySelector(".js-image");
+
+  btnImageToggle.onclick = function (e) {
+    e.preventDefault();
+    document.body.classList.toggle("overflow-y-hidden");
+    gallery.classList.remove('z-0')
+    gallery.classList.add('fixed', 'top-0','left-0','z-40','h-full', 'w-full','bg-pink-500')
+    image.classList.remove('w-11/12');
+    image.classList.add('w-full');
+  };
+
+</script>
