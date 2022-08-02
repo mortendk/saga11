@@ -1,15 +1,16 @@
 ---
 layout: default.njk
-saga-template-name: Posts list
+saga-template-name: Page Posts list
 ---
 {# PAGE POST PAGE
 ------------------------------------------------
 An example for a landing page for all the posts
 #}
-{%- if env.mode != 'prod' %}<!-- _layouts/page/posts.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/posts.njk  -->{%- endif -%}
 
 <h1 class="text-5xl">{{ title }} </h1>
 <section class="grid md:grid-cols-3 gap-4">
+
 {# collection of all post #}
 {% for item in collections.allPosts  %}
 

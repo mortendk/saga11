@@ -7,9 +7,10 @@ teaser: All sagas are written here
 tags:
   - frontpage
   - menu
-layout: page/posts.njk
+layout: page/page-posts.njk
 order: 2
-menulabel: Post
+menulabel: Posts
 eleventyExcludeFromCollections: false
 ---
+
 This page uses a template who have gets all posts in templates/page/posts.njk

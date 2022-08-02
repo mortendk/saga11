@@ -1,7 +1,7 @@
 {# LIST ALL PAGES
 ------------------------------------------------
  #}
-{%- if env.mode != 'prod' %}<!-- nav/pages.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/pages.njk  -->{%- endif  -%}
 
 <nav class="" aria-label="Pages Navigation">
 {% for item in collections.allPages | sortByOrder %}

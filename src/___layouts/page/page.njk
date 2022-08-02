@@ -6,7 +6,7 @@ saga-template-name: Page default
 ------------------------------------------------
 This is the default template for the page type
 #}
-{%- if env.mode != 'prod' %}<!-- _layouts/page/page.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3">
@@ -17,11 +17,7 @@ This is the default template for the page type
       {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],alt %}
     {% endif %}
 
-    <p class="text-xl my-4">
-      {{ teaser | safe }}
-    </p>
-
-    <div class="prose">
+    <div class="prose prose-xl">
       {{ content | safe }}
     </div>
 

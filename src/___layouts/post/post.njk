@@ -6,7 +6,7 @@ saga-template-name: Post Default
 ------------------------------------------------
 Base post template - white is different from the pages
 #}
-{%- if env.mode != 'prod' %}<!-- _layouts/post/post.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
 
 <article class="flex flex-col md:flex-row ">
@@ -41,7 +41,7 @@ Base post template - white is different from the pages
       {{ teaser | safe }}
     </p>
 
-    <div class="prose">
+    <div class="wysiwyg">
       {{ content | safe }}
     </div>
 
