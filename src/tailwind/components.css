@@ -10,7 +10,7 @@
   .wysiwyg h4,
   .wysiwyg h5,
   .wysiwyg h6 {
-    @apply bold text-lg;
+    @apply text-lg font-bold;
   }
 
   .wysiwyg p {

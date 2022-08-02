@@ -1,9 +1,6 @@
 @tailwind base;
 
 @layer base {
-  body {
-    @apply bg-red-400;
-  }
   /* a11y  */
   a {
     @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;

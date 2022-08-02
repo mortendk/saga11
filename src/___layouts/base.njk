@@ -7,7 +7,6 @@
     {% else %}
       <title>{{ title }} - {{ site.title }} </title>
     {% endif %}
-
     <!--
       https://sage11.dev
      -->
@@ -23,7 +22,6 @@
     {%- include "head/opengraph.njk" -%}
     {%- include "head/icon.njk" -%}
     {%- include "head/applestartupscreens.njk" -%}
-
 
     {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
