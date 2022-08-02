@@ -2,10 +2,10 @@
 
 module.exports = {
   content: [
-    "src/__includes/*.njk",
-    "src/__includes/**/*.njk",
     "src/___layouts/*.njk",
     "src/___layouts/**/*.njk",
+    "src/__includes/*.njk",
+    "src/__includes/**/*.njk",
     "src/assets/js/*.js",
   ],
   darkMode: "class",
