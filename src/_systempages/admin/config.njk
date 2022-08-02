@@ -1,0 +1,479 @@
+---
+permalink: /_admin/config.yml
+eleventyExcludeFromCollections: true
+---
+# Setup
+# 1 Add users netlify identity
+# https://app.netlify.com/sites/[SITENAME]/settings/identity#external-providers
+
+# 2 enable git gateway
+# https://app.netlify.com/sites/[SITENAME]/settings/identity#git-gateway
+
+# Doc
+# https://preview-auth-doc--netlify-cms-www.netlify.app/docs/customization/
+#
+backend:
+  name: git-gateway
+  branch: main
+local_backend: true
+
+#SETTINGS
+{% if env.mode != 'prod' %}
+site_url: http://localhost:8080
+logo_url: http://localhost:8080/assets/icon/icon-apple-touch.png
+display_url: http://localhost:8080
+{% else %}
+site_url: https://editorial-config.saga11.dev
+logo_url: https://editorial-config.saga11.dev/assets/icon/icon-apple-touch.png
+display_url: https://editorial-config.saga11.dev
+{% endif %}
+
+
+{# set this to raw so jnunjucks dont mess with the {{ }} #}
+{% raw %}
+media_folder: "src/images"
+public_folder: "/images"
+search: true
+# publish_mode: editorial_workflow
+show_preview_links: true
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  # -----------------------------------------------------------------
+  # Post Collection
+  # -----------------------------------------------------------------
+  - label: "Posts"
+    label_singular: Post
+    name: "posts"
+    description: "All Posts"
+    folder: "src/content/post"
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+    # folder/index creates a folder structure
+    # {{year}}-{{month}}/{{title}}/index
+    # {{tags}}/{{title}}/index
+    slug: "/{{ url }}/index"
+    #preview_path must match the settings from post.json permalink
+    preview_path: post/{{ slug }}
+    create: true
+    delete: true
+    editor:
+      preview: false
+
+    # Overview
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+
+    view_groups:
+      - label: "Date: "
+        field: date
+        pattern: "([0-9]+(-[0-9]+)+)"
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+      - label: Tags
+        field: tags
+
+    # FIELDS
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Url", name: "url", widget: "string" }
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          required: false,
+          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+        }
+      - { label: "alt", name: "alt", widget: "string", required: false }
+      - { label: "teaser", name: "teaser", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      # Gallery
+      - label: "Image Gallery"
+        name: "gallery"
+        widget: "list"
+        collapsed: true
+        summary: "Image {{fields.image.fields.image}}"
+        fields:
+          - label: image
+            name: image
+            widget: object
+            summary: "{{fields.image}}: {{fields.title}}"
+            fields:
+              - {
+                  label: image,
+                  name: image,
+                  widget: image,
+                  hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+                }
+              - { label: title, name: title, widget: string, required: false }
+              - { label: Description, name: figcaption, widget: text, required: false }
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: posttemplates
+        searchFields: [saga-template-name]
+        valueField: "post/{{filename}}.{{extension}}"
+        displayFields:
+          ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
+        default: "post/post.njk"
+        required: true
+
+      # Date
+      - label: "Date published"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: false
+
+      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+          hint: "is this a draft ?",
+        }
+
+  # -----------------------------------------------------------------
+  # Collection Pages
+  # -----------------------------------------------------------------
+  - label: Pages
+    label_singular: Page
+    name: page
+    folder: "src/content/page"
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
+    create: true
+    delete: true
+    slug: "{{url}}/index"
+    preview_path: /{{ slug }}/
+
+    # Overview
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    # media_folder: ''
+    # public_folder: ''
+    editor:
+      preview: false
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "url", name: "url", widget: "string" }
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          required: false,
+          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+        }
+      - { label: "alt", name: "alt", widget: "string", required: false }
+      - { label: "teaser", name: "teaser", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown", required: false }
+
+      # Gallery
+      - label: "Images"
+        name: "gallery"
+        widget: "list"
+        collapsed: true
+        summary: "Image {{fields.image.fields.image}}"
+        fields:
+          - label: image
+            name: image
+            widget: object
+            summary: "{{fields.image}}: {{fields.title}}"
+            fields:
+              - { label: image, name: image, widget: image, choose_url: false }
+              - { label: title, name: title, widget: string, required: false }
+              - { label: Description, name: figcaption, widget: text, required: false }
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      # collection
+      - name: collection
+        label: collection
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: false
+        hint: "This will select a tag and print teasers on the page"
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields:
+          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        required: false
+        default: "page/page.njk"
+
+      # 11ty settings
+      # - { label: "url", name: slugcustom,  required: true }
+      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
+      - {
+          label: "Menu Label",
+          name: "menulabel",
+          widget: "string",
+          required: false,
+          hint: "Optional Menu item title if this page is tagged with menu. Overwrites the pages title for the navigation",
+        }
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+
+  # -----------------------------------------------------------------
+  # System pages
+  # -----------------------------------------------------------------
+  - label: "System pages"
+    name: "systempages"
+    files:
+      - label: "Form Success"
+        name: "contactsuccess"
+        preview_path: /success
+        file: "src/content/success.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: "Body", name: "body", widget: "markdown", required: false }
+          - {
+              label: "Image",
+              name: "image",
+              widget: "image",
+              required: false,
+              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+            }
+          - { label: "alt", name: "alt", widget: "string", required: false }
+
+  # -----------------------------------------------------------------
+  # Relations Tags
+  # -----------------------------------------------------------------
+
+  - name: tags
+    label_singular: tag
+    label: "Tags"
+    folder: "src/content/tags"
+    slug: "{{title}}"
+    hide: false
+    create: true
+    delete: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+
+  # -----------------------------------------------------------------
+  # Templates
+  # -----------------------------------------------------------------
+  - name: posttemplates
+    label_singular: template
+    label: "Post Templates"
+    folder: "src/___layouts/post"
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  - name: pagetemplates
+    label_singular: template
+    label: "page Templates"
+    folder: "src/___layouts/page"
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # -----------------------------------------------------------------
+  # Setings
+  # -----------------------------------------------------------------
+  - label: "Settings"
+    name: "settings"
+    files:
+      - label: "Site Settings"
+        name: "sitesettings"
+        file: "src/data/site.json"
+        fields:
+          - { label: title, name: title, widget: string }
+          - { label: description, name: description, widget: text, required: false }
+          - { label: keywords, name: keywords, widget: text, required: false }
+          - { label: footer, name: footer, widget: markdown, required: false }
+          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
+          - { label: "humans.txt", name: humantxt, widget: text, required: false }
+
+          - {
+              label: Author (rss),
+              name: authorname,
+              widget: string,
+              required: false,
+              hint: "Feed Author name",
+            }
+          - {
+              label: Aurthor Email (rss),
+              name: authoremail,
+              widget: string,
+              required: false,
+              hint: "Feed Author name",
+            }
+          - { label: browesercolor, name: color, widget: color, required: false }
+          - { label: "Adress", name: "adress", widget: "string", required: false }
+          - { label: "zip", name: "zip", widget: "string", required: false }
+
+      - label: "Social Network links"
+        name: "some"
+        file: "src/data/some.json"
+        fields:
+          - {
+              label: facebook,
+              name: facebook,
+              widget: string,
+              required: false,
+              hint: "https://www.facebook.com/...",
+            }
+          - {
+              label: twitter,
+              name: twitter,
+              widget: string,
+              required: false,
+              hint: "https://www.twitter.com/...",
+            }
+          - {
+              label: linkedin,
+              name: linkedin,
+              widget: string,
+              required: false,
+              hint: "https://www.linkedin.com/in/...",
+            }
+          - {
+              label: instagram,
+              name: instagram,
+              widget: string,
+              required: false,
+              hint: "https://www.instagram.com/...",
+            }
+          - {
+              label: github,
+              name: github,
+              widget: string,
+              required: false,
+              hint: "https://github.com/...",
+            }
+          - {
+              label: dribble,
+              name: dribble,
+              widget: string,
+              required: false,
+              hint: "https://dribbble.com/[name]",
+            }
+          - {
+              label: tiktok,
+              name: tiktok,
+              widget: string,
+              required: false,
+              hint: "https://tiktok.com/@[name]",
+            }
+          - {
+              label: Twitch,
+              name: twitch,
+              widget: string,
+              required: false,
+              hint: "https://twitch.tv/[name]",
+            }
+          - {
+              label: Patreon,
+              name: patreon,
+              widget: string,
+              required: false,
+              hint: "https://patreon.com/[name]",
+            }
+          - {
+              label: Discord,
+              name: discord,
+              widget: string,
+              required: false,
+              hint: "https://discord.gg/[name]",
+            }
+
+          - {
+              label: Soundcloud,
+              name: soundcloud,
+              widget: string,
+              required: false,
+              hint: "https://soundcloud.com/[name]",
+            }
+          - {
+              label: Bandcamp,
+              name: bandcamp,
+              widget: string,
+              required: false,
+              hint: "https://[name].bandcamp.com/",
+            }
+
+      - label: "Menu"
+        name: "menu"
+        file: "src/data/menu.json"
+        fields:
+          - label: Menu
+            name: main
+            widget: list
+            collapsed: false
+            fields:
+              - { label: title, name: title, widget: string }
+              - { label: url, name: url, widget: string, hint: "Relative url" }
+              - { label: text, name: text, widget: string, required: false }
+
+{% endraw %}
