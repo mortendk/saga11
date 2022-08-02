@@ -4,11 +4,8 @@ simple image gallery / slider
 #}
 {%- if env.mode != 'prod' %}<!-- __includes/gallery.njk  -->{%- endif -%}
 
-<article class="">
+<article>
 
-  <a class="js-image-toggle bg-green-500 top-5 left-5 z-10 bg-red-500">
-    Toggle
-  </a>
 
 {# Image wrapper for the gallery #}
 <div class="js-gallery flex overflow-x-auto scroll-smooth snap-mandatory snap-x scrollbar z-0 ">
@@ -18,13 +15,17 @@ simple image gallery / slider
     class="
     js-image
     flex flex-shrink-0 overflow-auto relative
-    w-11/12
+    {# w-11/12 #}
+    w-full
     aspect-video
-    mr-4
+    mr-2
     snap-center
     transition"
     id="slide-{{ loop.index }}"
   >
+  <button class="js-image-toggle bg-green-500 top-5 left-5 z-10 w-20 bg-red-500 absolute z-50 right-5 top-5">
+    open
+  </button>
 
 
   {% if item.image.image %}
@@ -80,6 +81,8 @@ simple image gallery / slider
 
   btnImageToggle.onclick = function (e) {
     e.preventDefault();
+    //set body to be fixed
+    console.log('sdsd');
     document.body.classList.toggle("overflow-y-hidden");
     gallery.classList.remove('z-0')
     gallery.classList.add('fixed', 'top-0','left-0','z-40','h-full', 'w-full','bg-pink-500')
