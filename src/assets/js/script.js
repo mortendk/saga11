@@ -5,8 +5,6 @@ let menu = document.querySelector(".js-menu");
 btn.onclick = function () {
   menu.classList.toggle("-left-full");
   menu.classList.toggle("left-0");
-  btn.children[0].classList.toggle("hidden");
-  btn.children[1].classList.toggle("hidden");
 };
 
 // image toggler
