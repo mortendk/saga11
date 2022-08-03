@@ -54,7 +54,9 @@ Global header for the site
 {# TODO: make it pure alpine ... ? #}
   <button x-data="{ open: false }"
           x-on:click="open = !open"
-          class="flex items-center space-x-2 focus:outline-none block md:hidden js-menu-toggle">
+          class="flex items-center space-x-2 focus:outline-none block md:hidden js-menu-toggle"
+          aria-label="toggle menu"
+          >
     {# <span x-text="open ? 'Close' : 'Open'"
           class="font-medium text-lg">Open</span> #}
 
