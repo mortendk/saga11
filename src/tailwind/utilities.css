@@ -1,6 +1,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  [x-cloak] {
+    display: none;
+  }
+
   .center-center {
     @apply flex items-center justify-center;
   }
