@@ -5,11 +5,9 @@
     {% if page.url =="/" %}
       <title> {{ site.title }} </title>
     {% else %}
-      <title>{{ title }} - {{ site.title }} </title>
+      <title>{{ title }} | {{ site.title }} </title>
     {% endif %}
-    <!--
-      https://sage11.dev
-     -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -28,8 +26,8 @@
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
-
   </head>
+
   <body class="flex flex-col h-screen bg-slate-100">
 
     {{ content | safe }}
@@ -43,5 +41,7 @@
       }
     </script>
     <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/alpine3.10.3.min.js"></script>
+
   </body>
 </html>

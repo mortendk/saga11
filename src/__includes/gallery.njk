@@ -2,61 +2,63 @@
 ------------------------------------------------
 simple image gallery / slider
 #}
-{%- if env.mode != 'prod' %}<!-- contactform.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- __includes/gallery.njk  -->{%- endif -%}
 
-<section>
+<article class="relative w-1/2">
 
-{# Image wrapper for the gallery #}
-<div class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x slides scrollbar z-0">
-{% for item in gallery %}
-  <article aria-label="image "
-    class="
-    flex flex-shrink-0  overflow-auto relative
-    w-11/12 aspect-video mr-4
-    snap-center
-    transition"
-    id="slide-{{ loop.index }}"
-  >
+  <button type="button" aria-label="button" class="js-image-toggle  absolute inset-x-0 top-0 z-50  w-20 bg-pink-500">
+    open {{ loop.index }}
+  </button>
 
-  {% if item.image.image %}
-    {# First image  #}
-    {% if loop.index == "1" %}
-      {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
-      'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
-    {# The reste  #}
-    {% else %}
-      {% image item.image.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],"",
-      'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
-    {% endif %}
+  {# Image wrapper for the gallery #}
+  <div class="js-gallery flex overflow-x-auto scroll-smooth snap-mandatory snap-x scrollbar z-0">
 
-  {% endif %}
+    {# loop through all the images #}
+    {% for item in gallery %}
 
-  {# title and figcap #}
-  {% if item.image.title or item.image.figcaption %}
-    <div class="absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
-      <div class="text-3xl">
-        {{ item.image.title}}
+      <div aria-label="image" id="slide-{{ loop.index }}"
+        class="js-image
+        flex flex-shrink-0 overflow-auto relative
+        aspect-video w-11/12 mr-2
+        snap-center transition">
+
+        {% if item.image.image %}
+          {# First image  #}
+          {% if loop.index == "1" %}
+            {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
+          {# The rest #}
+          {% else %}
+            {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
+          {% endif %}
+        {% endif %}
+
+        {# title and figcap #}
+        {% if item.image.title or item.image.figcaption %}
+          <div class="absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
+            <div class="text-3xl">
+              {{ item.image.title}}
+            </div>
+            <div class="text-lg">
+              {{ item.image.figcaption}}
+            </div>
+          </div>
+        {% endif %}
+
       </div>
-      <div class="text-lg">
-        {{ item.image.figcaption}}
-      </div>
-    </div>
-  {% endif %}
+    {% endfor %}
 
-  </article>
-{% endfor %}
+  </div>
 
-</div>
+  {# gallery navigation #}
+  <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+    {% for item in gallery %}
+      <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none">
+        <div class="sr-only">Link to image {{ loop.index }}</div>
+        {% if item.image.image %}
+          {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'shadow' %}
+        {% endif %}
+      </a>
+    {% endfor %}
+  </nav>
 
-{# gallery navigation #}
-<nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
-{% for item in gallery %}
-  <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none">
-    {% if item.image.image %}
-      {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'shadow' %}
-    {% endif %}
-  </a>
-{% endfor %}
-</nav>
-
-</section>
+</article>

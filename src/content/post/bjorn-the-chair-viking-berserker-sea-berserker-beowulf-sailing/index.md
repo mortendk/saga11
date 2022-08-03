@@ -7,6 +7,7 @@ teaser: Bjorn the chair viking berserker sea berserker Beowulf sailing. Raiding
   lack the table swords longship berserker boats swords viking longship.
 tags:
   - freya
+  - frontpage
 layout: post/post.njk
 date: 2022-07-23 22:25:10
 eleventyExcludeFromCollections: false

@@ -2,17 +2,21 @@
 the font paths are relative to the css file created with tailwind
 */
 
-/*
-examplte
 @font-face {
-  font-family: "[superdupername]";
+  font-family: "goudybookletter";
   font-display: swap;
-  src: url("/assets/fonts/[FAMILY]/[NAME].woff2") format("woff2"),
-    url("/assets/fonts/[FAMILY]/[NAME].woff") format("woff");
+  src: url("/assets/fonts/goudy-bookletter-1911/webfonts/goudy_bookletter_1911-webfont.woff")
+    format("woff");
 }
 
-in tailwind.config.js
-    fontFamily: {superdupername},
-    class="font-superdupername"
+@font-face {
+  font-family: "junction";
+  font-display: swap;
+  src: url("/assets/fonts/junction/webfonts/junction-regular.woff") format("woff");
+}
 
-*/
+/* in tailwind.config.js
+    superduper: {superdupername},
+
+
+    class="font-superdupername" */

@@ -10,7 +10,10 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    fontFamily: {},
+    fontFamily: {
+      serif: ["goudybookletter"],
+      sans: ["junction"],
+    },
     extend: {
       colors: {
         tabcolor: "red",
