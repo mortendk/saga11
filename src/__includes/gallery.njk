@@ -1,26 +1,56 @@
 {# GALLERY
 ------------------------------------------------
-simple image gallery / slider
 #}
 {%- if env.mode != 'prod' %}<!-- __includes/gallery.njk  -->{%- endif -%}
 
-<article class="relative w-1/2">
+{% if gallery %}
 
-  <button type="button" aria-label="button" class="js-image-toggle  absolute inset-x-0 top-0 z-50  w-20 bg-pink-500">
-    open {{ loop.index }}
-  </button>
+<article x-data="{isGalleryOpen: false}"
+  :class="isGalleryOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-white/90 X' : 'w-1/2 relative'"
+  x-on:keydown.escape="isGalleryOpen=false"
+  x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
+  x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
+>
+
+{#
+supersimple slider using scrollBy  the items.clientWidth
+scrollIntoView(false)
+ #}
+  <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" type="button" aria-label="Previous">pre</button>
+  <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"  type="button" aria-label="Previous">next</button>
+
+  <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+    {% for item in gallery %}
+
+      <button
+        @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
+        class="bg-slate-500 rounded-full w-10 h-10"
+        type="button"
+      >
+        {{ loop.index }}
+      </button>
+
+    {% endfor %}
+  </nav>
+
+  {# open/close toggler  #}
+  <button type="button" aria-label="open close image"
+          class="w-20 bg-pink-500 z-10 absolute right-0"
+          @click="isGalleryOpen = !isGalleryOpen"
+  >Toggle</button>
 
   {# Image wrapper for the gallery #}
-  <div class="js-gallery flex overflow-x-auto scroll-smooth snap-mandatory snap-x scrollbar z-0">
+  <div :class="isGalleryOpen ? '' : 'scrollbar'"
+        x-ref="slider"
+        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0"
+  >
 
     {# loop through all the images #}
     {% for item in gallery %}
 
-      <div aria-label="image" id="slide-{{ loop.index }}"
-        class="js-image
-        flex flex-shrink-0 overflow-auto relative
-        aspect-video w-11/12 mr-2
-        snap-center transition">
+      <div aria-label="image"
+        x-ref="slideitem{{ loop.index }}"
+        class="flex flex-shrink-0 overflow-auto relative aspect-video w-full mr-2 snap-center transition">
 
         {% if item.image.image %}
           {# First image  #}
@@ -35,30 +65,73 @@ simple image gallery / slider
         {# title and figcap #}
         {% if item.image.title or item.image.figcaption %}
           <div class="absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
-            <div class="text-3xl">
-              {{ item.image.title}}
-            </div>
-            <div class="text-lg">
-              {{ item.image.figcaption}}
-            </div>
+            <div class="text-3xl">{{ item.image.title}}</div>
+            <div class="text-lg">{{ item.image.figcaption}}</div>
           </div>
         {% endif %}
 
       </div>
     {% endfor %}
+    {# images done  #}
 
   </div>
+
 
   {# gallery navigation #}
   <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
-      <a href="#slide-{{ loop.index }}" class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none">
-        <div class="sr-only">Link to image {{ loop.index }}</div>
+
+      <button
+        @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
+        class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none"
+        type="button"
+      >
+        <span class="sr-only">Link to image {{ loop.index }}</span>
         {% if item.image.image %}
           {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'shadow' %}
         {% endif %}
-      </a>
+      </button>
+
     {% endfor %}
   </nav>
 
 </article>
+
+{% endif %}
+
+
+
+
+
+
+
+
+{# -------
+model componenet
+ #}
+{# open modal #}
+<button x-on:click="isModalOpen = true">Open Modal</button>
+
+{# modal #}
+<div
+  class="bg-black/60 w-screen h-screen z-30 flex items-center justify-center fixed inset-0"
+  role="dialog"
+  tabindex="-1"
+  x-show="isModalOpen"
+  x-cloak
+  x-transition
+>
+  <article class="w-60 h-60 bg-red-800 shadow-lg"
+  x-on:click.away="isModalOpen = false">
+    <button aria-label="Close" x-on:click="isModalOpen=false">X</button>
+    <div>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae corporis laudantium quo minus neque iste explicabo. Obcaecati debitis labore, asperiores, distinctio quis eum magnam fugiat optio quisquam fuga beatae vel.
+    </div>
+
+  </article>
+
+</div>
+{# /modal #}
+
+
+
