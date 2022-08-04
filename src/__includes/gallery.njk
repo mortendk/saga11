@@ -6,6 +6,7 @@
 {% if gallery %}
 
 <section aria-label="Image gallery"
+  class="mb-4"
   x-data="{isSliderOpen: false}"
   :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-white/90 X' : 'w-full relative'"
   x-on:keydown.escape="isSliderOpen=false"
@@ -45,7 +46,7 @@
   {# open/close toggler  #}
   <button type="button" aria-label="open close image"
           class="w-6 h-6 text-white z-10 absolute right-0"
-          @click="isSliderOpen = !isSliderOpen">
+          @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
           <span x-show="isSliderOpen">
             {% include "svg/close.njk" %}
           </span>
