@@ -27,8 +27,10 @@
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
   </head>
-
-  <body class="flex flex-col h-screen bg-slate-100">
+  {# isModalOpen is used to test if theres a modal open then disable the scroll #}
+  <body class="flex flex-col h-screen bg-slate-100"
+  x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false"
+  :class="isModalOpen ? 'overflow-y-hidden':''">
 
     {{ content | safe }}
 
@@ -40,8 +42,7 @@
           .register('/service-workers.js');
       }
     </script>
-    <script src="/assets/js/script.js"></script>
-    <script src="/assets/js/alpine3.10.3.min.js"></script>
 
+    <script src="/assets/js/alpine3.10.3.min.js"></script>
   </body>
 </html>

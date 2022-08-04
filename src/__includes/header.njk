@@ -5,31 +5,25 @@ Global header for the site
 {%- if env.mode != 'prod' %}<!-- __includes/header.njk  -->{%- endif  -%}
 
 {% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
-<header class="js-header bg-white shadow fixed w-full z-20 h-16 md:h-20" >
+<header class="js-header bg-white shadow fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
+  {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
 
     <a href="/" title="{{site.title}}" class="{{ menuclasses }} mr-4">
-    {# site title + TODO: icon if have one #}
       {{ site.title}}
       <h1 class="sr-only">{{site.title}}</h1>
     </a>
-
-
-
 
     {# Menu desktop #}
     <nav class="h-full hidden md:block" aria-label="Main Menu">
       <div class="flex justify-between h-full">
 
         <div class="flex space-x-4">
-
-
           {% for item in collections.menu | sortByOrder %}
-            {# grap the correct title for the page  #}
             {% set menutitle %}
               {% if item.data.menulabel %}
                 {{ item.data.menulabel }}
@@ -44,40 +38,46 @@ Global header for the site
               <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{ menutitle }}</a>
             {% endif %}
           {% endfor %}
-
-
         </div>
 
       </div>
     </nav>
 
-{# TODO: make it pure alpine ... ? #}
-  <button x-data="{ open: false }"
-          x-on:click="open = !open"
-          class="flex items-center space-x-2 focus:outline-none block md:hidden js-menu-toggle"
-          aria-label="toggle menu"
-          >
-    {# <span x-text="open ? 'Close' : 'Open'"
-          class="font-medium text-lg">Open</span> #}
-
-    <div class="w-6 flex items-center justify-center relative">
-      <span x-bind:class="open ? 'translate-y-0 rotate-45' : '-translate-y-2'"
-            class="transform transition w-full h-px bg-current absolute"></span>
-
-      <span x-bind:class="open ? 'opacity-0 translate-x-3' : 'opacity-100'"
-            class="transform transition w-full h-px bg-current absolute"></span>
-
-      <span x-bind:class="open ? 'translate-y-0 -rotate-45' : 'translate-y-2'"
-            class="transform transition w-full h-px bg-current absolute"></span>
-    </div>
-  </button>
+    {# mobile menu active
+    concept totally stolen from https://jonsuh.com/hamburgers
+    #}
+    <button
+      @click="openmenu = !openmenu"
+      class="w-10 block md:hidden space-x-2 focus:outline-none"
+      aria-label="toggle mobile menu"
+    >
+      <span class="relative inline-block w-10 h-6">
+        <span class="
+        block mt-2 absolute w-8 h-1 bg-slate-700 rounded-md
+        transition-all ease-linear duration-75
+        before:absolute before:-top-2 before:h-1 before:w-8 before:bg-slate-500 before:rounded-md before:content-[''] before:block
+        after:absolute after:top-2 after:h-1 after:w-8 after:bg-slate-500 after:rounded-md after:content-[''] after:block
+        "
+        :class="openmenu ? 'rotate-45 before:rotate-90 before:translate-y-2 before:bg-slate-700 after:opacity-0' : '' "
+        ></span>
+      </span>
+    </button>
 
   </div>
-</header>
 
-{# TODO: is it to fugly to have 2 menus added here ? ... its defo easier #}
-{# Mobile menu #}
-<nav class="js-menu md:hidden fixed z-50 -left-full top-16 w-11/12 h-full bg-white duration-300 shadow-xl" aria-label="Mobile Menu">
+{# mobile menu  #}
+<nav
+  x-cloak
+  x-show="openmenu"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="-translate-x-full"
+  x-transition:enter-end="translate-x-0"
+  x-transition:leave="transition ease-in duration-300"
+  x-transition:leave-start="translate-x-0"
+  x-transition:leave-end="-translate-x-full"
+  @click.outside="openmenu = false"
+  class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white shadow-xl"
+  aria-label="Mobile Menu">
 
   {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
 
@@ -101,7 +101,7 @@ Global header for the site
   {# Graps the menu from the settings config (set in _data/menu.json) #}
   {% for item in menu.main %}
     {% if item.url in page.url -%}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-red-400" title="{{ item.text}}">{{ item.title }}</a>
+      <a href="{{ item.url }}" class="{{ mobileclasses }} border-slate-400" title="{{ item.text}}">{{ item.title }}</a>
     {% else %}
       <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent"  title="{{ item.text}}">{{ item.title }}</a>
     {% endif %}
@@ -109,11 +109,4 @@ Global header for the site
 
 </nav>
 
-
-
-
-
-
-
-
-
+</header>
