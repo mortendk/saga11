@@ -14,8 +14,8 @@
 >
 
 {# pre next #}
-  <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" type="button" aria-label="Previous">pre</button>
-  <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"  type="button" aria-label="Previous">next</button>
+  <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" type="button" aria-label="Previous" class="bg-slate-300 p-2">pre</button>
+  <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"  type="button" aria-label="Previous" class="bg-slate-300 p-2">next</button>
 {# item links #}
   <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
