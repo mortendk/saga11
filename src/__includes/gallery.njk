@@ -5,42 +5,42 @@
 
 {% if gallery %}
 
-<article x-data="{isGalleryOpen: false}"
-  :class="isGalleryOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-white/90 X' : 'w-1/2 relative'"
-  x-on:keydown.escape="isGalleryOpen=false"
+<section aria-label="Image gallery"
+  x-data="{isSliderOpen: false}"
+  :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-white/90 X' : 'w-full relative'"
+  x-on:keydown.escape="isSliderOpen=false"
   x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
   x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
 >
 
-{#
-supersimple slider using scrollBy  the items.clientWidth
-scrollIntoView(false)
- #}
+{# pre next #}
   <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" type="button" aria-label="Previous">pre</button>
   <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"  type="button" aria-label="Previous">next</button>
-
+{# item links #}
   <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
-
       <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-        class="bg-slate-500 rounded-full w-10 h-10"
+        class="bg-slate-300 rounded-full w-10 h-10"
         type="button"
       >
         {{ loop.index }}
       </button>
-
     {% endfor %}
   </nav>
 
   {# open/close toggler  #}
   <button type="button" aria-label="open close image"
           class="w-20 bg-pink-500 z-10 absolute right-0"
-          @click="isGalleryOpen = !isGalleryOpen"
-  >Toggle</button>
+          @click="isSliderOpen = !isSliderOpen">
+
+          <span x-show="isSliderOpen"> ❌ </span>
+          <span x-show="!isSliderOpen"> 🔍</span>
+
+          </button>
 
   {# Image wrapper for the gallery #}
-  <div :class="isGalleryOpen ? '' : 'scrollbar'"
+  <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
         class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0"
   >
@@ -78,7 +78,7 @@ scrollIntoView(false)
 
 
   {# gallery navigation #}
-  <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+  <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
 
       <button
@@ -95,43 +95,6 @@ scrollIntoView(false)
     {% endfor %}
   </nav>
 
-</article>
+</section>
 
 {% endif %}
-
-
-
-
-
-
-
-
-{# -------
-model componenet
- #}
-{# open modal #}
-<button x-on:click="isModalOpen = true">Open Modal</button>
-
-{# modal #}
-<div
-  class="bg-black/60 w-screen h-screen z-30 flex items-center justify-center fixed inset-0"
-  role="dialog"
-  tabindex="-1"
-  x-show="isModalOpen"
-  x-cloak
-  x-transition
->
-  <article class="w-60 h-60 bg-red-800 shadow-lg"
-  x-on:click.away="isModalOpen = false">
-    <button aria-label="Close" x-on:click="isModalOpen=false">X</button>
-    <div>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae corporis laudantium quo minus neque iste explicabo. Obcaecati debitis labore, asperiores, distinctio quis eum magnam fugiat optio quisquam fuga beatae vel.
-    </div>
-
-  </article>
-
-</div>
-{# /modal #}
-
-
-

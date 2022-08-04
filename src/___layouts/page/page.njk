@@ -8,7 +8,7 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
-<article class="flex flex-col md:flex-row ">
+<article class="flex flex-col md:flex-row " aria-label="Page">
   <div class="md:w-2/3">
 
     <h1 class="font-serif text-8xl">{{ title }}</h1>

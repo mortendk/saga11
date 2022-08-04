@@ -10,7 +10,7 @@ https://www.11ty.dev/docs/collections/
 
 {# collection  #}
 {% if collection %}
-<section class="grid md:grid-cols-3 gap-4 my-4">
+<section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
 {% for item in collections[collection] | sortByOrder %}
   {# for debugging measure shows us where this data is coming from  #}
