@@ -14,14 +14,27 @@
 >
 
 {# pre next #}
-  <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" type="button" aria-label="Previous" class="bg-slate-300 p-2">pre</button>
-  <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"  type="button" aria-label="Previous" class="bg-slate-300 p-2">next</button>
-{# item links #}
-  <nav aria-label="gallery navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+  <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
+          tabindex="0"
+          type="button" aria-label="Previous"
+          class="bg-black text-white rounded-full w-10 h-10 absolute top-1/2 left-2 z-10 -translate-y-1/2">
+    {% include "svg/left.njk" %}
+  </button>
+
+  <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
+          tabindex="0"
+          type="button" aria-label="Previous"
+          class="bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
+    {% include "svg/right.njk" %}
+  </button>
+
+  {# item links #}
+  <nav aria-label="gallery navigation"
+      class="flex flex-row my-4 space-x-4 max-w-md mx-auto z-10 absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
     {% for item in gallery %}
       <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-        class="bg-slate-300 rounded-full w-10 h-10"
+        class="bg-black/40 text-white rounded-full w-5 h-5 text-sm"
         type="button"
       >
         {{ loop.index }}
@@ -31,13 +44,17 @@
 
   {# open/close toggler  #}
   <button type="button" aria-label="open close image"
-          class="w-20 bg-pink-500 z-10 absolute right-0"
+          class="w-6 h-6 text-white z-10 absolute right-0"
           @click="isSliderOpen = !isSliderOpen">
 
-          <span x-show="isSliderOpen"> ❌ </span>
-          <span x-show="!isSliderOpen"> 🔍</span>
+          <span x-show="isSliderOpen">
+            {% include "svg/close.njk" %}
+          </span>
+          <span x-show="!isSliderOpen">
+            {% include "svg/open.njk" %}
+          </span>
 
-          </button>
+  </button>
 
   {# Image wrapper for the gallery #}
   <div :class="isSliderOpen ? '' : 'scrollbar'"
@@ -78,7 +95,7 @@
 
 
   {# gallery navigation #}
-  <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+  {# <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
 
       <button
@@ -93,7 +110,7 @@
       </button>
 
     {% endfor %}
-  </nav>
+  </nav> #}
 
 </section>
 
