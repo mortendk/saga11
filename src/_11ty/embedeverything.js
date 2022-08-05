@@ -2,7 +2,7 @@ const env = require("../data/env");
 
 module.exports = {
   add: ["soundcloud"],
-  use: ["youtube", "vimeo"],
+  use: ["youtube", "vimeo", "twitter"],
   youtube: {
     options: {
       lite: true,
@@ -19,6 +19,9 @@ module.exports = {
       doNotTrack: true,
       dnt: true,
       embedClass: "twitter",
+      twitterScript: {
+        enabled: false,
+      },
     },
   },
   soundcloud: {
