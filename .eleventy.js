@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const EleventyFetch = require("@11ty/eleventy-fetch");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 

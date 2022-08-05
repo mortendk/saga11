@@ -5,8 +5,11 @@ module.exports = {
   // use: ["twitter"],
   twitter: {
     options: {
-      embedClass: "",
+      cacheText: true,
+      embedClass: "twitter",
       doNotTrack: true,
+      conversation: none,
+      theme: dark,
     },
   },
   soundcloud: {
