@@ -121,7 +121,6 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
-
   eleventyConfig.addPlugin(embeds, require("./src/_11ty/embedeverything.js"));
 
   // Shortcodes
@@ -133,6 +132,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
+
+  // return EleventyFetch(url, {
+  //   duration: "1d", // save for 1 day
+  //   type: "json", // we’ll parse JSON for you
+  // });
 
   // Transforms
   // Minify
