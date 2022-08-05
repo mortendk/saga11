@@ -29,10 +29,13 @@
     "tailwindcss": "^3.1.6"
   },
   "dependencies": {
+    "@11ty/eleventy-fetch": "^3.0.0",
     "cross-var": "^1.1.0",
     "dotenv": "^16.0.1",
     "dotenv-cli": "^6.0.0",
+    "eleventy-plugin-embed-everything": "^1.14.1",
     "eleventy-plugin-youtube-embed": "^1.7.1",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "netlify-plugin-cache": "^1.0.3"
   }
 }

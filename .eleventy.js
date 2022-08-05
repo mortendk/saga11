@@ -1,8 +1,11 @@
 const path = require("path");
 const fs = require("fs");
+const EleventyFetch = require("@11ty/eleventy-fetch");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const embedYouTube = require("eleventy-plugin-youtube-embed");
+
+const embeds = require("eleventy-plugin-embed-everything");
+
 const Image = require("@11ty/eleventy-img");
 const env = require("./src/data/env.js");
 // -----------------------------------------------------------------
@@ -118,7 +121,7 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
-  eleventyConfig.addPlugin(embedYouTube, require("./src/_11ty/youtube.js"));
+  eleventyConfig.addPlugin(embeds, require("./src/_11ty/embedeverything.js"));
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", image);
@@ -129,6 +132,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
+
+  // return EleventyFetch(url, {
+  //   duration: "1d", // save for 1 day
+  //   type: "json", // we’ll parse JSON for you
+  // });
 
   // Transforms
   // Minify

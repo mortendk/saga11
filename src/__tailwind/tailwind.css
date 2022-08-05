@@ -10,4 +10,20 @@ Settings and definitions are in tailwin.config.js
 
 @import "utilities.css";
 
-@import "prism-gh.css";
+@import "prism-synthwave.css";
+
+.twitter {
+  @apply border bg-white shadow;
+}
+
+.twitter-tweet {
+  @apply border bg-blue-300;
+}
+
+.twitter-tweet p {
+  @apply border bg-red-400;
+}
+
+.twitter-tweet a {
+  @apply underline;
+}

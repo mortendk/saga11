@@ -4,9 +4,11 @@
   .wysiwyg h2 {
     @apply text-3xl;
   }
+
   .wysiwyg h4 {
     @apply text-3xl;
   }
+
   .wysiwyg h4,
   .wysiwyg h5,
   .wysiwyg h6 {
@@ -15,9 +17,5 @@
 
   .wysiwyg p {
     @apply py-2;
-  }
-
-  .gallery-open {
-    @apply fixed top-0  left-0 z-40 h-full w-full bg-white/90;
   }
 }
