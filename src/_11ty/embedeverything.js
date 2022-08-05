@@ -12,12 +12,10 @@ module.exports = {
     dnt: true,
     embedClass: "",
   },
-
   twitter: {
     options: {
       cacheText: true,
       doNotTrack: true,
-      dnt: true,
       embedClass: "twitter",
       twitterScript: {
         enabled: false,
@@ -33,11 +31,6 @@ module.exports = {
       small: true,
       color: "#ff00ff",
       sharing: false,
-    },
-  },
-  twitch: {
-    options: {
-      parent: env.url,
     },
   },
 };

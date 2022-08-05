@@ -18,6 +18,8 @@ Computer woman find strange noisisng on planet and astonauts go to seeing. aston
 
 ## Embed Test
 
+https://twitter.com/CasperSvendsen7/status/1555602718596775937
+
 twitter:
 
 https://twitter.com/eleven_ty/status/1535285663276441602
@@ -52,8 +54,7 @@ https://www.instagram.com/p/CgmXB8tlmHC/
 
 soundclude
 
-https://soundcloud.com/danheim_music
-m_campaign=social_sharing
+https://soundcloud.com/danheim_music/asgard-sampler-tagelharpa-string-test
 
 ## Markup
 
