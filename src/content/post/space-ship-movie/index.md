@@ -18,24 +18,32 @@ Computer woman find strange noisisng on planet and astonauts go to seeing. aston
 
 ## Embed Test
 
+twitter:
 https://twitter.com/eleven_ty/status/1535285663276441602
 
+twitch
 https://www.twitch.tv/dukker_og_daemoner
 
+tiktio
 https://www.tiktok.com/@metallica/video/7118070435413052718?lang=en
 
+youtube
 https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
+spotify
 https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT?si=52a12af3687d4b45
 
+vimeo
 https://vimeo.com/341663153
 
 this is a link by default [saga11.dev](https://saga11.dev)
 
 https://www.youtube.com/watch?v=qP3GDtn-0BQ
 
+insta
 https://www.instagram.com/p/CgmXB8tlmHC/
 
+soundclude
 https://soundcloud.com/danheim_music/asgard-sampler-tagelharpa-string-test?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
 
 ## Markup
