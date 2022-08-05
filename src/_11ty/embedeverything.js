@@ -2,7 +2,17 @@ const env = require("../data/env");
 
 module.exports = {
   add: ["soundcloud"],
-  use: ["youtube", "twitter"],
+  use: ["youtube", "vimeo"],
+  youtube: {
+    options: {
+      lite: true,
+    },
+  },
+  vimeo: {
+    dnt: true,
+    embedClass: "",
+  },
+
   twitter: {
     options: {
       cacheText: true,
@@ -10,10 +20,6 @@ module.exports = {
       dnt: true,
       embedClass: "twitter",
     },
-  },
-  vimeo: {
-    dnt: true,
-    embedClass: "",
   },
   soundcloud: {
     options: {
@@ -24,11 +30,6 @@ module.exports = {
       small: true,
       color: "#ff00ff",
       sharing: false,
-    },
-  },
-  youtube: {
-    options: {
-      lite: true,
     },
   },
   twitch: {
