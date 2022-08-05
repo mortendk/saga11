@@ -11,6 +11,10 @@ module.exports = {
       embedClass: "twitter",
     },
   },
+  vimeo: {
+    dnt: true,
+    embedClass: "",
+  },
   soundcloud: {
     options: {
       show_user: false,
