@@ -130,7 +130,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  // Transform
+  // Transforms
   // Minify
   if (env.mode == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));

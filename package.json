@@ -10,7 +10,8 @@
     "tw:build": "npx tailwindcss -c src/__tailwind/_tailwind.config.js -i src/__tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug ",
-    "cleanup": "rm -rf _site"
+    "cleanup": "rm -rf _site",
+    "webhint": "npx hint ./_site/index.html"
   },
   "keywords": [],
   "author": "",
