@@ -52,7 +52,8 @@ https://www.instagram.com/p/CgmXB8tlmHC/
 
 soundclude
 
-https://soundcloud.com/danheim_music/asgard-sampler-tagelharpa-string-test?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing
+https://soundcloud.com/danheim_music
+m_campaign=social_sharing
 
 ## Markup
 
@@ -106,7 +107,5 @@ code stuff
 ```
 
 ## Image test
-
-![Hackerman](/images/hacker.gif "Gif of Hackerman")
 
 more data below

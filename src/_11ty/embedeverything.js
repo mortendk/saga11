@@ -2,7 +2,7 @@ const env = require("../data/env");
 
 module.exports = {
   add: ["soundcloud"],
-  use: ["twitter", "youtube", "vimeo", "spotify", "twitch"],
+  use: ["youtube", "twitter"],
   twitter: {
     options: {
       cacheText: true,
