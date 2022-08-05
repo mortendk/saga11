@@ -8,8 +8,6 @@ module.exports = {
       cacheText: true,
       embedClass: "twitter",
       doNotTrack: true,
-      conversation: none,
-      theme: dark,
     },
   },
   soundcloud: {
