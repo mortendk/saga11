@@ -10,3 +10,4 @@ node_modules/
 # saga build
 src/assets/css/style.css
 src/assets/css/style.min.css
+hint-report/

@@ -17,7 +17,6 @@
     @apply block
     w-full
     rounded-sm
-    border-red-200
     border-gray-300
     shadow-sm
     required:mt-1

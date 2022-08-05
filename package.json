@@ -6,10 +6,12 @@
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
-    "tw:watch": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.css --watch",
-    "tw:build": "npx tailwindcss -i src/tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
+    "tw:watch": "npx tailwindcss -c src/__tailwind/_tailwind.config.js -i src/__tailwind/tailwind.css -o src/assets/css/style.css --watch",
+    "tw:build": "npx tailwindcss -c src/__tailwind/_tailwind.config.js -i src/__tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
-    "build": "npm run tw:build && npm run debug "
+    "build": "npm run tw:build && npm run debug ",
+    "cleanup": "rm -rf _site",
+    "webhint": "npx hint ./_site/index.html"
   },
   "keywords": [],
   "author": "",
