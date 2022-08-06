@@ -3,8 +3,8 @@ const fs = require("fs");
 const EleventyFetch = require("@11ty/eleventy-fetch");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
 const embeds = require("eleventy-plugin-embed-everything");
+const Webmentions = require("eleventy-plugin-webmentions");
 
 const Image = require("@11ty/eleventy-img");
 const env = require("./src/data/env.js");
@@ -122,6 +122,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(embeds, require("./src/_11ty/embedeverything.js"));
+
+  eleventyConfig.addPlugin(Webmentions, {
+    domain: env.url,
+    token: env.webmentiontoken,
+  });
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", image);

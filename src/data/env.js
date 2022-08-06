@@ -6,4 +6,5 @@ module.exports = {
   root: process.env.ELEVENTY_ROOT,
   source: process.env.ELEVENTY_SOURCE,
   serverless: process.env.ELEVENTY_SERVERLESS || "nope",
+  webmentiontoken: process.env.WEBMENTION_TOKEN,
 };

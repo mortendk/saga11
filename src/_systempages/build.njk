@@ -1,0 +1,36 @@
+---
+permalink: build/
+layout: base.njk
+saga-template-name: buildinfo
+eleventyExcludeFromCollections: true
+---
+<article class="pagewidth">
+
+<pre>
+title: {{ site.title }}
+url: {{ env.url }}
+Gen: {{ eleventy.generator }}
+saga11: {{saga11.version }}
+Build: {{ page.date | formatDate("cccc d. MMMM yyyy HH:mm") }}
+</pre>
+
+
+
+{# Get the webmentions for the current page #}
+{%- set currentPostMentions = webmentions | webmentionsForPage -%}
+
+{{ currentPostMentions | log }}
+{{ postMentionCount | log }}
+
+{# Get the webmentions for a specific page #}
+{%- set postMentions = webmentions | webmentionsForPage(post.url) -%}
+
+{# Get the webmention count for the current page #}
+{%- set currentPostMentionCount = webmentions | webmentionCountForPage -%}
+
+{# Get the webmention count for a page #}
+{%- set postMentionCount = webmentions | webmentionCountForPage(post.url) -%}
+
+
+
+</article>
