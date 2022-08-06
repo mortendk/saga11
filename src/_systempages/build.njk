@@ -7,14 +7,12 @@ eleventyExcludeFromCollections: true
 <article class="pagewidth">
 
 <pre>
-title: {{ site.title }}
-url: {{ env.url }}
-Gen: {{ eleventy.generator }}
-saga11: {{saga11.version }}
-Build: {{ page.date | formatDate("cccc d. MMMM yyyy HH:mm") }}
+  title: {{ site.title }}
+  url: {{ env.url }}
+  Gen: {{ eleventy.generator }}
+  saga11: {{saga11.version }}
+  Build: {{ page.date | formatDate("cccc d. MMMM yyyy HH:mm") }}
 </pre>
-
-
 
 
 </article>
