@@ -19,8 +19,8 @@ Build: {{ page.date | formatDate("cccc d. MMMM yyyy HH:mm") }}
 {# Get the webmentions for the current page #}
 {%- set currentPostMentions = webmentions | webmentionsForPage -%}
 
-{{ currentPostMentions | log }}
-{{ postMentionCount | log }}
+{{ currentPostMentions  }}
+{{ postMentionCount }}
 
 {# Get the webmentions for a specific page #}
 {%- set postMentions = webmentions | webmentionsForPage(post.url) -%}
