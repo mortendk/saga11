@@ -133,6 +133,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
+  eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
   // return EleventyFetch(url, {
   //   duration: "1d", // save for 1 day
   //   type: "json", // we’ll parse JSON for you

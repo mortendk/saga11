@@ -9,15 +9,28 @@ Base post template - white is different from the pages
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
 
+
+
+
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
-    <div class="bg-red-400">
+    <div class="bg-red-100">
+      <h2>Events</h2>
+      {{ date_start | formatDate("cccc d MMMM") }}
+      {{ date_end | formatDate("cccc d MMMM") }}
+      <hr>
+      {{ date_start | formatDate("HH-mm") }}
+      {{ date_end | formatDate("HH-mm") }}
+
+      {# {% if date_start %}
+        {% datediff date_start, date_end %} Hours
+      {% endif %} #}
 
 
     {# Date from to same time + all day   #}
     {% if date_allday and (date_start  | formatDate("cccc d MMMM")  == date_end  | formatDate("cccc d MMMM") ) %}
-      ONE DAY ! <br>
+       ! <br>
       {{ date_start | formatDate("cccc d MMMM") }}
     {# Date all day  #}
     {% elseif date_allday %}
@@ -28,8 +41,9 @@ Base post template - white is different from the pages
     {% endif %}
 
     <br>
-
-    <a href="{% calendar google, date_start, date_end, date_allday, title, teaser, location %}" target="_blank">Google</a>
+    Add to calendar:
+    <a href="{% calendar google, date_start, date_end, date_allday, title, teaser, location %}" target="_blank" class="inline-block p-2 bg-red-300">Google</a>
+    <a href="{% calendar ics, date_start, date_end, date_allday, title, teaser, location %}" target="_blank" class="inline-block p-2 bg-red-300">ics</a>
 
 
     </div>

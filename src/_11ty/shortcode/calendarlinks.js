@@ -2,7 +2,7 @@ const { google, outlook, office365, yahoo, ics } = require("calendar-link");
 
 module.exports = function (
   linktype = "google",
-  date,
+  date_start,
   date_end,
   allday = false,
   title,
@@ -11,7 +11,7 @@ module.exports = function (
   const event = {
     title: title,
     description: description,
-    start: date,
+    start: date_start,
     end: date_end,
     allDay: allday,
     url: "https://sage11.dev/foobar",
