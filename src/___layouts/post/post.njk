@@ -11,6 +11,28 @@ Base post template - white is different from the pages
 
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
+
+    <div class="bg-red-400">
+
+
+    {# Date from to same time + all day   #}
+    {% if date_allday and (date_start  | formatDate("cccc d MMMM")  == date_end  | formatDate("cccc d MMMM") ) %}
+      ONE DAY ! <br>
+      {{ date_start | formatDate("cccc d MMMM") }}
+    {# Date all day  #}
+    {% elseif date_allday %}
+      {{ date_start | formatDate("cccc d MMMM") }} - {{ date_end | formatDate("cccc d MMMM") }} {{ date_start | formatDate("yyyy") }}
+    {% else %}
+
+      {{ date_start | formatDate("d MMMM yyyy HH:mm") }} - {{ date_end | formatDate("d MMMM yyyy HH:mm") }}
+    {% endif %}
+
+    <br>
+
+    <a href="{% calendar google, date_start, date_end, date_allday, title, teaser, location %}" target="_blank">Google</a>
+
+
+    </div>
     {# main content #}
     <h1 class="text-5xl">{{ title }}</h1>
 

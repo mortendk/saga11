@@ -1,18 +1,20 @@
 ---
 title: Space ship movie
 url: Space ship movie
-image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
 alt: Viking ship
 teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing
 gallery: []
 tags:
   - odin
+date_start: 2022-08-12 20:00
+date_end: 2022-08-12 23:00
+date_allday: false
+date: 2022-08-09 19:31:03
 layout: post/post.njk
-date: 2022-07-12 15:49:23
+duration: left
 eleventyExcludeFromCollections: false
 ---
-
 Space ship people get up from sleeping coffin and have eat.
 Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 

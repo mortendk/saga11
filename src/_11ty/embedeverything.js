@@ -1,7 +1,7 @@
 const env = require("../data/env");
 
 module.exports = {
-  use: ["youtube", "vimeo", "twitter"],
+  use: ["vimeo", "twitter"],
   youtube: {
     options: {
       lite: true,

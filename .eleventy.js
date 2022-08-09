@@ -1,13 +1,12 @@
 const path = require("path");
 const fs = require("fs");
+const env = require("./src/data/env.js");
 const EleventyFetch = require("@11ty/eleventy-fetch");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
 const embeds = require("eleventy-plugin-embed-everything");
-
 const Image = require("@11ty/eleventy-img");
-const env = require("./src/data/env.js");
+
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
@@ -133,6 +132,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
+  eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
   // return EleventyFetch(url, {
   //   duration: "1d", // save for 1 day
   //   type: "json", // we’ll parse JSON for you

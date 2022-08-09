@@ -92,7 +92,7 @@ collections:
           required: false,
           hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
         }
-      - { label: "alt", name: "alt", widget: "string", required: false }
+      - { label: "Image alt", name: "alt", widget: "string", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown", required: false }
 
@@ -128,6 +128,41 @@ collections:
         required: false
         multiple: true
 
+    # Calendar
+      - label: "Calendar start"
+        name: "date_start"
+        default: ""
+        widget: "datetime"
+        date_format: "DD/MM/YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm"
+        picker_utc: false
+
+      - label: "Calendar end"
+        name: "date_end"
+        default: ""
+        widget: "datetime"
+        date_format: "DD/MM/YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm"
+        picker_utc: false
+
+      - label: "Calendar All Day"
+        name: "date_allday"
+        widget: "boolean"
+        default: false
+        required: false
+
+      # Date
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: true
+
+
       # Layout selector
       - name: "layout"
         label: "Layout Selector"
@@ -139,15 +174,6 @@ collections:
           ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
         default: "post/post.njk"
         required: true
-
-      # Date
-      - label: "Date published"
-        name: "date"
-        widget: "datetime"
-        date_format: "DD.MM.YYYY"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: false
 
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
