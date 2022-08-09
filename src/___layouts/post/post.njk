@@ -10,37 +10,40 @@ Base post template - white is different from the pages
 
 
 
-
-
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
     <div class="bg-red-100">
-      <h2>Events</h2>
-      {{ date_start | formatDate("cccc d MMMM") }}
-      {{ date_end | formatDate("cccc d MMMM") }}
-      <hr>
-      {{ date_start | formatDate("HH-mm") }}
-      {{ date_end | formatDate("HH-mm") }}
 
       {# {% if date_start %}
         {% datediff date_start, date_end %} Hours
       {% endif %} #}
 
+{{ date_start | formatDate("DDD") }}
 
-    {# Date from to same time + all day   #}
-    {% if date_allday and (date_start  | formatDate("cccc d MMMM")  == date_end  | formatDate("cccc d MMMM") ) %}
-       ! <br>
-      {{ date_start | formatDate("cccc d MMMM") }}
-    {# Date all day  #}
-    {% elseif date_allday %}
-      {{ date_start | formatDate("cccc d MMMM") }} - {{ date_end | formatDate("cccc d MMMM") }} {{ date_start | formatDate("yyyy") }}
+<br><br><br>
+
+
+    {% if (date_allday == true) and (date_start  | formatDate("ccc d MMMM")  == date_end  | formatDate("ccc d MMMM") ) %}
+      {# Day is the same + all day   #}
+      <div class="text-3xl">{{ date_start | formatDate("ccc d MMMM") }}</div>
+      <div class="text-xl">All Day</div>
+
+    {% elseif (date_start  | formatDate("ccc d MMMM")  == date_end  | formatDate("ccc d MMMM") ) %}
+      {# Day is the same #}
+      <div class="text-3xl">{{ date_start | formatDate("ccc d MMMM") }}</div>
+      <div class="text-xl">{{ date_start | formatDate("HH:mm") }} - {{ date_end | formatDate("HH:mm") }}</div>
+
+    {% elseif (date_start  | formatDate("yyyy")  == date_end  | formatDate("yyyy") ) %}
+      {# Day is the year #}
+      <div class="text-3xl">
+        {{ date_start | formatDate("d MMMM HH:mm (ccc)") }} - {{ date_end | formatDate("ccc d MMMM HH:mm (ccc) ") }}  {{ date_start  | formatDate("yy") }}
+      </div>
     {% else %}
-
-      {{ date_start | formatDate("d MMMM yyyy HH:mm") }} - {{ date_end | formatDate("d MMMM yyyy HH:mm") }}
+      <div class="text-3xl">{{ date_start | formatDate("ccc d MMMM yy HH:mm") }} - {{ date_end | formatDate("ccc d MMMM HH:mm") }}</div>
     {% endif %}
 
-    <br>
+
     Add to calendar:
     <a href="{% calendar google, date_start, date_end, date_allday, title, teaser, location %}" target="_blank" class="inline-block p-2 bg-red-300">Google</a>
     <a href="{% calendar ics, date_start, date_end, date_allday, title, teaser, location %}" target="_blank" class="inline-block p-2 bg-red-300">ics</a>
@@ -62,7 +65,7 @@ Base post template - white is different from the pages
 
     {% if date %}
       <time>
-      {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+      {{ date | formatDate("ccc d. MMMM yyyy HH:mm", "DK") }}
       </time>
     {% endif %}
   </footer>

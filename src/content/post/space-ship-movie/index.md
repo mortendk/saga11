@@ -7,12 +7,11 @@ teaser: Space ship people get up from sleeping coffin and have eat. Computer
 gallery: []
 tags:
   - odin
-date_start: 2022-08-12 20:00
-date_end: 2022-08-12 23:00
+date_start: 2022-08-09 19:30
+date_end: 2022-08-10 21:30
 date_allday: false
 date: 2022-08-09 19:31:03
 layout: post/post.njk
-duration: left
 eleventyExcludeFromCollections: false
 ---
 
