@@ -6,7 +6,8 @@
  * @param {String} locale - locale
  * @returns {String} formatted date
  */
-// https://github.com/moment/luxon/blob/master/docs/formatting.md
+// https://github.com/moment/luxon/blob/master/docs/formatting.md#table-of-tokens
+// languages https://www.w3schools.com/jsref/jsref_tolocalestring.asp
 //  {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
 const { DateTime } = require("luxon");
 

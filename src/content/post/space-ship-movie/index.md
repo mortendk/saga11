@@ -1,15 +1,18 @@
 ---
 title: Space ship movie
 url: Space ship movie
-image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
+image: /images/mortendk_space_ship_movie_poster_52190f31-a366-4d04-a96f-cd36a8a00db0.png
 alt: Viking ship
 teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing
 gallery: []
 tags:
   - odin
+date_start: 2022-08-09 19:30
+date_end: 2022-08-10 21:30
+date_allday: false
+date: 2022-08-09 19:31:03
 layout: post/post.njk
-date: 2022-07-12 15:49:23
 eleventyExcludeFromCollections: false
 ---
 
@@ -93,4 +96,4 @@ code stuff
 
 ## Image test
 
-more data below
+more data below12313

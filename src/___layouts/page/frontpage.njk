@@ -8,12 +8,15 @@ Template for the frontpage
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-  {% image image, [400,800, 1200],"(min-width: 1200px) 50vw, 100vw",['webp'],alt,"shadow","eager" %}
+  {% image image, [400,800, 1600],"(min-width: 1600px) 50vw, 100vw",['webp'],alt,"shadow","eager" %}
 
-<h1 class="font-ostrichsans text-8xl">{{ title }}</h1>
+<article>
+  <h1 class="font-ostrichsans text-4xl">{{ title }}</h1>
 
-<div class="my-4">
-  {{ content | safe}}
-</div>
+  <div class="my-4">
+    {{ content | safe}}
+  </div>
+
+</article>
 
 {% include "collection.njk" %}

@@ -1,5 +1,5 @@
 ---
-layout: page/page.njk
+layout: default.njk
 saga-template-name: Contact page
 ---
 {# PAGE TEMPLATE CONTACT
@@ -8,8 +8,13 @@ Uses the page templates include the contactform
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/contact.njk  -->{%- endif -%}
 
+
 <div class="wysiwyg">
   {{ content | safe}}
 </div>
 
 {% include "contactform.njk" %}
+
+{# todo: link to maps #}
+
+{{ site.adress }} {{ site.zip}}
