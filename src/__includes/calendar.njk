@@ -1,10 +1,7 @@
 <div class="bg-red-100">
 
-  {# {% if date_start %}
-    {% datediff date_start, date_end %} Hours
-  {% endif %} #}
 
-  {{ date_start | formatDate("DDD") }}
+{{ date_start | formatDate("DDD") }}
 
 
 {% if (date_allday == true) and (date_start  | formatDate("ccc d MMMM")  == date_end  | formatDate("ccc d MMMM") ) %}

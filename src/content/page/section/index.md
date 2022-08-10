@@ -1,6 +1,6 @@
 ---
-title: Collection of tags
-url: "collection of tags "
+title: Section
+url: section
 image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
 alt: Viking ship
 teaser: The collection of the tag called collection ...
@@ -9,7 +9,7 @@ tags:
   - frontpage
 collection: collection
 layout: page/page.njk
-menulabel: Collection
+menulabel: section
 eleventyExcludeFromCollections: false
 ---
-This page uses another template than the frontpage 
+By using the collection - we tage a tag and make a list of all the content that is tagged that way

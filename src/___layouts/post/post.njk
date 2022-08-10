@@ -4,19 +4,18 @@ saga-template-name: Post Default
 ---
 {# POST
 ------------------------------------------------
-Base post template - white is different from the pages
+post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
-{% include "calendar.njk" %}
-
 <article class="flex flex-col md:flex-row ">
+
   <div class="md:w-2/3 ">
 
-    {# main content #}
     <h1 class="text-5xl">{{ title }}</h1>
 
     <footer class="mb-4">
+
     {%- for tag in tags | filterTagList -%}
       {# grap the markdown files and loop through them #}
       {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
@@ -26,40 +25,38 @@ Base post template - white is different from the pages
       {% if not loop.last %} | {% endif %}
     {% endfor %}
 
-    {% if date %}
-      <time>
-      {{ date | formatDate("ccc d. MMMM yyyy HH:mm", "DK") }}
-      </time>
-    {% endif %}
+    <time>{{ date | formatDate("DDD  T", "DK") }}</time>
+
   </footer>
 
-    {# image #}
-    {% if image %}
-      {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],alt,'','eager' %}
-    {% endif %}
+  {# image #}
+  {% if image %}
+    {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],alt,'','eager' %}
+  {% endif %}
 
+  {# calendar #}
+  {% if date_start %}
+    {% include "calendar.njk" %}
+  {% endif %}
 
-    <p class="text-xl my-4">
-      {{ teaser | safe }}
-    </p>
+  <div class="wysiwyg">
+    {{ content | safe }}
+  </div>
 
-    <div class="wysiwyg">
-      {{ content | safe }}
-    </div>
+  {# image gallery #}
+  {% include "gallery.njk" %}
 
-    {% include "gallery.njk" %}
-
-    {% include "nav/post-pre-next.njk" %}
+  {# Pre next nav #}
+  {% include "nav/post-pre-next.njk" %}
 
   </div>
+  {# sidebar #}
   <div class="md:w-1/3 md:ml-4">
-
+    {# list of post #}
     {% include "nav/posts.njk" %}
 
-    <h2 class="mt-4">Tag cloud</h2>
-
+    {# List of tags #}
     {% include "nav/tags.njk" %}
   </div>
+
 </article>
-
-
