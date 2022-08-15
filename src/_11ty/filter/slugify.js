@@ -4,8 +4,8 @@
  * @param {String} str - string
  * @returns {String} formatted string
  *
- * https://github.com/moment/luxon/blob/master/docs/formatting.md
- * {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+ *  {{ title | slugify }}
+ *
  */
 
 const slugify = require("slugify");

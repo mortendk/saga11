@@ -5,9 +5,13 @@ image: /images/mortendk_space_ship_movie_poster_52190f31-a366-4d04-a96f-cd36a8a0
 alt: Viking ship
 teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing
-gallery: []
+gallery:
+  - image:
+      image: /images/mortendk_space_ship_movie_poster_52190f31-a366-4d04-a96f-cd36a8a00db0.png
+  - image:
+      image: /images/cristina-glebova-gko-x1mhar4-unsplash.jpg
 tags:
-  - odin
+  - event
 date_start: 2022-08-09 19:30
 date_end: 2022-08-10 21:30
 date_allday: false

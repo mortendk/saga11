@@ -1,12 +1,13 @@
 ---
-title: Blogpost
-url: post
+title: Blog
+url: blog
 image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
 alt: Mountains
-teaser: Newest post template
+teaser: Post from the blog
 tags:
   - menu
-layout: page/page-posts.njk
+  - frontpage
+layout: page/all-posts.njk
 menulabel: Blog
 eleventyExcludeFromCollections: false
 ---

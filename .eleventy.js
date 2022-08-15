@@ -129,95 +129,30 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
 
-  // PassThrough folders
+  // Filters
+  eleventyConfig.addFilter("formatDate", require("./src/_11ty/filter/formatDate.js"));
+  eleventyConfig.addFilter("markdown", require("./src/_11ty/filter/markdown.js"));
+  eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
+  eleventyConfig.addFilter("sortByOrder", require("./src/_11ty/filter/sortByOrder.js"));
+  eleventyConfig.addFilter("sortByTitle", require("./src/_11ty/filter/sortByTitle.js"));
+  eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
+  eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
+
+  // COLLECTIONS
+  eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
+  eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
+  eleventyConfig.addCollection("tags", require("./src/_11ty/collection/tags"));
+
+  // PassThrough
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  // return EleventyFetch(url, {
-  //   duration: "1d", // save for 1 day
-  //   type: "json", // we’ll parse JSON for you
-  // });
-
-  // Transforms
+  // Transform
   // Minify
   if (env.mode == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }
-
-  // -----------------------------------------------------------------
-  // FILTERS
-  // -----------------------------------------------------------------
-
-  // {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  //  https://github.com/moment/luxon/blob/master/docs/formatting.md
-  eleventyConfig.addFilter("formatDate", require("./src/_11ty/filter/formatDate.js"));
-
-  // markdwon {{ item.foo | markdown | safe }}
-  eleventyConfig.addFilter("markdown", require("./src/_11ty/filter/markdown.js"));
-
-  // Slugify - cleanup the path {{ title | slugify }}
-  eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
-
-  // Get the data from another markdown file
-  // {% for item in collections.all |  getpage("/tags/" + tag + "/" ) %}
-  // Credits https://github.com/11ty/eleventy/discussions/1848
-  // Note: the url is define in the tag/.json
-  eleventyConfig.addFilter("getPage", (arr, url) => {
-    return arr.filter((item) => item.url == url);
-  });
-
-  // Sort: order
-  // {% for item in collections.FOO | sortByOrder %}
-  eleventyConfig.addFilter("sortByOrder", (arr) => {
-    arr.sort((a, b) => (a.data.order > b.data.order ? 1 : -1));
-    return arr;
-  });
-
-  // Sort: title
-  // {% for item in collections.FOO | sortByTitle %}
-  eleventyConfig.addFilter("sortByTitle", (arr) => {
-    arr.sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
-    return arr;
-  });
-
-  // -----------------------------------------------------------------
-  // COLLECTIONS
-  // https://www.11ty.dev/docs/collections/
-  // -----------------------------------------------------------------
-  // {% for item in collections.COLLECTION %}
-
-  // Creates custom collection "post"
-  eleventyConfig.addCollection("allPosts", function (collection) {
-    return collection.getFilteredByGlob("./src/content/post/**/*.md");
-  });
-
-  // Creates custom collection "page"
-  eleventyConfig.addCollection("allPages", function (collection) {
-    return collection.getFilteredByGlob("./src/content/page/**/*.md");
-  });
-
-  // TAGS
-  // Grapped from https://github.com/11ty/eleventy-base-blog
-  function filterTagList(tags) {
-    // Filtes that are used by the system that we dont want in our collections
-    return (tags || []).filter(
-      (tag) => ["navigation", "menu", "relation", "frontpage"].indexOf(tag) === -1
-    );
-  }
-
-  eleventyConfig.addFilter("filterTagList", filterTagList);
-
-  // Create an array of all tags
-  eleventyConfig.addCollection("tagList", function (collection) {
-    let tagSet = new Set();
-    collection.getAll().forEach((item) => {
-      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
-    });
-
-    return filterTagList([...tagSet]);
-  });
 
   // Browser config - set 404 page
   eleventyConfig.setBrowserSyncConfig({

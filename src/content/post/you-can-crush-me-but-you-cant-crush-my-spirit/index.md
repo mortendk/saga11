@@ -7,9 +7,16 @@ teaser: Tell her you just want to talk. It has nothing to do with mating. Do a
   flip! I decline the title of Iron Cook and accept the lesser title of Zinc
   Saucier, which I just made up. Uhh… also, comes with double prize money.
 tags:
-  - collection
-layout: post/post.njk
+  - bar
+  - foo
+  - event
+  - frontpage
+  - menu
+  - super-duper-tag
+date_start: ""
+date_end: ""
 date: 2022-07-10 20:07:20
+layout: post/post.njk
 order: ""
 eleventyExcludeFromCollections: false
 ---

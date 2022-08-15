@@ -1,6 +1,6 @@
 ---
 title: Image galllery
-url: section/gallery
+url: gallery
 image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
 alt: Woman in front of fire
 teaser: "This is an example of an image gallery and with all other things in it "

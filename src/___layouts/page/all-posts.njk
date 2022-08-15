@@ -9,9 +9,11 @@ An example for a landing page for all the posts
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/posts.njk  -->{%- endif -%}
 
 <h1 class="text-5xl">{{ title }} </h1>
+
+{% include "nav/tags.njk" %}
+
 <section class="grid md:grid-cols-3 gap-4">
 
-{# Take the newest post and use that template  #}
 {% for item in collections.allPosts  %}
 
   <article class="p-2 shadow border m-1">
@@ -27,17 +29,15 @@ An example for a landing page for all the posts
       <div class="font-lg">
         {{item.data.title}}
       </div>
+
     </a>
 
     <p class="mt-2">{{ item.data.teaser }}</p>
+    <div>
+    <time>{{ item.data.date | formatDate("DDD  T", "DK") }}</time>
+    </div>
   </article>
 
 {% endfor %}
-
-
-
-
-
-
 
 </section>

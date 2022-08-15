@@ -1,5 +1,5 @@
 ---
-permalink: /_admin/config.yml
+permalink: /admin/config.yml
 eleventyExcludeFromCollections: true
 ---
 # Setup
@@ -94,7 +94,21 @@ collections:
         }
       - { label: "Image alt", name: "alt", widget: "string", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
 
       # Gallery
       - label: "Image Gallery"
@@ -229,7 +243,22 @@ collections:
         }
       - { label: "alt", name: "alt", widget: "string", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
 
       # Gallery
       - label: "Images"
