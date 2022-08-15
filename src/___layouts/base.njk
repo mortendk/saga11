@@ -20,8 +20,8 @@
     {% endif -%}
 
     {%- if env.mode == 'prod' %}
-      {# <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet"> #}
-      {% include "src/assets/css/style.min.css" %}
+      <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
+      {# {% include "src/assets/css/style.min.css" %} #}
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
       <style>
