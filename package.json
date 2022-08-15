@@ -13,8 +13,8 @@
     "cleanup": "rm -rf _site",
     "webhint": "npx hint ./_site/index.html",
     "pwa:icon": "npx pwa-asset-generator src/pwa-in/icon.svg src/assets/icon/pwa-out --icon-only --favicon --padding '0'",
-    "pwa:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/  --path-override '/assets/splash_screens/' -i src/assets/splash_screens/index.html src/pwa-out --splash-only ",
-    "pwa:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ --path-override '/assets/splash_screens/' -i src/assets/splash_screens/index.html src/pwa-out --splash-only --dark-mode"
+    "pwa:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/ src/assets/splash_screens --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only ",
+    "pwa:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/assets/splash_screens  --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only --dark-mode"
   },
   "keywords": [],
   "author": "",
