@@ -12,7 +12,7 @@
     "build": "npm run tw:build && npm run debug ",
     "cleanup": "rm -rf _site",
     "webhint": "npx hint ./_site/index.html",
-    "pwa:icon": "npx pwa-asset-generator src/pwa-in/icon.svg src/assets/icon/pwa-out --icon-only --favicon --padding '0'",
+    "pwa:icon": "npx pwa-asset-generator src/assets/icon/maskable-icon.png src/assets/pwa-icons --icon-only --favicon -p '0' -o false -m src/assets/pwa-icons/manifest.webmanifest",
     "pwa:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/ src/assets/splash_screens --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only ",
     "pwa:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/assets/splash_screens  --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only --dark-mode"
   },
