@@ -11,7 +11,10 @@
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug ",
     "cleanup": "rm -rf _site",
-    "webhint": "npx hint ./_site/index.html"
+    "webhint": "npx hint ./_site/index.html",
+    "pwa:icon": "npx pwa-asset-generator src/pwa-in/icon.svg src/assets/icon/pwa-out --icon-only --favicon --padding '0'",
+    "pwa:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/  --path-override '/assets/splash_screens/' -i src/assets/splash_screens/index.html src/pwa-out --splash-only ",
+    "pwa:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ --path-override '/assets/splash_screens/' -i src/assets/splash_screens/index.html src/pwa-out --splash-only --dark-mode"
   },
   "keywords": [],
   "author": "",
@@ -35,6 +38,7 @@
     "dotenv": "^16.0.1",
     "dotenv-cli": "^6.0.0",
     "html-minifier": "^4.0.0",
-    "netlify-plugin-cache": "^1.0.3"
+    "netlify-plugin-cache": "^1.0.3",
+    "pwa-asset-generator": "^6.1.1"
   }
 }

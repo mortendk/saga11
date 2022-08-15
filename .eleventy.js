@@ -141,16 +141,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
   eleventyConfig.addCollection("tags", require("./src/_11ty/collection/tags"));
 
-  // PassThrough
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/service-workers.js");
-
   // Transform
   // Minify
   if (env.mode == "prod") {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }
+
+    // PassThrough
+    eleventyConfig.addPassthroughCopy("src/assets");
+    eleventyConfig.addPassthroughCopy("src/images");
+    eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // Browser config - set 404 page
   eleventyConfig.setBrowserSyncConfig({
