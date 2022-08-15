@@ -15,17 +15,10 @@
     {%- include "head/splashscreens.njk" -%}
 
     {%- if env.mode == 'prod' %}
-      {# This is for pure test atm #}
-      <script defer data-domain="saga11.dev" src="https://plausible.io/js/plausible.js"></script>
-    {% endif -%}
-
-    {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
-      <style>
-
-      </style>
+      <style></style>
     {% endif -%}
     {% if page.url == "/" %}
       <title>
