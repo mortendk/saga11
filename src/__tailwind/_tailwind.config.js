@@ -14,8 +14,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      serif: ["goudybookletter"],
-      sans: ["junction"],
+      sans: ["barlow"],
     },
     extend: {
       colors: {
