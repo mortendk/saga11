@@ -34,7 +34,6 @@
     "cross-var": "^1.1.0",
     "dotenv": "^16.0.1",
     "dotenv-cli": "^6.0.0",
-    "eleventy-plugin-embed-everything": "^1.14.1",
     "html-minifier": "^4.0.0",
     "netlify-plugin-cache": "^1.0.3"
   }
