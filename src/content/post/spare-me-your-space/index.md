@@ -8,12 +8,13 @@ teaser: And remember, don't do anything that affects anything, unless it turns
   All I want is to be a monkey of moderate intelligence who wears a suit… that's
   why I'm transferring to business school!
 tags:
-  - collection
+  - foo
 layout: post/post.njk
 date: 2022-07-15 19:52:11
 order: 1
 eleventyExcludeFromCollections: false
 ---
+
 # Spare me your space age technobabble, Attila the Hun!
 
 And remember, don't do anything that affects anything, unless it turns out you were supposed to, in which case, for the love of God, don't not do it! All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school!

@@ -1,3 +1,4 @@
+// markdwon {{ item.foo | markdown | safe }}
 const markdownIt = require("markdown-it")({
   html: true,
   breaks: true,

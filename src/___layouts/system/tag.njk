@@ -4,13 +4,18 @@ saga-template-name: Tag
 ---
 {# Tag
 ------------------------------------------------
-the tag page auto generated from srrc/systempages/tag.njk
+the tag page auto generated from src/systempages/tag.njk
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/system/tag.njk  -->{%- endif -%}
 
 {% include "nav/tags.njk" %}
 
 <h1 class="text-5xl">{{ title }}</h1>
+
+  {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
+    <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
+  {% endfor %}
+
 
 <section class="grid grid-cols-3 gap-2">
 

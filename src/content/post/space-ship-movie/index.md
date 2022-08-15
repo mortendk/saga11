@@ -7,7 +7,7 @@ teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing
 gallery: []
 tags:
-  - odin
+  - event
 date_start: 2022-08-09 19:30
 date_end: 2022-08-10 21:30
 date_allday: false

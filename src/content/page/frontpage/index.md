@@ -11,4 +11,3 @@ order: 0
 menulabel: Home
 eleventyExcludeFromCollections: false
 ---
-body text 
