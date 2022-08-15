@@ -6,13 +6,15 @@ module.exports = {
     "src/___layouts/**/*.njk",
     "src/__includes/*.njk",
     "src/__includes/**/*.njk",
+    "src/__includes/**/*.njk",
+    "src/_systempages/*/*.njk",
+    "src/_systempages/**/*.njk",
     "src/assets/js/*.js",
   ],
   darkMode: "class",
   theme: {
     fontFamily: {
-      serif: ["goudybookletter"],
-      sans: ["junction"],
+      sans: ["barlow"],
     },
     extend: {
       colors: {

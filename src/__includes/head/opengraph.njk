@@ -4,8 +4,6 @@ Global header for the site
  #}
 {%- if env.mode != 'prod' %}<!-- __includes/head/opengraph.njk  -->{%- endif  -%}
 
-
-
 {# test if we have a title from the page #}
 {% if title and  page.url != '/' %}
   {% set ogtitle = title %}
@@ -19,7 +17,6 @@ Global header for the site
   {% set ogdescription = site.description %}
   {% set ogurl = env.url %}
 {% endif %}
-
 
 {# Facebook #}
 <meta property="og:site_name" content="{{site.title}}">

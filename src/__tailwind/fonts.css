@@ -3,16 +3,9 @@ the font paths are relative to the css file created with tailwind
 */
 
 @font-face {
-  font-family: "goudybookletter";
+  font-family: "barlow";
   font-display: swap;
-  src: url("/assets/fonts/goudy-bookletter-1911/webfonts/goudy_bookletter_1911-webfont.woff")
-    format("woff");
-}
-
-@font-face {
-  font-family: "junction";
-  font-display: swap;
-  src: url("/assets/fonts/junction/webfonts/junction-regular.woff") format("woff");
+  src: url("/assets/fonts/barlow/Barlow-Regular.woff2") format("woff");
 }
 
 /* in tailwind.config.js
