@@ -10,7 +10,7 @@ const Image = require("@11ty/eleventy-img");
 // Shortcuts
 // -----------------------------------------------------------------
 // TODO: the image shortcut is cumbersome but "works(tm)" aka need some <3
-// {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy" %}
+// {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy/eager" %}
 // {% image item.data.image, [100],"",['webp'] %}
 async function image(
   img,
@@ -147,10 +147,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("htmlmin", require("./src/_11ty/minify.js"));
   }
 
-    // PassThrough
-    eleventyConfig.addPassthroughCopy("src/assets");
-    eleventyConfig.addPassthroughCopy("src/images");
-    eleventyConfig.addPassthroughCopy("src/service-workers.js");
+  // PassThrough
+  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // Browser config - set 404 page
   eleventyConfig.setBrowserSyncConfig({

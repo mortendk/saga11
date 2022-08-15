@@ -1,11 +1,13 @@
 {# GALLERY
 ------------------------------------------------
 #}
-{%- if env.mode != 'prod' %}<!-- __includes/gallery.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- __includes/gallery.njk  -->
+{%- endif -%}
 
 {% if gallery != "" %}
 
-<section aria-label="Image gallery"
+  <section aria-label="Image gallery"
   class="mb-4"
   x-data="{isSliderOpen: false}"
   :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-white/90 X' : 'w-full relative'"
@@ -14,83 +16,88 @@
   x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
 >
 
-{# pre next #}
-  <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
+    {# pre next #}
+    <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
           tabindex="0"
           type="button" aria-label="Previous"
           class="bg-black text-white rounded-full w-10 h-10 absolute top-1/2 left-2 z-10 -translate-y-1/2">
-    {% include "svg/left.njk" %}
-  </button>
+      {% include "svg/left.njk" %}
+    </button>
 
-  <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
+    <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
           tabindex="0"
           type="button" aria-label="Previous"
           class="bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
-    {% include "svg/right.njk" %}
-  </button>
+      {% include "svg/right.njk" %}
+    </button>
 
-  {# item links #}
-  <nav aria-label="gallery navigation"
+    {# item links #}
+    <nav aria-label="gallery navigation"
       class="flex flex-row my-4 space-x-4 max-w-md mx-auto z-10 absolute bottom-10 left-1/2 transform -translate-x-1/2 ">
-    {% for item in gallery %}
-      <button
+      {% for item in gallery %}
+        <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
         class="bg-black/40 text-white rounded-full w-5 h-5 text-sm"
         type="button"
       >
-        {{ loop.index }}
-      </button>
-    {% endfor %}
-  </nav>
+          {{ loop.index }}
+        </button>
+      {% endfor %}
+    </nav>
 
-  {# open/close toggler  #}
-  <button type="button" aria-label="open close image"
+    {# open/close toggler  #}
+    <button type="button" aria-label="open close image"
           class="w-6 h-6 text-white z-10 absolute right-0"
           @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
-          <span x-show="isSliderOpen">
-            {% include "svg/close.njk" %}
-          </span>
-          <span x-show="!isSliderOpen">
-            {% include "svg/open.njk" %}
-          </span>
-  </button>
+      <span x-show="isSliderOpen">
+        {% include "svg/close.njk" %}
+      </span>
+      <span x-show="!isSliderOpen">
+        {% include "svg/open.njk" %}
+      </span>
+    </button>
 
-  {# Image wrapper for the gallery #}
-  <div :class="isSliderOpen ? '' : 'scrollbar'"
+    {# Image wrapper for the gallery #}
+    <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
         class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0"
   >
 
-    {# loop through all the images #}
-    {% for item in gallery %}
+      {# loop through all the images #}
+      {% for item in gallery %}
 
-      <div aria-label="image" role="img"
+        <div aria-label="image" role="img"
         x-ref="slideitem{{ loop.index }}"
         class="flex flex-shrink-0 overflow-auto relative md:aspect-video w-full h-full mr-2 snap-center transition"
         :class="isSliderOpen ? 'aspect-video' : 'aspect-square'"
         >
 
-        {% if item.image.image %}
-          {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
-        {% endif %}
+          {% if item.image.image %}
+            {# We will not lazy load the first image  #}
+            {% if loop.index == "1" %}
+              {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
+            {% else %}
+              {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
+            {% endif %}
 
-        {# title and text #}
-        {% if item.image.title or item.image.figcaption %}
-          <div class="hidden absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
-            <div class="text-3xl">{{ item.image.title}}</div>
-            <div class="text-lg">{{ item.image.figcaption}}</div>
-          </div>
-        {% endif %}
+          {% endif %}
 
-      </div>
-    {% endfor %}
-    {# images done  #}
+          {# title and text #}
+          {% if item.image.title or item.image.figcaption %}
+            <div class="hidden absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
+              <div class="text-3xl">{{ item.image.title}}</div>
+              <div class="text-lg">{{ item.image.figcaption}}</div>
+            </div>
+          {% endif %}
 
-  </div>
+        </div>
+      {% endfor %}
+      {# images done  #}
 
+    </div>
 
-  {# gallery navigation #}
-  {# <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+    {# gallery navigation #}
+    {# <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
 
       <button
@@ -107,6 +114,6 @@
     {% endfor %}
   </nav> #}
 
-</section>
+  </section>
 
 {% endif %}
