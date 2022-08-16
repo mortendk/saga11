@@ -2,17 +2,18 @@
 ------------------------------------------------
 Global header for the site
  #}
-{%- if env.mode != 'prod' %}<!-- __includes/header.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- __includes/header.njk  -->
+{%- endif  -%}
 
-{% set menuclasses = "inline-flex items-center hover:bg-teal-50 hover:border-teal-100 border-b-4" %}
-<header class="js-header bg-white shadow fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+<header class="js-header bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-
+    {% set menuclasses = "inline-flex items-center transition hover:bg-white/50 hover:border-white/90 border-b-4" %}
     <a href="/" title="{{site.title}}" class="{{ menuclasses }} mr-4">
       {{ site.title}}
       <h1 class="sr-only">{{site.title}}</h1>
@@ -25,15 +26,15 @@ Global header for the site
         <div class="flex space-x-4">
           {% for item in collections.menu | sortByOrder %}
             {% set menutitle %}
-              {% if item.data.menulabel %}
-                {{ item.data.menulabel }}
-              {% else %}
-                {{ item.data.title }}
-              {% endif %}
+            {% if item.data.menulabel %}
+              {{ item.data.menulabel }}
+            {% else %}
+              {{ item.data.title }}
+            {% endif %}
             {% endset %}
 
             {% if item.url in page.url -%}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-red-400">{{ menutitle }}</a>
+              <a href="{{ item.url }}" class="{{ menuclasses}} border-white/80" aria-current="page">{{ menutitle }}</a>
             {% else %}
               <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{ menutitle }}</a>
             {% endif %}
@@ -66,8 +67,8 @@ Global header for the site
 
   </div>
 
-{# mobile menu  #}
-<nav
+  {# mobile menu  #}
+  <nav
   x-cloak
   x-show="openmenu"
   x-transition:enter="transition ease-out duration-300"
@@ -80,34 +81,34 @@ Global header for the site
   class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white shadow-xl"
   aria-label="Mobile Menu">
 
-  {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
+    {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
 
-  {% for item in collections.menu | sortByOrder %}
-    {# grap the correct title for the page  #}
-    {% set menutitle %}
+    {% for item in collections.menu | sortByOrder %}
+      {# grap the correct title for the page  #}
+      {% set menutitle %}
       {% if item.data.menulabel %}
         {{ item.data.menulabel }}
       {% else %}
         {{ item.data.title }}
       {% endif %}
-    {% endset %}
+      {% endset %}
 
-    {% if item.url in page.url -%}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-red-400">{{ menutitle }}</a>
-    {% else %}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent">{{ menutitle }}</a>
-    {% endif %}
-  {% endfor %}
+      {% if item.url in page.url -%}
+        <a href="{{ item.url }}" class="{{ mobileclasses }} border-red-400">{{ menutitle }}</a>
+      {% else %}
+        <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent">{{ menutitle }}</a>
+      {% endif %}
+    {% endfor %}
 
-  {# Graps the menu from the settings config (set in _data/menu.json) #}
-  {% for item in menu.main %}
-    {% if item.url in page.url -%}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-slate-400" title="{{ item.text}}">{{ item.title }}</a>
-    {% else %}
-      <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent"  title="{{ item.text}}">{{ item.title }}</a>
-    {% endif %}
-  {% endfor %}
+    {# Graps the menu from the settings config (set in _data/menu.json) #}
+    {% for item in menu.main %}
+      {% if item.url in page.url -%}
+        <a href="{{ item.url }}" class="{{ mobileclasses }} border-slate-400" title="{{ item.text}}">{{ item.title }}</a>
+      {% else %}
+        <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent"  title="{{ item.text}}">{{ item.title }}</a>
+      {% endif %}
+    {% endfor %}
 
-</nav>
+  </nav>
 
 </header>

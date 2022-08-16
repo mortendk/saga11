@@ -2,7 +2,9 @@
 ------------------------------------------------
 Global header for the site
  #}
-{%- if env.mode != 'prod' %}<!-- __includes/footer.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- __includes/footer.njk  -->
+{%- endif  -%}
 
 <footer class="flex flex-col justify-center pagewidth">
 
@@ -21,17 +23,4 @@ Global header for the site
     {{ site.footer | markdown | safe }}
   </div>
 
-  {% if env.mode == "dev" %}
-  <pre class="flex justify-center text-sm text-slate-800 my-4">
-    Eleventy: {{ eleventy.version}} |
-    Saga Eleven: {{ saga11version }}
-    mode: {{ env.mode }}
-    url: {{ env.url }}
-    root: {{ env.root }}
-    source: {{ env.source }}
-    serverless: {{env.serverless}}
-  </pre>
-  {% endif %}
-
 </footer>
-
