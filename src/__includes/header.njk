@@ -6,14 +6,14 @@ Global header for the site
   <!-- __includes/header.njk  -->
 {%- endif  -%}
 
-<header class="js-header bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    {% set menuclasses = "inline-flex items-center transition hover:bg-white/50 hover:border-white/90 border-b-4" %}
+    {% set menuclasses = "inline-flex items-center text-xl font-bold text-white ransition hover:bg-white/50 hover:border-white/90 border-b-4" %}
     <a href="/" title="{{site.title}}" class="{{ menuclasses }} mr-4">
       {{ site.title}}
       <h1 class="sr-only">{{site.title}}</h1>

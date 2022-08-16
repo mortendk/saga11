@@ -6,18 +6,25 @@ saga-template-name: Frontpage
 ------------------------------------------------
 Template for the frontpage
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- ___layouts/page/frontpage.njk  -->
+{%- endif -%}
 
-  {% image image, [400,800, 1600],"(min-width: 1600px) 50vw, 100vw",['webp'],alt,"shadow","eager" %}
-
-<article>
-  <h1 class="font-ostrichsans text-4xl">{{ title }}</h1>
-
-  <div class="my-4">
-    {{ content | safe}}
+<section class="relative">
+  <div>
+    {% image image, [400,800, 1600],"(min-width: 1600px) 50vw, 100vw",['webp'],alt,"shadow rounded-lg","eager" %}
   </div>
 
-</article>
+  <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">
 
+    <h1 class="text-7xl font-bold">{{ title }}</h1>
+
+    <div class="my-4 text-xl">
+      {{ teaser | safe}}
+    </div>
+
+  </article>
+
+</section>
 
 {% include "collection.njk" %}

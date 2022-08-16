@@ -10,9 +10,6 @@ tags:
   - bar
   - foo
   - event
-  - frontpage
-  - menu
-  - super-duper-tag
 date_start: ""
 date_end: ""
 date: 2022-07-10 20:07:20

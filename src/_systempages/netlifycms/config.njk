@@ -59,11 +59,14 @@ collections:
     # {{tags}}/{{title}}/index
     slug: "/{{ url }}/index"
     #preview_path must match the settings from post.json permalink
-    preview_path: post/{{ slug }}
+    preview_path: /{{ url }}/index
     create: true
     delete: true
     editor:
       preview: false
+
+    # media_folder: ''
+    # public_folder: ''
 
     # Overview
     sortable_fields: ["title", "order", "date"]
