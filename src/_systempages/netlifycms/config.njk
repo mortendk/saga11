@@ -390,34 +390,6 @@ collections:
         fields:
           - {label: link, name: url, widget: string, default: "https://", required: false}
           - {label: text, name: label, widget: string, required: false }
-
-      # Gallery
-      - label: "Images"
-        name: "gallery"
-        widget: "list"
-        collapsed: true
-        summary: "Image {{fields.image.fields.image}}"
-        fields:
-          - label: image
-            name: image
-            widget: object
-            summary: "{{fields.image}}: {{fields.title}}"
-            fields:
-              - { label: image, name: image, widget: image, choose_url: false }
-              - { label: title, name: title, widget: string, required: false }
-              - { label: Description, name: figcaption, widget: text, required: false }
-      # collection
-      - name: collection
-        label: collection
-        widget: relation
-        collection: tags
-        searchFields: [title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-        multiple: false
-        hint: "This will select a tag and print teasers on the page"
-
       # Layout selector
       - name: "layout"
         label: "Layout Selector"

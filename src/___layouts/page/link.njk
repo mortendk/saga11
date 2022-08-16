@@ -152,21 +152,6 @@ Template for the frontpage
         </a>
       {% endif %}
 
-      {% include "gallery.njk" %}
-
-      {# collection  #}
-      {% if collection %}
-        <div class="" aria-label="Collection">
-
-          {% for item in collections[collection] | sortByOrder %}
-            <article class="p-2" aria-label="Post {{ item.data.title}}" >
-              <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">{{item.data.title}}</a>
-            </article>
-          {% endfor %}
-
-        </div>
-      {% endif %}
-      {# / collection  #}
     </div>
   </main>
 
