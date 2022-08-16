@@ -12,7 +12,9 @@ Template for the frontpage
 
 {# <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 fixed w-full h-10"></header> #}
 
-<main id="main" tabindex="-1" class="flex-grow pt-14 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
+<main id="main" tabindex="-1"
+  class="flex-grow pt-14 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
+
   <div class="max-w-lg mx-auto ">
 
     <article class="flex flex-col">
@@ -44,10 +46,14 @@ Template for the frontpage
       {% endfor %}
     </article>
 
+    <H2 class="text-center">Social Media Platforms</H2>
     {# SOME icons  #}
     {% set css = "w-12 h-12 block text-sky-400 hover:text-sky-700 " %}
+    {% set linkattributes %}
+      target=_blank rel=noopener noreferrer nofollow
+    {% endset %}
 
-    <nav class="pt-8 flex flex-wrap mx-auto space-x-4 space-y-4" aria-label="Menu Social media links">
+    <nav class="flex flex-wrap space-x-4 space-y-4" aria-label="Menu Social media links">
 
       {% if some.rss %}
         <a href="/feed.xml" class="{{css}}">
@@ -57,90 +63,90 @@ Template for the frontpage
       {% endif %}
 
       {% if some.linkedin %}
-        <a href="https://linkedin.com/in/{{ some.linkedin }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://linkedin.com/in/{{ some.linkedin }}" {{ linkattributes }} class="{{css}}">
           <span class="sr-only">LinkedIn</span>
           {% include "svg/linkedin.njk" %}
         </a>
       {% endif %}
 
       {% if some.facebook %}
-        <a href="https://facebook.com/{{ some.facebook }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://facebook.com/{{ some.facebook }}" {{ linkattributes }} class="{{css}}">
           <span class="sr-only">Facebook</span>
           {% include "svg/facebook.njk" %}
         </a>
       {% endif %}
 
       {% if some.instagram %}
-        <a href="https://instagram.com/{{ some.instagram }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://instagram.com/{{ some.instagram }}" {{ linkattributes }} class="{{css}}">
           <span class="sr-only">Instagram</span>
           {% include "svg/instagram.njk" %}
         </a>
       {% endif %}
 
       {% if some.youtube %}
-        <a href="https://instagram.com/{{ some.youtube }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://instagram.com/{{ some.youtube }}" {{ linkattributes }}  class="{{css}}">
           <span class="sr-only">youtube</span>
           {% include "svg/youtube.njk" %}
         </a>
       {% endif %}
 
       {% if some.twitter %}
-        <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://twitter.com/{{ some.twitter }}" {{ linkattributes }}  class="{{css}}">
           <span class="sr-only">Twitter</span>
           {% include "svg/twitter.njk" %}
         </a>
       {% endif %}
 
       {% if some.github %}
-        <a href="https://github.com/{{ some.github }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://github.com/{{ some.github }}" {{ linkattributes }}  class="{{css}}">
           <span class="sr-only">GitHub</span>
           {% include "svg/github.njk" %}
         </a>
       {% endif %}
 
       {% if some.dribble %}
-        <a href="https://dribbble.com/{{ some.dribble }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+        <a href="https://dribbble.com/{{ some.dribble }}" {{ linkattributes }}  class="{{css}}">
           <span class="sr-only">Dribbble</span>
           {% include "svg/dribble.njk" %}
         </a>
       {% endif %}
 
       {% if some.tiktok %}
-        <a href="https://tiktok.com/@{{ some.tiktok }}" class="{{ css }}">
+        <a href="https://tiktok.com/@{{ some.tiktok }}" {{ linkattributes }}  class="{{ css }}">
           <span class="sr-only">tiktok</span>
           {% include "svg/tiktok.njk" %}
         </a>
       {% endif %}
 
       {% if some.twitch %}
-        <a href="https://twitch.tv/{{ some.twitch }}" class="{{ css }}">
+        <a href="https://twitch.tv/{{ some.twitch }}" {{ linkattributes }}  class="{{ css }}">
           <span class="sr-only">twitch</span>
           {% include "svg/twitch.njk" %}
         </a>
       {% endif %}
 
       {% if some.patron %}
-        <a href="https://patron.com/{{ some.patron }}" class="{{ css }}">
+        <a href="https://patron.com/{{ some.patron }}" {{ linkattributes }}  class="{{ css }}">
         patron
       </a>
       {% endif %}
 
       {% if some.discord %}
-        <a href="https://discord.gg/{{ some.discord }}" class="{{ css }}">
+        <a href="https://discord.gg/{{ some.discord }}" {{ linkattributes }}  class="{{ css }}">
           <span class="sr-only">discord</span>
           {% include "svg/discord.njk" %}
         </a>
       {% endif %}
 
       {% if some.soundcloud %}
-        <a href="https://soundcloud.com/{{ some.soundcloud }}" class="{{ css }}">
+        <a href="https://soundcloud.com/{{ some.soundcloud }}" {{ linkattributes }}  class="{{ css }}">
           <span class="sr-only">Soundcloud</span>
           {% include "svg/soundcloud.njk" %}
         </a>
       {% endif %}
 
       {% if some.bandcamp %}
-        <a href="https://{{ some.bandcamp }}.bandcamp.com"  class="{{ css }}">
+        <a href="https://{{ some.bandcamp }}.bandcamp.com" {{ linkattributes }}  class="{{ css }}">
           <span class="sr-only">bandcamp</span>
           {% include "svg/bandcamp.njk" %}
         </a>
@@ -148,11 +154,22 @@ Template for the frontpage
 
       {% include "gallery.njk" %}
 
-      {% include "collection.njk" %}
+      {# collection  #}
+      {% if collection %}
+        <div class="" aria-label="Collection">
 
+          {% for item in collections[collection] | sortByOrder %}
+            <article class="p-2" aria-label="Post {{ item.data.title}}" >
+              <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">{{item.data.title}}</a>
+            </article>
+          {% endfor %}
+
+        </div>
+      {% endif %}
+      {# / collection  #}
     </div>
   </main>
 
-  <footer class="bg-slate-600 text-center p-4">
+  <footer class="bg-slate-600 text-center p-4 text-white">
     <a href="{{env.url}}">{{ site.title }}</a>
   </footer>

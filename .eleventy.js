@@ -54,6 +54,7 @@ async function image(
 }
 
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
+// TODO: test if the image exists
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
   src = "src/" + img;
   let metadata = await Image(src, {
@@ -83,6 +84,7 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
 }
 
 // {% imageurl "image", “size”, "gif”  %}
+// TODO: test if the image exists
 async function imageurl(img, width = "1200", format = "webp") {
   if (img == null) {
     // console.log("dude wheres my image ?");
