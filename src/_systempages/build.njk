@@ -10,7 +10,7 @@ Instead of fiddeling with a bunch of design tools we can build the pwa screens i
 html and css - use the pwa: in package.json
 #}
 {%- if env.mode != 'prod' %}
-  <!-- pwa-setup.html  -->
+  <!-- build.njk  -->
 {%- endif -%}
 
 <main class="h-full flex flex-col items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
@@ -28,6 +28,7 @@ html and css - use the pwa: in package.json
       root: {{ env.root }}
       source: {{ env.source }}
       serverless: {{env.serverless}}
+      Secret: {{env.secret}}
     </pre>
 
   </div>

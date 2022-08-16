@@ -5,5 +5,6 @@ module.exports = {
   mode: process.env.ELEVENTY_ENV || "prod",
   root: process.env.ELEVENTY_ROOT,
   source: process.env.ELEVENTY_SOURCE,
-  serverless: process.env.ELEVENTY_SERVERLESS || "nope",
+  serverless: process.env.ELEVENTY_SERVERLESS || "",
+  secret: process.env.SUPER_SECRET || "nope",
 };
