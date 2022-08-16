@@ -28,7 +28,6 @@ logo_url: https://editorial-config.saga11.dev/assets/icon/icon-apple-touch.png
 display_url: https://editorial-config.saga11.dev
 {% endif %}
 
-
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
 media_folder: "src/images"
@@ -331,6 +330,108 @@ collections:
           default: false,
           required: false,
         }
+
+  # -----------------------------------------------------------------
+  # Collection Link In Bio
+  # -----------------------------------------------------------------
+  - label: Link in bio Pages
+    label_singular: linkinbio
+    name: linkinbio
+    folder: "src/content/linkinbio"
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
+    create: true
+    delete: true
+    slug: "{{url}}/index"
+    preview_path: /link/{{ slug }}/
+
+    # Overview
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    # media_folder: ''
+    # public_folder: ''
+    editor:
+      preview: false
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
+      - { label: "url", name: "url", widget: "string", default: "link" }
+      - { label: "Image", name: "image", widget: "image", required: false}
+      - { label: "alt", name: "alt", widget: "string", required: false }
+      - { label: "background", name: "background", widget: "image", required: false}
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-two
+          - heading-three
+          - link
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+      # Link
+      - label: "Link"
+        name: "link"
+        collapsed: false
+        minimize_collapsed: true
+        widget: "list"
+        fields:
+          - {label: link, name: url, widget: string, default: "https://", required: false}
+          - {label: text, name: label, widget: string, required: false }
+
+      # Gallery
+      - label: "Images"
+        name: "gallery"
+        widget: "list"
+        collapsed: true
+        summary: "Image {{fields.image.fields.image}}"
+        fields:
+          - label: image
+            name: image
+            widget: object
+            summary: "{{fields.image}}: {{fields.title}}"
+            fields:
+              - { label: image, name: image, widget: image, choose_url: false }
+              - { label: title, name: title, widget: string, required: false }
+              - { label: Description, name: figcaption, widget: text, required: false }
+      # collection
+      - name: collection
+        label: collection
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: false
+        hint: "This will select a tag and print teasers on the page"
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields:
+          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        required: false
+        default: "page/link.njk"
+
+
 
   # -----------------------------------------------------------------
   # System pages

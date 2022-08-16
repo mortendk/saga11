@@ -10,116 +10,149 @@ Template for the frontpage
   <!-- ___layouts/page/frontpage.njk  -->
 {%- endif -%}
 
-<article class="p-20">
+{# <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 fixed w-full h-10"></header> #}
 
-  <div>
-    {% image image, [400,800, 1600],"(min-width: 1600px) 50vw, 100vw",['webp'],alt,"aspect-squre shadow rounded-full w-40","eager" %}
-  </div>
+<main id="main" tabindex="-1" class="flex-grow pt-14 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
+  <div class="max-w-lg mx-auto ">
 
-  <h2 class="text-4xl">@{{ some.twitter }}</h2>
-  <div class="text-2xl">{{ content | safe }}</div>
+    <article class="flex flex-col">
 
-</article>
+      <div class="center-center">
+        {% image image, [400,800, 1600],"(min-width: 1600px) 50vw, 100vw",['webp'],alt,"aspect-squre shadow rounded-full w-40","eager" %}
+      </div>
 
-{% set css = "w-12 h-12 block text-gray-700 hover:text-gray-700 " %}
+      <h2 class="text-4xl text-center py-2">{{ title }}</h2>
+      <div class="text-xl mx-auto p-2">{{ content | safe }}</div>
 
-<nav class="flex flex-wrap justify-center flex-grow mx-auto space-x-4" aria-label="Menu Social media links">
+    </article>
 
-  {% if some.rss %}
-    <a href="/feed.xml" class="{{css}}">
-      <span class="sr-only">RSS Feed</span>
-      {% include "svg/rss.njk" %}
-    </a>
-  {% endif %}
+    <div class="text-2xl font-bold text-center p-4">
+      <a href="{{env.url}}">{{ site.title }}</a>
+    </div>
 
-  {% if some.linkedin %}
-    <a href="https://linkedin.com/in/{{ some.linkedin }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">LinkedIn</span>
-      {% include "svg/linkedin.njk" %}
-    </a>
-  {% endif %}
+    <article class="flex flex-col">
+      {% for item in link %}
 
-  {% if some.facebook %}
-    <a href="https://facebook.com/{{ some.facebook }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">Facebook</span>
-      {% include "svg/facebook.njk" %}
-    </a>
-  {% endif %}
+        {# Test if the user added the label ... #}
+        {% if item.label == "" %}
+          {% set label = item.url %}
+        {% else %}
+          {% set label = item.label %}
+        {% endif %}
 
-  {% if some.instagram %}
-    <a href="https://instagram.com/{{ some.instagram }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">Instagram</span>
-      {% include "svg/instagram.njk" %}
-    </a>
-  {% endif %}
+        <a href="{{ item.url }}" rel="noopener noreferrer nofollow" class="block bg-white/90 p-4 m-4 rounded-lg text-blue-500 font-bold text-xl text-center">{{ label }}</a>
+      {% endfor %}
+    </article>
 
-  {% if some.youtube %}
-    <a href="https://instagram.com/{{ some.youtube }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">youtube</span>
-      {% include "svg/youtube.njk" %}
-    </a>
-  {% endif %}
+    {# SOME icons  #}
+    {% set css = "w-12 h-12 block text-sky-400 hover:text-sky-700 " %}
 
-  {% if some.twitter %}
-    <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">Twitter</span>
-      {% include "svg/twitter.njk" %}
-    </a>
-  {% endif %}
+    <nav class="pt-8 flex flex-wrap mx-auto space-x-4 space-y-4" aria-label="Menu Social media links">
 
-  {% if some.github %}
-    <a href="https://github.com/{{ some.github }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">GitHub</span>
-      {% include "svg/github.njk" %}
-    </a>
-  {% endif %}
+      {% if some.rss %}
+        <a href="/feed.xml" class="{{css}}">
+          <span class="sr-only">RSS Feed</span>
+          {% include "svg/rss.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.dribble %}
-    <a href="https://dribbble.com/{{ some.dribble }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">Dribbble</span>
-      {% include "svg/dribble.njk" %}
-    </a>
-  {% endif %}
+      {% if some.linkedin %}
+        <a href="https://linkedin.com/in/{{ some.linkedin }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">LinkedIn</span>
+          {% include "svg/linkedin.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.tiktok %}
-    <a href="https://tiktok.com/@{{ some.tiktok }}" class="{{ css }}">
-      <span class="sr-only">tiktok</span>
-      {% include "svg/tiktok.njk" %}
-    </a>
-  {% endif %}
+      {% if some.facebook %}
+        <a href="https://facebook.com/{{ some.facebook }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">Facebook</span>
+          {% include "svg/facebook.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.twitch %}
-    <a href="https://twitch.tv/{{ some.twitch }}" class="{{ css }}">
-      <span class="sr-only">twitch</span>
-      {% include "svg/twitch.njk" %}
-    </a>
-  {% endif %}
+      {% if some.instagram %}
+        <a href="https://instagram.com/{{ some.instagram }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">Instagram</span>
+          {% include "svg/instagram.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.patron %}
-    <a href="https://patron.com/{{ some.patron }}" class="{{ css }}">
-    patron
-  </a>
-  {% endif %}
+      {% if some.youtube %}
+        <a href="https://instagram.com/{{ some.youtube }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">youtube</span>
+          {% include "svg/youtube.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.discord %}
-    <a href="https://discord.gg/{{ some.discord }}" class="{{ css }}">
-      <span class="sr-only">discord</span>
-      {% include "svg/discord.njk" %}
-    </a>
-  {% endif %}
+      {% if some.twitter %}
+        <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">Twitter</span>
+          {% include "svg/twitter.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.soundcloud %}
-    <a href="https://soundcloud.com/{{ some.soundcloud }}" class="{{ css }}">
-      <span class="sr-only">Soundcloud</span>
-      {% include "svg/soundcloud.njk" %}
-    </a>
-  {% endif %}
+      {% if some.github %}
+        <a href="https://github.com/{{ some.github }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">GitHub</span>
+          {% include "svg/github.njk" %}
+        </a>
+      {% endif %}
 
-  {% if some.bandcamp %}
-    <a href="https://{{ some.bandcamp }}.bandcamp.com"  class="{{ css }}">
-      <span class="sr-only">bandcamp</span>
-      {% include "svg/bandcamp.njk" %}
-    </a>
-  {% endif %}
+      {% if some.dribble %}
+        <a href="https://dribbble.com/{{ some.dribble }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+          <span class="sr-only">Dribbble</span>
+          {% include "svg/dribble.njk" %}
+        </a>
+      {% endif %}
 
-  {% include "collection.njk" %}
+      {% if some.tiktok %}
+        <a href="https://tiktok.com/@{{ some.tiktok }}" class="{{ css }}">
+          <span class="sr-only">tiktok</span>
+          {% include "svg/tiktok.njk" %}
+        </a>
+      {% endif %}
+
+      {% if some.twitch %}
+        <a href="https://twitch.tv/{{ some.twitch }}" class="{{ css }}">
+          <span class="sr-only">twitch</span>
+          {% include "svg/twitch.njk" %}
+        </a>
+      {% endif %}
+
+      {% if some.patron %}
+        <a href="https://patron.com/{{ some.patron }}" class="{{ css }}">
+        patron
+      </a>
+      {% endif %}
+
+      {% if some.discord %}
+        <a href="https://discord.gg/{{ some.discord }}" class="{{ css }}">
+          <span class="sr-only">discord</span>
+          {% include "svg/discord.njk" %}
+        </a>
+      {% endif %}
+
+      {% if some.soundcloud %}
+        <a href="https://soundcloud.com/{{ some.soundcloud }}" class="{{ css }}">
+          <span class="sr-only">Soundcloud</span>
+          {% include "svg/soundcloud.njk" %}
+        </a>
+      {% endif %}
+
+      {% if some.bandcamp %}
+        <a href="https://{{ some.bandcamp }}.bandcamp.com"  class="{{ css }}">
+          <span class="sr-only">bandcamp</span>
+          {% include "svg/bandcamp.njk" %}
+        </a>
+      {% endif %}
+
+      {% include "gallery.njk" %}
+
+      {% include "collection.njk" %}
+
+    </div>
+  </main>
+
+  <footer class="bg-slate-600 text-center p-4">
+    <a href="{{env.url}}">{{ site.title }}</a>
+  </footer>
