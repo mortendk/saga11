@@ -9,29 +9,21 @@ const Image = require("@11ty/eleventy-img");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
-// TODO: the image shortcut is cumbersome but "works(tm)" aka need some <3
-// {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy/eager" %}
-// {% image item.data.image, [100],"",['webp'] %}
-async function image(
-  img,
-  width = [300, 600, 1200],
-  sizes = "(min-width: 30em) 50vw, 100vw",
-  format = ["webp", "jpeg"],
-  alt = "image",
-  css,
-  loading = "lazy",
-  urlpathprefix = "" //if we want fullpath urls
-) {
-  if (img == null) {
-    // console.log("dude wheres my image ?");
-  } else {
-    src = "src/" + img;
+// {% image img, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy/eager" %}
+async function image(img, width, sizes, format, alt, css, loading, urlpathprefix) {
+  // Test if there actually is an image string
+  if (img) {
+    src = img;
     let metadata = await Image(src, {
       widths: width,
       formats: format,
-      // widths: [300, 800, 1600],
-      outputDir: "_site/img/", // seind image directly to the site build
+      outputDir: "_site/img/",
       urlPath: urlpathprefix + "/img/",
+      cacheOptions: {
+        duration: "1d",
+        directory: ".cache",
+        removeUrlQueryParams: false,
+      },
       filenameFormat: function (id, src, width, format, options) {
         const extension = path.extname(src);
         const name = path.basename(src, extension);
@@ -50,13 +42,18 @@ async function image(
     return Image.generateHTML(metadata, imageAttributes, {
       whitespaceMode: "inline",
     });
+  } else {
+    console.log(
+      `image function called but ${img} dont exist - this function is called from:  `
+    );
+    return `!<!-- image do not exist: ${img} -->`;
   }
 }
 
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
 // TODO: test if the image exists
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
-  src = "src/" + img;
+  src = img;
   let metadata = await Image(src, {
     widths: [width],
     formats: [format],
@@ -86,35 +83,35 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
 // {% imageurl "image", “size”, "gif”  %}
 // TODO: test if the image exists
 async function imageurl(img, width = "1200", format = "webp") {
-  if (img == null) {
-    // console.log("dude wheres my image ?");
-  } else {
-    src = "src/" + img;
-    let metadata = await Image(src, {
-      widths: [width],
-      formats: [format],
-      // widths: [300, 800, 1600],
-      outputDir: "_site/img/", // we push this image directly to the site build
-      urlPath: "/img/",
-      filenameFormat: function (id, src, width, format, options) {
-        const extension = path.extname(src);
-        const name = path.basename(src, extension);
-        return `${name}-${width}w.${format}`;
-      },
-    });
-
-    let backgroundimg;
-    if (format == "jpeg") {
-      backgroundimg = metadata.jpeg[0].url;
-    } else if (format == "png") {
-      backgroundimg = metadata.png[0].url;
-    } else if (format == "gif") {
-      backgroundimg = metadata.gif[0].url;
-    } else {
-      backgroundimg = metadata.webp[0].url;
-    }
-    return env.url + backgroundimg;
-  }
+  //   if (img == null) {
+  //     // console.log("dude wheres my image ?");
+  //   } else {
+  //     src = img;
+  //     let metadata = await Image(src, {
+  //       widths: [width],
+  //       formats: [format],
+  //       // widths: [300, 800, 1600],
+  //       outputDir: "_site/img/", // we push this image directly to the site build
+  //       urlPath: "/img/",
+  //       filenameFormat: function (id, src, width, format, options) {
+  //         const extension = path.extname(src);
+  //         const name = path.basename(src, extension);
+  //         return `${name}-${width}w.${format}`;
+  //       },
+  //     });
+  //
+  //     let backgroundimg;
+  //     if (format == "jpeg") {
+  //       backgroundimg = metadata.jpeg[0].url;
+  //     } else if (format == "png") {
+  //       backgroundimg = metadata.png[0].url;
+  //     } else if (format == "gif") {
+  //       backgroundimg = metadata.gif[0].url;
+  //     } else {
+  //       backgroundimg = metadata.webp[0].url;
+  //     }
+  //     return env.url + backgroundimg;
+  //   }
 }
 
 module.exports = function (eleventyConfig) {
@@ -153,6 +150,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
+
+  eleventyConfig.addNunjucksGlobal("saga11version", "beta 1 ");
 
   // Directory setup
   return {

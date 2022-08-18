@@ -1,28 +1,28 @@
 ---
 title: Image galllery
 url: gallery
-image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
+image: mortendk_space_ship_movie_poster_52190f31-a366-4d04-a96f-cd36a8a00db0.png
 alt: Woman in front of fire
 teaser: "This is an example of an image gallery and with all other things in it "
 gallery:
   - image:
-      image: /images/veeterzy-sMQiL_2v4vs-unsplash.jpg
+      image: veeterzy-sMQiL_2v4vs-unsplash.jpg
       figcaption: https://unsplash.com/photos/sMQiL_2v4vs
       title: Tree in forest of plants
   - image:
-      image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
+      image: maikel-oosterink-n_-j5nounwe-unsplash.jpg
   - image:
-      image: /images/carla-santiago-7moqzyxa-o0-unsplash.jpg
+      image: carla-santiago-7moqzyxa-o0-unsplash.jpg
   - image:
-      image: /images/vera-gorbunova-cNcSBya05FU-unsplash.jpg
+      image: vera-gorbunova-cNcSBya05FU-unsplash.jpg
   - image:
-      image: /images/gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
+      image: gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
   - image:
-      image: /images/steinar-engeland-sgyh_ix9lne-unsplash.jpg
+      image: steinar-engeland-sgyh_ix9lne-unsplash.jpg
 tags:
   - frontpage
   - menu
-collection:
+collection: null
 layout: page/page.njk
 order: 20
 menulabel: Gallery

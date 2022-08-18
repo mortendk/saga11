@@ -1,7 +1,6 @@
 ---
 title: Spare me your space age technobabble, Attila the Hun!
 url: Spare me your space age technobabble Attila the Hun!
-image: /images/gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
 alt: Viking with axe
 teaser: And remember, don't do anything that affects anything, unless it turns
   out you were supposed to, in which case, for the love of God, don't not do it!
@@ -9,8 +8,10 @@ teaser: And remember, don't do anything that affects anything, unless it turns
   why I'm transferring to business school!
 tags:
   - foo
-layout: post/post.njk
+date_start: ""
+date_end: ""
 date: 2022-07-15 19:52:11
+layout: post/post.njk
 order: 1
 eleventyExcludeFromCollections: false
 ---

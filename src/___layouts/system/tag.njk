@@ -26,9 +26,7 @@ the tag page auto generated from src/systempages/tag.njk
     <a href="{{ item.url }}" class="text-xl font-bold">
 
       <div class="shadow-lg aspect-video overflow-hidden mb-4">
-      {% if item.data.image %}
-        {% image item.data.image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],item.data.alt" %}
-      {% endif %}
+
       </div>
       <div class="font-lg">
         {{item.data.title}}

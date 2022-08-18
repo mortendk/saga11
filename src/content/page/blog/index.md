@@ -1,7 +1,7 @@
 ---
 title: Blog
 url: blog
-image: /images/maikel-oosterink-n_-j5nounwe-unsplash.jpg
+image: https://images.unsplash.com/photo-1657039039100-07a46786a58c
 alt: Mountains
 teaser: Post from the blog
 tags:

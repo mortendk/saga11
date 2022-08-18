@@ -11,8 +11,22 @@ Template for the frontpage
 {%- endif -%}
 
 <section class="relative">
-  <div>
-    {% image image, [400,800, 1600],"(min-width: 1600px) 50vw, 100vw",['webp'],alt,"shadow rounded-lg","eager" %}
+
+  {# Generate image #}
+    {% if "http" in image %}
+      {% set img = image %}
+    {% else %}
+      {% set img = page.inputPath | replace("index.md", image) %}
+    {% endif %}
+
+    {% set css = "shadow rounded-lg" %}
+    {% set format = [webp] %}
+    {% set srcset = [400,800, 1600] %}
+    {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+    {% set loading = "eager" %}
+    {% image img, srcset, sizes, format, alt,css, loading %}
+  {# / Generate image #}
+
   </div>
 
   <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">
@@ -27,4 +41,4 @@ Template for the frontpage
 
 </section>
 
-{% include "collection.njk" %}
+{# {% include "collection.njk" %} #}

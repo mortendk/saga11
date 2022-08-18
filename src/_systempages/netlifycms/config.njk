@@ -59,13 +59,14 @@ collections:
     slug: "/{{ url }}/index"
     #preview_path must match the settings from post.json permalink
     preview_path: /{{ url }}/index
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+
     create: true
     delete: true
     editor:
       preview: false
-
-    # media_folder: ''
-    # public_folder: ''
 
     # Overview
     sortable_fields: ["title", "order", "date"]
@@ -217,6 +218,9 @@ collections:
     delete: true
     slug: "{{url}}/index"
     preview_path: /{{ slug }}/
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
 
     # Overview
     sortable_fields: ["title", "order", "date"]
@@ -228,8 +232,6 @@ collections:
       - label: Tags
         field: tags
 
-    # media_folder: ''
-    # public_folder: ''
     editor:
       preview: false
 
@@ -345,6 +347,10 @@ collections:
     delete: true
     slug: "{{url}}/index"
     preview_path: /link/{{ slug }}/
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+
 
     # Overview
     sortable_fields: ["title", "order", "date"]
@@ -417,13 +423,6 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
-          - {
-              label: "Image",
-              name: "image",
-              widget: "image",
-              required: false,
-              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-            }
           - { label: "alt", name: "alt", widget: "string", required: false }
 
   # -----------------------------------------------------------------

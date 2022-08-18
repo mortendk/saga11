@@ -16,15 +16,22 @@ This is the default template for the page type
   {# gallery #}
   {% include "gallery.njk" %}
 
-  {# main image #}
-  {% if image %}
-    {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],alt,'','eager' %}
-  {% endif %}
+  {# Generate image #}
+    {% if image %}
+      {% set img = page.inputPath | replace("index.md", image) %}
+    {% endif %}
+
+    {% set css = "rounded-sm" %}
+    {% set format = [webp] %}
+    {% set srcset = [400,800, 1600] %}
+    {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+    {% set loading = "eager" %}
+    {% image img, srcset, sizes, format, alt,css, loading %}
+  {# / Generate image #}
 
   <div class="wysiwyg">
     {{ content | safe }}
   </div>
-
 
   {% include "collection.njk" %}
 </article>

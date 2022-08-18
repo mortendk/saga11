@@ -82,15 +82,20 @@
         :class="isSliderOpen ? 'aspect-video justify-center items-center' : 'aspect-square'"
         >
 
-          {% if item.image.image %}
-            {# We will not lazy load the first image  #}
-            {% if loop.index == "1" %}
-              {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",'absolute top-0 left-0 h-full object-cover shadow-md', 'eager' %}
-            {% else %}
-              {% image item.image.image, [400,800, 1600],"(min-width: 30em) 50vw, 100vw",['webp'],"",'absolute top-0 left-0 h-full object-cover shadow-md', 'lazy' %}
-            {% endif %}
-
+        {# Generate image #}
+          {% set img = page.inputPath | replace("index.md", item.image.image) %}
+          {% set css = "rounded-sm" %}
+          {% set format = [webp] %}
+          {% set srcset = [400,800, 1600] %}
+          {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+          {% if loop.index =='1' %}
+            {% set loading = 'eger' %}
+          {% else  %}
+            {% set loading = 'lazy' %}
           {% endif %}
+          {% image img, srcset, sizes, format, alt,css, loading %}
+        {# / Generate image #}
+
 
           {# title and text #}
           {% if item.image.title or item.image.figcaption %}
@@ -107,7 +112,7 @@
     </div>
 
     {# gallery navigation #}
-    {# <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
+    <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
     {% for item in gallery %}
 
       <button
@@ -116,13 +121,12 @@
         type="button"
       >
         <span class="sr-only">Link to image {{ loop.index }}</span>
-        {% if item.image.image %}
-          {% image item.image.image, [100,200, 400],"(min-width: 30em) 50vw, 100vw",['webp'],"", 'shadow' %}
-        {% endif %}
+      {{ loop.index }}
+
       </button>
 
     {% endfor %}
-  </nav> #}
+  </nav>
 </div>
   </section>
 
