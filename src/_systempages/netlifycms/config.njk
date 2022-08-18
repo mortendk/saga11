@@ -93,6 +93,7 @@ collections:
           name: "image",
           widget: "image",
           required: false,
+          choose_url: false,
           hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
         }
       - { label: "Image alt", name: "alt", widget: "string", required: false }
@@ -129,6 +130,7 @@ collections:
                   label: image,
                   name: image,
                   widget: image,
+                  choose_url: false,
                   hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
                 }
               - { label: title, name: title, widget: string, required: false }
@@ -243,6 +245,7 @@ collections:
           name: "image",
           widget: "image",
           required: false,
+          choose_url: false,
           hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
         }
       - { label: "alt", name: "alt", widget: "string", required: false }
@@ -276,7 +279,7 @@ collections:
             widget: object
             summary: "{{fields.image}}: {{fields.title}}"
             fields:
-              - { label: image, name: image, widget: image, choose_url: false }
+              - { label: image, name: image, widget: image, choose_url: false}
               - { label: title, name: title, widget: string, required: false }
               - { label: Description, name: figcaption, widget: text, required: false }
 
@@ -370,7 +373,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
       - { label: "url", name: "url", widget: "string", default: "link" }
-      - { label: "Image", name: "image", widget: "image", required: false}
+      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
       - { label: "alt", name: "alt", widget: "string", required: false }
       - label: "Body"
         name: "body"

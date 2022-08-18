@@ -82,19 +82,19 @@
         :class="isSliderOpen ? 'aspect-video justify-center items-center' : 'aspect-square'"
         >
 
-        {# Generate image #}
-          {% set img = page.inputPath | replace("index.md", item.image.image) %}
-          {% set css = "rounded-sm" %}
-          {% set format = [webp] %}
-          {% set srcset = [400,800, 1600] %}
-          {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-          {% if loop.index =='1' %}
-            {% set loading = 'eger' %}
-          {% else  %}
-            {% set loading = 'lazy' %}
-          {% endif %}
-          {% image img, srcset, sizes, format, alt,css, loading %}
-        {# / Generate image #}
+      {# Generate image #}
+        {% set img = page.inputPath | replace("index.md", item.image.image) %}
+        {% set css = "rounded-sm" %}
+        {% set format = [webp] %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% if loop.index =='1' %}
+          {% set loading = 'eger' %}
+        {% else  %}
+          {% set loading = 'lazy' %}
+        {% endif %}
+        {% image img, srcset, sizes, format, alt,css, loading %}
+      {# / Generate image #}
 
 
           {# title and text #}

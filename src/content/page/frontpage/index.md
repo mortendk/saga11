@@ -2,7 +2,7 @@
 title: It will go to eleven - just like the amp
 url: /
 image: cyber.png
-alt: "Mountains "
+alt: Mountains
 teaser: I started a sensory deprivation chamber business - it involves really
   dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social
   media. If you were a member of the Bloods and became paralyzed do you then
@@ -14,7 +14,6 @@ layout: page/frontpage.njk
 order: 0
 menulabel: Home
 eleventyExcludeFromCollections: false
-imageX: mortendk_cyberpunk_hacker_girl_in_the_rain_with_side_cut__cute_9697cdb8-aa2b-44d1-a99f-e4d8ada676d7.png
 ---
 
 I started a sensory deprivation chamber business - it involves really dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social media. If you were a member of the Bloods and became paralyzed do you then become a member of the Crips?. We need more werkin and less twerkin if you ask me. Balooby. INjuries always keep you OUT of things. Visticula.

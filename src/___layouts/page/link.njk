@@ -21,6 +21,7 @@ Template for the frontpage
 
 
     <div class="center-center">
+    {# Generate image #}
       {% set img = page.inputPath | replace("index.md", image) %}
       {% set css = "aspect-squre shadow rounded-full w-40 border-4 border-red-400" %}
       {% set format = [webp] %}
@@ -28,10 +29,11 @@ Template for the frontpage
       {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
       {% set loading = "eager" %}
       {% image img, srcset, sizes, format, alt,css, loading %}
+    {# / Generate image #}
     </div>
 
-      <h2 class="text-4xl text-center py-2">{{ title }}</h2>
-      <div class="text-xl mx-auto p-2">{{ content | safe }}</div>
+    <h2 class="text-4xl text-center py-2">{{ title }}</h2>
+    <div class="text-xl mx-auto p-2">{{ content | safe }}</div>
 
     </article>
 

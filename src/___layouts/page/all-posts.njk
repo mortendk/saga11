@@ -11,7 +11,6 @@ An example for a landing page for all the posts
 <h1 class="text-5xl">{{ title }} </h1>
 
 
-
 {% include "nav/tags.njk" %}
 
 <section class="grid md:grid-cols-3 gap-4">
@@ -22,17 +21,8 @@ An example for a landing page for all the posts
     <a href="{{ item.url }}" class="text-xl font-bold">
       <div class="shadow-lg aspect-video overflow-hidden mb-4">
 
-      {# Generate image #}
-      {% if image %}
-        {% set img = item.data.inputPath | replace("index.md", item.data.image) %}
-        {% set css = "rounded-sm" %}
-        {% set format = [webp] %}
-        {% set srcset = [400,800, 1600] %}
-        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-        {% set loading = "eager" %}
-        {% image img, srcset, sizes, format, alt,css, loading %}
-      {# / Generate image #}
-      {% endif %}
+
+
       </div>
 
       <div class="font-lg">

@@ -10,24 +10,20 @@ This is the default template for the page type
 
 <article class="" aria-label="Page">
 
-
   <h1 class="font-serif text-8xl">{{ title }}</h1>
 
-  {# gallery #}
-  {% include "gallery.njk" %}
-
   {# Generate image #}
-    {% if image %}
-      {% set img = page.inputPath | replace("index.md", image) %}
-    {% endif %}
-
-    {% set css = "rounded-sm" %}
+    {% set img = page.inputPath | replace("index.md", image) %}
+    {% set css = "shadow rounded-lg" %}
     {% set format = [webp] %}
     {% set srcset = [400,800, 1600] %}
     {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
     {% set loading = "eager" %}
     {% image img, srcset, sizes, format, alt,css, loading %}
   {# / Generate image #}
+
+  {# gallery #}
+  {% include "gallery.njk" %}
 
   <div class="wysiwyg">
     {{ content | safe }}

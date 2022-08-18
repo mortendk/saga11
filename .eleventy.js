@@ -10,14 +10,22 @@ const Image = require("@11ty/eleventy-img");
 // Shortcuts
 // -----------------------------------------------------------------
 // {% image img, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy/eager" %}
-async function image(img, width, sizes, format, alt, css, loading, urlpathprefix) {
-  // Test if there actually is an image string
-  if (img) {
+async function image(
+  img,
+  width = "[400,800, 1200]",
+  sizes = "(min-width: 1600px) 50vw, 100vw",
+  format = ["webp"],
+  alt = "",
+  css,
+  loading = "lazy",
+  urlpathprefix = "" //if we want fullpath urls
+) {
+  if (fs.existsSync(img)) {
     src = img;
     let metadata = await Image(src, {
       widths: width,
       formats: format,
-      outputDir: "_site/img/",
+      outputDir: "_site/img/", // seind image directly to the site build
       urlPath: urlpathprefix + "/img/",
       cacheOptions: {
         duration: "1d",
@@ -44,9 +52,9 @@ async function image(img, width, sizes, format, alt, css, loading, urlpathprefix
     });
   } else {
     console.log(
-      `image function called but ${img} dont exist - this function is called from:  `
+      `image function called but: ${img} dont exist - this function is called from: `
     );
-    return `!<!-- image do not exist: ${img} -->`;
+    return `<!-- image function called but: ${img} -->`;
   }
 }
 

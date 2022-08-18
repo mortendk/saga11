@@ -10,9 +10,11 @@ https://www.11ty.dev/docs/collections/
 
 {# collection  #}
 {% if collection %}
+
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
 {% for item in collections[collection] | sortByOrder %}
+
   {# for debugging measure shows us where this data is coming from  #}
   {%- if env.mode != 'prod' %}<!-- input path: {{ item.inputPath }}  -->{%- endif -%}
 
@@ -20,6 +22,16 @@ https://www.11ty.dev/docs/collections/
 
     <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">{{item.data.title}}
       <div class= "aspect-video overflow-hidden">
+
+      {# Generate image #}
+        {% set img = item.data.page.inputPath | replace("index.md", item.data.image) %}
+        {% set css = "rounded-sm" %}
+        {% set format = [webp] %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% set loading = "eager" %}
+        {% image img, srcset, sizes, format, alt,css, loading %}
+      {# / Generate image #}
 
       </div>
     </a>
