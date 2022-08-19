@@ -67,48 +67,48 @@ Graps all the data thats added to the _data/some.json file
   {% endif %}
 
   {% if some.tiktok %}
-    <a href="https://tiktok.com/@{{ some.tiktok }}" class="{{ css }}">
+    <a href="https://tiktok.com/@{{ some.tiktok }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">tiktok</span>
       {% include "svg/tiktok.njk" %}
     </a>
   {% endif %}
 
   {% if some.twitch %}
-    <a href="https://twitch.tv/{{ some.twitch }}" class="{{ css }}">
+    <a href="https://twitch.tv/{{ some.twitch }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">twitch</span>
       {% include "svg/twitch.njk" %}
     </a>
   {% endif %}
 
   {% if some.patron %}
-    <a href="https://patron.com/{{ some.patron }}" class="{{ css }}">
+    <a href="https://patron.com/{{ some.patron }}"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
     patron
   </a>
   {% endif %}
 
   {% if some.discord %}
-    <a href="https://discord.gg/{{ some.discord }}" class="{{ css }}">
+    <a href="https://discord.gg/{{ some.discord }}"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">discord</span>
       {% include "svg/discord.njk" %}
     </a>
   {% endif %}
 
   {% if some.soundcloud %}
-    <a href="https://soundcloud.com/{{ some.soundcloud }}" class="{{ css }}">
+    <a href="https://soundcloud.com/{{ some.soundcloud }}"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">Soundcloud</span>
       {% include "svg/soundcloud.njk" %}
     </a>
   {% endif %}
 
   {% if some.bandcamp %}
-    <a href="https://{{ some.bandcamp }}.bandcamp.com"  class="{{ css }}">
+    <a href="https://{{ some.bandcamp }}.bandcamp.com"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">bandcamp</span>
       {% include "svg/bandcamp.njk" %}
     </a>
   {% endif %}
 
   {% if some.pinterest %}
-    <a href="https://pinterest.com/{{ some.pinterest }}"  class="{{ css }}">
+    <a href="https://pinterest.com/{{ some.pinterest }}"   target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">pinterest</span>
       pinterest
     </a>
