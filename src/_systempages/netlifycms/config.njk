@@ -53,18 +53,13 @@ collections:
     nested:
       depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
-    # folder/index creates a folder structure
-    # {{year}}-{{month}}/{{title}}/index
-    # {{tags}}/{{title}}/index
-    slug: "/{{ url }}/index"
-    #preview_path must match the settings from post.json permalink
-    preview_path: /{{ url }}/index
-    path: '{{slug}}/index'
-    media_folder: ''
-    public_folder: ''
-
     create: true
     delete: true
+    slug: "{{url}}/"
+    path: '{{slug}}/index'
+    preview_path: /{{ slug }}/
+    media_folder: ''
+    public_folder: ''
     editor:
       preview: false
 
@@ -104,6 +99,7 @@ collections:
         buttons:
           - bold
           - italic
+          - heading-one
           - heading-two
           - heading-three
           - code
@@ -135,6 +131,28 @@ collections:
                 }
               - { label: title, name: title, widget: string, required: false }
               - { label: Description, name: figcaption, widget: text, required: false }
+
+      # Files
+      - label: "Files"
+        name: "files"
+        widget: "list"
+        collapsed: false
+        summary: "Image {{fields.image.fields.image}}"
+        fields:
+          - label: file
+            name: file
+            widget: object
+            summary: "{{fields.file}}: {{fields.title}}"
+            fields:
+              - {
+                  label: file,
+                  name: file,
+                  widget: file,
+                  choose_url: true,
+                  required: false
+                }
+              - { label: title, name: title, widget: string, required: false }
+
 
       # Tags
       - name: tags
@@ -256,6 +274,7 @@ collections:
         buttons:
           - bold
           - italic
+          - heading-one
           - heading-two
           - heading-three
           - code

@@ -1,3 +1,0 @@
----
-title: foobar n stuff
----

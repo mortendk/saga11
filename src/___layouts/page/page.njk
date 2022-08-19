@@ -12,6 +12,7 @@ This is the default template for the page type
 
   <h1 class="font-serif text-8xl">{{ title }}</h1>
 
+
   {# Generate image #}
     {% set img = page.inputPath | replace("index.md", image) %}
     {% set css = "shadow rounded-lg" %}
@@ -31,6 +32,3 @@ This is the default template for the page type
 
   {% include "collection.njk" %}
 </article>
-
-
-

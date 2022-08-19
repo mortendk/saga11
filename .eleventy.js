@@ -9,7 +9,14 @@ const Image = require("@11ty/eleventy-img");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
-// {% image img, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy/eager" %}
+// {% set img = page.inputPath | replace("index.md", image) %}
+// {% set css = "shadow rounded-lg" %}
+// {% set format = [webp] %}
+// {% set srcset = [400,800, 1600] %}
+// {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+// {% set loading = "eager" %}
+// {% image img, srcset, sizes, format, alt,css, loading %}
+
 async function image(
   img,
   width = "[400,800, 1200]",
@@ -51,18 +58,14 @@ async function image(
       whitespaceMode: "inline",
     });
   } else {
-    console.log(
-      `image function called but: ${img} dont exist - this function is called from: `
-    );
+    // console.log(`image function called but: ${img} dont exist`);
     return `<!-- image function called but: ${img} -->`;
   }
 }
 
 //
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
-{
-  /* <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div> */
-}
+// <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div>
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
   if (fs.existsSync(img)) {
     src = img;
@@ -90,11 +93,12 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
     }
     return `style="background-image: url(${backgroundimg})"`;
   } else {
-    return `<!-- image function on ${fileCall}  cant find the image: ${img} -->`;
+    // return `<!-- image function on ${fileCall}  cant find the image: ${img} -->`;
   }
 }
 
 // used for opengraph
+// {% imageurl page.inputPath | replace("index.md", image),
 async function imageurl(img, width = "1200", format = "webp") {
   if (fs.existsSync(img)) {
     src = img;
