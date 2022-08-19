@@ -1,7 +1,7 @@
 ---
 title: Blog
 url: blog
-image: https://images.unsplash.com/photo-1657039039100-07a46786a58c
+image: mortendk_midnight_7dfb97a3-286a-420a-9338-549fcaacc3e9.png
 alt: Mountains
 teaser: Post from the blog
 tags:

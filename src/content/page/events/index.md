@@ -1,7 +1,7 @@
 ---
 title: Events
 url: events
-image: https://images.unsplash.com/photo-1605190587727-519a8020dbf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80
+image: mortendk_cyberpunk_hacker_girl_in_the_rain_with_side_cut__cute_9697cdb8-aa2b-44d1-a99f-e4d8ada676d7.png
 teaser: All the events
 tags:
   - frontpage
@@ -10,4 +10,3 @@ collection: event
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
-12313

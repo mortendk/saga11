@@ -6,7 +6,7 @@ saga-template-name: Page Posts list
 ------------------------------------------------
 An example for a landing page for all the posts
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/posts.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/all-posts.njk  -->{%- endif -%}
 
 <h1 class="text-5xl">{{ title }} </h1>
 
@@ -18,24 +18,25 @@ An example for a landing page for all the posts
 {% for item in collections.allPosts  %}
 
   <article class="p-2 shadow border m-1">
-    <a href="{{ item.url }}" class="text-xl font-bold">
+    <a href="{{ item.url }}">
       <div class="shadow-lg aspect-video overflow-hidden mb-4">
 
-
+      {# Generate image #}
+        {% set img = item.data.page.inputPath | replace("index.md", item.data.image) %}
+        {% set css = "rounded-sm" %}
+        {% set format = [webp] %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% set loading = "lazy" %}
+        {% image img, srcset, sizes, format, alt,css, loading %}
+      {# / Generate image #}
 
       </div>
-
-      <div class="font-lg">
-        {{item.data.title}}
-      </div>
-
-    </a>
-
-    <p class="mt-2">{{ item.data.teaser }}</p>
-
-    <div>
+      <div class="text-xl ">{{item.data.title}}</div>
+      <div class="mt-2">{{ item.data.teaser }}</div>
       <time>{{ item.data.date | formatDate("DDD  T", "DK") }}</time>
     </div>
+    </a>
   </article>
 
 {% endfor %}

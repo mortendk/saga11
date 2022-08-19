@@ -16,7 +16,8 @@ https://www.11ty.dev/docs/collections/
 {% for item in collections[collection] | sortByOrder %}
 
   {# for debugging measure shows us where this data is coming from  #}
-  {%- if env.mode != 'prod' %}<!-- input path: {{ item.inputPath }}  -->{%- endif -%}
+  {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+
 
   <article class="p-4 shadow border rounded" aria-label="Post {{ item.data.title}}" >
 
@@ -29,7 +30,7 @@ https://www.11ty.dev/docs/collections/
         {% set format = [webp] %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-        {% set loading = "eager" %}
+        {% set loading = "lazy" %}
         {% image img, srcset, sizes, format, alt,css, loading %}
       {# / Generate image #}
 

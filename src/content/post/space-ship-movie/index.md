@@ -1,6 +1,7 @@
 ---
 title: Space ship movie
 url: Space ship movie
+image: mortendk_space_ship_movie_poster_52190f31-a366-4d04-a96f-cd36a8a00db0.png
 alt: Viking ship
 teaser: Space ship people get up from sleeping coffin and have eat. Computer
   woman find strange noisisng on planet and astonauts go to seeing

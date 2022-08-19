@@ -1,6 +1,7 @@
 ---
 title: You can crush me but you can't crush my spirit!
 url: You can crush me but you cant crush my spirit!
+image: mortendk_cyberpunk_girl_typing_on_keyboard_in_futuristic_ea68f511-25e8-43a0-a993-70a701b52001.png
 alt: Runes
 teaser: Tell her you just want to talk. It has nothing to do with mating. Do a
   flip! I decline the title of Iron Cook and accept the lesser title of Zinc
