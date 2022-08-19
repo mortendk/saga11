@@ -1,0 +1,29 @@
+{% set thisurl = env.url + page.url %}
+{# pinterest #}
+<a
+class="block w-8"
+href="http://pinterest.com/pin/create/link/?url={{ thisurl }}">
+Pinteres
+</a>
+
+{# twitter #}
+<a class="block w-8" href="">
+{% include "svg/twitter.njk" %}
+</a>
+
+{# fb  #}
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ thisurl }}">
+  <div class="w-8">{% include "svg/facebook.njk" %}</div>
+</a>
+
+{# linkedin #}
+<a
+class="block w-8"
+href="https://www.linkedin.com/shareArticle?mini=true&amp;
+   url={{ thisurl }}&amp;
+   title={{title}}&amp;
+   summary={{teaser}}&amp;
+   source={{site.title}}">
+  {% include "svg/linkedin.njk" %}
+</a>
+
