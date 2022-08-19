@@ -533,12 +533,28 @@ collections:
         file: "src/data/some.json"
         fields:
           - {
+              label: "rss feed",
+              name: rss,
+              widget: boolean,
+              required: false,
+              hint: "/feed.xml",
+            }
+
+          - {
               label: facebook,
               name: facebook,
               widget: string,
               required: false,
               hint: "https://www.facebook.com/...",
             }
+          - {
+              label: youtube,
+              name: youtube,
+              widget: string,
+              required: false,
+              hint: "https://www.youtube.com/...",
+            }
+
           - {
               label: twitter,
               name: twitter,
@@ -552,6 +568,13 @@ collections:
               widget: string,
               required: false,
               hint: "https://www.pinterest.com/...",
+            }
+          - {
+              label: pinterest_verification,
+              name: pinterest_verification,
+              widget: string,
+              required: false,
+              hint: "can be found on https://www.pinterest.dk/settings/claim",
             }
           - {
               label: linkedin,
