@@ -13,15 +13,3 @@ eleventyExcludeFromCollections: false
 ---
 
 The page here uses the template collection-all-post.njk whichs calls all posts
-
-{% raw %}
-
-```twig
-{% for item in collections.allPosts  %}
-
-{% endfor %}
-....
-
-```
-
-{% endraw %}

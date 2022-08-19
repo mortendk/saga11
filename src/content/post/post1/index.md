@@ -2,9 +2,11 @@
 title: Space ship movie
 url: Space-ship-movie
 image: spaceship.png
-alt: Viking ship
-teaser: Space ship people get up from sleeping coffin and have eat. Computer
-  woman find strange noisisng on planet and astonauts go to seeing
+alt: A majestic spaceship
+teaser: >
+  Space ship people get up from sleeping coffin and have eat.
+
+  Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 tags:
   - event
 date_start: 2022-08-09 19:30
@@ -14,32 +16,10 @@ date: 2022-08-09 19:31:03
 layout: post/post.njk
 eleventyExcludeFromCollections: false
 ---
-
 Space ship people get up from sleeping coffin and have eat.
 Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 
 ## Embed Test
-
-twitter:
-
-https://twitter.com/CasperSvendsen7/status/1555602718596775937
-
-https://twitter.com/eleven_ty/status/1535285663276441602
-
-twitch
-
-https://www.twitch.tv/dukker_og_daemoner
-
-youtube
-
-https://www.youtube.com/watch?v=dQw4w9WgXcQ
-
-https://www.youtube.com/watch?v=qP3GDtn-0BQ
-
-vimeo
-
-https://vimeo.com/341663153
-
 this is a link by default [saga11.dev](https://saga11.dev)
 
 ## Markup

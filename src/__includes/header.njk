@@ -14,8 +14,8 @@ Global header for the site
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
     {% set menuclasses = "inline-flex items-center text-xl font-bold text-white ransition hover:bg-white/50 hover:border-white/90 border-b-4" %}
-    <a href="/" title="{{site.title}}" class="{{ menuclasses }} mr-4">
-      {{ site.title}}
+    <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
+      {% include "src/assets/icon/icon.svg" %}
       <h1 class="sr-only">{{site.title}}</h1>
     </a>
 

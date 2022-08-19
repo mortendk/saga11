@@ -8,31 +8,16 @@ An example for a landing page for all the posts
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/all-posts.njk  -->{%- endif -%}
 
-<h1 class="text-5xl">{{ title }} </h1>
 
-<div class="grid grid-cols-2 gap-4">
+
+<div class="w-1/2 mx-auto">
+  <h1 class="text-5xl">{{ title }} </h1>
   <div>{{ content | safe }}</div>
-
-  {# Generate image #}
-  {% if image %}
-  <div>
-    {% set img = page.inputPath | replace("index.md", image) %}
-    {% set css = "rounded-sm" %}
-    {% set srcset = [400,800] %}
-    {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-    {% set loading = "eager" %}
-    {% image img, srcset, sizes, format, alt,css, loading %}
-  </div>
-  {% endif %}
-  {# / Generate image #}
-
 </div>
 
 {% include "nav/tags.njk" %}
 
 <section class="grid md:grid-cols-3 gap-4">
-
-
 
 {% for item in collections.allPosts  %}
 
