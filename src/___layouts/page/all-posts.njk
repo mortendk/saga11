@@ -1,6 +1,6 @@
 ---
 layout: default.njk
-saga-template-name: Page Posts list
+saga-template-name: All post
 ---
 {# PAGE POST PAGE
 ------------------------------------------------
@@ -30,7 +30,7 @@ An example for a landing page for all the posts
       <div class="shadow-lg aspect-video overflow-hidden mb-4">
 
       {# Generate image #}
-        {% set img = item.data.page.inputPath | replace("index.md", item.data.image) %}
+        {% set img = item.data.page.inputPath | replace("index.md", item.image) %}
         {% set css = "rounded-sm" %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}

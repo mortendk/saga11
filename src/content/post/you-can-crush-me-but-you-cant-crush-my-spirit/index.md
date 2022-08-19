@@ -1,22 +1,14 @@
 ---
 title: You can crush me but you can't crush my spirit!
-url: You can crush me but you cant crush my spirit!
-image: mortendk_cyberpunk_girl_typing_on_keyboard_in_futuristic_ea68f511-25e8-43a0-a993-70a701b52001.png
-alt: Runes
+url: post-for-testing
+image: ""
+alt: ""
 teaser: Tell her you just want to talk. It has nothing to do with mating. Do a
   flip! I decline the title of Iron Cook and accept the lesser title of Zinc
   Saucier, which I just made up. Uhh… also, comes with double prize money.
-file:
-  - file:
-      file: index.md
-      title: "download this "
-  - file:
-      file: mortendk_cyberpunk_girl_typing_on_keyboard_in_futuristic_ea68f511-25e8-43a0-a993-70a701b52001.png
-      title: "file file "
+file: []
 tags:
-  - bar
-  - foo
-  - event
+  - test
 date_start: ""
 date_end: ""
 date: 2022-07-10 20:07:20

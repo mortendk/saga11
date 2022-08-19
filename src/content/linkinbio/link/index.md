@@ -1,10 +1,8 @@
 ---
 color: "#2effbb"
-title: "@mortendk"
-url: link
+title: "@profilename"
 image: dungeonmaster.png
 alt: mortendk
-background: spaceship.png
 link:
   - url: https://morten.dk
     label: ""
@@ -12,13 +10,9 @@ link:
     label: 11ty
   - url: https://saga11.dev
     label: saga eleven
-collection: frontpage
 layout: page/link.njk
+background: spaceship.png
+url: link
+collection: frontpage
 ---
-
-Fully Stacked WebDesigner & Web Janitor a[t Theme | Machine](https://thememachine.io)
-
-Freyas Dad,Paint minis, Listen to metal, talk Football & Web development & Nerd Stuff
-
-**Copenhagen**
-/content/linkinbio/link/index.md
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

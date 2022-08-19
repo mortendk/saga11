@@ -53,11 +53,12 @@ collections:
     nested:
       depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
+    summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
     create: true
     delete: true
-    slug: "{{url}}/"
-    path: '{{slug}}/index'
+    slug: "{{url}}/index"
     preview_path: /{{ slug }}/
+    path: '{{slug}}/index'
     media_folder: ''
     public_folder: ''
     editor:
@@ -65,6 +66,7 @@ collections:
 
     # Overview
     sortable_fields: ["title", "order", "date"]
+
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -134,7 +136,7 @@ collections:
 
       # Files
       - label: "Files"
-        name: "files"
+        name: "file"
         widget: "list"
         collapsed: false
         summary: "Image {{fields.image.fields.image}}"
@@ -230,19 +232,20 @@ collections:
   - label: Pages
     label_singular: Page
     name: page
+    description: "Pages are used for landing pages with collections"
     folder: "src/content/page"
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
-    create: true
-    delete: true
     slug: "{{url}}/index"
     preview_path: /{{ slug }}/
     path: '{{slug}}/index'
+    create: true
+    delete: true
     media_folder: ''
     public_folder: ''
-
     # Overview
+    summary: "/{{url}}/ Title : {{title}}"
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
     sortable_fields: ["title", "order", "date"]
     view_filters:
       - label: Drafts
@@ -274,7 +277,6 @@ collections:
         buttons:
           - bold
           - italic
-          - heading-one
           - heading-two
           - heading-three
           - code

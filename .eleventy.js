@@ -28,6 +28,7 @@ async function image(
   urlpathprefix = "" //if we want fullpath urls
 ) {
   if (fs.existsSync(img)) {
+    // console.log(`image function called ${img}`);
     src = img;
     let metadata = await Image(src, {
       widths: width,

@@ -1,14 +1,11 @@
 ---
-title: Spare me your space age technobabble, Attila the Hun!
-url: Spare me your space age technobabble Attila the Hun!
-image: mortendk_cyberpunk_hacker_girl_on_motorcycle_in_the_rain_a5693ff3-5c82-4b14-83e0-b0d18840c9e7.png
-alt: Viking with axe
-teaser: And remember, don't do anything that affects anything, unless it turns
-  out you were supposed to, in which case, for the love of God, don't not do it!
-  All I want is to be a monkey of moderate intelligence who wears a suit… that's
-  why I'm transferring to business school!
+title: cyberpunk
+url: cyberpunk
+image: ""
+alt: "cyberpunk image from "
+teaser: This is a teaser text that is pulled from the this post
 tags:
-  - foo
+  - test
 date_start: ""
 date_end: ""
 date: 2022-07-15 19:52:11
@@ -16,7 +13,6 @@ layout: post/post.njk
 order: 1
 eleventyExcludeFromCollections: false
 ---
-
 # Spare me your space age technobabble, Attila the Hun!
 
 And remember, don't do anything that affects anything, unless it turns out you were supposed to, in which case, for the love of God, don't not do it! All I want is to be a monkey of moderate intelligence who wears a suit… that's why I'm transferring to business school!
@@ -27,6 +23,6 @@ Bender, we're trying our best. Enough about your promiscuous mother, Hermes! We 
 
 I'll get my kit! As an interesting side note, as a head without a body, I envy the dead. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. She also liked to shut up!
 
-1. I was having the most wonderful dream. Except you were there, and you were there, and you were there!
-2. Fetal stemcells, aren't those controversial?
-3. Hi, I'm a naughty nurse, and I really need someone to talk to. $9.95 a minute.
+* I was having the most wonderful dream. Except you were there, and you were there, and you were there!
+* Fetal stemcells, aren't those controversial?
+* Hi, I'm a naughty nurse, and I really need someone to talk to. $9.95 a minute.

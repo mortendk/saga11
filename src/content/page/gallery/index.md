@@ -1,13 +1,13 @@
 ---
 title: Image galllery
 url: gallery
-image: mortendk_space_ship_movie_poster_52190f31-a366-4d04-a96f-cd36a8a00db0.png
+image: ""
 alt: Woman in front of fire
 teaser: "This is an example of an image gallery and with all other things in it "
 gallery:
   - image:
       image: veeterzy-sMQiL_2v4vs-unsplash.jpg
-      figcaption: https://unsplash.com/photos/sMQiL_2v4vs
+      figcaption: ""
       title: Tree in forest of plants
   - image:
       image: maikel-oosterink-n_-j5nounwe-unsplash.jpg
