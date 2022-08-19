@@ -13,12 +13,14 @@ An example for a landing page for all the posts
 {% include "nav/tags.njk" %}
 
 {# Generate image #}
+{% if image %}
   {% set img = page.inputPath | replace("index.md", image) %}
   {% set css = "shadow rounded-lg" %}
   {% set srcset = [400,800, 1600] %}
   {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
   {% set loading = "eager" %}
   {% image img, srcset, sizes, format, alt,css, loading %}
+{% endif %}
 {# / Generate image #}
 
 <section class="grid md:grid-cols-3 gap-4">
@@ -30,12 +32,14 @@ An example for a landing page for all the posts
       <div class="shadow-lg aspect-video overflow-hidden mb-4">
 
       {# Generate image #}
+      {% if item.image %}
         {% set img = item.data.page.inputPath | replace("index.md", item.image) %}
         {% set css = "rounded-sm" %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "lazy" %}
         {% image img, srcset, sizes, format, alt,css, loading %}
+      {% endif %}
       {# / Generate image #}
 
       </div>

@@ -13,6 +13,7 @@ Template for the frontpage
 <section class="relative">
 
   {# Generate image #}
+  {% if image %}
     {% set img = page.inputPath | replace("index.md", image) %}
     {% set css = "shadow rounded-lg" %}
     {% set format = [webp] %}
@@ -20,6 +21,7 @@ Template for the frontpage
     {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
     {% set loading = "eager" %}
     {% image img, srcset, sizes, format, alt,css, loading %}
+  {% endif %}
   {# / Generate image #}
 
   <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">

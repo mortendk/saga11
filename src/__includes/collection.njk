@@ -25,6 +25,7 @@ https://www.11ty.dev/docs/collections/
       <div class= "aspect-video overflow-hidden">
 
       {# Generate image #}
+      {% if item.image %}
         {% set img = item.data.page.inputPath | replace("index.md", item.image) %}
         {% set css = "rounded-sm" %}
         {% set format = [webp] %}
@@ -32,6 +33,7 @@ https://www.11ty.dev/docs/collections/
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "lazy" %}
         {% image img, srcset, sizes, format, alt,css, loading %}
+      {% endif %}
       {# / Generate image #}
 
       </div>

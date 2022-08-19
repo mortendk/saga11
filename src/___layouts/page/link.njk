@@ -22,6 +22,7 @@ This page layout is used for the link in bio type
 
     <div class="center-center">
     {# Generate image #}
+    {% if image %}
       {% set img = page.inputPath | replace("index.md", image) %}
       {% set css = "aspect-squre shadow rounded-full w-40 border-4 border-red-400" %}
       {% set format = [webp] %}
@@ -29,6 +30,7 @@ This page layout is used for the link in bio type
       {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
       {% set loading = "eager" %}
       {% image img, srcset, sizes, format, alt,css, loading %}
+    {% endif %}
     {# / Generate image #}
     </div>
 

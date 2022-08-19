@@ -82,32 +82,33 @@
         :class="isSliderOpen ? 'aspect-video justify-center items-center' : 'aspect-square'"
         >
 
-      {# Generate image #}
-        {% set img = page.inputPath | replace("index.md", item.image.image) %}
-        {% set css = "rounded-sm" %}
-        {% set format = [webp] %}
-        {% set srcset = [400,800, 1600] %}
-        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-        {% if loop.index =='1' %}
-          {% set loading = 'eger' %}
-        {% else  %}
-          {% set loading = 'lazy' %}
-        {% endif %}
-        {% image img, srcset, sizes, format, alt,css, loading %}
-      {# / Generate image #}
-
-
-          {# title and text #}
-          {% if item.image.title or item.image.figcaption %}
-            <div class="hidden absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
-              <div class="text-3xl">{{ item.image.title}}</div>
-              <div class="text-lg">{{ item.image.figcaption}}</div>
-            </div>
+        {# Generate image #}
+        {% if item.image.image %}
+          {% set img = page.inputPath | replace("index.md", item.image.image) %}
+          {% set css = "rounded-sm" %}
+          {% set format = [webp] %}
+          {% set srcset = [400,800, 1600] %}
+          {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+          {% if loop.index =='1' %}
+            {% set loading = 'eger' %}
+          {% else  %}
+            {% set loading = 'lazy' %}
           {% endif %}
+          {% image img, srcset, sizes, format, alt,css, loading %}
+        {% endif %}
+        {# / Generate image #}
+
+        {# title and text #}
+        {% if item.image.title or item.image.figcaption %}
+          <div class="hidden absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
+            <div class="text-3xl">{{ item.image.title}}</div>
+            <div class="text-lg">{{ item.image.figcaption}}</div>
+          </div>
+        {% endif %}
 
         </div>
       {% endfor %}
-      {# images done  #}
+      {# / images   #}
 
     </div>
 
@@ -118,16 +119,15 @@
       <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
         class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none"
-        type="button"
-      >
+        type="button">
         <span class="sr-only">Link to image {{ loop.index }}</span>
-      {{ loop.index }}
-
+        {{ loop.index }}
       </button>
 
     {% endfor %}
   </nav>
 </div>
+
   </section>
 
 {% endif %}
