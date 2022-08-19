@@ -8,6 +8,7 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+
 <article class="" aria-label="Page">
 
   <h1 class="font-serif text-8xl">{{ title }}</h1>
@@ -31,3 +32,5 @@ This is the default template for the page type
 
   {% include "collection.njk" %}
 </article>
+
+

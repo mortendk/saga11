@@ -14,6 +14,20 @@ post template
 
     <h1 class="text-5xl">{{ title }}</h1>
 
+    {# Generate image #}
+      {% if image %}
+        {% set img = page.inputPath | replace("index.md", image) %}
+        {% set css = "shadow" %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% set loading = "eager" %}
+        <div class="aspect-video overflow-hidden">
+          {% image img, srcset, sizes, format, alt,css, loading %}
+        </div>
+      {% endif %}
+    {# / Generate image #}
+
+
     <footer class="mb-4">
 
     {%- for tag in tags | filtertags -%}

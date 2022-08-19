@@ -1,28 +1,26 @@
 ---
-title: Image galllery
+title: "Gallery page test "
 url: gallery
-image: ""
-alt: Woman in front of fire
-teaser: "This is an example of an image gallery and with all other things in it "
+image: image1.png
+alt: Alt text
+teaser: "This is an example of an image gallery"
 gallery:
   - image:
-      image: veeterzy-sMQiL_2v4vs-unsplash.jpg
-      figcaption: ""
+      image: image1.png
       title: Tree in forest of plants
   - image:
-      image: maikel-oosterink-n_-j5nounwe-unsplash.jpg
+      image: image2.png
   - image:
-      image: carla-santiago-7moqzyxa-o0-unsplash.jpg
+      image: image3.png
   - image:
-      image: vera-gorbunova-cNcSBya05FU-unsplash.jpg
+      image: image4.png
   - image:
-      image: gioele-fazzeri-wkjn8q-b2ak-unsplash.jpg
+      image: image5.png
   - image:
-      image: steinar-engeland-sgyh_ix9lne-unsplash.jpg
+      image: image6.png
 tags:
   - frontpage
   - menu
-collection: null
 layout: page/page.njk
 order: 20
 menulabel: Gallery

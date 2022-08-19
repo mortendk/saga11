@@ -8,13 +8,17 @@ Uses the page templates include the contactform
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/contact.njk  -->{%- endif -%}
 
+<div class="grid grid-cols-2 gap-4">
+  <div class="">
+    {{ content | safe}}
 
-<div class="wysiwyg">
-  {{ content | safe}}
+    {{ site.adress }} {{ site.zip}}
+  </div>
+  <div>
+    {% include "contactform.njk" %}
+  </div>
+
 </div>
 
-{% include "contactform.njk" %}
 
-{# todo: link to maps #}
 
-{{ site.adress }} {{ site.zip}}

@@ -2,7 +2,7 @@
 title: Contact
 url: contact
 image: ""
-alt: Huginn & Muginn
+alt:
 teaser: ""
 tags:
   - menu
