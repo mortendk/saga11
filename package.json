@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
-    "tw:watch": "npx tailwindcss -c src/__tailwind/_tailwind.config.js -i src/__tailwind/tailwind.css -o src/assets/css/style.css --watch",
-    "tw:build": "npx tailwindcss -c src/__tailwind/_tailwind.config.js -i src/__tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
+    "tw:watch": "npx tailwindcss -i src/__tailwind/tailwind.css -o src/assets/css/style.css --watch",
+    "tw:build": "npx tailwindcss -i src/__tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug ",
     "cleanup": "rm -rf _site",
@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "^2.0.0-canary.15",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
@@ -34,8 +34,6 @@
   "dependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",
     "calendar-link": "^2.2.0",
-    "cross-var": "^1.1.0",
-    "dotenv": "^16.0.1",
     "dotenv-cli": "^6.0.0",
     "html-minifier": "^4.0.0",
     "netlify-plugin-cache": "^1.0.3",

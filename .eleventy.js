@@ -9,29 +9,37 @@ const Image = require("@11ty/eleventy-img");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
-// TODO: the image shortcut is cumbersome but "works(tm)" aka need some <3
-// {% image item.data.image, [100,300, 600],"(min-width: 30em) 50vw, 100vw",['webp'],"item.data.image,"css","lazy/eager" %}
-// {% image item.data.image, [100],"",['webp'] %}
+// {% set img = page.inputPath | replace("index.md", image) %}
+// {% set css = "shadow rounded-lg" %}
+// {% set format = [webp] %}
+// {% set srcset = [400,800, 1600] %}
+// {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+// {% set loading = "eager" %}
+// {% image img, srcset, sizes, format, alt,css, loading %}
+
 async function image(
   img,
-  width = [300, 600, 1200],
-  sizes = "(min-width: 30em) 50vw, 100vw",
-  format = ["webp", "jpeg"],
-  alt = "image",
+  width = "[400,800, 1200]",
+  sizes = "(min-width: 1200px) 50vw, 100vw",
+  format = ["webp"],
+  alt = "",
   css,
   loading = "lazy",
   urlpathprefix = "" //if we want fullpath urls
 ) {
-  if (img == null) {
-    // console.log("dude wheres my image ?");
-  } else {
-    src = "src/" + img;
+  if (fs.existsSync(img)) {
+    // console.log(`image function called ${img}`);
+    src = img;
     let metadata = await Image(src, {
       widths: width,
       formats: format,
-      // widths: [300, 800, 1600],
       outputDir: "_site/img/", // seind image directly to the site build
       urlPath: urlpathprefix + "/img/",
+      cacheOptions: {
+        duration: "1d",
+        directory: ".cache",
+        removeUrlQueryParams: false,
+      },
       filenameFormat: function (id, src, width, format, options) {
         const extension = path.extname(src);
         const name = path.basename(src, extension);
@@ -50,48 +58,21 @@ async function image(
     return Image.generateHTML(metadata, imageAttributes, {
       whitespaceMode: "inline",
     });
+  } else {
+    // console.log(`image function called but: ${img} dont exist`);
+    return `<!-- image function called but: ${img} -->`;
   }
 }
 
+//
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
+// <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div>
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
-  src = "src/" + img;
-  let metadata = await Image(src, {
-    widths: [width],
-    formats: [format],
-    // widths: [300, 800, 1600],
-    outputDir: "_site/img/", // we push this image directly to the site build
-    urlPath: "/img/",
-    filenameFormat: function (id, src, width, format, options) {
-      const extension = path.extname(src);
-      const name = path.basename(src, extension);
-      return `${name}-${width}w.${format}`;
-    },
-  });
-
-  let backgroundimg;
-  if (format == "jpeg") {
-    backgroundimg = metadata.jpeg[0].url;
-  } else if (format == "png") {
-    backgroundimg = metadata.png[0].url;
-  } else if (format == "gif") {
-    backgroundimg = metadata.gif[0].url;
-  } else {
-    backgroundimg = metadata.webp[0].url;
-  }
-  return `style="background-image: url(${backgroundimg})"`;
-}
-
-// {% imageurl "image", “size”, "gif”  %}
-async function imageurl(img, width = "1200", format = "webp") {
-  if (img == null) {
-    // console.log("dude wheres my image ?");
-  } else {
-    src = "src/" + img;
+  if (fs.existsSync(img)) {
+    src = img;
     let metadata = await Image(src, {
       widths: [width],
       formats: [format],
-      // widths: [300, 800, 1600],
       outputDir: "_site/img/", // we push this image directly to the site build
       urlPath: "/img/",
       filenameFormat: function (id, src, width, format, options) {
@@ -111,7 +92,43 @@ async function imageurl(img, width = "1200", format = "webp") {
     } else {
       backgroundimg = metadata.webp[0].url;
     }
+    return `style="background-image: url(${backgroundimg})"`;
+  } else {
+    // return `<!-- image function on ${fileCall}  cant find the image: ${img} -->`;
+  }
+}
+
+// used for opengraph
+// {% imageurl page.inputPath | replace("index.md", image),
+async function imageurl(img, width = "1200", format = "webp") {
+  if (fs.existsSync(img)) {
+    src = img;
+    let metadata = await Image(src, {
+      widths: [width],
+      formats: [format],
+      outputDir: "_site/img/",
+      urlPath: "/img/",
+      filenameFormat: function (id, src, width, format, options) {
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+        return `${name}-${width}w.${format}`;
+      },
+    });
+
+    let backgroundimg;
+    if (format == "jpeg") {
+      backgroundimg = metadata.jpeg[0].url;
+    } else if (format == "png") {
+      backgroundimg = metadata.png[0].url;
+    } else if (format == "gif") {
+      backgroundimg = metadata.gif[0].url;
+    } else {
+      backgroundimg = metadata.webp[0].url;
+    }
     return env.url + backgroundimg;
+  } else {
+    // let fileCall = this.page.inputPath;
+    // return `<!-- image function on ${fileCall}  cant find the image: ${img} -->`;
   }
 }
 
@@ -122,7 +139,7 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", image);
-  eleventyConfig.addNunjucksAsyncShortcode("imageBackgroundStyle", imagebackgroundstyle);
+  eleventyConfig.addNunjucksAsyncShortcode("imagebackgroundstyle", imagebackgroundstyle);
   eleventyConfig.addNunjucksAsyncShortcode("imageurl", imageurl);
   eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
@@ -152,25 +169,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  // Browser config - set 404 page
-  eleventyConfig.setBrowserSyncConfig({
-    // Open browser by default
-    open: true,
-    callbacks: {
-      ready: function (err, bs) {
-        bs.addMiddleware("*", (req, res) => {
-          const content_404 = fs.readFileSync("_site/404.html");
-          // Add 404 http status code in request header.
-          res.writeHead(404, { "Content-Type": "text/html; charset=UTF-8" });
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          res.end();
-        });
-      },
-    },
-  });
+  eleventyConfig.addNunjucksGlobal("saga11version", "beta 1 ");
 
-  // -----------------------------------------------------------------
   // Directory setup
   return {
     markdownTemplateEngine: "njk",

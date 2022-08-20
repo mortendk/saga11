@@ -10,6 +10,11 @@
     <meta name="theme-color" content="{{site.color}}">
     <link rel="author" href="humans.txt"/>
 
+    {# pinterest #}
+    {% if some.pinterest_verification %}
+      <meta name="p:domain_verify" content="{{ some.pinterest_verification}}"/>
+    {% endif %}
+
     {%- include "head/opengraph.njk" -%}
     {%- include "head/icon.njk" -%}
     {%- include "head/splashscreens.njk" -%}
@@ -32,8 +37,9 @@
   </head>
   {# isModalOpen is used to test if theres a modal open then disable the scroll #}
   <body class="flex flex-col h-screen bg-slate-100"
-  x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false"
-  :class="isModalOpen ? 'overflow-y-hidden':''">
+        x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false"
+        :class="isModalOpen ? 'overflow-y-hidden':''"
+  >
 
     {{ content | safe }}
 

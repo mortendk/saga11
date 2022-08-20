@@ -1,7 +1,7 @@
 {
   "zip": "1669",
-  "humantxt": "/* TEAM */\nMorten Birch aka mortendk\nFrom: Copenhagen, Denmark.\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty, Vanilla js, Tailwind 3\n\n/* Software + Assets */\nvscode: https://code.visualstudio.com\nresponsively: https://responsively.app\n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\nhttps://vanilla-js.com\n\nImages:\nhttps://unsplash.com/\nhttps://heroicons.com/\n",
-  "color": "#11c5e4",
+  "humantxt": "/* TEAM */\nMorten Birch aka mortendk\nFrom: Copenhagen, Denmark.\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty, Vanilla js, Tailwind 3\n\n/* Software + Assets */\nvscode: https://code.visualstudio.com\nresponsively: https://responsively.app\n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\nhttps://vanilla-js.com\n\nImages:\nhttps://heroicons.com/\n",
+  "color": "#3a5961",
   "keywords": "11ty, netlifycms, flatfile cms",
   "authoremail": "foo@saga11.dev",
   "adress": "flensborgade 32 ",
@@ -9,5 +9,5 @@
   "errorpage": "ush It haz broken",
   "title": "Saga Eleven",
   "footer": "[saga11.dev](saga11.dev)\n",
-  "description": "Flatfile based cms based on 11ty and netlifycms "
+  "description": "Flatfile based cms based on 11ty "
 }

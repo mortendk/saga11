@@ -14,6 +14,20 @@ post template
 
     <h1 class="text-5xl">{{ title }}</h1>
 
+    {# Generate image #}
+      {% if image %}
+        {% set img = page.inputPath | replace("index.md", image) %}
+        {% set css = "shadow" %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% set loading = "eager" %}
+        <div class="aspect-video overflow-hidden">
+          {% image img, srcset, sizes, format, alt,css, loading %}
+        </div>
+      {% endif %}
+    {# / Generate image #}
+
+
     <footer class="mb-4">
 
     {%- for tag in tags | filtertags -%}
@@ -29,15 +43,6 @@ post template
 
   </footer>
 
-  {# image #}
-  {% if image %}
-    {% image image, [400,800, 1200],"(min-width: 30em) 50vw, 100vw",['webp'],alt,'','eager' %}
-  {% endif %}
-
-  {# calendar #}
-  {% if date_start %}
-    {% include "calendar.njk" %}
-  {% endif %}
 
   <div class="wysiwyg">
     {{ content | safe }}
@@ -52,13 +57,23 @@ post template
   </div>
   {# sidebar #}
   <div class="md:w-1/3 md:ml-4">
+
+
+    {# calendar #}
+    {% if date_start %}
+      {% include "calendar.njk" %}
+    {% endif %}
+
+    {% include "share.njk" %}
+
+    Sidebars:
     {# list of post #}
     {% include "nav/posts.njk" %}
 
     {# List of tags #}
     {% include "nav/tags.njk" %}
 
-        {% include "nav/pages.njk" %}
+    {% include "nav/pages.njk" %}
   </div>
 
 </article>

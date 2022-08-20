@@ -10,26 +10,32 @@ https://www.11ty.dev/docs/collections/
 
 {# collection  #}
 {% if collection %}
+
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
 {% for item in collections[collection] | sortByOrder %}
+
   {# for debugging measure shows us where this data is coming from  #}
-  {%- if env.mode != 'prod' %}<!-- input path: {{ item.inputPath }}  -->{%- endif -%}
+  {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+
 
   <article class="p-4 shadow border rounded" aria-label="Post {{ item.data.title}}" >
 
     <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">{{item.data.title}}
       <div class= "aspect-video overflow-hidden">
-        {# set first image to be eager loaded #}
-        {% if loop.index == "1" %}
-          {% set load = "eager" %}
-        {% else %}
-          {% set load = "lazy" %}
-        {% endif %}
 
-        {% if item.data.image %}
-          {% image item.data.image, [500,800],"(min-width: 30em) 50vw, 33vw",['webp'],item.data.alt,"shadow",load %}
+      {# Generate image #}
+      {% if item.data.image %}
+        {% set img = item.data.page.inputPath | replace("index.md", item.data.image) %}
+        {% set css = "rounded-sm" %}
+        {% set format = [webp] %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% set loading = "lazy" %}
+        {% image img, srcset, sizes, format, alt,css, loading %}
       {% endif %}
+      {# / Generate image #}
+
       </div>
     </a>
     <div class="mt-2">

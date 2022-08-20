@@ -1,3 +1,3 @@
 ---
-title: event new name
+title: Event
 ---

@@ -24,8 +24,8 @@ Global header for the site
 <meta property="og:url" content="{{ ogurl }}">
 <meta property="og:description" content="{{ ogdescription }}">
 <meta property="og:type" content="website">
-{% if title and  page.url != '/' %}
-<meta property="og:image" content="{% imageurl image, '1200' %}">
+{% if title and  page.url != '/' and image %}
+<meta property="og:image" content="{% imageurl page.inputPath | replace("index.md", image), '1200' %}">
 {% else %}
 <meta property="og:image" content="{{ env.url }}/assets/opengraph/facebook.jpg">
 {% endif %}
@@ -37,12 +37,8 @@ Global header for the site
 <meta name="twitter:site" content="@{{some.twitter}}">
 <meta name="twitter:title" content="{{ ogtitle }}">
 <meta name="twitter:description" content="{{ ogdescription }}">
-{% if title and  page.url != '/' %}
-<meta name="twitter:image" content="{% imageurl image, '1200' %}">
+{% if title and  page.url != '/' and image  %}
+<meta name="twitter:image" content="{% imageurl page.inputPath | replace("index.md", image), '1200' %}">
 {% else %}
 <meta name="twitter:image" content="{{ env.url }}/assets/opengraph/twitter.jpg">
 {% endif %}
-
-
-
-

@@ -28,7 +28,6 @@ logo_url: https://editorial-config.saga11.dev/assets/icon/icon-apple-touch.png
 display_url: https://editorial-config.saga11.dev
 {% endif %}
 
-
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
 media_folder: "src/images"
@@ -54,19 +53,20 @@ collections:
     nested:
       depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
-    # folder/index creates a folder structure
-    # {{year}}-{{month}}/{{title}}/index
-    # {{tags}}/{{title}}/index
-    slug: "/{{ url }}/index"
-    #preview_path must match the settings from post.json permalink
-    preview_path: post/{{ slug }}
+    summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
     create: true
     delete: true
+    slug: "{{url}}/index"
+    preview_path: /{{ slug }}/
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
     editor:
       preview: false
 
     # Overview
     sortable_fields: ["title", "order", "date"]
+
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -90,6 +90,7 @@ collections:
           name: "image",
           widget: "image",
           required: false,
+          choose_url: false,
           hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
         }
       - { label: "Image alt", name: "alt", widget: "string", required: false }
@@ -100,6 +101,7 @@ collections:
         buttons:
           - bold
           - italic
+          - heading-one
           - heading-two
           - heading-three
           - code
@@ -126,10 +128,33 @@ collections:
                   label: image,
                   name: image,
                   widget: image,
+                  choose_url: false,
                   hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
                 }
               - { label: title, name: title, widget: string, required: false }
               - { label: Description, name: figcaption, widget: text, required: false }
+
+      # Files
+      - label: "Files"
+        name: "file"
+        widget: "list"
+        collapsed: false
+        summary: "Image {{fields.image.fields.image}}"
+        fields:
+          - label: file
+            name: file
+            widget: object
+            summary: "{{fields.file}}: {{fields.title}}"
+            fields:
+              - {
+                  label: file,
+                  name: file,
+                  widget: file,
+                  choose_url: true,
+                  required: false
+                }
+              - { label: title, name: title, widget: string, required: false }
+
 
       # Tags
       - name: tags
@@ -207,16 +232,20 @@ collections:
   - label: Pages
     label_singular: Page
     name: page
+    description: "Pages are used for landing pages with collections"
     folder: "src/content/page"
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
-    create: true
-    delete: true
     slug: "{{url}}/index"
     preview_path: /{{ slug }}/
-
+    path: '{{slug}}/index'
+    create: true
+    delete: true
+    media_folder: ''
+    public_folder: ''
     # Overview
+    summary: "/{{url}}/ Title : {{title}}"
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
     sortable_fields: ["title", "order", "date"]
     view_filters:
       - label: Drafts
@@ -226,8 +255,6 @@ collections:
       - label: Tags
         field: tags
 
-    # media_folder: ''
-    # public_folder: ''
     editor:
       preview: false
 
@@ -239,6 +266,7 @@ collections:
           name: "image",
           widget: "image",
           required: false,
+          choose_url: false,
           hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
         }
       - { label: "alt", name: "alt", widget: "string", required: false }
@@ -272,7 +300,7 @@ collections:
             widget: object
             summary: "{{fields.image}}: {{fields.title}}"
             fields:
-              - { label: image, name: image, widget: image, choose_url: false }
+              - { label: image, name: image, widget: image, choose_url: false}
               - { label: title, name: title, widget: string, required: false }
               - { label: Description, name: figcaption, widget: text, required: false }
 
@@ -330,6 +358,83 @@ collections:
         }
 
   # -----------------------------------------------------------------
+  # Collection Link In Bio
+  # -----------------------------------------------------------------
+  - label: Link in bio Pages
+    label_singular: linkinbio
+    name: linkinbio
+    folder: "src/content/linkinbio"
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
+    create: true
+    delete: true
+    slug: "{{url}}/index"
+    preview_path: /link/{{ slug }}/
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+
+
+    # Overview
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    # media_folder: ''
+    # public_folder: ''
+    editor:
+      preview: false
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
+      - { label: "url", name: "url", widget: "string", default: "link" }
+      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
+      - { label: "alt", name: "alt", widget: "string", required: false }
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-two
+          - heading-three
+          - link
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+      # Link
+      - label: "Link"
+        name: "link"
+        collapsed: false
+        minimize_collapsed: true
+        widget: "list"
+        fields:
+          - {label: link, name: url, widget: string, default: "https://", required: false}
+          - {label: text, name: label, widget: string, required: false }
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields:
+          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        required: false
+        default: "page/link.njk"
+
+
+
+  # -----------------------------------------------------------------
   # System pages
   # -----------------------------------------------------------------
   - label: "System pages"
@@ -342,13 +447,6 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
-          - {
-              label: "Image",
-              name: "image",
-              widget: "image",
-              required: false,
-              hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-            }
           - { label: "alt", name: "alt", widget: "string", required: false }
 
   # -----------------------------------------------------------------
@@ -435,6 +533,14 @@ collections:
         file: "src/data/some.json"
         fields:
           - {
+              label: "rss feed",
+              name: rss,
+              widget: boolean,
+              required: false,
+              hint: "/feed.xml",
+            }
+
+          - {
               label: facebook,
               name: facebook,
               widget: string,
@@ -442,11 +548,33 @@ collections:
               hint: "https://www.facebook.com/...",
             }
           - {
+              label: youtube,
+              name: youtube,
+              widget: string,
+              required: false,
+              hint: "https://www.youtube.com/...",
+            }
+
+          - {
               label: twitter,
               name: twitter,
               widget: string,
               required: false,
               hint: "https://www.twitter.com/...",
+            }
+          - {
+              label: pinterest,
+              name: pinterest,
+              widget: string,
+              required: false,
+              hint: "https://www.pinterest.com/...",
+            }
+          - {
+              label: pinterest_verification,
+              name: pinterest_verification,
+              widget: string,
+              required: false,
+              hint: "can be found on https://www.pinterest.dk/settings/claim",
             }
           - {
               label: linkedin,
