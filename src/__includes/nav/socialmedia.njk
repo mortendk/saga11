@@ -108,9 +108,10 @@ Graps all the data thats added to the _data/some.json file
   {% endif %}
 
   {% if some.pinterest %}
-    <a href="https://pinterest.com/{{ some.pinterest }}"   target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+
+    <a href="https://pinterest.com/{{ some.pinterest }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">pinterest</span>
-      pinterest
+      {% include "svg/pinterest.svg" %}
     </a>
   {% endif %}
 
