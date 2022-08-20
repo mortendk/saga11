@@ -27,7 +27,7 @@
           type="button" aria-label="Previous"
           :class="isSliderOpen ? 'md:hidden' : 'md:block'"
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 left-2 z-10 -translate-y-1/2">
-      {% include "svg/left.njk" %}
+      {% include "svg/left.svg" %}
     </button>
 
     <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
@@ -35,7 +35,7 @@
           type="button" aria-label="Previous"
           :class="isSliderOpen ? 'md:hidden' : 'md:block'"
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
-      {% include "svg/right.njk" %}
+      {% include "svg/right.svg" %}
     </button>
 
     {# item links #}
@@ -61,10 +61,10 @@
           class="hidden md:block w-6 h-6 text-white z-10 absolute right-2 top-2"
           @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
       <span x-show="isSliderOpen">
-        {% include "svg/close.njk" %}
+        {% include "svg/close.svg" %}
       </span>
       <span x-show="!isSliderOpen">
-        {% include "svg/open.njk" %}
+        {% include "svg/open.svg" %}
       </span>
     </button>
 

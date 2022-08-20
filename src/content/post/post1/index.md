@@ -16,10 +16,12 @@ date: 2022-08-09 19:31:03
 layout: post/post.njk
 eleventyExcludeFromCollections: false
 ---
+
 Space ship people get up from sleeping coffin and have eat.
 Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 
 ## Embed Test
+
 this is a link by default [saga11.dev](https://saga11.dev)
 
 ## Markup
@@ -38,7 +40,7 @@ this is a link by default [saga11.dev](https://saga11.dev)
     title="{{ previousPost.data.title }}"
     class="flex w-full flex-row items-center"
   >
-    <div class="w-8 text-black">{% include "svg/left.njk" %}</div>
+    <div class="w-8 text-black">{% include "svg/left.svg" %}</div>
     <div>{{ previousPost.data.title }}</div>
   </a>
   {% endif %} {# Next linl #} {%- if nextPost %}
@@ -48,7 +50,7 @@ this is a link by default [saga11.dev](https://saga11.dev)
     class="flex w-full flex-row items-center justify-end"
   >
     <div>{{ nextPost.data.title }}</div>
-    <div class="w-8 text-black">{% include "svg/right.njk" %}</div>
+    <div class="w-8 text-black">{% include "svg/right.svg" %}</div>
   </a>
   {% endif %} {# /if pre of next #} {%- endif %}
 </nav>
