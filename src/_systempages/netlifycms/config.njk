@@ -45,7 +45,7 @@ collections:
   # -----------------------------------------------------------------
   # Post Collection
   # -----------------------------------------------------------------
-  - name: "posts"
+  - name: "post"
     label_singular: Post
     label: "Posts"
     description: "All Content Posts"
@@ -247,7 +247,7 @@ collections:
     description: "Pages are used for landing pages with collections"
     folder: "src/content/page"
     slug: "{{url}}/index"
-    preview_path: /{{ slug }}/
+    preview_path: /{{url}}/
     path: '{{slug}}'
     create: true
     delete: true

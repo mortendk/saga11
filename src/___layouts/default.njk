@@ -19,10 +19,5 @@ Calls the _base/base.njk that is holding all the basic html
   {{ content | safe }}
 </main>
 
-
-<div class="bg-fuchsia-600 flex space-x-4 justify-center">
-  <div>edit:</div>
-  <a href="{{ page.filePathStem | netlifycmsedit }}" target="_blank" rel="noopener noreferrer nofollow">Netlifycms</a>
-  <a href="#" target="_blank" rel="noopener noreferrer nofollow">github</a>
-</div>
+{%- include "edit.njk" %}
 {%- include "footer.njk" %}

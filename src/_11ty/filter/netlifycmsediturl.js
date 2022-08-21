@@ -11,7 +11,11 @@ module.exports = function (path) {
   folder = contentpath.split("/");
   // test whats the collection is
   if (folder[0]) {
+    url = `/admin/#/collections/${folder[0]}/entries/${folder[1]}/index`;
     // let collection =`admin/#/collections/${folder[0]}/entries/`
-    return `admin/#/collections/${folder[0]}/entries/${folder[1]}/index`;
+    return url;
   }
 };
+// posts vs post
+// http://localhost:8080/admin/#/collections/posts/entries/post3/index
+// http://localhost:8080/admin/#/collections/post/entries/post3/index
