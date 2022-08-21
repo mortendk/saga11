@@ -152,6 +152,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("sortByTitle", require("./src/_11ty/filter/sortByTitle.js"));
   eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
+  eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
 
   // COLLECTIONS
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));

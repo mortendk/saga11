@@ -45,10 +45,10 @@ collections:
   # -----------------------------------------------------------------
   # Post Collection
   # -----------------------------------------------------------------
-  - label: "Posts"
+  - name: "posts"
     label_singular: Post
-    name: "posts"
-    description: "All Posts"
+    label: "Posts"
+    description: "All Content Posts"
     folder: "src/content/post"
     nested:
       depth: 100 # max depth to show in the collection tree
@@ -56,9 +56,8 @@ collections:
     summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
     create: true
     delete: true
-    slug: "{{url}}/index"
-    preview_path: /{{ slug }}/
-    path: '{{slug}}/index'
+    slug: "{{slug}}/index"
+    preview_path: /post/{{url}}/
     media_folder: ''
     public_folder: ''
     editor:
@@ -85,6 +84,19 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Url", name: "url", widget: "string" }
+      - name: folder
+        label: folder
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: true
+        multiple: false
+        hint: "This will select a tag and print teasers on the page"
+
+
+
       - {
           label: "Image",
           name: "image",
@@ -236,7 +248,7 @@ collections:
     folder: "src/content/page"
     slug: "{{url}}/index"
     preview_path: /{{ slug }}/
-    path: '{{slug}}/index'
+    path: '{{slug}}'
     create: true
     delete: true
     media_folder: ''
@@ -452,7 +464,6 @@ collections:
   # -----------------------------------------------------------------
   # Relations Tags
   # -----------------------------------------------------------------
-
   - name: tags
     label_singular: tag
     label: "Tags"
