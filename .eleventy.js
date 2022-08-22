@@ -9,12 +9,6 @@ const Image = require("@11ty/eleventy-img");
 // -----------------------------------------------------------------
 // Shortcuts
 // -----------------------------------------------------------------
-// {% set img = page.inputPath | replace("index.md", image) %}
-// {% set css = "shadow rounded-lg" %}
-// {% set format = [webp] %}
-// {% set srcset = [400,800, 1600] %}
-// {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-// {% set loading = "eager" %}
 // {% image img, srcset, sizes, format, alt,css, loading %}
 
 async function image(
@@ -27,9 +21,8 @@ async function image(
   loading = "lazy",
   urlpathprefix = "" //if we want fullpath urls
 ) {
-  if (fs.existsSync(img)) {
-    // console.log(`image function called ${img}`);
-    src = img;
+  src = "src" + img;
+  if (fs.existsSync(src)) {
     let metadata = await Image(src, {
       widths: width,
       formats: format,
@@ -68,8 +61,8 @@ async function image(
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
 // <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div>
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
-  if (fs.existsSync(img)) {
-    src = img;
+  src = "src" + img;
+  if (fs.existsSync(src)) {
     let metadata = await Image(src, {
       widths: [width],
       formats: [format],
@@ -101,8 +94,8 @@ async function imagebackgroundstyle(img, width = "800", format = "webp") {
 // used for opengraph
 // {% imageurl page.inputPath | replace("index.md", image),
 async function imageurl(img, width = "1200", format = "webp") {
-  if (fs.existsSync(img)) {
-    src = img;
+  src = "src" + img;
+  if (fs.existsSync(src)) {
     let metadata = await Image(src, {
       widths: [width],
       formats: [format],
@@ -152,6 +145,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("sortByTitle", require("./src/_11ty/filter/sortByTitle.js"));
   eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
+  eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
 
   // COLLECTIONS
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
@@ -166,10 +160,15 @@ module.exports = function (eleventyConfig) {
 
   // PassThrough
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/upload");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   eleventyConfig.addNunjucksGlobal("saga11version", "beta 1 ");
+
+  // Local Server
+  eleventyConfig.setServerOptions({
+    port: 8080,
+  });
 
   // Directory setup
   return {

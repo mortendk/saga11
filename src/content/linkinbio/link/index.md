@@ -1,6 +1,7 @@
 ---
 title: "@profilename"
-image: dungeonmaster.png
+url: link
+image: ""
 alt: mortendk
 link:
   - url: https://morten.dk
@@ -10,8 +11,6 @@ link:
   - url: https://saga11.dev
     label: saga eleven
 layout: page/link.njk
-background: spaceship.png
-url: link
 collection: frontpage
 ---
 

@@ -30,8 +30,8 @@ display_url: https://editorial-config.saga11.dev
 
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
-media_folder: "src/images"
-public_folder: "/images"
+media_folder: "src/upload"
+public_folder: "/upload"
 search: true
 # publish_mode: editorial_workflow
 show_preview_links: true
@@ -45,22 +45,20 @@ collections:
   # -----------------------------------------------------------------
   # Post Collection
   # -----------------------------------------------------------------
-  - label: "Posts"
+  - name: "post"
     label_singular: Post
-    name: "posts"
-    description: "All Posts"
+    label: "Posts"
+    description: "All Content Posts"
     folder: "src/content/post"
     nested:
       depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
     summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
+    # summary: "{{title | upper}}  {{date | date('YYYY-MM-DD')}} – {{body | truncate(20, '***')}}"
     create: true
     delete: true
-    slug: "{{url}}/index"
-    preview_path: /{{ slug }}/
-    path: '{{slug}}/index'
-    media_folder: ''
-    public_folder: ''
+    slug: "{{slug}}/index"
+    preview_path: /post/{{url}}/
     editor:
       preview: false
 
@@ -84,7 +82,51 @@ collections:
     # FIELDS
     fields:
       - { label: "Title", name: "title", widget: "string" }
+
+      - name: urlprefix
+        label: urlprefix
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: false
       - { label: "Url", name: "url", widget: "string" }
+
+      # - name: pagefoo
+      #   label: pagefoo
+      #   widget: relation
+      #   collection: page
+      #   searchFields: [title]
+      #   valueField: "{{slug}}"
+      #   display_fields: ["title"]
+      #   required: false
+      #   multiple: false
+
+      # - label: 'Home Section'
+      #   name: 'sections'
+      #   widget: 'list'
+      #   types:
+      #     - label: 'Carousel'
+      #       name: 'carousel'
+      #       widget: object
+      #       summary: '{{fields.header}}'
+      #       fields:
+      #         - { label: Header, name: header, widget: string, default: 'Image Gallery' }
+      #         - { label: Template, name: template, widget: string, default: 'carousel.html' }
+      #         - label: Images
+      #           name: images
+      #           widget: list
+      #           field: { label: Image, name: image, widget: image }
+      #     - label: 'Spotlight'
+      #       name: 'spotlight'
+      #       widget: object
+      #       fields:
+      #         - { label: Header, name: header, widget: string, default: 'Spotlight' }
+      #         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
+      #         - { label: Text, name: text, widget: text, default: 'Hello World' }
+
       - {
           label: "Image",
           name: "image",
@@ -135,25 +177,25 @@ collections:
               - { label: Description, name: figcaption, widget: text, required: false }
 
       # Files
-      - label: "Files"
-        name: "file"
-        widget: "list"
-        collapsed: false
-        summary: "Image {{fields.image.fields.image}}"
-        fields:
-          - label: file
-            name: file
-            widget: object
-            summary: "{{fields.file}}: {{fields.title}}"
-            fields:
-              - {
-                  label: file,
-                  name: file,
-                  widget: file,
-                  choose_url: true,
-                  required: false
-                }
-              - { label: title, name: title, widget: string, required: false }
+      # - label: "Files"
+      #   name: "files"
+      #   widget: "list"
+      #   collapsed: false
+      #   summary: "Image {{fields.image.fields.image}}"
+      #   fields:
+      #     - label: file
+      #       name: file
+      #       widget: object
+      #       summary: "{{fields.file}}: {{fields.title}}"
+      #       fields:
+      #         - {
+      #             label: file,
+      #             name: file,
+      #             widget: file,
+      #             choose_url: true,
+      #             required: false
+      #           }
+      #         - { label: title, name: title, widget: string, required: false }
 
 
       # Tags
@@ -235,14 +277,12 @@ collections:
     description: "Pages are used for landing pages with collections"
     folder: "src/content/page"
     slug: "{{url}}/index"
-    preview_path: /{{ slug }}/
-    path: '{{slug}}/index'
+    preview_path: /{{url}}/
+    path: '{{slug}}'
     create: true
     delete: true
-    media_folder: ''
-    public_folder: ''
     # Overview
-    summary: "/{{url}}/ Title : {{title}}"
+    summary: "{{title}} [url: {{url}}]"
     nested:
       depth: 5 # max depth to show in the collection tree
       summary: "{{title}}"
@@ -364,17 +404,11 @@ collections:
     label_singular: linkinbio
     name: linkinbio
     folder: "src/content/linkinbio"
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}" # optional summary for a tree node, defaults to the inferred title field
     create: true
     delete: true
     slug: "{{url}}/index"
     preview_path: /link/{{ slug }}/
-    path: '{{slug}}/index'
-    media_folder: ''
-    public_folder: ''
-
+    path: '{{slug}}'
 
     # Overview
     sortable_fields: ["title", "order", "date"]
@@ -385,9 +419,6 @@ collections:
     view_groups:
       - label: Tags
         field: tags
-
-    # media_folder: ''
-    # public_folder: ''
     editor:
       preview: false
 
@@ -433,7 +464,6 @@ collections:
         default: "page/link.njk"
 
 
-
   # -----------------------------------------------------------------
   # System pages
   # -----------------------------------------------------------------
@@ -452,7 +482,6 @@ collections:
   # -----------------------------------------------------------------
   # Relations Tags
   # -----------------------------------------------------------------
-
   - name: tags
     label_singular: tag
     label: "Tags"

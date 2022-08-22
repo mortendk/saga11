@@ -1,23 +1,8 @@
 ---
 title: "Gallery page test "
 url: gallery
-image: image1.png
 alt: Alt text
-teaser: "This is an example of an image gallery"
-gallery:
-  - image:
-      image: image1.png
-      title: Tree in forest of plants
-  - image:
-      image: image2.png
-  - image:
-      image: image3.png
-  - image:
-      image: image4.png
-  - image:
-      image: image5.png
-  - image:
-      image: image6.png
+teaser: This is an example of an image gallery
 tags:
   - frontpage
   - menu

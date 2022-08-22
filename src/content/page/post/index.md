@@ -1,7 +1,7 @@
 ---
 title: All Post
 url: post
-image: midnight.png
+image: ""
 alt: Mountains
 teaser: Post from the blog
 tags:

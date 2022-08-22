@@ -8,21 +8,20 @@ post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
-<article class="flex flex-col md:flex-row ">
 
+<article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
     <h1 class="text-5xl">{{ title }}</h1>
 
     {# Generate image #}
       {% if image %}
-        {% set img = page.inputPath | replace("index.md", image) %}
         {% set css = "shadow" %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "eager" %}
         <div class="aspect-video overflow-hidden">
-          {% image img, srcset, sizes, format, alt,css, loading %}
+          {% image image, srcset, sizes, format, alt,css, loading %}
         </div>
       {% endif %}
     {# / Generate image #}
@@ -58,6 +57,11 @@ post template
   {# sidebar #}
   <div class="md:w-1/3 md:ml-4">
 
+    {% for item in files %}
+      <a href="/{{ item.file.file }}">{{ item.file.title }}</a>
+
+
+    {% endfor %}
 
     {# calendar #}
     {% if date_start %}
