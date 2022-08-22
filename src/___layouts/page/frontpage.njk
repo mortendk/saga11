@@ -10,17 +10,17 @@ Template for the frontpage
   <!-- ___layouts/page/frontpage.njk  -->
 {%- endif -%}
 
+
 <section class="relative">
 
 {# Generate image #}
 {% if image %}
-  {% set img = page.inputPath | replace("index.md", image) %}
   {% set css = "shadow rounded-lg" %}
   {% set format = ['webp'] %}
   {% set srcset = [400,800, 1600] %}
   {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
   {% set loading = "eager" %}
-  {% image img, srcset, sizes, format, alt,css, loading %}
+  {% image image, srcset, sizes, format, alt,css, loading %}
 {% endif %}
 {# / Generate image #}
 

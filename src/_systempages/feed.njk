@@ -30,9 +30,8 @@ eleventyExcludeFromCollections: true
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
         {% if item.data.image %}
-        {% set img = item.data.page.inputPath | replace("index.md", item.image) %}
           <![CDATA[
-            {% image img, [640],"",['webp'],'alt','css','nope', env.url %}
+            {% image item.data.image, [640],"",['webp'],'alt','css','nope', env.url %}
           ]]>
         {% endif %}
         {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}

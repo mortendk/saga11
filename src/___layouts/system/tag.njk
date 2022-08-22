@@ -29,13 +29,12 @@ the tag page auto generated from src/systempages/tag.njk
 
       {# Generate image #}
       {% if item.data.image %}
-        {% set img = item.data.page.inputPath | replace("index.md", item.data.image) %}
         {% set css = "rounded-sm" %}
         {% set format = [webp] %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "lazy" %}
-        {% image img, srcset, sizes, format, alt,css, loading %}
+        {% image item.data.image, srcset, sizes, format, alt,css, loading %}
       {% endif %}
       {# / Generate image #}
 

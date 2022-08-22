@@ -84,7 +84,7 @@
 
         {# Generate image #}
         {% if item.image.image %}
-          {% set img = page.inputPath | replace("index.md", item.image.image) %}
+
           {% set css = "rounded-sm" %}
           {% set format = [webp] %}
           {% set srcset = [400,800, 1600] %}
@@ -94,7 +94,7 @@
           {% else  %}
             {% set loading = 'lazy' %}
           {% endif %}
-          {% image img, srcset, sizes, format, alt,css, loading %}
+          {% image item.image.image, srcset, sizes, format, alt,css, loading %}
         {% endif %}
         {# / Generate image #}
 

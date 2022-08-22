@@ -1,7 +1,8 @@
 ---
 title: It will go to eleven - just like the amp
 url: /
-alt: Mountains
+image: /upload/midnight.png
+alt: Midnight
 teaser: I started a sensory deprivation chamber business - it involves really
   dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social
   media. If you were a member of the Bloods and became paralyzed do you then
