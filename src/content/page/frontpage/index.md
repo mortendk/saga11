@@ -1,7 +1,6 @@
 ---
 title: It will go to eleven - just like the amp
 url: /
-image: cyber.png
 alt: Mountains
 teaser: I started a sensory deprivation chamber business - it involves really
   dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social

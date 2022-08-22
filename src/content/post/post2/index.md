@@ -1,12 +1,11 @@
 ---
 title: You can crush me but you can't crush my spirit!
 url: post-for-testing
-image: space.png
+image: /upload/morning.png
 alt: ""
 teaser: Tell her you just want to talk. It has nothing to do with mating. Do a
   flip! I decline the title of Iron Cook and accept the lesser title of Zinc
   Saucier, which I just made up. Uhh… also, comes with double prize money.
-file: []
 tags:
   - test
 date_start: ""
@@ -16,6 +15,7 @@ layout: post/post.njk
 order: ""
 files: index.md
 eleventyExcludeFromCollections: false
+file: []
 ---
 
 # You can crush me but you can't crush my spirit!

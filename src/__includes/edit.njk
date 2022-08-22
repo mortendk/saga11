@@ -1,5 +1,10 @@
-<div class="bg-fuchsia-600 flex space-x-4 justify-center">
+<div class="bg-fuchsia-600 flex space-x-4 justify-center"
+      x-data="{'showEdit': true}"
+      {# x-on:keydown.escape="showEdit=true" #}
+      :class="showEdit ? 'hidden':'block'"
+>
+
   <a href="{{ page.filePathStem | netlifycmsedit }}" target="_blank" rel="noopener noreferrer nofollow">
-    Edit
+    Edit this page
   </a>
 </div>

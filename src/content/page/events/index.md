@@ -1,7 +1,7 @@
 ---
 title: Events
 url: events
-image: morning.png
+image: ""
 teaser: All the events
 tags:
   - frontpage

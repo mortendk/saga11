@@ -1,7 +1,7 @@
 ---
 title: cyberpunk
 url: cyberpunk
-image: image.png
+image: /upload/space.png
 alt: "cyberpunk image from "
 teaser: This is a teaser text that is pulled from the this post
 tags:

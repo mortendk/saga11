@@ -9,7 +9,8 @@ Calls the _base/base.njk that is holding all the basic html
 
 {# isModalOpen is used to test if theres a modal open then disable the scroll #}
 <body class="flex flex-col h-screen bg-slate-100"
-      x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false"
+      x-data="{'isModalOpen': false}"
+      x-on:keydown.escape="isModalOpen=false"
       :class="isModalOpen ? 'overflow-y-hidden':''"
 >
 

@@ -27,9 +27,9 @@ async function image(
   loading = "lazy",
   urlpathprefix = "" //if we want fullpath urls
 ) {
-  if (fs.existsSync(img)) {
-    // console.log(`image function called ${img}`);
-    src = img;
+  src = "src" + img;
+  if (fs.existsSync(src)) {
+    // src = filepath;
     let metadata = await Image(src, {
       widths: width,
       formats: format,
@@ -167,10 +167,15 @@ module.exports = function (eleventyConfig) {
 
   // PassThrough
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/upload");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   eleventyConfig.addNunjucksGlobal("saga11version", "beta 1 ");
+
+  // Local Server
+  eleventyConfig.setServerOptions({
+    port: 8080,
+  });
 
   // Directory setup
   return {
