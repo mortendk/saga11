@@ -57,7 +57,6 @@ async function image(
   }
 }
 
-//
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
 // <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div>
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
@@ -163,7 +162,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/upload");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  eleventyConfig.addNunjucksGlobal("saga11version", "beta 1 ");
+  eleventyConfig.addNunjucksGlobal("saga11version", "alpha 2 ");
 
   // Local Server
   eleventyConfig.setServerOptions({

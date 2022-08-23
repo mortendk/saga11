@@ -1,6 +1,7 @@
 ---
 title: "Gallery page test "
 url: gallery
+image: /upload/toaster-clean.png
 alt: Alt text
 teaser: This is an example of an image gallery
 tags:

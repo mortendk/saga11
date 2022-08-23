@@ -1,0 +1,29 @@
+{% for page in relatedpages %}
+  <div class="flex">
+  {# Grap from everything this data  #}
+
+  {% for item in collections.all | getPage("/" + page + "/") -%}
+
+    <article class="">
+      <a href="{{ item.url }}">
+        <h2 class="text-3xl">{{ item.data.title }}</h2>
+        <div>{{ item.data.teaser }}</div>
+
+        {# Generate image #}
+        {% if item.data.image  %}
+          {% set css = "shadow" %}
+          {% set srcset = [200] %}
+          {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+          {% set loading = "lazy" %}
+          <div class="aspect-square overflow-hidden">
+            {% image item.data.image , srcset, sizes, format, alt,css, loading %}
+          </div>
+        {% endif %}
+        {# / Generate image #}
+      </a>
+      </article>
+  {% endfor %}
+
+  </div>
+
+{% endfor %}

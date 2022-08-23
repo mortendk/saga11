@@ -30,8 +30,6 @@ display_url: https://editorial-config.saga11.dev
 
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
-media_folder: "src/upload"
-public_folder: "/upload"
 search: true
 # publish_mode: editorial_workflow
 show_preview_links: true
@@ -41,28 +39,29 @@ slug:
   clean_accents: true
   sanitize_replacement: "-"
 
+media_folder: "src/upload/"
+public_folder: "/upload"
+
+
 collections:
   # -----------------------------------------------------------------
   # Post Collection
   # -----------------------------------------------------------------
-  - name: "post"
+  - name: post
+    label: Posts
     label_singular: Post
-    label: "Posts"
-    description: "All Content Posts"
+    description: "Content Posts"
     folder: "src/content/post"
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}"
-    summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
-    # summary: "{{title | upper}}  {{date | date('YYYY-MM-DD')}} – {{body | truncate(20, '***')}}"
+    slug: "{{slug}}/index"
+    preview_path: /{{url.parent}}/{{url.path}}/
+
     create: true
     delete: true
-    slug: "{{slug}}/index"
-    preview_path: /post/{{url}}/
     editor:
       preview: false
 
     # Overview
+    summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
     sortable_fields: ["title", "order", "date"]
 
     view_filters:
@@ -79,30 +78,30 @@ collections:
       - label: Tags
         field: tags
 
-    # FIELDS
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
+
     fields:
       - { label: "Title", name: "title", widget: "string" }
 
-      - name: urlprefix
-        label: urlprefix
-        widget: relation
-        collection: tags
-        searchFields: [title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-        multiple: false
-      - { label: "Url", name: "url", widget: "string" }
-
-      # - name: pagefoo
-      #   label: pagefoo
-      #   widget: relation
-      #   collection: page
-      #   searchFields: [title]
-      #   valueField: "{{slug}}"
-      #   display_fields: ["title"]
-      #   required: false
-      #   multiple: false
+      - name: url
+        label: url
+        widget: object
+        collapsed: false
+        summary: "{{fields.parent}} / {{fields.path}}"
+        fields:
+        - name: parent
+          label: parent page
+          widget: relation
+          collection: page
+          searchFields: [url]
+          valueField: "{{url}}"
+          display_fields: ["{{url}} (page: {{title}} ) "]
+          required: false
+          multiple: false
+          hint: "The parent page ex: http://[domaine]/[parent]/"
+        - { label: "path", name: "path", widget: "string",  }
 
       # - label: 'Home Section'
       #   name: 'sections'
@@ -127,16 +126,16 @@ collections:
       #         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
       #         - { label: Text, name: text, widget: text, default: 'Hello World' }
 
-      - {
-          label: "Image",
-          name: "image",
-          widget: "image",
-          required: false,
-          choose_url: false,
-          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-        }
-      - { label: "Image alt", name: "alt", widget: "string", required: false }
-      - { label: "teaser", name: "teaser", widget: "text", required: false }
+      - name: card
+        label: card
+        widget: object
+        collapsed: false
+        summary: "{{fields.teaser}} / {{fields.image}}"
+        fields:
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "teaser", name: "teaser", widget: "text", required: false }
+
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -155,48 +154,91 @@ collections:
         required: false
 
       # Gallery
-      - label: "Image Gallery"
+      - label: "Images Gallery"
         name: "gallery"
         widget: "list"
         collapsed: true
-        summary: "Image {{fields.image.fields.image}}"
+        summary: "Image: {{fields.image.image}}"
         fields:
           - label: image
             name: image
             widget: object
-            summary: "{{fields.image}}: {{fields.title}}"
+            collapsed: true
+            summary: "image: {{fields.image}} alt: {{fields.image.title}}"
             fields:
-              - {
-                  label: image,
-                  name: image,
-                  widget: image,
-                  choose_url: false,
-                  hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-                }
-              - { label: title, name: title, widget: string, required: false }
-              - { label: Description, name: figcaption, widget: text, required: false }
+              - { label: image, name: image, widget: image, choose_url: false}
+              - { label: title, name: title, widget: string, required: false}
+              - { label: Description, name: description, widget: text, required: false}
 
       # Files
-      # - label: "Files"
-      #   name: "files"
-      #   widget: "list"
-      #   collapsed: false
-      #   summary: "Image {{fields.image.fields.image}}"
-      #   fields:
-      #     - label: file
-      #       name: file
-      #       widget: object
-      #       summary: "{{fields.file}}: {{fields.title}}"
-      #       fields:
-      #         - {
-      #             label: file,
-      #             name: file,
-      #             widget: file,
-      #             choose_url: true,
-      #             required: false
-      #           }
-      #         - { label: title, name: title, widget: string, required: false }
+      - name: "files"
+        label: "Files"
+        widget: "list"
+        collapsed: true
+        summary: "File: {{fields.file.file}}"
+        fields:
+          - name: file
+            label: Uploads
+            widget: object
+            collapsed: true
+            summary: "{{fields.file}}: {{fields.title}}"
+            fields:
+              - { label: file, name: file, widget: file, choose_url: true, required: false}
+              - { label: title, name: title, widget: string, required: false }
 
+
+      - name: relatedpages
+        label: Related Pages
+        widget: relation
+        collection: page
+        searchFields: [title]
+        valueField: "{{url}}"
+        displayFields: ["url: {{url}}  - Title: {{title}}"]
+        required: false
+        multiple: true
+
+      - name: relatedpost
+        label: Related Post
+        widget: relation
+        collection: post
+        searchFields: [title]
+        valueField: "{{slug}}"
+        displayFields: ["url: /{{url}}  - Title: {{title}}"]
+        required: false
+        multiple: true
+
+      # Calendar
+      - name: calendar
+        label: Calendar
+        widget: object
+        collapsed: true
+        summary: "{{fields.date_start}} - {{fields.date_end}}  All day: {{fields.date_allday}}"
+        fields:
+        - label: "Calendar start"
+          name: "date_start"
+          default: ""
+          widget: "datetime"
+          date_format: "DD/MM/YYYY"
+          time_format: "HH:mm"
+          format: "YYYY-MM-DD HH:mm:ss"
+          picker_utc: true
+          required: false
+
+        - label: "Calendar end"
+          name: "date_end"
+          default: ""
+          widget: "datetime"
+          date_format: "DD/MM/YYYY"
+          time_format: "HH:mm"
+          format: "YYYY-MM-DD HH:mm:ss"
+          picker_utc: false
+          required: false
+
+        - label: "Calendar All Day"
+          name: "date_allday"
+          widget: "boolean"
+          default: false
+          required: false
 
       # Tags
       - name: tags
@@ -209,33 +251,6 @@ collections:
         required: false
         multiple: true
 
-    # Calendar
-      - label: "Calendar start"
-        name: "date_start"
-        default: ""
-        widget: "datetime"
-        date_format: "DD/MM/YYYY"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: true
-        required: false
-
-      - label: "Calendar end"
-        name: "date_end"
-        default: ""
-        widget: "datetime"
-        date_format: "DD/MM/YYYY"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: false
-        required: false
-
-      - label: "Calendar All Day"
-        name: "date_allday"
-        widget: "boolean"
-        default: false
-        required: false
-
       # Date
       - label: "Date"
         name: "date"
@@ -245,7 +260,6 @@ collections:
         format: "YYYY-MM-DD HH:mm:ss"
         picker_utc: true
 
-
       # Layout selector
       - name: "layout"
         label: "Layout Selector"
@@ -253,8 +267,7 @@ collections:
         collection: posttemplates
         searchFields: [saga-template-name]
         valueField: "post/{{filename}}.{{extension}}"
-        displayFields:
-          ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
+        displayFields: ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
         default: "post/post.njk"
         required: true
 
@@ -269,24 +282,25 @@ collections:
         }
 
   # -----------------------------------------------------------------
-  # Collection Pages
+  # Pages Collection
   # -----------------------------------------------------------------
-  - label: Pages
+  - name: page
+    label: Pages
     label_singular: Page
-    name: page
-    description: "Pages are used for landing pages with collections"
+    description: "Pages used for landing pages with collections added"
     folder: "src/content/page"
     slug: "{{url}}/index"
     preview_path: /{{url}}/
-    path: '{{slug}}'
+
     create: true
     delete: true
+    editor:
+      preview: false
+
     # Overview
     summary: "{{title}} [url: {{url}}]"
-    nested:
-      depth: 5 # max depth to show in the collection tree
-      summary: "{{title}}"
     sortable_fields: ["title", "order", "date"]
+
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -295,8 +309,9 @@ collections:
       - label: Tags
         field: tags
 
-    editor:
-      preview: false
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -398,29 +413,37 @@ collections:
         }
 
   # -----------------------------------------------------------------
-  # Collection Link In Bio
+  # Link In Bio Collection
   # -----------------------------------------------------------------
-  - label: Link in bio Pages
+  - name: linkinbio
+    label: Link in bio
     label_singular: linkinbio
-    name: linkinbio
+    description: "Link in bio pages"
     folder: "src/content/linkinbio"
+    slug: "{{url}}/index"
+    preview_path: /{{url}}/
+
     create: true
     delete: true
-    slug: "{{url}}/index"
-    preview_path: /link/{{ slug }}/
-    path: '{{slug}}'
+    editor:
+      preview: false
 
     # Overview
+    summary: "{{title}} [{{url}}]"
     sortable_fields: ["title", "order", "date"]
+
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
+
     view_groups:
       - label: Tags
         field: tags
-    editor:
-      preview: false
+
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
 
     fields:
       - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
@@ -442,6 +465,7 @@ collections:
           - image
           - code-block
         required: false
+
       # Link
       - label: "Link"
         name: "link"
