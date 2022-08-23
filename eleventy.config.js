@@ -52,7 +52,7 @@ async function image(
       whitespaceMode: "inline",
     });
   } else {
-    // console.log(`image function called but: ${img} dont exist`);
+    console.log(`image function called but: ${img} dont exist`);
     return `<!-- image function called but: ${img} -->`;
   }
 }
