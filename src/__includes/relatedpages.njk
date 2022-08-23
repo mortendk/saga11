@@ -1,7 +1,7 @@
 {% for page in relatedpages %}
   <div class="flex">
-  {# Grap from everything this data  #}
 
+  {# Grap the data from collections. all  #}
   {% for item in collections.all | getPage("/" + page + "/") -%}
 
     <article class="">

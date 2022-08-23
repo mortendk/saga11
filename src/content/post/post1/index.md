@@ -6,7 +6,7 @@ url:
 card:
   image: /upload/image.png
   alt: wonder
-  teaser: "bla bla bla "
+  teaser: This is the teaser text for a card
 gallery:
   - image:
       image: /upload/image1.png

@@ -61,7 +61,8 @@ collections:
       preview: false
 
     # Overview
-    summary: "{{title}} - tags: {{tags.0}} {{tags.1}} {{tags.2}}"
+    # summary: "{{title}} parent:{{url.parent}} "
+    summary: "{{title}} {{url.parent}} {{card.image}} "
     sortable_fields: ["title", "order", "date"]
 
     view_filters:
@@ -70,13 +71,17 @@ collections:
         pattern: true
 
     view_groups:
+      - label: "Parent: "
+        field: url.parent
+      - label: Tag
+        field: tags
+
+
       - label: "Date: "
         field: date
         pattern: "([0-9]+(-[0-9]+)+)"
       - label: Drafts
         field: eleventyExcludeFromCollections
-      - label: Tags
-        field: tags
 
     nested:
       depth: 5 # max depth to show in the collection tree
