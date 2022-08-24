@@ -10,6 +10,9 @@ collection: collection
 layout: page/contact.njk
 order: 100
 eleventyExcludeFromCollections: false
+eleventyNavigation:
+  key: Contact
+  order: 0
 ---
 
 Contact information

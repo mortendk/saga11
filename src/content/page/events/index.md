@@ -10,4 +10,7 @@ collection: event
 layout: page/page.njk
 order: 50
 eleventyExcludeFromCollections: false
+eleventyNavigation:
+  key: Events
+  order: 0
 ---

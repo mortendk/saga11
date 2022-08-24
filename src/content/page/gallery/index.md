@@ -11,6 +11,9 @@ layout: page/page.njk
 order: 20
 menulabel: Gallery
 eleventyExcludeFromCollections: false
+eleventyNavigation:
+  key: Gallery
+  order: 0
 ---
 
 I'm baby craft beer mustache wolf, small batch disrupt 8-bit farm-to-table DSA activated charcoal aesthetic iPhone vegan shaman mlkshk. 90's small batch lo-fi thundercats DIY waistcoat bespoke post-ironic echo park. Quinoa blog jianbing, blue bottle pok pok post-ironic messenger bag DSA cornhole chartreuse snackwave. Schlitz single-origin coffee shoreditch chartreuse neutra. Crucifix hammock whatever vice art party wolf snackwave. [Bushwick asymmetrical plaid hoodie,](https://saga11.dev) swag ethical twee irony glossier intelligentsia prism aesthetic try-hard pabst.

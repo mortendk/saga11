@@ -8,6 +8,9 @@ post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
+  {# {{ collections.all | eleventyNavigation | debug | safe }} #}
+
+
 
 
 <article class="flex flex-col md:flex-row ">

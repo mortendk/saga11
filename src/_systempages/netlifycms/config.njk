@@ -108,6 +108,7 @@ collections:
           hint: "The parent page ex: http://[domaine]/[parent]/"
         - { label: "path", name: "path", widget: "string",  }
 
+
       # - label: 'Home Section'
       #   name: 'sections'
       #   widget: 'list'
@@ -276,6 +277,26 @@ collections:
         default: "post/post.njk"
         required: true
 
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: true
+        summary: "{{fields.key}} / {{fields.parent}}"
+        fields:
+        - { label: "Label", name: "key", widget: "string", required: false}
+        - { label: "order", name: "order", widget: "number",required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: [" {{eleventyNavigation.key}}"]
+          required: false
+          multiple: false
+
+
+
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
           label: "Draft Mode",
@@ -321,6 +342,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
+
       - {
           label: "Image",
           name: "image",
@@ -331,6 +353,8 @@ collections:
         }
       - { label: "alt", name: "alt", widget: "string", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
+
+
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -399,16 +423,25 @@ collections:
         required: false
         default: "page/page.njk"
 
-      # 11ty settings
-      # - { label: "url", name: slugcustom,  required: true }
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - {
-          label: "Menu Label",
-          name: "menulabel",
-          widget: "string",
-          required: false,
-          hint: "Optional Menu item title if this page is tagged with menu. Overwrites the pages title for the navigation",
-        }
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: true
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "Label", name: "key", widget: "string", required: false}
+        - { label: "order", name: "order", widget: "number",required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: [" {{eleventyNavigation.key}}"]
+          required: false
+          multiple: false
+
+
       - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",

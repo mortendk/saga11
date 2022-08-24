@@ -14,6 +14,9 @@ layout: page/frontpage.njk
 order: 0
 menulabel: Home
 eleventyExcludeFromCollections: false
+eleventyNavigation:
+  key: frontpage
+  order: -20
 ---
 
 I started a sensory deprivation chamber business - it involves really dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social media. If you were a member of the Bloods and became paralyzed do you then become a member of the Crips?. We need more werkin and less twerkin if you ask me. Balooby. INjuries always keep you OUT of things. Visticula.

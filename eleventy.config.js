@@ -5,6 +5,7 @@ const EleventyFetch = require("@11ty/eleventy-fetch");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const Image = require("@11ty/eleventy-img");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 // -----------------------------------------------------------------
 // Shortcuts
@@ -128,6 +129,7 @@ module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("image", image);

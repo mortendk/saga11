@@ -24,29 +24,26 @@ Global header for the site
       <div class="flex justify-between h-full">
 
         <div class="flex space-x-4">
-          {% for item in collections.menu | sortByOrder %}
-            {% set menutitle %}
-            {% if item.data.menulabel %}
-              {{ item.data.menulabel }}
-            {% else %}
-              {{ item.data.title }}
-            {% endif %}
-            {% endset %}
-
-            {% if item.url in page.url -%}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-white/80" aria-current="page">{{ menutitle }}</a>
-            {% else %}
-              <a href="{{ item.url }}" class="{{ menuclasses}} border-transparent">{{ menutitle }}</a>
-            {% endif %}
-          {% endfor %}
+          {% set menu = collections.all | eleventyNavigation %}
+          {%- for item in menu %}
+            <a href="{{ item.url }}"
+              {% if item.url == page.url %}
+                aria-current="page" class="{{menuclasses}}"
+              {% else  %}
+                class="{{menuclasses}} border-transparent"
+              {% endif %}
+              >
+                {{ item.title }}
+                {# test if theres any kids #}
+                {% if item.children | length %} * {% endif %}
+            </a>
+          {%- endfor -%}
         </div>
 
       </div>
     </nav>
+    {# /Menu Desktop #}
 
-    {# mobile menu active
-    concept totally stolen from https://jonsuh.com/hamburgers
-    #}
     <button
       @click="openmenu = !openmenu"
       class="w-10 block md:hidden space-x-2 focus:outline-none"
@@ -82,6 +79,8 @@ Global header for the site
   aria-label="Mobile Menu">
 
     {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
+
+    {% include "menu.njk" %}
 
     {% for item in collections.menu | sortByOrder %}
       {# grap the correct title for the page  #}
