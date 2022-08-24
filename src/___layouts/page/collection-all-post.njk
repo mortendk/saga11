@@ -8,60 +8,6 @@ An example for a landing page for all the posts
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/all-posts.njk  -->{%- endif -%}
 
-{# 1 level menu #}
-1 level menu
-{% set menu = collections.all | eleventyNavigation %}
-<nav>
-  <ul>
-  {%- for item in menu %}
-  <li>
-    <a href="{{ item.url }}"
-      {%- if item.url == page.url %}
-        aria-current="page" class="text-red-500"
-      {%- else  %}
-        class="underline"
-      {% endif %}
-      >
-      {{ item.title }}
-      {% if item.children | length %} * {% endif %}
-    </a>
-  </li>
-  {%- endfor -%}
-  </ul>
-<nav>
-{# / 1 level menu #}
-<hr>
-
-{# Sublevel 1  #}
-Sublevel menu:
-{% set submenu = collections.all | eleventyNavigation(eleventyNavigation.key) %}
-<nav>
-  <ul>
-  {%- for item in submenu %}
-  <li>
-    <a href="{{ item.url }}"
-      {%- if item.url == page.url %}
-        aria-current="page" class="text-red-500"
-      {%- else  %}
-        class="underline"
-      {% endif %}
-      >
-      {{ item.title }}
-      {% if item.children | length %} * {% endif %}
-    </a>
-  </li>
-  {%- endfor -%}
-  </ul>
-<nav>
-{# / Sublevel 1  #}
-
-Full menu
-{% include "menu.njk" %}
-
-brød
-{% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
-
-
 
 <div class="w-1/2 mx-auto">
   <h1 class="text-5xl">{{ title }} </h1>

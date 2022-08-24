@@ -8,66 +8,41 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
-{% include "menu.njk" %}
+{% for section in sections %}
 
+    {% if section.type == "images" %}
+      images
+    {% endif %}
+
+    {% if section.type == "spotlight" %}
+      SPOT
+    {% endif %}
+
+
+    {# {{ section | debug | safe }} #}
+
+{% endfor %}
+
+{# Menu
+{% include "menu.njk" %}
+<hr> #}
+
+{# {% from 'macro/menuitems.macro.njk' import menuitems %}
+
+<nav>
+  <ul>
+    {%- for entry in collections.all | eleventyNavigation(eleventyNavigation.key) %}
+      {{ menuitems(entry, page) }}
+    {%- endfor -%}
+  </ul>
+<nav>
 <hr>
 
-{# 1 level menu #}
-1 level menu
-{% set menu = collections.all | eleventyNavigation %}
-<nav>
-  <ul class="flex space-x-4">
-  {%- for item in menu %}
-  <li>
-    <a href="{{ item.url }}"
-      {%- if item.url == page.url %}
-        aria-current="page" class="text-red-500"
-      {%- else  %}
-        class="underline"
-      {% endif %}
-      >
-      {{ item.title }}
-      {% if item.children | length %} * {% endif %}
-    </a>
-  </li>
-  {%- endfor -%}
-  </ul>
-<nav>
-{# / 1 level menu #}
 
 
-{# Sublevel 1  #}
-Sublevel menu:
-{% set submenu = collections.all | eleventyNavigation(eleventyNavigation.key) %}
-<nav>
-  <ul class="flex space-x-4">
-  {%- for item in submenu %}
-  <li>
-    <a href="{{ item.url }}"
-      {%- if item.url == page.url %}
-        aria-current="page" class="text-red-500"
-      {%- else  %}
-        class="underline"
-      {% endif %}
-      >
-      {{ item.title }}
-      {% if item.children | length %} * {% endif %}
-    </a>
-  </li>
-  {%- endfor -%}
-  </ul>
-<nav>
-{# / Sublevel 1  #}
+<h2 class="text-3xl mt-8">All menu</h2>
+{% include "menu.njk" %} #}
 
-
-
-{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
-<nav>
-  <a href="{{ env.url }}">home</a>
-  {% for item in bread %}
-    / <a href="{{item.url }}" class="underline">{{item.key }}</a>
-{% endfor %}
-</nav>
 
 <article class="" aria-label="Page">
 
@@ -83,13 +58,13 @@ Sublevel menu:
   {# / Generate image #}
 
   {# gallery #}
-  {% include "gallery.njk" %}
+  {# {% include "gallery.njk" %} #}
 
   <div class="wysiwyg">
     {{ content | safe }}
   </div>
 
-  {% include "collection.njk" %}
+  {# {% include "collection.njk" %} #}
 </article>
 
 

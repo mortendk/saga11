@@ -24,10 +24,10 @@ Global header for the site
       <div class="flex justify-between h-full">
 
         <div class="flex space-x-4">
-          {% set menu = collections.all | eleventyNavigation %}
-          {%- for item in menu %}
+
+          {%- for item in collections.all | eleventyNavigation %}
             <a href="{{ item.url }}"
-              {% if item.url == page.url %}
+              {% if item.url in page.url %}
                 aria-current="page" class="{{menuclasses}}"
               {% else  %}
                 class="{{menuclasses}} border-transparent"

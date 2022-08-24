@@ -106,31 +106,8 @@ collections:
           required: false
           multiple: false
           hint: "The parent page ex: http://[domaine]/[parent]/"
-        - { label: "path", name: "path", widget: "string",  }
+        - { label: "path", name: "path", widget: "string"}
 
-
-      # - label: 'Home Section'
-      #   name: 'sections'
-      #   widget: 'list'
-      #   types:
-      #     - label: 'Carousel'
-      #       name: 'carousel'
-      #       widget: object
-      #       summary: '{{fields.header}}'
-      #       fields:
-      #         - { label: Header, name: header, widget: string, default: 'Image Gallery' }
-      #         - { label: Template, name: template, widget: string, default: 'carousel.html' }
-      #         - label: Images
-      #           name: images
-      #           widget: list
-      #           field: { label: Image, name: image, widget: image }
-      #     - label: 'Spotlight'
-      #       name: 'spotlight'
-      #       widget: object
-      #       fields:
-      #         - { label: Header, name: header, widget: string, default: 'Spotlight' }
-      #         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
-      #         - { label: Text, name: text, widget: text, default: 'Hello World' }
 
       - name: card
         label: card
@@ -160,8 +137,8 @@ collections:
         required: false
 
       # Gallery
-      - label: "Images Gallery"
-        name: "gallery"
+      - name: "gallery"
+        label: "Images"
         widget: "list"
         collapsed: true
         summary: "Image: {{fields.image.image}}"
@@ -191,27 +168,6 @@ collections:
             fields:
               - { label: file, name: file, widget: file, choose_url: true, required: false}
               - { label: title, name: title, widget: string, required: false }
-
-
-      - name: relatedpages
-        label: Related Pages
-        widget: relation
-        collection: page
-        searchFields: [title]
-        valueField: "{{url}}"
-        displayFields: ["url: {{url}}  - Title: {{title}}"]
-        required: false
-        multiple: true
-
-      - name: relatedpost
-        label: Related Post
-        widget: relation
-        collection: post
-        searchFields: [title]
-        valueField: "{{slug}}"
-        displayFields: ["url: /{{url}}  - Title: {{title}}"]
-        required: false
-        multiple: true
 
       # Calendar
       - name: calendar
@@ -277,6 +233,7 @@ collections:
         default: "post/post.njk"
         required: true
 
+      # Menu
       - name: eleventyNavigation
         label: Navigation
         widget: object
@@ -284,7 +241,6 @@ collections:
         summary: "{{fields.key}} / {{fields.parent}}"
         fields:
         - { label: "Label", name: "key", widget: "string", required: false}
-        - { label: "order", name: "order", widget: "number",required: false}
         - name: "parent"
           label: Parent page
           widget: relation
@@ -294,7 +250,7 @@ collections:
           displayFields: [" {{eleventyNavigation.key}}"]
           required: false
           multiple: false
-
+        - { label: "order", name: "order", widget: "number",required: false}
 
 
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
@@ -343,13 +299,66 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
 
+      - label: 'Sections'
+        name: 'sections'
+        widget: 'list'
+        types:
+          - label: 'Images'
+            name: 'images'
+            widget: object
+            summary: '{{fields.title}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Image Gallery' }
+              - label: Images
+                name: images
+                widget: list
+                fields:
+                  - { label: Image, name: image, widget: image }
+                  - { label: title, name: title, widget: string, required: false }
+
+          - label: 'Collection'
+            name: 'collection'
+            widget: object
+            summary: '{{fields.collection}}'
+            fields:
+              - name: collection
+                label: collection
+                widget: relation
+                collection: tags
+                searchFields: [title]
+                valueField: "{{slug}}"
+                display_fields: ["title"]
+                multiple: false
+                hint: "All content with this tag"
+              - { label: title, name: title, widget: string, default: 'Spotlight', required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+
+
+      # # Gallery
+      # - label: "Images"
+      #   name: "gallery"
+      #   widget: "list"
+      #   collapsed: true
+      #   summary: "Image {{fields.image.fields.image}}"
+      #   fields:
+      #     - label: image
+      #       name: image
+      #       widget: object
+      #       summary: "{{fields.image}}: {{fields.title}}"
+      #       fields:
+      #         - { label: image, name: image, widget: image, choose_url: false}
+      #         - { label: title, name: title, widget: string, required: false }
+      #         - { label: Description, name: figcaption, widget: text, required: false }
+
+
+
+
       - {
           label: "Image",
           name: "image",
           widget: "image",
           required: false,
-          choose_url: false,
-          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
+          choose_url: false
         }
       - { label: "alt", name: "alt", widget: "string", required: false }
       - { label: "teaser", name: "teaser", widget: "text", required: false }
@@ -372,21 +381,6 @@ collections:
         required: false
 
 
-      # Gallery
-      - label: "Images"
-        name: "gallery"
-        widget: "list"
-        collapsed: true
-        summary: "Image {{fields.image.fields.image}}"
-        fields:
-          - label: image
-            name: image
-            widget: object
-            summary: "{{fields.image}}: {{fields.title}}"
-            fields:
-              - { label: image, name: image, widget: image, choose_url: false}
-              - { label: title, name: title, widget: string, required: false }
-              - { label: Description, name: figcaption, widget: text, required: false }
 
       # Tags
       - name: tags
@@ -399,17 +393,6 @@ collections:
         required: false
         multiple: true
 
-      # collection
-      - name: collection
-        label: collection
-        widget: relation
-        collection: tags
-        searchFields: [title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-        multiple: false
-        hint: "This will select a tag and print teasers on the page"
 
       # Layout selector
       - name: "layout"

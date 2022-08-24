@@ -1,25 +1,39 @@
+{#
+  {% from 'macro/menuitems.macro.njk' import menuitems %}
+  {% set navPages = collections.all | eleventyNavigation %}
+
+  <nav>
+    <ul>
+      {%- for item in navPages %}
+        {{ menuitems(item) }}
+      {%- endfor -%}
+    </ul>
+  <nav>
+#}
+
 {# macro #}
-{% macro menuitems(entry) -%}
+{% macro menuitems(item, page) -%}
 
 {# Items  #}
 <li>
-  <a href="{{ entry.url }}"
+  <a href="{{ item.url }}"
     {# test if the page is the current  #}
-    {% if entry.url == page.url %}
+    {% if item.url == page.url %}
       aria-current="page"
-      class="underline text-red-600"
+      class="text-pink-700"
     {% else  %}
-      class="underline"
+      class=""
     {% endif %}
   >
-    {{ entry.title }}
+    {{ item.title }}
+    {% if item.children | length %} * {% endif %}
   </a>
 
   {# sublevel  #}
-  {%- if entry.children.length -%}
-    <ul>
-      {%- for child in entry.children %}
-        {{ menuitems(child) }}
+  {%- if item.children.length -%}
+    <ul class="ml-2">
+      {%- for child in item.children %}
+        {{ menuitems(child, page) }}
       {% endfor -%}
     </ul>
   {%- endif -%}
