@@ -1,9 +1,9 @@
 ---
 title: Contact
 url: contact
-image: ""
-alt:
-teaser: ""
+image: /upload/image.png
+alt: null
+teaser: Contact page teaser
 tags:
   - menu
 collection: collection

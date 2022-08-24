@@ -1,7 +1,7 @@
 ---
 title: Events
 url: events
-image: ""
+image: /upload/space.png
 teaser: All the events
 tags:
   - frontpage

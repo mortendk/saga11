@@ -52,12 +52,11 @@ async function image(
       whitespaceMode: "inline",
     });
   } else {
-    // console.log(`image function called but: ${img} dont exist`);
+    console.log(`image function called but: ${img} dont exist`);
     return `<!-- image function called but: ${img} -->`;
   }
 }
 
-//
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
 // <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div>
 async function imagebackgroundstyle(img, width = "800", format = "webp") {
@@ -147,6 +146,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
 
+  // eleventyConfig.addFilter("debug", (content) => `<pre>${inspect(content)}</pre>`);
+  eleventyConfig.addFilter("debug", require("./src/_11ty/filter/debug"));
   // COLLECTIONS
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
   eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
@@ -163,7 +164,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/upload");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
-  eleventyConfig.addNunjucksGlobal("saga11version", "beta 1 ");
+  eleventyConfig.addNunjucksGlobal("saga11version", "alpha 2 ");
 
   // Local Server
   eleventyConfig.setServerOptions({

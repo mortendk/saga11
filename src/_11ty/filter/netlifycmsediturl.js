@@ -16,6 +16,3 @@ module.exports = function (path) {
     return url;
   }
 };
-// posts vs post
-// http://localhost:8080/admin/#/collections/posts/entries/post3/index
-// http://localhost:8080/admin/#/collections/post/entries/post3/index

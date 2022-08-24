@@ -9,7 +9,6 @@ An example for a landing page for all the posts
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/all-posts.njk  -->{%- endif -%}
 
 
-
 <div class="w-1/2 mx-auto">
   <h1 class="text-5xl">{{ title }} </h1>
   <div>{{ content | safe }}</div>
@@ -26,12 +25,12 @@ An example for a landing page for all the posts
       <div class="shadow-lg aspect-video overflow-hidden mb-4">
 
       {# Generate image #}
-      {% if item.data.image %}
+      {% if item.data.card.image %}
         {% set css = "rounded-sm" %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "lazy" %}
-        {% image item.data.image, srcset, sizes, format, alt,css, loading %}
+        {% image item.data.card.image, srcset, sizes, format, alt,css, loading %}
       {% endif %}
       {# / Generate image #}
 

@@ -9,19 +9,20 @@ post template
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
 
+
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
     <h1 class="text-5xl">{{ title }}</h1>
 
     {# Generate image #}
-      {% if image %}
+      {% if card.image %}
         {% set css = "shadow" %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "eager" %}
         <div class="aspect-video overflow-hidden">
-          {% image image, srcset, sizes, format, alt,css, loading %}
+          {% image card.image, srcset, sizes, format, card.alt,css, loading %}
         </div>
       {% endif %}
     {# / Generate image #}
@@ -43,6 +44,7 @@ post template
   </footer>
 
 
+
   <div class="wysiwyg">
     {{ content | safe }}
   </div>
@@ -57,26 +59,25 @@ post template
   {# sidebar #}
   <div class="md:w-1/3 md:ml-4">
 
-    {% for item in files %}
-      <a href="/{{ item.file.file }}">{{ item.file.title }}</a>
+    {% include "relatedpages.njk" %}
 
-
-    {% endfor %}
-
-    {# calendar #}
-    {% if date_start %}
-      {% include "calendar.njk" %}
-    {% endif %}
+    {% include "calendar.njk" %}
 
     {% include "share.njk" %}
 
-    Sidebars:
+    Files:
+    {% include "files.njk" %}
+
+    <H2 class="mt-4 text-red-700 ">Nav pages</H2>
+    post:
     {# list of post #}
     {% include "nav/posts.njk" %}
 
     {# List of tags #}
+    Tags:
     {% include "nav/tags.njk" %}
 
+    pages:
     {% include "nav/pages.njk" %}
   </div>
 

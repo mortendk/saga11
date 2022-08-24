@@ -1,7 +1,7 @@
 ---
 title: "@profilename"
 url: link
-image: ""
+image: /upload/dungeonmaster.png
 alt: mortendk
 link:
   - url: https://morten.dk
