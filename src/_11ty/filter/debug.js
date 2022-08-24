@@ -2,5 +2,5 @@
 const inspect = require("util").inspect;
 
 module.exports = function (content) {
-  return `${inspect(content)}`;
+  return `<pre>${inspect(content)}</pre>`;
 };

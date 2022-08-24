@@ -8,10 +8,6 @@ An example for a landing page for all the posts
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/all-posts.njk  -->{%- endif -%}
 
-{# <h2><code><var>collections.all[0].template.templateData.globalData</var></code></h2> #}
-{# <code>{{ collections.all[0].template.templateData.globalData | debug | safe }}</code> #}
-
-{{ page | debug  }}
 
 <div class="w-1/2 mx-auto">
   <h1 class="text-5xl">{{ title }} </h1>
