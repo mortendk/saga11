@@ -6,7 +6,7 @@ url:
 card:
   image: /upload/image.png
   alt: wonder
-  teaser: This is the teaser text for a card
+  teaser: "bla bla bla "
 gallery:
   - image:
       image: /upload/image1.png
@@ -22,20 +22,20 @@ files:
       file: /upload/toaster-clean.png
       title: ""
 relatedpages:
-  - contact
-  - gallery
-  - testest
+  - contact/index
+  - frontpage/index
+  - post/index
 relatedpost: []
+calendar:
+  date_start: 2022-08-16 00:00:00
+  date_end: 2022-08-18 00:00:00
+  date_allday: true
 date: 2022-08-22 22:34:57
 layout: post/post.njk
 teaser: >-
   Space ship people get up from sleeping coffin and have eat.
 
   Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
-calendar:
-  date_start: 2022-08-16 00:00:00
-  date_end: 2022-08-18 00:00:00
-  date_allday: true
 tags:
   - event
 eleventyExcludeFromCollections: false

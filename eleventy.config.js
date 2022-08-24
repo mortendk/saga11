@@ -146,6 +146,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
 
+  // eleventyConfig.addFilter("debug", (content) => `<pre>${inspect(content)}</pre>`);
+  eleventyConfig.addFilter("debug", require("./src/_11ty/filter/debug"));
   // COLLECTIONS
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
   eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
