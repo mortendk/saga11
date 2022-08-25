@@ -10,6 +10,8 @@ sections:
   - type: collection
     title: Events list
     collection: event
+  - type: images
+    title: Image Gallery 2
 image: /upload/space.png
 teaser: All the events
 layout: page/page.njk

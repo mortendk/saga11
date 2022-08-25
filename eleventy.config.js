@@ -54,7 +54,7 @@ async function image(
     });
   } else {
     console.log(`image function called but: ${img} dont exist`);
-    return `<!-- image function called but: ${img} -->`;
+    return `<!-- image function called but: ${img} dont exist-->`;
   }
 }
 
@@ -125,6 +125,37 @@ async function imageurl(img, width = "1200", format = "webp") {
   }
 }
 
+function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
+  console.log(`Generating image(s) from:  ${src}`);
+  let options = {
+    widths: [600, 900, 1500],
+    formats: ["webp", "jpeg"],
+    urlPath: "/images/",
+    outputDir: "./_site/images/",
+    filenameFormat: function (id, src, width, format, options) {
+      const extension = path.extname(src);
+      const name = path.basename(src, extension);
+      return `${name}-${width}w.${format}`;
+    },
+  };
+
+  // generate images
+  Image(src, options);
+
+  let imageAttributes = {
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
+  // get metadata
+  metadata = Image.statsSync(src, options);
+  return Image.generateHTML(metadata, imageAttributes);
+}
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addNunjucksShortcode("myImage", imageShortcode);
+};
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -138,6 +169,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
 
+  eleventyConfig.addShortcode("imagestuff", imageShortcode);
   // Filters
   eleventyConfig.addFilter("formatDate", require("./src/_11ty/filter/formatDate.js"));
   eleventyConfig.addFilter("markdown", require("./src/_11ty/filter/markdown.js"));

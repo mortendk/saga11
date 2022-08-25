@@ -8,18 +8,23 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+{% imagestuff "src/upload/cyber.png",'test', '200' %}
+
 {% for section in sections %}
 
     {% if section.type == "images" %}
-      images
+      {% include "section.njk" %}
+      {% for item in section.images %}
+
+          {# imageShortcode(src, cls, alt, sizes, widths) #}
+
+        {# {% include "section.njk" %} #}
+      {% endfor %}
     {% endif %}
 
-    {% if section.type == "spotlight" %}
-      SPOT
+    {% if section.type == "collection" %}
+      Collection
     {% endif %}
-
-
-    {# {{ section | debug | safe }} #}
 
 {% endfor %}
 
