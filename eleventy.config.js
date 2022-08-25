@@ -12,49 +12,49 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 // -----------------------------------------------------------------
 // {% image img, srcset, sizes, format, alt,css, loading %}
 
-async function image(
-  img,
-  width = "[400,800, 1200]",
-  sizes = "(min-width: 1200px) 50vw, 100vw",
-  format = ["webp"],
-  alt = "",
-  css,
-  loading = "lazy",
-  urlpathprefix = "" //if we want fullpath urls
-) {
-  src = "src" + img;
-  if (fs.existsSync(src)) {
-    let metadata = await Image(src, {
-      widths: width,
-      formats: format,
-      outputDir: "_site/img/", // seind image directly to the site build
-      urlPath: urlpathprefix + "/img/",
-      cacheOptions: {
-        duration: "1d",
-        directory: ".cache",
-        removeUrlQueryParams: false,
-      },
-      filenameFormat: function (id, src, width, format, options) {
-        const extension = path.extname(src);
-        const name = path.basename(src, extension);
-        return `${name}-${width}w.${format}`;
-      },
-    });
-
-    let imageAttributes = {
-      class: css,
-      alt: alt,
-      sizes,
-      loading,
-      decoding: "async",
-    };
-
-    return Image.generateHTML(metadata, imageAttributes, {});
-  } else {
-    console.log(`image function called but: ${img} dont exist`);
-    return `<!-- image function called but: ${img} dont exist-->`;
-  }
-}
+// async function image(
+//   img,
+//   width = "[400,800, 1200]",
+//   sizes = "(min-width: 1200px) 50vw, 100vw",
+//   format = ["webp"],
+//   alt = "",
+//   css,
+//   loading = "lazy",
+//   urlpathprefix = "" //if we want fullpath urls
+// ) {
+//   src = "src" + img;
+//   if (fs.existsSync(src)) {
+//     let metadata = await Image(src, {
+//       widths: width,
+//       formats: format,
+//       outputDir: "_site/img/", // seind image directly to the site build
+//       urlPath: urlpathprefix + "/img/",
+//       cacheOptions: {
+//         duration: "1d",
+//         directory: ".cache",
+//         removeUrlQueryParams: false,
+//       },
+//       filenameFormat: function (id, src, width, format, options) {
+//         const extension = path.extname(src);
+//         const name = path.basename(src, extension);
+//         return `${name}-${width}w.${format}`;
+//       },
+//     });
+//
+//     let imageAttributes = {
+//       class: css,
+//       alt: alt,
+//       sizes,
+//       loading,
+//       decoding: "async",
+//     };
+//
+//     return Image.generateHTML(metadata, imageAttributes, {});
+//   } else {
+//     console.log(`image function called but: ${img} dont exist`);
+//     return `<!-- image function called but: ${img} dont exist-->`;
+//   }
+// }
 
 // {% imageBackgroundStyle "image", “size”, "gif”  %}
 // <div class="bg-cover " {% imagebackgroundstyle page.inputPath | replace("index.md", image) %} ></div>
@@ -123,43 +123,6 @@ async function imageurl(img, width = "1200", format = "webp") {
   }
 }
 
-function imageShortcode(img, alt, sizes, loading = "async") {
-  src = "src" + img;
-  console.log(`Generating image(s) from:  ${src}`);
-  if (fs.existsSync(src)) {
-    let options = {
-      widths: [400, 800, 1600],
-      formats: ["webp", "jpeg"],
-      urlPath: "/img/",
-      outputDir: "./_site/img/",
-      filenameFormat: function (id, src, width, format, options) {
-        const extension = path.extname(src);
-        const name = path.basename(src, extension);
-        return `${name}-${width}w.${format}`;
-      },
-    };
-
-    // generate images
-    Image(src, options);
-
-    let imageAttributes = {
-      alt,
-      class: "rounded-lg",
-      sizes: "(min-width: 1024px) 100vw, 50vw",
-      loading,
-      decoding: "async",
-    };
-    // get metadata
-    metadata = Image.statsSync(src, options);
-    return Image.generateHTML(metadata, imageAttributes);
-  } else {
-    console.log(`! Error generating image ${src} dont exist`);
-  }
-}
-
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addNunjucksShortcode("myImage", imageShortcode);
-};
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -167,13 +130,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   // Shortcodes
-  eleventyConfig.addNunjucksAsyncShortcode("image", image);
+  eleventyConfig.addShortcode("image", require("./src/_11ty/shortcode/image"));
   eleventyConfig.addNunjucksAsyncShortcode("imagebackgroundstyle", imagebackgroundstyle);
   eleventyConfig.addNunjucksAsyncShortcode("imageurl", imageurl);
   eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
 
-  eleventyConfig.addShortcode("imagestuff", imageShortcode);
   // Filters
   eleventyConfig.addFilter("formatDate", require("./src/_11ty/filter/formatDate.js"));
   eleventyConfig.addFilter("markdown", require("./src/_11ty/filter/markdown.js"));
@@ -183,9 +145,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
-
-  // eleventyConfig.addFilter("debug", (content) => `<pre>${inspect(content)}</pre>`);
   eleventyConfig.addFilter("debug", require("./src/_11ty/filter/debug"));
+
   // COLLECTIONS
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
   eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));

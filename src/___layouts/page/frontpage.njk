@@ -23,7 +23,7 @@ Template for the frontpage
   {% set srcset = [400,800, 1600] %}
   {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
   {% set loading = "eager" %}
-  {% image image, srcset, sizes, format, alt,css, loading %}
+  {% image image, width=srcset, sizes = sizes, css= css %}
 {% endif %}
 {# / Generate image #}
 

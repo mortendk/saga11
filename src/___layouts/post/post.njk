@@ -25,7 +25,7 @@ post template
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
         {% set loading = "eager" %}
         <div class="aspect-video overflow-hidden">
-          {% image card.image, srcset, sizes, format, card.alt,css, loading %}
+          {% image img=card.image  %}
         </div>
       {% endif %}
     {# / Generate image #}

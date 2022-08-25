@@ -82,21 +82,13 @@
         :class="isSliderOpen ? 'aspect-video justify-center items-center' : 'aspect-square'"
         >
 
-        {# Generate image #}
-        {% if item.image.image %}
+          {% image
+            img=item.image.image,
+            width=[400,800, 1600],
+            sizes="(min-width: 1600px) 50vw, 100vw",
+            css="rounded-sm"
+          %}
 
-          {% set css = "rounded-sm" %}
-          {% set format = [webp] %}
-          {% set srcset = [400,800, 1600] %}
-          {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-          {% if loop.index =='1' %}
-            {% set loading = 'eger' %}
-          {% else  %}
-            {% set loading = 'lazy' %}
-          {% endif %}
-          {% image item.image.image, srcset, sizes, format, alt,css, loading %}
-        {% endif %}
-        {# / Generate image #}
 
         {# title and text #}
         {% if item.image.title or item.image.figcaption %}

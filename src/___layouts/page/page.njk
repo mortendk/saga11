@@ -8,6 +8,13 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+
+
+{% image img="/upload/cyber.png", width=[100, 400, 1200] %}
+
+{# {% user twitter="zachleat", name="Zach Leatherman" %} #}
+
+
 {% for section in sections %}
 
   {% if section.type == "images" %}
@@ -44,15 +51,6 @@ This is the default template for the page type
 <article class="" aria-label="Page">
 
   <h1 class="font-serif text-8xl">{{ title }}</h1>
-  {# Generate image #}
-    {# {% if image %}
-      {% set css = "shadow rounded-lg" %}
-      {% set srcset = [400,800, 1600] %}
-      {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-      {% set loading = "eager" %}
-      {% image image, srcset, sizes, format, alt,css, loading %}
-    {% endif %} #}
-  {# / Generate image #}
 
   {# gallery #}
   {# {% include "gallery.njk" %} #}

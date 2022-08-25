@@ -31,7 +31,7 @@ eleventyExcludeFromCollections: true
       <content type="html">
         {% if item.data.image %}
           <![CDATA[
-            {% image item.data.image, [640],"",['webp'],'alt','css','nope', env.url %}
+            {# {% image item.data.image, [640],"",['webp'],'alt','css','nope', env.url %} #}
           ]]>
         {% endif %}
         {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}

@@ -8,7 +8,7 @@ COLL
   section: {{ section.title }}
   {% for item in section.images %}
     <div class="aspect-video overflow-hidden w-40">
-      {% imagestuff item.image,'test', '200' %}
+        {% image img=item.image, width=[100] %}
     </div>
   {% endfor %}
 

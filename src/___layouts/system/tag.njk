@@ -33,8 +33,7 @@ the tag page auto generated from src/systempages/tag.njk
         {% set format = [webp] %}
         {% set srcset = [400,800, 1600] %}
         {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-        {% set loading = "lazy" %}
-        {% image item.data.image, srcset, sizes, format, alt,css, loading %}
+        {% image item.data.image, width=srcset, sizes=sizes, css=css %}
       {% endif %}
       {# / Generate image #}
 
