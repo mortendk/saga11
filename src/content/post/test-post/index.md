@@ -1,18 +1,20 @@
 ---
-title: test post
-url:
-  path: "123"
+layout: post/post.njk
 related:
   relatedpages:
     - basepage
   relatedpost:
     - test-post/index
+title: test post
+url:
+  path: "123"
 calendar:
   date_start: ""
   date_end: ""
   date_allday: false
+tags:
+  - test
 date: 2022-08-24 15:10:49
-layout: post/post.njk
 eleventyNavigation:
   key: story level 1
   parent: Post

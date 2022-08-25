@@ -1,7 +1,10 @@
 {# Section image gallery  #}
 <div class="bg-green-100 mt-4">
+COLL
 
-{# {{ section.images | debug | safe }} #}
+{% set collection = section.collection  %}
+
+{{ collection | debug | safe }}
   section: {{ section.title }}
   {% for item in section.images %}
     <div class="aspect-video overflow-hidden w-40">

@@ -17,7 +17,7 @@ calendar:
   date_end: 2022-08-18 00:00:00
   date_allday: true
 tags:
-  - event
+  - test
 date: 2022-08-22 22:34:57
 teaser: >-
   Space ship people get up from sleeping coffin and have eat.

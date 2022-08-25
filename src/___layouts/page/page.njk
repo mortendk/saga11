@@ -8,23 +8,15 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
-{% imagestuff "src/upload/cyber.png",'test', '200' %}
-
 {% for section in sections %}
 
-    {% if section.type == "images" %}
-      {% include "section.njk" %}
-      {% for item in section.images %}
+  {% if section.type == "images" %}
+    {% include "section.njk" %}
+  {% endif %}
 
-          {# imageShortcode(src, cls, alt, sizes, widths) #}
-
-        {# {% include "section.njk" %} #}
-      {% endfor %}
-    {% endif %}
-
-    {% if section.type == "collection" %}
-      Collection
-    {% endif %}
+  {% if section.type == "collection" %}
+    {% include "section-collection.njk" %}
+  {% endif %}
 
 {% endfor %}
 
@@ -53,20 +45,20 @@ This is the default template for the page type
 
   <h1 class="font-serif text-8xl">{{ title }}</h1>
   {# Generate image #}
-    {% if image %}
+    {# {% if image %}
       {% set css = "shadow rounded-lg" %}
       {% set srcset = [400,800, 1600] %}
       {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
       {% set loading = "eager" %}
       {% image image, srcset, sizes, format, alt,css, loading %}
-    {% endif %}
+    {% endif %} #}
   {# / Generate image #}
 
   {# gallery #}
   {# {% include "gallery.njk" %} #}
 
   <div class="wysiwyg">
-    {{ content | safe }}
+    {# {{ content | safe }} #}
   </div>
 
   {# {% include "collection.njk" %} #}

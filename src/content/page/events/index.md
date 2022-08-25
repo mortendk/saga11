@@ -2,16 +2,21 @@
 title: A page
 url: pagetest
 sections:
+  - type: collection
+    title: Test list
+    collection: test
+    text: teaser text
   - type: images
     title: Image Gallery
     images:
       - image: /upload/cyber.png
       - image: /upload/image1.png
-  - type: collection
-    title: Events list
-    collection: event
+      - image: /upload/dungeonmaster.png
   - type: images
-    title: Image Gallery 2
+    title: "no images here "
+    images:
+      - image: /upload/morning.png
+      - image: /upload/space.png
 image: /upload/space.png
 teaser: All the events
 layout: page/page.njk

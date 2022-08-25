@@ -2,26 +2,11 @@
 {# {% from 'macro/images.macro.njk' import images %} #}
 
 {% macro images(args) %}
-<section class="bg-red-400">
 
+  <section class="bg-red-400">
+    image.macro
+      {{ args | debug | safe }}
 
-{% for item in args %}
-
-{# {{ item.image}} #}
-  {% image item.image, srcset, sizes, format, alt,css, loading %}
-{% endfor %}
-
-
-</section>
-    {% if args %}
-
-
-      {% for image in args %}
-
-
-      {% endfor %}
-
-    {% endif %}
-
+  </section>
 
 {% endmacro %}

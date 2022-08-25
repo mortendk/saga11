@@ -1,0 +1,57 @@
+{# COLLECTION OF POSTS
+------------------------------------------------
+Creates a list of a collection with a chosen tag from the
+markdowm
+collection: tagname
+
+https://www.11ty.dev/docs/collections/
+#}
+{%- if env.mode != 'prod' %}<!-- __includes/collection.njk  -->{%- endif -%}
+
+
+{% set collection = section.collection  %}
+Was
+{# collection  #}
+{% if collection %}
+
+<section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
+
+  {% for item in collections[section.collection] | sortByOrder %}
+
+  {# for debugging measure shows us where this data is coming from  #}
+  {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+
+
+  <article class="p-4 shadow border rounded" aria-label="Post {{ item.data.title}}" >
+
+    <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">{{item.data.title}}
+      <div class= "aspect-video overflow-hidden">
+
+      {% if item.data.card.image %}
+        {% imagestuff item.data.card.image,'test', '200' %}
+      {% endif %}
+
+
+      {# Generate image #}
+      {# {% if item.data.card.image %}
+        {% set css = "rounded-sm" %}
+        {% set format = [webp] %}
+        {% set srcset = [400,800, 1600] %}
+        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
+        {% set loading = "lazy" %}
+        {% image item.data.card.image, srcset, sizes, format, alt,css, loading %}
+      {% endif %} #}
+      {# / Generate image #}
+
+      </div>
+    </a>
+    <div class="mt-2">
+      {{ item.data.teaser }}
+    </div>
+  </article>
+
+{% endfor %}
+
+</section>
+{% endif %}
+

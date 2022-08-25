@@ -49,9 +49,7 @@ async function image(
       decoding: "async",
     };
 
-    return Image.generateHTML(metadata, imageAttributes, {
-      whitespaceMode: "inline",
-    });
+    return Image.generateHTML(metadata, imageAttributes, {});
   } else {
     console.log(`image function called but: ${img} dont exist`);
     return `<!-- image function called but: ${img} dont exist-->`;
@@ -125,32 +123,38 @@ async function imageurl(img, width = "1200", format = "webp") {
   }
 }
 
-function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
+function imageShortcode(img, alt, sizes, loading = "async") {
+  src = "src" + img;
   console.log(`Generating image(s) from:  ${src}`);
-  let options = {
-    widths: [600, 900, 1500],
-    formats: ["webp", "jpeg"],
-    urlPath: "/images/",
-    outputDir: "./_site/images/",
-    filenameFormat: function (id, src, width, format, options) {
-      const extension = path.extname(src);
-      const name = path.basename(src, extension);
-      return `${name}-${width}w.${format}`;
-    },
-  };
+  if (fs.existsSync(src)) {
+    let options = {
+      widths: [400, 800, 1600],
+      formats: ["webp", "jpeg"],
+      urlPath: "/img/",
+      outputDir: "./_site/img/",
+      filenameFormat: function (id, src, width, format, options) {
+        const extension = path.extname(src);
+        const name = path.basename(src, extension);
+        return `${name}-${width}w.${format}`;
+      },
+    };
 
-  // generate images
-  Image(src, options);
+    // generate images
+    Image(src, options);
 
-  let imageAttributes = {
-    alt,
-    sizes,
-    loading: "lazy",
-    decoding: "async",
-  };
-  // get metadata
-  metadata = Image.statsSync(src, options);
-  return Image.generateHTML(metadata, imageAttributes);
+    let imageAttributes = {
+      alt,
+      class: "rounded-lg",
+      sizes: "(min-width: 1024px) 100vw, 50vw",
+      loading,
+      decoding: "async",
+    };
+    // get metadata
+    metadata = Image.statsSync(src, options);
+    return Image.generateHTML(metadata, imageAttributes);
+  } else {
+    console.log(`! Error generating image ${src} dont exist`);
+  }
 }
 
 module.exports = function (eleventyConfig) {
