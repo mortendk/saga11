@@ -130,8 +130,8 @@ function imageShortcode(src, alt, sizes = "(min-width: 1024px) 100vw, 50vw") {
   let options = {
     widths: [600, 900, 1500],
     formats: ["webp", "jpeg"],
-    urlPath: "/_site/img",
-    outputDir: "./img/",
+    urlPath: "/images/",
+    outputDir: "./_site/images/",
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
