@@ -1,17 +1,15 @@
+// <div class="bg-cover h-16" style="background-image:url({% imageurl img="/upload/cyber.png", width=[800] %})">
 const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
+// Returns an url  for an image
 module.exports = function (image) {
   const src = "src" + image.img;
-  const widths = image.width || [100, 200, 400];
-  const formats = image.format || ["webp", "jpeg"];
-  const sizes = image.sizes || "(min-width: 1200px) 50vw, 100vw";
-  const css = image.css || "";
-  const alt = image.alt || "";
-  const loading = image.loading || "lazy"; //lazy vs eager
+  const widths = image.width || [1200];
+  const formats = image.format || ["jpeg"];
 
-  // console.log(`🎈 Generating image:  ${src}`);
+  // console.log(`🎈 imageurl generate: ${src}`);
   //does the image exist - we dont want to break the build.
   if (fs.existsSync(src)) {
     let options = {
@@ -29,17 +27,19 @@ module.exports = function (image) {
 
     // Generate the image
     Image(src, options);
-    // Attributes for the images
-    let imageAttributes = {
-      alt,
-      class: css,
-      sizes,
-      loading,
-      decoding: "async",
-    };
     metadata = Image.statsSync(src, options);
-    return Image.generateHTML(metadata, imageAttributes);
-  } else {
-    // console.log(`😈 !! Error generating image ${src} dont exist`);
+
+    let filename;
+    if (formats == "jpeg") {
+      filename = metadata.jpeg[0].url;
+    } else if (format == "png") {
+      filename = metadata.png[0].url;
+    } else if (format == "gif") {
+      filename = metadata.gif[0].url;
+    } else {
+      filename = metadata.webp[0].url;
+    }
+    // console.log(`🎈 filename: ${filename}`);
+    return filename;
   }
 };
