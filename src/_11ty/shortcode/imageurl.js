@@ -1,4 +1,4 @@
-// <div class="bg-cover h-16" style="background-image:url({% imageurl img="/upload/cyber.png", width=[800] %})">
+//<div class="bg-cover h-16" style="background-image:url({% imageurl img="/upload/cyber.png", width=[800] %})"></div>
 const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");

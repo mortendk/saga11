@@ -8,28 +8,21 @@ post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
-  {# {{ collections.all | eleventyNavigation | debug | safe }} #}
-
-
-
+{# {{ collections.all | eleventyNavigation | debug | safe }} #}
 
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
     <h1 class="text-5xl">{{ title }}</h1>
-
-    {# Generate image #}
-      {% if card.image %}
-        {% set css = "shadow" %}
-        {% set srcset = [400,800, 1600] %}
-        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-        {% set loading = "eager" %}
-        <div class="aspect-video overflow-hidden">
-          {% image img=card.image  %}
-        </div>
-      {% endif %}
-    {# / Generate image #}
-
+    <div class="aspect-video overflow-hidden">
+      {% image
+          img=card.image,
+          width=[400,800, 1600],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="shadow rounded-xl",
+          loading = "eager"
+      %}
+    </div>
 
     <footer class="mb-4">
 
@@ -44,7 +37,7 @@ post template
 
     <time>{{ date | formatDate("DDD  T", "DK") }}</time>
 
-  </footer>
+    </footer>
 
 
 

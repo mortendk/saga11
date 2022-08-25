@@ -8,7 +8,16 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+<div class="bg-cover h-16" style="background-image:url({% imageurl img="/upload/cyber.png", width=[800] %})"></div>
 
+change format !
+{% imageurl img="/upload/cyber.png" %}
+
+{% image
+        img="/upload/cyber.png",
+        width=[100, 200, 400],
+        formats=['webp']
+%}
 
 {% for section in sections %}
 

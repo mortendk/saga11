@@ -10,33 +10,20 @@ Template for the frontpage
   <!-- ___layouts/page/frontpage.njk  -->
 {%- endif -%}
 
-
-
-
-
 <section class="relative">
 
-{# Generate image #}
-{% if image %}
-  {% set css = "shadow rounded-lg" %}
-  {% set format = ['webp'] %}
-  {% set srcset = [400,800, 1600] %}
-  {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-  {% set loading = "eager" %}
-  {% image image, width=srcset, sizes = sizes, css= css %}
-{% endif %}
-{# / Generate image #}
-
+  {% image
+      img=image,
+      width=[400,800, 1600],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="shadow rounded-xl",
+      loading = "eager"
+  %}
   <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">
-
     <h1 class="text-7xl font-bold">{{ title }}</h1>
-
-    <div class="my-4 text-xl">
-      {{ teaser | safe}}
-    </div>
-
+    <div class="my-4 text-xl">{{ teaser | safe}}</div>
   </article>
 
 </section>
 
-{% include "collection.njk" %}
+{# {% include "collection.njk" %} #}

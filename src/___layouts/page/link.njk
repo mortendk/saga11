@@ -21,15 +21,15 @@ This page layout is used for the link in bio type
     <article class="flex flex-col">
 
     <div class="center-center">
-    {# Generate image #}
-    {% if image %}
-      {% set css = "aspect-squre shadow rounded-full w-40 border-4 border-red-400" %}
-      {% set format = [webp] %}
-      {% set srcset = [400,800, 1600] %}
-      {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-      {% set loading = "eager" %}
-      {% image image, width=srcset, sizes = sizes, css= css %}
-    {% endif %}
+      {% image
+          img=image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="aspect-squre shadow rounded-full w-40 border-4 border-red-400",
+          loading = "eager"
+      %}
+
+
     {# / Generate image #}
     </div>
 
