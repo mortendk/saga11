@@ -1,17 +1,20 @@
 ---
-title: A page
-url: pagetest
+title: page with multiple sections
+url: sections
 sections:
-  - type: collection
-    title: Test list
-    collection: test
-    text: teaser text
   - type: images
     title: Image Gallery
     images:
       - image: /upload/cyber.png
+        title: title image 1
       - image: /upload/image1.png
+        title: title image 2
       - image: /upload/dungeonmaster.png
+        title: title image 3
+  - type: collection
+    title: "This is all the test data "
+    collection: test
+    text: "**teaser** text"
   - type: images
     title: "no images here "
     images:
