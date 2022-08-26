@@ -1,0 +1,27 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/sections/section-files.njk  -->{%- endif  -%}
+
+{% if section.files %}
+
+<ul>
+
+  <div class="text-3xl">{{ section.title }} </div>
+  {% for item in section.files %}
+    {# set the file title #}
+    {% set title %}
+      {% if item.title %}
+        {{  item.title }}
+      {% else %}
+        {{ item.file }}
+      {% endif %}
+    {% endset %}
+
+    <li class="flex items-center">
+      {# <div class="w-4">{% include "svg/css3.svg" %}</div> #}
+      {# TODO #}
+      <a href="{{ item.file }}" class="ml-2 underline">{{ title }}</a>
+    </li>
+
+  {% endfor %}
+
+</ul>
+{% endif %}

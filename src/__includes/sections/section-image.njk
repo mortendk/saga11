@@ -3,11 +3,27 @@
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/sections/image.njk  -->{%- endif -%}
 
+
 {% if section.image %}
-    {{ section.image    }}
+<div class="">
+  <h2 class="text-3xl">
     {{ section.title    }}
+  </h2>
+
+    {% image
+      img=section.image,
+      width=[400,800, 1600],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="rounded-sm",
+      alt=section.alt
+    %}
+
+  {% if section.text %}
   <div class="wysiwyg">
     {{ section.text  | markdown | safe  }}
   </div>
+
+  {% endif %}
+</div>
 {% endif %}
 

@@ -136,23 +136,6 @@ collections:
           - code-block
         required: false
 
-
-      # Files
-      - name: "files"
-        label: "Files"
-        widget: "list"
-        collapsed: true
-        summary: "File: {{fields.file.file}}"
-        fields:
-          - name: file
-            label: Uploads
-            widget: object
-            collapsed: true
-            summary: "{{fields.file}}: {{fields.title}}"
-            fields:
-              - { label: file, name: file, widget: file, choose_url: true, required: false}
-              - { label: title, name: title, widget: string, required: false }
-
       # Calendar
       - name: calendar
         label: Calendar
@@ -293,7 +276,7 @@ collections:
         - { label: "Image alt", name: "alt", widget: "string", required: false }
         - { label: "teaser", name: "teaser", widget: "text", required: false }
 
-      # SECTIONS
+      # SECTION
       - label: 'Sections'
         name: 'sections'
         widget: 'list'
@@ -332,14 +315,14 @@ collections:
               - { label: title, name: title, widget: string, default: 'Collection', required: false }
               - { label: text, name: text, widget: markdown, required: false }
 
-          - label: 'text'
+          - label: 'Text'
             name: 'text'
             widget: object
             summary: "{{fields.text | truncate(100, '...')}}"
             fields:
               - { label: text, name: text, widget: markdown, required: false }
 
-          - label: 'image'
+          - label: 'Image'
             name: 'image'
             widget: object
             summary: "{{fields.text | truncate(100, '...')}}"
@@ -349,13 +332,44 @@ collections:
               - { label: title, name: title, widget: string, required: false }
               - { label: text, name: text, widget: markdown, required: false }
 
-          - label: 'form'
+          - label: 'Form'
             name: 'form'
             widget: object
             summary: '{{fields.title}}'
             fields:
               - { label: title, name: title, widget: string, default: 'Contact', required: false }
               - { label: text, name: text, widget: markdown, required: false }
+
+
+          - name: "Downloads"
+            label: "downloads"
+            widget: object
+            summary: '{{fields.file}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Download', required: false }
+              - label: Files
+                name: files
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: file, name: file, widget: file, choose_url: true }
+                  - { label: title, name: title, widget: string, required: false }
+
+          - name: "related"
+            label: "Related Pages"
+            widget: object
+            summary: '{{fields.title}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Related pages', required: false }
+              - name: relatedpages
+                label: Related Pages
+                widget: relation
+                collection: page
+                searchFields: [title]
+                valueField: "{{url}}"
+                displayFields: ["url: {{url}}  - Title: {{title}}"]
+                required: false
+                multiple: true
 
       # Tags
       - name: tags

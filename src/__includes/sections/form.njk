@@ -1,21 +1,19 @@
 
-<div class="grid grid-cols-2 gap-4 bg-slate-500">
-  <div class="">
-        {{ section.title }}
-    {% if section.text %}
-      <div class="wysiwyg">
-        {{ section.text  | markdown | safe  }}
-      </div>
-    {% endif %}
-
-
+<article class="grid grid-cols-2 gap-4 bg-pink-500">
+  <div>
+    {{ section.title }}
+  {% if section.text %}
+    <div class="wysiwyg">
+      {{ section.text  | markdown | safe  }}
+    </div>
+  {% endif %}
 
   </div>
   <div>
     {% include "contactform.njk" %}
   </div>
 
-</div>
+</article>
 
 
 

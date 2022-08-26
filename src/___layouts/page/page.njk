@@ -27,6 +27,16 @@ This is the default template for the page type
   the sections that are added in the frontmatter
   each include a different template file from /section
 #}
+{#
+<div class="text-3xl">ONLY FILES !</div>
+{% for section in sections %}
+  {% if section.type == "files" %}
+    {% include "sections/section-files.njk" %}
+  {% endif %}
+{% endfor %} #}
+
+  {# {{ sections | debug | safe }} #}
+
 {% for section in sections %}
 
   {% if section.type == "images" %}
@@ -36,18 +46,19 @@ This is the default template for the page type
     {% include "sections/section-collection.njk" %}
 
   {% elseif section.type == "text" %}
-    {% include "sections/text.njk" %}
+    {% include "sections/section-text.njk" %}
 
   {% elseif section.type == "form" %}
     {% include "sections/form.njk" %}
 
   {% elseif section.type == "image" %}
-    {% include "sections/image.njk" %}
+    {% include "sections/section-image.njk" %}
 
-  {% elseif section.type == "pages" %}
-    {% include "sections/pages.njk" %}
+  {% elseif section.type == "files" %}
+    {% include "sections/section-files.njk" %}
 
-
+  {% elseif section.type == "related" %}
+    {% include "sections/section-related.njk" %}
 
   {% endif %}
 
