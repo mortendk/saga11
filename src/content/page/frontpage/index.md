@@ -2,6 +2,7 @@
 alt: Midnight
 title: Welcome
 url: /
+
 card:
   image: /upload/morning.png
   teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

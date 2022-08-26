@@ -2,6 +2,7 @@
 alt: null
 title: Contact
 url: contact
+
 sections:
   - type: form
     title: Contact
@@ -17,5 +18,3 @@ eleventyExcludeFromCollections: false
 image: /upload/image.png
 collection: collection
 ---
-
-Contact information

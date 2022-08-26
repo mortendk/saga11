@@ -1,6 +1,6 @@
 {
   "layout": "post/post.njk",
-  "permalink": "/{{url.parent }}/{{ url.path | slugify }}/",
+  "permalink": "/{{url.parent}}/{{ url.path | slugify }}/",
   "date-updated": "Last Modified",
   "date-created": "Created"
 }

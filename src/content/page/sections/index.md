@@ -1,6 +1,7 @@
 ---
 title: page with multiple sections
 url: sections
+
 card:
   image: /upload/dungeonmaster.png
   alt: card
@@ -37,4 +38,5 @@ eleventyExcludeFromCollections: false
 image: /upload/space.png
 collection: ""
 ---
+
 body text
