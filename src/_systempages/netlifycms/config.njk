@@ -278,6 +278,7 @@ collections:
 
       # SECTION
       - label: 'Page Components'
+        label_singular: 'Page Component'
         name: 'components'
         widget: 'list'
         add_to_top: true
@@ -287,9 +288,15 @@ collections:
           - label: 'Images'
             name: 'images'
             widget: object
-            summary: '{{fields.title}}'
+            summary: '{{fields.title}} || {{fields.template}}'
             fields:
-              - { label: title, name: title, widget: string, default: 'Image Gallery', required: false }
+              - label: Images
+                name: images
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: Image, name: image, widget: image, choose_url: false }
+                  - { label: title, name: title, widget: string, required: false }
               - name: "template"
                 label: "Template"
                 widget: relation
@@ -300,19 +307,11 @@ collections:
                 required: true
                 default: "components/images/images.njk"
 
-              - label: Images
-                name: images
-                widget: list
-                add_to_top: true
-                fields:
-                  - { label: Image, name: image, widget: image, choose_url: false }
-                  - { label: title, name: title, widget: string, required: false }
-
 
           - label: 'Collection'
             name: 'collection'
             widget: object
-            summary: '{{fields.collection}}'
+            summary: '{{fields.collection}} || {{fields.template}}'
             fields:
               - name: collection
                 label: collection
@@ -339,7 +338,7 @@ collections:
           - label: 'Text'
             name: 'text'
             widget: object
-            summary: "{{fields.text | truncate(100, '...')}}"
+            summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
             fields:
               - { label: text, name: text, widget: markdown, required: false }
               - name: "template"
@@ -356,7 +355,7 @@ collections:
           - label: 'Image'
             name: 'image'
             widget: object
-            summary: "{{fields.text | truncate(100, '...')}}"
+            summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
             fields:
               - { label: Image, name: image, widget: image, choose_url: false }
               - { label: alt, name: alt, widget: string, required: false }
@@ -376,7 +375,7 @@ collections:
           - label: 'Form'
             name: 'form'
             widget: object
-            summary: '{{fields.title}}'
+            summary: '{{fields.title}} || {{fields.template}}'
             fields:
               - { label: title, name: title, widget: string, default: 'Contact', required: false }
               - { label: text, name: text, widget: markdown, required: false }
@@ -394,9 +393,15 @@ collections:
           - name: "download"
             label: "download"
             widget: object
-            summary: '{{fields.file}}'
+            summary: '{{fields.files.file }} || {{fields.template}}'
             fields:
-              - { label: title, name: title, widget: string, default: 'Download', required: false }
+              - label: Files
+                name: files
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: file, name: file, widget: file, choose_url: true }
+                  - { label: title, name: title, widget: string, required: false }
               - name: "template"
                 label: "Template"
                 widget: relation
@@ -407,18 +412,11 @@ collections:
                 required: true
                 default: "components/download/download.njk"
 
-              - label: Files
-                name: files
-                widget: list
-                add_to_top: true
-                fields:
-                  - { label: file, name: file, widget: file, choose_url: true }
-                  - { label: title, name: title, widget: string, required: false }
 
           - name: "related"
             label: "Related Pages"
             widget: object
-            summary: '{{fields.relatedpages}} template: {{fields.template}}'
+            summary: '{{fields.relatedpages}} || {{fields.template}}'
             fields:
               - name: relatedpages
                 label: Related Pages
@@ -429,7 +427,6 @@ collections:
                 displayFields: ["url: {{url}}  - Title: {{title}}"]
                 required: false
                 multiple: true
-
               - name: "template"
                 label: "Template"
                 widget: relation
@@ -439,6 +436,45 @@ collections:
                 displayFields: ["componenets/related/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/related/related.njk"
+
+
+          - name: "calendar"
+            label: "Calendar"
+            widget: object
+            summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
+            fields:
+            - label: "Calendar start"
+              name: "date_start"
+              default: ""
+              widget: "datetime"
+              date_format: "DD/MM/YYYY"
+              time_format: "HH:mm"
+              format: "YYYY-MM-DD HH:mm:ss"
+              picker_utc: true
+              required: false
+            - label: "Calendar end"
+              name: "date_end"
+              default: ""
+              widget: "datetime"
+              date_format: "DD/MM/YYYY"
+              time_format: "HH:mm"
+              format: "YYYY-MM-DD HH:mm:ss"
+              picker_utc: false
+              required: false
+            - label: "Calendar All Day"
+              name: "date_allday"
+              widget: "boolean"
+              default: false
+              required: false
+            - name: "template"
+              label: "Template"
+              widget: relation
+              collection: componentTemplateCalendar
+              searchFields: [title]
+              valueField: "components/calendar/{{filename}}.{{extension}}"
+              displayFields: ["componenets/calendar/{{filename}}.{{extension}}"]
+              required: true
+              default: "components/calendar/calendar.njk"
 
 
 
@@ -630,7 +666,7 @@ collections:
 
   # Components related
   - name: componentTemplateRelated
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/related"
     slug: "{{title}}"
     hide: true
@@ -641,7 +677,7 @@ collections:
 
   # Components collection
   - name: componentTemplateCollection
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/collection"
     slug: "{{title}}"
     hide: true
@@ -652,7 +688,7 @@ collections:
 
   # Components Images
   - name: componentTemplateImages
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/images"
     slug: "{{title}}"
     hide: true
@@ -663,7 +699,7 @@ collections:
 
   # Components Image
   - name: componentTemplateImage
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/image"
     slug: "{{title}}"
     hide: true
@@ -674,7 +710,7 @@ collections:
 
   # Components text
   - name: componentTemplateText
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/text"
     slug: "{{title}}"
     hide: true
@@ -685,7 +721,7 @@ collections:
 
   # Components Form
   - name: componentTemplateForm
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/form"
     slug: "{{title}}"
     hide: true
@@ -696,7 +732,7 @@ collections:
 
   # Components Download
   - name: componentTemplateDownload
-    label: "Section Templates"
+    label: "Template"
     folder: "src/__includes/components/download"
     slug: "{{title}}"
     hide: true
@@ -704,6 +740,18 @@ collections:
     extension: njk
     fields:
       - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateCalendar
+    label: "Template"
+    folder: "src/__includes/components/calendar"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
 
   # -----------------------------------------------------------------
   # Setings
@@ -859,18 +907,5 @@ collections:
               required: false,
               hint: "https://[name].bandcamp.com/",
             }
-
-      - label: "Menu"
-        name: "menu"
-        file: "src/data/menu.json"
-        fields:
-          - label: Menu
-            name: main
-            widget: list
-            collapsed: false
-            fields:
-              - { label: title, name: title, widget: string }
-              - { label: url, name: url, widget: string, hint: "Relative url" }
-              - { label: text, name: text, widget: string, required: false }
 
 {% endraw %}

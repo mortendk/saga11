@@ -28,52 +28,13 @@ This is the default template for the page type
   each include a different template file from /section
 #}
 
-{# {{ components | debug | safe }} #}
-
-{# <div class="text-3xl">Only related</div>
-<div class="bg-green-200">
-{% for component in components %}
-  {% if component.type=="related" %}
-      {% include component.template %}
-  {% endif %}
-{% endfor %}
-</div>
-<hr> #}
-
-{{ components | debug | safe }}
-
 {% for component in components %}
 
   {% if component.template %}
     {% include component.template %}
   {% else %}
-    {% include "component/default.njk" %}
+    {% include "components/default.njk" %}
   {% endif %}
-{#
-
-  {% if component.type == "images" %}
-    {% include component.template %}
-
-  {% elseif component.type == "collection" %}
-    {% include component.template %}
-
-  {% elseif component.type == "text" %}
-    {% include component.template %}
-
-  {% elseif component.type == "form" %}
-    {% include component.template %}
-
-  {% elseif component.type == "image" %}
-    {% include component.template %}
-
-  {% elseif component.type == "download" %}
-    {% include component.template %}
-
-  {% elseif component.type == "related" %}
-    {% include component.template %}
-
-  {% endif %} #}
-
 
 {% endfor %}
 

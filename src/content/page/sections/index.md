@@ -9,6 +9,11 @@ card:
   alt: card
   teaser: "super duper card "
 components:
+  - type: calendar
+    date_start: 2022-08-04 00:00:00
+    date_end: 2022-08-12 00:00:00
+    date_allday: false
+    template: components/calendar/calendar.njk
   - type: images
     title: Image Gallery
     images:

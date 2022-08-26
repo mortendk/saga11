@@ -1,16 +1,19 @@
 ---
 alt: null
-title: Contact
-url: contact
-
+layout: page/page.njk
 sections:
   - type: form
     title: Contact
+order: 100
+title: Contact
+url: contact
+teaser: Contact page teaser
+components:
+  - type: form
+    title: Contact
+    template: components/form/form.njk
 tags:
   - menu
-layout: page/page.njk
-order: 100
-teaser: Contact page teaser
 eleventyNavigation:
   key: Contact
   order: 100
