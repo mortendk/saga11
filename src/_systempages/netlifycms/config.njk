@@ -136,22 +136,6 @@ collections:
           - code-block
         required: false
 
-      # Gallery
-      - name: "gallery"
-        label: "Images"
-        widget: "list"
-        collapsed: true
-        summary: "Image: {{fields.image.image}}"
-        fields:
-          - label: image
-            name: image
-            widget: object
-            collapsed: true
-            summary: "image: {{fields.image}} alt: {{fields.image.title}}"
-            fields:
-              - { label: image, name: image, widget: image, choose_url: false}
-              - { label: title, name: title, widget: string, required: false}
-              - { label: Description, name: description, widget: text, required: false}
 
       # Files
       - name: "files"
@@ -299,21 +283,36 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
 
+      - name: card
+        label: card
+        widget: object
+        collapsed: true
+        summary: "{{fields.image}} {{fields.teaser}} "
+        fields:
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "teaser", name: "teaser", widget: "text", required: false }
+
+      # SECTIONS
       - label: 'Sections'
         name: 'sections'
         widget: 'list'
+        add_to_top: true
+        collapsed: true
         types:
+
           - label: 'Images'
             name: 'images'
             widget: object
             summary: '{{fields.title}}'
             fields:
-              - { label: title, name: title, widget: string, default: 'Image Gallery' }
+              - { label: title, name: title, widget: string, default: 'Image Gallery', required: false }
               - label: Images
                 name: images
                 widget: list
+                add_to_top: true
                 fields:
-                  - { label: Image, name: image, widget: image }
+                  - { label: Image, name: image, widget: image, choose_url: false }
                   - { label: title, name: title, widget: string, required: false }
 
           - label: 'Collection'
@@ -330,57 +329,33 @@ collections:
                 display_fields: ["title"]
                 multiple: false
                 hint: "All content with this tag"
-              - { label: title, name: title, widget: string, default: 'Spotlight', required: false }
+              - { label: title, name: title, widget: string, default: 'Collection', required: false }
               - { label: text, name: text, widget: markdown, required: false }
 
+          - label: 'text'
+            name: 'text'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}}"
+            fields:
+              - { label: text, name: text, widget: markdown, required: false }
 
-      # # Gallery
-      # - label: "Images"
-      #   name: "gallery"
-      #   widget: "list"
-      #   collapsed: true
-      #   summary: "Image {{fields.image.fields.image}}"
-      #   fields:
-      #     - label: image
-      #       name: image
-      #       widget: object
-      #       summary: "{{fields.image}}: {{fields.title}}"
-      #       fields:
-      #         - { label: image, name: image, widget: image, choose_url: false}
-      #         - { label: title, name: title, widget: string, required: false }
-      #         - { label: Description, name: figcaption, widget: text, required: false }
+          - label: 'image'
+            name: 'image'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}}"
+            fields:
+              - { label: Image, name: image, widget: image, choose_url: false }
+              - { label: alt, name: alt, widget: string, required: false }
+              - { label: title, name: title, widget: string, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
 
-
-
-
-      - {
-          label: "Image",
-          name: "image",
-          widget: "image",
-          required: false,
-          choose_url: false
-        }
-      - { label: "alt", name: "alt", widget: "string", required: false }
-      - { label: "teaser", name: "teaser", widget: "text", required: false }
-
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        buttons:
-          - bold
-          - italic
-          - heading-two
-          - heading-three
-          - code
-          - quote
-          - bulleted-list
-        editor_components:
-          - image
-          - code-block
-        required: false
-
-
+          - label: 'form'
+            name: 'form'
+            widget: object
+            summary: '{{fields.title}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Contact', required: false }
+              - { label: text, name: text, widget: markdown, required: false }
 
       # Tags
       - name: tags
@@ -392,19 +367,6 @@ collections:
         display_fields: ["title"]
         required: false
         multiple: true
-
-
-      # Layout selector
-      - name: "layout"
-        label: "Layout Selector"
-        widget: relation
-        collection: pagetemplates
-        searchFields: [saga-template-name]
-        valueField: "page/{{filename}}.{{extension}}"
-        displayFields:
-          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
-        required: false
-        default: "page/page.njk"
 
       - name: eleventyNavigation
         label: Navigation
@@ -424,6 +386,19 @@ collections:
           required: false
           multiple: false
 
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields:
+          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        required: false
+        default: "page/page.njk"
+        hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
+
 
       - {
           label: "Draft Mode",
@@ -432,6 +407,7 @@ collections:
           default: false,
           required: false,
         }
+
 
   # -----------------------------------------------------------------
   # Link In Bio Collection

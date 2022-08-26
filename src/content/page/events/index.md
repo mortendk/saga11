@@ -1,6 +1,10 @@
 ---
 title: page with multiple sections
 url: sections
+card:
+  image: /upload/dungeonmaster.png
+  alt: card
+  teaser: "super duper card "
 sections:
   - type: images
     title: Image Gallery
@@ -20,16 +24,17 @@ sections:
     images:
       - image: /upload/morning.png
       - image: /upload/space.png
-image: /upload/space.png
-teaser: All the events
-layout: page/page.njk
-order: 50
 tags:
   - frontpage
   - menu
+layout: page/page.njk
+order: 50
+teaser: All the events
 eleventyNavigation:
   key: Page
   order: 0
 eleventyExcludeFromCollections: false
+image: /upload/space.png
 collection: ""
 ---
+body text

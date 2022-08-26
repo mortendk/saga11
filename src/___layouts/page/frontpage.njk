@@ -13,7 +13,8 @@ Template for the frontpage
 <section class="relative">
 
   {% image
-      img=image,
+      img=card.image,
+      alt=card.alt,
       width=[400,800, 1600],
       sizes="(min-width: 1600px) 50vw, 100vw",
       css="shadow rounded-xl",
@@ -21,9 +22,32 @@ Template for the frontpage
   %}
   <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">
     <h1 class="text-7xl font-bold">{{ title }}</h1>
-    <div class="my-4 text-xl">{{ teaser | safe}}</div>
+    <div class="my-4 text-xl">{{ card.teaser | safe}}</div>
   </article>
 
 </section>
 
-{# {% include "collection.njk" %} #}
+{#
+  Section Tales from the loop ...
+  ---------------------------------------------------------
+  This is where the magic happens and we loop through
+  the sections that are added in the frontmatter
+  each include a different template file from /section
+#}
+{% for section in sections %}
+
+  {% if section.type == "images" %}
+    {% include "sections/section-images.njk" %}
+
+  {% elseif section.type == "collection" %}
+    {% include "sections/section-collection.njk" %}
+
+  {% elseif section.type == "text" %}
+    {% include "sections/text.njk" %}
+
+  {% elseif section.type == "form" %}
+    {% include "sections/form.njk" %}
+
+  {% endif %}
+
+{% endfor %}

@@ -1,18 +1,21 @@
 ---
-title: Contact
 alt: null
-layout: page/contact.njk
-order: 100
+title: Contact
 url: contact
-image: /upload/image.png
-teaser: Contact page teaser
+sections:
+  - type: form
+    title: Contact
 tags:
   - menu
-collection: collection
+layout: page/page.njk
+order: 100
+teaser: Contact page teaser
 eleventyNavigation:
   key: Contact
   order: 100
 eleventyExcludeFromCollections: false
+image: /upload/image.png
+collection: collection
 ---
 
 Contact information

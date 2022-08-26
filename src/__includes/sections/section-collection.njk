@@ -1,39 +1,42 @@
 {# COLLECTION OF POSTS
 ------------------------------------------------
-Creates a list of a collection with a chosen tag from the
-markdowm
-collection: tagname
-
 https://www.11ty.dev/docs/collections/
 #}
 {%- if env.mode != 'prod' %}<!-- __includes/section-collection.njk  -->{%- endif -%}
 
-
-{% set collection = section.collection  %}
-{% if collection %}
+{#  #}
+{% if section.collection %}
 
 <h3 class="text-3xl">{{ section.title }} </h3>
-<div class="wysiwyg">{{ section.text | markdown | safe  }}</div>
+
+{% if section.text %}
+  <div class="wysiwyg">{{ section.text  | markdown | safe  }}</div>
+{% endif %}
+
 
 <div class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
-
   {% for item in collections[section.collection] | sortByOrder %}
+
   {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
 
   <article class="p-4 shadow border rounded" aria-label="Post {{ item.data.title}}" >
-
-    <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">{{item.data.title}}
+    <a href="{{ item.url }}" title="{{item.data.title}}" class="block text-xl font-bold sr-tab" tabindex="0">
       <div class= "aspect-video overflow-hidden">
+        {% image
+            img=item.data.card.image,
+            width=[300, 600],
+            alt=item.data.card.alt
+        %}
+      </div>
 
-        {% image img=item.data.card.image, width=[300, 600] %}
-
+      <h3 class="my-4 text-2xl">
+        {{item.data.title}}
+      </h3>
+      <div class="mt-2">
+        {{ item.data.teaser }}
       </div>
     </a>
-
-    <div class="mt-2">
-      {{ item.data.teaser }}
-    </div>
   </article>
 
 {% endfor %}
@@ -41,4 +44,3 @@ https://www.11ty.dev/docs/collections/
 </div>
 
 {% endif %}
-

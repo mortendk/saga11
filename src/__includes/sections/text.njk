@@ -1,0 +1,11 @@
+{# COLLECTION OF POSTS
+------------------------------------------------
+#}
+{%- if env.mode != 'prod' %}<!-- src/__includes/sections/text.njk  -->{%- endif -%}
+
+{% if section.text %}
+  <div class="wysiwyg">
+    {{ section.text  | markdown | safe  }}
+  </div>
+{% endif %}
+

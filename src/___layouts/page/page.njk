@@ -20,28 +20,41 @@ This is the default template for the page type
 %} #}
 
 
-<article class="" aria-label="Page">
-
-  <h1 class="font-serif text-8xl">{{ title }}</h1>
-
-  <div class="wysiwyg">
-    {{ content | safe }}
-  </div>
-
-</article>
-
-
+{#
+  Section Tales from the loop ...
+  ---------------------------------------------------------
+  This is where the magic happens and we loop through
+  the sections that are added in the frontmatter
+  each include a different template file from /section
+#}
 {% for section in sections %}
 
   {% if section.type == "images" %}
-    {% include "section-images.njk" %}
-  {% endif %}
+    {% include "sections/section-images.njk" %}
 
-  {% if section.type == "collection" %}
-    {% include "section-collection.njk" %}
+  {% elseif section.type == "collection" %}
+    {% include "sections/section-collection.njk" %}
+
+  {% elseif section.type == "text" %}
+    {% include "sections/text.njk" %}
+
+  {% elseif section.type == "form" %}
+    {% include "sections/form.njk" %}
+
+  {% elseif section.type == "image" %}
+    {% include "sections/image.njk" %}
+
+  {% elseif section.type == "pages" %}
+    {% include "sections/pages.njk" %}
+
+
+
   {% endif %}
 
 {% endfor %}
+
+
+
 
 {# Menu
 {% include "menu.njk" %}
