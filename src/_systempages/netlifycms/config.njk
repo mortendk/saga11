@@ -278,7 +278,7 @@ collections:
 
       # SECTION
       - label: 'Page Components'
-        name: 'component'
+        name: 'components'
         widget: 'list'
         add_to_top: true
         collapsed: true
@@ -290,6 +290,16 @@ collections:
             summary: '{{fields.title}}'
             fields:
               - { label: title, name: title, widget: string, default: 'Image Gallery', required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImages
+                searchFields: [title]
+                valueField: "components/images/{{filename}}.{{extension}}"
+                displayFields: ["componenets/images/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/images/images.njk"
+
               - label: Images
                 name: images
                 widget: list
@@ -297,6 +307,7 @@ collections:
                 fields:
                   - { label: Image, name: image, widget: image, choose_url: false }
                   - { label: title, name: title, widget: string, required: false }
+
 
           - label: 'Collection'
             name: 'collection'
@@ -311,9 +322,19 @@ collections:
                 valueField: "{{slug}}"
                 display_fields: ["title"]
                 multiple: false
-                hint: "All content with this tag"
+                hint: "Select all content with the tag"
               - { label: title, name: title, widget: string, default: 'Collection', required: false }
               - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateCollection
+                searchFields: [title]
+                valueField: "components/collection/{{filename}}.{{extension}}"
+                displayFields: ["componenets/collection/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/collection/collection.njk"
+
 
           - label: 'Text'
             name: 'text'
@@ -321,6 +342,16 @@ collections:
             summary: "{{fields.text | truncate(100, '...')}}"
             fields:
               - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateText
+                searchFields: [title]
+                valueField: "components/text/{{filename}}.{{extension}}"
+                displayFields: ["componenets/text/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/text/text.njk"
+
 
           - label: 'Image'
             name: 'image'
@@ -331,6 +362,16 @@ collections:
               - { label: alt, name: alt, widget: string, required: false }
               - { label: title, name: title, widget: string, required: false }
               - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImage
+                searchFields: [title]
+                valueField: "components/image/{{filename}}.{{extension}}"
+                displayFields: ["componenets/image/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/image/image.njk"
+
 
           - label: 'Form'
             name: 'form'
@@ -339,14 +380,33 @@ collections:
             fields:
               - { label: title, name: title, widget: string, default: 'Contact', required: false }
               - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateForm
+                searchFields: [title]
+                valueField: "components/form/{{filename}}.{{extension}}"
+                displayFields: ["componenets/form/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/form/form.njk"
 
 
-          - name: "Downloads"
-            label: "downloads"
+          - name: "download"
+            label: "download"
             widget: object
             summary: '{{fields.file}}'
             fields:
               - { label: title, name: title, widget: string, default: 'Download', required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateDownload
+                searchFields: [title]
+                valueField: "components/download/{{filename}}.{{extension}}"
+                displayFields: ["componenets/download/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/download/download.njk"
+
               - label: Files
                 name: files
                 widget: list
@@ -358,9 +418,8 @@ collections:
           - name: "related"
             label: "Related Pages"
             widget: object
-            summary: '{{fields.title}}'
+            summary: '{{fields.relatedpages}} template: {{fields.template}}'
             fields:
-              - { label: title, name: title, widget: string, default: 'Related pages', required: false }
               - name: relatedpages
                 label: Related Pages
                 widget: relation
@@ -372,16 +431,14 @@ collections:
                 multiple: true
 
               - name: "template"
-                label: "Template File"
+                label: "Template"
                 widget: relation
-                collection: sectiontemplates
-                searchFields: [saga-template-name]
-                valueField: "section/test/{{filename}}.{{extension}}"
-                displayFields:
-                  ["saga-template-name", " (section/text/{{filename}}.{{extension}})"]
-                required: false
-                default: "section/test/orange.njk"
-                hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
+                collection: componentTemplateRelated
+                searchFields: [title]
+                valueField: "components/related/{{filename}}.{{extension}}"
+                displayFields: ["componenets/related/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/related/related.njk"
 
 
 
@@ -571,9 +628,10 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
-  - name: sectiontemplates
-    label: "section Templates"
-    folder: "src/__includes/section/test"
+  # Components related
+  - name: componentTemplateRelated
+    label: "Section Templates"
+    folder: "src/__includes/components/related"
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -581,6 +639,71 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
+  # Components collection
+  - name: componentTemplateCollection
+    label: "Section Templates"
+    folder: "src/__includes/components/collection"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Images
+  - name: componentTemplateImages
+    label: "Section Templates"
+    folder: "src/__includes/components/images"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Image
+  - name: componentTemplateImage
+    label: "Section Templates"
+    folder: "src/__includes/components/image"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components text
+  - name: componentTemplateText
+    label: "Section Templates"
+    folder: "src/__includes/components/text"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Form
+  - name: componentTemplateForm
+    label: "Section Templates"
+    folder: "src/__includes/components/form"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateDownload
+    label: "Section Templates"
+    folder: "src/__includes/components/download"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
 
   # -----------------------------------------------------------------
   # Setings

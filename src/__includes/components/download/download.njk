@@ -1,7 +1,5 @@
 {%- if env.mode != 'prod' %}  <!-- src/__includes/sections/section-files.njk  -->{%- endif  -%}
 
-{% if component.files %}
-
 <ul>
 
   <div class="text-3xl">{{ component.title }} </div>
@@ -24,4 +22,3 @@
   {% endfor %}
 
 </ul>
-{% endif %}

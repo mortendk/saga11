@@ -1,0 +1,30 @@
+{# related
+------------------------------------------------
+#}
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/related/related.njk -->{%- endif -%}
+
+{% for page in component.relatedpages %}
+<div class="flex">
+
+{# Grap the data from collections. all  #}
+  {% for item in collections.all | getPage("/" + page + "/") -%}
+    <article class="">
+      <a href="{{ item.url }}">
+        <h2 class="text-3xl">{{ item.data.title }}</h2>
+        <div>{{ item.data.teaser }}</div>
+        <div>card: {{ item.data.card.teaser }}</div>
+
+    {% image
+      img=item.data.card.image,
+      width=[400],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="rounded-sm",
+      alt=item.data.card.alt
+    %}
+
+      </a>
+    </article>
+  {% endfor %}
+
+</div>
+{% endfor %}

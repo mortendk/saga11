@@ -27,47 +27,53 @@ This is the default template for the page type
   the sections that are added in the frontmatter
   each include a different template file from /section
 #}
-{#
-<div class="text-3xl">ONLY FILES !</div>
-{% for section in sections %}
-  {% if component.type == "files" %}
-    {% include "sections/section-files.njk" %}
-  {% endif %}
-{% endfor %} #}
 
-  {{ components | debug | safe }}
+{# {{ components | debug | safe }} #}
+
+{# <div class="text-3xl">Only related</div>
+<div class="bg-green-200">
+{% for component in components %}
+  {% if component.type=="related" %}
+      {% include component.template %}
+  {% endif %}
+{% endfor %}
+</div>
+<hr> #}
+
+{{ components | debug | safe }}
 
 {% for component in components %}
 
+  {% if component.template %}
+    {% include component.template %}
+  {% else %}
+    {% include "component/default.njk" %}
+  {% endif %}
+{#
+
   {% if component.type == "images" %}
-    {% include "components/section-images.njk" %}
+    {% include component.template %}
 
   {% elseif component.type == "collection" %}
-    {% include "components/section-collection.njk" %}
+    {% include component.template %}
 
   {% elseif component.type == "text" %}
-    {% include "components/section-text.njk" %}
+    {% include component.template %}
 
   {% elseif component.type == "form" %}
-    {% include "components/form.njk" %}
+    {% include component.template %}
 
   {% elseif component.type == "image" %}
-    {% include "components/section-image.njk" %}
+    {% include component.template %}
 
-  {% elseif component.type == "files" %}
-    {% include "components/section-files.njk" %}
+  {% elseif component.type == "download" %}
+    {% include component.template %}
 
   {% elseif component.type == "related" %}
+    {% include component.template %}
 
-    {% if component.template %}
-      {% include component.template %}
-    {% else  %}
-      {% include "components/default.njk" %}
-    {% endif %}
+  {% endif %} #}
 
-    {% include "components/section-related.njk" %}
-
-  {% endif %}
 
 {% endfor %}
 

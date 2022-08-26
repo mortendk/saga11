@@ -1,9 +1,10 @@
----
-saga-template-name: green
----
+{# Default component
+------------------------------------------------
+#}
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/default.njk -->{%- endif -%}
 
-<div class="bg-pink-500">
-  <div class="text-4xl">Default</div>
+<div class="bg-orange-500 p-4">
+  <div class="text-2xl">Type: {{ component.type }} </div>
     {{ component | debug | safe }}
 
 </div>

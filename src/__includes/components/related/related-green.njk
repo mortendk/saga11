@@ -1,10 +1,10 @@
 {# related
 ------------------------------------------------
 #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/sections/section-related.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/related/related.njk -->{%- endif -%}
 
 {% for page in component.relatedpages %}
-<div class="flex">
+<div class="flex bg-green-600">
 
 {# Grap the data from collections. all  #}
   {% for item in collections.all | getPage("/" + page + "/") -%}
