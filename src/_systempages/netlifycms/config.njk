@@ -277,8 +277,8 @@ collections:
         - { label: "teaser", name: "teaser", widget: "text", required: false }
 
       # SECTION
-      - label: 'Sections'
-        name: 'sections'
+      - label: 'Page Components'
+        name: 'component'
         widget: 'list'
         add_to_top: true
         collapsed: true
@@ -370,6 +370,20 @@ collections:
                 displayFields: ["url: {{url}}  - Title: {{title}}"]
                 required: false
                 multiple: true
+
+              - name: "template"
+                label: "Template File"
+                widget: relation
+                collection: sectiontemplates
+                searchFields: [saga-template-name]
+                valueField: "section/test/{{filename}}.{{extension}}"
+                displayFields:
+                  ["saga-template-name", " (section/text/{{filename}}.{{extension}})"]
+                required: false
+                default: "section/test/orange.njk"
+                hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
+
+
 
       # Tags
       - name: tags
@@ -556,6 +570,17 @@ collections:
     extension: njk
     fields:
       - { label: "name", name: "name", widget: "string" }
+
+  - name: sectiontemplates
+    label: "section Templates"
+    folder: "src/__includes/section/test"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
 
   # -----------------------------------------------------------------
   # Setings

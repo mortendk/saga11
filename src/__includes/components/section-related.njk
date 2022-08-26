@@ -3,7 +3,7 @@
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/sections/section-related.njk -->{%- endif -%}
 
-{% for page in section.relatedpages %}
+{% for page in component.relatedpages %}
 <div class="flex">
 
 {# Grap the data from collections. all  #}

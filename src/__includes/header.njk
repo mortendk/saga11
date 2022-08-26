@@ -78,7 +78,7 @@ Global header for the site
 
     {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
 
-    {% include "menu.njk" %}
+    {% include "nav/menu.njk" %}
 
     {% for item in collections.menu | sortByOrder %}
       {# grap the correct title for the page  #}

@@ -5,13 +5,14 @@ card:
   image: /upload/morning.png
   alt: card
   teaser: "super duper card "
-sections:
+components:
   - type: related
     title: "Related pages "
     relatedpages:
       - contact
       - post
       - sections
+    template: components/test/blue.njk
   - type: Downloads
     title: Download
     files:

@@ -30,35 +30,42 @@ This is the default template for the page type
 {#
 <div class="text-3xl">ONLY FILES !</div>
 {% for section in sections %}
-  {% if section.type == "files" %}
+  {% if component.type == "files" %}
     {% include "sections/section-files.njk" %}
   {% endif %}
 {% endfor %} #}
 
-  {# {{ sections | debug | safe }} #}
+  {{ components | debug | safe }}
 
-{% for section in sections %}
+{% for component in components %}
 
-  {% if section.type == "images" %}
-    {% include "sections/section-images.njk" %}
+  {% if component.type == "images" %}
+    {% include "components/section-images.njk" %}
 
-  {% elseif section.type == "collection" %}
-    {% include "sections/section-collection.njk" %}
+  {% elseif component.type == "collection" %}
+    {% include "components/section-collection.njk" %}
 
-  {% elseif section.type == "text" %}
-    {% include "sections/section-text.njk" %}
+  {% elseif component.type == "text" %}
+    {% include "components/section-text.njk" %}
 
-  {% elseif section.type == "form" %}
-    {% include "sections/form.njk" %}
+  {% elseif component.type == "form" %}
+    {% include "components/form.njk" %}
 
-  {% elseif section.type == "image" %}
-    {% include "sections/section-image.njk" %}
+  {% elseif component.type == "image" %}
+    {% include "components/section-image.njk" %}
 
-  {% elseif section.type == "files" %}
-    {% include "sections/section-files.njk" %}
+  {% elseif component.type == "files" %}
+    {% include "components/section-files.njk" %}
 
-  {% elseif section.type == "related" %}
-    {% include "sections/section-related.njk" %}
+  {% elseif component.type == "related" %}
+
+    {% if component.template %}
+      {% include component.template %}
+    {% else  %}
+      {% include "components/default.njk" %}
+    {% endif %}
+
+    {% include "components/section-related.njk" %}
 
   {% endif %}
 
@@ -68,7 +75,7 @@ This is the default template for the page type
 
 
 {# Menu
-{% include "menu.njk" %}
+{% include "nav/menu.njk" %}
 <hr> #}
 
 {# {% from 'macro/menuitems.macro.njk' import menuitems %}

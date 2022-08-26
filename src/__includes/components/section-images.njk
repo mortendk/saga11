@@ -3,10 +3,10 @@
 #}
 {%- if env.mode != 'prod' %}  <!-- src/__includes/section-images.njk  -->{%- endif -%}
 
-<h3 class="text-3xl">{{ section.title }} </h3>
-{# <div class="wysiwyg">{{ section.text | markdown | safe  }}</div> #}
+<h3 class="text-3xl">{{ component.title }} </h3>
+{# <div class="wysiwyg">{{ component.text | markdown | safe  }}</div> #}
 
-{% set gallery = section.images %}
+{% set gallery = component.images %}
 
 {% if gallery | length %}
   {# The slider window as open ? wrapper for the bacjgrioubd  #}

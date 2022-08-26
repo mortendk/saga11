@@ -5,18 +5,18 @@ https://www.11ty.dev/docs/collections/
 {%- if env.mode != 'prod' %}<!-- __includes/section-collection.njk  -->{%- endif -%}
 
 {#  #}
-{% if section.collection %}
+{% if component.collection %}
 
-<h3 class="text-3xl">{{ section.title }} </h3>
+<h3 class="text-3xl">{{ component.title }} </h3>
 
-{% if section.text %}
-  <div class="wysiwyg">{{ section.text  | markdown | safe  }}</div>
+{% if component.text %}
+  <div class="wysiwyg">{{ component.text  | markdown | safe  }}</div>
 {% endif %}
 
 
 <div class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
-  {% for item in collections[section.collection] | sortByOrder %}
+  {% for item in collections[component.collection] | sortByOrder %}
 
   {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
 

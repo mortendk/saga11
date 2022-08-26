@@ -4,23 +4,23 @@
 {%- if env.mode != 'prod' %}<!-- src/__includes/sections/image.njk  -->{%- endif -%}
 
 
-{% if section.image %}
+{% if component.image %}
 <div class="">
   <h2 class="text-3xl">
-    {{ section.title    }}
+    {{ component.title    }}
   </h2>
 
     {% image
-      img=section.image,
+      img=component.image,
       width=[400,800, 1600],
       sizes="(min-width: 1600px) 50vw, 100vw",
       css="rounded-sm",
-      alt=section.alt
+      alt=component.alt
     %}
 
-  {% if section.text %}
+  {% if component.text %}
   <div class="wysiwyg">
-    {{ section.text  | markdown | safe  }}
+    {{ component.text  | markdown | safe  }}
   </div>
 
   {% endif %}

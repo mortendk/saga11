@@ -3,9 +3,9 @@
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/sections/text.njk  -->{%- endif -%}
 
-{% if section.text %}
+{% if component.text %}
   <div class="wysiwyg bg-slate-300">
-    {{ section.text  | markdown | safe  }}
+    {{ component.text  | markdown | safe  }}
   </div>
 {% endif %}
 
