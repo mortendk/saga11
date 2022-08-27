@@ -16,20 +16,25 @@ Calls the _base/base.njk that is holding all the basic html
 
 <main id="main" tabindex="-1" class="pagewidth flex-grow mt-4">
 
-
-<h2 class="text-5xl"> {{ title }}</h2>
+<h2 class="text-5xl text-center py-2"> {{ title }}</h2>
 
 <section class="flex flex-row ">
 
   <aside class="basis-1/4">
     <ul>
-    {% for item in collections.styleguide | sortByOrder %}
-      <li><a href="{{ item.url  }}" class="underline text-blue-500">
+    {% for item in collections.styleguide %}
+      <li>
+        <a href="{{ item.url  }}"
+          {% if page.url == item.url %} aria-current="page"{% endif %}
+          class="text-blue-500 {% if page.url == item.url %}underline{% endif %}"
+        >
         {{ item.data.title }}
-      </a></li>
+        </a>
+      </li>
     {% endfor %}
     </ul>
   </aside>
+
 
   <div class="basis-3/4">
     {{ content | safe }}
@@ -37,4 +42,7 @@ Calls the _base/base.njk that is holding all the basic html
 
 </section>
 
+
+
 </main>
+
