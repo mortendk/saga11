@@ -3,7 +3,7 @@
 #}
 {%- if env.mode != 'prod' %}  <!-- src/__includes/section-images.njk  -->{%- endif -%}
 
-<h3 class="text-3xl">{{ component.title }} </h3>
+
 {# <div class="wysiwyg">{{ component.text | markdown | safe  }}</div> #}
 
 {% set gallery = component.images %}
@@ -13,14 +13,14 @@
   <section aria-label="Image gallery"
   class=""
   x-data="{isSliderOpen: false}"
-  :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-black/90' : 'w-full relative mb-4 mt-4'"
+  :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-pink-black/90' : 'w-full relative mb-4 mt-4'"
   x-on:keydown.escape="isSliderOpen=false"
   x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
   x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
 >
 
   <div class=""
-  :class="isSliderOpen ? 'absolute top-1/2 w-full -translate-y-1/2':''";
+  :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
   >
     {# pre next #}
     <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"

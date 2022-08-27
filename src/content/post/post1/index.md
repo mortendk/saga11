@@ -2,20 +2,13 @@
 layout: post/post.njk
 relatedpost: []
 title: Space ship movie
+card:
+  image: /upload/image.png
+  alt: wonder
+  teaser: "bla bla bla "
 url:
-  parent: post
+  parent: sections
   path: spaceship-movie
-gallery:
-  - image:
-      image: /upload/image1.png
-      title: foo
-      figcaption: bar
-  - image:
-      image: /upload/image5.png
-calendar:
-  date_start: 2022-08-16 00:00:00
-  date_end: 2022-08-18 00:00:00
-  date_allday: true
 tags:
   - test
 date: 2022-08-22 22:34:57
@@ -23,10 +16,13 @@ teaser: >-
   Space ship people get up from sleeping coffin and have eat.
 
   Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
-card:
-  image: /upload/image.png
-  alt: wonder
-  teaser: "bla bla bla "
+gallery:
+  - image:
+      image: /upload/image1.png
+      title: foo
+      figcaption: bar
+  - image:
+      image: /upload/image5.png
 files:
   - file:
       file: /upload/keyboard-shortcuts-macos.pdf
@@ -39,6 +35,10 @@ eleventyNavigation:
   order: 1
   parent: Post
 eleventyExcludeFromCollections: false
+calendar:
+  date_start: 2022-08-16 00:00:00
+  date_end: 2022-08-18 00:00:00
+  date_allday: true
 ---
 wtd test: {{ url.parent }} {{ url.path }}
 

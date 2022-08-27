@@ -33,6 +33,7 @@ module.exports = function (eleventyConfig) {
   // Collections
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
   eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
+  eleventyConfig.addCollection("styleguide", require("./src/_11ty/collection/styleguide.js"));
   eleventyConfig.addCollection("tags", require("./src/_11ty/collection/tags"));
 
   // Transform

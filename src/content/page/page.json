@@ -1,6 +1,5 @@
 {
-  "layout": "page.njk",
-  "permalink": "/{{ url | slugify }}/",
+  "permalink": "/{{ title | slugify }}/",
   "date-updated": "Last Modified",
   "date-created": "Created"
 }

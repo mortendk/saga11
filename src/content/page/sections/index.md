@@ -1,7 +1,7 @@
 ---
 layout: page/page.njk
 order: 50
-url: sections
+url: test-page-components
 teaser: All the events
 title: page with multiple sections
 card:

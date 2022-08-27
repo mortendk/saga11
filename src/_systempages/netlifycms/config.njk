@@ -90,25 +90,6 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
 
-      - name: url
-        label: url
-        widget: object
-        collapsed: false
-        summary: "{{fields.parent}} / {{fields.path}}"
-        fields:
-        - name: parent
-          label: parent page
-          widget: relation
-          collection: page
-          searchFields: [url]
-          valueField: "{{url}}"
-          display_fields: ["{{url}} (page: {{title}} ) "]
-          required: false
-          multiple: false
-          hint: "The parent page ex: http://[domaine]/[parent]/"
-        - { label: "path", name: "path", widget: "string"}
-
-
       - name: card
         label: card
         widget: object
@@ -136,38 +117,23 @@ collections:
           - code-block
         required: false
 
-      # Calendar
-      - name: calendar
-        label: Calendar
+      - name: url
+        label: url
         widget: object
-        collapsed: true
-        summary: "{{fields.date_start}} - {{fields.date_end}}  All day: {{fields.date_allday}}"
+        collapsed: false
+        summary: "{{fields.parent}} / {{fields.path}}"
         fields:
-        - label: "Calendar start"
-          name: "date_start"
-          default: ""
-          widget: "datetime"
-          date_format: "DD/MM/YYYY"
-          time_format: "HH:mm"
-          format: "YYYY-MM-DD HH:mm:ss"
-          picker_utc: true
+        - name: parent
+          label: parent page
+          widget: relation
+          collection: page
+          searchFields: [url]
+          valueField: "{{url}}"
+          display_fields: ["{{url}} (page: {{title}} ) "]
           required: false
-
-        - label: "Calendar end"
-          name: "date_end"
-          default: ""
-          widget: "datetime"
-          date_format: "DD/MM/YYYY"
-          time_format: "HH:mm"
-          format: "YYYY-MM-DD HH:mm:ss"
-          picker_utc: false
-          required: false
-
-        - label: "Calendar All Day"
-          name: "date_allday"
-          widget: "boolean"
-          default: false
-          required: false
+          multiple: false
+          hint: "The parent page ex: http://[domaine]/[parent]/"
+        - { label: "path", name: "path", widget: "string"}
 
       # Tags
       - name: tags
@@ -247,8 +213,8 @@ collections:
       preview: false
 
     # Overview
-    summary: "{{title}} [url: {{url}}]"
-    sortable_fields: ["title", "order", "date"]
+    summary: "url: {{url}}  : {{title}} "
+    sortable_fields: ["title","url", "order", "date"]
 
     view_filters:
       - label: Drafts
@@ -277,8 +243,8 @@ collections:
         - { label: "teaser", name: "teaser", widget: "text", required: false }
 
       # SECTION
-      - label: 'Page Components'
-        label_singular: 'Page Component'
+      - label: 'Components'
+        label_singular: 'Component'
         name: 'components'
         widget: 'list'
         add_to_top: true
@@ -308,7 +274,7 @@ collections:
                 default: "components/images/images.njk"
 
 
-          - label: 'Collection from a tag'
+          - label: 'Collection - tag based'
             name: 'collection'
             widget: object
             summary: '{{fields.collection}} || {{fields.template}}'
@@ -391,7 +357,7 @@ collections:
 
 
           - name: "download"
-            label: "Download files"
+            label: "Download"
             widget: object
             summary: '{{fields.files.file }} || {{fields.template}}'
             fields:

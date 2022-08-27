@@ -1,0 +1,40 @@
+---
+layout: base.njk
+---
+{# DEFAULT
+------------------------------------------------
+Calls the _base/base.njk that is holding all the basic html
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/default.njk  -->{%- endif -%}
+
+{# isModalOpen is used to test if theres a modal open then disable the scroll #}
+<body class="flex flex-col h-screen bg-slate-100"
+      x-data="{'isModalOpen': false}"
+      x-on:keydown.escape="isModalOpen=false"
+      :class="isModalOpen ? 'overflow-y-hidden':''"
+>
+
+<main id="main" tabindex="-1" class="pagewidth flex-grow mt-4">
+
+
+<h2 class="text-5xl"> {{ title }}</h2>
+
+<section class="flex flex-row ">
+
+  <aside class="basis-1/4">
+    <ul>
+    {% for item in collections.styleguide | sortByOrder %}
+      <li><a href="{{ item.url  }}" class="underline text-blue-500">
+        {{ item.data.title }}
+      </a></li>
+    {% endfor %}
+    </ul>
+  </aside>
+
+  <div class="basis-3/4">
+    {{ content | safe }}
+  </div>
+
+</section>
+
+</main>
