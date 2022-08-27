@@ -1,13 +1,20 @@
-{# related
+{# Page cards
 ------------------------------------------------
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/components/related/related.njk -->{%- endif -%}
 
-{% for page in component.relatedpages %}
-<div class="flex">
+{% for page in component.page %}
 
+{# test the page and correct the path #}
+{% if page == "/" %}
+ {% set path = "/" %}
+{% else  %}
+  {% set path = "/" + page + "/" %}
+{% endif %}
+
+<div class="flex">
 {# Grap the data from collections. all  #}
-  {% for item in collections.all | getPage("/" + page + "/") -%}
+  {% for item in collections.all | getPage( path ) -%}
     <article class="">
       <a href="{{ item.url }}">
         <h2 class="text-3xl">{{ item.data.title }}</h2>

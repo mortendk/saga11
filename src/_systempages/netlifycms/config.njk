@@ -285,7 +285,7 @@ collections:
         collapsed: true
         types:
 
-          - label: 'Images'
+          - label: 'Image Gallery'
             name: 'images'
             widget: object
             summary: '{{fields.title}} || {{fields.template}}'
@@ -308,7 +308,7 @@ collections:
                 default: "components/images/images.njk"
 
 
-          - label: 'Collection'
+          - label: 'Collection from a tag'
             name: 'collection'
             widget: object
             summary: '{{fields.collection}} || {{fields.template}}'
@@ -391,7 +391,7 @@ collections:
 
 
           - name: "download"
-            label: "download"
+            label: "Download files"
             widget: object
             summary: '{{fields.files.file }} || {{fields.template}}'
             fields:
@@ -413,12 +413,12 @@ collections:
                 default: "components/download/download.njk"
 
 
-          - name: "related"
-            label: "Related Pages"
+          - name: "pagecard"
+            label: "Page Cards"
             widget: object
-            summary: '{{fields.relatedpages}} || {{fields.template}}'
+            summary: '{{fields.page}} || {{fields.template}}'
             fields:
-              - name: relatedpages
+              - name: page
                 label: Related Pages
                 widget: relation
                 collection: page
@@ -430,16 +430,16 @@ collections:
               - name: "template"
                 label: "Template"
                 widget: relation
-                collection: componentTemplateRelated
+                collection: componentTemplatePagecard
                 searchFields: [title]
-                valueField: "components/related/{{filename}}.{{extension}}"
-                displayFields: ["componenets/related/{{filename}}.{{extension}}"]
+                valueField: "components/pagecard/{{filename}}.{{extension}}"
+                displayFields: ["componenets/pagecard/{{filename}}.{{extension}}"]
                 required: true
-                default: "components/related/related.njk"
+                default: "components/pagecard/pagecard.njk"
 
 
           - name: "calendar"
-            label: "Calendar"
+            label: "Calendar Event"
             widget: object
             summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
             fields:
@@ -476,6 +476,21 @@ collections:
               required: true
               default: "components/calendar/calendar.njk"
 
+
+          - name: "njktemplate"
+            label: "Nunjucks Template"
+            widget: object
+            summary: '{{fields.page}} || {{fields.template}}'
+            fields:
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateTemplates
+                searchFields: [title]
+                valueField: "components/templates/{{filename}}.{{extension}}"
+                displayFields: ["componenets/templates/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/templates/default.njk"
 
 
       # Tags
@@ -665,9 +680,9 @@ collections:
       - { label: "name", name: "name", widget: "string" }
 
   # Components related
-  - name: componentTemplateRelated
+  - name: componentTemplatePagecard
     label: "Template"
-    folder: "src/__includes/components/related"
+    folder: "src/__includes/components/pagecard"
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -745,6 +760,17 @@ collections:
   - name: componentTemplateCalendar
     label: "Template"
     folder: "src/__includes/components/calendar"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateTemplates
+    label: "Template"
+    folder: "src/__includes/components/templates"
     slug: "{{title}}"
     hide: true
     format: frontmatter

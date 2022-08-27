@@ -9,6 +9,14 @@ card:
   alt: card
   teaser: "super duper card "
 components:
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - contact
+      - sections
+      - /
+  - type: njktemplate
+    template: components/templates/default.njk
   - type: calendar
     date_start: 2022-08-04 00:00:00
     date_end: 2022-08-12 00:00:00
@@ -34,10 +42,6 @@ components:
     collection: test
     text: "**teaser** text"
     template: components/collection/collection.njk
-  - type: related
-    template: components/related/related-green.njk
-    relatedpages:
-      - post
   - type: image
     image: /upload/space.png
     alt: image alt text

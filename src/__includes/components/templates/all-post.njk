@@ -1,22 +1,7 @@
----
-layout: default.njk
-saga-template-name: All post
----
-{# PAGE POST PAGE
-------------------------------------------------
-An example for a landing page for all the posts
-#}
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/all-posts.njk  -->{%- endif -%}
 
-<div class="w-1/2 mx-auto">
-  <h1 class="text-5xl">{{ title }} </h1>
-  <div>{{ content | safe }}</div>
-</div>
-
-{% include "nav/tags.njk" %}
+<h2>All Post</h2>
 
 <section class="grid md:grid-cols-3 gap-4">
-
 {% for item in collections.allPosts  %}
 
   <article class="p-2 shadow border m-1">
@@ -40,5 +25,4 @@ An example for a landing page for all the posts
   </article>
 
 {% endfor %}
-
 </section>
