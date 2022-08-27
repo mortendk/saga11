@@ -8,6 +8,8 @@ order: 100
 title: Contact
 url: contact
 teaser: Contact page teaser
+card:
+  image: /upload/spaceship.png
 components:
   - type: form
     title: Contact

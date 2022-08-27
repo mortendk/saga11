@@ -16,9 +16,9 @@ tags:
   - test
 date: 2022-08-24 15:10:49
 eleventyNavigation:
-  key: story level 1
+  key: ""
   parent: Post
-  order: 0
+  order: ""
   excerpt: parent is post
 eleventyExcludeFromCollections: false
 ---
