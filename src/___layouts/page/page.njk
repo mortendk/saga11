@@ -8,58 +8,8 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
-{# <div class="bg-cover h-16" style="background-image:url({% imageurl img="/upload/cyber.png", width=[800] %})"></div> #}
 
-{# change format !
-{% imageurl img="/upload/cyber.png" %}
+{# List all page compoenents that are set in the markdown file #}
 
-{% image
-        img="/upload/cyber.png",
-        width=[100, 200, 400],
-        formats=['webp']
-%} #}
-
-
-{#
-  Section Tales from the loop ...
-  ---------------------------------------------------------
-  This is where the magic happens and we loop through
-  the sections that are added in the frontmatter
-  each include a different template file from /section
-#}
-
-{% for component in components %}
-
-  {% if component.template %}
-    {% include component.template %}
-  {% else %}
-    {% include "components/default.njk" %}
-  {% endif %}
-
-{% endfor %}
-
-
-
-
-{# Menu
-{% include "nav/menu.njk" %}
-<hr> #}
-
-{# {% from 'macro/menuitems.macro.njk' import menuitems %}
-
-<nav>
-  <ul>
-    {%- for entry in collections.all | eleventyNavigation(eleventyNavigation.key) %}
-      {{ menuitems(entry, page) }}
-    {%- endfor -%}
-  </ul>
-<nav>
-<hr>
-
-
-
-<h2 class="text-3xl mt-8">All menu</h2>
-{% include "menu.njk" %} #}
-
-
+{% include "component/all.njk" %}
 

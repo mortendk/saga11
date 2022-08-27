@@ -1,0 +1,18 @@
+
+{#
+  Section Tales from the loop ...
+  ---------------------------------------------------------
+  This is where the magic happens and we loop through
+  the sections that are added in the frontmatter
+  each include a different template file from /section
+#}
+
+{% for component in components %}
+
+  {% if component.template %}
+    {% include component.template %}
+  {% else %}
+    {% include "components/default.njk" %}
+  {% endif %}
+
+{% endfor %}

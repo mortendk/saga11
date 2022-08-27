@@ -9,6 +9,11 @@ card:
   alt: card
   teaser: "super duper card "
 components:
+  - type: images
+    template: components/images/images.njk
+    images:
+      - image: /upload/image.png
+      - image: /upload/dungeonmaster.png
   - type: pagecard
     template: components/pagecard/pagecard.njk
     page:
