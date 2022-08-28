@@ -4,9 +4,10 @@ Graps all the data thats added to the _data/some.json file
 #}
 {%- if env.mode != 'prod' %}<!-- __includes/nav/socialmedia.njk  -->{%- endif  -%}
 
-{% set css = "w-8 h-8 block text-cyan-700 hover:text-cyan-800 " %}
+{% set css = "w-8 h-8 block text-cyan-700 hover:text-cyan-800 m-4 block" %}
 
-<nav class="flex flex-wrap justify-center flex-grow mx-auto space-x-4 my-8" aria-label="Menu Social media links">
+
+<nav class="flex flex-wrap flex-grow justify-center space-x-8 my-8" aria-label="Menu Social media links">
 
   {% if some.rss %}
     <a href="/feed.xml" class="{{css}}">
