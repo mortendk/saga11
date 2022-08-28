@@ -1,8 +1,8 @@
 {%- if env.mode != 'prod' %}  <!-- src/__includes/components/download/download.njk -->{%- endif  -%}
 
-<ul>
+<div class="text-3xl">{{ component.title }} </div>
 
-  <div class="text-3xl">{{ component.title }} </div>
+<ul>
   {% for item in component.files %}
     {# set the file title #}
     {% set title %}
@@ -14,8 +14,7 @@
     {% endset %}
 
     <li class="flex items-center">
-      {# <div class="w-4">{% include "svg/css3.svg" %}</div> #}
-      {# TODO #}
+      <div class="w-4">{% include "svg/css3.svg" %}</div>
       <a href="{{ item.file }}" class="ml-2 underline">{{ title }}</a>
     </li>
 
