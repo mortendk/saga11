@@ -1,3 +1,5 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/bread.njk  -->{%- endif  -%}
+
 {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
 <nav class="bg-gray-300 inline-block p-2">
   <a href="{{ env.url }}">home</a>

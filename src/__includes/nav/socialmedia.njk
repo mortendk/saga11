@@ -2,11 +2,9 @@
 ------------------------------------------------
 Graps all the data thats added to the _data/some.json file
 #}
-{%- if env.mode != 'prod' %}
-  <!-- __includes/nav/socialmedia.njk  -->
-{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/socialmedia.njk  -->{%- endif  -%}
 
-{% set css = "w-8 h-8 block text-cyan-600 hover:text-cyan-800 " %}
+{% set css = "w-8 h-8 block text-cyan-700 hover:text-cyan-800 " %}
 
 <nav class="flex flex-wrap justify-center flex-grow mx-auto space-x-4 my-8" aria-label="Menu Social media links">
 
@@ -39,7 +37,7 @@ Graps all the data thats added to the _data/some.json file
   {% endif %}
 
   {% if some.youtube %}
-    <a href="https://instagram.com/{{ some.youtube }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+    <a href="https://youtube.com/{{ some.youtube }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">youtube</span>
       {% include "svg/youtube.svg" %}
     </a>

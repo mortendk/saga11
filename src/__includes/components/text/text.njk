@@ -1,11 +1,8 @@
-{# COLLECTION OF POSTS
-------------------------------------------------
-#}
-{%- if env.mode != 'prod' %}<!-- src/__includes/sections/text.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/text/text.njk  -->{%- endif -%}
 
 {% if component.text %}
-  <div class="wysiwyg bg-slate-300">
-    {{ component.text  | markdown | safe  }}
-  </div>
+<div class="wysiwyg text-xl">
+  {{ component.text  | markdown | safe  }}
+</div>
 {% endif %}
 

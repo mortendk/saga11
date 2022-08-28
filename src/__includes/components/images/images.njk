@@ -1,26 +1,26 @@
-{# GALLERY
+{#
+------------------------------------------------
+GALLERY
 ------------------------------------------------
 #}
-{%- if env.mode != 'prod' %}  <!-- src/__includes/section-images.njk  -->{%- endif -%}
-
-
-{# <div class="wysiwyg">{{ component.text | markdown | safe  }}</div> #}
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/images/images.njk -->{%- endif -%}
 
 {% set gallery = component.images %}
-
 {% if gallery | length %}
-  {# The slider window as open ? wrapper for the bacjgrioubd  #}
-  <section aria-label="Image gallery"
-  class=""
-  x-data="{isSliderOpen: false}"
-  :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-black/90' : 'w-full relative mb-4 mt-4'"
-  x-on:keydown.escape="isSliderOpen=false"
-  x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
-  x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
+{# The slider window as open ? wrapper for the bacjgrioubd  #}
+<section
+    aria-label="Image gallery"
+    class=""
+    x-data="{isSliderOpen: false}"
+    :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-black/90' : 'w-full relative mb-4 mt-4'"
+    x-on:keydown.escape="isSliderOpen=false"
+    x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
+    x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
 >
 
-  <div class=""
-  :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
+  <div
+    class=""
+    :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
   >
     {# pre next #}
     <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
@@ -38,23 +38,6 @@
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
       {% include "svg/right.svg" %}
     </button>
-
-    {# item links "dots #}
-    <nav aria-label="gallery navigation"
-      class="flex flex-row space-x-2 max-w-md mx-auto z-10 absolute -top-4 right-0 transform "
-      :class="isSliderOpen ? 'hidden' : ''"
-      >
-      {% for item in gallery %}
-        <button
-          @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-          class="bg-slate-500 text-white rounded-full w-4 h-4 text-sm"
-          type="button"
-        >
-        {# {{ loop.index }} #}
-        </button>
-      {% endfor %}
-      {# {{ gallery | length }} #}
-    </nav>
 
     {# open/close toggler  #}
     <button
@@ -95,7 +78,6 @@
         {% if item.title or item.text %}
           <div class="hidden absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
             <div class="text-3xl">{{ item.title }}</div>
-            <div class="text-lg">{{ item.text }}</div>
           </div>
         {% endif %}
 
@@ -106,21 +88,19 @@
     </div>
 
     {# gallery navigation #}
-    <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 max-w-lg mx-auto">
-    {% for item in gallery %}
-
+    <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 justify-center">
+      {% for item in gallery %}
       <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-        class="block w-20 aspect-video overflow-hidden shadow hover:shadow-none"
+        class="block w-4 h-4 bg-slate-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
         type="button">
         <span class="sr-only">Link to image {{ loop.index }}</span>
-        {{ loop.index }}
       </button>
+      {% endfor %}
+    </nav>
 
-    {% endfor %}
-  </nav>
-</div>
+  </div>
 
-  </section>
+</section>
 
 {% endif %}

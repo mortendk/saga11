@@ -1,10 +1,7 @@
 ---
-permalink: /pwa-splashscreen-dark/
-title: "PWA Splashscreen Dark"
+title: "PWA Splashscreen"
 layout: base.njk
-eleventyExcludeFromCollections: true
 ---
-
 {# PWA setup
 ------------------------------------------------
 Instead of fiddeling with a bunch of design tools we can build the pwa screens in
@@ -12,10 +9,9 @@ html and css - use the pwa: in package.json
 #}
 {%- if env.mode != 'prod' %}<!-- pwa-setup.html  -->{%- endif -%}
 
-<body class="justify-center bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800">
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
 
-
-<main class="h-full flex flex-col items-center justify-center">
+  <main class="h-full flex flex-col items-center justify-center ">
 
   <img src="/assets/icon/icon.svg" class="w-28">
 

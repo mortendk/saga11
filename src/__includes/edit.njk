@@ -1,3 +1,5 @@
+{%- if env.mode != 'prod' %}<!--  src/__includes/edit.njk -->{%- endif -%}
+
 <div class="bg-cyan-50 flex space-x-4 justify-center"
       x-data="{'showEdit': true}"
       {# x-on:keydown.escape="showEdit=true" #}

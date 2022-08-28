@@ -8,9 +8,10 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+<h1 class="text-7xl text-cyan-700 mb-8 text-center">{{ title }}</h1>
 
 
-{# List all page compoenents that are set in the markdown file #}
-
+{# List all page compoenents #}
 {% include "component/all.njk" %}
+
 

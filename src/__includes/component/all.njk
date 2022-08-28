@@ -1,4 +1,4 @@
-
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
 {#
   Section Tales from the loop ...
   ---------------------------------------------------------
@@ -6,7 +6,7 @@
   the sections that are added in the frontmatter
   each include a different template file from /section
 #}
-
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
 {% for component in components %}
 
   {% if component.template %}
