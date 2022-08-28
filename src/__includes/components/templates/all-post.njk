@@ -1,0 +1,29 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/templates/all-post.njk -->{%- endif -%}
+
+<h2>All Post</h2>
+
+<section class="grid md:grid-cols-3 gap-4">
+{% for item in collections.allPosts  %}
+
+  <article class="p-2 shadow border m-1">
+    <a href="{{ item.url }}">
+      <div class="shadow-lg aspect-video overflow-hidden mb-4">
+
+      {% image
+          img=item.data.card.image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="shadow rounded-xl",
+          loading = "eager"
+      %}
+
+      </div>
+      <div class="text-xl ">{{item.data.title}}</div>
+      <div class="mt-2">{{ item.data.teaser }}</div>
+      <time>{{ item.data.date | formatDate("DDD  T", "DK") }}</time>
+    </div>
+    </a>
+  </article>
+
+{% endfor %}
+</section>

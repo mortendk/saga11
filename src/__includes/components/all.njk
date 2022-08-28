@@ -1,0 +1,22 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
+{#
+  Tales from the loop ...
+  ---------------------------------------------------------
+  This is where the magic happens and we loop through
+  all the componenets and render them out as specified from the template files
+  and the componenet type
+#}
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
+
+
+{% for component in components %}
+
+  {# default #}
+  {% if component.template %}
+    {% include component.template %}
+  {% else %}
+    {% include "components/_componenet-default.njk" %}
+  {% endif %}
+  {# / default #}
+
+{% endfor %}

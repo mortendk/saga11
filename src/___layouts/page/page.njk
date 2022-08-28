@@ -8,28 +8,10 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+<h1 class="text-cyan-700 text-8xl mb-8 text-center">{{ title }}</h1>
 
-<article class="" aria-label="Page">
 
-  <h1 class="font-serif text-8xl">{{ title }}</h1>
-  {# Generate image #}
-    {% if image %}
-      {% set css = "shadow rounded-lg" %}
-      {% set srcset = [400,800, 1600] %}
-      {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-      {% set loading = "eager" %}
-      {% image image, srcset, sizes, format, alt,css, loading %}
-    {% endif %}
-  {# / Generate image #}
-
-  {# gallery #}
-  {% include "gallery.njk" %}
-
-  <div class="wysiwyg">
-    {{ content | safe }}
-  </div>
-
-  {% include "collection.njk" %}
-</article>
+{# List all page compoenents #}
+{% include "components/all.njk" %}
 
 

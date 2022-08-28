@@ -1,0 +1,8 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/text/text.njk  -->{%- endif -%}
+
+{% if component.text %}
+<div class="prose lg:prose-xl mx-auto max-w-2xl py-4">
+  {{ component.text  | markdown | safe  }}
+</div>
+{% endif %}
+

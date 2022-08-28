@@ -1,3 +1,4 @@
+{%- if env.mode != 'prod' %}  <!-- __includes/share.njk  -->{%- endif  -%}
 {% set thisurl = env.url + page.url %}
 
 <div class="flex mt-4 items-center">

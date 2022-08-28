@@ -10,7 +10,7 @@ link:
     label: 11ty
   - url: https://saga11.dev
     label: saga eleven
-layout: page/link.njk
+layout: page/link-in-bio.njk
 collection: frontpage
 ---
 

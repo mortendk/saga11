@@ -2,9 +2,7 @@
 ------------------------------------------------
 List of all tags
 #}
-{%- if env.mode != 'prod' %}
-  <!-- __includes/nav/tags.njk  -->
-{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/tags.njk  -->{%- endif  -%}
 
 <nav aria-label="All Tags" class="flex flex-row space-x-4">
   {% for tag in collections.tags %}

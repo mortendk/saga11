@@ -1,15 +1,26 @@
 ---
+alt: null
+layout: page/page.njk
+sections:
+  - type: form
+    title: Contact
+order: 100
 title: Contact
 url: contact
-image: /upload/image.png
-alt: null
 teaser: Contact page teaser
+card:
+  image: /upload/spaceship.png
+components:
+  - type: form
+    title: Contact
+    template: components/form/form.njk
+    text: body text
 tags:
   - menu
-collection: collection
-layout: page/contact.njk
-order: 100
+eleventyNavigation:
+  key: Contact
+  order: 100
 eleventyExcludeFromCollections: false
+image: /upload/image.png
+collection: collection
 ---
-
-Contact information

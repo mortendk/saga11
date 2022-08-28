@@ -2,10 +2,10 @@
 ------------------------------------------------
 Basic form that works out of the box on netlify
 #}
-{%- if env.mode != 'prod' %}<!-- __includes/contactform.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/contactform.njk  -->{%- endif -%}
 
 <form
-  class="flex flex-col space-y-4 mb-8"
+  class="flex flex-col space-y-4 mb-8 bg-white"
   name="Contact"
   method="POST"
   data-netlify="true"
@@ -14,14 +14,10 @@ Basic form that works out of the box on netlify
 >
 
   <div class="flex flex-col">
-    <label for="first-name">First name: *</label>
-    <input type="text" name="first-name" id="first-name" placeholder="First Name" required />
+    <label for="first-name">First *</label>
+    <input type="text" name="firs" id="first" placeholder="Name" required />
   </div>
 
-  <div class="flex flex-col">
-    <label for="last-name">Last name: *</label>
-    <input type="text" name="last-name" id="last-name" placeholder="Last Name" required/>
-  </div>
 
   <div class="flex flex-col">
     <label for="email">E-mail *:</label>
@@ -39,7 +35,7 @@ Basic form that works out of the box on netlify
   </div>
 
   {# submit button #}
-  <button type="submit" aria-label="Submit form" class="">
+  <button type="submit" aria-label="Submit form" class="bg-red-400">
     Send
   </button>
 

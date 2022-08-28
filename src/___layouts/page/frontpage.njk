@@ -2,38 +2,30 @@
 layout: default.njk
 saga-template-name: Frontpage
 ---
-{# PAGE TEMPLATE FRONTPAGE
+{#
 ------------------------------------------------
-Template for the frontpage
+FRONTPAGE TEMPLATE
+------------------------------------------------
+Specfic page to control the layout for the frontpage
 #}
-{%- if env.mode != 'prod' %}
-  <!-- ___layouts/page/frontpage.njk  -->
-{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-
-<section class="relative">
-
-{# Generate image #}
-{% if image %}
-  {% set css = "shadow rounded-lg" %}
-  {% set format = ['webp'] %}
-  {% set srcset = [400,800, 1600] %}
-  {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-  {% set loading = "eager" %}
-  {% image image, srcset, sizes, format, alt,css, loading %}
-{% endif %}
-{# / Generate image #}
-
-  <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">
-
-    <h1 class="text-7xl font-bold">{{ title }}</h1>
-
-    <div class="my-4 text-xl">
-      {{ teaser | safe}}
-    </div>
-
+{# <section class="relative mb-4">
+  {% image
+      img=card.image,
+      alt=card.alt,
+      width=[400,800, 1600],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="shadow rounded h-96 overflow-hidden",
+      loading = "eager"
+  %}
+  <article class="absolute bg-white/80 w-1/2 top-0 p-8 h-96">
+    <h1 class="text-7xl text-cyan-700 ">{{ title }}</h1>
+    <div class="my-4 text-2xl">{{ card.teaser | safe}}</div>
   </article>
 
-</section>
+</section> #}
 
-{% include "collection.njk" %}
+{# {% include "component/pagecard.njk" %} #}
+
+{% include "components/all.njk" %}

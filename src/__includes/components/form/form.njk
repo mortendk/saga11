@@ -1,0 +1,20 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
+
+<article class="flex flex-row">
+  <div class="basis-2/4">
+    {{ component.title }}
+  {% if component.text %}
+    <div class="wysiwyg">
+      {{ component.text  | markdown | safe  }}
+    </div>
+  {% endif %}
+
+  </div>
+  <div class="basis-2/4">
+    {% include "contactform.njk" %}
+  </div>
+
+</article>
+
+
+

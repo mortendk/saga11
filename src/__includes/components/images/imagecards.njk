@@ -1,0 +1,28 @@
+{#
+------------------------------------------------
+GALLERY
+------------------------------------------------
+#}
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/images/images.njk -->{%- endif -%}
+
+{% if component.images | length %}
+<div class="grid md:grid-cols-4 gap-2 my-4">
+
+  {% for item in component.images %}
+  <article aria-label="image item {{loop.index}}" class="">
+    {% image
+      img=item.image,
+      width=[400,800],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="rounded-sm"
+    %}
+
+    <div class="text px-4 py-2 text-slate-800 shadow rounded border border-slate-100 bg-white">
+      {{ item.title }}
+    </div>
+
+  </article>
+  {% endfor %}
+</div>
+
+{% endif %}

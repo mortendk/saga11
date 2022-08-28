@@ -1,0 +1,27 @@
+
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/image/image.njk  -->{%- endif -%}
+
+
+{% if component.image %}
+<div class="">
+  <h2 class="text-3xl">
+    {{ component.title    }}
+  </h2>
+
+    {% image
+      img=component.image,
+      width=[400,800, 1600],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="rounded-sm",
+      alt=component.alt
+    %}
+
+  {% if component.text %}
+  <div class="wysiwyg">
+    {{ component.text  | markdown | safe  }}
+  </div>
+
+  {% endif %}
+</div>
+{% endif %}
+

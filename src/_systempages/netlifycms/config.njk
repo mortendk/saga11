@@ -54,82 +54,32 @@ collections:
     folder: "src/content/post"
     slug: "{{slug}}/index"
     preview_path: /{{url.parent}}/{{url.path}}/
-
     create: true
     delete: true
     editor:
       preview: false
-
-    # Overview
-    # summary: "{{title}} parent:{{url.parent}} "
     summary: "{{title}} {{url.parent}} {{card.image}} "
     sortable_fields: ["title", "order", "date"]
-
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
-
     view_groups:
       - label: "Parent: "
         field: url.parent
       - label: Tag
         field: tags
-
-
       - label: "Date: "
         field: date
         pattern: "([0-9]+(-[0-9]+)+)"
       - label: Drafts
         field: eleventyExcludeFromCollections
-
     nested:
-      depth: 5 # max depth to show in the collection tree
+      depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
-
-      - name: url
-        label: url
-        widget: object
-        collapsed: false
-        summary: "{{fields.parent}} / {{fields.path}}"
-        fields:
-        - name: parent
-          label: parent page
-          widget: relation
-          collection: page
-          searchFields: [url]
-          valueField: "{{url}}"
-          display_fields: ["{{url}} (page: {{title}} ) "]
-          required: false
-          multiple: false
-          hint: "The parent page ex: http://[domaine]/[parent]/"
-        - { label: "path", name: "path", widget: "string",  }
-
-      # - label: 'Home Section'
-      #   name: 'sections'
-      #   widget: 'list'
-      #   types:
-      #     - label: 'Carousel'
-      #       name: 'carousel'
-      #       widget: object
-      #       summary: '{{fields.header}}'
-      #       fields:
-      #         - { label: Header, name: header, widget: string, default: 'Image Gallery' }
-      #         - { label: Template, name: template, widget: string, default: 'carousel.html' }
-      #         - label: Images
-      #           name: images
-      #           widget: list
-      #           field: { label: Image, name: image, widget: image }
-      #     - label: 'Spotlight'
-      #       name: 'spotlight'
-      #       widget: object
-      #       fields:
-      #         - { label: Header, name: header, widget: string, default: 'Spotlight' }
-      #         - { label: Template, name: template, widget: string, default: 'spotlight.html' }
-      #         - { label: Text, name: text, widget: text, default: 'Hello World' }
 
       - name: card
         label: card
@@ -158,92 +108,23 @@ collections:
           - code-block
         required: false
 
-      # Gallery
-      - label: "Images Gallery"
-        name: "gallery"
-        widget: "list"
-        collapsed: true
-        summary: "Image: {{fields.image.image}}"
-        fields:
-          - label: image
-            name: image
-            widget: object
-            collapsed: true
-            summary: "image: {{fields.image}} alt: {{fields.image.title}}"
-            fields:
-              - { label: image, name: image, widget: image, choose_url: false}
-              - { label: title, name: title, widget: string, required: false}
-              - { label: Description, name: description, widget: text, required: false}
-
-      # Files
-      - name: "files"
-        label: "Files"
-        widget: "list"
-        collapsed: true
-        summary: "File: {{fields.file.file}}"
-        fields:
-          - name: file
-            label: Uploads
-            widget: object
-            collapsed: true
-            summary: "{{fields.file}}: {{fields.title}}"
-            fields:
-              - { label: file, name: file, widget: file, choose_url: true, required: false}
-              - { label: title, name: title, widget: string, required: false }
-
-
-      - name: relatedpages
-        label: Related Pages
-        widget: relation
-        collection: page
-        searchFields: [title]
-        valueField: "{{url}}"
-        displayFields: ["url: {{url}}  - Title: {{title}}"]
-        required: false
-        multiple: true
-
-      - name: relatedpost
-        label: Related Post
-        widget: relation
-        collection: post
-        searchFields: [title]
-        valueField: "{{slug}}"
-        displayFields: ["url: /{{url}}  - Title: {{title}}"]
-        required: false
-        multiple: true
-
-      # Calendar
-      - name: calendar
-        label: Calendar
+      - name: url
+        label: url
         widget: object
-        collapsed: true
-        summary: "{{fields.date_start}} - {{fields.date_end}}  All day: {{fields.date_allday}}"
+        collapsed: false
+        summary: "{{fields.parent}} / {{fields.path}}"
         fields:
-        - label: "Calendar start"
-          name: "date_start"
-          default: ""
-          widget: "datetime"
-          date_format: "DD/MM/YYYY"
-          time_format: "HH:mm"
-          format: "YYYY-MM-DD HH:mm:ss"
-          picker_utc: true
+        - name: parent
+          label: parent page
+          widget: relation
+          collection: page
+          searchFields: [url]
+          valueField: "{{url}}"
+          display_fields: ["{{url}} (page: {{title}} ) "]
           required: false
-
-        - label: "Calendar end"
-          name: "date_end"
-          default: ""
-          widget: "datetime"
-          date_format: "DD/MM/YYYY"
-          time_format: "HH:mm"
-          format: "YYYY-MM-DD HH:mm:ss"
-          picker_utc: false
-          required: false
-
-        - label: "Calendar All Day"
-          name: "date_allday"
-          widget: "boolean"
-          default: false
-          required: false
+          multiple: false
+          hint: "The parent page ex: http://[domaine]/[parent]/"
+        - { label: "path", name: "path", widget: "string"}
 
       # Tags
       - name: tags
@@ -276,6 +157,26 @@ collections:
         default: "post/post.njk"
         required: true
 
+      # Menu
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: true
+        summary: "{{fields.key}} / {{fields.parent}}"
+        fields:
+        - { label: "Label", name: "key", widget: "string", required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: [" {{eleventyNavigation.key}}"]
+          required: false
+          multiple: false
+        - { label: "order", name: "order", widget: "number",required: false}
+
+
       - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
           label: "Draft Mode",
@@ -285,6 +186,7 @@ collections:
           required: false,
           hint: "is this a draft ?",
         }
+
 
   # -----------------------------------------------------------------
   # Pages Collection
@@ -296,16 +198,12 @@ collections:
     folder: "src/content/page"
     slug: "{{url}}/index"
     preview_path: /{{url}}/
-
     create: true
     delete: true
     editor:
       preview: false
-
-    # Overview
-    summary: "{{title}} [url: {{url}}]"
-    sortable_fields: ["title", "order", "date"]
-
+    summary: "url: {{url}}  : {{title}} "
+    sortable_fields: ["title","url", "order", "date"]
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -313,7 +211,6 @@ collections:
     view_groups:
       - label: Tags
         field: tags
-
     nested:
       depth: 5 # max depth to show in the collection tree
       summary: "{{title}}"
@@ -321,48 +218,232 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "url", name: "url", widget: "string" }
-      - {
-          label: "Image",
-          name: "image",
-          widget: "image",
-          required: false,
-          choose_url: false,
-          hint: "OBS Dont support animated gifs (you can upload them but the animation will dissapear in the resizing",
-        }
-      - { label: "alt", name: "alt", widget: "string", required: false }
-      - { label: "teaser", name: "teaser", widget: "text", required: false }
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        buttons:
-          - bold
-          - italic
-          - heading-two
-          - heading-three
-          - code
-          - quote
-          - bulleted-list
-        editor_components:
-          - image
-          - code-block
-        required: false
 
-
-      # Gallery
-      - label: "Images"
-        name: "gallery"
-        widget: "list"
+      - name: card
+        label: card
+        widget: object
         collapsed: true
-        summary: "Image {{fields.image.fields.image}}"
+        summary: "{{fields.image}} {{fields.teaser}} "
         fields:
-          - label: image
-            name: image
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "Text", name: "text", widget: "text", required: false }
+
+      # SECTION
+      - label: 'Components'
+        label_singular: 'Component'
+        name: 'components'
+        widget: 'list'
+        add_to_top: true
+        collapsed: true
+        types:
+
+          - label: 'Image Gallery'
+            name: 'images'
             widget: object
-            summary: "{{fields.image}}: {{fields.title}}"
+            summary: '{{fields.title}} || {{fields.template}}'
             fields:
-              - { label: image, name: image, widget: image, choose_url: false}
+              - label: Images
+                name: images
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: Image, name: image, widget: image, choose_url: false }
+                  - { label: title, name: title, widget: string, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImages
+                searchFields: [title]
+                valueField: "components/images/{{filename}}.{{extension}}"
+                displayFields: ["componenets/images/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/images/images.njk"
+
+
+          - label: 'Collection - tag based'
+            name: 'collection'
+            widget: object
+            summary: '{{fields.collection}} || {{fields.template}}'
+            fields:
+              - name: collection
+                label: collection
+                widget: relation
+                collection: tags
+                searchFields: [title]
+                valueField: "{{slug}}"
+                display_fields: ["title"]
+                multiple: false
+                hint: "Select all content with the tag"
+              - { label: title, name: title, widget: string, default: 'Collection', required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateCollection
+                searchFields: [title]
+                valueField: "components/collection/{{filename}}.{{extension}}"
+                displayFields: ["componenets/collection/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/collection/collection.njk"
+
+
+          - label: 'Text'
+            name: 'text'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
+            fields:
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateText
+                searchFields: [title]
+                valueField: "components/text/{{filename}}.{{extension}}"
+                displayFields: ["componenets/text/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/text/text.njk"
+
+
+          - label: 'Image'
+            name: 'image'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
+            fields:
+              - { label: Image, name: image, widget: image, choose_url: false }
+              - { label: alt, name: alt, widget: string, required: false }
               - { label: title, name: title, widget: string, required: false }
-              - { label: Description, name: figcaption, widget: text, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImage
+                searchFields: [title]
+                valueField: "components/image/{{filename}}.{{extension}}"
+                displayFields: ["componenets/image/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/image/image.njk"
+
+
+          - label: 'Form'
+            name: 'form'
+            widget: object
+            summary: '{{fields.title}} || {{fields.template}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Contact', required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateForm
+                searchFields: [title]
+                valueField: "components/form/{{filename}}.{{extension}}"
+                displayFields: ["componenets/form/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/form/form.njk"
+
+
+          - name: "download"
+            label: "Download"
+            widget: object
+            summary: '{{fields.files.file }} || {{fields.template}}'
+            fields:
+              - label: Files
+                name: files
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: file, name: file, widget: file, choose_url: true }
+                  - { label: title, name: title, widget: string, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateDownload
+                searchFields: [title]
+                valueField: "components/download/{{filename}}.{{extension}}"
+                displayFields: ["componenets/download/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/download/download.njk"
+
+
+          - name: "pagecard"
+            label: "Page Cards"
+            widget: object
+            summary: '{{fields.page}} || {{fields.template}}'
+            fields:
+              - name: page
+                label: Related Pages
+                widget: relation
+                collection: page
+                searchFields: [title]
+                valueField: "{{url}}"
+                displayFields: ["url: {{url}}  - Title: {{title}}"]
+                required: false
+                multiple: true
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplatePagecard
+                searchFields: [title]
+                valueField: "components/pagecard/{{filename}}.{{extension}}"
+                displayFields: ["componenets/pagecard/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/pagecard/pagecard.njk"
+
+
+          - name: "calendar"
+            label: "Calendar Event"
+            widget: object
+            summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
+            fields:
+            - label: "Calendar start"
+              name: "date_start"
+              default: ""
+              widget: "datetime"
+              date_format: "DD/MM/YYYY"
+              time_format: "HH:mm"
+              format: "YYYY-MM-DD HH:mm:ss"
+              picker_utc: true
+              required: false
+            - label: "Calendar end"
+              name: "date_end"
+              default: ""
+              widget: "datetime"
+              date_format: "DD/MM/YYYY"
+              time_format: "HH:mm"
+              format: "YYYY-MM-DD HH:mm:ss"
+              picker_utc: false
+              required: false
+            - label: "Calendar All Day"
+              name: "date_allday"
+              widget: "boolean"
+              default: false
+              required: false
+            - name: "template"
+              label: "Template"
+              widget: relation
+              collection: componentTemplateCalendar
+              searchFields: [title]
+              valueField: "components/calendar/{{filename}}.{{extension}}"
+              displayFields: ["componenets/calendar/{{filename}}.{{extension}}"]
+              required: true
+              default: "components/calendar/calendar.njk"
+
+
+          - name: "njktemplate"
+            label: "Nunjucks Template"
+            widget: object
+            summary: '{{fields.page}} || {{fields.template}}'
+            fields:
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateTemplates
+                searchFields: [title]
+                valueField: "components/templates/{{filename}}.{{extension}}"
+                displayFields: ["componenets/templates/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/templates/default.njk"
 
       # Tags
       - name: tags
@@ -375,17 +456,23 @@ collections:
         required: false
         multiple: true
 
-      # collection
-      - name: collection
-        label: collection
-        widget: relation
-        collection: tags
-        searchFields: [title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-        multiple: false
-        hint: "This will select a tag and print teasers on the page"
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: true
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "Label", name: "key", widget: "string", required: false}
+        - { label: "order", name: "order", widget: "number",required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: [" {{eleventyNavigation.key}}"]
+          required: false
+          multiple: false
 
       # Layout selector
       - name: "layout"
@@ -398,17 +485,8 @@ collections:
           ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/page.njk"
+        hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
 
-      # 11ty settings
-      # - { label: "url", name: slugcustom,  required: true }
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
-      - {
-          label: "Menu Label",
-          name: "menulabel",
-          widget: "string",
-          required: false,
-          hint: "Optional Menu item title if this page is tagged with menu. Overwrites the pages title for the navigation",
-        }
       - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",
@@ -416,6 +494,7 @@ collections:
           default: false,
           required: false,
         }
+
 
   # -----------------------------------------------------------------
   # Link In Bio Collection
@@ -550,6 +629,106 @@ collections:
     extension: njk
     fields:
       - { label: "name", name: "name", widget: "string" }
+
+  # Components related
+  - name: componentTemplatePagecard
+    label: "Template"
+    folder: "src/__includes/components/pagecard"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components collection
+  - name: componentTemplateCollection
+    label: "Template"
+    folder: "src/__includes/components/collection"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Images
+  - name: componentTemplateImages
+    label: "Template"
+    folder: "src/__includes/components/images"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Image
+  - name: componentTemplateImage
+    label: "Template"
+    folder: "src/__includes/components/image"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components text
+  - name: componentTemplateText
+    label: "Template"
+    folder: "src/__includes/components/text"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Form
+  - name: componentTemplateForm
+    label: "Template"
+    folder: "src/__includes/components/form"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateDownload
+    label: "Template"
+    folder: "src/__includes/components/download"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateCalendar
+    label: "Template"
+    folder: "src/__includes/components/calendar"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateTemplates
+    label: "Template"
+    folder: "src/__includes/components/templates"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
 
   # -----------------------------------------------------------------
   # Setings
@@ -705,18 +884,5 @@ collections:
               required: false,
               hint: "https://[name].bandcamp.com/",
             }
-
-      - label: "Menu"
-        name: "menu"
-        file: "src/data/menu.json"
-        fields:
-          - label: Menu
-            name: main
-            widget: list
-            collapsed: false
-            fields:
-              - { label: title, name: title, widget: string }
-              - { label: url, name: url, widget: string, hint: "Relative url" }
-              - { label: text, name: text, widget: string, required: false }
 
 {% endraw %}

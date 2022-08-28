@@ -1,4 +1,4 @@
 {
-  "layout": "link.njk",
+  "layout": "link-in-bio.njk",
   "permalink": "/{{ url | slugify }}/"
 }
