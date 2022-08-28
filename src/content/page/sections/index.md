@@ -1,13 +1,14 @@
 ---
 layout: page/page.njk
 order: 50
-url: "componenet collection "
+url: "componenet-collection "
 teaser: All the events
 title: page with multiple sections
 card:
   image: /upload/morning.png
   alt: card
   teaser: "super duper card "
+  text: dsjgds;kj
 components:
   - type: collection
     title: "Title for a collection : test "
