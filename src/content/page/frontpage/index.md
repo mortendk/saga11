@@ -23,7 +23,7 @@ sections:
     title: Contact
     text: "this is contact form text "
 order: 0
-url: Componenet-pagecards
+url: pagecards
 teaser: I started a sensory deprivation chamber business - it involves really
   dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social
   media. If you were a member of the Bloods and became paralyzed do you then
@@ -54,23 +54,22 @@ components:
     page:
       - gallery
       - 4th
-      - test-page-components
       - contact
-  - type: pagecard
-    template: components/pagecard/pagecard.njk
-    page:
-      - gallery
-      - test-page-components
-  - type: pagecard
-    template: components/pagecard/pagecard.njk
-    page:
-      - gallery
-  - type: pagecard
-    template: components/pagecard/pagecard.njk
-    page:
-      - contact
-      - test-page-components
       - /
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - gallery
+      - 4th
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - contact
+      - /
+      - 4th
+      - pagecards
+      - gallery
+      - "componenet-collection "
 tags: []
 eleventyNavigation:
   key: Pagecards
