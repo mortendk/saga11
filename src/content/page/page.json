@@ -1,5 +1,5 @@
 {
-  "permalink": "/{{ title | slugify }}/",
+  "permalink": "/{{ url | slugify }}/",
   "date-updated": "Last Modified",
   "date-created": "Created"
 }

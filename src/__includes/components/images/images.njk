@@ -13,7 +13,7 @@
   <section aria-label="Image gallery"
   class=""
   x-data="{isSliderOpen: false}"
-  :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-pink-black/90' : 'w-full relative mb-4 mt-4'"
+  :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-black/90' : 'w-full relative mb-4 mt-4'"
   x-on:keydown.escape="isSliderOpen=false"
   x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
   x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"

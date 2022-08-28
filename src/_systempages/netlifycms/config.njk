@@ -54,37 +54,28 @@ collections:
     folder: "src/content/post"
     slug: "{{slug}}/index"
     preview_path: /{{url.parent}}/{{url.path}}/
-
     create: true
     delete: true
     editor:
       preview: false
-
-    # Overview
-    # summary: "{{title}} parent:{{url.parent}} "
     summary: "{{title}} {{url.parent}} {{card.image}} "
     sortable_fields: ["title", "order", "date"]
-
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
-
     view_groups:
       - label: "Parent: "
         field: url.parent
       - label: Tag
         field: tags
-
-
       - label: "Date: "
         field: date
         pattern: "([0-9]+(-[0-9]+)+)"
       - label: Drafts
         field: eleventyExcludeFromCollections
-
     nested:
-      depth: 5 # max depth to show in the collection tree
+      depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
 
     fields:
@@ -196,6 +187,7 @@ collections:
           hint: "is this a draft ?",
         }
 
+
   # -----------------------------------------------------------------
   # Pages Collection
   # -----------------------------------------------------------------
@@ -206,16 +198,12 @@ collections:
     folder: "src/content/page"
     slug: "{{url}}/index"
     preview_path: /{{url}}/
-
     create: true
     delete: true
     editor:
       preview: false
-
-    # Overview
     summary: "url: {{url}}  : {{title}} "
     sortable_fields: ["title","url", "order", "date"]
-
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -223,7 +211,6 @@ collections:
     view_groups:
       - label: Tags
         field: tags
-
     nested:
       depth: 5 # max depth to show in the collection tree
       summary: "{{title}}"
@@ -458,7 +445,6 @@ collections:
                 required: true
                 default: "components/templates/default.njk"
 
-
       # Tags
       - name: tags
         label: tags
@@ -500,7 +486,6 @@ collections:
         required: false
         default: "page/page.njk"
         hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
-
 
       - {
           label: "Draft Mode",

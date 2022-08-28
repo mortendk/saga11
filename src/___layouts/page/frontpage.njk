@@ -6,25 +6,26 @@ saga-template-name: Frontpage
 ------------------------------------------------
 Template for the frontpage
 #}
-{%- if env.mode != 'prod' %}
-  <!-- ___layouts/page/frontpage.njk  -->
-{%- endif -%}
+{%- if env.mode != 'prod' %}  <!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-<section class="relative">
-
+<section class="relative mb-4">
   {% image
       img=card.image,
       alt=card.alt,
       width=[400,800, 1600],
       sizes="(min-width: 1600px) 50vw, 100vw",
-      css="shadow rounded-xl",
+      css="shadow rounded h-20 overflow-hidden",
       loading = "eager"
   %}
-  <article class="absolute bg-white/90 w-1/2 top-0 h-full p-8">
+  <article class="absolute bg-white/90 w-1/2 top-0 p-8">
     <h1 class="text-7xl font-bold">{{ title }}</h1>
     <div class="my-4 text-xl">{{ card.teaser | safe}}</div>
   </article>
 
 </section>
 
-{% include "component/all.njk" %}
+
+<div class="grid grid-cols-3 gap-4">
+  {% include "component/pagecard.njk" %}
+</div>
+{# {% include "component/all.njk" %} #}

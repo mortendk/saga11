@@ -1,4 +1,0 @@
-{
-  "layout": "styleguide.njk",
-  "permalink": "admin/styleguide/{{ title | slugify }}/"
-}

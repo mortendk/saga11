@@ -1,17 +1,6 @@
 ---
 alt: Midnight
-title: Welcome
-url: /
-
-card:
-  image: /upload/morning.png
-  teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    "
+layout: page/frontpage.njk
 sections:
   - type: collection
     title: ""
@@ -33,15 +22,32 @@ sections:
   - type: form
     title: Contact
     text: "this is contact form text "
-tags: []
-layout: page/frontpage.njk
 order: 0
+url: /
 teaser: I started a sensory deprivation chamber business - it involves really
   dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social
   media. If you were a member of the Bloods and became paralyzed do you then
   become a member of the Crips?. We need more werkin and less twerkin if you ask
   me. Balooby. INjuries always keep you OUT of things. Visticula.
+card:
+  image: /upload/morning.png
+  teaser: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    "
 menulabel: Home
+title: Welcome
+components:
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - contact
+      - test-page-components
+      - /
+tags: []
 eleventyNavigation:
   key: ""
   order: ""

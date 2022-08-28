@@ -14,6 +14,7 @@ components:
   - type: form
     title: Contact
     template: components/form/form.njk
+    text: body text
 tags:
   - menu
 eleventyNavigation:
