@@ -11,7 +11,7 @@ Global header for the site
 
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    {% set menuclasses = "inline-flex items-center text-xl font-bold text-cyan-600 border-b-4  transition hover:bg-cyan-50/50 hover:border-cyan-500/50" %}
+    {% set menuclasses = "inline-flex items-center text-xl font-bold  border-b-4  transition hover:bg-cyan-50/50 hover:border-cyan-500/50" %}
     <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
       {% include "src/assets/icon/icon.svg" %}
       <h1 class="sr-only">{{site.title}}</h1>
@@ -26,9 +26,9 @@ Global header for the site
           {%- for item in collections.all | eleventyNavigation %}
             <a href="{{ item.url }}"
               {% if item.url in page.url %}
-                aria-current="page" class="{{menuclasses}} border-cyan-500/20"
+                aria-current="page" class="{{menuclasses}} text-cyan-600 border-cyan-500/20"
               {% else  %}
-                class="{{menuclasses}} border-transparent"
+                class="{{menuclasses}} text-slate-500 border-transparent"
               {% endif %}
               >
                 {{ item.title }}

@@ -1,0 +1,21 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/cards/small.njk -->{%- endif -%}
+<article class="shadow border rounded bg-white">
+  <a href="{{ item.url }}">
+
+    <div class= "aspect-video overflow-hidden bg-slate-400">
+      {% image
+        img=item.data.card.image,
+        width=[400, 800],
+        sizes="(min-width: 1600px) 50vw, 100vw",
+        alt=item.data.card.alt
+      %}
+    </div>
+
+    <div class="px-4 py-2 border-slate-100 text-slate-800 hover:text-slate-500">
+      <h2 class="text-3xl">{{ item.data.title }}</h2>
+      <div>{{ item.data.card.teaser | truncate(120, true, "...") }}</div>
+    </div>
+
+  </a>
+</article>
+

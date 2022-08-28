@@ -1,7 +1,7 @@
 ---
 layout: page/page.njk
 order: 50
-url: test-page-components
+url: "componenet collection "
 teaser: All the events
 title: page with multiple sections
 card:
@@ -9,44 +9,21 @@ card:
   alt: card
   teaser: "super duper card "
 components:
-  - type: images
-    template: components/images/images.njk
-    images:
-      - image: /upload/image.png
-      - image: /upload/dungeonmaster.png
-  - type: pagecard
-    template: components/pagecard/pagecard.njk
-    page:
-      - contact
-      - sections
-      - /
+  - type: collection
+    title: "Title for a collection : test "
+    collection: test
+    text: >-
+      **Text from the collection object**\
+
+      lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    template: components/collection/collection.njk
   - type: njktemplate
     template: components/templates/default.njk
-  - type: calendar
-    date_start: 2022-08-04 00:00:00
-    date_end: 2022-08-12 00:00:00
-    date_allday: false
-    template: components/calendar/calendar.njk
-  - type: images
-    title: Image Gallery
-    images:
-      - image: /upload/cyber.png
-        title: title image 1
-      - image: /upload/image1.png
-        title: title image 2
-      - image: /upload/dungeonmaster.png
-        title: title image 3
-    template: components/images/images.njk
   - type: download
     title: Download
     files:
       - file: /upload/cyber.png
     template: components/download/download.njk
-  - type: collection
-    title: "This is all the test data "
-    collection: test
-    text: "**teaser** text"
-    template: components/collection/collection.njk
   - type: image
     image: /upload/space.png
     alt: image alt text
@@ -56,14 +33,11 @@ components:
   - type: text
     text: Text from section text element
     template: components/text/text.njk
-  - type: form
-    title: Contact
-    template: components/form/form.njk
 tags:
   - frontpage
   - menu
 eleventyNavigation:
-  key: Page
+  key: collections
   order: 0
 eleventyExcludeFromCollections: false
 image: /upload/space.png

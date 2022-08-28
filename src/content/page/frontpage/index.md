@@ -23,7 +23,7 @@ sections:
     title: Contact
     text: "this is contact form text "
 order: 0
-url: /
+url: Componenet-pagecards
 teaser: I started a sensory deprivation chamber business - it involves really
   dark curtains, ear plugs, and a sleeping mask. Twitter is the rice of social
   media. If you were a member of the Bloods and became paralyzed do you then
@@ -38,9 +38,33 @@ card:
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
+  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    "
+  alt: Alt text
 menulabel: Home
-title: Welcome
+title: Pagecards
 components:
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - gallery
+      - 4th
+      - test-page-components
+      - contact
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - gallery
+      - test-page-components
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - gallery
   - type: pagecard
     template: components/pagecard/pagecard.njk
     page:
@@ -49,7 +73,7 @@ components:
       - /
 tags: []
 eleventyNavigation:
-  key: ""
+  key: Pagecards
   order: ""
 eleventyExcludeFromCollections: false
 image: /upload/morning.png

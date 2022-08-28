@@ -1,35 +1,50 @@
-{# Page cards
+{# Page card
 ------------------------------------------------
+This template controls how the pagecard template is rendered.
+
+We count the amount of cards that are attached to the componenet pagecard and defines a grid
+that matches - and then includes the right card include that matches
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/pagecard.njk -->{%- endif -%}
 
-{% for page in component.page %}
 
-{# test the page and correct the path #}
-{% if page == "/" %}
- {% set path = "/" %}
-{% else  %}
-  {% set path = "/" + page + "/" %}
+{# Add a grip to wrap around all the cards if theres more than one  #}
+{% if component.page | length > 3 %}
+  <section class="grid grid-cols-4 gap-4 my-4">
+{% elseif component.page | length > 2 %}
+  <section class="grid grid-cols-3 gap-4 my-4">
+{% elseif component.page | length > 1 %}
+  <section class="grid grid-cols-2 gap-4 my-4">
 {% endif %}
 
+{% for page in component.page %}
 
-{# Grap the data from collections. all  #}
-{% for item in collections.all | getPage( path ) -%}
-  <article>
-    <a href="{{ item.url }}">
-      <div class="bg-slate-300">
-      {% image
-        img=item.data.card.image,
-        width=[400, 800],
-        sizes="(min-width: 1600px) 50vw, 100vw",
-        css="rounded-sm",
-        alt=item.data.card.alt
-      %}
-      </div>
-      <h2 class="text-3xl">{{ item.data.title }}</h2>
-      <div>{{ item.data.teaser }}</div>
-    </a>
-  </article>
+  {# test the page and correct the path if its the frontpage aka: / #}
+  {% if page == "/" %}
+    {% set path = "/" %}
+  {% else  %}
+    {% set path = "/" + page + "/" %}
+  {% endif %}
+
+
+  {# Grap the data from collections.all  #}
+  {% for item in collections.all | getPage( path ) -%}
+
+    {# Test which card we wanna use  #}
+    {% if component.page | length == "1" %}
+      {# Single Card  #}
+      {% include "components/pagecard/cards/large.njk" %}
+    {% else %}
+      {# Multiple card - If theres more than one show them as a card #}
+      {% include "components/pagecard/cards/small.njk" %}
+    {% endif %}
+
+
+  {% endfor %}
+
 {% endfor %}
 
-{% endfor %}
+{# close the section #}
+{% if component.page | length > 1 %}
+  </section>
+{% endif %}
