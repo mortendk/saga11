@@ -4,14 +4,14 @@ Global header for the site
  #}
 {%- if env.mode != 'prod' %}<!-- __includes/header.njk  -->{%- endif  -%}
 
-<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+<header class="bg-white fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    {% set menuclasses = "inline-flex items-center text-xl font-bold text-white ransition hover:bg-white/50 hover:border-white/90 border-b-4" %}
+    {% set menuclasses = "inline-flex items-center text-xl font-bold text-cyan-600 border-b-4  transition hover:bg-cyan-50/50 hover:border-cyan-500/50" %}
     <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
       {% include "src/assets/icon/icon.svg" %}
       <h1 class="sr-only">{{site.title}}</h1>
@@ -26,7 +26,7 @@ Global header for the site
           {%- for item in collections.all | eleventyNavigation %}
             <a href="{{ item.url }}"
               {% if item.url in page.url %}
-                aria-current="page" class="{{menuclasses}}"
+                aria-current="page" class="{{menuclasses}} border-cyan-500/20"
               {% else  %}
                 class="{{menuclasses}} border-transparent"
               {% endif %}
@@ -78,33 +78,23 @@ Global header for the site
 
     {% set mobileclasses = "block h-20 flex items-center pl-2 font-large border-l-8 border-b hover:bg-green-300 " %}
 
-    {% include "nav/menu.njk" %}
 
-    {% for item in collections.menu | sortByOrder %}
-      {# grap the correct title for the page  #}
-      {% set menutitle %}
-      {% if item.data.menulabel %}
-        {{ item.data.menulabel }}
-      {% else %}
-        {{ item.data.title }}
-      {% endif %}
-      {% endset %}
 
-      {% if item.url in page.url -%}
-        <a href="{{ item.url }}" class="{{ mobileclasses }} border-red-400">{{ menutitle }}</a>
-      {% else %}
-        <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent">{{ menutitle }}</a>
-      {% endif %}
-    {% endfor %}
+        {%- for item in collections.all | eleventyNavigation %}
+          <a href="{{ item.url }}"
+            {% if item.url in page.url %}
+              aria-current="page" class="{{mobileclasses}} border-red-400"
+            {% else  %}
+              class="{{mobileclasses}} border-transparent"
+            {% endif %}
+            >
+              {{ item.title }}
+              {# test if theres any kids #}
+              {% if item.children | length %} * {% endif %}
+          </a>
+        {%- endfor -%}
 
-    {# Graps the menu from the settings config (set in _data/menu.json) #}
-    {% for item in menu.main %}
-      {% if item.url in page.url -%}
-        <a href="{{ item.url }}" class="{{ mobileclasses }} border-slate-400" title="{{ item.text}}">{{ item.title }}</a>
-      {% else %}
-        <a href="{{ item.url }}" class="{{ mobileclasses }} border-transparent"  title="{{ item.text}}">{{ item.title }}</a>
-      {% endif %}
-    {% endfor %}
+
 
   </nav>
 

@@ -1,6 +1,7 @@
+{%- if env.mode != 'prod' %}  <!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-<article class="grid grid-cols-2 gap-4 bg-pink-500">
-  <div>
+<article class="flex flex-row">
+  <div class="basis-2/4">
     {{ component.title }}
   {% if component.text %}
     <div class="wysiwyg">
@@ -9,7 +10,7 @@
   {% endif %}
 
   </div>
-  <div>
+  <div class="basis-2/4">
     {% include "contactform.njk" %}
   </div>
 
