@@ -477,12 +477,14 @@ collections:
             summary: '{{fields.title}} || {{fields.template}}'
             fields:
               - { label: title, name: title, widget: string, default: 'Contact', required: false }
+              - { label: name, name: name, widget: string, default: 'Contact', required: true, hint: "The name of the form for netlify to grap" }
               - label: elements
                 name: elements
                 widget: list
+                summary: '{{fields.title}} || {{fields.inputtype}}'
                 add_to_top: true
                 fields:
-                  - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date-time"], default: text }
+                  - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date-time","textarea"], default: text }
                   - { label: title, name: title, widget: string, required: false }
                   - { label: placeholder, name: placeholder, widget: string, required: false }
                   - { label: required, name: required, widget: boolean, default: false, required: false }

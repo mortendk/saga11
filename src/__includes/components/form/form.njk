@@ -1,47 +1,98 @@
 {%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
 
-<article class="flex flex-row">
-
-  <div class="basis-2/4">
-    {{ component.title }}
+<section class="flex flex-row mb-2">
+  {# text stuff #}
+  <div class="basis-2/4 pr-8">
+    <h3 class="text-teal-700 text-4xl mb-4">{{ component.title }}</h3>
 
     {% if component.text %}
-      <div class="wysiwyg">
+      <div class="prose prose-lg">
         {{ component.text  | markdown | safe  }}
       </div>
     {% endif %}
   </div>
-
-
+  {# / text stuff #}
+  {# Form #}
   <div class="basis-2/4">
+    <form
+      class="flex flex-col space-y-4 mb-4"
+      name="{{ component.name | slug }}"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/success/"
+    >
+      {# <div data-netlify-recaptcha="true"></div> #}
+      <div class="hidden">
+        <label for="supersecret">secret</label>
+        <input name="bot-field" id="supersecret" />
+      </div>
 
+      {# <div class="max-w-lg flex shadow-sm">
+        <label class="inline-flex items-center px-2 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+        helper://
+        </label>
+        <input type="text" placeholder="username" class="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300">
+      </div> #}
+
+    {# Create form items #}
     {% for item in component.elements %}
-
-      <div class="flex flex-col">
-        <label for="form-item-{{ item.title | slugify }}">{{ item.title }}</label>
+      <div class="flex flex-col ">
+        {# LABEL #}
+        <label
+          for="form-item-{{ item.title | slugify }}"
+          class="font-bold text-lg text-slate-700
+                hover:text-slate-800 hover:cursor-pointer"
+        >
+          {{ item.title }}
+        </label>
+      {% if item.inputtype == "textarea" %}
+        {# TEXTAREA #}
+        <textarea
+          name="{{ name }}"
+          id="form-item-{{ item.title | slugify }}"
+          placeholder="{{ item.placeholder }} "
+          {% if item.required %}required{% endif %}
+          class="w-full h-80
+                 rounded bg-slate-200 border-slate-300
+                 focus:outline-none focus:border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyan-500 focus:ring-white
+                 focus:bg-slate-200
+                "
+        />
+        </textarea>
+      {% else %}
+        {# INPUT #}
         <input
           type="{{ item.inputtype }}"
           name="{{ name }}"
           id="form-item-{{ item.title | slugify }}"
           placeholder="{{ item.placeholder }} "
           {% if item.required %}required{% endif %}
-          class="bg-red-300"
-        />
+          class="rounded bg-slate-200 border-slate-300
+                 focus:outline-none focus:border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyan-500 focus:ring-white
+                 focus:bg-slate-200
+                "
+          />
+      {% endif %}
+
       </div>
-
     {% endfor %}
-  
+      {# buttons  #}
+      <div class="flex flex-row justify-between">
+        <input type="reset" placeholder="reset" value="reset"
+          class="px-4 py-2 rounded-sm font-bold uppercase
+                bg-slate-400 text-slate-800
+                hover:bg-slate-300
+          ">
+        <button aria-label="Submit"
+          class="px-4 py-2 rounded-sm font-bold uppercase
+                bg-lime-400 text-green-900
+                hover:bg-lime-300"
+        >Send</button>
+      </div>
+      {# /buttons #}
+    </form>
   </div>
 
+</section>
 
-
-
-
-  <div class="basis-2/4">
-    {# {% include "contactform.njk" %} #}
-  </div>
-
-</article>
-
-
-  {{ component | debug | safe }}
