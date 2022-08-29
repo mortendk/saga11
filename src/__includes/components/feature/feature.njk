@@ -1,0 +1,51 @@
+<div class="py-4 mx-auto max-w-3xl">
+  <h1 class="text-5xl text-cyan-700 text-center">{{ component.title }}</h1>
+
+  {% if component.text %}
+    <div class="prose prose-xl">
+      {{ component.text  | markdown | safe  }}
+    </div>
+  {% endif %}
+
+  {% image
+    img=component.image,
+    width=[200],
+    sizes="(min-width: 1600px) 50vw, 100vw",
+    css="rounded-sm",
+    alt=""
+  %}
+
+  {# Testamonials list #}
+  {% for item in component.feature %}
+
+    <div class="flex flex-row my-4">
+
+      <div class="basis-60 mt-4 flex flex-col items-center">
+        {% image
+          img=item.image,
+          width=[400],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="rounded-full w-20 h-20 border border-teal-400",
+          alt=""
+        %}
+
+      </div>
+
+      <div class="basis-full">
+
+        <h3 class="text-2xl text-cyan-700 mb-4">
+          {{ item.title }}
+        </h3>
+
+        {% if item.text %}
+          <div class="prose">
+            {{ item.text  | markdown | safe  }}
+          </div>
+        {% endif %}
+      </div>
+
+  </div>
+  {% endfor %}
+
+
+</div>

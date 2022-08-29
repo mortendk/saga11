@@ -377,6 +377,33 @@ collections:
                 default: "components/testamonial/testamonial.njk"
 
 
+          - name: features
+            label: Features
+            widget: object
+            summary: "{{fields.image}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: feature
+                name: feature
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - { label: Image, name: image, widget: "image", required: false, choose_url: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateFeature
+                searchFields: [title]
+                valueField: "components/feature/{{filename}}.{{extension}}"
+                displayFields: ["componenets/feature/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/feature/feature.njk"
+
+
           - label: 'Form'
             name: 'form'
             widget: object
@@ -792,10 +819,21 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
-  # Components Download
+  # Components Testamonial
   - name: componentTemplateTestamonial
     label: "Template"
     folder: "src/__includes/components/testamonial"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components feature
+  - name: componentTemplateFeature
+    label: "Template"
+    folder: "src/__includes/components/feature"
     slug: "{{title}}"
     hide: true
     format: frontmatter
