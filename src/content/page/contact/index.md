@@ -15,6 +15,23 @@ components:
     title: Contact
     template: components/form/form.njk
     text: body text
+    elements:
+      - inputtype: url
+        required: false
+        title: web
+        placeholder: website
+      - inputtype: tel
+        required: false
+        title: Phone
+        placeholder: phone
+      - inputtype: email
+        required: true
+        title: Email
+        placeholder: "@foobar.dk"
+      - inputtype: text
+        required: true
+        title: You first name
+        placeholder: "Your Name "
 tags:
   - menu
 eleventyNavigation:

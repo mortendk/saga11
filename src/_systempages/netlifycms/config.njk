@@ -239,6 +239,41 @@ collections:
         collapsed: true
         types:
 
+          - label: 'Text Markdown'
+            name: 'text'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
+            fields:
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateText
+                searchFields: [title]
+                valueField: "components/text/{{filename}}.{{extension}}"
+                displayFields: ["componenets/text/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/text/text.njk"
+
+          - label: 'Image & Text'
+            name: 'image'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
+            fields:
+              - { label: Image, name: image, widget: image, choose_url: false }
+              - { label: alt, name: alt, widget: string, required: false }
+              - { label: title, name: title, widget: string, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImage
+                searchFields: [title]
+                valueField: "components/image/{{filename}}.{{extension}}"
+                displayFields: ["componenets/image/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/image/image.njk"
+
           - label: 'Image Gallery'
             name: 'images'
             widget: object
@@ -261,71 +296,6 @@ collections:
                 required: true
                 default: "components/images/images.njk"
 
-
-          - label: 'Collection - tag based'
-            name: 'collection'
-            widget: object
-            summary: '{{fields.collection}} || {{fields.template}}'
-            fields:
-              - name: collection
-                label: collection
-                widget: relation
-                collection: tags
-                searchFields: [title]
-                valueField: "{{slug}}"
-                display_fields: ["title"]
-                multiple: false
-                hint: "Select all content with the tag"
-              - { label: title, name: title, widget: string, default: 'Collection', required: false }
-              - { label: text, name: text, widget: markdown, required: false }
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplateCollection
-                searchFields: [title]
-                valueField: "components/collection/{{filename}}.{{extension}}"
-                displayFields: ["componenets/collection/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/collection/collection.njk"
-
-
-          - label: 'Text'
-            name: 'text'
-            widget: object
-            summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
-            fields:
-              - { label: text, name: text, widget: markdown, required: false }
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplateText
-                searchFields: [title]
-                valueField: "components/text/{{filename}}.{{extension}}"
-                displayFields: ["componenets/text/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/text/text.njk"
-
-
-          - label: 'Image'
-            name: 'image'
-            widget: object
-            summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
-            fields:
-              - { label: Image, name: image, widget: image, choose_url: false }
-              - { label: alt, name: alt, widget: string, required: false }
-              - { label: title, name: title, widget: string, required: false }
-              - { label: text, name: text, widget: markdown, required: false }
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplateImage
-                searchFields: [title]
-                valueField: "components/image/{{filename}}.{{extension}}"
-                displayFields: ["componenets/image/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/image/image.njk"
-
-
           - name: cta
             label: CTA
             widget: object
@@ -346,6 +316,7 @@ collections:
                 displayFields: ["componenets/cta/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/cta/cta.njk"
+
 
 
           - name: testamonials
@@ -378,39 +349,6 @@ collections:
                 default: "components/testamonial/testamonial.njk"
 
 
-          - name: price
-            label: Price table
-            widget: object
-            summary: "{{fields.title}} {{fields.teaser}} "
-            fields:
-              - { label: "title", name: "title", widget: "string", required: false }
-              - label: price
-                name: price
-                widget: list
-                add_to_top: true
-                fields:
-                  - { label: title, name: title, widget: string, required: false }
-                  - { label: Price, name: price, widget: string, required: false }
-                  - { label: featured, name: featured, widget: boolean, default: false, required: false }
-                  - { label: "Text", name: "text", widget: "markdown", required: false }
-                  - label: elements
-                    name: elements
-                    widget: list
-                    add_to_top: true
-                    fields:
-                      - { label: title, name: title, widget: string, required: false }
-                      - { label: active, name: active, widget: boolean, default: true, required: false }
-              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
-              - { label: "Text", name: "text", widget: "markdown", required: false }
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplatePrice
-                searchFields: [title]
-                valueField: "components/price/{{filename}}.{{extension}}"
-                displayFields: ["componenets/price/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/price/price.njk"
 
           - name: features
             label: Features
@@ -437,72 +375,6 @@ collections:
                 displayFields: ["componenets/feature/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/feature/feature.njk"
-
-          - label: 'Form'
-            name: 'form'
-            widget: object
-            summary: '{{fields.title}} || {{fields.template}}'
-            fields:
-              - { label: title, name: title, widget: string, default: 'Contact', required: false }
-              - { label: text, name: text, widget: markdown, required: false }
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplateForm
-                searchFields: [title]
-                valueField: "components/form/{{filename}}.{{extension}}"
-                displayFields: ["componenets/form/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/form/form.njk"
-
-
-          - name: "download"
-            label: "Download"
-            widget: object
-            summary: '{{fields.files.file }} || {{fields.template}}'
-            fields:
-              - label: Files
-                name: files
-                widget: list
-                add_to_top: true
-                fields:
-                  - { label: file, name: file, widget: file, choose_url: true }
-                  - { label: title, name: title, widget: string, required: false }
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplateDownload
-                searchFields: [title]
-                valueField: "components/download/{{filename}}.{{extension}}"
-                displayFields: ["componenets/download/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/download/download.njk"
-
-
-          - name: "pagecard"
-            label: "Page Cards"
-            widget: object
-            summary: '{{fields.page}} || {{fields.template}}'
-            fields:
-              - name: page
-                label: Related Pages
-                widget: relation
-                collection: page
-                searchFields: [title]
-                valueField: "{{url}}"
-                displayFields: ["url: {{url}}  - Title: {{title}}"]
-                required: false
-                multiple: true
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplatePagecard
-                searchFields: [title]
-                valueField: "components/pagecard/{{filename}}.{{extension}}"
-                displayFields: ["componenets/pagecard/{{filename}}.{{extension}}"]
-                required: true
-                default: "components/pagecard/pagecard.njk"
-
 
           - name: "calendar"
             label: "Calendar Event"
@@ -542,6 +414,140 @@ collections:
               required: true
               default: "components/calendar/calendar.njk"
 
+          - name: "download"
+            label: "Download"
+            widget: object
+            summary: '{{fields.files.file }} || {{fields.template}}'
+            fields:
+              - label: Files
+                name: files
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: file, name: file, widget: file, choose_url: true }
+                  - { label: title, name: title, widget: string, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateDownload
+                searchFields: [title]
+                valueField: "components/download/{{filename}}.{{extension}}"
+                displayFields: ["componenets/download/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/download/download.njk"
+
+          - name: price
+            label: Price table
+            widget: object
+            summary: "{{fields.title}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: price
+                name: price
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: Price, name: price, widget: string, required: false }
+                  - { label: featured, name: featured, widget: boolean, default: false, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - label: elements
+                    name: elements
+                    widget: list
+                    add_to_top: true
+                    fields:
+                      - { label: title, name: title, widget: string, required: false }
+                      - { label: active, name: active, widget: boolean, default: true, required: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplatePrice
+                searchFields: [title]
+                valueField: "components/price/{{filename}}.{{extension}}"
+                displayFields: ["componenets/price/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/price/price.njk"
+
+
+          - label: 'Form'
+            name: 'form'
+            widget: object
+            summary: '{{fields.title}} || {{fields.template}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Contact', required: false }
+              - label: elements
+                name: elements
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date-time"], default: text }
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: placeholder, name: placeholder, widget: string, required: false }
+                  - { label: required, name: required, widget: boolean, default: false, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateForm
+                searchFields: [title]
+                valueField: "components/form/{{filename}}.{{extension}}"
+                displayFields: ["componenets/form/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/form/form.njk"
+
+
+          - label: 'Cards - Collection by tags'
+            name: 'collection'
+            widget: object
+            summary: '{{fields.collection}} || {{fields.template}}'
+            fields:
+              - name: collection
+                label: collection
+                widget: relation
+                collection: tags
+                searchFields: [title]
+                valueField: "{{slug}}"
+                display_fields: ["title"]
+                multiple: false
+                hint: "Select all content with the tag"
+              - { label: title, name: title, widget: string, default: 'Collection', required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateCollection
+                searchFields: [title]
+                valueField: "components/collection/{{filename}}.{{extension}}"
+                displayFields: ["componenets/collection/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/collection/collection.njk"
+
+
+          - name: "pagecard"
+            label: "Cards Page"
+            widget: object
+            summary: '{{fields.page}} || {{fields.template}}'
+            fields:
+              - name: page
+                label: Related Pages
+                widget: relation
+                collection: page
+                searchFields: [title]
+                valueField: "{{url}}"
+                displayFields: ["url: {{url}}  - Title: {{title}}"]
+                required: false
+                multiple: true
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplatePagecard
+                searchFields: [title]
+                valueField: "components/pagecard/{{filename}}.{{extension}}"
+                displayFields: ["componenets/pagecard/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/pagecard/pagecard.njk"
 
           - name: "njktemplate"
             label: "Nunjucks Template"

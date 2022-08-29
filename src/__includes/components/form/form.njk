@@ -1,20 +1,47 @@
 {%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
 
 <article class="flex flex-row">
+
   <div class="basis-2/4">
     {{ component.title }}
-  {% if component.text %}
-    <div class="wysiwyg">
-      {{ component.text  | markdown | safe  }}
-    </div>
-  {% endif %}
 
+    {% if component.text %}
+      <div class="wysiwyg">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
   </div>
+
+
   <div class="basis-2/4">
-    {% include "contactform.njk" %}
+
+    {% for item in component.elements %}
+
+      <div class="flex flex-col">
+        <label for="form-item-{{ item.title | slugify }}">{{ item.title }}</label>
+        <input
+          type="{{ item.inputtype }}"
+          name="{{ name }}"
+          id="form-item-{{ item.title | slugify }}"
+          placeholder="{{ item.placeholder }} "
+          {% if item.required %}required{% endif %}
+          class="bg-red-300"
+        />
+      </div>
+
+    {% endfor %}
+  
+  </div>
+
+
+
+
+
+  <div class="basis-2/4">
+    {# {% include "contactform.njk" %} #}
   </div>
 
 </article>
 
 
-
+  {{ component | debug | safe }}
