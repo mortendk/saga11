@@ -104,7 +104,7 @@ components:
         persontitle: El Jefe
   - type: form
     title: newsletter
-    template: components/form/newsletter.njk
+    template: components/form/form.njk
     text: lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
       minim veniam, quis nostr
