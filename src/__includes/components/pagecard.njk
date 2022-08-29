@@ -7,22 +7,11 @@
   {# What type are we looking for #}
   {% if component.type == "pagecard" %}
 
-    {# change the wrapper of alle the page elemenets that are in this componenet  #}
-    {% if component.page | length > 2 %}
-      <section class="grid grid-cols-3 gap-4 my-4">
-    {% elseif component.page | length > 1 %}
-      <section class="grid grid-cols-2 gap-4 my-4">
-    {% endif %}
-
-      {# test if there is set a componenet else print a warning #}
-      {% if component.template %}
-        {% include component.template %}
-      {% else %}
-        <div class="bg-orange-500 p-4">"No template set"</div>
-      {% endif %}
-
-    {% if component.page | length > 1 %}
-      </section>
+    {# test if there is set a componenet else print a warning #}
+    {% if component.template %}
+      {% include component.template %}
+    {% else %}
+      <div class="bg-orange-500 p-4">"No template set"</div>
     {% endif %}
 
   {% endif %}

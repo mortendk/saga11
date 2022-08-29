@@ -225,6 +225,7 @@ collections:
         collapsed: true
         summary: "{{fields.image}} {{fields.teaser}} "
         fields:
+        - { label: "title", name: "title", widget: "string", required: false }
         - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
         - { label: "Image alt", name: "alt", widget: "string", required: false }
         - { label: "Text", name: "text", widget: "text", required: false }
@@ -323,6 +324,57 @@ collections:
                 displayFields: ["componenets/image/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/image/image.njk"
+
+
+          - name: cta
+            label: CTA
+            widget: object
+            summary: "{{fields.image}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - { label: "url", name: "url", widget: "string", required: false }
+              - { label: "cta", name: "cta", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Image alt", name: "alt", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateCta
+                searchFields: [title]
+                valueField: "components/cta/{{filename}}.{{extension}}"
+                displayFields: ["componenets/cta/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/cta/cta.njk"
+
+
+          - name: testamonials
+            label: Testamonials
+            widget: object
+            summary: "{{fields.image}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: Testamonial
+                name: testamonial
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - { label: Image, name: image, widget: "image", required: false, choose_url: false }
+                  - { label: Person, name: person, widget: string, required: false }
+                  - { label: Person title, name: persontitle, widget: string, required: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateTestamonial
+                searchFields: [title]
+                valueField: "components/testamonial/{{filename}}.{{extension}}"
+                displayFields: ["componenets/testamonial/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/testamonial/testamonial.njk"
 
 
           - label: 'Form'
@@ -722,6 +774,28 @@ collections:
   - name: componentTemplateTemplates
     label: "Template"
     folder: "src/__includes/components/templates"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateCta
+    label: "Template"
+    folder: "src/__includes/components/cta"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateTestamonial
+    label: "Template"
+    folder: "src/__includes/components/testamonial"
     slug: "{{title}}"
     hide: true
     format: frontmatter

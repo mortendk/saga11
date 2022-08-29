@@ -1,0 +1,45 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
+
+<div class="flex flex-row">
+  <div class="basis-1/2">
+  {{ component.title }}
+
+  {% if component.text %}
+    <div class="wysiwyg">
+      {{ component.text  | markdown | safe  }}
+    </div>
+  {% endif %}
+</div>
+
+
+<form
+  class="basis-1/2 flex flex-col space-y-4 mb-8"
+  name="Contact"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/success/"
+>
+  {# <div data-netlify-recaptcha="true"></div> #}
+  <div class="hidden">
+    <label for="supersecret">secret</label>
+    <input name="bot-field" id="supersecret" />
+  </div>
+
+  <label for="email" class="sr-only">Email address</label>
+  <input id="email" name="email" type="email" autocomplete="email" required
+        class="w-full border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white rounded-md"
+        placeholder="Enter your email">
+
+    <button type="submit"
+      class="mt-4 inline-block rounded-md text-white bg-indigo-500
+            hover:bg-indigo-400
+            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white
+            ">
+      Sign up
+    </button>
+
+</form>
+
+
+</div>

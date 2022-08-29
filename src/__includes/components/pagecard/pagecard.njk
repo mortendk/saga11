@@ -8,16 +8,12 @@ that matches - and then includes the right card include that matches
 {%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/pagecard.njk -->{%- endif -%}
 
 
-
 {# Add a grip to wrap around all the cards if theres more than one  #}
 {% if component.page | length > 3 %}
-
   <section class="grid grid-cols-4 gap-4 my-4">
 {% elseif component.page | length == 3 %}
   <section class="grid grid-cols-3 gap-4 my-4">
 {% elseif component.page | length == 2 %}
-
-
   <section class="grid grid-cols-2 gap-4 my-4">
 {% endif %}
 
@@ -30,10 +26,8 @@ that matches - and then includes the right card include that matches
     {% set path = "/" + page + "/" %}
   {% endif %}
 
-
   {# Grap the data from collections.all  #}
   {% for item in collections.all | getPage( path ) -%}
-
 
     {# Test which card we wanna use  #}
     {% if component.page | length == "1" %}
