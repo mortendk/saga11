@@ -47,7 +47,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // global vars
-  eleventyConfig.addNunjucksGlobal("saga11version", "alpha 3");
+  eleventyConfig.addNunjucksGlobal("saga11version", "alpha 4");
 
   // Local Server
   eleventyConfig.setServerOptions({

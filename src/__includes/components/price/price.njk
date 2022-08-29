@@ -45,6 +45,9 @@
 
       {# price elements #}
       {% for element in item.elements %}
+        <div class="w-4 text-green-500">
+          {% include "svg/check.svg" %}
+        </div>
         <div
           class="p-2
             {% if element.active %}

@@ -12,16 +12,6 @@ card:
   image: /upload/spaceship.png
 components:
   - type: form
-    title: Mail signup
-    template: components/form/form-inline.njk
-    elements:
-      - inputtype: email
-        required: true
-        title: Email
-        placeholder: email@saga11.dev
-    name: Mail sigunup test
-    text: "Signup for the Mail list "
-  - type: form
     title: How to get in contact with us :)
     template: components/form/form.njk
     text: lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
