@@ -2,5 +2,5 @@
 const inspect = require("util").inspect;
 
 module.exports = function (content) {
-  return `<pre>${inspect(content)}</pre>`;
+  return `🎈<pre style="background-color: orange; padding:1rem">${inspect(content)}</pre>`;
 };

@@ -44,6 +44,17 @@
             {{ item.text  | markdown | safe  }}
           </div>
         {% endif %}
+
+        {% if item.url %}
+
+          <a href="{{ item.url }}" target="_blank">
+          <div class="w-10 text-blue-300">
+            {% include "svg/twitter.svg" %}
+            </div>
+          </a>
+
+        {% endif %}
+
       </div>
 
   </div>

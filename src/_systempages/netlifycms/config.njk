@@ -364,6 +364,7 @@ collections:
                   - { label: Image, name: image, widget: "image", required: false, choose_url: false }
                   - { label: Person, name: person, widget: string, required: false }
                   - { label: Person title, name: persontitle, widget: string, required: false }
+                  - { label: url, name: url, widget: string, required: false }
               - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
               - name: "template"
@@ -376,6 +377,40 @@ collections:
                 required: true
                 default: "components/testamonial/testamonial.njk"
 
+
+          - name: price
+            label: Price table
+            widget: object
+            summary: "{{fields.title}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: price
+                name: price
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: Price, name: price, widget: string, required: false }
+                  - { label: featured, name: featured, widget: boolean, default: false, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - label: elements
+                    name: elements
+                    widget: list
+                    add_to_top: true
+                    fields:
+                      - { label: title, name: title, widget: string, required: false }
+                      - { label: active, name: active, widget: boolean, default: true, required: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplatePrice
+                searchFields: [title]
+                valueField: "components/price/{{filename}}.{{extension}}"
+                displayFields: ["componenets/price/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/price/price.njk"
 
           - name: features
             label: Features
@@ -402,7 +437,6 @@ collections:
                 displayFields: ["componenets/feature/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/feature/feature.njk"
-
 
           - label: 'Form'
             name: 'form'
@@ -560,8 +594,7 @@ collections:
         collection: pagetemplates
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
-        displayFields:
-          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/page.njk"
         hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
@@ -840,6 +873,18 @@ collections:
     extension: njk
     fields:
       - { label: "name", name: "name", widget: "string" }
+
+  # Components price
+  - name: componentTemplatePrice
+    label: "Template"
+    folder: "src/__includes/components/price"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
 
 
   # -----------------------------------------------------------------
