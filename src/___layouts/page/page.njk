@@ -9,9 +9,16 @@ This is the default template for the page type
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
 <h1 class="text-cyan-700 text-8xl mb-8 text-center">{{ title }}</h1>
+{# {{ page | debug | safe  }} #}
+
+  {# {{ collections.all[0].template.templateData.globalData | debug | safe }} #}
+
+
+
+
+
+
 
 
 {# List all page compoenents #}
 {% include "components/all.njk" %}
-
-

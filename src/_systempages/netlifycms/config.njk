@@ -686,10 +686,78 @@ collections:
         collection: pagetemplates
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
-        displayFields:
-          ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
         required: false
         default: "page/link.njk"
+
+  # -----------------------------------------------------------------
+  # Notifications
+  # -----------------------------------------------------------------
+  - name: notification
+    label: notifications
+    label_singular: notification
+    description: "Notifications and alerts"
+    folder: "src/content/notification"
+    slug: "{{title}}/index"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} [{{url}}]"
+    sortable_fields: ["title", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", default: "Notification!"  }
+      - { label: "teaser", name: "text", widget: "text", required: false }
+      - label: status
+        name: "status"
+        widget: "select"
+        multiple: false
+        options: ["info", "warning", "alert"]
+        default: ["warning"]
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-two
+          - heading-three
+          - link
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
+      # Date
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: true
+
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+          hint: "is this a draft ?",
+        }
+
 
 
   # -----------------------------------------------------------------
@@ -720,6 +788,14 @@ collections:
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+
 
   # -----------------------------------------------------------------
   # Templates

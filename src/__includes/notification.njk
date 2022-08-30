@@ -1,0 +1,21 @@
+
+{% for item in collections.allNotification %}
+
+<article class="p-4 mx-auto max-w-3xl {% if item.data.status == "warning" %} bg-orange-300 {% endif %}">
+
+  <h2 class="text-3xl">{{ item.data.title }}</h2>
+
+
+  {% if item.data.text %}
+    <div class="prose">
+      {{ item.data.text | markdown | safe  }}
+    </div>
+  {% endif %}
+
+
+   {{ content | safe}}
+  </article>
+
+{# {{ item | debug | safe }} #}
+{% endfor %}
+

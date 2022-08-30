@@ -29,11 +29,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
   eleventyConfig.addFilter("debug", require("./src/_11ty/filter/debug"));
+  eleventyConfig.addFilter("getContext", function () {
+    return this.ctx;
+  });
 
   // Collections
   eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
   eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
-  eleventyConfig.addCollection("styleguide", require("./src/_11ty/collection/styleguide.js"));
+  eleventyConfig.addCollection(
+    "allNotification",
+    require("./src/_11ty/collection/allNotification.js")
+  );
   eleventyConfig.addCollection("tags", require("./src/_11ty/collection/tags"));
 
   // Transform

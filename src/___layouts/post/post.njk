@@ -7,6 +7,14 @@ saga-template-name: Post Default
 post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
+  {# get global elements  #}
+  {# {{ collections.all[0].template.templateData.globalData | debug | safe }} #}
+
+  {{ page | debug | safe }}
+
+  {{ page | getContext }}
+
+
 
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
