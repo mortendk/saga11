@@ -64,6 +64,13 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+.debugtextarea {
+  width: 100%;
+  height: 30rem;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+
 .debugdata {
   margin-left: 2rem;
 }

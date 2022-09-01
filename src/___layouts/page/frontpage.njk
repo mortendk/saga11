@@ -11,7 +11,15 @@ Specfic page to control the layout for the frontpage
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
 
-{# <section class="relative mb-4">
+
+{% for item in collections.allPages | sortByOrder %}
+
+
+  {# {{ item | debug | safe }} #}
+{% endfor %}
+
+
+<section class="relative mb-4">
   {% image
       img=card.image,
       alt=card.alt,
@@ -25,7 +33,7 @@ Specfic page to control the layout for the frontpage
     <div class="my-4 text-2xl">{{ card.teaser | safe}}</div>
   </article>
 
-</section> #}
+</section>
 
 {# {% include "component/pagecard.njk" %} #}
 

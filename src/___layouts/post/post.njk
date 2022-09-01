@@ -7,19 +7,10 @@ saga-template-name: Post Default
 post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
-  {# get global elements  #}
-  {# {{ collections.all[0].template.templateData.globalData | debug | safe }} #}
 
   {# {{ page | debug | safe }} #}
 
 
-
-{% for item in collections.allPosts | sortByOrder %}
-  {{ item | debug | safe  }}
-
-
-  {# {{ item | debug | safe }} #}
-{% endfor %}
 
 
 <article class="flex flex-col md:flex-row ">
