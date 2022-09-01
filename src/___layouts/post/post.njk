@@ -10,12 +10,12 @@ post template
   {# get global elements  #}
   {# {{ collections.all[0].template.templateData.globalData | debug | safe }} #}
 
-  {{ page | debug | safe }}
+  {# {{ page | debug | safe }} #}
 
 
 
 {% for item in collections.allPosts | sortByOrder %}
-  {# {{ item | debug | safe  }} #}
+  {{ item | debug | safe  }}
 
 
   {# {{ item | debug | safe }} #}

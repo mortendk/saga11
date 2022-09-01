@@ -5,7 +5,6 @@
   width: 80%;
   margin: 2rem auto;
   color: white;
-  border: 1px solid hotpink;
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
     rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
@@ -23,11 +22,26 @@
   padding: 0.5rem 0;
 }
 
-.datafield {
+.debug {
   margin: 0 auto;
   width: 40rem;
+  display: flex;
 }
 
+.debugbtn {
+  display: block;
+  padding: 0.5rem 1rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+  border-radius: 0.25rem 0 0 0.25rem;
+  width: 15rem;
+  transition: all 1s ease-in-out;
+}
+
+.debugbtn:hover {
+  background-color: #fc5c7d;
+}
 .debugpath {
   color: white;
   font-weight: bold;
@@ -37,10 +51,10 @@
   margin-bottom: 2rem;
   margin: 0 auto;
   border: 1px solid white;
-  border-radius: 0.25rem;
+  border-radius: 0 0.25rem 0.25rem 0;
   height: 4rem;
   background-color: rgba(255, 255, 255, 0.3);
-  width: 100%;
+  max-width: 100%;
 }
 
 .debugpath:focus {
@@ -54,6 +68,10 @@
   margin-left: 2rem;
 }
 
+.debuginfo {
+  font-style: italic;
+  padding: 1rem;
+}
 /* Tree view  */
 li {
   color: white;
@@ -72,10 +90,10 @@ ol.json-array {
   width: 10rem;
   font-style: italic;
   background-color: rgba(255, 255, 255, 0.1);
-  /* max-width: 140rem; */
-  max-height: 20rem;
-  /* overflow: scroll; */
-  /* display: inline-block; */
+  width: 80%;
+  max-height: 10rem;
+  overflow: hidden;
+  display: inline-block;
 }
 .json-literal {
   font-weight: bold;

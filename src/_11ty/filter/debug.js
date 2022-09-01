@@ -1,50 +1,18 @@
 const inspect = require("util").inspect;
 
 module.exports = function (content) {
-  // circular replacer
-  const getCircularReplacer = () => {
-    const seen = new WeakSet();
-    return (key, value) => {
-      if (typeof value === "object" && value !== null) {
-        if (seen.has(value)) {
-          return;
-        }
-        seen.add(value);
-      }
-      return value;
-    };
-  };
-
-  function jsonEscape(str) {
-    return str.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
-  }
-
-  // console.log(debug);
-  // const circularReplacer = JSON.stringify(debug, getCircularReplacer());
-  // const escaped = jsonEscape(circularReplacer);
-
-  // return `<textarea cols="100" rows="20">${escaped}}</textarea>`;
-  //
-  //   let data2 = JSON.stringify(escapeddata);
-
-  // https://github.com/ryshu/jsonpath-picker#plugin-installation
-
-  // Need to fix the issue with the date strings that are not ''
-  //  that makes
-
-  // delete content.template;
-  // delete content.collection;
+  delete content._templateContent;
+  // ❌ Getting annoing errors from the json date todo: fix this prober
+  delete content.template;
+  delete content.templateContent;
+  // ❌ remove the date its messing with the json - todo: fix this
+  delete content.data.date;
+  delete content.data.calendar;
+  delete content.data.page.date;
   delete content.date;
-
-  // console.log(content.data);
 
   // 🤌 Get the data
   const debug = inspect(content);
-
-  // var result = JSON.parse(debug);
-  // let debugstring = JSON.stringify(debug);
-  // return `<textarea cols="100" rows="20">${data}}</textarea>`;
-  // const foo = jsonEscape(debug);
 
   return `
       <link rel="stylesheet" href="/assets/_debug/jsonpath-picker.css">
@@ -52,13 +20,15 @@ module.exports = function (content) {
 
       <div class="debug11ty">
         <h2>11ty 🎈 Debüg</h2>
-        <div class="datafield">
+        <div class="debug">
+          <button class="debugbtn" onclick="copyToClipboard()">Copy 👉</button>
           <input class="debugpath" type="text">
-          <button class="debugbtn" onclick="copyToClipboard()">copy</button>
         </div>
-        <h3>🤖 [data]:</h3>
+
+        <div class="debuginfo"> ☝️ Following is not printed out: date, data.date, data.page.date</div>
         <pre id="json-renderer" class="debugdata"></pre>
       </div>
+
       <script>
         let data = ${debug};
         const source = document.querySelector('#json-renderer');
@@ -70,7 +40,7 @@ module.exports = function (content) {
           pickerIcon: '#127880'
         });
 
-        JPPicker.render(source, data);
+        // JPPicker.render(source, data);
 
         function copyToClipboard() {
           let inputfield = document.querySelector(".debugpath");
