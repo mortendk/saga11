@@ -1,50 +1,83 @@
 const inspect = require("util").inspect;
 
 module.exports = function (content) {
-  // console.log(this);
-  // console.log(this.getVariables());
-  // let data2 = JSON.stringify(this.ctx);
+  // circular replacer
+  const getCircularReplacer = () => {
+    const seen = new WeakSet();
+    return (key, value) => {
+      if (typeof value === "object" && value !== null) {
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  };
 
-  // get the name of the variable that is called
-  // get the whole name of the varialbe for fast copy to {{ path.to.the.value }}
-  //  If theres a function of data inside a var cut it off "overflow hidden"
-  let data = JSON.stringify(content);
+  function jsonEscape(str) {
+    return str.replace(/\n/g, "\\\\n").replace(/\r/g, "\\\\r").replace(/\t/g, "\\\\t");
+  }
 
-  // console.log(this.ctx.layout);
-  // console.log(this.ctx.permalink);
-  // console.log(this.ctx.date-updated);
+  // console.log(debug);
+  // const circularReplacer = JSON.stringify(debug, getCircularReplacer());
+  // const escaped = jsonEscape(circularReplacer);
+
+  // return `<textarea cols="100" rows="20">${escaped}}</textarea>`;
+  //
+  //   let data2 = JSON.stringify(escapeddata);
 
   // https://github.com/ryshu/jsonpath-picker#plugin-installation
+
+  // Need to fix the issue with the date strings that are not ''
+  //  that makes
+
+  // delete content.template;
+  // delete content.collection;
+  delete content.date;
+
+  // console.log(content.data);
+
+  // 🤌 Get the data
+  const debug = inspect(content);
+
+  // var result = JSON.parse(debug);
+  // let debugstring = JSON.stringify(debug);
+  // return `<textarea cols="100" rows="20">${data}}</textarea>`;
+  // const foo = jsonEscape(debug);
+
   return `
-    <link rel="stylesheet" href="/assets/_debug/jsonpath-picker.css">
-    <script src="/assets/_debug/jsonpath-picker.min.js"></script>
+      <link rel="stylesheet" href="/assets/_debug/jsonpath-picker.css">
+      <script src="/assets/_debug/jsonpath-picker.min.js"></script>
 
-    <div class="debug11ty">
-      <h2>🎈 11ty Debug </h2>
-      <div class="datafield">
-        <input class="debugpath" type="text">
+      <div class="debug11ty">
+        <h2>11ty 🎈 Debüg</h2>
+        <div class="datafield">
+          <input class="debugpath" type="text">
+          <button class="debugbtn" onclick="copyToClipboard()">copy</button>
+        </div>
+        <h3>🤖 [data]:</h3>
+        <pre id="json-renderer" class="debugdata"></pre>
       </div>
-      <h3>🤖 Data:</h3>
-      <pre id="json-renderer" class="debugdata"></pre>
-    </div>
-    <script>
-      var data = ${data};
-      source = document.querySelector('#json-renderer');
-      dest = document.querySelectorAll('.debugpath');
+      <script>
+        let data = ${debug};
+        const source = document.querySelector('#json-renderer');
+        const dest = document.querySelectorAll('.debugpath');
+        btn = document.querySelectorAll('.debugbtn');
 
-      JPPicker.render(source, data, dest, {
-        outputCollapsed: true,
-        processKeys: true,
-        pickerIcon: '#127880'
-      });
+        JPPicker.render(source, data, dest, {
+          outputCollapsed: true,
+          pickerIcon: '#127880'
+        });
 
-      JPPicker.render(source, data, dests);
+        JPPicker.render(source, data);
 
-      // dest.addEventListener("focus", () => {
-      //   dest.select();
-      //   dest.execCommand("copy");
-      // })
+        function copyToClipboard() {
+          let inputfield = document.querySelector(".debugpath");
+          inputfield.select();
+          document.execCommand("copy");
+        }
 
-    </script>
-  `;
+      </script>
+    `;
 };

@@ -12,8 +12,14 @@ post template
 
   {{ page | debug | safe }}
 
-  {{ page | getContext }}
 
+
+{% for item in collections.allPosts | sortByOrder %}
+  {# {{ item | debug | safe  }} #}
+
+
+  {# {{ item | debug | safe }} #}
+{% endfor %}
 
 
 <article class="flex flex-col md:flex-row ">
