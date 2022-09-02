@@ -1,7 +1,7 @@
 ---
-layout: page/page.njk
+layout: page/frontpage.njk
 order: 50
-url: "componenet-collection "
+url: /
 teaser: All the events
 title: page with multiple sections
 card:
@@ -102,12 +102,6 @@ components:
         image: /upload/dungeonmaster.png
         person: Dungeon master
         persontitle: El Jefe
-  - type: form
-    title: newsletter
-    template: components/form/form.njk
-    text: lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostr
   - type: collection
     title: "Title for a collection : test "
     collection: test
@@ -140,8 +134,7 @@ components:
       est laborum.
     template: components/text/text.njk
 tags:
-  - frontpage
-  - menu
+  - test
 eleventyNavigation:
   key: collections
   order: 0

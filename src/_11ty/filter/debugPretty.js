@@ -1,12 +1,17 @@
 const inspect = require("util").inspect;
 
-module.exports = function (content) {
+// Return a clickable json path pickers
+// using this amazing lib
+// https://github.com/ryshu/jsonpath-picker
+
+module.exports = function (content, arg) {
+  const name = arg || "data";
+
   // ❌ Getting annoing json errors - todo: fix this prober
   delete content._templateContent;
   delete content.template;
   delete content.templateContent;
-  // ❌ Date json error  todo: fix this
-
+  // ❌ Date json error  todo: fix this in the json feed
   if (content.data) {
     delete content.data.date;
     delete content.data.calendar;
@@ -23,6 +28,8 @@ module.exports = function (content) {
 
       <div class="debug11ty">
         <h2>11ty 🎈 Debüg</h2>
+        <h3>🤖{{${name}}}:</h3>
+
         <div class="debug">
           <button class="debugbtn" onclick="copyToClipboard()">Copy 👉</button>
           <input class="debugpath" type="text">
@@ -42,8 +49,6 @@ module.exports = function (content) {
           outputCollapsed: true,
           pickerIcon: '#127880'
         });
-
-        // JPPicker.render(source, data);
 
         function copyToClipboard() {
           let inputfield = document.querySelector(".debugpath");

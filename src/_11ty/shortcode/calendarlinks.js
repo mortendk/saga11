@@ -35,6 +35,6 @@ module.exports = function (
       break;
 
     default:
-      console.log(`No type  ${linktype} in calendarlinks. `);
+    // console.log(`🎈 No type  ${linktype} in calendarlinks. `);
   }
 };
