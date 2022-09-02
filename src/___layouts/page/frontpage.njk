@@ -10,20 +10,7 @@ Specfic page to control the layout for the frontpage
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-
-  {# {% picture
-      img=card.image,
-      alt=card.alt,
-      width=[400,800, 1600],
-      sizes="(min-width: 1600px) 50vw, 100vw",
-      css="shadow rounded-lg h-96 overflow-hidden",
-      loading = "eager"
-  %}
- #}
-
-
 {# {% include "src/_system/debug/global.njk" %} #}
-{# {{ globalThis | dump | safe }} #}
 
 {% for item in collections.allPages | sortByOrder %}
 
@@ -49,6 +36,8 @@ Specfic page to control the layout for the frontpage
 
 </section>
 
-{# {% include "component/pagecard.njk" %} #}
-
 {% include "components/all.njk" %}
+
+{{ content | safe }}
+
+{# {% include "component/pagecard.njk" %} #}

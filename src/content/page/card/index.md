@@ -1,14 +1,22 @@
 ---
-title: card contact test
+title: card
 url: card
 card:
-  image: /upload/dungeonmaster.png
-  title: teaedsr
+  title: cards
+  image: /upload/cyber.png
+  alt: ""
+  text: "The test page for different cards "
 components:
   - type: pagecard
     template: components/pagecard/pagecard.njk
     page:
-      - contact
+      - single
+  - type: pagecard
+    template: components/pagecard/pagecard.njk
+    page:
+      - /
+eleventyNavigation:
+  key: card
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---

@@ -230,7 +230,8 @@ collections:
         - { label: "Image alt", name: "alt", widget: "string", required: false }
         - { label: "Text", name: "text", widget: "text", required: false }
 
-      # SECTION
+
+      # COMPONENETS
       - label: 'Components'
         label_singular: 'Component'
         name: 'components'
@@ -565,6 +566,24 @@ collections:
                 displayFields: ["components/templates/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/templates/default.njk"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-one
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
 
       # Tags
       - name: tags
