@@ -6,7 +6,7 @@ GALLERY
 {%- if env.mode != 'prod' %}  <!-- src/__includes/components/images/images.njk -->{%- endif -%}
 
 {% set gallery = component.images %}
-{% if gallery | length %}
+
 {# The slider window as open ? wrapper for the bacjgrioubd  #}
 <section
     aria-label="Image gallery"
@@ -66,7 +66,7 @@ GALLERY
         :class="isSliderOpen ? 'aspect-video justify-center items-center' : 'aspect-square'"
         >
 
-          {% image
+          {% picture
             img=item.image,
             width=[400,800, 1600],
             sizes="(min-width: 1600px) 50vw, 100vw",
@@ -103,4 +103,4 @@ GALLERY
 
 </section>
 
-{% endif %}
+

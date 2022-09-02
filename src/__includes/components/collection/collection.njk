@@ -6,7 +6,7 @@ https://www.11ty.dev/docs/collections/
 #}
 {%- if env.mode != 'prod' %}<!-- __includes/section-collection.njk  -->{%- endif -%}
 
-{% if component.collection %}
+
 
 <h2 class="text-cyan-700 text-3xl mb-8 text-center">{{ component.title }}</h2>
 
@@ -29,7 +29,7 @@ https://www.11ty.dev/docs/collections/
     <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
 
       <div class= "aspect-video overflow-hidden bg-slate-400">
-        {% image
+        {% picture
             img=item.data.card.image,
             width=[300, 600],
             alt=item.data.card.alt
@@ -51,4 +51,4 @@ https://www.11ty.dev/docs/collections/
 
 </div>
 
-{% endif %}
+

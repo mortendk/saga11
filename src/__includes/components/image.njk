@@ -3,8 +3,7 @@
 {# Show all componenets that are a given page  #}
 {% for component in components %}
   {# What type are we looking for #}
-  {% if component.type == "image
-  " %}
+  {% if component.type == "image " %}
 
     {# test if there is set a componenet else print a warning #}
     {% if component.template %}

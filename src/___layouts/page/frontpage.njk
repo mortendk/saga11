@@ -34,7 +34,7 @@ Specfic page to control the layout for the frontpage
 {% endfor %}
 
 <section class="relative mb-4">
-  {% image
+  {% picture
       img=card.image,
       alt=card.alt,
       width=[400,800, 1600],
@@ -51,4 +51,4 @@ Specfic page to control the layout for the frontpage
 
 {# {% include "component/pagecard.njk" %} #}
 
-{# {% include "components/all.njk" %} #}
+{% include "components/all.njk" %}

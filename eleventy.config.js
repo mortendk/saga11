@@ -7,15 +7,6 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 const Image = require("@11ty/eleventy-img");
 
-// module.exports = function (image) {
-//   const src = "src" + image.img;
-//   const widths = image.width || [100, 200, 400];
-//   const formats = image.format || ["webp", "jpeg"];
-//   const sizes = image.sizes || "(min-width: 1200px) 50vw, 100vw";
-//   const css = image.css || "";
-//   const alt = image.alt || "";
-//   const loading = image.loading || "lazy"; //lazy vs eager
-
 async function picture(image) {
   const src = "src" + image.img;
   const widths = image.width || [100, 200, 400];
@@ -26,16 +17,17 @@ async function picture(image) {
   const loading = image.loading || "lazy"; //lazy vs eager
 
   if (fs.existsSync(src)) {
+    // console.log(`✅  img exist: ${image.img}`);
     let metadata = await Image(src, {
       widths: widths,
       formats: formats,
       outputDir: "_site/img/", // seind image directly to the site build
       urlPath: "/img/",
-      cacheOptions: {
-        duration: "1d",
-        directory: ".cache",
-        removeUrlQueryParams: false,
-      },
+      // cacheOptions: {
+      //   duration: "1d",
+      //   directory: ".cache",
+      //   removeUrlQueryParams: false,
+      // },
       filenameFormat: function (id, src, width, format, options) {
         const extension = path.extname(src);
         const name = path.basename(src, extension);
@@ -55,8 +47,8 @@ async function picture(image) {
       whitespaceMode: "inline",
     });
   } else {
-    console.log(`🎈  picture function: ${img} dont exist - this function is called from: `);
-    return `<!-- image function called but: ${img} -->`;
+    console.log(`🎈  picture function: ${image} dont exist - this function is called from: `);
+    return `!! <!-- image function called but: ${image} -->`;
   }
 }
 
