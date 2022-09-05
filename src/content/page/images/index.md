@@ -6,7 +6,7 @@ card:
   image: /upload/dungeonmaster.png
 components:
   - type: images
-    template: components/images/images.njk
+    template: components/images/imagecards.njk
     images:
       - image: /upload/image4.png
       - image: /upload/image2.png
