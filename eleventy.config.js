@@ -60,8 +60,6 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
-
-  eleventyConfig.addShortcode("image", require("./src/_11ty/shortcode/image"));
   eleventyConfig.addShortcode("imageurl", require("./src/_11ty/shortcode/imageurl"));
   eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
@@ -87,6 +85,7 @@ module.exports = function (eleventyConfig) {
     require("./src/_11ty/collection/allNotification.js")
   );
   eleventyConfig.addCollection("tags", require("./src/_11ty/collection/tags"));
+  eleventyConfig.addCollection("styleguide", require("./src/_11ty/collection/styleguide.js"));
 
   // Transform
   if (env.mode == "prod") {

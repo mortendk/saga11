@@ -9,6 +9,8 @@ module.exports = {
     "src/__includes/**/*.njk",
     "src/_system/*/*.njk",
     "src/_system/**/*.njk",
+    "src/content/styleguide/*.njk",
+    "src/content/styleguide/**/*.njk",
     "src/assets/js/*.js",
   ],
   darkMode: "class",
