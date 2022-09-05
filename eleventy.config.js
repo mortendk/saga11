@@ -48,7 +48,7 @@ async function picture(image) {
     });
   } else {
     console.log(`🎈  picture function: ${image} dont exist - this function is called from: `);
-    return `!! <!-- image function called but: ${image} -->`;
+    return `<!-- image function called but: ${image} -->`;
   }
 }
 

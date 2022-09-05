@@ -1,6 +1,9 @@
 ---
-title: "download "
-url: download
+title: Testamonial
+eleventyNavigation:
+  parent: stylecomponenet
+  key: Testamonial
+
 components:
   - type: testamonials
     template: components/testamonial/testamonial.njk
@@ -38,8 +41,14 @@ components:
         person: Ragnar Lodbrog
         persontitle: Chief
         url: https://morten.dk
-eleventyNavigation:
-  key: test component
-layout: page/page.njk
-eleventyExcludeFromCollections: false
+
+
 ---
+
+{% asyncEach component in components %}
+
+  {% include "components/testamonial/testamonial.njk" %}
+
+{% endeach %}
+
+

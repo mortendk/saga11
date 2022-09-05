@@ -1,4 +1,4 @@
-<div class="py-4 mx-auto max-w-3xl">
+<section class="py-4 mx-auto max-w-7xl">
   <h1 class="text-5xl text-cyan-700 text-center">{{ component.title }}</h1>
 
   {% if component.text %}
@@ -14,7 +14,7 @@
     css="rounded-sm",
     alt=""
   %}
-
+  <div class="grid grid-cols-3 gap-2">
   {# Testamonials list #}
   {% for item in component.feature %}
 
@@ -46,6 +46,6 @@
 
   </div>
   {% endfor %}
+  </div>
 
-
-</div>
+</section>

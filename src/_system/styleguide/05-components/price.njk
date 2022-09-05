@@ -1,0 +1,56 @@
+---
+title: price
+eleventyNavigation:
+  parent: stylecomponenet
+  key: Price
+
+components:
+  - type: price
+    title: Price
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia praesentium hic cum mollitia dolor, commodi nam error, deserunt velit culpa dolore voluptas perspiciatis iusto ullam consequuntur. Perferendis quasi itaque ipsum.
+    image: /upload/default.png
+    price:
+      - title: "Small"
+        featured: false
+        price: "100"
+        text: bla bla
+        elements:
+          - active: false
+            title: not so awesome
+          - active: true
+            title: "super awesome feature "
+      - title: "Medium "
+        featured: true
+        price: "200"
+        text: bla bla
+        elements:
+          - active: false
+            title: not so awesome
+          - active: true
+            title: "super awesome feature"
+          - active: true
+            title: "super duper feature"
+      - title: "Medium "
+        featured: false
+        price: "300"
+        text: bla bla
+        elements:
+          - active: false
+            title: not so awesome
+          - active: true
+            title: "super awesome feature"
+          - active: true
+            title: "super awesome feature"
+          - active: true
+            title: "super awesome feature"
+
+
+---
+
+{% asyncEach component in components %}
+
+  {% include "components/price/price.njk" %}
+
+{% endeach %}
+
+

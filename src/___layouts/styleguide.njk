@@ -16,8 +16,7 @@ Calls the _base/base.njk that is holding all the basic html
 
 <main id="main" tabindex="-1" class="flex flex-row">
 
-
-  <nav class="bg-white p-4 shadow-lg w-full basis-2/12 h-screen">
+  <nav class="bg-white p-4 shadow-lg w-full basis-2/12 h-full">
 
     {% from 'macro/menuitems.macro.njk' import menuitems %}
     {% set navPages = collections.all | eleventyNavigation("styleguide") %}
