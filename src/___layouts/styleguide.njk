@@ -36,5 +36,15 @@ Calls the _base/base.njk that is holding all the basic html
     <h1 class="text-3xl text-center">{{ title | upper }} </h1>
 
     {{ content | safe }}
+
+
+
   </div>
 </main>
+
+{# Sweet makrup preview #}
+<div class="">
+    {% highlight "html" %}
+    {{ content | safe }}
+    {% endhighlight %}
+</div>
