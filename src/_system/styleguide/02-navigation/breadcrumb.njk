@@ -1,10 +1,17 @@
 ---
 title: bread
+
 eleventyNavigation:
-  parent: stylenavigation
-  key: Breadcrumb
+  parent: sgMenu
+  key: bread
 
 ---
+theres some funky stuff with the menu
+so its not getting the path from the sg menu
 
-todo breadcrumb
-{# {% include "nav/bread.njk" %} #}
+
+{# {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %} #}
+
+<code>
+{{ bread | dump | safe }}
+</code>

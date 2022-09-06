@@ -16,31 +16,32 @@
 {% macro menuitems(item, page) -%}
 
 {# Items  #}
-<ul>
-<li>
+<div x-data="{ open: true }">
+
   <a href="{{ item.url }}"
-    {# test if the page is the current  #}
-    {% if item.url == page.url %}
-      aria-current="page"
-      class="text-pink-700"
-    {% else  %}
-      class=""
+    {% if item.url == page.url %} aria-current="page" class="text-pink-700"
+    {% else  %} class=""
     {% endif %}
-  >
-    {{ item.title }}
-    {% if item.children | length %} * {% endif %}
-  </a>
+  >{{ item.title }}</a>
+
+  {% if item.children | length %}
+    <button @click="open = !open">
+      <div x-show="open"> - </div>
+      <div x-show=" ! open"> + </div>
+    </button>
+  {% endif %}
+
 
   {# sublevel  #}
   {%- if item.children.length -%}
-    <ul class="ml-2">
+    <ul class="ml-2" x-show="open">
       {%- for child in item.children %}
         {{ menuitems(child, page) }}
       {% endfor -%}
     </ul>
   {%- endif -%}
 
-</li>
-</ul>
+
+</div>
 {%- endmacro %}
 {# /Macro  #}

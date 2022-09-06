@@ -1,10 +1,7 @@
 ---
 layout: base.njk
 ---
-{# Styleguide
-------------------------------------------------
-Calls the _base/base.njk that is holding all the basic html
-#}
+
 {%- if env.mode != 'prod' %}<!-- ___layouts/styleguide.njk  -->{%- endif -%}
 
 {# isModalOpen is used to test if theres a modal open then disable the scroll #}
@@ -16,34 +13,35 @@ Calls the _base/base.njk that is holding all the basic html
 
 <main id="main" tabindex="-1" class="flex flex-row">
 
-  <nav class="bg-white p-4 shadow-lg w-full basis-2/12 h-full">
+  <nav class="bg-white p-4 shadow-lg basis-2/12 flex flex-col">
 
-    {% from 'macro/menuitems.macro.njk' import menuitems %}
+    <a href="/styleguide" class="flex flex-row items-center">
+      <div class="w-8">{% include "svg/11ty.svg" %}</div>
+      <div>Styleguide</div>
+    </a>
+
+    {% from 'macro/menuaccordion.macro.njk' import menuitems %}
     {% set navPages = collections.all | eleventyNavigation("styleguide") %}
 
-    <ul>
       {%- for entry in navPages %}
         {{ menuitems(entry, page) }}
       {%- endfor -%}
-    </ul>
-
 
   </nav>
 
-
   <div class=" basis-10/12  mt-8 ml-4">
+
     <h1 class="text-3xl text-center">{{ title | upper }} </h1>
 
     {{ content | safe }}
 
-
-
   </div>
+
 </main>
 
-{# Sweet makrup preview #}
-<div class="">
+
+{# <div class="">
     {% highlight "html" %}
     {{ content | safe }}
     {% endhighlight %}
-</div>
+</div> #}

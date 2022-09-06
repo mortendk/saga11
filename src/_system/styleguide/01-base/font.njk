@@ -5,8 +5,29 @@ eleventyNavigation:
   key: font
   order: 2
 
+font:
+  name: Barlow
+  weight: [normal, bold]
 ---
+{# Family #}
+<div class="text-sm text-slate-400 400 mt-8">font family</div>
+<h1 class="text-4xl">{{ font.name }}</h1>
+
+{# weight #}
+<div class="text-sm text-slate-400 400 mt-8">Weight</div>
+<div>
+{% for item in font.weight %}
+{{ item }},
+{% endfor %}
+</div>
 
 
-Basefont name
-
+<div class="text-sm text-slate-400 mt-8">size</div>
+<h1 class="text-7xl">7xl lorem </h1>
+<h2 class="text-6xl">6xl lorem </h2>
+<h3 class="text-5xl">5xl lorem </h3>
+<h4 class="text-4xl">4xl lorem </h4>
+<h4 class="text-xl">xl lorem </h4>
+<h4 class="text-lg">lg lorem </h4>
+<h4 class="">Normal  </h4>
+<h4 class="text-sm">small lorem </h4>
