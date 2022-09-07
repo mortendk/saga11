@@ -3,15 +3,8 @@ title: bread
 
 eleventyNavigation:
   parent: sgMenu
-  key: bread
+  key: sgBread
 
 ---
-theres some funky stuff with the menu
-so its not getting the path from the sg menu
 
-
-{# {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %} #}
-
-<code>
-{{ bread | dump | safe }}
-</code>
+{% include "nav/bread.njk" %}

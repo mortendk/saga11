@@ -24,6 +24,8 @@ components:
       - image: /upload/cyber.png
 eleventyNavigation:
   key: image
+  parent: main
+  title: Image
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---

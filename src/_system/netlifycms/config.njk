@@ -599,20 +599,22 @@ collections:
       - name: eleventyNavigation
         label: Navigation
         widget: object
-        collapsed: true
+        collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
-        - { label: "Label", name: "key", widget: "string", required: false}
-        - { label: "order", name: "order", widget: "number",required: false}
+        - { label: "title", name: "title", widget: "string", required: true}
         - name: "parent"
           label: Parent page
           widget: relation
           collection: page
+          default: main
           searchFields: [title]
           valueField: "{{eleventyNavigation.key}}"
           displayFields: [" {{eleventyNavigation.key}}"]
           required: false
           multiple: false
+        - { label: "key", name: "key", widget: "string", default: "main", required: true }
+        - { label: "order", name: "order", widget: "number",required: false}
 
       # Layout selector
       - name: "layout"

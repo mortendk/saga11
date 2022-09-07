@@ -8,7 +8,10 @@ This is the default template for the page type
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
 
+{% include "nav/bread.njk" %}
+
 <h1 class="text-cyan-700 text-8xl mb-8 text-center">{{ title }}</h1>
+
 
 
 

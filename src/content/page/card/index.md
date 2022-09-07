@@ -16,7 +16,10 @@ components:
     page:
       - /
 eleventyNavigation:
+  parent: main
   key: card
+  title: card
+  order: ""
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---

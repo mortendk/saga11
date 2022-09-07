@@ -39,7 +39,9 @@ components:
         persontitle: Chief
         url: https://morten.dk
 eleventyNavigation:
-  key: test component
+  parent: main
+  key: download
+  title: Downloads
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
