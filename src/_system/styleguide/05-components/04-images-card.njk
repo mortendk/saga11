@@ -5,26 +5,28 @@ eleventyNavigation:
   title: Images card
   order: 2
 
-component:
-  title: Lorem ipsum, dolor sit amet
-  text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus vitae perspiciatis culpa recusandae qui deleniti, debitis fugit repudiandae neque nulla a, ullam minus numquam. Quam aliquid non ratione vero?
-  images:
-    - title: feature one
-      image: /upload/default.png
-      text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
-    - title: feature one
-      image: /upload/default.png
-      text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
-    - title: feature one
-      image: /upload/default.png
-      text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
-    - title: feature one
-      image: /upload/default.png
-      text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
-
-
-
+components:
+  - type: images
+    template: components/images/imagecards.njk
+    images:
+      - image: /upload/image4.png
+      - image: /upload/image2.png
+      - image: /upload/image1.png
+      - image: /upload/image.png
+      - image: /upload/dungeonmaster.png
+      - image: /upload/cyber.png
+  - type: images
+    template: components/images/images.njk
+    images:
+      - image: /upload/image4.png
+      - image: /upload/image3.png
+      - image: /upload/image2.png
+      - image: /upload/image1.png
+      - image: /upload/cyber.png
 ---
 
-{% include "components/images/imagecards.njk" %}
+{% asyncEach component in components %}
 
+  {% include "components/images/imagecards.njk" %}
+
+{% endeach %}

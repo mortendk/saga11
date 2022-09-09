@@ -4,13 +4,24 @@ eleventyNavigation:
   parent: stylecomponenet
   title: Image
   order: 2
-component:
-  title: Lorem ipsum, dolor sit amet
-  text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus vitae perspiciatis culpa recusandae qui deleniti, debitis fugit repudiandae neque nulla a, ullam minus numquam. Quam aliquid non ratione vero?
-  image: /upload/default.png
 
+components:
+  - type: image
+    title: Lorem ipsum, dolor sit amet
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus vitae perspiciatis culpa recusandae qui deleniti, debitis fugit repudiandae neque nulla a, ullam minus numquam. Quam aliquid non ratione vero?
+    image: /upload/default.png
+  - type: image
+    title: Lorem ipsum, dolor sit amet
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus vitae perspiciatis culpa recusandae qui deleniti, debitis fugit repudiandae neque nulla a, ullam minus numquam. Quam aliquid non ratione vero?
+    image: /upload/default.png
 
 ---
 
-{% include "components/image/image.njk" %}
+{% asyncEach component in components %}
+
+  {% include "components/image/image.njk" %}
+
+{% endeach %}
+
+
 

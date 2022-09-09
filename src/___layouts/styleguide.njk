@@ -1,7 +1,9 @@
 ---
 layout: base.njk
 ---
-
+{#
+  This layout is used for the styleguide
+ #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/styleguide.njk  -->{%- endif -%}
 
 {# isModalOpen is used to test if theres a modal open then disable the scroll #}
@@ -11,14 +13,13 @@ layout: base.njk
       :class="isModalOpen ? 'overflow-y-hidden':''"
 >
 
-
 <main id="main" tabindex="-1" class="flex flex-row">
   <div class="bg-white p-4 shadow-lg basis-2/12 min-h-screen">
   <nav >
 
     <a href="/styleguide" class="flex flex-row items-center">
       <div class="w-8">{% include "svg/11ty.svg" %}</div>
-      <div>Styleguide</div>
+      <div>🎈 Styleguide</div>
     </a>
 
     {# macro #}

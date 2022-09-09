@@ -1,5 +1,7 @@
 <section class="py-4">
-  <div class="mx-auto max-w-3xl">
+
+  <article class="mx-auto max-w-3xl">
+
     <h3 class="text-5xl text-cyan-700 text-center">
       {{ component.title }}
     </h3>
@@ -10,30 +12,20 @@
       </div>
     {% endif %}
 
-    {% picture
-      img=component.image,
-      width=[200],
-      sizes="(min-width: 1600px) 50vw, 100vw",
-      css="rounded-sm",
-      alt=""
-    %}
-
-  </div>
+  </article>
 
   {# wrapper for the list #}
-  <div class="grid grid-cols-{{ component.price | length }} gap-4 mx-auto max-w-2xl">
+  <div class="flex flex-row justify-center mx-auto max-w-7xl mt-8">
   {# Price list #}
   {% for item in component.price %}
-    <article class="border border-slate-300 rounded shade bg-white">
-      {% if item.featured %}
-       This one we want you to buy
-      {% endif %}
 
-      <h3 class="text-2xl text-cyan-700 mb-4">
+    <article class="w-80 border shadow bg-white p-4 mx-2  {% if item.featured %} border-cyan-300 {% endif %}">
+
+      <h3 class="text-4xl text-cyan-700 mt-6 mb-4 text-center">
         {{ item.title }}
       </h3>
 
-      <div class="text-2xl font-bold text-red-800">
+      <div class="text-3xl text-cyan-800 bg-slate-50 text-center py-4 -ml-4 -mr-4 mb-4">
         {{ item.price }}
         </div>
 
@@ -45,20 +37,23 @@
 
       {# price elements #}
       {% for element in item.elements %}
-        <div class="w-4 text-green-500">
-          {% include "svg/check.svg" %}
-        </div>
-        <div
-          class="p-2
-            {% if element.active %}
-              bold
-            {% else %}
-              line-through text-slate-400
-            {% endif %}
-          ">
-        {{ element.title }}
+        <div class="flex flex-row items-center">
+          {# icon #}
+          {% if element.active %}
+            <div class="w-5 text-cyan-500">
+              {% include "svg/checkbadge.svg" %}
+            </div>
+            <div class="p-2 bold">
+          {% else %}
+            <div class="w-5 text-slate-300">
+              {% include "svg/check.svg" %}
+            </div>
+            <div class="line-through text-slate-400">
+          {% endif %}
 
+          {{ element.title }}
         </div>
+      </div>
       {% endfor %}
       {# /price elements #}
     </article>
