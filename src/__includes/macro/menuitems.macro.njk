@@ -16,6 +16,7 @@
 {% macro menuitems(item, page) -%}
 
 {# Items  #}
+<ul>
 <li>
   <a href="{{ item.url }}"
     {# test if the page is the current  #}
@@ -40,5 +41,6 @@
   {%- endif -%}
 
 </li>
+</ul>
 {%- endmacro %}
 {# /Macro  #}

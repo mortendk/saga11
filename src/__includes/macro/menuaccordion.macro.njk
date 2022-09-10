@@ -1,0 +1,47 @@
+{#
+  Usage
+  {% from 'macro/menuitems.macro.njk' import menuitems %}
+  {% set navPages = collections.all | eleventyNavigation %}
+
+  <nav>
+    <ul>
+      {%- for item in navPages %}
+        {{ menuitems(item) }}
+      {%- endfor -%}
+    </ul>
+  <nav>
+#}
+
+{# macro #}
+{% macro menuitems(item, page) -%}
+
+{# Items  #}
+<div x-data="{ open: true }">
+
+  <a href="{{ item.url }}"
+    {% if item.url == page.url %} aria-current="page" class="text-pink-700"
+    {% else  %} class=""
+    {% endif %}
+  >{{ item.title }}</a>
+
+  {% if item.children | length %}
+    <button @click="open = !open">
+      <div x-show="open"> - </div>
+      <div x-show=" ! open"> + </div>
+    </button>
+  {% endif %}
+
+
+  {# sublevel  #}
+  {%- if item.children.length -%}
+    <ul class="ml-2" x-show="open">
+      {%- for child in item.children %}
+        {{ menuitems(child, page) }}
+      {% endfor -%}
+    </ul>
+  {%- endif -%}
+
+
+</div>
+{%- endmacro %}
+{# /Macro  #}

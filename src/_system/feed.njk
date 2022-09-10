@@ -1,0 +1,43 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ env.url }}/feed.xml" rel="self"/>
+  <link href="{{ env.url }}"/>
+  <generator uri="https://11ty.dev">{{eleventy.generator}}</generator>
+  <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
+  <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ env.url }}/</id>
+  <author>
+    <name>{{ site.authorname }}</name>
+    <email>{{ site.authoremail }}</email>
+  </author>
+  {%- for item in collections.allPosts | reverse %}
+
+  {%- set absolutePostUrl = item.url | url | absoluteUrl(env.url) %}
+
+    <entry>
+      <title>{{ item.data.title }}</title>
+      <link href="{{ absolutePostUrl }}"/>
+      <summary> {{item.data.teaser }} </summary>
+      <updated>{{ item.date | dateToRfc3339 }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      <content type="html">
+        {% if item.data.image %}
+          <![CDATA[
+            {# {% picture item.data.image, [640],"",['webp'],'alt','css','nope', env.url %} #}
+          ]]>
+        {% endif %}
+        {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+      </content>
+    </entry>
+
+  {%- endfor %}
+
+</feed>

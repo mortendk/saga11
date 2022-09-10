@@ -10,8 +10,18 @@ Specfic page to control the layout for the frontpage
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-{# <section class="relative mb-4">
-  {% image
+{# {% include "src/_system/debug/global.njk" %} #}
+
+{% for item in collections.allPages | sortByOrder %}
+
+  {% if loop.first %}
+    {# {{ item | debugpretty("item") | safe  }} #}
+  {% endif %}
+
+{% endfor %}
+
+<section class="relative mb-4">
+  {% picture
       img=card.image,
       alt=card.alt,
       width=[400,800, 1600],
@@ -24,8 +34,10 @@ Specfic page to control the layout for the frontpage
     <div class="my-4 text-2xl">{{ card.teaser | safe}}</div>
   </article>
 
-</section> #}
-
-{# {% include "component/pagecard.njk" %} #}
+</section>
 
 {% include "components/all.njk" %}
+
+{{ content | safe }}
+
+{# {% include "component/pagecard.njk" %} #}

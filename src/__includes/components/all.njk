@@ -8,15 +8,9 @@
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
 
+{# use async so images work #}
+{% asyncEach component in components %}
 
-{% for component in components %}
+  {% include component.template %}
 
-  {# default #}
-  {% if component.template %}
-    {% include component.template %}
-  {% else %}
-    {% include "components/_componenet-default.njk" %}
-  {% endif %}
-  {# / default #}
-
-{% endfor %}
+{% endeach %}

@@ -1,0 +1,39 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/cards/large.njk -->{%- endif -%}
+
+
+<article class="lg:relative bg-white my-4">
+
+  <div class="lg:py-20">
+    {# text #}
+    <div class="lg:w-1/2 px-8">
+
+      <h2 class="text-5xl text-cyan-700 pb-8">
+        {{ component.title }}
+      </h2>
+
+      <div class="text-xl">
+        {{ component.text }}
+      </div>
+
+      <div class="flex justify-center mt-8">
+      <a href="{{ component.url }}"
+         class="inline-block px-4 py-4 m-4 bg-cyan-700 text-white rounded text-xl">
+        {{ component.cta }}
+      </a>
+      </div>
+
+    </div>
+  </div>
+
+  {# img #}
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+    {% picture
+      img=component.image,
+      width=[400, 800],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      alt=component.alt,
+      css="absolute inset-0 w-full h-full object-cover"
+    %}
+  </div>
+
+</article>

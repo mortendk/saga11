@@ -1,0 +1,47 @@
+<section class="py-4 mx-auto max-w-7xl">
+  <h1 class="text-5xl text-cyan-700 text-center">{{ component.title }}</h1>
+
+  {% if component.text %}
+    <div class="prose max-w-2xl mx-auto text-center my-4">
+      {{ component.text  | markdown | safe  }}
+    </div>
+  {% endif %}
+
+  <div class="grid grid-cols-3 gap-4">
+
+  {# Feature #}
+  {% for item in component.feature %}
+
+  <article class="flex flex-row bg-white p-4 shadow">
+
+      {# icon #}
+      <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
+        <svg class="h-6 w-6" x-description="Heroicon name: outline/globe-alt" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"></path>
+        </svg>
+      </div>
+
+    <div>
+      <div class="text-2xl text-cyan-600">{{ item.title }}</div>
+
+      {% if item.text %}
+        <div class="">
+        {{ item.text  | markdown | safe  }}
+        </div>
+      {% endif %}
+
+    </div>
+  </article>
+
+
+    {# {% picture
+      img=item.image,
+      width=[400],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="rounded-full w-20 h-20 border border-teal-400",
+      alt=""
+    %} #}
+  {% endfor %}
+
+
+</section>

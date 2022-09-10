@@ -1,9 +1,22 @@
 {%- if env.mode != 'prod' %}<!-- src/__includes/nav/bread.njk  -->{%- endif  -%}
 
-{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
-<nav class="bg-gray-300 inline-block p-2">
-  <a href="{{ env.url }}">home</a>
+{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true}) %}
+
+<nav class="inline-block p-2">
+  {# <a href="{{ env.url }}">Home</a> #}
   {% for item in bread %}
-    / <a href="{{item.url }}" class="underline">{{item.key }}</a>
+
+    {% if loop.first %}
+    home:
+    <a href="{{item.url }}" class="underline">{{item.key }}</a> /
+    {% elseif not loop.last %}
+    <a href="{{item.url }}" class="underline">{{item.key }}</a> /
+    {% else %}
+    {{item.key }}
+    {% endif %}
+
+
 {% endfor %}
 </nav>
+
+

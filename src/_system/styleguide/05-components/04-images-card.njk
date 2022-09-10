@@ -1,0 +1,32 @@
+---
+title: images card
+eleventyNavigation:
+  parent: stylecomponenet
+  title: Images card
+  order: 2
+
+components:
+  - type: images
+    template: components/images/imagecards.njk
+    images:
+      - image: /upload/image4.png
+      - image: /upload/image2.png
+      - image: /upload/image1.png
+      - image: /upload/image.png
+      - image: /upload/dungeonmaster.png
+      - image: /upload/cyber.png
+  - type: images
+    template: components/images/images.njk
+    images:
+      - image: /upload/image4.png
+      - image: /upload/image3.png
+      - image: /upload/image2.png
+      - image: /upload/image1.png
+      - image: /upload/cyber.png
+---
+
+{% asyncEach component in components %}
+
+  {% include "components/images/imagecards.njk" %}
+
+{% endeach %}

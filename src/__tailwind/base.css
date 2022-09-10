@@ -10,31 +10,4 @@
   }
 
   /* form  */
-  label {
-  }
-
-  input {
-    @apply block
-    w-full
-    rounded-sm
-    border-gray-300
-    shadow-sm
-    required:mt-1
-    focus:border-teal-500 focus:ring focus:ring-teal-200 focus:ring-opacity-50;
-  }
-
-  input[type="checkbox"] {
-  }
-
-  input[type="radio"] {
-  }
-
-  select {
-  }
-
-  textarea {
-  }
-
-  fieldset {
-  }
 }
