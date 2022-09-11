@@ -1,10 +1,9 @@
 {%- if env.mode != 'prod' %}  <!-- src/__includes/components/download/download.njk -->{%- endif  -%}
 
-<article class="max-w-lg mx-auto">
+<section class="max-w-lg mx-auto">
   <h2 class="text-5xl text-cyan-700 text-center">{{ component.title }} </h2>
 
-  <div>
-
+  <div class="grid md:grid-cols-4 gap-2 my-4">
   {% for item in component.files %}
 
     {# set the file title #}
@@ -16,16 +15,24 @@
       {% endif %}
     {% endset %}
 
-    <div class="flex items-center">
-      <div class="w-4">{% include "svg/css3.svg" %}</div>
-      <a href="{{ item.file }}" class="ml-2 underline">{{ title }}</a>
-    </div>
+    <article class="bg-white shadow rounded-none flex flex-row m-2 p-2">
+      <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
+        {# icon #}
+        <div class="w-6">
+          {% include "svg/download.svg" %}
+          </div>
+        </div>
+
+        <a href="{{ item.file }}" class="ml-2 text-lg block">{{ title }}</a>
+
+    </article>
+
 
   {% endfor %}
+  </div>
 
-</div>
 
 
-</article>
+</srction>
 
 
