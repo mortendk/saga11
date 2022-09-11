@@ -1,0 +1,45 @@
+---
+title: Table
+
+items:
+  - title: Lorem ipsum dolor sit amet consectetur adipisicing
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus qui consequatur, dolore, quibusdam magni cumque dolor architecto autem sint nulla voluptatibus vel. Dicta numquam harum odio iusto id? Odio, fuga?
+  - title: Lorem ipsum dolor sit amet consectetur adipisicing
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus qui consequatur, dolore, quibusdam magni cumque dolor architecto autem sint nulla voluptatibus vel. Dicta numquam harum odio iusto id? Odio, fuga?
+  - title: Lorem ipsum dolor sit amet consectetur adipisicing
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus qui consequatur, dolore, quibusdam magni cumque dolor architecto autem sint nulla voluptatibus vel. Dicta numquam harum odio iusto id? Odio, fuga?
+---
+
+<table>
+	<caption>{{ title }}</caption>
+
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Links</th>
+			<th>A long TH description</th>
+			<th>alt</th>
+		</tr>
+	</thead>
+
+  <tfoot>
+		<tr>
+			<th>Table Footer 1</th>
+			<th>Table Footer 2</th>
+			<th>Table Footer 3</th>
+			<th>Table Footer 4</th>
+		</tr>
+	</tfoot>
+
+	<tbody>
+  {% for item in items %}
+		<tr>
+			<td>{{ item.title }}</td>
+			<td><a href="{{ item.url }}">{{ item.url }}</a></td>
+			<td>{{ text }}</td>
+			<td>{{ item.text}}</td>
+		</tr>
+    {% endfor %}
+
+	</tbody>
+</table>

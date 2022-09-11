@@ -1,0 +1,27 @@
+---
+title: "colors"
+
+colors:
+  - type: text
+    title: teal
+    css: bg-teal-900
+  - type: text
+    title: pink
+    css: bg-pink-400
+
+
+---
+<div class="grid grid-cols-6 gap-2 ">
+
+{% for color in colors %}
+  <article>
+    <div class="rounded {{ color.css }} h-20 shadow-md"></div>
+    <h2 class="text-center font-bold">{{ color.title | upper}} </h2>
+  </article>
+
+
+{% endfor %}
+
+
+
+</div>

@@ -10,7 +10,7 @@ components:
   - type: pagecard
     template: components/pagecard/pagecard.njk
     page:
-      - single
+      - card
   - type: pagecard
     template: components/pagecard/pagecard.njk
     page:

@@ -1,5 +1,9 @@
 {%- if env.mode != 'prod' %}<!-- src/__includes/nav/bread.njk  -->{%- endif  -%}
 
+
+{% if eleventyNavigation.key %}
+
+
 {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true}) %}
 
 <nav class="inline-block p-2">
@@ -20,3 +24,4 @@
 </nav>
 
 
+{% endif %}

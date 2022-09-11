@@ -47,8 +47,9 @@ async function picture(image) {
       whitespaceMode: "inline",
     });
   } else {
-    console.log(`🎈  picture function: ${image} dont exist - this function is called from: `);
-    return `<!-- image function called but: ${image} -->`;
+    // console.log(`🎈 picture function: ${image} dont exist `);
+    // return `<!-- image function called but: ${image} -->`;
+    return "";
   }
 }
 
@@ -70,6 +71,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
   eleventyConfig.addFilter("sortByOrder", require("./src/_11ty/filter/sortByOrder.js"));
   eleventyConfig.addFilter("sortByTitle", require("./src/_11ty/filter/sortByTitle.js"));
+  eleventyConfig.addFilter("sortByFilepath", require("./src/_11ty/filter/sortByFilepath.js"));
   eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));

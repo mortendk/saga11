@@ -5,9 +5,9 @@ components:
   - type: image
     template: components/image/image.njk
     image: /upload/default.png
-    alt: kl;k
-    title: kl;
-    text: k﻿l;
+    alt:
+    title: image
+    text: text
 eleventyNavigation:
   key: main
   title: Home
@@ -15,4 +15,5 @@ eleventyNavigation:
 layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
+
 frontpage

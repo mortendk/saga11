@@ -5,7 +5,7 @@ title: Space ship movie
 card:
   image: /upload/image.png
   alt: wonder
-  teaser: "bla bla bla "
+  teaser: teaser text for space ship moviw
 url:
   parent: sections
   path: spaceship-movie

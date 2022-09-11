@@ -2,12 +2,22 @@
 title: Styleguide
 permalink: styleguide/index.html
 
-eleventyNavigation:
-  key: styleguide
-  title: Styleguide
-  order: 100
-
-eleventyExcludeFromCollections: false
 ---
 
 
+{% for item in collections.styleguide | sortByFilepath %}
+
+  {% set subfolder = item.filePathStem | replace(item.fileSlug,'') %}
+
+  {# {% if subfolder in item.filePathStem %}
+
+    <div class="text-4xl">
+      {{ item.filePathStem | replace(item.fileSlug,'') }}
+    </div>
+
+  {% endif %} #}
+
+
+  <a href="{{ item.url }}" >{{ item.filePathStem | replace('/_system/styleguide/', '')}}: {{item.data.title}}</a>
+<br>
+{% endfor %}

@@ -22,54 +22,21 @@ layout: base.njk
       <div>🎈 Styleguide</div>
     </a>
 
-    {# macro #}
-    {% macro menuitems(item, page) -%}
-    {# {{ item | debug | safe  }} #}
-    {# Items  #}
-    <div x-data="{ open: true }">
+      {% for item in collections.styleguide | sortByFilepath %}
+        {# todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  #}
+        <a href="{{ item.url }}" class="text-slate-800 {% if item.url in page.url %} font-bold{% endif %}">
+           {% if item.url in page.url %} 👉{% endif %}
+            {{item.data.title}}</a>
+        <br>
+      {% endfor %}
 
-      <a href="{{ item.url }}"
-        {% if item.url == page.url %} aria-current="page" class="text-pink-700 font-bold"
-        {% else  %} class=""
-        {% endif %}
-      >{{ item.title }}</a>
-
-      {% if item.children | length %}
-        <button @click="open = !open">
-          <div x-show="open"> - </div>
-          <div x-show=" ! open"> + </div>
-        </button>
-      {% endif %}
-
-
-      {# sublevel  #}
-      {%- if item.children.length -%}
-        <ul class="ml-2" x-show="open">
-          {%- for child in item.children %}
-            {{ menuitems(child, page) }}
-          {% endfor -%}
-        </ul>
-      {%- endif -%}
-
-
-    </div>
-    {%- endmacro %}
-    {# /Macro  #}
-
-    {% set navPages = collections.all | eleventyNavigation("styleguide") %}
-
-      {%- for entry in navPages %}
-        {{ menuitems(entry, page) }}
-      {%- endfor -%}
-
-  </nav>
   </div>
   <div class=" basis-10/12  mt-8 mx-4">
 
     <h1 class="text-3xl text-center">{{ title | upper }} </h1>
 
     <div class="bg-white mb-8">
-      {% include "nav/bread.njk" %}
+
     </div>
 
 

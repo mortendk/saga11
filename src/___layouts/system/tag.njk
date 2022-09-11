@@ -25,21 +25,16 @@ the tag page auto generated from src/systempages/tag.njk
   <article class="p-2 shadow border m-1">
     <a href="{{ item.url }}" class="text-xl font-bold">
 
-      <div class="shadow-lg aspect-video overflow-hidden mb-4">
-
-      {# Generate image #}
-      {% if item.data.image %}
-        {% set css = "rounded-sm" %}
-        {% set format = [webp] %}
-        {% set srcset = [400,800, 1600] %}
-        {% set sizes = "(min-width: 1600px) 50vw, 100vw" %}
-        {% picture item.data.image, width=srcset, sizes=sizes, css=css %}
-      {% endif %}
-      {# / Generate image #}
+      <div class= "aspect-video overflow-hidden bg-slate-400">
+      {% picture
+        img=item.data.card.image,
+        width=[400, 800],
+        sizes="(min-width: 1600px) 50vw, 100vw",
+        alt=item.data.card.alt
+      %}
+    </div>
 
 
-
-      </div>
       <div class="font-lg">
         {{item.data.title}}
       </div>
