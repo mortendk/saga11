@@ -1,0 +1,48 @@
+---
+title: Font family
+text: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi nobis possimus nisi dolorem voluptates placeat repellendus est numquam esse iure quis vel, reprehenderit error cupiditate dolore at aliquam unde animi?
+
+fonts:
+  - type: sans
+    name: Barlow
+    weight: [normal, bold]
+    css: font-sans
+  - type: serif
+    name: Robotoslap
+    weight: [normal]
+    css: font-serif
+  - type: mono
+    name: Firacoda
+    weight: [normal]
+    css: font-mono
+
+---
+{% set uppercase = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å" %}
+{% set lowercase = " a b c d e f g h i j k l m n o p q r s t u v w x y z æ ø å" %}
+{% set number = "1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ & * ( ) [ ] { } , . / < > ? ; ' : " %}
+{% set number = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aliquam officiis rerum rem deserunt. Porro fugit quis ullam itaque inventore, ipsum nostrum nemo laudantium exercitationem quidem minima excepturi dicta aut."%}
+
+{# Family #}
+{% for font in fonts %}
+<article class="bg-white shadow p-4 m-2">
+  <div class="text-sm text-slate-400 text-left">Font family</div>
+  <h1 class="text-7xl">{{ font.name }}</h1>
+
+  {# weight #}
+  {# <div class="text-sm text-slate-400 400 mt-8">Weight</div>
+  <div>
+    {% for item in font.weight %}
+      {{ item }},
+    {% endfor %}
+  </div> #}
+  <div class="{{font.css}} my-4 text-xl p-2 flex flex-col space-y-4">
+    <div class="text-xl bold bg-slate-300 p-2">class="{{font.css}}"</div>
+    <div>{{ uppercase }}</div>
+    <div>{{ lowercase }}</div>
+    <div>{{ number }}</div>
+    <div>{{ text }}</div>
+  </div>
+
+</article>
+{% endfor %}
+

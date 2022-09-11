@@ -15,10 +15,12 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    fontFamily: {
-      sans: ["barlow"],
-    },
     extend: {
+      fontFamily: {
+        sans: ["barlow"],
+        serif: ["robotoslap"],
+        mono: ["firacoda"],
+      },
       colors: {
         tabcolor: "red",
       },
