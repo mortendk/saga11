@@ -1,31 +1,35 @@
-<div class="py-4 mx-auto max-w-xl">
-  <h1 class="text-5xl text-cyan-700 text-center">{{ component.title }}</h1>
+{%- if env.mode != 'prod' %}  <!-- __includes/components/testamonial/testamonial.njk -->{%- endif -%}
 
-  {% if component.text %}
-    <div class="prose prose-xl">
-      {{ component.text  | markdown | safe  }}
-    </div>
-  {% endif %}
 
-  {% picture
-    img=component.image,
-    width=[400,800],
-    sizes="(min-width: 1600px) 50vw, 100vw",
-    css="rounded-sm",
-    alt=""
-  %}
+<section class="">
 
-  {# Testamonials list #}
+  <article class="mx-auto max-w-3xl">
+
+    <h3 class="text-5xl text-cyan-700 text-center">
+      {{ component.title }}
+    </h3>
+
+    {% if component.text %}
+      <div class="prose prose-xl">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
+
+  </article>
+
+
+
+
   {% for item in component.testamonial %}
 
-    <div class="flex flex-row bg-slate-200 mb-4">
 
-      <div class="basis-60 mt-4 flex flex-col items-center">
+      <div class="flex flex-col items-center w-20">
+
         {% picture
           img=item.image,
-          width=[400],
+          width=[200],
           sizes="(min-width: 1600px) 50vw, 100vw",
-          css="rounded-full w-20 h-20 border border-teal-400",
+          css="rounded-full w-12 h-12 border border-teal-400",
           alt=""
         %}
 
@@ -33,9 +37,8 @@
         <div class="text-sm">{{ item.persontitle }}</div>
       </div>
 
-      <div class="basis-full">
 
-        <h3 class="text-3xl text-cyan-700">
+        <h3 class="text-2xl text-cyan-700">
           {{ item.title }}
         </h3>
 
@@ -45,20 +48,15 @@
           </div>
         {% endif %}
 
+        {# twitter #}
         {% if item.url %}
-
           <a href="{{ item.url }}" target="_blank">
           <div class="w-10 text-blue-300">
             {% include "svg/some/twitter.svg" %}
             </div>
           </a>
-
         {% endif %}
 
-      </div>
-
-  </div>
   {% endfor %}
 
-
-</div>
+</section>
