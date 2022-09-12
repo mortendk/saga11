@@ -108,24 +108,6 @@ collections:
           - code-block
         required: false
 
-      - name: url
-        label: url
-        widget: object
-        collapsed: false
-        summary: "{{fields.parent}} / {{fields.path}}"
-        fields:
-        - name: parent
-          label: parent page
-          widget: relation
-          collection: page
-          searchFields: [url]
-          valueField: "{{url}}"
-          display_fields: ["{{url}} (page: {{title}} ) "]
-          required: false
-          multiple: false
-          hint: "The parent page ex: http://[domaine]/[parent]/"
-        - { label: "path", name: "path", widget: "string"}
-
       # Tags
       - name: tags
         label: tags
@@ -157,27 +139,6 @@ collections:
         default: "post/post.njk"
         required: true
 
-      # Menu
-      - name: eleventyNavigation
-        label: Navigation
-        widget: object
-        collapsed: true
-        summary: "{{fields.key}} / {{fields.parent}}"
-        fields:
-        - { label: "Label", name: "key", widget: "string", required: false}
-        - name: "parent"
-          label: Parent page
-          widget: relation
-          collection: page
-          searchFields: [title]
-          valueField: "{{eleventyNavigation.key}}"
-          displayFields: [" {{eleventyNavigation.key}}"]
-          required: false
-          multiple: false
-        - { label: "order", name: "order", widget: "number",required: false}
-
-
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",
