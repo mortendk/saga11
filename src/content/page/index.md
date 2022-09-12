@@ -1,6 +1,6 @@
 ---
 title: Saga 11
-url: /
+image: /upload/morning.png
 card:
   title: Frontpage card
   image: /upload/default.png
@@ -8,11 +8,11 @@ card:
   text: Text for teaser
 components:
   - type: collection
-    title: Collection
+    title: The Test collection
     template: components/collection/collection.njk
     collection: test
-tags:
-  - test
+tags: []
+url: /
 eleventyNavigation:
   key: main
   title: Home
@@ -20,5 +20,4 @@ eleventyNavigation:
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
-
-This is the frontpage
+f﻿rontpage body

@@ -1,0 +1,25 @@
+{%- if env.mode != 'prod' %}  <!-- __includes/components/testamonial/testamonial.njk -->{%- endif -%}
+
+<section>
+
+  {# title + text #}
+  <article class="mx-auto max-w-3xl">
+    <h3 class="text-5xl text-cyan-700 text-center">
+      {{ component.title }}
+    </h3>
+    {% if component.text %}
+      <div class="text-xl text-center">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
+  </article>
+
+<div class="grid grid-cols-3 gap-4">
+
+  {% for item in component.link %}
+  <article class="border-1 border-teal-300 bg-white p-4 m-2 shadow rounded-sm">
+   <a href="{{ item.url}}">{{ item.title }}</a>
+  </article>
+  {% endfor %}
+</div>
+</section>
