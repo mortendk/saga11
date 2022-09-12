@@ -571,8 +571,8 @@ collections:
           displayFields: [" {{eleventyNavigation.key}}"]
           required: false
           multiple: false
-        - { label: "key", name: "key", widget: "string", default: "main", required: true }
-        - { label: "order", name: "order", widget: "number",required: false}
+        - { label: "Machine key", name: "key", widget: "string", required: true, hint: "the Key is used by the system and not visible" }
+        - { label: "order", name: "order", widget: "number", required: false}
 
       # Layout selector
       - name: "layout"
@@ -582,7 +582,7 @@ collections:
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
         displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
-        required: false
+        required: true
         default: "page/page.njk"
         hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
 
@@ -650,7 +650,7 @@ collections:
         required: false
 
       # Link
-      - label: "Link"
+      - label: "Links"
         name: "link"
         collapsed: false
         minimize_collapsed: true
@@ -752,7 +752,6 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
-          - { label: "alt", name: "alt", widget: "string", required: false }
 
   # -----------------------------------------------------------------
   # Relations Tags

@@ -8,6 +8,11 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 
 async function picture(image) {
+  // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
+  if (image.img == "") {
+    return "";
+    // console.log(`❌ empty img string`);
+  }
   const src = "src" + image.img;
   const widths = image.width || [100, 200, 400];
   const formats = image.format || ["webp", "jpeg"];
