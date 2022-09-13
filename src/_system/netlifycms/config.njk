@@ -52,8 +52,8 @@ collections:
     label_singular: Post
     description: "Content Posts"
     folder: "src/content/post"
-    slug: "{{slug}}/index"
-    preview_path: /{{url.parent}}/{{url.path}}/
+    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
+    preview_path: /post/{{title}}/
     create: true
     delete: true
     editor:
@@ -108,24 +108,6 @@ collections:
           - code-block
         required: false
 
-      - name: url
-        label: url
-        widget: object
-        collapsed: false
-        summary: "{{fields.parent}} / {{fields.path}}"
-        fields:
-        - name: parent
-          label: parent page
-          widget: relation
-          collection: page
-          searchFields: [url]
-          valueField: "{{url}}"
-          display_fields: ["{{url}} (page: {{title}} ) "]
-          required: false
-          multiple: false
-          hint: "The parent page ex: http://[domaine]/[parent]/"
-        - { label: "path", name: "path", widget: "string"}
-
       # Tags
       - name: tags
         label: tags
@@ -157,27 +139,6 @@ collections:
         default: "post/post.njk"
         required: true
 
-      # Menu
-      - name: eleventyNavigation
-        label: Navigation
-        widget: object
-        collapsed: true
-        summary: "{{fields.key}} / {{fields.parent}}"
-        fields:
-        - { label: "Label", name: "key", widget: "string", required: false}
-        - name: "parent"
-          label: Parent page
-          widget: relation
-          collection: page
-          searchFields: [title]
-          valueField: "{{eleventyNavigation.key}}"
-          displayFields: [" {{eleventyNavigation.key}}"]
-          required: false
-          multiple: false
-        - { label: "order", name: "order", widget: "number",required: false}
-
-
-      - { label: "Order", name: "order", widget: "number", required: false, default="100" }
       - {
           label: "Draft Mode",
           name: "eleventyExcludeFromCollections",
@@ -188,6 +149,7 @@ collections:
         }
 
 
+
   # -----------------------------------------------------------------
   # Pages Collection
   # -----------------------------------------------------------------
@@ -196,7 +158,7 @@ collections:
     label_singular: Page
     description: "Pages used for landing pages with collections added"
     folder: "src/content/page"
-    slug: "{{url}}/index"
+    slug: "{{title}}"
     preview_path: /{{url}}/
     create: true
     delete: true
@@ -217,7 +179,7 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "url", name: "url", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
 
       - name: card
         label: card
@@ -274,6 +236,7 @@ collections:
                 displayFields: ["components/image/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/image/image.njk"
+
 
           - label: 'Image Gallery'
             name: 'images'
@@ -337,7 +300,6 @@ collections:
                   - { label: Person, name: person, widget: string, required: false }
                   - { label: Person title, name: persontitle, widget: string, required: false }
                   - { label: url, name: url, widget: string, required: false }
-              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
               - name: "template"
                 label: "Template"
@@ -470,6 +432,33 @@ collections:
                 default: "components/price/price.njk"
 
 
+          - name: links
+            label: Links
+            widget: object
+            summary: "{{fields.title}} {{fields.url}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: links
+                name: link
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - {label: link, name: url, widget: string, default: "https://"}
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateLink
+                searchFields: [title]
+                valueField: "components/link/{{filename}}.{{extension}}"
+                displayFields: ["components/link/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/link/link.njk"
+
+
+
+
           - label: 'Form'
             name: 'form'
             widget: object
@@ -594,6 +583,8 @@ collections:
         required: false
         multiple: true
 
+      - { label: "url", name: "url", widget: "string" }
+
       - name: eleventyNavigation
         label: Navigation
         widget: object
@@ -611,8 +602,8 @@ collections:
           displayFields: [" {{eleventyNavigation.key}}"]
           required: false
           multiple: false
-        - { label: "key", name: "key", widget: "string", default: "main", required: true }
-        - { label: "order", name: "order", widget: "number",required: false}
+        - { label: "Machine key", name: "key", widget: "string", required: true, hint: "The Key is used by the system main is used for the frontpage" }
+        - { label: "order", name: "order", widget: "number", required: false}
 
       # Layout selector
       - name: "layout"
@@ -622,7 +613,7 @@ collections:
         searchFields: [saga-template-name]
         valueField: "page/{{filename}}.{{extension}}"
         displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
-        required: false
+        required: true
         default: "page/page.njk"
         hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
 
@@ -635,6 +626,7 @@ collections:
         }
 
 
+
   # -----------------------------------------------------------------
   # Link In Bio Collection
   # -----------------------------------------------------------------
@@ -643,8 +635,8 @@ collections:
     label_singular: linkinbio
     description: "Link in bio pages"
     folder: "src/content/linkinbio"
-    slug: "{{url}}/index"
-    preview_path: /{{url}}/
+    slug: "{{slug}}"
+    preview_path: link/{{url}}
 
     create: true
     delete: true
@@ -670,7 +662,7 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
-      - { label: "url", name: "url", widget: "string", default: "link" }
+      - { label: "url", name: "url", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
       - { label: "alt", name: "alt", widget: "string", required: false }
       - label: "Body"
@@ -690,7 +682,7 @@ collections:
         required: false
 
       # Link
-      - label: "Link"
+      - label: "Links"
         name: "link"
         collapsed: false
         minimize_collapsed: true
@@ -707,7 +699,7 @@ collections:
         valueField: "page/{{filename}}.{{extension}}"
         displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
         required: false
-        default: "page/link.njk"
+        default: "page/link-in-bio.njk"
 
   # -----------------------------------------------------------------
   # Notifications
@@ -717,7 +709,7 @@ collections:
     label_singular: notification
     description: "Notifications and alerts"
     folder: "src/content/notification"
-    slug: "{{title}}/index"
+    slug: "{{title}}"
     preview_path: notification/{{title}}/
     create: true
     delete: true
@@ -792,7 +784,6 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: "Body", name: "body", widget: "markdown", required: false }
-          - { label: "alt", name: "alt", widget: "string", required: false }
 
   # -----------------------------------------------------------------
   # Relations Tags
@@ -988,6 +979,16 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
+  # Components Links
+  - name: componentTemplateLink
+    label: "Template"
+    folder: "src/__includes/components/link"
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
 
 
   # -----------------------------------------------------------------

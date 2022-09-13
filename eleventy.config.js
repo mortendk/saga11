@@ -8,6 +8,11 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 
 async function picture(image) {
+  // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
+  if (image.img == "") {
+    return "";
+    // console.log(`❌ empty img string`);
+  }
   const src = "src" + image.img;
   const widths = image.width || [100, 200, 400];
   const formats = image.format || ["webp", "jpeg"];
@@ -47,8 +52,9 @@ async function picture(image) {
       whitespaceMode: "inline",
     });
   } else {
-    console.log(`🎈  picture function: ${image} dont exist - this function is called from: `);
-    return `<!-- image function called but: ${image} -->`;
+    // console.log(`🎈 picture function: ${image} dont exist `);
+    // return `<!-- image function called but: ${image} -->`;
+    return "";
   }
 }
 
@@ -70,6 +76,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
   eleventyConfig.addFilter("sortByOrder", require("./src/_11ty/filter/sortByOrder.js"));
   eleventyConfig.addFilter("sortByTitle", require("./src/_11ty/filter/sortByTitle.js"));
+  eleventyConfig.addFilter("sortByFilepath", require("./src/_11ty/filter/sortByFilepath.js"));
   eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));

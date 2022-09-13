@@ -1,18 +1,23 @@
 ---
-title: welcome page
-url: /
+title: Saga 11
+image: /upload/morning.png
+card:
+  title: Frontpage card
+  image: /upload/default.png
+  alt: Spaceship leaving
+  text: Text for teaser
 components:
-  - type: image
-    template: components/image/image.njk
-    image: /upload/default.png
-    alt: kl;k
-    title: kl;
-    text: k﻿l;
+  - type: collection
+    title: The Test collection
+    template: components/collection/collection.njk
+    collection: test
+tags: []
+url: /
 eleventyNavigation:
   key: main
   title: Home
   order: 0
-layout: page/frontpage.njk
+layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
-frontpage
+f﻿rontpage body

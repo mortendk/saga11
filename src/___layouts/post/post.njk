@@ -8,11 +8,6 @@ post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
-  {# {{ page | debug | safe }} #}
-
-
-
-
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
@@ -60,17 +55,14 @@ post template
     {% include "share.njk" %}
 
 
-    <H2 class="mt-4 text-red-700 ">Nav pages</H2>
-    post:
     {# list of post #}
     {% include "nav/posts.njk" %}
 
     {# List of tags #}
-    Tags:
+
     {% include "nav/tags.njk" %}
 
-    pages:
-    {% include "nav/pages.njk" %}
+
   </div>
 
 </article>

@@ -1,0 +1,25 @@
+---
+title: font size
+
+size:
+  - css: text-9xl
+  - css: text-8xl
+  - css: text-7xl
+  - css: text-6xl
+  - css: text-5xl
+  - css: text-4xl
+  - css: text-3xl
+  - css: text-2xl
+  - css: text-xl
+  - css: text-lg
+  - css: text-sm
+text: Lorem ipsum dolor
+---
+
+{% for item in size %}
+<article class="bg-white shadow p-4 m-2">
+  <div class="text-sm text-slate-400 text-left">Font size: {{ item.css }}</div>
+  <div class="{{ item.css }}">{{ text }}</div>
+</article>
+{% endfor %}
+

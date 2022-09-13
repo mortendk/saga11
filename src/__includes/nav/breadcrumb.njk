@@ -1,0 +1,37 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/breadcrumb.njk  -->{%- endif  -%}
+
+
+{% if eleventyNavigation.key %}
+
+
+{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true}) %}
+
+<nav class="inline-flex flex-row items-center p-2">
+
+  {% for item in bread %}
+    {# home #}
+    {% if loop.first %}
+      <a href="{{item.url }}" class="flex items-center mr-2 text-slate-700">
+        <div class="w-4 mr-1 text-slate-600">{% include "svg/home-modern.svg" %}</div>
+        Home
+      </a>
+    {% elseif not loop.last %}
+    {#  #}
+      /
+      <a href="{{item.url }}" class="ml-2 underline text-slate-700">
+          {{item.title }}
+      </a>
+    {% else %}
+      /
+      <div class="text-slate-700 ml-2">
+        {{item.title }}
+      </div>
+
+    {% endif %}
+
+
+{% endfor %}
+</nav>
+
+
+{% endif %}

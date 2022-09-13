@@ -1,21 +1,18 @@
 ---
 layout: post/post.njk
 relatedpost: []
-title: Space ship movie
-card:
-  image: /upload/image.png
-  alt: wonder
-  teaser: "bla bla bla "
+date: 2022-08-22 22:34:57
 url:
   parent: sections
   path: spaceship-movie
-tags:
-  - test
-date: 2022-08-22 22:34:57
 teaser: >-
   Space ship people get up from sleeping coffin and have eat.
 
   Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
+card:
+  image: /upload/image.png
+  alt: wonder
+  teaser: teaser text for space ship moviw
 gallery:
   - image:
       image: /upload/image1.png
@@ -30,18 +27,19 @@ files:
   - file:
       file: /upload/toaster-clean.png
       title: ""
+title: Space ship movie
+tags:
+  - test
+eleventyExcludeFromCollections: false
 eleventyNavigation:
   key: This is a single page
   order: 1
   parent: Post
-eleventyExcludeFromCollections: false
 calendar:
   date_start: 2022-08-16 00:00:00
   date_end: 2022-08-18 00:00:00
   date_allday: true
 ---
-wtd test: {{ url.parent }} {{ url.path }}
-
 Space ship people get up from sleeping coffin and have eat.
 Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 

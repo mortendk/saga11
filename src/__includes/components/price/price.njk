@@ -1,3 +1,5 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/price/price.njk -->{%- endif -%}
+
 <section class="py-4">
 
   <article class="mx-auto max-w-3xl">
@@ -41,7 +43,7 @@
           {# icon #}
           {% if element.active %}
             <div class="w-5 text-cyan-500">
-              {% include "svg/checkbadge.svg" %}
+              {% include "svg/check-badge.svg" %}
             </div>
             <div class="p-2 bold">
           {% else %}

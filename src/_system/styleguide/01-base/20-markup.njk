@@ -1,0 +1,122 @@
+---
+title: FontMarkup
+text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+items:
+  - title: Lorem ipsum dolor sit amet consectetur adipisicing
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus qui consequatur, dolore, quibusdam magni cumque dolor architecto autem sint nulla voluptatibus vel. Dicta numquam harum odio iusto id? Odio, fuga?
+  - title: Lorem ipsum dolor sit amet consectetur adipisicing
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus qui consequatur, dolore, quibusdam magni cumque dolor architecto autem sint nulla voluptatibus vel. Dicta numquam harum odio iusto id? Odio, fuga?
+  - title: Lorem ipsum dolor sit amet consectetur adipisicing
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus qui consequatur, dolore, quibusdam magni cumque dolor architecto autem sint nulla voluptatibus vel. Dicta numquam harum odio iusto id? Odio, fuga?
+
+---
+<h1>h1 {{ title }} 1</h1>
+<h2>h2 {{ title }} 2</h2>
+<h3>h3 {{ title }} 3</h3>
+<h4>h4 {{ title }} 4</h4>
+<h5>h5 {{ title }} 5</h5>
+<h6>h6 {{ title }} 6</h6>
+
+<p>{{text}}</p>
+
+<blockquote>
+This is a BlockQuote
+</blockquote>
+<p>
+  <strong>Strong is used to indicate strong importance</strong></p>
+<p>
+  <em>This text has added emphasis</em>
+</p>
+
+<p>
+  The <b>b element</b> is stylistically different text from normal text, without any special importance
+</p>
+
+<p>
+  The <i>i element</i> is text that is set off from the normal text
+</p>
+
+<p>
+  The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation
+</p>
+
+
+<p>
+  <del>This text is deleted</del> and <ins>This text is inserted</ins>
+</p>
+
+<p>
+  <s>This text has a strikethrough</s>
+</p>
+
+<p>
+  Superscript<sup>®</sup>
+</p>
+
+<p>
+  Subscript ala H<sub>2</sub>O
+</p>
+
+<cite>This is a citation</cite>
+
+<q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation</q>
+
+<time datetime="2013-04-06T12:32+00:00">{{ date }}</time>
+
+<p>The <mark>mark element</mark> indicates a highlight</p>
+
+<a href="{{url}}">{{ linktext }}</a><br>
+
+<a href="doo" target="_blank">target blank</a><br>
+
+<a href="#hashtag" target="">#hashtag</a><br>
+
+<a href="email:foo@bar.dk">email</a><br>
+
+<a href="sms:+4512345678">sms</a><br>
+
+<a href="tel:+4512345678">tel</a><br>
+
+<p>{{ text }}</p>
+<p>{{ text }}</p>
+
+<pre>
+  P R E F O R M A T T E D T E X T
+  ! " # $ % &amp; ' ( ) * + , - . /
+  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+  @ A B C D E F G H I J K L M N O
+  P Q R S T U V W X Y Z [ \ ] ^ _
+  ` a b c d e f g h i j k l m n o
+  p q r s t u v w x y z { | } ~
+
+</pre>
+
+
+
+<ul>
+{% for item in items %}
+  <li>{{ item.title }}</li>
+{% endfor %}
+</ul>
+
+
+<ul>
+  {% for item in items %}
+    <li>{{ item.title }}</li>
+  {% endfor %}
+</ul>
+
+<details>
+  {% for item in items %}
+    <summary>{{ item.title }}</summary>
+    <p>{{ text}}</p>
+  {% endfor %}
+</details>
+
+<dl>
+{% for item in items %}
+  <dt> {{ item.title }}</dt>
+  <dd>{{ item.text }}</dd>
+{% endfor %}
+</dl>

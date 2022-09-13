@@ -1,0 +1,26 @@
+---
+title: "🎈 Colors"
+
+colors:
+  - title: slate
+    css: bg-slate-200
+  - title: slate
+    css: bg-slate-500
+  - title: teal
+    css: bg-teal-600
+
+
+---
+<div class="grid grid-cols-6 gap-4 bg-white p-4">
+
+{% for color in colors %}
+  <article >
+    <div class="rounded {{ color.css }} h-20 shadow-md"></div>
+    <h2 class="text-center text-lg text-slate-500">{{ color.title | upper}} </h2>
+    <div class="text-slate-700 text-center">{{ color.css }} </div>
+  </article>
+{% endfor %}
+
+
+
+</div>

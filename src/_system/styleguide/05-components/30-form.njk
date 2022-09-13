@@ -1,0 +1,43 @@
+---
+title: Form
+
+component:
+  title: Lorem ipsum, dolor sit amet consectetur adipisicing elit
+  text: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis doloremque voluptatem necessitatibus eligendi harum dolorum atque consectetur ipsa accusamus. Consequatur exercitationem quae ullam esse error, eum modi quo culpa tenetur!
+  name: formname
+  elements:
+    - inputtype: text
+      title: Text Field
+      placeholder: This is the placeholder
+      name: text
+      required: false
+    - inputtype: url
+      title: url
+      placeholder: website adresse
+      name: url
+      required: true
+    - inputtype: email
+      title: email
+      placeholder: foo@bar.dk
+      name: email
+      required: true
+    - inputtype: tel
+      title: telephone
+      placeholder: 123456789
+      name: telephone
+      required: true
+    - inputtype: date
+      title: date
+      placeholder: 123456789
+      name: date
+      required: true
+    - inputtype: textarea
+      title: Textarea
+      placeholder: This is the placeholder
+      name: textarea
+      required: true
+
+---
+
+{% include "components/form/form.njk" %}
+

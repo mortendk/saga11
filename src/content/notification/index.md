@@ -5,7 +5,7 @@ text: lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
   veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
   commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 Status: warning
-status: warning
+status: info
 date: 2022-08-29 23:30:05
 eleventyExcludeFromCollections: false
 ---
