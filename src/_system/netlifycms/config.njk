@@ -485,7 +485,7 @@ collections:
         collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
-        - { label: "title", name: "title", widget: "string", required: true}
+        - { label: "title", name: "title", widget: "string", required: false}
         - name: "parent"
           label: Parent page
           widget: relation
@@ -496,7 +496,7 @@ collections:
           displayFields: [" {{eleventyNavigation.key}}"]
           required: false
           multiple: false
-        - { label: "Machine key", name: "key", widget: "string", required: true, hint: "The Key is used by the system main is used for the frontpage" }
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system main is used for the frontpage" }
         - { label: "order", name: "order", widget: "number", required: false}
 
       # Layout selector
