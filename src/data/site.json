@@ -4,6 +4,7 @@
   "color": "#3a5961",
   "keywords": "11ty, netlifycms, flatfile cms",
   "authoremail": "lagertha@saga11.dev",
+  "rss": true,
   "adress": "Sankt Peders Stræde 18",
   "authorname": "Lagertha",
   "country": "denmark",

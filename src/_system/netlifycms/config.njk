@@ -982,6 +982,14 @@ collections:
           - { label: "humans.txt", name: humantxt, widget: text, required: false }
 
           - {
+              label: "rss feed",
+              name: rss,
+              widget: boolean,
+              default: true,
+              hint: "/feed.xml",
+            }
+
+          - {
               label: Author (rss),
               name: authorname,
               widget: string,
@@ -995,7 +1003,9 @@ collections:
               required: false,
               hint: "Feed Author name",
             }
+
           - { label: browesercolor, name: color, widget: color, required: false }
+
           - { label: "Adress", name: "adress", widget: "string", required: false }
           - { label: "zip", name: "zip", widget: "string", required: false }
           - { label: "country", name: "country", widget: "string", required: false }
@@ -1004,13 +1014,6 @@ collections:
         name: "some"
         file: "src/data/some.json"
         fields:
-          - {
-              label: "rss feed",
-              name: rss,
-              widget: boolean,
-              required: false,
-              hint: "/feed.xml",
-            }
 
           - {
               label: facebook,
