@@ -44,7 +44,7 @@ collections:
   - name: page
     label: Pages
     label_singular: Page
-    description: "Pages used for landing pages with collections added"
+    description: "Pages with components"
     folder: "src/content/page"
     slug: "{{title}}"
     preview_path: /{{url}}/
@@ -125,7 +125,6 @@ collections:
                 required: true
                 default: "components/image/image.njk"
 
-
           - label: 'Image Gallery'
             name: 'images'
             widget: object
@@ -169,8 +168,6 @@ collections:
                 required: true
                 default: "components/cta/cta.njk"
 
-
-
           - name: testamonials
             label: Testamonials
             widget: object
@@ -198,8 +195,6 @@ collections:
                 displayFields: ["components/testamonial/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/testamonial/testamonial.njk"
-
-
 
           - name: features
             label: Features
@@ -522,7 +517,7 @@ collections:
   - name: post
     label: Posts
     label_singular: Post
-    description: "Content Posts"
+    description: "Post fx blogpost etc"
     folder: "src/content/post"
     slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
     preview_path: /post/{{title}}/
