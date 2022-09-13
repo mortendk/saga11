@@ -19,13 +19,13 @@ local_backend: true
 
 #SETTINGS
 {% if env.mode != 'prod' %}
-site_url: http://localhost:8080
-logo_url: http://localhost:8080/assets/icon/icon-apple-touch.png
-display_url: http://localhost:8080
+site_url: {{ env.url }}
+logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
+display_url: {{ env.url }}
 {% else %}
-site_url: https://saga11.dev
-logo_url: https://saga11.dev/assets/icon/icon-apple-touch.png
-display_url: https://saga11.dev
+site_url: {{ env.url }}
+logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
+display_url: {{ env.url }}
 {% endif %}
 
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
