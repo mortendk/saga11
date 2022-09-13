@@ -10,6 +10,7 @@ Specfic page to control the layout for the frontpage
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
+
 <section class="relative mb-4">
 
   {% picture
@@ -25,6 +26,8 @@ Specfic page to control the layout for the frontpage
     <h1 class="text-7xl text-cyan-700 ">{{ title }}</h1>
     <div class="prose mt-8">
       {{ content | safe }}
+
+    {% include "location.njk" %}
     </div>
   </article>
 

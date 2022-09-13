@@ -19,7 +19,7 @@ local_backend: true
 
 #SETTINGS
 site_url: {{ env.url }}
-logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
+logo_url: {{ env.url }}/assets/img/icon-admin.png
 display_url: {{ env.url }}
 
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
@@ -620,10 +620,6 @@ collections:
         }
 
 
-
-
-
-
   # -----------------------------------------------------------------
   # Link In Bio Collection
   # -----------------------------------------------------------------
@@ -765,7 +761,6 @@ collections:
           required: false,
           hint: "is this a draft ?",
         }
-
 
 
   # -----------------------------------------------------------------
@@ -1022,6 +1017,7 @@ collections:
           - { label: browesercolor, name: color, widget: color, required: false }
           - { label: "Adress", name: "adress", widget: "string", required: false }
           - { label: "zip", name: "zip", widget: "string", required: false }
+          - { label: "country", name: "country", widget: "string", required: false }
 
       - label: "Social Network links"
         name: "some"

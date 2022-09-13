@@ -15,8 +15,6 @@ components:
         title: one
         price: "100"
         text: b﻿la bla b
-        page:
-          - /
         url: https://saga11.dev
 tags: []
 url: /
@@ -27,4 +25,5 @@ eleventyNavigation:
 layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
+
 f﻿rontpage body
