@@ -1,7 +1,7 @@
 ---
 title: "@profilename"
 url: link
-image: /upload/dungeonmaster.png
+image: /image-default/dungeonmaster.png
 alt: Picture of me
 link:
   - url: https://11ty.dev
