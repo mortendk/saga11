@@ -1,4 +1,3 @@
 {
-  "layout": "page/page.njk",
   "permalink": "notification/{{ title | slugify }}/"
 }

@@ -1,6 +1,6 @@
 # What is this
 
-Saga11 is a small system build for webdesigners to build small brochure websites / blogs etc. 
+Saga11 is a small system build for webdesigners to build small brochure websites / blogs etc.
 Its build on top of 11ty and with netlifycms as a backend for online editing.
 
 ## Core Values
@@ -163,3 +163,6 @@ post posttemplates
 - Netlifycms https://www.netlifycms.org/
 
 - tailwindcss https://tailwindcss.com/
+
+##
+git merge template/[branch to merge]
