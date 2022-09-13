@@ -1,8 +1,8 @@
 {
   "name": "saga11",
-  "version": "0.1.5",
-  "description": "A system to build small websites - powered by 11ty",
-  "main": "index.js",
+  "version": "0.1.6",
+  "description": "Website builder based on 11ty & netlifycms",
+  "main": "eleventy.config.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "cleanup": "rm -rf _site",
@@ -17,7 +17,7 @@
     "splash-screens:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/assets/splash_screens  --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only --dark-mode"
   },
   "keywords": [],
-  "author": "",
+  "author": "mortendk",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.15",
