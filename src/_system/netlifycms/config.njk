@@ -690,6 +690,7 @@ collections:
         required: false
         default: "page/link-in-bio.njk"
 
+
   # -----------------------------------------------------------------
   # Notifications
   # -----------------------------------------------------------------
@@ -758,6 +759,7 @@ collections:
           hint: "is this a draft ?",
         }
 
+
   # -----------------------------------------------------------------
   # Relations Tags
   # -----------------------------------------------------------------
@@ -781,7 +783,7 @@ collections:
 
 
   # -----------------------------------------------------------------
-  # Templates
+  # Templates selectors
   # -----------------------------------------------------------------
   - name: posttemplates
     label_singular: template
@@ -977,32 +979,14 @@ collections:
           - { label: title, name: title, widget: string }
           - { label: description, name: description, widget: text, required: false }
           - { label: keywords, name: keywords, widget: text, required: false }
+
           - { label: footer, name: footer, widget: markdown, required: false }
           - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
           - { label: "humans.txt", name: humantxt, widget: text, required: false }
 
-          - {
-              label: "rss feed",
-              name: rss,
-              widget: boolean,
-              default: true,
-              hint: "/feed.xml",
-            }
-
-          - {
-              label: Author (rss),
-              name: authorname,
-              widget: string,
-              required: false,
-              hint: "Feed Author name",
-            }
-          - {
-              label: Aurthor Email (rss),
-              name: authoremail,
-              widget: string,
-              required: false,
-              hint: "Feed Author name",
-            }
+          - { label: "rss feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: Author (rss), name: authorname, widget: string, required: false, hint: "Feed Author name"}
+          - { label: Aurthor Email (rss), name: authoremail,widget: string, required: false,hint: "Feed Author name"}
 
           - { label: browesercolor, name: color, widget: color, required: false }
 
@@ -1029,7 +1013,6 @@ collections:
               required: false,
               hint: "https://www.youtube.com/...",
             }
-
           - {
               label: twitter,
               name: twitter,
