@@ -10,34 +10,26 @@ Specfic page to control the layout for the frontpage
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
-{# {% include "src/_system/debug/global.njk" %} #}
-
-{% for item in collections.allPages | sortByOrder %}
-
-  {% if loop.first %}
-    {# {{ item | debugpretty("item") | safe  }} #}
-  {% endif %}
-
-{% endfor %}
-
 <section class="relative mb-4">
+
   {% picture
-      img=card.image,
-      alt=card.alt,
+      img=image,
+      alt='',
       width=[400,800, 1600],
       sizes="(min-width: 1600px) 50vw, 100vw",
-      css="shadow rounded h-96 overflow-hidden",
+      css="shadow rounded ",
       loading = "eager"
   %}
-  <article class="absolute bg-white/80 w-1/2 top-0 p-8 h-96">
+
+  <article class="absolute bg-white/80 w-1/2 top-0 p-8 h-full">
     <h1 class="text-7xl text-cyan-700 ">{{ title }}</h1>
-    <div class="my-4 text-2xl">{{ card.teaser | safe}}</div>
+    <div class="prose mt-8">
+      {{ content | safe }}
+    </div>
   </article>
 
 </section>
 
 {% include "components/all.njk" %}
 
-{{ content | safe }}
 
-{# {% include "component/pagecard.njk" %} #}

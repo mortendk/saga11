@@ -6,18 +6,14 @@ card:
   image: /upload/default.png
   alt: Spaceship leaving
   text: Text for teaser
-components:
-  - type: collection
-    title: The Test collection
-    template: components/collection/collection.njk
-    collection: test
+components: []
 tags: []
 url: /
 eleventyNavigation:
   key: main
   title: Home
   order: 0
-layout: page/page.njk
+layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
 f﻿rontpage body

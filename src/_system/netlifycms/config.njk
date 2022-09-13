@@ -45,112 +45,6 @@ public_folder: "/upload"
 
 collections:
   # -----------------------------------------------------------------
-  # Post Collection
-  # -----------------------------------------------------------------
-  - name: post
-    label: Posts
-    label_singular: Post
-    description: "Content Posts"
-    folder: "src/content/post"
-    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
-    preview_path: /post/{{title}}/
-    create: true
-    delete: true
-    editor:
-      preview: false
-    summary: "{{title}} {{url.parent}} {{card.image}} "
-    sortable_fields: ["title", "order", "date"]
-    view_filters:
-      - label: Drafts
-        field: eleventyExcludeFromCollections
-        pattern: true
-    view_groups:
-      - label: "Parent: "
-        field: url.parent
-      - label: Tag
-        field: tags
-      - label: "Date: "
-        field: date
-        pattern: "([0-9]+(-[0-9]+)+)"
-      - label: Drafts
-        field: eleventyExcludeFromCollections
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}"
-
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-
-      - name: card
-        label: card
-        widget: object
-        collapsed: false
-        summary: "{{fields.teaser}} / {{fields.image}}"
-        fields:
-        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
-        - { label: "Image alt", name: "alt", widget: "string", required: false }
-        - { label: "teaser", name: "teaser", widget: "text", required: false }
-
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        buttons:
-          - bold
-          - italic
-          - heading-one
-          - heading-two
-          - heading-three
-          - code
-          - quote
-          - bulleted-list
-        editor_components:
-          - image
-          - code-block
-        required: false
-
-      # Tags
-      - name: tags
-        label: tags
-        widget: relation
-        collection: tags
-        searchFields: [title]
-        valueField: "{{slug}}"
-        display_fields: ["title"]
-        required: false
-        multiple: true
-
-      # Date
-      - label: "Date"
-        name: "date"
-        widget: "datetime"
-        date_format: "DD.MM.YYYY"
-        time_format: "HH:mm"
-        format: "YYYY-MM-DD HH:mm:ss"
-        picker_utc: true
-
-      # Layout selector
-      - name: "layout"
-        label: "Layout Selector"
-        widget: relation
-        collection: posttemplates
-        searchFields: [saga-template-name]
-        valueField: "post/{{filename}}.{{extension}}"
-        displayFields: ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
-        default: "post/post.njk"
-        required: true
-
-      - {
-          label: "Draft Mode",
-          name: "eleventyExcludeFromCollections",
-          widget: "boolean",
-          default: false,
-          required: false,
-          hint: "is this a draft ?",
-        }
-
-
-
-  # -----------------------------------------------------------------
   # Pages Collection
   # -----------------------------------------------------------------
   - name: page
@@ -624,6 +518,114 @@ collections:
           default: false,
           required: false,
         }
+
+
+# -----------------------------------------------------------------
+  # Post Collection
+  # -----------------------------------------------------------------
+  - name: post
+    label: Posts
+    label_singular: Post
+    description: "Content Posts"
+    folder: "src/content/post"
+    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
+    preview_path: /post/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{{title}} {{url.parent}} {{card.image}} "
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: "Parent: "
+        field: url.parent
+      - label: Tag
+        field: tags
+      - label: "Date: "
+        field: date
+        pattern: "([0-9]+(-[0-9]+)+)"
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
+      - name: card
+        label: card
+        widget: object
+        collapsed: false
+        summary: "{{fields.teaser}} / {{fields.image}}"
+        fields:
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "teaser", name: "teaser", widget: "text", required: false }
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-one
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      # Date
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: true
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: posttemplates
+        searchFields: [saga-template-name]
+        valueField: "post/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
+        default: "post/post.njk"
+        required: true
+
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+          hint: "is this a draft ?",
+        }
+
+
+
 
 
 

@@ -28,6 +28,7 @@ files:
       file: /upload/toaster-clean.png
       title: ""
 title: Space ship movie
+image: /upload/image3.png
 tags:
   - test
 eleventyExcludeFromCollections: false
