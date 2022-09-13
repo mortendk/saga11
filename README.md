@@ -1,9 +1,17 @@
 # What is this
 
-Saga11 is a small system build for webdesigners to build small brochure websites / blogs etc.
-Its build on top of 11ty and with netlifycms as a backend for online editing.
+Saga11 build websites, based on 11ty and netlifycms
+
+The wish is to have a system where the webdesigner can have complete control over the markup
+
+Content and settings are build with markdown and json files.
+netlifycms is configured to edit the files
+The files are compiled to flat html files with 11ty using nunjucks templates.
+
+As a default the standard templates are using tailwind and alpine, but thats totally optional.
 
 ## Core Values
+
 - No Database - Flatfile based
 - 100% Markup control
 - Small tech stack (yeah right)
@@ -14,11 +22,12 @@ Its build on top of 11ty and with netlifycms as a backend for online editing.
 - At the end "its just html, css, js" :)
 
 ## Tech stack
+
 - 11ty generating the html.
 - Markdown, json and nunjucks.
 - Github for storage
 - Netlifycms for online editing
-- Tailwind for css cause devs likes it
+- Tailwind for css
 - Vanilla js
 
 ---
@@ -60,7 +69,7 @@ To make it work work locally
 npm run admin
 ```
 
-http://localhost:8080/_admin/
+http://localhost:8080/\_admin/
 
 ## Nunjucks
 
@@ -116,7 +125,6 @@ Images to the content is living in the /images folder
 
 /systempages/ -
 
-
 ## Netlifycms Setup on netlify
 
 1 Push code to github
@@ -165,4 +173,5 @@ post posttemplates
 - tailwindcss https://tailwindcss.com/
 
 ##
+
 git merge template/[branch to merge]
