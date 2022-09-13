@@ -4,12 +4,12 @@
 
   <article class="mx-auto max-w-3xl">
 
-    <h3 class="text-5xl text-cyan-700 text-center">
+    <h3 class="text-5xl text-cyan-700 text-center mb-4">
       {{ component.title }}
     </h3>
 
     {% if component.text %}
-      <div class="prose prose-xl">
+      <div class="prose prose-xl text-center">
         {{ component.text  | markdown | safe  }}
       </div>
     {% endif %}
@@ -21,7 +21,7 @@
   {# Price list #}
   {% for item in component.price %}
 
-    <article class="w-80 border shadow bg-white p-4 mx-2  {% if item.featured %} border-cyan-300 {% endif %}">
+    <article class="w-80 border shadow rounded-md bg-white p-4 mx-2  {% if item.featured %} border-cyan-300 {% endif %}">
 
       <h3 class="text-4xl text-cyan-700 mt-6 mb-4 text-center">
         {{ item.title }}
@@ -29,7 +29,17 @@
 
       <div class="text-3xl text-cyan-800 bg-slate-50 text-center py-4 -ml-4 -mr-4 mb-4">
         {{ item.price }}
-        </div>
+      </div>
+
+      <div class="flex justify-center py-4">
+
+        <a href="{{ item.url }}"
+          class="px-4 py-3 rounded font-bold
+          bg-sky-200 border  border-sky-400
+          hover:bg-sky-300
+        "> Get this one </a>
+
+      </div>
 
       {% if item.text %}
         <div class="prose">

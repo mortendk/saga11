@@ -14,19 +14,13 @@ eleventyExcludeFromCollections: true
 #
 backend:
   name: git-gateway
-  branch: main
+  branch: {{ env.branch }}
 local_backend: true
 
 #SETTINGS
-{% if env.mode != 'prod' %}
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
 display_url: {{ env.url }}
-{% else %}
-site_url: {{ env.url }}
-logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
-display_url: {{ env.url }}
-{% endif %}
 
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
@@ -307,6 +301,7 @@ collections:
                   - { label: Price, name: price, widget: string, required: false }
                   - { label: featured, name: featured, widget: boolean, default: false, required: false }
                   - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - { label: "url", name: "url", widget: "string", required: false }
                   - label: elements
                     name: elements
                     widget: list
