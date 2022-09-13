@@ -13,11 +13,11 @@
 
   <form
     class="flex flex-col space-y-4 mb-4"
-    name="{{ component.name | slug }}"
+    name="{{ component.name | slugify }}"
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"
-    action="/success/"
+    action="/{{ component.action }}/"
   >
     {# <div data-netlify-recaptcha="true"></div> #}
     <div class="hidden">

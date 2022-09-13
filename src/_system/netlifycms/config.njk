@@ -14,19 +14,13 @@ eleventyExcludeFromCollections: true
 #
 backend:
   name: git-gateway
-  branch: main
+  branch: {{ env.branch }}
 local_backend: true
 
 #SETTINGS
-{% if env.mode != 'prod' %}
 site_url: {{ env.url }}
-logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
+logo_url: {{ env.url }}/assets/img/icon-admin.png
 display_url: {{ env.url }}
-{% else %}
-site_url: {{ env.url }}
-logo_url: {{ env.url }}/assets/icon/icon-apple-touch.png
-display_url: {{ env.url }}
-{% endif %}
 
 {# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
@@ -50,7 +44,7 @@ collections:
   - name: page
     label: Pages
     label_singular: Page
-    description: "Pages used for landing pages with collections added"
+    description: "Pages with components"
     folder: "src/content/page"
     slug: "{{title}}"
     preview_path: /{{url}}/
@@ -131,7 +125,6 @@ collections:
                 required: true
                 default: "components/image/image.njk"
 
-
           - label: 'Image Gallery'
             name: 'images'
             widget: object
@@ -175,8 +168,6 @@ collections:
                 required: true
                 default: "components/cta/cta.njk"
 
-
-
           - name: testamonials
             label: Testamonials
             widget: object
@@ -204,8 +195,6 @@ collections:
                 displayFields: ["components/testamonial/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/testamonial/testamonial.njk"
-
-
 
           - name: features
             label: Features
@@ -307,6 +296,7 @@ collections:
                   - { label: Price, name: price, widget: string, required: false }
                   - { label: featured, name: featured, widget: boolean, default: false, required: false }
                   - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - { label: "url", name: "url", widget: "string", required: false }
                   - label: elements
                     name: elements
                     widget: list
@@ -359,7 +349,8 @@ collections:
             summary: '{{fields.title}} || {{fields.template}}'
             fields:
               - { label: title, name: title, widget: string, default: 'Contact', required: false }
-              - { label: name, name: name, widget: string, default: 'Contact', required: true, hint: "The name of the form for netlify to grap" }
+              - { label: Form name, name: name, widget: string, default: 'Contact', required: true, hint: "The name of the form for netlify" }
+              - { label: action url, name: action, widget: string, default: 'Contact', required: false, hint: "Link to the page the form goes to after submit" }
               - label: elements
                 name: elements
                 widget: list
@@ -485,7 +476,7 @@ collections:
         collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
-        - { label: "title", name: "title", widget: "string", required: true}
+        - { label: "title", name: "title", widget: "string", required: false}
         - name: "parent"
           label: Parent page
           widget: relation
@@ -496,7 +487,7 @@ collections:
           displayFields: [" {{eleventyNavigation.key}}"]
           required: false
           multiple: false
-        - { label: "Machine key", name: "key", widget: "string", required: true, hint: "The Key is used by the system main is used for the frontpage" }
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system main is used for the frontpage" }
         - { label: "order", name: "order", widget: "number", required: false}
 
       # Layout selector
@@ -526,7 +517,7 @@ collections:
   - name: post
     label: Posts
     label_singular: Post
-    description: "Content Posts"
+    description: "Post fx blogpost etc"
     folder: "src/content/post"
     slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
     preview_path: /post/{{title}}/
@@ -625,10 +616,6 @@ collections:
         }
 
 
-
-
-
-
   # -----------------------------------------------------------------
   # Link In Bio Collection
   # -----------------------------------------------------------------
@@ -703,6 +690,7 @@ collections:
         required: false
         default: "page/link-in-bio.njk"
 
+
   # -----------------------------------------------------------------
   # Notifications
   # -----------------------------------------------------------------
@@ -772,21 +760,6 @@ collections:
         }
 
 
-
-  # -----------------------------------------------------------------
-  # System pages
-  # -----------------------------------------------------------------
-  - label: "System pages"
-    name: "systempages"
-    files:
-      - label: "Form Success"
-        name: "contactsuccess"
-        preview_path: /success
-        file: "src/content/success.md"
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: "Body", name: "body", widget: "markdown", required: false }
-
   # -----------------------------------------------------------------
   # Relations Tags
   # -----------------------------------------------------------------
@@ -810,7 +783,7 @@ collections:
 
 
   # -----------------------------------------------------------------
-  # Templates
+  # Templates selectors
   # -----------------------------------------------------------------
   - name: posttemplates
     label_singular: template
@@ -1006,39 +979,25 @@ collections:
           - { label: title, name: title, widget: string }
           - { label: description, name: description, widget: text, required: false }
           - { label: keywords, name: keywords, widget: text, required: false }
+
           - { label: footer, name: footer, widget: markdown, required: false }
           - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
           - { label: "humans.txt", name: humantxt, widget: text, required: false }
 
-          - {
-              label: Author (rss),
-              name: authorname,
-              widget: string,
-              required: false,
-              hint: "Feed Author name",
-            }
-          - {
-              label: Aurthor Email (rss),
-              name: authoremail,
-              widget: string,
-              required: false,
-              hint: "Feed Author name",
-            }
+          - { label: "rss feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: Author (rss), name: authorname, widget: string, required: false, hint: "Feed Author name"}
+          - { label: Aurthor Email (rss), name: authoremail,widget: string, required: false,hint: "Feed Author name"}
+
           - { label: browesercolor, name: color, widget: color, required: false }
+
           - { label: "Adress", name: "adress", widget: "string", required: false }
           - { label: "zip", name: "zip", widget: "string", required: false }
+          - { label: "country", name: "country", widget: "string", required: false }
 
       - label: "Social Network links"
         name: "some"
         file: "src/data/some.json"
         fields:
-          - {
-              label: "rss feed",
-              name: rss,
-              widget: boolean,
-              required: false,
-              hint: "/feed.xml",
-            }
 
           - {
               label: facebook,
@@ -1054,7 +1013,6 @@ collections:
               required: false,
               hint: "https://www.youtube.com/...",
             }
-
           - {
               label: twitter,
               name: twitter,

@@ -1,5 +1,4 @@
 {
   "layout": "page/link-in-bio.njk",
-  "layout": "link-in-bio.njk",
   "permalink": "{{ url | slugify }}/"
 }

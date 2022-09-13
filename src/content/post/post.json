@@ -1,6 +1,3 @@
 {
-  "layout": "post/post.njk",
-  "permalink": "post/{{ title | slugify }}/",
-  "date-updated": "Last Modified",
-  "date-created": "Created"
+  "permalink": "post/{{ title | slugify }}/"
 }

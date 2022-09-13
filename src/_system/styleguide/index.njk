@@ -16,13 +16,17 @@ permalink: styleguide/index.html
     <div class="w-8">{% include "svg/html5/js.svg" %}</div>
     <div class="w-8">{% include "svg/html5/css3logo.svg" %}</div>
     <div class="w-8">{% include "svg/11ty.svg" %}</div>
+    <div class="w-8">{% include "svg/some/github.svg" %}</div>
   </div>
 
     <pre class="flex justify-center text-sm text-slate-800 my-4">
       Eleventy: {{ eleventy.version}} |
       Saga11: {{ saga11version }}
       mode: {{ env.mode }}
+
       url: {{ env.url }}
+      gitbranch: {{ env.branch }}
+
       root: {{ env.root }}
       source: {{ env.source }}
       serverless: {{env.serverless}}
