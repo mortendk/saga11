@@ -801,7 +801,9 @@ collections:
   - name: pagetemplates
     label_singular: template
     label: "page Templates"
-    folder: "src/___layouts/page"
+{% endraw %}
+    folder: "src/{{ env.theme }}/layouts/page"
+{% raw %}
     slug: "{{title}}"
     hide: true
     create: false
@@ -814,7 +816,9 @@ collections:
   # Components related
   - name: componentTemplatePagecard
     label: "Template"
-    folder: "src/__includes/components/pagecard"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/pagecard"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -825,7 +829,9 @@ collections:
   # Components collection
   - name: componentTemplateCollection
     label: "Template"
-    folder: "src/__includes/components/collection"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/collection"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -836,7 +842,9 @@ collections:
   # Components Images
   - name: componentTemplateImages
     label: "Template"
-    folder: "src/__includes/components/images"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/images"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -847,7 +855,9 @@ collections:
   # Components Image
   - name: componentTemplateImage
     label: "Template"
-    folder: "src/__includes/components/image"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/image"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -858,7 +868,9 @@ collections:
   # Components text
   - name: componentTemplateText
     label: "Template"
-    folder: "src/__includes/components/text"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/text"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -869,7 +881,9 @@ collections:
   # Components Form
   - name: componentTemplateForm
     label: "Template"
-    folder: "src/__includes/components/form"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/form"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -880,7 +894,9 @@ collections:
   # Components Download
   - name: componentTemplateDownload
     label: "Template"
-    folder: "src/__includes/components/download"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/download"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -891,7 +907,9 @@ collections:
   # Components Download
   - name: componentTemplateCalendar
     label: "Template"
-    folder: "src/__includes/components/calendar"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/calendar"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -902,7 +920,9 @@ collections:
   # Components Download
   - name: componentTemplateTemplates
     label: "Template"
-    folder: "src/__includes/components/templates"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/templates"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -913,7 +933,9 @@ collections:
   # Components Download
   - name: componentTemplateCta
     label: "Template"
-    folder: "src/__includes/components/cta"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/cta"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -924,7 +946,9 @@ collections:
   # Components Testamonial
   - name: componentTemplateTestamonial
     label: "Template"
-    folder: "src/__includes/components/testamonial"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/testamonial"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -935,7 +959,9 @@ collections:
   # Components feature
   - name: componentTemplateFeature
     label: "Template"
-    folder: "src/__includes/components/feature"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/feature"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -946,7 +972,9 @@ collections:
   # Components price
   - name: componentTemplatePrice
     label: "Template"
-    folder: "src/__includes/components/price"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/price"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
@@ -957,7 +985,9 @@ collections:
   # Components Links
   - name: componentTemplateLink
     label: "Template"
-    folder: "src/__includes/components/link"
+{% endraw %}
+    folder: "src/{{ env.theme }}/includes/components/link"
+{% raw %}
     slug: "{{title}}"
     hide: true
     format: frontmatter
