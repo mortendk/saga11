@@ -1,6 +1,5 @@
 ---
 title: Saga 11
-image: ""
 components: []
 url: /
 eleventyNavigation:
