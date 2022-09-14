@@ -13,7 +13,7 @@
 
   <form
     class="flex flex-col space-y-4 mb-4"
-    name="{{ component.name | slugify }}"
+    name="{{ component.name | urlencode }}"
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"

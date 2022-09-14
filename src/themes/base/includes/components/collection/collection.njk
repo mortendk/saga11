@@ -16,7 +16,7 @@ https://www.11ty.dev/docs/collections/
 
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
-  {% for item in collections[component.collection] | sortByOrder %}
+  {% for item in collections[component.collection]  %}
     {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
 
     <article class="" aria-label="Post {{ item.data.title}}">

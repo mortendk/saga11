@@ -1,3 +1,3 @@
 module.exports = function (collection) {
-  return collection.getFilteredByGlob("./src/system/styleguide/**/*.njk");
+  return collection.getFilteredByGlob("./src/themes/styleguide/**/*.njk");
 };

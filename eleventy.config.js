@@ -97,7 +97,7 @@ module.exports = function (eleventyConfig) {
   }
 
   // PassThrough
-  eleventyConfig.addPassthroughCopy("src/themes/base/assets/");
+  eleventyConfig.addPassthroughCopy("src/themes/" + env.theme + "/assets/");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // global vars
@@ -116,8 +116,8 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src/",
       output: "_site",
-      includes: "themes/base/includes",
-      layouts: "themes/base/layouts",
+      includes: "themes/" + env.theme + "/includes",
+      layouts: "themes/" + env.theme + "/layouts",
       data: "content/data",
     },
   };
