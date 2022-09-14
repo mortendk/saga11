@@ -22,7 +22,7 @@ async function picture(image) {
   const loading = image.loading || "lazy"; //lazy vs eager
 
   if (fs.existsSync(src)) {
-    console.log(`✅  img exist: ${image.img}`);
+    // console.log(`✅  img exist: ${image.img}`);
     let metadata = await Image(src, {
       widths: widths,
       formats: formats,
