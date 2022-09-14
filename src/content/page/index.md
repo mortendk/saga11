@@ -1,6 +1,5 @@
 ---
 title: Saga 11
-components: []
 url: /
 eleventyNavigation:
   key: main
