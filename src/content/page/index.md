@@ -1,11 +1,7 @@
 ---
 title: Saga 11
-components:
-  - type: form
-    title: Contact
-    name: Contact
-    template: components/form/form.njk
-    action: foobar
+image: ""
+components: []
 url: /
 eleventyNavigation:
   key: main

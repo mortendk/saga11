@@ -2,16 +2,12 @@
 
 module.exports = {
   content: [
-    "src/___layouts/*.njk",
-    "src/___layouts/**/*.njk",
-    "src/__includes/*.njk",
-    "src/__includes/**/*.njk",
-    "src/__includes/**/*.njk",
-    "src/_system/*/*.njk",
-    "src/_system/**/*.njk",
-    "src/content/styleguide/*.njk",
-    "src/content/styleguide/**/*.njk",
-    "src/assets/js/*.js",
+    "src/themes/base/layouts/*.njk",
+    "src/themes/base/layouts/**/*.njk",
+    "src/themes/base/includes/*.njk",
+    "src/themes/base/includes/**/*.njk",
+    "src/system/styleguide/*.njk",
+    "src/system/styleguide/**/*.njk",
   ],
   darkMode: "class",
   theme: {

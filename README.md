@@ -14,9 +14,7 @@ As a default the standard templates are using tailwind and alpine, but thats tot
 
 - No Database - Flatfile based
 - 100% Markup control
-- Small tech stack (yeah right)
 - Build for Web Designers
-- Easy to hand down over developers
 - Able to deploy on netlify/github pages or move to other host for simple sftp deployment
 - Easy to build the site with no interfearence from a system
 - At the end "its just html, css, js" :)

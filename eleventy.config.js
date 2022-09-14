@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const env = require("./src/data/env.js");
+const env = require("./src/content/data/env.js");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -22,7 +22,7 @@ async function picture(image) {
   const loading = image.loading || "lazy"; //lazy vs eager
 
   if (fs.existsSync(src)) {
-    // console.log(`✅  img exist: ${image.img}`);
+    console.log(`✅  img exist: ${image.img}`);
     let metadata = await Image(src, {
       widths: widths,
       formats: formats,
@@ -66,46 +66,42 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
-  eleventyConfig.addShortcode("imageurl", require("./src/_11ty/shortcode/imageurl"));
-  eleventyConfig.addShortcode("calendar", require("./src/_11ty/shortcode/calendarlinks.js"));
-  eleventyConfig.addShortcode("datediff", require("./src/_11ty/shortcode/datediff.js"));
+  eleventyConfig.addShortcode("imageurl", require("./src/system/11ty/shortcode/imageurl"));
+  eleventyConfig.addShortcode("calendar", require("./src/system/11ty/shortcode/calendarlinks.js"));
+  eleventyConfig.addShortcode("datediff", require("./src/system/11ty/shortcode/datediff.js"));
 
   // Filters
-  eleventyConfig.addFilter("formatDate", require("./src/_11ty/filter/formatDate.js"));
-  eleventyConfig.addFilter("markdown", require("./src/_11ty/filter/markdown.js"));
-  eleventyConfig.addFilter("slugify", require("./src/_11ty/filter/slugify.js"));
-  eleventyConfig.addFilter("sortByOrder", require("./src/_11ty/filter/sortByOrder.js"));
-  eleventyConfig.addFilter("sortByTitle", require("./src/_11ty/filter/sortByTitle.js"));
-  eleventyConfig.addFilter("sortByFilepath", require("./src/_11ty/filter/sortByFilepath.js"));
-  eleventyConfig.addFilter("filtertags", require("./src/_11ty/filter/taglist.js"));
-  eleventyConfig.addFilter("getPage", require("./src/_11ty/filter/getPage"));
-  eleventyConfig.addFilter("netlifycmsedit", require("./src/_11ty/filter/netlifycmsediturl"));
+  eleventyConfig.addFilter("formatDate", require("./src/system/11ty/filter/formatDate.js"));
+  eleventyConfig.addFilter("markdown", require("./src/system/11ty/filter/markdown.js"));
+  eleventyConfig.addFilter("slugify", require("./src/system/11ty/filter/slugify.js"));
+  eleventyConfig.addFilter("sortByOrder", require("./src/system/11ty/filter/sortByOrder.js"));
+  eleventyConfig.addFilter("sortByTitle", require("./src/system/11ty/filter/sortByTitle.js"));
+  eleventyConfig.addFilter("sortByFilepath", require("./src/system/11ty/filter/sortByFilepath.js"));
+  eleventyConfig.addFilter("filtertags", require("./src/system/11ty/filter/taglist.js"));
+  eleventyConfig.addFilter("getPage", require("./src/system/11ty/filter/getPage"));
+  eleventyConfig.addFilter("netlifycmsedit", require("./src/system/11ty/filter/netlifycmsediturl"));
 
-  eleventyConfig.addFilter("debug", require("./src/_11ty/filter/debug"));
-  eleventyConfig.addFilter("debugpretty", require("./src/_11ty/filter/debugPretty"));
+  eleventyConfig.addFilter("debug", require("./src/system/11ty/filter/debug"));
+  eleventyConfig.addFilter("debugpretty", require("./src/system/11ty/filter/debugPretty"));
 
   // Collections
-  eleventyConfig.addCollection("allPosts", require("./src/_11ty/collection/allPosts.js"));
-  eleventyConfig.addCollection("allPages", require("./src/_11ty/collection/allPages.js"));
-  eleventyConfig.addCollection(
-    "allNotification",
-    require("./src/_11ty/collection/allNotification.js")
-  );
-  eleventyConfig.addCollection("tags", require("./src/_11ty/collection/tags"));
-  eleventyConfig.addCollection("styleguide", require("./src/_11ty/collection/styleguide.js"));
+  eleventyConfig.addCollection("allPosts", require("./src/system/11ty/collection/allPosts.js"));
+  eleventyConfig.addCollection("allPages", require("./src/system/11ty/collection/allPages.js"));
+  eleventyConfig.addCollection("allNotification", require("./src/system/11ty/collection/allNotification.js"));
+  eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags"));
+  eleventyConfig.addCollection("styleguide", require("./src/system/11ty/collection/styleguide.js"));
 
   // Transform
   if (env.mode == "prod") {
-    eleventyConfig.addTransform("htmlmin", require("./src/_11ty/transform/minify.js"));
+    eleventyConfig.addTransform("htmlmin", require("./src/system/11ty/transform/minify.js"));
   }
 
   // PassThrough
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/upload");
+  eleventyConfig.addPassthroughCopy("src/themes/base/assets/");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // global vars
-  eleventyConfig.addNunjucksGlobal("saga11version", "alpha 6");
+  eleventyConfig.addNunjucksGlobal("saga11version", "alpha 7");
 
   // Local Server
   eleventyConfig.setServerOptions({
@@ -120,9 +116,9 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src/",
       output: "_site",
-      includes: "__includes",
-      layouts: "___layouts",
-      data: "data",
+      includes: "themes/base/includes",
+      layouts: "themes/base/layouts",
+      data: "content/data",
     },
   };
 };
