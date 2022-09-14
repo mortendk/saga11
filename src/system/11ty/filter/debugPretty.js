@@ -23,8 +23,8 @@ module.exports = function (content, arg) {
   const debug = inspect(content);
 
   return `
-      <link rel="stylesheet" href="/{{env.theme}}/assets/_debug/jsonpath-picker.css">
-      <script src="/assets/_debug/jsonpath-picker.min.js"></script>
+      <link rel="stylesheet" href="/themes/base/assets/_debug/jsonpath-picker.css">
+      <script src="/themes/base/assets/_debug/jsonpath-picker.min.js"></script>
 
       <div class="debug11ty">
         <h2>11ty 🎈 Debüg</h2>
