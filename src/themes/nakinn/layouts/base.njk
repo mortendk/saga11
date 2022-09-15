@@ -20,7 +20,7 @@
     {%- include "head/splashscreens.njk" -%}
 
     {%- if env.mode == 'prod' %}
-      <link href="{{ '/themes/' +  theme + '/assets/css/style.css' | url }}" rel="stylesheet">
+
     {% else %}
       <link href="{{ '/themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
