@@ -20,9 +20,9 @@
     {%- include "head/splashscreens.njk" -%}
 
     {%- if env.mode == 'prod' %}
-      <link href="{{ '/themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
+      <link href="{{ '/themes/' +  theme + '/assets/css/tw.min.css' | url }}" rel="stylesheet">
     {% else %}
-      <link href="{{ '/themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
+      <link href="{{ '/themes/' +   theme + '/assets/css/tw.css' | url }}" rel="stylesheet">
     {% endif -%}
     {% if page.url == "/" %}
       <title>
