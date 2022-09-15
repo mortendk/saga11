@@ -12,7 +12,6 @@
     "tw:build": "npx tailwindcss -i src/themes/base/tailwind/tailwind.css -o src/themes/base/assets/css/style.min.css --minify",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug ",
-    "webhint": "npx hint ./_site/index.html",
     "splash-screens:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/ src/themes/base/assets/splash_screens --path-override '/assets/splash_screens' -i src/themes/base/assets/splash_screens/index.html --splash-only ",
     "splash-screens:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/themes/base/assets/splash_screens  --path-override '/assets/splash_screens' -i src/themes/base/assets/splash_screens/index.html --splash-only --dark-mode"
   },
