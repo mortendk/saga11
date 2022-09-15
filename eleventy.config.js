@@ -105,6 +105,7 @@ module.exports = function (eleventyConfig) {
 
   // global vars
   eleventyConfig.addNunjucksGlobal("saga11version", "alpha 7");
+  // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
 
   // Local Server
