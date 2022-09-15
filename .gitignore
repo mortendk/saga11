@@ -8,6 +8,5 @@ node_modules/
 .cache
 
 # saga build
-hint-report/
-
-
+src/themes/base/assets/css/style.css
+src/themes/base/assets/css/style.min.css
