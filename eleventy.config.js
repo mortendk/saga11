@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 const env = require("./src/content/data/env.js");
+const saga11 = require("./saga11.json");
+const theme = saga11.theme || "base";
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -97,11 +99,12 @@ module.exports = function (eleventyConfig) {
   }
 
   // PassThrough
-  eleventyConfig.addPassthroughCopy("src/themes/" + env.theme + "/assets/");
+  eleventyConfig.addPassthroughCopy("src/themes/" + theme + "/assets/");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // global vars
   eleventyConfig.addNunjucksGlobal("saga11version", "alpha 7");
+  eleventyConfig.addNunjucksGlobal("theme", theme);
 
   // Local Server
   eleventyConfig.setServerOptions({
@@ -116,8 +119,8 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src/",
       output: "_site",
-      includes: "themes/" + env.theme + "/includes",
-      layouts: "themes/" + env.theme + "/layouts",
+      includes: "themes/" + theme + "/includes",
+      layouts: "themes/" + theme + "/layouts",
       data: "content/data",
     },
   };
