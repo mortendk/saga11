@@ -1,0 +1,18 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/cards/large.njk -->{%- endif -%}
+
+
+  {{ component.title }}
+
+  {{ component.text }}
+
+  <a href="{{ component.url }}">
+    {{ component.cta }}
+  </a>
+
+{% picture
+  img=component.image,
+  width=[400, 800],
+  sizes="(min-width: 1600px) 50vw, 100vw",
+  alt=component.alt,
+  css="absolute inset-0 w-full h-full object-cover"
+%}

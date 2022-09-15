@@ -1,0 +1,55 @@
+---
+layout: base.njk
+---
+{#
+  This layout is used for the styleguide
+ #}
+{%- if env.mode != 'prod' %}<!-- ___layouts/styleguide.njk  -->{%- endif -%}
+
+{# isModalOpen is used to test if theres a modal open then disable the scroll #}
+<body class="flex flex-col h-screen bg-slate-100"
+      x-data="{'isModalOpen': false}"
+      x-on:keydown.escape="isModalOpen=false"
+      :class="isModalOpen ? 'overflow-y-hidden':''"
+>
+
+<main id="main" tabindex="-1" class="flex flex-row">
+  <div class="bg-white p-4 shadow-lg basis-2/12 min-h-screen">
+  <nav >
+
+    <a href="/styleguide" class="flex flex-row items-center">
+      <div class="w-8">{% include "svg/11ty.svg" %}</div>
+      <div>🎈 Styleguide</div>
+    </a>
+
+      {% for item in collections.styleguide | sortByFilepath %}
+        {# todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  #}
+        <a href="{{ item.url }}" class="text-slate-800 {% if item.url in page.url %} font-bold{% endif %}">
+           {% if item.url in page.url %} 👉{% endif %}
+            {{item.data.title}}</a>
+        <br>
+      {% endfor %}
+
+  </div>
+  <div class=" basis-10/12  mt-8 mx-4">
+
+    <h1 class="text-3xl text-center">{{ title | upper }} </h1>
+
+    <div class="bg-white mb-8">
+
+    </div>
+
+
+    {{ content | safe }}
+
+  </div>
+
+</main>
+
+{% include "responsive.njk" %}
+
+{# <div class="">
+    {% highlight "html" %}
+    {{ content | safe }}
+    {% endhighlight %}
+</div> #}

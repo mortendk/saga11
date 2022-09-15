@@ -1,0 +1,28 @@
+{# ALL POST
+------------------------------------------------
+collection that graps all post .allpost is defined in .eleventy.js
+#}
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/posts.njk  -->{%- endif  -%}
+
+<nav class="" aria-label="All posts">
+
+  {% for item in collections.allPosts %}
+
+    <div class="border-b border-slate-200 mb-4">
+      {# link #}
+      {% if item.url in page.url -%}
+        <a href="{{ item.url }}" class="block font-bold" aria-current="page">
+          {{item.data.title}}
+        </a>
+      {% else %}
+        <a href="{{ item.url }}" class="block ">{{item.data.title}}</a>
+      {% endif %}
+      {# date #}
+      <div class="text-sm">
+        {{ item.data.date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+      </div>
+
+    </div>
+
+  {% endfor %}
+</nav>

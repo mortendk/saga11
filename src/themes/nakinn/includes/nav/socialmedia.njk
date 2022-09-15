@@ -1,0 +1,115 @@
+{# SOME NAVIGATION
+------------------------------------------------
+Graps all the data thats added to the _data/some.json file
+#}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/socialmedia.njk  -->{%- endif  -%}
+
+{% set css = "" %}
+
+  {% if settings.rss %}
+    <a href="/feed.xml" class="{{css}}">
+      RSS Feed
+      {% include "svg/rss.svg" %}
+    </a>
+  {% endif %}
+
+  {% if some.linkedin %}
+    <a href="https://linkedin.com/in/{{ some.linkedin }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      LinkedIn
+
+    </a>
+  {% endif %}
+
+  {% if some.facebook %}
+    <a href="https://facebook.com/{{ some.facebook }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      Facebook
+
+    </a>
+  {% endif %}
+
+  {% if some.instagram %}
+    <a href="https://instagram.com/{{ some.instagram }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      Instagram
+
+    </a>
+  {% endif %}
+
+  {% if some.youtube %}
+    <a href="https://youtube.com/{{ some.youtube }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      youtube
+
+    </a>
+  {% endif %}
+
+  {% if some.twitter %}
+    <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      Twitter
+
+    </a>
+  {% endif %}
+
+  {% if some.github %}
+    <a href="https://github.com/{{ some.github }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      GitHub
+
+    </a>
+  {% endif %}
+
+  {% if some.dribble %}
+    <a href="https://dribbble.com/{{ some.dribble }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      Dribbble
+
+    </a>
+  {% endif %}
+
+  {% if some.tiktok %}
+    <a href="https://tiktok.com/@{{ some.tiktok }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      tiktok
+
+    </a>
+  {% endif %}
+
+  {% if some.twitch %}
+    <a href="https://twitch.tv/{{ some.twitch }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      twitch
+
+    </a>
+  {% endif %}
+
+  {% if some.patron %}
+    <a href="https://patron.com/{{ some.patron }}"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+    patron
+  </a>
+  {% endif %}
+
+  {% if some.discord %}
+    <a href="https://discord.gg/{{ some.discord }}"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      discord
+
+    </a>
+  {% endif %}
+
+  {% if some.soundcloud %}
+    <a href="https://soundcloud.com/{{ some.soundcloud }}"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      Soundcloud
+
+    </a>
+  {% endif %}
+
+  {% if some.bandcamp %}
+    <a href="https://{{ some.bandcamp }}.bandcamp.com"  target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      bandcamp
+
+    </a>
+  {% endif %}
+
+  {% if some.pinterest %}
+
+    <a href="https://pinterest.com/{{ some.pinterest }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      pinterest
+
+    </a>
+  {% endif %}
+
+
+</nav>

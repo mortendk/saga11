@@ -1,0 +1,15 @@
+{{ component.title }}
+
+{% if component.text %}
+  {{ component.text  | markdown | safe  }}
+{% endif %}
+
+{% for item in component.feature %}
+
+  {{ item.title }}
+  {% if item.text %}
+    {{ item.text  | markdown | safe  }}
+  {% endif %}
+
+
+{% endfor %}

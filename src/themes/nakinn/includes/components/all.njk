@@ -1,0 +1,16 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
+{#
+  Tales from the loop ...
+  ---------------------------------------------------------
+  This is where the magic happens and we loop through
+  all the componenets and render them out as specified from the template files
+  and the componenet type
+#}
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
+
+{# use async so images work #}
+{% asyncEach component in components %}
+
+  {% include component.template %}
+
+{% endeach %}

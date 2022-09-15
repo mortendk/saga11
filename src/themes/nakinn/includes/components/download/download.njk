@@ -1,0 +1,18 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/download/download.njk -->{%- endif  -%}
+
+{{ component.title }}
+
+{% for item in component.files %}
+
+  {# set the file title #}
+  {% set title %}
+    {% if item.title %}
+      {{  item.title }}
+    {% else %}
+      {{ item.file }}
+    {% endif %}
+  {% endset %}
+
+  <a href="{{ item.file }}">{{ title }}</a>
+
+{% endfor %}

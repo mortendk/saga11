@@ -1,0 +1,48 @@
+---
+layout: default.njk
+saga-template-name: Tag
+---
+{# Tag
+------------------------------------------------
+the tag page auto generated from src/systempages/tag.njk
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/system/tag.njk  -->{%- endif -%}
+
+<h1 class="text-5xl">{{ title }}</h1>
+
+  {% include "nav/tags.njk" %}
+
+  {# {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
+    <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
+  {% endfor %} #}
+
+
+<section class="grid grid-cols-3 gap-2">
+
+{# collection with all items with [tag] #}
+{% for item in collections[ tag ]  %}
+
+  <article class="p-2 shadow border m-1">
+    <a href="{{ item.url }}" class="text-xl font-bold">
+
+      <div class= "aspect-video overflow-hidden bg-slate-400">
+      {% picture
+        img=item.data.card.image,
+        width=[400, 800],
+        sizes="(min-width: 1600px) 50vw, 100vw",
+        alt=item.data.card.alt
+      %}
+    </div>
+
+
+      <div class="font-lg">
+        {{item.data.title}}
+      </div>
+    </a>
+
+    <p class="mt-2">{{ item.data.teaser }}</p>
+
+  </article>
+
+{% endfor %}
+</section>

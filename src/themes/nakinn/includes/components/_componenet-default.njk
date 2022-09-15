@@ -1,0 +1,7 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/default.njk -->{%- endif -%}
+
+<div >
+  <div>Type: {{ component.type }} </div>
+    {{ component | debug | safe }}
+</div>
+

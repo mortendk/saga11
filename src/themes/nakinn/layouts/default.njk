@@ -1,0 +1,22 @@
+---
+layout: base.njk
+---
+{# DEFAULT
+------------------------------------------------
+Calls the _base/base.njk that is holding all the basic html
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/default.njk  -->{%- endif -%}
+
+
+<body>
+
+{%- include "header.njk" %}
+
+<main id="main" tabindex="-1" class="">
+
+  {{ content | safe }}
+
+</main>
+
+{%- include "edit.njk" %}
+{%- include "footer.njk" %}
