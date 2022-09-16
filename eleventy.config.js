@@ -1,12 +1,13 @@
 const path = require("path");
 const fs = require("fs");
 const env = require("./src/content/data/env.js");
-const saga11 = require("./saga11.json");
-const theme = saga11.theme || "base";
+const settings = require("./saga11.config.js");
+// set default theme to base if nothing is set
+const theme = settings.theme || "base";
+
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-
 const Image = require("@11ty/eleventy-img");
 
 async function picture(image) {
