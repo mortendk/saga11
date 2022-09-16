@@ -7,7 +7,7 @@
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "cleanup": "rm -rf _site",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
-    "tw:watch": "npx tailwindcss -i src/themes/base/tailwind/tailwind.css -o src/themes/base/assets/css/style.css --watch",
+    "tw:watch": "npx tailwindcss -c src/themes/base/tailwind.config.js -i src/themes/base/tailwind/tailwind.css -o src/themes/base/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -i src/themes/base/tailwind/tailwind.css -o src/themes/base/assets/css/style.min.css --minify",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug ",
