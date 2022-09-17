@@ -1,0 +1,16 @@
+---
+permalink: /humans.txt
+eleventyExcludeFromCollections: true
+---
+{{ site.title }}
+{{ env.url }}
+{{ eleventy.generator }}
+saga11: {{saga11.version }}
+---
+
+{{ site.humantxt }}
+
+---
+Build:
+{{ theme }}
+{{ page.date | formatDate("cccc d. MMMM yyyy HH:mm") }}

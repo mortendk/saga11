@@ -1,0 +1,56 @@
+{# OPENGRAPH
+------------------------------------------------
+Global header for the site
+#}
+{%- if env.mode != 'prod' %}<!-- __includes/head/opengraph.njk  -->{%- endif  -%}
+
+{% set ogurl = env.url + page.url %}
+
+{%- set ogtitle -%}
+  {%- if card.title %}
+   {{- card.title -}}
+  {% else %}
+    {{- site.title -}}
+  {% endif %}
+{%- endset %}
+
+{%- set ogdescription -%}
+  {%- if card.text -%}
+   {{- card.text -}}
+  {% else  %}
+    {{- site.description -}}
+  {% endif %}
+{%- endset %}
+
+{%- set ogimage -%}
+  {%- if card.image -%}
+   {{ env.url }}{%- imageurl img=card.image, size=[1200] -%}
+  {%- else -%}
+   {{ env.url }}/assets/opengraph/twitter.jpg
+  {%- endif -%}
+{%- endset -%}
+
+
+
+<!-- fb -->
+{# Facebook #}
+<meta property="og:site_name" content="{{site.title}}">
+<meta property="og:title" content="{{ ogtitle }}">
+<meta property="og:url" content="{{ ogurl }}">
+<meta property="og:description" content="{{ ogdescription }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ ogimage }}">
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<!-- twitter -->
+{# Twitter #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{some.twitter}}">
+<meta name="twitter:title" content="{{ ogtitle }}">
+<meta name="twitter:description" content="{{ ogdescription }}">
+<meta name="twitter:image" content="{{ ogimage }}">
+{# {% if title and  page.url != '/' and card.image  %}
+  <meta name="twitter:image" content="{{ env.url }}{% imageurl img=card.image, size=[1200]  %}">
+{% else %}
+  <meta name="twitter:image" content="{{ env.url }}/assets/opengraph/twitter.jpg">
+{% endif %} #}

@@ -1,0 +1,28 @@
+---
+title: Feature
+
+
+components:
+  - type: feature
+    title: Lorem ipsum, dolor sit amet
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus vitae perspiciatis culpa recusandae qui deleniti, debitis fugit repudiandae neque nulla a, ullam minus numquam. Quam aliquid non ratione vero?
+    feature:
+      - title: Pure HTML
+        image: /themes/styleguide/images/morning.png
+        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
+      - title: And Awesome CSS
+        image: /themes/styleguide/images/morning.png
+        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
+      - title: Bit of JS
+        image: /themes/styleguide/images/morning.png
+        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
+      - title: Feature four
+        image: /themes/styleguide/images/morning.png
+        text: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolore? Nulla doloribus totam autem quibusdam ipsum, pariatur accusantium velit quia vitae eum odio eos sapiente perspiciatis magnam similique! Perferendis, itaque!
+---
+
+{% asyncEach component in components %}
+
+  {% include "components/feature/feature.njk" %}
+
+{% endeach %}

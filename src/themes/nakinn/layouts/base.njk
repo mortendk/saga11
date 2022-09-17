@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if site.description %}<meta name="description" content="{{ site.description }}">{% endif %}
+    {% if site.keywords %}<meta name="keywords" content="{{ site.keywords}}">{% endif %}
+    <meta name="generator" content="{{eleventy.generator}}">
+    <meta name="theme-color" content="{{site.color}}">
+    <link rel="author" href="humans.txt"/>
+
+    {# pinterest #}
+    {% if some.pinterest_verification %}
+      <meta name="p:domain_verify" content="{{ some.pinterest_verification}}"/>
+    {% endif %}
+
+    {%- include "head/opengraph.njk" -%}
+    {%- include "head/icon.njk" -%}
+    {%- include "head/splashscreens.njk" -%}
+
+    {%- if env.mode == 'prod' %}
+
+    {% else %}
+      <link href="{{ '/themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
+    {% endif -%}
+
+    {% if page.url == "/" %}
+      <title>
+        {{ site.title }}
+      </title>
+    {% else %}
+      <title>{{ title }} | {{ site.title }}
+      </title>
+    {% endif %}
+
+  </head>
+
+  {{ content | safe }}
+
+    {# Service worker #}
+    <script>
+      if (navigator && navigator.serviceWorker) {
+        navigator
+          .serviceWorker
+          .register('/service-workers.js');
+      }
+    </script>
+
+    <script src="/themes/{{ theme }}/assets/js/script.js" defer></script>
+  </body>
+</html>

@@ -1,6 +1,9 @@
 ---
 title: Saga 11
-components: []
+image: /upload/spaceship.png
+card:
+  title: Card title
+  text: "card title teaser text "
 url: /
 eleventyNavigation:
   key: main
@@ -9,3 +12,4 @@ eleventyNavigation:
 layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
+T﻿his is the frontpage for Saga11

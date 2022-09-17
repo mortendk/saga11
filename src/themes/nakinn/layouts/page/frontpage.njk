@@ -1,0 +1,24 @@
+---
+layout: default.njk
+saga-template-name: Frontpage
+---
+{#
+------------------------------------------------
+FRONTPAGE TEMPLATE
+------------------------------------------------
+Specfic page to control the layout for the frontpage
+#}
+{%- if env.mode != 'prod' %}<!-- /Users/mdk/Web/saga11/src/themes/grunn/layouts/page/frontpage.njk  -->{%- endif -%}
+
+{{ title }}
+
+{% picture
+    img=image,
+    alt='',
+    width=[400,800, 1600],
+    sizes="(min-width: 1600px) 50vw, 100vw",
+    css="",
+    loading = "eager"
+%}
+
+{% include "components/all.njk" %}

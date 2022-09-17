@@ -1,0 +1,30 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/calendar/calendar.njk -->{%- endif -%}
+
+{% if component.date_start %}
+
+  {{ component.date_start | formatDate("DDD") }}
+
+  {% if (component.date_allday == true) and (component.date_start  | formatDate("ccc d MMMM")  == date_end  | formatDate("ccc d MMMM") ) %}
+    {# Day is the same + all day   #}
+    {{ component.date_start | formatDate("ccc d MMMM") }}
+
+
+  {% elseif (component.date_start  | formatDate("ccc d MMMM")  == component.date_end  | formatDate("ccc d MMMM") ) %}
+    {# Day is the same #}
+    {{ component.date_start | formatDate("ccc d MMMM") }}
+    {{ component.date_start | formatDate("HH:mm") }} - {{ component.date_end | formatDate("HH:mm") }}
+  {% elseif (date_start  | formatDate("yyyy")  == date_end  | formatDate("yyyy") ) %}
+    {# Day is the year #}
+    {{ component.date_start | formatDate("d MMMM HH:mm (ccc)") }} - {{ component.date_end | formatDate("ccc d MMMM HH:mm (ccc) ") }}  {{ component.date_start  | formatDate("yy") }}
+  {% else %}
+    {{ component.date_start | formatDate("ccc d MMMM yy HH:mm") }} - {{ component.date_end | formatDate("ccc d MMMM HH:mm") }}
+  {% endif %}
+
+  {# Add to calendar link #}
+  <a href="{% calendar google, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">Google</a>
+  <a href="{% calendar ics, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">ics</a>
+  <a href="{% calendar outlook, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">outlook</a>
+  <a href="{% calendar office365, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">office365</a>
+  <a href="{% calendar yahoo, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">yahoo</a>
+
+{% endif %}

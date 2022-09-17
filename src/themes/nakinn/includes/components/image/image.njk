@@ -1,0 +1,16 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/image/image.njk  -->{%- endif -%}
+
+{{ component.title    }}
+
+
+{% picture
+  img=component.image,
+  width=[400,800, 1600],
+  sizes="(min-width: 1600px) 50vw, 100vw",
+  css="",
+  alt=component.alt
+%}
+
+{% if component.text %}
+  {{ component.text  | markdown | safe  }}
+{% endif %}

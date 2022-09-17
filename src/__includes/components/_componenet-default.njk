@@ -1,7 +1,0 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/components/default.njk -->{%- endif -%}
-
-<div class="bg-orange-500 p-4">
-  <div class="text-2xl">Type: {{ component.type }} </div>
-    {{ component | debug | safe }}
-</div>
-

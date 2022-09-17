@@ -1,0 +1,35 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
+{{ component.title }}
+
+{% if component.text %}
+  {{ component.text  | markdown | safe  }}
+{% endif %}
+
+<form
+  name="{{ component.name | urlencode }}"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/{{ component.action }}/"
+>
+{# <div data-netlify-recaptcha="true"></div> #}
+<div class="hidden">
+  <label for="supersecret">secret</label>
+  <input name="bot-field" id="supersecret" />
+</div>
+
+{# Create form elements #}
+{% for item in component.elements %}
+
+  {% if item.inputtype == "textarea" %}
+    {% include "components/form/field/textarea.njk" %}
+  {% else %}
+    {% include "components/form/field/input.njk" %}
+  {% endif %}
+
+{% endfor %}
+
+<input type="reset" value="reset">
+<button aria-label="Submit">Send</button>
+
+</form>

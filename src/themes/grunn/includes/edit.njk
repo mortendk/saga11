@@ -1,0 +1,12 @@
+{%- if env.mode != 'prod' %}<!--  src/__includes/edit.njk -->{%- endif -%}
+
+<div class="fixed z-50 top-1/2 right-0 w-24 h-24 bg-fuchsia-600 shadow-lg flex justify-center items-center"
+x-show="isEditvisible"
+>
+  <a href="{{ page.filePathStem | netlifycmsedit }}" target="_blank" rel="noopener noreferrer nofollow"
+  class="text-white text-3xl">
+    ✍️
+  </a>
+
+</div>
+

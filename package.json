@@ -1,23 +1,22 @@
 {
   "name": "saga11",
-  "version": "0.1.5",
-  "description": "A system to build small websites - powered by 11ty",
-  "main": "index.js",
+  "version": "0.1.6",
+  "description": "Website builder based on 11ty & netlifycms",
+  "main": "eleventy.config.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "cleanup": "rm -rf _site",
-    "splash-screens:build": "npm run splash-screens:screen & npm run splash-screens:screendark",
-    "webhint": "npx hint ./_site/index.html",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
-    "tw:watch": "npx tailwindcss -i src/__tailwind/tailwind.css -o src/assets/css/style.css --watch",
-    "tw:build": "npx tailwindcss -i src/__tailwind/tailwind.css -o src/assets/css/style.min.css --minify",
-    "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
+    "tw:watch": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.css --watch",
+    "tw:build": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.min.css --minify",
     "build": "npm run tw:build && npm run debug ",
-    "splash-screens:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/ src/assets/splash_screens --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only ",
-    "splash-screens:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/assets/splash_screens  --path-override '/assets/splash_screens' -i src/assets/splash_screens/index.html --splash-only --dark-mode"
+    "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
+    "splash-screens:build": "npm run splash-screens:screen & npm run splash-screens:screendark",
+    "splash-screens:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/ src/themes/grunn/assets/splash_screens --path-override '/assets/splash_screens' -i src/themes/grunn/assets/splash_screens/index.html --splash-only ",
+    "splash-screens:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/themes/grunn/assets/splash_screens  --path-override '/assets/splash_screens' -i src/themes/grunn/assets/splash_screens/index.html --splash-only --dark-mode"
   },
   "keywords": [],
-  "author": "",
+  "author": "mortendk",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.15",
@@ -37,6 +36,7 @@
     "calendar-link": "^2.2.0",
     "dotenv-cli": "^6.0.0",
     "html-minifier": "^4.0.0",
+    "netlify-cms-proxy-server": "^1.3.24",
     "netlify-plugin-cache": "^1.0.3",
     "pwa-asset-generator": "^6.1.1"
   }

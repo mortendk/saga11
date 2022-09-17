@@ -1,0 +1,28 @@
+---
+title: Images card
+
+components:
+  - type: images
+    template: components/images/imagecards.njk
+    images:
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+  - type: images
+    template: components/images/images.njk
+    images:
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+      - image: /themes/styleguide/images/morning.png
+---
+
+{% asyncEach component in components %}
+
+  {% include "components/images/imagecards.njk" %}
+
+{% endeach %}

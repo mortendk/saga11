@@ -1,0 +1,13 @@
+<label for="form-item-{{ item.title | urlencode }}">
+  {{ item.title }}
+  {% if item.required %} * {% endif %}
+</label>
+
+<input
+  type="{{ item.inputtype }}"
+  name="{{ name }}"
+  id="form-item-{{ item.title | urlencode }}"
+  placeholder="{{ item.placeholder }} "
+  {% if item.required %}required{% endif %}
+/>
+

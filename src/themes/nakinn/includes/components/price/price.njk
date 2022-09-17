@@ -1,0 +1,37 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/price/price.njk -->{%- endif -%}
+
+  {{ component.title }}
+
+  {% if component.text %}
+   {{ component.text  | markdown | safe  }}
+  {% endif %}
+
+  {# wrapper for the list #}
+
+  {# Price list #}
+  {% for item in component.price %}
+
+  {% if item.featured %} featured! {% endif %}">
+    {{ item.title }}
+    {{ item.price }}
+    <a href="{{ item.url }}"> Get this one </a>
+
+    {% if item.text %}
+      {{ item.text  | markdown | safe  }}
+    {% endif %}
+
+    {# price elements #}
+    {% for element in item.elements %}
+      {% if element.active %}
+        +
+      {% else %}
+        -
+      {% endif %}
+      {{ element.title }}
+    {% endfor %}
+    {# /price elements #}
+
+  {% endfor %}
+  {# /Price list #}
+
+

@@ -1,0 +1,51 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
+
+<section class="max-w-xl mx-auto">
+
+  <h3 class="text-teal-700 text-4xl mb-4">{{ component.title }}</h3>
+
+  {% if component.text %}
+    <div class="prose prose-lg">
+      {{ component.text  | markdown | safe  }}
+    </div>
+  {% endif %}
+
+
+  <form
+    class="flex flex-col space-y-4 mb-4"
+    name="{{ component.name | urlencode }}"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/{{ component.action }}/"
+  >
+    {# <div data-netlify-recaptcha="true"></div> #}
+    <div class="hidden">
+      <label for="supersecret">secret</label>
+      <input name="bot-field" id="supersecret" />
+    </div>
+
+    {# Create form elements #}
+    {% for item in component.elements %}
+
+      {% if item.inputtype == "textarea" %}
+        {% include "components/form/field/textarea.njk" %}
+      {% else %}
+        {% include "components/form/field/input.njk" %}
+      {% endif %}
+
+    {% endfor %}
+
+
+    <div class="flex flex-row justify-between">
+
+      <input type="reset" value="reset"
+             class="px-4 py-2 rounded-sm font-bold uppercase bg-slate-400 text-slate-800 hover:bg-slate-300">
+      <button
+          aria-label="Submit"
+          class="px-4 py-2 rounded-sm font-bold uppercase bg-lime-400 text-green-900 hover:bg-lime-300">Send</button>
+      </div>
+
+  </form>
+
+</section>

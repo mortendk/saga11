@@ -1,0 +1,41 @@
+---
+title: Styleguide
+permalink: styleguide/index.html
+
+---
+<div class="h-full flex flex-col items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+  <h1 x-data="{ message: '🎈' }" x-text="message"></h1>
+
+  <img src="/themes/{{ theme }}/assets/icon/icon.svg" class="w-28">
+
+  <div class="text-5xl text-white font-extrabold drop-shadow-lg text-center">
+    {{ title }} : {{ theme }}
+  </div>
+
+  <div class="flex space-x-4 mt-4">
+    <div class="w-8">{% include "svg/html5/html5badge.svg" %}</div>
+    <div class="w-8">{% include "svg/html5/js.svg" %}</div>
+    <div class="w-8">{% include "svg/html5/css3logo.svg" %}</div>
+    <div class="w-8">{% include "svg/11ty.svg" %}</div>
+    <div class="w-8">{% include "svg/some/github.svg" %}</div>
+  </div>
+
+    <pre class="flex justify-center text-sm text-slate-800 my-4">
+      Eleventy: {{ eleventy.version}} |
+      Saga11: {{ saga11version }}
+      mode: {{ env.mode }}
+      theme: {{ theme }}
+
+      url: {{ env.url }}
+      gitbranch: {{ env.branch }}
+
+      root: {{ env.root }}
+      source: {{ env.source }}
+
+    </pre>
+
+  </div>
+</main>
+
+

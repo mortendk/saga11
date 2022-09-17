@@ -1,0 +1,24 @@
+---
+permalink: /admin/new.html
+title: "Build"
+layout: base.njk
+eleventyExcludeFromCollections: true
+---
+{%- if env.mode != 'prod' %}
+  <!-- src/_systempages/netlifycms/new.njk  -->
+{%- endif -%}
+
+
+{% set title = "mega awesome" %}
+{% set path = "mega awesome" %}
+<a href="{{env.site}}/admin/#/collections/post/new?title={{title}}&url.path={{path}}"
+class="bg-green-300 p-4 rounded"
+target="_blank">
+Post</a>
+
+
+{% set title = "mega awesome" %}
+<a href="{{env.site}}http://localhost:8080/admin/#/collections/page/new?title={{title}}&components.text.text=foobar"
+class="bg-green-300 p-4 rounded"
+target="_blank">
+Page</a>

@@ -1,0 +1,18 @@
+{# This is used for the iphone / android so they  can work prober cause ... #}
+<script>
+  function openinmap(map){
+  // If it's an iPhone..
+  if( (navigator.platform.indexOf("iPhone") != -1)
+    || (navigator.platform.indexOf("iPod") != -1)
+    || (navigator.platform.indexOf("iPad") != -1))
+      window.open("maps://maps.google.com/?q=" + map);
+  else
+      window.open("https://maps.google.com/?q=" + map );
+  }
+</script>
+{{ site.adress }}
+{{ site.zip }}
+{{ site.country  }}
+
+<button onclick="openinmap('{{ site.adress }},{{ site.zip }},{{ site.country }}')" target="_blank"> Map  </button>
+

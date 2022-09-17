@@ -1,0 +1,25 @@
+---
+title: "PWA Splashscreen Dark"
+layout: base.njk
+---
+
+{# PWA setup
+------------------------------------------------
+Instead of fiddeling with a bunch of design tools we can build the pwa screens in
+html and css - use the pwa: in package.json
+#}
+{%- if env.mode != 'prod' %}<!-- pwa-setup.html  -->{%- endif -%}
+
+<body class="justify-center bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800">
+
+<main class="h-screen flex flex-col items-center justify-center">
+
+  <img src="/themes/{{ theme }}/assets/icon/icon.svg" class="w-28">
+
+  <div class="text-2xl text-white font-bold drop-shadow-lg">
+    {{ site.title }}
+  </div>
+
+
+
+</main>

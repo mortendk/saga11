@@ -1,0 +1,40 @@
+---
+title: Testamonial
+
+components:
+  - type: testamonials
+    template: components/testamonial/testamonial.njk
+    title: This is what people are saying about this
+    text: lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam,
+    testamonial:
+      - title: "Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"
+        text: Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incroident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        image: /themes/styleguide/images/morning.png
+        person: "Deandrea	Lichtenwalter"
+        persontitle: Senior Developer Acme international
+        url: https://trve.dk
+      - title: This is so super duper awesome!
+        text: lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea coent, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        image: /themes/styleguide/images/night.png
+        person: Ragnar Lodbrog
+        persontitle: CEO viking inc
+        url: https://morten.dk
+
+
+---
+
+{% asyncEach component in components %}
+
+  {% include "components/testamonial/testamonial.njk" %}
+
+{% endeach %}
+
+

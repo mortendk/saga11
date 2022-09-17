@@ -1,0 +1,51 @@
+---
+layout: default.njk
+saga-template-name: Post Default
+---
+{# POST
+------------------------------------------------
+post template
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
+
+
+{{ title }}
+
+{% picture
+    img=card.image,
+    width=[200,400, 800],
+    sizes="(min-width: 1600px) 50vw, 100vw",
+    css="shadow rounded-xl",
+    loading = "eager"
+%}
+
+{%- for tag in tags | filtertags -%}
+  {# grap the markdown files and loop through them #}
+  {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
+    <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
+  {% endfor %}
+  {# divider #}
+  {% if not loop.last %}, {% endif %}
+{% endfor %}
+
+{{ date | formatDate("DDD  T", "DK") }}
+
+{{ content | safe }}
+
+{% include "nav/post-pre-next.njk" %}
+
+{% picture
+    img=image,
+    alt='',
+    width=[400],
+    sizes="(min-width: 1600px) 50vw, 100vw",
+    css="shadow rounded ",
+    loading = "eager"
+%}
+
+{% include "share.njk" %}
+
+{% include "nav/posts.njk" %}
+
+{% include "nav/tags.njk" %}
+

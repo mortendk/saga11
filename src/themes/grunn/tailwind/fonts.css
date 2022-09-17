@@ -1,0 +1,33 @@
+/*
+the font paths are relative to the css file created with tailwind
+*/
+
+@font-face {
+  font-family: "barlow";
+  font-display: swap;
+  src: url("/themes/grunn/assets/fonts/barlow/Barlow-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "barlow";
+  font-display: swap;
+  src: url("/themes/grunn/assets/fonts/barlow/Barlow-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "firacoda";
+  font-display: swap;
+  src: url("/themes/grunn/assets/fonts/FiraCode-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "robotoslap";
+  font-display: swap;
+  src: url("/themes/grunn/assets/fonts/RobotoSlab-Regular.woff2") format("woff2");
+}
+
+/* in tailwind.config.js
+  superduper: {superdupername},
+  class="font-superdupername"
+*/

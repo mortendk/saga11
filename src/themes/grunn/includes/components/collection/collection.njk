@@ -1,0 +1,45 @@
+{%- if env.mode != 'prod' %}<!-- src/__includes/components/collection/collection.njk -->{%- endif -%}
+
+{# COLLECTION OF POSTS
+------------------------------------------------
+https://www.11ty.dev/docs/collections/
+#}
+{%- if env.mode != 'prod' %}<!-- __includes/section-collection.njk  -->{%- endif -%}
+
+<h2 class="text-cyan-700 text-3xl mb-8 text-center">{{ component.title }}</h2>
+
+{% if component.text %}
+  <div class="prose lg:prose-xl mx-auto max-w-2xl">
+    {{ component.text  | markdown | safe  }}
+  </div>
+{% endif %}
+
+<section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
+
+  {% for item in collections[component.collection]  %}
+    {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+
+    <article class="" aria-label="Post {{ item.data.title}}">
+      <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
+      <div class= "aspect-video overflow-hidden bg-slate-400">
+        {% picture
+            img=item.data.card.image,
+            width=[300, 600],
+            alt=item.data.card.alt
+        %}
+      </div>
+      <div class="shadow border rounded px-4 py-2 border-slate-100 bg-white text-slate-800 hover:text-slate-500">
+        <h3 class="mt-2 text-2xl">
+          {{item.data.title}}
+        </h3>
+        <div class="mt-2">
+          {{ item.data.teaser }}
+        </div>
+
+      </div>
+    </a>
+    </article>
+
+  {% endfor %}
+
+</section>
