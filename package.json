@@ -4,13 +4,14 @@
   "description": "Website builder based on 11ty & netlifycms",
   "main": "eleventy.config.js",
   "scripts": {
+    "test": "node src/themes/base/script/base.js",
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "cleanup": "rm -rf _site",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "tw:watch": "npx tailwindcss -c src/themes/base/tailwind.config.js -i src/themes/base/tailwind/tailwind.css -o src/themes/base/assets/css/style.css --watch",
     "tw:build": "npx tailwindcss -c src/themes/base/tailwind.config.js -i src/themes/base/tailwind/tailwind.css -o src/themes/base/assets/css/style.min.css --minify",
-    "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "build": "npm run tw:build && npm run debug ",
+    "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "splash-screens:build": "npm run splash-screens:screen & npm run splash-screens:screendark",
     "splash-screens:screen": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen/ src/themes/base/assets/splash_screens --path-override '/assets/splash_screens' -i src/themes/base/assets/splash_screens/index.html --splash-only ",
     "splash-screens:screendark": "npx pwa-asset-generator http://localhost:8080/pwa-splashscreen-dark/ src/themes/base/assets/splash_screens  --path-override '/assets/splash_screens' -i src/themes/base/assets/splash_screens/index.html --splash-only --dark-mode"
@@ -36,6 +37,7 @@
     "calendar-link": "^2.2.0",
     "dotenv-cli": "^6.0.0",
     "html-minifier": "^4.0.0",
+    "netlify-cms-proxy-server": "^1.3.24",
     "netlify-plugin-cache": "^1.0.3",
     "pwa-asset-generator": "^6.1.1"
   }
