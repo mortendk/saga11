@@ -1,0 +1,22 @@
+---
+title: Link
+components:
+  - type: links
+    title: Amazing links to amazing websites
+    link:
+      - url: https://morten.dk
+        title: mortendk
+      - url: https://saga11.dev
+        title: SAGA 11
+      - url: https://11ty.dev
+        title: 11ty
+
+---
+
+{% asyncEach component in components %}
+
+  {% include "components/link/link.njk" %}
+
+{% endeach %}
+
+
