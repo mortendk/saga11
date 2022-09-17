@@ -10,3 +10,4 @@ node_modules/
 # saga build
 src/themes/base/assets/css/style.css
 src/themes/base/assets/css/style.min.css
+src/themes/base/assets/css/style.css

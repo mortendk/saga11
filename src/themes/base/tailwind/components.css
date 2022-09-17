@@ -1,21 +1,4 @@
 @tailwind components;
 
 @layer components {
-  .wysiwyg h2 {
-    @apply text-3xl;
-  }
-
-  .wysiwyg h4 {
-    @apply text-3xl;
-  }
-
-  .wysiwyg h4,
-  .wysiwyg h5,
-  .wysiwyg h6 {
-    @apply text-lg font-bold;
-  }
-
-  .wysiwyg p {
-    @apply py-2;
-  }
 }
