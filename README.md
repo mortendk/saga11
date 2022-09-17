@@ -1,14 +1,15 @@
 # What is this
 
-Saga11 build websites, based on 11ty and netlifycms
+Saga11 is a system to build static websites.
 
-The wish is to have a system where the webdesigner can have complete control over the markup
+its build on 11ty and uses netflifycms as a backend (if the webdesigner wants this)
 
-Content and settings are build with markdown and json files.
-netlifycms is configured to edit the files
-The files are compiled to flat html files with 11ty using nunjucks templates.
+The system ships with 2 themes:
+Grunn an example theme with all the bells and whitsles
 
-As a default the standard templates are using tailwind and alpine, but thats totally optional.
+Nakinn a complete naked theme with no markup no nothing just the {{ variables }} that the system spits out
+
+Its a website builder made for webdesigners that goes for 100/100/100/100
 
 ## Core Values
 

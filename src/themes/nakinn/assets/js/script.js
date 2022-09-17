@@ -1,1 +1,1 @@
-console.log("nakinn theme");
+console.log("nakinn ftw");
