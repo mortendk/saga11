@@ -8,7 +8,8 @@ saga-template-name: notification
 
   <h1 class="text-5xl">{{ title }}</h1>
   <div class="bg-slate-200 rounded">
-    status: {{ status }}
+    <time class="text-slate-700">{{ date | formatDate("DDD  T", "DK") }}</time>
+     - {{ status }}
   </div>
   <div class="prose prose-xl font-bold">
   {{ text }}
@@ -17,6 +18,5 @@ saga-template-name: notification
     {{ content | safe }}
   </div>
 
-  <time class="text-slate-700">{{ date | formatDate("DDD  T", "DK") }}</time>
-
 </article>
+

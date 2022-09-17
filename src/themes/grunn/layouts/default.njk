@@ -12,7 +12,7 @@ Calls the _base/base.njk that is holding all the basic html
   class="flex flex-col h-screen bg-slate-100"
   x-data="{'isModalOpen': false, isEditvisible: false}"
   x-on:keydown.escape="isModalOpen=false"
-  x-on:keydown.cmd.ctrl.e="isEditvisible = ! isEditvisible"
+  x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
   :class="isModalOpen ? 'overflow-y-hidden':''"
 >
 

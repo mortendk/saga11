@@ -4,7 +4,7 @@ status: info
 text: New version is out ! [Download](https://github.com)
 showlink: true
 date: 2022-09-17 21:29:58
-eleventyExcludeFromCollections: false
+eleventyExcludeFromCollections: true
 ---
 
 # this is the more stuff page

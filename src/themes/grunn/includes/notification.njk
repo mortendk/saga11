@@ -19,7 +19,7 @@
       <div class=" flex flex-col md:flex-row md:w-11/12 items-center">
         <div class="w-4 h-4 mr-2">{% include "svg/bell.svg" %}</div>
 
-        {% if showlink %}
+        {% if item.data.showlink %}
           <a href="{{ item.url }}">
         {% endif %}
 
@@ -30,7 +30,7 @@
           {{ item.data.text | markdown | safe  }}
         </div>
 
-        {% if showlink %}
+        {% if item.data.showlink %}
           </a>
         {% endif %}
 
@@ -38,6 +38,7 @@
 
 
       <button
+        aria-label="Close notification"
         @click="showNotification = false"
         class="w-6 h-6 hover:rotate-90 transition">
         {% include "svg/close.svg" %}
