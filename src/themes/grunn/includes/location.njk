@@ -1,3 +1,6 @@
+{# test if theres data for the location link #}
+{% if (site.adress | length) and (site.zip |length)  %}
+
 {# This is used for the iphone / android so they  can work prober cause ... #}
 <script>
   function openinmap(map){
@@ -22,7 +25,9 @@
     <div class="w-4 mr-2">
       {% include "svg/map-pin.svg" %}
     </div>
-    <div class="">Map</div>
+    <div >Map</div>
 
   </button>
 </div>
+
+{% endif %}

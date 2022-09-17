@@ -8,7 +8,6 @@ post template
 #}
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
 
-
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-2/3 ">
 
@@ -25,22 +24,20 @@ post template
 
     <footer class="mb-4">
 
-    {%- for tag in tags | filtertags -%}
-      {# grap the markdown files and loop through them #}
-      {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
-        <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
+      {%- for tag in tags | filtertags -%}
+        {# grap the markdown files and loop through them #}
+        {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
+          <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
+        {% endfor %}
+        {# divider #}
+        {% if not loop.last %}, {% endif %}
       {% endfor %}
-      {# divider #}
-      {% if not loop.last %}, {% endif %}
-    {% endfor %}
 
-    <time>{{ date | formatDate("DDD  T", "DK") }}</time>
+      <time>{{ date | formatDate("DDD  T", "DK") }}</time>
 
     </footer>
 
-
-
-  <div class="wysiwyg">
+  <div class="prose">
     {{ content | safe }}
   </div>
 

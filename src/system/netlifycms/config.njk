@@ -615,82 +615,6 @@ collections:
           hint: "is this a draft ?",
         }
 
-
-  # -----------------------------------------------------------------
-  # Link In Bio Collection
-  # -----------------------------------------------------------------
-  - name: linkinbio
-    label: Link in bio
-    label_singular: linkinbio
-    description: "Link in bio pages"
-    folder: "src/content/linkinbio"
-    slug: "{{slug}}"
-    preview_path: link/{{url}}
-
-    create: true
-    delete: true
-    editor:
-      preview: false
-
-    # Overview
-    summary: "{{title}} [{{url}}]"
-    sortable_fields: ["title", "order", "date"]
-
-    view_filters:
-      - label: Drafts
-        field: eleventyExcludeFromCollections
-        pattern: true
-
-    view_groups:
-      - label: Tags
-        field: tags
-
-    nested:
-      depth: 5 # max depth to show in the collection tree
-      summary: "{{title}}"
-
-    fields:
-      - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
-      - { label: "url", name: "url", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
-      - { label: "alt", name: "alt", widget: "string", required: false }
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        buttons:
-          - bold
-          - italic
-          - heading-two
-          - heading-three
-          - link
-          - quote
-          - bulleted-list
-        editor_components:
-          - image
-          - code-block
-        required: false
-
-      # Link
-      - label: "Links"
-        name: "link"
-        collapsed: false
-        minimize_collapsed: true
-        widget: "list"
-        fields:
-          - {label: link, name: url, widget: string, default: "https://", required: false}
-          - {label: text, name: label, widget: string, required: false }
-      # Layout selector
-      - name: "layout"
-        label: "Layout Selector"
-        widget: relation
-        collection: pagetemplates
-        searchFields: [saga-template-name]
-        valueField: "page/{{filename}}.{{extension}}"
-        displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
-        required: false
-        default: "page/link-in-bio.njk"
-
-
   # -----------------------------------------------------------------
   # Notifications
   # -----------------------------------------------------------------
@@ -718,13 +642,21 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string", default: "Notification!"  }
-      - { label: "teaser", name: "text", widget: "text", required: false }
       - label: status
         name: "status"
         widget: "select"
         multiple: false
         options: ["info", "warning", "alert"]
         default: ["warning"]
+      - label: "text"
+        name: "text"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+        required: false
+
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -740,6 +672,8 @@ collections:
           - image
           - code-block
         required: false
+
+      - { label: "link to page", name: "showlink", widget: "boolean", default: true }
 
       # Date
       - label: "Date"

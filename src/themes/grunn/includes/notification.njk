@@ -1,21 +1,49 @@
+<section class="fixed z-50 w-full pt-4 flex flex-col justify-center items-center">
 
-{% for item in collections.allNotification %}
+  {% for item in collections.allNotification | sortByOrder%}
+    <div
+      class="w-5/6 mx-auto relative flex flex-row items-center justify-between my-1
 
-<article class="p-4 mx-auto max-w-3xl {% if item.data.status == "warning" %} bg-orange-300 {% endif %}">
+      {% if item.data.status =="alert" %}
+        bg-red-900 text-white
+      {% elif item.data.status =="warning" %}
+        bg-amber-300 text-orange-800
+      {% elif item.data.status =="info" %}
+        bg-sky-200 text-sky-800
+      {% endif %}
 
-  <h2 class="text-3xl">{{ item.data.title }}</h2>
+      p-4 rounded-md shadow"
+      x-data="{ showNotification: true }"
+      x-show="showNotification"
+    >
+      <div class=" flex flex-col md:flex-row md:w-11/12 items-center">
+        <div class="w-4 h-4 mr-2">{% include "svg/bell.svg" %}</div>
+
+        {% if showlink %}
+          <a href="{{ item.url }}">
+        {% endif %}
+
+        <h2 class="text-xl font-bold pr-4">
+          {{ item.data.title }}
+        </h2>
+        <div>
+          {{ item.data.text | markdown | safe  }}
+        </div>
+
+        {% if showlink %}
+          </a>
+        {% endif %}
+
+      </div>
 
 
-  {% if item.data.text %}
-    <div class="prose">
-      {{ item.data.text | markdown | safe  }}
+      <button
+        @click="showNotification = false"
+        class="w-6 h-6 hover:rotate-90 transition">
+        {% include "svg/close.svg" %}
+        </button>
     </div>
-  {% endif %}
 
+  {% endfor %}
 
-   {{ content | safe}}
-  </article>
-
-{# {{ item | debug | safe }} #}
-{% endfor %}
-
+</section>
