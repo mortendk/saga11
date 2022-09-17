@@ -2,5 +2,5 @@
 
 module.exports = {
   // Theme settings : nakinn
-  theme: "base",
+  theme: "grunn",
 };

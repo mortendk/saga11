@@ -12,7 +12,7 @@ the font paths are relative to the css file created with tailwind
 
   font-display: swap;
 
-  src: url("/themes/base/assets/fonts/barlow/Barlow-Regular.woff2") format("woff2");
+  src: url("/themes/grunn/assets/fonts/barlow/Barlow-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -20,7 +20,7 @@ the font paths are relative to the css file created with tailwind
 
   font-display: swap;
 
-  src: url("/themes/base/assets/fonts/barlow/Barlow-Bold.woff2") format("woff2");
+  src: url("/themes/grunn/assets/fonts/barlow/Barlow-Bold.woff2") format("woff2");
 
   font-weight: bold;
 }
@@ -30,7 +30,7 @@ the font paths are relative to the css file created with tailwind
 
   font-display: swap;
 
-  src: url("/themes/base/assets/fonts/FiraCode-Regular.woff2") format("woff2");
+  src: url("/themes/grunn/assets/fonts/FiraCode-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -38,7 +38,7 @@ the font paths are relative to the css file created with tailwind
 
   font-display: swap;
 
-  src: url("/themes/base/assets/fonts/RobotoSlab-Regular.woff2") format("woff2");
+  src: url("/themes/grunn/assets/fonts/RobotoSlab-Regular.woff2") format("woff2");
 }
 
 /* in tailwind.config.js
@@ -1763,29 +1763,6 @@ form button:focus {
   margin-bottom: 0;
 }
 
-.wysiwyg h2 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.wysiwyg h4 {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.wysiwyg h4, 
-  .wysiwyg h5, 
-  .wysiwyg h6 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-}
-
-.wysiwyg p {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -1821,6 +1798,14 @@ form button:focus {
   top: 0px;
 }
 
+.top-1\/2 {
+  top: 50%;
+}
+
+.right-0 {
+  right: 0px;
+}
+
 .top-16 {
   top: 4rem;
 }
@@ -1831,10 +1816,6 @@ form button:focus {
 
 .left-0 {
   left: 0px;
-}
-
-.top-1\/2 {
-  top: 50%;
 }
 
 .left-2 {
@@ -1853,12 +1834,12 @@ form button:focus {
   bottom: 1rem;
 }
 
-.z-20 {
-  z-index: 20;
-}
-
 .z-50 {
   z-index: 50;
+}
+
+.z-20 {
+  z-index: 20;
 }
 
 .z-10 {
@@ -2013,6 +1994,10 @@ form button:focus {
   height: 1rem;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -2071,6 +2056,10 @@ form button:focus {
 
 .w-28 {
   width: 7rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .w-full {
@@ -2452,11 +2441,6 @@ form button:focus {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
-.bg-fuchsia-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 208 254 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2490,9 +2474,9 @@ form button:focus {
   background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
-.bg-cyan-50 {
+.bg-fuchsia-600 {
   --tw-bg-opacity: 1;
-  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
+  background-color: rgb(192 38 211 / var(--tw-bg-opacity));
 }
 
 .bg-slate-700 {
@@ -2575,11 +2559,6 @@ form button:focus {
 .bg-green-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 252 231 / var(--tw-bg-opacity));
-}
-
-.bg-fuchsia-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 70 239 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-t {
@@ -2763,11 +2742,6 @@ form button:focus {
   text-transform: uppercase;
 }
 
-.text-red-800 {
-  --tw-text-opacity: 1;
-  color: rgb(153 27 27 / var(--tw-text-opacity));
-}
-
 .text-slate-800 {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
@@ -2831,6 +2805,11 @@ form button:focus {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 
 .text-teal-700 {

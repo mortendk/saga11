@@ -2,10 +2,10 @@
 
 module.exports = {
   content: [
-    "src/themes/base/layouts/*.njk",
-    "src/themes/base/layouts/**/*.njk",
-    "src/themes/base/includes/*.njk",
-    "src/themes/base/includes/**/*.njk",
+    "src/themes/grunn/layouts/*.njk",
+    "src/themes/grunn/layouts/**/*.njk",
+    "src/themes/grunn/includes/*.njk",
+    "src/themes/grunn/includes/**/*.njk",
     "src/system/styleguide/*.njk",
     "src/system/styleguide/**/*.njk",
   ],

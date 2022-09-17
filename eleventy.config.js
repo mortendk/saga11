@@ -83,7 +83,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("filtertags", require("./src/system/11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/system/11ty/filter/getPage"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/system/11ty/filter/netlifycmsediturl"));
-
   eleventyConfig.addFilter("debug", require("./src/system/11ty/filter/debug"));
   eleventyConfig.addFilter("debugpretty", require("./src/system/11ty/filter/debugPretty"));
 
