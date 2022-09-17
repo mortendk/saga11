@@ -2,43 +2,37 @@
 layout: base.njk
 saga-template-name: Link in Bio
 ---
-{# PAGE TEMPLATE LINK
-------------------------------------------------
-This page layout is used for the link in bio type
-#}
 {%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
 
 <body class="flex flex-col h-screen bg-slate-900">
 
-
-<main id="main" tabindex="-1"
-  class="flex-grow pt-14 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
+<main id="main" tabindex="-1" class="flex-grow pt-14 bg-gradient-to-t from-slate-600 to-slate-900 text-white">
 
   <div class="max-w-lg mx-auto ">
 
     <article class="flex flex-col">
 
-    <div class="center-center">
-      {% picture
+      <div class="center-center">
+        {% picture
           img=image,
           width=[400,800],
           sizes="(min-width: 1600px) 50vw, 100vw",
           css="aspect-squre shadow rounded-full w-40 border-4 border-red-400",
           loading = "eager"
-      %}
+        %}
+      </div>
 
-
-    {# / Generate image #}
-    </div>
-
-    <h2 class="text-4xl text-center py-2">{{ title }}</h2>
-    <div class="text-xl mx-auto p-2">{{ content | safe }}</div>
+      <h2 class="text-4xl text-center py-2">{{ title }}</h2>
+      <div class="text-xl mx-auto p-2">{{ content | safe }}</div>
 
     </article>
 
     <div class="text-2xl font-bold text-center p-4">
       <a href="{{env.url}}">{{ site.title }}</a>
     </div>
+
+
+    {% include "components/all.njk" %}
 
     <article class="flex flex-col">
       {% for item in link %}

@@ -1006,11 +1006,12 @@ collections:
     files:
       - label: "Site Settings"
         name: "sitesettings"
-        file: "src/data/site.json"
+        file: "src/content/data/site.json"
         fields:
           - { label: title, name: title, widget: string }
           - { label: description, name: description, widget: text, required: false }
           - { label: keywords, name: keywords, widget: text, required: false }
+          - { label: header, name: header, widget: text, required: false, hint: "data inside of header ex for tracking " }
 
           - { label: footer, name: footer, widget: markdown, required: false }
           - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
@@ -1028,7 +1029,7 @@ collections:
 
       - label: "Social Network links"
         name: "some"
-        file: "src/data/some.json"
+        file: "src/content/data/some.json"
         fields:
 
           - {
