@@ -19,7 +19,7 @@ layout: base.njk
 
     <a href="/styleguide" class="flex flex-row items-center">
       <div class="w-8">{% include "svg/11ty.svg" %}</div>
-      <div>🎈 Styleguide</div>
+      <div>🎈 Styleguide {{ styleguide }}</div>
     </a>
 
       {% for item in collections.styleguide | sortByFilepath %}

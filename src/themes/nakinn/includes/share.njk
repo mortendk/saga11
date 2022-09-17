@@ -1,8 +1,6 @@
 {%- if env.mode != 'prod' %}  <!-- __includes/share.njk  -->{%- endif  -%}
 {% set thisurl = env.url + page.url %}
 
-<div class="flex mt-4 items-center">
-Share:
 {# pinterest #}
 <a
   class="block w-8"
@@ -34,5 +32,3 @@ Share:
   href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ thisurl }}&amp;title={{title}}&amp;summary={{teaser}}&amp;source={{site.title}}">
   {% include "svg/some/linkedin.svg" %}
 </a>
-
-</div>

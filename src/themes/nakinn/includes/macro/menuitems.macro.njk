@@ -32,7 +32,7 @@
 
   {# sublevel  #}
   {%- if item.children.length -%}
-    <ul class="ml-2">
+    <ul>
       {%- for child in item.children %}
         {{ menuitems(child, page) }}
       {% endfor -%}
