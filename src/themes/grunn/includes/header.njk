@@ -31,22 +31,24 @@ Global header for the site
             {# test if a link is a placeholder #}
             {% if item.placeholder  %}
               <div class="{{menuclasses}} ext-slate-500 border-transparent">
-                {{ item.title }}
+                {{ item.title }} :::
               </div>
             {% else %}
-
+            {# basic link  #}
             <a href="{{ item.url }}"
+              {# active page #}
               {% if item.url in page.url %}
                 aria-current="page" class="{{menuclasses}} text-cyan-600 border-cyan-500/20"
               {% else  %}
                 class="{{menuclasses}} text-slate-500 border-transparent"
               {% endif %}
+             {# target #}
               {% if item.target %}
                 target="_blank"
               {% endif %}
             >
               {{ item.title }}
-              {# test if theres any kids #}
+
               {% if item.children | length %} * {% endif %}
             </a>
             {% endif %}

@@ -7,4 +7,5 @@ eleventyNavigation:
   parentexample: main
   placeholder: false
   title: mortendk
+  key: foo
 ---

@@ -3,111 +3,103 @@ title: Menu
 ---
 
 {% set cssmenu1 = "flex flex-row items-center text-xl hover:bg-slate-200  rounded-md px-2 block " %}
-{% set cssmenu1dropdown = "absolute top-8 w-60 bg-white border-1 border-slate-100 shadow-md" %}
+{% set cssmenu1dropdown = "absolute z-40  top-8 w-60 bg-white border-1 border-slate-100 shadow-md" %}
 {% set cssmenu1dropndownitem = "border-b p-2 border-slate-200 hover:bg-red-50 hover:bg-red-400" %}
 
-  {# {% from 'macro/menuitems.macro.njk' import menuitems %} #}
+<nav class="bg-slatet-100 border-b border-slate-200">
+  <ul class="flex flex-row space-x-4 px-4  h-8 items-center relative">
+    {# normal #}
+    <li><a href="https://saga11.dev" class="{{ cssmenu1 }}">Menu item1</a></li>
+
+    {# placeholder #}
+    <li x-data="{openmenuitem: false}" class="bg-red-400 border-4 border-red-700">
+
+      <div href="#"  @click="openmenuitem = true">
+        Placeholder test
+      </div>
+      <ul class="{{ cssmenu1dropdown }}"
+          x-cloak
+          x-show="openmenuitem"
+          @mouseover="openmenuitem = true"
+          @click.outside="openmenuitem = false"
+      >
+        <li class="{{cssmenu1dropndownitem }}">
+          <a href="#">Sub 3.1</a>
+        </li>
+      </ul>
+
+    </li>
+    {# / placeholder #}
+
+  </ul>
+</nav>
+
+{# 2 level menus #}
 <nav class="bg-slatet-100 border-b border-slate-200">
   <ul class="flex flex-row space-x-4 px-4  h-8 items-center relative">
 
-    <li><a href="https://saga11.dev" class="{{ cssmenu1 }}">Menu item1</a></li>
-    <li><a href="https://saga11.dev" class="{{ cssmenu1 }}">Menu item2</a></li>
-
-    {# submenu #}
+  {%- for item in collections.all | eleventyNavigation("main") %}
+    {# Placeholder #}
+    {% if item.placeholder %}
+    {# placeholder #}
     <li x-data="{openmenuitem: false}" class="bg-red-400 border-4 border-red-700">
 
-      <a href="#"  @click="openmenuitem = true">
-        Placehlder
-        <span x-show="openmenuitem">  v </span>
-        <span x-show="!openmenuitem"> > </span>
-      </a>
-
+      <div href="#"  @click="openmenuitem = true">
+        {{ item.title }}
+      </div>
       <ul class="{{ cssmenu1dropdown }}"
           x-cloak
           x-show="openmenuitem"
           @mouseover="openmenuitem = true"
           @click.outside="openmenuitem = false"
       >
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid deleniti dolorem quia voluptatum, nemo ut soluta dolores distinctio earum odit nesciunt eligendi quis alias repudiandae rem velit ipsa temporibus porro.</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.2</a></li>
+        {# placeholder print out the next level #}
+        {%- for item in collections.all | eleventyNavigation(item.key) %}
+          <li class="{{cssmenu1dropndownitem }}">
+            <a href="{{ item.url }}"> {{ item.title }} </a>
+          </li>
+        {% endfor %}
       </ul>
     </li>
-    {# submenu #}
-    <li x-data="{openmenuitem: false}" class="bg-red-400 border-4 border-red-700">
-
-      <a href="#"  @click="openmenuitem = true">
-        Placehlder
-        <span x-show="openmenuitem">  v </span>
-        <span x-show="!openmenuitem"> > </span>
-      </a>
-
-      <ul class="{{ cssmenu1dropdown }}"
-          x-cloak
-          x-show="openmenuitem"
-          @mouseover="openmenuitem = true"
-          @click.outside="openmenuitem = false"
-      >
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid deleniti dolorem quia voluptatum, nemo ut soluta dolores distinctio earum odit nesciunt eligendi quis alias repudiandae rem velit ipsa temporibus porro.</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.2</a></li>
-      </ul>
-    </li>
+    {# / placeholder #}
 
 
+    {% else %}
+      {# first lvl links #}
+      <a href="{{ item.url }}">{{ item.title }}</a>
+    {% endif %}
+
+  {% endfor %}
 
 
   </ul>
 </nav>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 
-{# macro #}
+{# MACRO #}
 {% macro menuitems(item, page) -%}
-
-{# List items #}
-{% if item.children | length %}
-  {# Multiple  #}
-  <li x-data="{openmenuitem: false}">
-    <a href="{{ item.url }}"
-       class="{{ cssmenu1 }}"
-       @click="openmenuitem = ! openmenuitem"
-       :class="openmenuitem ? 'bg-white' : '' "
-    >
-      <div class="mr-2">{{ item.title }}</div>
-      <div class="w-4 mr-1 text-slate-900" :class="openmenuitem ? 'hidden' : 'block' ">{% include "svg/chevron-down.svg" %}</div>
-      <div class="w-4 mr-1 text-slate-900" :class="openmenuitem ? 'block' : 'hidden' ">{% include "svg/chevron-up.svg" %}</div>
-    </a>
-  {% else  %}
-  {# Single #}
+{# Items #}
   <li>
-    <a href="{{ item.url }}" class="{{ cssmenu1 }}"
-    {% if item.url == page.url %} aria-current="page"{% endif %} >
+     <a href="{{ item.url }}" class="{{ cssmenu1 }}">
       {{ item.title }}
+      {% if item.placeholder %} PL {% endif %}
     </a>
+
+    {# sublevel  #}
+    {%- if item.children.length -%}
+      <ul>
+        {%- for child in item.children %}
+          {{ menuitems(child, page) }}
+        {% endfor -%}
+      </ul>
+    {%- endif -%}
+
   </li>
-{% endif %}
-
-
-{# sublevel  #}
-{%- if item.children.length -%}
-  <ul class="{{ cssmenu1dropdown }}"
-      x-cloak
-      x-show="openmenuitem"
-      @click.outside="openmenuitem = false"
-    >
-    {%- for child in item.children %}
-      {{ menuitems(child, page) }}
-    {% endfor -%}
-  </ul>
-{%- endif -%}
-
-</li>
+{# / Items  #}
 
 {%- endmacro %}
-{# /Macro  #}
+{# / MACRO #}
 
 
 {% set navPages = collections.all | eleventyNavigation("main") %}
