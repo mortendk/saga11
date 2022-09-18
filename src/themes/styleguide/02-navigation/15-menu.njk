@@ -14,45 +14,19 @@ title: Menu
     <li><a href="https://saga11.dev" class="{{ cssmenu1 }}">Menu item2</a></li>
 
     {# submenu #}
-    <li x-data="{openmenuitem: false}" @mouseover="openmenuitem = true" class="bg-red-400 border-4 border-red-700">
+    <li x-data="{openmenuitem: false}" class="bg-red-400 border-4 border-red-700">
 
-      <a href="https://saga11.dev"
-          class="{{ cssmenu1 }}"
-          :class="openmenuitem ? 'bg-white' : '' "
-          >
-          Menu 1
+      <a href="#"  @click="openmenuitem = true">
+        Placehlder
+        <span x-show="openmenuitem">  v </span>
+        <span x-show="!openmenuitem"> > </span>
       </a>
 
       <ul class="{{ cssmenu1dropdown }}"
           x-cloak
           x-show="openmenuitem"
           @mouseover="openmenuitem = true"
-          @mouseover.outside="openmenuitem = false"
-      >
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid deleniti dolorem quia voluptatum, nemo ut soluta dolores distinctio earum odit nesciunt eligendi quis alias repudiandae rem velit ipsa temporibus porro.</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
-        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.2</a></li>
-      </ul>
-    </li>
-    {# submenu #}
-    <li x-data="{openmenuitem: false}">
-      <a href="https://saga11.dev"
-          class="{{ cssmenu1 }}"
-          @mouseover="openmenuitem = true"
-          :class="openmenuitem ? 'bg-white' : '' "
-          >
-          menu
-          <div class="w-4 mr-1 text-slate-900" :class="openmenuitem ? 'hidden' : 'block' ">{% include "svg/chevron-down.svg" %}</div>
-          <div class="w-4 mr-1 text-slate-900" :class="openmenuitem ? 'block' : 'hidden' ">{% include "svg/chevron-up.svg" %}</div>
-
-      </a>
-
-      <ul class="{{ cssmenu1dropdown }}"
-          x-cloak
-          x-show="openmenuitem"
           @click.outside="openmenuitem = false"
-          @mouseover.outside="openmenuitem = false"
       >
         <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
         <li class="{{cssmenu1dropndownitem }}"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid deleniti dolorem quia voluptatum, nemo ut soluta dolores distinctio earum odit nesciunt eligendi quis alias repudiandae rem velit ipsa temporibus porro.</a></li>
@@ -60,6 +34,29 @@ title: Menu
         <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.2</a></li>
       </ul>
     </li>
+
+    {# submenu #}
+    <li x-data="{openmenuitem: false}" class="bg-red-400 border-4 border-red-700">
+
+      <a href="#"  @click="openmenuitem = true">
+        Placehlder
+        <span x-show="openmenuitem">  v </span>
+        <span x-show="!openmenuitem"> > </span>
+      </a>
+
+      <ul class="{{ cssmenu1dropdown }}"
+          x-cloak
+          x-show="openmenuitem"
+          @mouseover="openmenuitem = true"
+          @click.outside="openmenuitem = false"
+      >
+        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
+        <li class="{{cssmenu1dropndownitem }}"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid deleniti dolorem quia voluptatum, nemo ut soluta dolores distinctio earum odit nesciunt eligendi quis alias repudiandae rem velit ipsa temporibus porro.</a></li>
+        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
+        <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.2</a></li>
+      </ul>
+    </li>
+
 
 
 
