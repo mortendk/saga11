@@ -11,55 +11,17 @@ Global header for the site
 
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    {% set menuclasses = "inline-flex items-center text-xl font-bold  border-b-4  transition hover:bg-cyan-50/50 hover:border-cyan-500/50" %}
 
     <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
       {% include "svg/saga11.svg" %}
       <h1 class="sr-only">{{site.title}}</h1>
     </a>
 
-    <div class="inline-flex items-center text-2xl font-bold md:hidden">
-    {{ site.title }}
+    <div class="inline-flex items-center text-2xl md:hidden">
+      {{ site.title }}
     </div>
-    {# Menu desktop #}
-    <nav class="h-full hidden md:block" aria-label="Main Menu">
-      <div class="flex justify-between h-full">
 
-        <div class="flex space-x-4">
-
-          {%- for item in collections.all | eleventyNavigation("main") %}
-            {# test if a link is a placeholder #}
-            {% if item.placeholder  %}
-              <div class="{{menuclasses}} ext-slate-500 border-transparent">
-                {{ item.title }} :::
-              </div>
-            {% else %}
-            {# basic link  #}
-            <a href="{{ item.url }}"
-              {# active page #}
-              {% if item.url in page.url %}
-                aria-current="page" class="{{menuclasses}} text-cyan-600 border-cyan-500/20"
-              {% else  %}
-                class="{{menuclasses}} text-slate-500 border-transparent"
-              {% endif %}
-             {# target #}
-              {% if item.target %}
-                target="_blank"
-              {% endif %}
-            >
-              {{ item.title }}
-
-              {% if item.children | length %} * {% endif %}
-            </a>
-            {% endif %}
-
-          {%- endfor -%}
-
-        </div>
-
-      </div>
-    </nav>
-    {# /Menu Desktop #}
+    {% include "nav/menu.njk" %}
 
     <button
       @click="openmenu = !openmenu"
@@ -83,21 +45,20 @@ Global header for the site
 
   {# mobile menu  #}
   <nav
-  x-cloak
-  x-show="openmenu"
-  @click.outside="openmenu = false"
-  x-transition:enter="transition ease-out duration-300"
-  x-transition:enter-start="-translate-x-full"
-  x-transition:enter-end="translate-x-0"
-  x-transition:leave="transition ease-in duration-300"
-  x-transition:leave-start="translate-x-0"
-  x-transition:leave-end="-translate-x-full"
-  class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white/95 shadow-xl"
-  aria-label="Mobile Menu">
+    x-cloak
+    x-show="openmenu"
+    @click.outside="openmenu = false"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="-translate-x-full"
+    x-transition:enter-end="translate-x-0"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-x-0"
+    x-transition:leave-end="-translate-x-full"
+    class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white/95 shadow-xl"
+    aria-label="Mobile Menu
+  ">
 
     {% set mobileclasses = "block h-20 flex items-center pl-2 text-lg border-l-8 border-b hover:bg-slate-100 " %}
-
-
 
     {%- for item in collections.all | eleventyNavigation("main") %}
 
