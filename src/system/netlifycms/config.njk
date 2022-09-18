@@ -720,7 +720,6 @@ collections:
 
     fields:
       - { label: "title", name: "title", widget: "string", required: true}
-      - {label: permalink", name: "permalink", widget: "hidden", default: "false"}
 
       - name: eleventyNavigation
         label: Navigation
@@ -730,17 +729,21 @@ collections:
         fields:
         - { label: "title", name: "title", widget: "string", required: true}
         - { label: "url", name: "url", widget: "string", default : "https://", required: false}
-        - name: "parent"
-          label: Parent page
+        - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
+        - { label: "parent key", name: "parent", widget: "string", required: false, default: "main"}
+        - name: "parentexample"
+          label: List of pages and with keys
           widget: relation
           collection: page
           default: main
           searchFields: [title]
           valueField: "{{eleventyNavigation.key}}"
-          displayFields: [" {{eleventyNavigation.key}}"]
+          displayFields: ["Title: {{title}} |  key: '{{eleventyNavigation.key}}'"]
           required: false
           multiple: false
+          hint: "This is used for referencing the pages - a trick cause netlifycms cant combine collections"
         - { label: "Machine key", name: "key", widget: "string", required: false, hint: "" }
+        - { label: "placeholder", name: "placeholder", widget: "boolean", default: false, required: false, hint: "This wont be a link but a placeholder for other links to attach to with the key"}
         - { label: "order", name: "order", widget: "number", required: false}
 
 

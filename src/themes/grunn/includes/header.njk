@@ -28,17 +28,29 @@ Global header for the site
         <div class="flex space-x-4">
 
           {%- for item in collections.all | eleventyNavigation("main") %}
+            {# test if a link is a placeholder #}
+            {% if item.placeholder  %}
+              <div class="{{menuclasses}} ext-slate-500 border-transparent">
+                {{ item.title }}
+              </div>
+            {% else %}
+
             <a href="{{ item.url }}"
               {% if item.url in page.url %}
                 aria-current="page" class="{{menuclasses}} text-cyan-600 border-cyan-500/20"
               {% else  %}
                 class="{{menuclasses}} text-slate-500 border-transparent"
               {% endif %}
-              >
-                {{ item.title }}
-                {# test if theres any kids #}
-                {% if item.children | length %} * {% endif %}
+              {% if item.target %}
+                target="_blank"
+              {% endif %}
+            >
+              {{ item.title }}
+              {# test if theres any kids #}
+              {% if item.children | length %} * {% endif %}
             </a>
+            {% endif %}
+
           {%- endfor -%}
 
         </div>
