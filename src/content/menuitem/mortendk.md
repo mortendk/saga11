@@ -7,5 +7,4 @@ eleventyNavigation:
   parentexample: main
   placeholder: false
   title: mortendk
-permalink: false
 ---
