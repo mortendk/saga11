@@ -6,6 +6,6 @@ eleventyNavigation:
   parentexample: main
   title: placeholder
   target: false
-  placeholder: true
+  whatever: true
   key: placeholderone
 ---
