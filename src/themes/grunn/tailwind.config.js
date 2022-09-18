@@ -6,8 +6,8 @@ module.exports = {
     "src/themes/grunn/layouts/**/*.njk",
     "src/themes/grunn/includes/*.njk",
     "src/themes/grunn/includes/**/*.njk",
-    "src/system/styleguide/*.njk",
-    "src/system/styleguide/**/*.njk",
+    "src/themes/styleguide/*.njk",
+    "src/themes/styleguide/**/*.njk",
   ],
   darkMode: "class",
   theme: {

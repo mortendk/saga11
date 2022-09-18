@@ -7,13 +7,13 @@ Global header for the site
 {# darkmode #}
 
 
-<footer class="flex flex-col justify-center bg-white">
+<footer class="flex flex-col justify-center bg-white dark:bg-slate-900 dark:text-slate-300">
 
   {% include "location.njk" %}
 
   {% include "nav/socialmedia.njk" %}
 
-  <div class="text-gray-800 text-center text-sm mb-4">
+  <div class="dark:slate-300 text-center text-sm mb-4">
     {{ site.footer | markdown | safe }}
   </div>
 

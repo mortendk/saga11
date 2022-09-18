@@ -693,6 +693,56 @@ collections:
           hint: "is this a draft ?",
         }
 
+  # -----------------------------------------------------------------
+  # Menu Items
+  # -----------------------------------------------------------------
+  - name: menuitem
+    label: menu items
+    label_singular: menuitem
+    description: "Single menu items for menus"
+    folder: "src/content/menuitem"
+    slug: "{{title}}"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} [{{url}}]"
+    sortable_fields: ["title"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+      - { label: "title", name: "title", widget: "string", required: true}
+      - {label: permalink", name: "permalink", widget: "hidden", default: "false"}
+
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: false
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "title", name: "title", widget: "string", required: true}
+        - { label: "url", name: "url", widget: "string", default : "https://", required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          default: main
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: [" {{eleventyNavigation.key}}"]
+          required: false
+          multiple: false
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system main is used for the frontpage" }
+        - { label: "order", name: "order", widget: "number", required: false}
+
 
   # -----------------------------------------------------------------
   # Relations Tags

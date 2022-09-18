@@ -4,7 +4,7 @@ title: Menu
 
 {% set cssmenu1 = "flex flex-row items-center text-xl hover:bg-slate-200  rounded-md px-2 block " %}
 {% set cssmenu1dropdown = "absolute top-8 w-60 bg-white border-1 border-slate-100 shadow-md" %}
-{% set cssmenu1dropndownitem = "border-b p-2 border-slate-200 hover:bg-slate-50 hover:border-slate-400" %}
+{% set cssmenu1dropndownitem = "border-b p-2 border-slate-200 hover:bg-red-50 hover:bg-red-400" %}
 
   {# {% from 'macro/menuitems.macro.njk' import menuitems %} #}
 <nav class="bg-slatet-100 border-b border-slate-200">
@@ -14,22 +14,19 @@ title: Menu
     <li><a href="https://saga11.dev" class="{{ cssmenu1 }}">Menu item2</a></li>
 
     {# submenu #}
-    <li x-data="{openmenuitem: false}">
+    <li x-data="{openmenuitem: false}" @mouseover="openmenuitem = true" class="bg-red-400 border-4 border-red-700">
+
       <a href="https://saga11.dev"
           class="{{ cssmenu1 }}"
-          @mouseover="openmenuitem = ! openmenuitem"
           :class="openmenuitem ? 'bg-white' : '' "
           >
-          menu
-          <div class="w-4 mr-1 text-slate-900" :class="openmenuitem ? 'hidden' : 'block' ">{% include "svg/chevron-down.svg" %}</div>
-          <div class="w-4 mr-1 text-slate-900" :class="openmenuitem ? 'block' : 'hidden' ">{% include "svg/chevron-up.svg" %}</div>
-
+          Menu 1
       </a>
 
       <ul class="{{ cssmenu1dropdown }}"
           x-cloak
           x-show="openmenuitem"
-          @click.outside="openmenuitem = false"
+          @mouseover="openmenuitem = true"
           @mouseover.outside="openmenuitem = false"
       >
         <li class="{{cssmenu1dropndownitem }}"><a href="#">Sub 3.1</a></li>
@@ -42,7 +39,7 @@ title: Menu
     <li x-data="{openmenuitem: false}">
       <a href="https://saga11.dev"
           class="{{ cssmenu1 }}"
-          @mouseover="openmenuitem = ! openmenuitem"
+          @mouseover="openmenuitem = true"
           :class="openmenuitem ? 'bg-white' : '' "
           >
           menu
