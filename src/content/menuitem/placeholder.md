@@ -1,6 +1,5 @@
 ---
 title: placeholder
-
 eleventyNavigation:
   url: ""
   parent: main
@@ -8,4 +7,5 @@ eleventyNavigation:
   title: placeholder
   target: false
   placeholder: true
+  key: placeholderone
 ---
