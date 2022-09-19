@@ -23,11 +23,11 @@ title: Menu
         @click.outside="openmenuitem = false"
       >
         {# We repeat the link from placeholder above so it works on a ipad etc #}
-        <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50 hover:bg-red-400">{{ item.title }}</a>
+        <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50">{{ item.title }}</a>
 
         {# Loop next level #}
         {%- for item in collections.all | eleventyNavigation(item.key) %}
-          <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50 hover:bg-red-400">{{ item.title }}</a>
+          <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50">{{ item.title }}</a>
         {% endfor %}
       </div>
     </div>

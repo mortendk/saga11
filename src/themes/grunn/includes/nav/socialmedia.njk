@@ -9,8 +9,8 @@ Graps all the data thats added to the _data/some.json file
 
 <nav class="flex flex-wrap flex-grow justify-center space-x-8 mt-4" aria-label="Menu Social media links">
 
-  {% if settings.rss %}
-    <a href="/feed.xml" class="{{css}}">
+  {% if site.rss %}
+    <a href="/feed.xml" class="md:hidden w-8 h-8 m-4 block text-orange-700">
       <span class="sr-only">RSS Feed</span>
       {% include "svg/rss.svg" %}
     </a>
