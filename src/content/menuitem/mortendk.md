@@ -3,9 +3,9 @@ title: mortendk
 eleventyNavigation:
   url: https://morten.dk
   target: true
-  parent: main
+  parent: page2
   parentexample: main
   placeholder: false
   title: mortendk
-  key: foo
+  order: 10
 ---

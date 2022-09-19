@@ -6,8 +6,8 @@ title: Menu
 <nav class="relative flex flex-row space-x-4 px-4 h-8 items-center ">
 {# menu lvl 1 #}
 {%- for item in collections.all | eleventyNavigation("main") %}
-  {% if not item.placeholder %}
 
+  {% if not item.children | length %}
     {# first lvl links #}
     <a href="{{ item.url }}"
         class="bg-slate-300 block h-8"
@@ -29,6 +29,10 @@ title: Menu
         @mouseover="openmenuitem = true"
         @click.outside="openmenuitem = false"
       >
+      {# We repeat the link from placeholder above so it works on a ipad etc #}
+      <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50 hover:bg-red-400">{{ item.title }}</a>
+
+      {# Loop next level #}
       {%- for item in collections.all | eleventyNavigation(item.key) %}
         <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50 hover:bg-red-400">{{ item.title }}</a>
       {% endfor %}
