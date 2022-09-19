@@ -10,17 +10,20 @@ title: Menu
   {% if not item.children | length %}
     {# first lvl links #}
     <a href="{{ item.url }}"
-        class="bg-slate-300 block h-8"
+        class="bg-slate-300"
     >{{ item.title }}</a>
 
   {% else %}
 
     {# placeholder #}
     <div x-data="{openmenuitem: false}"
-        class="bg-slate-300"
+        class="bg-slate-300 flex flex-row"
         @click="openmenuitem = true"
     >
-      {{ item.title }}
+      <div class="foo">{{ item.title }}</div>
+
+      <span class="w-6 h-6 transition block text-red-400 bg-slate-400" :class="openmenuitem ? 'rotate-90': '' "> > </span>
+
 
       <div
         class="absolute z-40 top-8 w-60 bg-slate-500"
