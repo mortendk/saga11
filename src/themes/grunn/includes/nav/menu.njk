@@ -2,7 +2,10 @@
 ------------------------------------------------
 Render the whole menu with all sub items
  #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/nav/menu.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- /src/themes/grunn/includes/nav/menu.njk -->{%- endif  -%}
+
+
+
 
 {# Menu desktop #}
 <nav class="h-full hidden md:block" aria-label="Main Menu">
@@ -68,10 +71,10 @@ Render the whole menu with all sub items
             </div>
           </div>
 
-
+      {# / Level 2  #}
       {%- endif -%}
-      {%- endfor -%}
-      {# /level 1  #}
+    {%- endfor -%}
+    {# /level 1  #}
     </div>
 
   </div>
