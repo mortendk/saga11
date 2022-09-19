@@ -3721,6 +3721,18 @@ pre[class*="language-"] {
 }
 
 @media (min-width: 768px) {
+  .md\:absolute {
+    position: absolute;
+  }
+
+  .md\:relative {
+    position: relative;
+  }
+
+  .md\:top-0 {
+    top: 0px;
+  }
+
   .md\:ml-4 {
     margin-left: 1rem;
   }
@@ -3741,6 +3753,10 @@ pre[class*="language-"] {
     height: 5rem;
   }
 
+  .md\:h-full {
+    height: 100%;
+  }
+
   .md\:w-2\/3 {
     width: 66.666667%;
   }
@@ -3751,6 +3767,10 @@ pre[class*="language-"] {
 
   .md\:w-11\/12 {
     width: 91.666667%;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
   }
 
   .md\:grid-cols-3 {
@@ -3774,8 +3794,21 @@ pre[class*="language-"] {
     background-color: rgb(241 245 249 / var(--tw-bg-opacity));
   }
 
+  .md\:bg-white\/80 {
+    background-color: rgb(255 255 255 / 0.8);
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
+  }
+
   .md\:text-\[20rem\] {
     font-size: 20rem;
+  }
+
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
 }
 
