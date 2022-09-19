@@ -8,12 +8,12 @@ Calls the _base/base.njk that is holding all the basic html
 {%- if env.mode != 'prod' %}<!-- ___layouts/default.njk  -->{%- endif -%}
 
 {# isModalOpen is used to test if theres a modal open then disable the scroll #}
-<body class="flex flex-col h-screen bg-slate-100"
-      x-data="{'isModalOpen': false, isEditvisible: false}"
-      x-on:keydown.escape="isModalOpen=false"
-      x-on:keydown.cmd.ctrl.e="isEditvisible = ! isEditvisible"
-
-      :class="isModalOpen ? 'overflow-y-hidden':''"
+<body
+  class="flex flex-col h-screen bg-slate-100 dark:bg-slate-800 dark:text-slate-50"
+  x-data="{'isModalOpen': false, isEditvisible: false}"
+  x-on:keydown.escape="isModalOpen=false"
+  x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
+  :class="isModalOpen ? 'overflow-y-hidden':''"
 >
 
 {%- include "header.njk" %}
@@ -24,6 +24,6 @@ Calls the _base/base.njk that is holding all the basic html
 
 </main>
 
-
 {%- include "edit.njk" %}
+
 {%- include "footer.njk" %}

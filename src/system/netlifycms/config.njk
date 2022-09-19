@@ -52,7 +52,7 @@ collections:
     delete: true
     editor:
       preview: false
-    summary: "url: {{url}}  : {{title}} "
+    summary: "{{title}} (url: {{url}}) "
     sortable_fields: ["title","url", "order", "date"]
     view_filters:
       - label: Drafts
@@ -484,9 +484,10 @@ collections:
           default: main
           searchFields: [title]
           valueField: "{{eleventyNavigation.key}}"
-          displayFields: [" {{eleventyNavigation.key}}"]
+          displayFields: ["Title: {{title}} | nerd info key: '{{eleventyNavigation.key}}'"]
           required: false
           multiple: false
+
         - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system main is used for the frontpage" }
         - { label: "order", name: "order", widget: "number", required: false}
 
@@ -615,82 +616,6 @@ collections:
           hint: "is this a draft ?",
         }
 
-
-  # -----------------------------------------------------------------
-  # Link In Bio Collection
-  # -----------------------------------------------------------------
-  - name: linkinbio
-    label: Link in bio
-    label_singular: linkinbio
-    description: "Link in bio pages"
-    folder: "src/content/linkinbio"
-    slug: "{{slug}}"
-    preview_path: link/{{url}}
-
-    create: true
-    delete: true
-    editor:
-      preview: false
-
-    # Overview
-    summary: "{{title}} [{{url}}]"
-    sortable_fields: ["title", "order", "date"]
-
-    view_filters:
-      - label: Drafts
-        field: eleventyExcludeFromCollections
-        pattern: true
-
-    view_groups:
-      - label: Tags
-        field: tags
-
-    nested:
-      depth: 5 # max depth to show in the collection tree
-      summary: "{{title}}"
-
-    fields:
-      - { label: "Title", name: "title", widget: "string", default: "Biopage"  }
-      - { label: "url", name: "url", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
-      - { label: "alt", name: "alt", widget: "string", required: false }
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
-        buttons:
-          - bold
-          - italic
-          - heading-two
-          - heading-three
-          - link
-          - quote
-          - bulleted-list
-        editor_components:
-          - image
-          - code-block
-        required: false
-
-      # Link
-      - label: "Links"
-        name: "link"
-        collapsed: false
-        minimize_collapsed: true
-        widget: "list"
-        fields:
-          - {label: link, name: url, widget: string, default: "https://", required: false}
-          - {label: text, name: label, widget: string, required: false }
-      # Layout selector
-      - name: "layout"
-        label: "Layout Selector"
-        widget: relation
-        collection: pagetemplates
-        searchFields: [saga-template-name]
-        valueField: "page/{{filename}}.{{extension}}"
-        displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
-        required: false
-        default: "page/link-in-bio.njk"
-
-
   # -----------------------------------------------------------------
   # Notifications
   # -----------------------------------------------------------------
@@ -718,13 +643,21 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string", default: "Notification!"  }
-      - { label: "teaser", name: "text", widget: "text", required: false }
       - label: status
         name: "status"
         widget: "select"
         multiple: false
         options: ["info", "warning", "alert"]
         default: ["warning"]
+      - label: "text"
+        name: "text"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+        required: false
+
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -740,6 +673,8 @@ collections:
           - image
           - code-block
         required: false
+
+      - { label: "link to page", name: "showlink", widget: "boolean", default: true }
 
       # Date
       - label: "Date"
@@ -758,6 +693,58 @@ collections:
           required: false,
           hint: "is this a draft ?",
         }
+
+  # -----------------------------------------------------------------
+  # Menu Items
+  # -----------------------------------------------------------------
+  - name: menuitem
+    label: menu items
+    label_singular: menuitem
+    description: "Single menu items for menus"
+    folder: "src/content/menuitem"
+    slug: "{{title}}"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} [{{url}}]"
+    sortable_fields: ["title"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+      - { label: "title", name: "title", widget: "string", required: true}
+
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: false
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "title", name: "title", widget: "string", required: true}
+        - { label: "url", name: "url", widget: "string", default : "https://", required: false}
+        - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
+
+        - name: "parent"
+          label: parent menu item
+          widget: relation
+          collection: page
+          default: main
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: ["Title: {{title}} |  key: '{{eleventyNavigation.key}}'"]
+          required: false
+          multiple: false
+          hint: "This is used for referencing the pages - a trick cause netlifycms cant combine collections"
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "Machine key is used for other pages to identify this" }
+        - { label: "order", name: "order", widget: "number", required: false}
 
 
   # -----------------------------------------------------------------

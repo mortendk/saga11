@@ -10,43 +10,32 @@ Global header for the site
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   {# main wrap header elements #}
-  <div class="pagewidth flex flex-row h-full justify-between md:justify-start">
-    {% set menuclasses = "inline-flex items-center text-xl font-bold  border-b-4  transition hover:bg-cyan-50/50 hover:border-cyan-500/50" %}
+  <div class="pagewidth flex flex-row h-full justify-between">
+    <div class="flex flex-row">
 
-    <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
-      {% include "svg/saga11.svg" %}
-      <h1 class="sr-only">{{site.title}}</h1>
-    </a>
+      <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
+        {% include "svg/saga11.svg" %}
+        <h1 class="sr-only">{{site.title}}</h1>
+      </a>
 
-    <div class="inline-flex items-center text-2xl font-bold md:hidden">
-    {{ site.title }}
+      {% include "nav/menu.njk" %}
     </div>
-    {# Menu desktop #}
-    <nav class="h-full hidden md:block" aria-label="Main Menu">
-      <div class="flex justify-between h-full">
 
-        <div class="flex space-x-4">
+  {% if site.rss %}
+    <div class="flex justify-end items-center">
+    <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-slate-400 hover:text-orange-500">
+      <span class="sr-only">RSS Feed</span>
+      {% include "svg/rss.svg" %}
+    </a>
+    </div>
+  {% endif %}
 
-          {%- for item in collections.all | eleventyNavigation("main") %}
-            <a href="{{ item.url }}"
-              {% if item.url in page.url %}
-                aria-current="page" class="{{menuclasses}} text-cyan-600 border-cyan-500/20"
-              {% else  %}
-                class="{{menuclasses}} text-slate-500 border-transparent"
-              {% endif %}
-              >
-                {{ item.title }}
-                {# test if theres any kids #}
-                {% if item.children | length %} * {% endif %}
-            </a>
-          {%- endfor -%}
 
-        </div>
+    <div class="inline-flex items-center text-2xl md:hidden">
+      {{ site.title }}
+    </div>
 
-      </div>
-    </nav>
-    {# /Menu Desktop #}
-
+    {# mobile menu burron #}
     <button
       @click="openmenu = !openmenu"
       class="w-10 block md:hidden space-x-2 focus:outline-none"
@@ -67,40 +56,6 @@ Global header for the site
 
   </div>
 
-  {# mobile menu  #}
-  <nav
-  x-cloak
-  x-show="openmenu"
-  @click.outside="openmenu = false"
-  x-transition:enter="transition ease-out duration-300"
-  x-transition:enter-start="-translate-x-full"
-  x-transition:enter-end="translate-x-0"
-  x-transition:leave="transition ease-in duration-300"
-  x-transition:leave-start="translate-x-0"
-  x-transition:leave-end="-translate-x-full"
-  class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white/95 shadow-xl"
-  aria-label="Mobile Menu">
-
-    {% set mobileclasses = "block h-20 flex items-center pl-2 text-lg border-l-8 border-b hover:bg-slate-100 " %}
-
-
-
-    {%- for item in collections.all | eleventyNavigation("main") %}
-
-      <a href="{{ item.url }}"
-        {% if item.url in page.url %}
-          aria-current="page" class="{{mobileclasses}} border-l-slate-200"
-        {% else  %}
-          class="{{mobileclasses}} border-l-transparent"
-        {% endif %}
-      >
-        {{ item.title }}
-        {# test if theres any kids #}
-        {% if item.children | length %} * {% endif %}
-      </a>
-    {%- endfor -%}
-
-  </nav>
-
+  {% include "nav/menu-mobile.njk" %}
 </header>
 

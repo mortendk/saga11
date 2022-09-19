@@ -4,7 +4,7 @@
 {% if eleventyNavigation.key %}
 
 
-{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true}) %}
+{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true, allowMissing: true}) %}
 
 <nav class="inline-flex flex-row items-center p-2">
 

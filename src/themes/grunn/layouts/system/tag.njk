@@ -10,7 +10,7 @@ the tag page auto generated from src/systempages/tag.njk
 
 <h1 class="text-5xl">{{ title }}</h1>
 
-  {% include "nav/tags.njk" %}
+{% include "nav/tags.njk" %}
 
   {# {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
     <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
@@ -18,7 +18,6 @@ the tag page auto generated from src/systempages/tag.njk
 
 
 <section class="grid grid-cols-3 gap-2">
-
 {# collection with all items with [tag] #}
 {% for item in collections[ tag ]  %}
 
@@ -32,15 +31,14 @@ the tag page auto generated from src/systempages/tag.njk
         sizes="(min-width: 1600px) 50vw, 100vw",
         alt=item.data.card.alt
       %}
-    </div>
-
+      </div>
 
       <div class="font-lg">
         {{item.data.title}}
       </div>
     </a>
 
-    <p class="mt-2">{{ item.data.teaser }}</p>
+    <div class="mt-2">{{ item.data.teaser }}</div>
 
   </article>
 
