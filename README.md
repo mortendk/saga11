@@ -18,8 +18,8 @@ So theres no fancy libraries or spa or anything else its just a website - delive
 
 ## Content types
 
-- Pages with componenet
-- Post for blog post etc
+- Pages a component driven page
+- Post basic blog post organized with tags
 
 ## Themes
 
@@ -58,28 +58,46 @@ a complete naked theme with no markup no nothing just the {{ variables }} that t
 
 ## Quick start
 
-0. get 11ty
-
-```
-$ npm install -g @11ty/eleventy
-```
-
 1. install saga
 
 ```
 $ npm install
 ```
 
-2. spin Saga11 to build the site
+2. Spin it up:
 
 ```
 $ npm  start
 ```
 
-http://localhost:8080
+open: http://localhost:3791
 
 3. build the production site
 
 ```
-npm run build
+npm build
+```
+
+## Notes
+
+### local envirotment
+
+set up an .env file for production copy the env.example to .env
+
+### Change theme
+
+open saga11.config.js and change the theme
+
+modify the scripts for your need in package.json
+
+### Build startscreens for PWA
+
+```
+$ npm run splash-screens:build
+```
+
+### Cleanup the build folder
+
+```
+$ npm run cleanup
 ```
