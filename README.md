@@ -18,8 +18,8 @@ So theres no fancy libraries or spa or anything else its just a website - delive
 
 ## Content types
 
-- Pages a component driven page
-- Post basic blog post organized with tags
+- Pages with componenet
+- Post for blog post etc
 
 ## Themes
 
