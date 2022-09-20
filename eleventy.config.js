@@ -110,7 +110,7 @@ module.exports = function (eleventyConfig) {
 
   // Local Server
   eleventyConfig.setServerOptions({
-    port: 8080,
+    port: 3791,
   });
 
   // Directory setup

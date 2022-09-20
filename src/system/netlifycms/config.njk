@@ -111,9 +111,10 @@ collections:
             widget: object
             summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
             fields:
-              - { label: Image, name: image, widget: image, choose_url: false }
-              - { label: alt, name: alt, widget: string, required: false }
               - { label: title, name: title, widget: string, required: false }
+              - { label: Image, name: image, widget: image, choose_url: false,required: false }
+              - { label: alt, name: alt, widget: string, required: false }
+
               - { label: text, name: text, widget: markdown, required: false }
               - name: "template"
                 label: "Template"
@@ -209,7 +210,6 @@ collections:
                 fields:
                   - { label: title, name: title, widget: string, required: false }
                   - { label: "Text", name: "text", widget: "markdown", required: false }
-              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
               - name: "template"
                 label: "Template"
@@ -481,7 +481,6 @@ collections:
           label: Parent page
           widget: relation
           collection: page
-          default: main
           searchFields: [title]
           valueField: "{{eleventyNavigation.key}}"
           displayFields: ["Title: {{title}} | nerd info key: '{{eleventyNavigation.key}}'"]
@@ -949,7 +948,7 @@ collections:
   - name: componentTemplateFeature
     label: "Template"
 {% endraw %}
-    folder: "src/themes/{ theme }}/includes/components/feature"
+    folder: "src/themes/{{ theme }}/includes/components/feature"
 {% raw %}
     slug: "{{title}}"
     hide: true
