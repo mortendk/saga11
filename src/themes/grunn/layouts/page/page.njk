@@ -13,9 +13,8 @@ This is the default template for the page type
 <h1 class="text-cyan-700 text-8xl mb-8 text-center">{{ title }}</h1>
 
 
-
-
 {# List all page compoenents #}
 {% include "components/all.njk" %}
-
-{{ content | safe}}
+<div class="prose">
+  {{ content | markdown | safe }}
+</div>
