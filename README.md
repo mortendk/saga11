@@ -1,8 +1,10 @@
 Saga eleven - A Static Website builder powered by 11ty and netlifycms, but at the end its just html, css & js
 
-## Super duper alpa version 0.2
+## Super duper beta version 0.2.1
 
-Fair warning this is still in alpha ;)
+Fair warning this is still in Beta, so things might gonna break
+
+
 
 ## a static what...
 
