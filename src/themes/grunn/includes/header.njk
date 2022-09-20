@@ -4,7 +4,8 @@ Global header for the site
  #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/header.njk -->{%- endif  -%}
 
-<header class="bg-white fixed w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+{% include "notification.njk" %}
+<header class="relative bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>

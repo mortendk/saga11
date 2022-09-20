@@ -24,9 +24,9 @@ Global header for the site
 
 {%- set ogimage -%}
   {%- if card.image -%}
-   {{ env.url }}{%- imageurl img=card.image, size=[1200] -%}
+   {{ env.url }}/themes/{{ theme }}/{%- imageurl img=card.image, size=[1200] -%}
   {%- else -%}
-   {{ env.url }}/assets/opengraph/twitter.jpg
+   {{ env.url }}/themes/{{ theme }}/assets/opengraph/twitter.jpg
   {%- endif -%}
 {%- endset -%}
 

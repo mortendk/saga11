@@ -1,8 +1,8 @@
-<section class="fixed z-50 w-full pt-4 flex flex-col justify-center items-center">
+<section class="w-full flex flex-col justify-center items-center">
 
   {% for item in collections.allNotification | sortByOrder%}
     <div
-      class="w-5/6 mx-auto relative flex flex-row items-center justify-between my-1
+      class="w-full relative flex flex-row items-center justify-between
 
       {% if item.data.status =="alert" %}
         bg-red-900 text-white
@@ -16,7 +16,7 @@
       x-data="{ showNotification: true }"
       x-show="showNotification"
     >
-      <div class=" flex flex-col md:flex-row md:w-11/12 items-center">
+      <div class=" mx-auto flex flex-col md:flex-row items-center">
         <div class="w-4 h-4 mr-2">{% include "svg/bell.svg" %}</div>
 
         {% if item.data.showlink %}
@@ -37,12 +37,12 @@
       </div>
 
 
-      <button
+      {# <button
         aria-label="Close notification"
         @click="showNotification = false"
         class="w-6 h-6 hover:rotate-90 transition">
         {% include "svg/close.svg" %}
-        </button>
+        </button> #}
     </div>
 
   {% endfor %}

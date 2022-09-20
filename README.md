@@ -1,37 +1,88 @@
-Saga eleven - A Static Website builder powered by 11ty and netlifycms, but at the end its just html, css & js
+Saga eleven - A Static Website builder powered by 11ty and netlifycms
 
-## Super duper alpa version 0.2
+Requirements: node + github + some knowledge of 11ty
+
+## ⚠️Super duper alpa version 0.2
 
 Fair warning this is still in alpha ;)
 
-## a static what...
+## Quick start
 
-Saga11 is a system to build static websites.
+1. install saga
 
-Its created cause of the need for a light cms where the webdesigner can completely control what goes on and content is just content, and templates are in complete control of the output
+```
+$ npm install
+```
 
-The core value is that at the end its just HTML & CSS and we should not ship more to the end user.
+2. Spin it up:
 
-we want to make the fastes websites thats possible and perfectly markup/css/js everytime.
+```
+$ npm  start
+```
 
-So theres no fancy libraries or spa or anything else its just a website - delivering the content as it should be (if you want to)
+👉 To make the admin work clone the env.example to .env
+(else the system dont know where the admin is)
+
+🤖 go to the [admin interface admin](/admin)
+
+💅 Themes are in /src/themes/
+The are configured in /saga11.config.js
+
+📜 content is in /src/content/
+
+🎈 saga11 is build on top of [11ty](https://11ty.dev) & [NetlifyCMS](https://netlifycms.com)
+
+🪲 bugs & comments [github](https://github.com/mortendk/saga11)
+
+📲 PWA statupscreen
+
+```
+$ npm run splash-screens:build
+```
+
+🗑 Cleanup the build folder
+
+```
+$ npm run cleanup
+```
+
+## Static Sites FTW
+
+Saga11 is a system to build static websites with a CMS that can be used for easier day to day operations
+
+The taget audience is webdesigners that wants complete control over the markup, and that wants a true seperation of settings, content and output
+
+Saga11 uses nunjucks as a template engine, clear template structure
+
+Theres no fancy libraries or SPA or anything else. Its just a website HTML + CSS + JS
+Delivering the content to the end user as fast and as good as possible
 
 ## Content types
 
-- Pages a component driven page
-- Post basic blog post organized with tags
+The system ships with 2 content types
+
+### Pages
+
+A default page that can contain design componenets (gallerys,forms,text, features etc )
+
+### Post
+
+a clean simple standard post with a defult content field
 
 ## Themes
+
+Themes are the heart and sould of the system ;)
+This is where all the markup gets generated
 
 The system ships with 2 themes:
 
 ### Grunn
 
-An example theme with all the web fun we can add
+An example theme build with tailwind and alpinejs for a "doo everything in the markup" approach
 
 ### Nakinn
 
-a complete naked theme with no markup no nothing just the {{ variables }} that the system spits out
+a complete naked theme with no markup just {{ variables }}
 
 ## Core Values
 
@@ -55,49 +106,3 @@ a complete naked theme with no markup no nothing just the {{ variables }} that t
 - alpinjs for sprinling js fun
 
 ---
-
-## Quick start
-
-1. install saga
-
-```
-$ npm install
-```
-
-2. Spin it up:
-
-```
-$ npm  start
-```
-
-open: http://localhost:3791
-
-3. build the production site
-
-```
-npm build
-```
-
-## Notes
-
-### local envirotment
-
-set up an .env file for production copy the env.example to .env
-
-### Change theme
-
-open saga11.config.js and change the theme
-
-modify the scripts for your need in package.json
-
-### Build startscreens for PWA
-
-```
-$ npm run splash-screens:build
-```
-
-### Cleanup the build folder
-
-```
-$ npm run cleanup
-```

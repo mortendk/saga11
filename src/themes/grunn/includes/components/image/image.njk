@@ -1,9 +1,8 @@
 {%- if env.mode != 'prod' %}<!-- src/__includes/components/image/image.njk  -->{%- endif -%}
-{# {{ component | debug | safe  }} #}
 
 <article class="">
   <h2 class="text-3xl">
-    {{ component.title    }}
+    {{ component.title  }}
   </h2>
 
   {% picture
@@ -15,7 +14,7 @@
   %}
 
   {% if component.text %}
-    <div class="wysiwyg">
+    <div class="prose prose-xl">
       {{ component.text  | markdown | safe  }}
     </div>
   {% endif %}
