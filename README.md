@@ -18,8 +18,8 @@ So theres no fancy libraries or spa or anything else its just a website - delive
 
 ## Content types
 
-- Pages with html componenets
-- Post for blog post etc
+- Pages a component driven page
+- Post basic blog post organized with tags
 
 ## Themes
 
@@ -70,7 +70,7 @@ $ npm install
 $ npm  start
 ```
 
-http://localhost:3791
+open: http://localhost:3791
 
 3. build the production site
 
