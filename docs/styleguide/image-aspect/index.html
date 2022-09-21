@@ -1,5 +1,453 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth" x-data="{ darkMode: localStorage.getItem('themeDarkMode') === 'true' }" x-init="$watch('darkMode', val => localStorage.setItem('themeDarkMode', val))" x-bind:class="{ 'dark': darkMode }"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Eleventy v2.0.0"><meta name="theme-color" content="#3a5961"><link rel="author" href="humans.txt"><!-- fb --><meta property="og:site_name" content="Saga Eleven"><meta property="og:title" content="Saga Eleven"><meta property="og:url" content="http://localhost:3791/styleguide/image-aspect/"><meta property="og:description" content=""><meta property="og:type" content="website"><meta property="og:image" content="http://localhost:3791/themes/grunn/assets/opengraph/twitter.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@"><meta name="twitter:title" content="Saga Eleven"><meta name="twitter:description" content=""><meta name="twitter:image" content="http://localhost:3791/themes/grunn/assets/opengraph/twitter.jpg"><link rel="icon" type="image/svg+xml" href="/themes/grunn/assets/icon/icon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/themes/grunn/assets/icon/icon-apple-touch.png"><link rel="icon" type="image/png" sizes="32x32" href="/themes/grunn/assets/icon/icon-safari.png"><link rel="manifest" href="/manifest.webmanifest"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Expo"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2048-2732.jpg" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2732-2048.jpg" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1668-2388.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2388-1668.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1536-2048.jpg" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2048-1536.jpg" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1668-2224.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2224-1668.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1620-2160.jpg" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2160-1620.jpg" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1284-2778.jpg" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2778-1284.jpg" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1170-2532.jpg" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2532-1170.jpg" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1125-2436.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2436-1125.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1242-2688.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2688-1242.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-828-1792.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1792-828.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1242-2208.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2208-1242.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-750-1334.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1334-750.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-640-1136.jpg" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"><link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1136-640.jpg" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"><link href="/themes/grunn/assets/css/style.min.css" rel="stylesheet"><title>Image Aspect | Saga Eleven</title></head><body class="flex flex-col h-screen bg-slate-100" x-data="{'isModalOpen': false}" x-on:keydown.escape="isModalOpen=false" :class="isModalOpen ? 'overflow-y-hidden':''"><main id="main" tabindex="-1" class="flex flex-row"><div class="bg-white p-4 shadow-lg basis-2/12 min-h-screen"><nav><a href="/styleguide" class="flex flex-row items-center"><div class="w-8"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 15694 21860"><path fill="currentColor" stroke="currentColor" stroke-miterlimit="10" stroke-width="280" d="M5622 14101c-90 0-135-120-135-361V7789c0-115-23-169-70-162l-431 108c-79 7-118-72-118-237v-517c0-143 43-224 129-242l1422-366c11-3 27-5 48-5 79 0 118 84 118 253v7120c0 241-47 361-140 361zm3683 11c-144 0-268-10-374-30s-216-65-331-135-209-166-283-288-134-293-180-512-70-479-70-781V9604c0-72-20-108-59-108h-334c-90 0-135-86-135-258v-291c0-176 45-264 135-264h334c39 0 59-48 59-145l97-2095c11-190 57-285 140-285h539c90 0 135 95 135 285v2095c0 97 21 145 65 145h687c90 0 135 88 135 264v291c0 172-45 258-135 258h-689c-25 0-42 6-51 19-9 12-13 42-13 89v2779c0 208 13 382 40 520s66 240 118 304 104 108 156 129c52 22 116 32 191 32h382c97 0 145 67 145 199v323c0 147-52 221-156 221zm2067 646c82 0 154-67 215-202s92-326 92-574c0-58-36-257-108-598l-1056-4389c-7-50-11-90-11-119 0-129 27-194 81-194h652c50 0 91 17 124 51s58 103 75 207l700 3705c14 43 23 65 27 65 14 0 22-20 22-59l549-3695c14-108 37-180 67-218s69-57 116-57h452c61 0 92 70 92 210 0 32-4 74-11 124l-959 4993c-75 413-158 729-248 948s-190 368-302 447a776 776 0 01-442 124h-54c-291 0-488-77-592-232-29-32-43-115-43-248 0-266 43-399 129-399 7 0 72 18 194 54 124 38 203 56 239 56zm-8460-647c-90 0-135-120-135-361V7799c0-115-23-169-70-162l-431 108c-79 7-118-72-118-237v-517c0-143 43-224 129-242l1423-367c11-3 27-5 48-5 79 0 118 84 118 253v7120c0 241-47 361-140 361z"/></svg></div><div>🎈 Styleguide</div></a><a href="/styleguide/🎈-colors/" class="text-slate-800">🎈 Colors</a><br><a href="/styleguide/size/" class="text-slate-800">Size</a><br><a href="/styleguide/screen-size/" class="text-slate-800">Screen size</a><br><a href="/styleguide/page-height/" class="text-slate-800">Page height</a><br><a href="/styleguide/image-aspect/" class="text-slate-800 font-bold">👉 Image Aspect</a><br><a href="/styleguide/font-family/" class="text-slate-800">Font family</a><br><a href="/styleguide/font-size/" class="text-slate-800">font size</a><br><a href="/styleguide/fontmarkup/" class="text-slate-800">FontMarkup</a><br><a href="/styleguide/table/" class="text-slate-800">Table</a><br><a href="/styleguide/icons/" class="text-slate-800">icons</a><br><a href="/styleguide/nav-tags/" class="text-slate-800">Nav tags</a><br><a href="/styleguide/🎈-menu-some/" class="text-slate-800">🎈 Menu SoMe</a><br><a href="/styleguide/nav-pre-and-next/" class="text-slate-800">Nav Pre &amp; Next</a><br><a href="/styleguide/nav-pages/" class="text-slate-800">Nav pages</a><br><a href="/styleguide/nav-posts/" class="text-slate-800">Nav Posts</a><br><a href="/styleguide/nav-breadcrumb/" class="text-slate-800">Nav Breadcrumb</a><br><a href="/styleguide/menu/" class="text-slate-800">Menu</a><br><a href="/styleguide/🎈-component/" class="text-slate-800">🎈 Component</a><br><a href="/styleguide/text/" class="text-slate-800">Text</a><br><a href="/styleguide/image/" class="text-slate-800">Image</a><br><a href="/styleguide/images-slider/" class="text-slate-800">Images Slider</a><br><a href="/styleguide/images-card/" class="text-slate-800">Images card</a><br><a href="/styleguide/cta/" class="text-slate-800">CTA</a><br><a href="/styleguide/download/" class="text-slate-800">Download</a><br><a href="/styleguide/feature/" class="text-slate-800">Feature</a><br><a href="/styleguide/price/" class="text-slate-800">Price</a><br><a href="/styleguide/testamonial/" class="text-slate-800">Testamonial</a><br><a href="/styleguide/link/" class="text-slate-800">Link</a><br><a href="/styleguide/form/" class="text-slate-800">Form</a><br><a href="/styleguide/form-inline/" class="text-slate-800">Form Inline</a><br><a href="/styleguide/collection/" class="text-slate-800">Collection</a><br><a href="/styleguide/page-cards/" class="text-slate-800">Page cards</a><br><a href="/styleguide/page-card/" class="text-slate-800">Page card</a><br><a href="/styleguide/share/" class="text-slate-800">Share</a><br><a href="/styleguide/share-calendar/" class="text-slate-800">Share Calendar</a><br><a href="/styleguide/location/" class="text-slate-800">Location</a><br><a href="/styleguide/header/" class="text-slate-800">Header</a><br><a href="/styleguide/footer/" class="text-slate-800">footer</a><br><a href="/styleguide/edit-link/" class="text-slate-800">edit link</a><br><a href="/styleguide/404-page/" class="text-slate-800">404 page</a><br><a href="/styleguide/pwa/" class="text-slate-800">pwa</a><br><a href="/styleguide/" class="text-slate-800 font-bold">👉 Styleguide</a><br></nav></div><div class="basis-10/12 mt-8 mx-4"><h1 class="text-3xl text-center">IMAGE ASPECT</h1><div class="bg-white mb-8"></div><div class="aspect-video w-60 bg-pink-400 mb-4 flex justify-center items-center">Aspect video</div><div class="aspect-square w-60 bg-pink-600 flex justify-center items-center">Aspect Square</div></div></main><section class="fixed bottom-0 flex flex-col left-0 z-10 text-sm text-center w-full opacity-75"><div class="sm:hidden bg-slate-50"><code>Default</code></div><div class="hidden sm:block md:hidden bg-slate-100"><code>sm: 640px</code></div><div class="hidden md:block lg:hidden md:bg-slate-100"><div>md: 768px</div></div><div class="hidden lg:block xl:hidden bg-slate-200"><code>lg: 640</code></div><div class="hidden xl:block 2xl:hidden bg-slate-300"><code>xl 1280</code></div><div class="hidden 2xl:block bg-slate-400"><code>2xl 1536</code></div></section><script>if (navigator && navigator.serviceWorker) {
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="scroll-smooth"
+  x-data="{ darkMode: localStorage.getItem('themeDarkMode') === 'true' }"
+  x-init="$watch('darkMode', val => localStorage.setItem('themeDarkMode', val))"
+  x-bind:class="{ 'dark': darkMode }"
+>
+  <base href="http://localhost:3791">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    
+
+    <meta name="generator" content="Eleventy v2.0.0">
+    <meta name="theme-color" content="#3a5961">
+    <link rel="author" href="humans.txt"/>
+
+    
+
+    
+    <!-- __includes/head/opengraph.njk  --><!-- fb -->
+
+<meta property="og:site_name" content="Saga Eleven">
+<meta property="og:title" content="Saga Eleven">
+<meta property="og:url" content="http://localhost:3791/styleguide/image-aspect/">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://localhost:3791/themes/grunn/assets/opengraph/twitter.jpg">
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<!-- twitter -->
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@">
+<meta name="twitter:title" content="Saga Eleven">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="http://localhost:3791/themes/grunn/assets/opengraph/twitter.jpg">
+
+<!-- src/__includes/head/icon.njk  --><link rel="icon" type="image/svg+xml" href="/themes/grunn/assets/icon/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/themes/grunn/assets/icon/icon-apple-touch.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/themes/grunn/assets/icon/icon-safari.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<!-- __includes/head/splashscreens.njk  --><meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Expo"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2048-2732.jpg" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2732-2048.jpg" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1668-2388.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2388-1668.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1536-2048.jpg" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2048-1536.jpg" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1668-2224.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2224-1668.jpg" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1620-2160.jpg" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2160-1620.jpg" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1284-2778.jpg" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2778-1284.jpg" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1170-2532.jpg" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2532-1170.jpg" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1125-2436.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2436-1125.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1242-2688.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2688-1242.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-828-1792.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1792-828.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1242-2208.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-2208-1242.jpg" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-750-1334.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1334-750.jpg" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-640-1136.jpg" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="http://localhost:3791/themes/grunn/assets/splash_screens/apple-splash-dark-1136-640.jpg" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
+
+      <link href="/themes/grunn/assets/css/style.css" rel="stylesheet">
+    
+    
+      <title>
+        Image Aspect | Saga Eleven
+      </title>
+    
+
+  </head>
+
+
+
+  <!-- ___layouts/styleguide.njk  -->
+<body class="flex flex-col h-screen bg-slate-100"
+      x-data="{'isModalOpen': false}"
+      x-on:keydown.escape="isModalOpen=false"
+      :class="isModalOpen ? 'overflow-y-hidden':''"
+>
+
+<main id="main" tabindex="-1" class="flex flex-row">
+  <div class="bg-white p-4 shadow-lg basis-2/12 min-h-screen">
+  <nav >
+
+    <a href="/styleguide" class="flex flex-row items-center">
+      <div class="w-8"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 15694 21860">
+  <path fill="currentColor" stroke="currentColor" stroke-miterlimit="10" stroke-width="280" d="M5622 14101c-90 0-135-120-135-361V7789c0-115-23-169-70-162l-431 108c-79 7-118-72-118-237v-517c0-143 43-224 129-242l1422-366c11-3 27-5 48-5 79 0 118 84 118 253v7120c0 241-47 361-140 361zm3683 11c-144 0-268-10-374-30s-216-65-331-135-209-166-283-288-134-293-180-512-70-479-70-781V9604c0-72-20-108-59-108h-334c-90 0-135-86-135-258v-291c0-176 45-264 135-264h334c39 0 59-48 59-145l97-2095c11-190 57-285 140-285h539c90 0 135 95 135 285v2095c0 97 21 145 65 145h687c90 0 135 88 135 264v291c0 172-45 258-135 258h-689c-25 0-42 6-51 19-9 12-13 42-13 89v2779c0 208 13 382 40 520s66 240 118 304 104 108 156 129c52 22 116 32 191 32h382c97 0 145 67 145 199v323c0 147-52 221-156 221zm2067 646c82 0 154-67 215-202s92-326 92-574c0-58-36-257-108-598l-1056-4389c-7-50-11-90-11-119 0-129 27-194 81-194h652c50 0 91 17 124 51s58 103 75 207l700 3705c14 43 23 65 27 65 14 0 22-20 22-59l549-3695c14-108 37-180 67-218s69-57 116-57h452c61 0 92 70 92 210 0 32-4 74-11 124l-959 4993c-75 413-158 729-248 948s-190 368-302 447a776 776 0 01-442 124h-54c-291 0-488-77-592-232-29-32-43-115-43-248 0-266 43-399 129-399 7 0 72 18 194 54 124 38 203 56 239 56zm-8460-647c-90 0-135-120-135-361V7799c0-115-23-169-70-162l-431 108c-79 7-118-72-118-237v-517c0-143 43-224 129-242l1423-367c11-3 27-5 48-5 79 0 118 84 118 253v7120c0 241-47 361-140 361z"/>
+</svg>
+</div>
+      <div>🎈 Styleguide</div>
+    </a>
+
+      
+        
+        <a href="/styleguide/🎈-colors/" class="text-slate-800 ">
+           
+            🎈 Colors</a>
+        <br>
+      
+        
+        <a href="/styleguide/size/" class="text-slate-800 ">
+           
+            Size</a>
+        <br>
+      
+        
+        <a href="/styleguide/screen-size/" class="text-slate-800 ">
+           
+            Screen size</a>
+        <br>
+      
+        
+        <a href="/styleguide/page-height/" class="text-slate-800 ">
+           
+            Page height</a>
+        <br>
+      
+        
+        <a href="/styleguide/image-aspect/" class="text-slate-800  font-bold">
+            👉
+            Image Aspect</a>
+        <br>
+      
+        
+        <a href="/styleguide/font-family/" class="text-slate-800 ">
+           
+            Font family</a>
+        <br>
+      
+        
+        <a href="/styleguide/font-size/" class="text-slate-800 ">
+           
+            font size</a>
+        <br>
+      
+        
+        <a href="/styleguide/fontmarkup/" class="text-slate-800 ">
+           
+            FontMarkup</a>
+        <br>
+      
+        
+        <a href="/styleguide/table/" class="text-slate-800 ">
+           
+            Table</a>
+        <br>
+      
+        
+        <a href="/styleguide/icons/" class="text-slate-800 ">
+           
+            icons</a>
+        <br>
+      
+        
+        <a href="/styleguide/nav-tags/" class="text-slate-800 ">
+           
+            Nav tags</a>
+        <br>
+      
+        
+        <a href="/styleguide/🎈-menu-some/" class="text-slate-800 ">
+           
+            🎈 Menu SoMe</a>
+        <br>
+      
+        
+        <a href="/styleguide/nav-pre-and-next/" class="text-slate-800 ">
+           
+            Nav Pre &amp; Next</a>
+        <br>
+      
+        
+        <a href="/styleguide/nav-pages/" class="text-slate-800 ">
+           
+            Nav pages</a>
+        <br>
+      
+        
+        <a href="/styleguide/nav-posts/" class="text-slate-800 ">
+           
+            Nav Posts</a>
+        <br>
+      
+        
+        <a href="/styleguide/nav-breadcrumb/" class="text-slate-800 ">
+           
+            Nav Breadcrumb</a>
+        <br>
+      
+        
+        <a href="/styleguide/menu/" class="text-slate-800 ">
+           
+            Menu</a>
+        <br>
+      
+        
+        <a href="/styleguide/🎈-component/" class="text-slate-800 ">
+           
+            🎈 Component</a>
+        <br>
+      
+        
+        <a href="/styleguide/text/" class="text-slate-800 ">
+           
+            Text</a>
+        <br>
+      
+        
+        <a href="/styleguide/image/" class="text-slate-800 ">
+           
+            Image</a>
+        <br>
+      
+        
+        <a href="/styleguide/images-slider/" class="text-slate-800 ">
+           
+            Images Slider</a>
+        <br>
+      
+        
+        <a href="/styleguide/images-card/" class="text-slate-800 ">
+           
+            Images card</a>
+        <br>
+      
+        
+        <a href="/styleguide/cta/" class="text-slate-800 ">
+           
+            CTA</a>
+        <br>
+      
+        
+        <a href="/styleguide/download/" class="text-slate-800 ">
+           
+            Download</a>
+        <br>
+      
+        
+        <a href="/styleguide/feature/" class="text-slate-800 ">
+           
+            Feature</a>
+        <br>
+      
+        
+        <a href="/styleguide/price/" class="text-slate-800 ">
+           
+            Price</a>
+        <br>
+      
+        
+        <a href="/styleguide/testamonial/" class="text-slate-800 ">
+           
+            Testamonial</a>
+        <br>
+      
+        
+        <a href="/styleguide/link/" class="text-slate-800 ">
+           
+            Link</a>
+        <br>
+      
+        
+        <a href="/styleguide/form/" class="text-slate-800 ">
+           
+            Form</a>
+        <br>
+      
+        
+        <a href="/styleguide/form-inline/" class="text-slate-800 ">
+           
+            Form Inline</a>
+        <br>
+      
+        
+        <a href="/styleguide/collection/" class="text-slate-800 ">
+           
+            Collection</a>
+        <br>
+      
+        
+        <a href="/styleguide/page-cards/" class="text-slate-800 ">
+           
+            Page cards</a>
+        <br>
+      
+        
+        <a href="/styleguide/page-card/" class="text-slate-800 ">
+           
+            Page card</a>
+        <br>
+      
+        
+        <a href="/styleguide/share/" class="text-slate-800 ">
+           
+            Share</a>
+        <br>
+      
+        
+        <a href="/styleguide/share-calendar/" class="text-slate-800 ">
+           
+            Share Calendar</a>
+        <br>
+      
+        
+        <a href="/styleguide/location/" class="text-slate-800 ">
+           
+            Location</a>
+        <br>
+      
+        
+        <a href="/styleguide/header/" class="text-slate-800 ">
+           
+            Header</a>
+        <br>
+      
+        
+        <a href="/styleguide/footer/" class="text-slate-800 ">
+           
+            footer</a>
+        <br>
+      
+        
+        <a href="/styleguide/edit-link/" class="text-slate-800 ">
+           
+            edit link</a>
+        <br>
+      
+        
+        <a href="/styleguide/404-page/" class="text-slate-800 ">
+           
+            404 page</a>
+        <br>
+      
+        
+        <a href="/styleguide/pwa/" class="text-slate-800 ">
+           
+            pwa</a>
+        <br>
+      
+        
+        <a href="/styleguide/" class="text-slate-800  font-bold">
+            👉
+            Styleguide</a>
+        <br>
+      
+
+  </div>
+  <div class=" basis-10/12  mt-8 mx-4">
+
+    <h1 class="text-3xl text-center">IMAGE ASPECT </h1>
+
+    <div class="bg-white mb-8">
+
+    </div>
+
+
+    
+<div class="aspect-video w-60 bg-pink-400 mb-4 flex justify-center items-center">Aspect video</div>
+<div class="aspect-square w-60 bg-pink-600 flex justify-center items-center">Aspect Square</div>
+
+
+  </div>
+
+</main>
+
+<!-- __includes/mediaquery.njk --><section class="fixed bottom-0 flex flex-col left-0 z-10 text-sm text-center w-full opacity-75">
+
+  <div class="sm:hidden bg-slate-50">
+    <code>Default</code>
+  </div>
+
+  <div class="hidden sm:block md:hidden  bg-slate-100">
+    <code>sm: 640px</code>
+  </div>
+
+  <div class="hidden md:block lg:hidden  md:bg-slate-100">
+    <div> md: 768px</div>
+  </div>
+
+  <div class="hidden lg:block xl:hidden  bg-slate-200">
+  <code>lg: 640</code>
+  </div>
+
+  <div class="hidden xl:block 2xl:hidden  bg-slate-300">
+    <code>xl 1280</code>
+  </div>
+
+  <div class="hidden 2xl:block   bg-slate-400">
+    <code>2xl 1536</code>
+
+  </div>
+</section>
+
+
+
+
+
+    
+    <script>
+      if (navigator && navigator.serviceWorker) {
         navigator
           .serviceWorker
           .register('/service-workers.js');
-      }</script><script src="/themes/grunn/assets/js/alpine3.10.3.min.js" defer="defer"></script></body></html>
+      }
+    </script>
+
+    <script src="/themes/grunn/assets/js/alpine3.10.3.min.js" defer></script>
+  </body>
+</html>
