@@ -1,0 +1,19 @@
+{
+  "name": "Saga Eleven",
+  "short_name": "Saga Eleven",
+  "start_url": "./",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#3a5961",
+  "theme_color": "#3a5961",
+  "description": "",
+  "icons": [
+    { "src": "themes/grunn/assets/icon/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "themes/grunn/assets/icon/icon-512.png", "type": "image/png", "sizes": "512x512" },    {
+      "src": "themes/grunn/assets/icon/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
