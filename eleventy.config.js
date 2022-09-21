@@ -5,6 +5,7 @@ const settings = require("./saga11.config.js");
 // set default theme to base if nothing is set
 const theme = settings.theme || "base";
 const output = settings.output || "_site";
+const prefix = settings.prefix;
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -108,6 +109,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksGlobal("saga11version", "0.2.0");
   // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
+  eleventyConfig.addNunjucksGlobal("prefix", prefix);
 
   // Local Server
   eleventyConfig.setServerOptions({

@@ -6,7 +6,7 @@
   x-init="$watch('darkMode', val => localStorage.setItem('themeDarkMode', val))"
   x-bind:class="{ 'dark': darkMode }"
 >
-  <base href="https://mortendk.github.io/saga11/">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,9 +35,9 @@
     {%- include "head/splashscreens.njk" -%}
 
     {%- if env.mode == 'prod' %}
-      <link href="{{ '/themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
+      <link href="{{ prefix + '/themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
-      <link href="{{ '/themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
+      <link href="{{ prefix + '/themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
     {# title #}
     {% if page.url == "/" %}
