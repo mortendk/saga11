@@ -4,5 +4,5 @@ module.exports = {
   // Theme settings: nakinn theme is for pure minimalist
   theme: "grunn",
   output: "docs",
-  prefix: "saga11",
+  prefix: "/saga11",
 };
