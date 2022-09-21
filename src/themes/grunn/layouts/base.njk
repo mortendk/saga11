@@ -6,7 +6,6 @@
   x-init="$watch('darkMode', val => localStorage.setItem('themeDarkMode', val))"
   x-bind:class="{ 'dark': darkMode }"
 >
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +50,6 @@
     {% endif %}
 
   </head>
-
 
   {{ content | safe }}
 
