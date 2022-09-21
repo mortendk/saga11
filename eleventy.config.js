@@ -31,7 +31,7 @@ async function picture(image) {
       widths: widths,
       formats: formats,
       outputDir: output + "/img/", // seind image directly to the site build
-      urlPath: prefix + "/img/",
+      urlPath: "/img/",
       // cacheOptions: {
       //   duration: "1d",
       //   directory: ".cache",
