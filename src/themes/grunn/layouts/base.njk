@@ -34,9 +34,9 @@
     {%- include "head/splashscreens.njk" -%}
 
     {%- if env.mode == 'prod' %}
-      <link href="{{ 'themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
+      <link href="/{{ 'themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
-      <link href="{{ 'themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
+      <link href="/{{ 'themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
     {# title #}
     {% if page.url == "/" %}
@@ -64,6 +64,6 @@
       }
     </script>
 
-    <script src="themes/{{ theme }}/assets/js/alpine3.10.3.min.js" defer></script>
+    <script src="/themes/{{ theme }}/assets/js/alpine3.10.3.min.js" defer></script>
   </body>
 </html>
