@@ -30,7 +30,7 @@ async function picture(image) {
     let metadata = await Image(src, {
       widths: widths,
       formats: formats,
-      outputDir: "_site/img/", // seind image directly to the site build
+      outputDir: output + "/img/", // seind image directly to the site build
       urlPath: "/img/",
       // cacheOptions: {
       //   duration: "1d",
