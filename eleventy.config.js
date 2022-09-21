@@ -7,7 +7,7 @@ const theme = settings.theme || "base";
 const output = settings.output || "_site";
 
 // Github path prefix
-const prefix = "saga11";
+const prefix = "/saga11";
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
