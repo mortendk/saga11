@@ -10,7 +10,9 @@ layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
 
-😍 it works{tm}
+It works{tm} 😍
+
+💜 Saga version 0.2.2
 
 👉 To make the admin work clone the env.example to .env
 

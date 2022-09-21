@@ -6,5 +6,4 @@ module.exports = {
   branch: process.env.BRANCH || "main",
   root: process.env.ELEVENTY_ROOT,
   source: process.env.ELEVENTY_SOURCE,
-  serverless: process.env.ELEVENTY_SERVERLESS || "",
 };

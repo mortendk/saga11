@@ -4,6 +4,7 @@ const env = require("./src/content/data/env.js");
 const settings = require("./saga11.config.js");
 // set default theme to base if nothing is set
 const theme = settings.theme || "base";
+const output = settings.output || "_site";
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -120,7 +121,7 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: "njk",
     dir: {
       input: "src/",
-      output: "_site",
+      output: output,
       includes: "themes/" + theme + "/includes",
       layouts: "themes/" + theme + "/layouts",
       data: "content/data",
