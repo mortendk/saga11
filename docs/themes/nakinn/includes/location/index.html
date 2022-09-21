@@ -1,6 +1,4 @@
-
-<script>
-  function openinmap(map){
+<script>function openinmap(map){
   // If it's an iPhone..
   if( (navigator.platform.indexOf("iPhone") != -1)
     || (navigator.platform.indexOf("iPod") != -1)
@@ -8,11 +6,4 @@
       window.open("maps://maps.google.com/?q=" + map);
   else
       window.open("https://maps.google.com/?q=" + map );
-  }
-</script>
-
-
-
-
-<button onclick="openinmap(',,')" target="_blank"> Map  </button>
-
+  }</script><button onclick="openinmap(',,')" target="_blank">Map</button>
