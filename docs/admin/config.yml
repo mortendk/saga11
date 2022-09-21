@@ -1,0 +1,1125 @@
+# Setup
+# 1 Add users netlify identity
+# https://app.netlify.com/sites/[SITENAME]/settings/identity#external-providers
+
+# 2 enable git gateway
+# https://app.netlify.com/sites/[SITENAME]/settings/identity#git-gateway
+
+# Doc
+# https://preview-auth-doc--netlify-cms-www.netlify.app/docs/customization/
+#
+backend:
+  name: git-gateway
+  branch: main
+local_backend: true
+
+#SETTINGS
+site_url: http://localhost:3791
+logo_url: http://localhost:3791/assets/img/icon-admin.png
+display_url: http://localhost:3791
+
+
+
+search: true
+# publish_mode: editorial_workflow
+show_preview_links: true
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_folder: "src/upload/"
+public_folder: "/upload"
+
+
+collections:
+  # -----------------------------------------------------------------
+  # Pages Collection
+  # -----------------------------------------------------------------
+  - name: page
+    label: Pages
+    label_singular: Page
+    description: "Pages with components"
+    folder: "src/content/page"
+    slug: "{{title}}"
+    preview_path: /{{url}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{{title}} (url: {{url}}) "
+    sortable_fields: ["title","url", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
+
+      - name: card
+        label: card
+        widget: object
+        collapsed: true
+        summary: "{{fields.image}} {{fields.teaser}} "
+        fields:
+        - { label: "title", name: "title", widget: "string", required: false }
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "Text", name: "text", widget: "text", required: false }
+
+
+      # COMPONENETS
+      - label: 'Components'
+        label_singular: 'Component'
+        name: 'components'
+        widget: 'list'
+        add_to_top: true
+        collapsed: true
+        types:
+
+          - label: 'Text Markdown'
+            name: 'text'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
+            fields:
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateText
+                searchFields: [title]
+                valueField: "components/text/{{filename}}.{{extension}}"
+                displayFields: ["components/text/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/text/text.njk"
+
+          - label: 'Image & Text'
+            name: 'image'
+            widget: object
+            summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
+            fields:
+              - { label: title, name: title, widget: string, required: false }
+              - { label: Image, name: image, widget: image, choose_url: false,required: false }
+              - { label: alt, name: alt, widget: string, required: false }
+
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImage
+                searchFields: [title]
+                valueField: "components/image/{{filename}}.{{extension}}"
+                displayFields: ["components/image/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/image/image.njk"
+
+          - label: 'Image Gallery'
+            name: 'images'
+            widget: object
+            summary: '{{fields.title}} || {{fields.template}}'
+            fields:
+              - label: Images
+                name: images
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: Image, name: image, widget: image, choose_url: false }
+                  - { label: title, name: title, widget: string, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateImages
+                searchFields: [title]
+                valueField: "components/images/{{filename}}.{{extension}}"
+                displayFields: ["components/images/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/images/images.njk"
+
+          - name: cta
+            label: CTA
+            widget: object
+            summary: "{{fields.image}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - { label: "url", name: "url", widget: "string", required: false }
+              - { label: "cta", name: "cta", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Image alt", name: "alt", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateCta
+                searchFields: [title]
+                valueField: "components/cta/{{filename}}.{{extension}}"
+                displayFields: ["components/cta/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/cta/cta.njk"
+
+          - name: testamonials
+            label: Testamonials
+            widget: object
+            summary: "{{fields.image}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: Testamonial
+                name: testamonial
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - { label: Image, name: image, widget: "image", required: false, choose_url: false }
+                  - { label: Person, name: person, widget: string, required: false }
+                  - { label: Person title, name: persontitle, widget: string, required: false }
+                  - { label: url, name: url, widget: string, required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateTestamonial
+                searchFields: [title]
+                valueField: "components/testamonial/{{filename}}.{{extension}}"
+                displayFields: ["components/testamonial/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/testamonial/testamonial.njk"
+
+          - name: features
+            label: Features
+            widget: object
+            summary: "{{fields.image}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: feature
+                name: feature
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateFeature
+                searchFields: [title]
+                valueField: "components/feature/{{filename}}.{{extension}}"
+                displayFields: ["components/feature/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/feature/feature.njk"
+
+          - name: "calendar"
+            label: "Calendar Event"
+            widget: object
+            summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
+            fields:
+            - label: "Calendar start"
+              name: "date_start"
+              default: ""
+              widget: "datetime"
+              date_format: "DD/MM/YYYY"
+              time_format: "HH:mm"
+              format: "YYYY-MM-DD HH:mm:ss"
+              picker_utc: true
+              required: false
+            - label: "Calendar end"
+              name: "date_end"
+              default: ""
+              widget: "datetime"
+              date_format: "DD/MM/YYYY"
+              time_format: "HH:mm"
+              format: "YYYY-MM-DD HH:mm:ss"
+              picker_utc: false
+              required: false
+            - label: "Calendar All Day"
+              name: "date_allday"
+              widget: "boolean"
+              default: false
+              required: false
+            - name: "template"
+              label: "Template"
+              widget: relation
+              collection: componentTemplateCalendar
+              searchFields: [title]
+              valueField: "components/calendar/{{filename}}.{{extension}}"
+              displayFields: ["components/calendar/{{filename}}.{{extension}}"]
+              required: true
+              default: "components/calendar/calendar.njk"
+
+          - name: "download"
+            label: "Download"
+            widget: object
+            summary: '{{fields.files.file }} || {{fields.template}}'
+            fields:
+              - label: Files
+                name: files
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: file, name: file, widget: file, choose_url: true }
+                  - { label: title, name: title, widget: string, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateDownload
+                searchFields: [title]
+                valueField: "components/download/{{filename}}.{{extension}}"
+                displayFields: ["components/download/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/download/download.njk"
+
+          - name: price
+            label: Price table
+            widget: object
+            summary: "{{fields.title}} {{fields.teaser}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: price
+                name: price
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: Price, name: price, widget: string, required: false }
+                  - { label: featured, name: featured, widget: boolean, default: false, required: false }
+                  - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - { label: "url", name: "url", widget: "string", required: false }
+                  - label: elements
+                    name: elements
+                    widget: list
+                    add_to_top: true
+                    fields:
+                      - { label: title, name: title, widget: string, required: false }
+                      - { label: active, name: active, widget: boolean, default: true, required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplatePrice
+                searchFields: [title]
+                valueField: "components/price/{{filename}}.{{extension}}"
+                displayFields: ["components/price/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/price/price.njk"
+
+
+          - name: links
+            label: Links
+            widget: object
+            summary: "{{fields.title}} {{fields.url}} "
+            fields:
+              - { label: "title", name: "title", widget: "string", required: false }
+              - label: links
+                name: link
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: title, name: title, widget: string, required: false }
+                  - {label: link, name: url, widget: string, default: "https://"}
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateLink
+                searchFields: [title]
+                valueField: "components/link/{{filename}}.{{extension}}"
+                displayFields: ["components/link/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/link/link.njk"
+
+
+
+
+          - label: 'Form'
+            name: 'form'
+            widget: object
+            summary: '{{fields.title}} || {{fields.template}}'
+            fields:
+              - { label: title, name: title, widget: string, default: 'Contact', required: false }
+              - { label: Form name, name: name, widget: string, default: 'Contact', required: true, hint: "The name of the form for netlify" }
+              - { label: action url, name: action, widget: string, default: 'Contact', required: false, hint: "Link to the page the form goes to after submit" }
+              - label: elements
+                name: elements
+                widget: list
+                summary: '{{fields.title}} || {{fields.inputtype}}'
+                add_to_top: true
+                fields:
+                  - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date","textarea"], default: text }
+                  - { label: title, name: title, widget: string, required: false }
+                  - { label: placeholder, name: placeholder, widget: string, required: false }
+                  - { label: required, name: required, widget: boolean, default: false, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateForm
+                searchFields: [title]
+                valueField: "components/form/{{filename}}.{{extension}}"
+                displayFields: ["components/form/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/form/form.njk"
+
+
+          - label: 'Cards - Collection by tags'
+            name: 'collection'
+            widget: object
+            summary: '{{fields.collection}} || {{fields.template}}'
+            fields:
+              - name: collection
+                label: collection
+                widget: relation
+                collection: tags
+                searchFields: [title]
+                valueField: "{{slug}}"
+                display_fields: ["title"]
+                multiple: false
+                hint: "Select all content with the tag"
+              - { label: title, name: title, widget: string, default: 'Collection', required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateCollection
+                searchFields: [title]
+                valueField: "components/collection/{{filename}}.{{extension}}"
+                displayFields: ["components/collection/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/collection/collection.njk"
+
+
+          - name: "pagecard"
+            label: "Cards Page"
+            widget: object
+            summary: '{{fields.page}} || {{fields.template}}'
+            fields:
+              - name: page
+                label: Related Pages
+                widget: relation
+                collection: page
+                searchFields: [title]
+                valueField: "{{url}}"
+                displayFields: ["url: {{url}}  - Title: {{title}}"]
+                required: false
+                multiple: true
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplatePagecard
+                searchFields: [title]
+                valueField: "components/pagecard/{{filename}}.{{extension}}"
+                displayFields: ["components/pagecard/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/pagecard/pagecard.njk"
+
+          - name: "njktemplate"
+            label: "Nunjucks Template"
+            widget: object
+            summary: '{{fields.page}} || {{fields.template}}'
+            fields:
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateTemplates
+                searchFields: [title]
+                valueField: "components/templates/{{filename}}.{{extension}}"
+                displayFields: ["components/templates/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/templates/default.njk"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - link
+          - bold
+          - italic
+          - heading-one
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      - { label: "url", name: "url", widget: "string" }
+
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: false
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "title", name: "title", widget: "string", required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: ["Title: {{title}} | nerd info key: '{{eleventyNavigation.key}}'"]
+          required: false
+          multiple: false
+
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system main is used for the frontpage" }
+        - { label: "order", name: "order", widget: "number", required: false}
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: pagetemplates
+        searchFields: [saga-template-name]
+        valueField: "page/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: _layouts/page/{{filename}}.{{extension}})"]
+        required: true
+        default: "page/page.njk"
+        hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
+
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+
+
+# -----------------------------------------------------------------
+  # Post Collection
+  # -----------------------------------------------------------------
+  - name: post
+    label: Posts
+    label_singular: Post
+    description: "Post fx blogpost etc"
+    folder: "src/content/post"
+    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
+    preview_path: /post/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{{title}} {{url.parent}} {{card.image}} "
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: "Parent: "
+        field: url.parent
+      - label: Tag
+        field: tags
+      - label: "Date: "
+        field: date
+        pattern: "([0-9]+(-[0-9]+)+)"
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
+      - name: card
+        label: card
+        widget: object
+        collapsed: false
+        summary: "{{fields.teaser}} / {{fields.image}}"
+        fields:
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "teaser", name: "teaser", widget: "text", required: false }
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-one
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
+      # Tags
+      - name: tags
+        label: tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{{slug}}"
+        display_fields: ["title"]
+        required: false
+        multiple: true
+
+      # Date
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: true
+
+      # Layout selector
+      - name: "layout"
+        label: "Layout Selector"
+        widget: relation
+        collection: posttemplates
+        searchFields: [saga-template-name]
+        valueField: "post/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: _layouts/post/{{filename}}.{{extension}})"]
+        default: "post/post.njk"
+        required: true
+
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+          hint: "is this a draft ?",
+        }
+
+  # -----------------------------------------------------------------
+  # Notifications
+  # -----------------------------------------------------------------
+  - name: notification
+    label: notifications
+    label_singular: notification
+    description: "Notifications and alerts"
+    folder: "src/content/notification"
+    slug: "{{title}}"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} [{{url}}]"
+    sortable_fields: ["title", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+      - { label: "Title", name: "title", widget: "string", default: "Notification!"  }
+      - label: status
+        name: "status"
+        widget: "select"
+        multiple: false
+        options: ["info", "warning", "alert"]
+        default: ["warning"]
+      - label: "text"
+        name: "text"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+        required: false
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-two
+          - heading-three
+          - link
+          - quote
+          - bulleted-list
+        editor_components:
+          - image
+          - code-block
+        required: false
+
+      - { label: "link to page", name: "showlink", widget: "boolean", default: true }
+
+      # Date
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: "HH:mm"
+        format: "YYYY-MM-DD HH:mm:ss"
+        picker_utc: true
+
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+          hint: "is this a draft ?",
+        }
+
+  # -----------------------------------------------------------------
+  # Menu Items
+  # -----------------------------------------------------------------
+  - name: menuitem
+    label: menu items
+    label_singular: menuitem
+    description: "Single menu items for menus"
+    folder: "src/content/menuitem"
+    slug: "{{title}}"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} [{{url}}]"
+    sortable_fields: ["title"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+      - { label: "title", name: "title", widget: "string", required: true}
+
+      - name: eleventyNavigation
+        label: Navigation
+        widget: object
+        collapsed: false
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "title", name: "title", widget: "string", required: true}
+        - { label: "url", name: "url", widget: "string", default : "https://", required: false}
+        - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
+
+        - name: "parent"
+          label: parent menu item
+          widget: relation
+          collection: page
+          default: main
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: ["Title: {{title}} |  key: '{{eleventyNavigation.key}}'"]
+          required: false
+          multiple: false
+          hint: "This is used for referencing the pages - a trick cause netlifycms cant combine collections"
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "Machine key is used for other pages to identify this" }
+        - { label: "order", name: "order", widget: "number", required: false}
+
+
+  # -----------------------------------------------------------------
+  # Relations Tags
+  # -----------------------------------------------------------------
+  - name: tags
+    label_singular: tag
+    label: "Tags"
+    folder: "src/content/tags"
+    slug: "{{title}}"
+    hide: false
+    create: true
+    delete: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Draft Mode",
+          name: "eleventyExcludeFromCollections",
+          widget: "boolean",
+          default: false,
+          required: false,
+        }
+
+
+  # -----------------------------------------------------------------
+  # Templates selectors
+  # -----------------------------------------------------------------
+  - name: posttemplates
+    label_singular: template
+    label: "Post Templates"
+
+    folder: "src/themes/grunn/layouts/post"
+
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  - name: pagetemplates
+    label_singular: template
+    label: "page Templates"
+
+    folder: "src/themes/grunn/layouts/page"
+
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components related
+  - name: componentTemplatePagecard
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/pagecard"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components collection
+  - name: componentTemplateCollection
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/collection"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Images
+  - name: componentTemplateImages
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/images"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Image
+  - name: componentTemplateImage
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/image"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components text
+  - name: componentTemplateText
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/text"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Form
+  - name: componentTemplateForm
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/form"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateDownload
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/download"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateCalendar
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/calendar"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateTemplates
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/templates"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Download
+  - name: componentTemplateCta
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/cta"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Testamonial
+  - name: componentTemplateTestamonial
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/testamonial"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components feature
+  - name: componentTemplateFeature
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/feature"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components price
+  - name: componentTemplatePrice
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/price"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Links
+  - name: componentTemplateLink
+    label: "Template"
+
+    folder: "src/themes/grunn/includes/components/link"
+
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+
+  # -----------------------------------------------------------------
+  # Setings
+  # -----------------------------------------------------------------
+  - label: "Settings"
+    name: "settings"
+    files:
+      - label: "Site Settings"
+        name: "sitesettings"
+        file: "src/content/data/site.json"
+        fields:
+          - { label: title, name: title, widget: string }
+          - { label: description, name: description, widget: text, required: false }
+          - { label: keywords, name: keywords, widget: text, required: false }
+          - { label: header, name: header, widget: text, required: false, hint: "data inside of header ex for tracking " }
+
+          - { label: footer, name: footer, widget: markdown, required: false }
+          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
+          - { label: "humans.txt", name: humantxt, widget: text, required: false }
+
+          - { label: "rss feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: Author (rss), name: authorname, widget: string, required: false, hint: "Feed Author name"}
+          - { label: Aurthor Email (rss), name: authoremail,widget: string, required: false,hint: "Feed Author name"}
+
+          - { label: browesercolor, name: color, widget: color, required: false }
+
+          - { label: "Adress", name: "adress", widget: "string", required: false }
+          - { label: "zip", name: "zip", widget: "string", required: false }
+          - { label: "country", name: "country", widget: "string", required: false }
+
+      - label: "Social Network links"
+        name: "some"
+        file: "src/content/data/some.json"
+        fields:
+
+          - {
+              label: facebook,
+              name: facebook,
+              widget: string,
+              required: false,
+              hint: "https://www.facebook.com/...",
+            }
+          - {
+              label: youtube,
+              name: youtube,
+              widget: string,
+              required: false,
+              hint: "https://www.youtube.com/...",
+            }
+          - {
+              label: twitter,
+              name: twitter,
+              widget: string,
+              required: false,
+              hint: "https://www.twitter.com/...",
+            }
+          - {
+              label: pinterest,
+              name: pinterest,
+              widget: string,
+              required: false,
+              hint: "https://www.pinterest.com/...",
+            }
+          - {
+              label: pinterest_verification,
+              name: pinterest_verification,
+              widget: string,
+              required: false,
+              hint: "can be found on https://www.pinterest.dk/settings/claim",
+            }
+          - {
+              label: linkedin,
+              name: linkedin,
+              widget: string,
+              required: false,
+              hint: "https://www.linkedin.com/in/...",
+            }
+          - {
+              label: instagram,
+              name: instagram,
+              widget: string,
+              required: false,
+              hint: "https://www.instagram.com/...",
+            }
+          - {
+              label: github,
+              name: github,
+              widget: string,
+              required: false,
+              hint: "https://github.com/...",
+            }
+          - {
+              label: dribble,
+              name: dribble,
+              widget: string,
+              required: false,
+              hint: "https://dribbble.com/[name]",
+            }
+          - {
+              label: tiktok,
+              name: tiktok,
+              widget: string,
+              required: false,
+              hint: "https://tiktok.com/@[name]",
+            }
+          - {
+              label: Twitch,
+              name: twitch,
+              widget: string,
+              required: false,
+              hint: "https://twitch.tv/[name]",
+            }
+          - {
+              label: Patreon,
+              name: patreon,
+              widget: string,
+              required: false,
+              hint: "https://patreon.com/[name]",
+            }
+          - {
+              label: Discord,
+              name: discord,
+              widget: string,
+              required: false,
+              hint: "https://discord.gg/[name]",
+            }
+
+          - {
+              label: Soundcloud,
+              name: soundcloud,
+              widget: string,
+              required: false,
+              hint: "https://soundcloud.com/[name]",
+            }
+          - {
+              label: Bandcamp,
+              name: bandcamp,
+              widget: string,
+              required: false,
+              hint: "https://[name].bandcamp.com/",
+            }
+
+
