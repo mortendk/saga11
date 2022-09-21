@@ -3,5 +3,5 @@
 module.exports = {
   // Theme settings: nakinn theme is for pure minimalist
   theme: "grunn",
-  output: "_site",
+  output: "docs",
 };
