@@ -112,10 +112,9 @@ collections:
             summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
             fields:
               - { label: title, name: title, widget: string, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
               - { label: Image, name: image, widget: image, choose_url: false,required: false }
               - { label: alt, name: alt, widget: string, required: false }
-
-              - { label: text, name: text, widget: markdown, required: false }
               - name: "template"
                 label: "Template"
                 widget: relation
@@ -131,6 +130,9 @@ collections:
             widget: object
             summary: '{{fields.title}} || {{fields.template}}'
             fields:
+              - { label: title, name: title, widget: string, required: false }
+              - { label: text, name: text, widget: markdown, required: false }
+
               - label: Images
                 name: images
                 widget: list

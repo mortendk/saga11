@@ -22,6 +22,13 @@ GALLERY
     class=""
     :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
   >
+
+  <h1 class="text-5xl text-cyan-700 text-center py-4 ">{{ component.title }}</h1>
+  {% if component.text %}
+  <div class="text-center text-xl py-4">
+    {{ component.text | markdown | safe }}
+  </div>
+  {% endif %}
     {# pre next #}
     <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
           tabindex="0"
