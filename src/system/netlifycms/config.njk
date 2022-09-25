@@ -549,15 +549,17 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
+
       - name: card
         label: card
         widget: object
-        collapsed: false
-        summary: "{{fields.teaser}} / {{fields.image}}"
+        collapsed: true
+        summary: "{{fields.image}} {{fields.teaser}} "
         fields:
+        - { label: "title", name: "title", widget: "string", required: false }
         - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
         - { label: "Image alt", name: "alt", widget: "string", required: false }
-        - { label: "teaser", name: "teaser", widget: "text", required: false }
+        - { label: "Text", name: "text", widget: "text", required: false }
 
       - label: "Body"
         name: "body"
