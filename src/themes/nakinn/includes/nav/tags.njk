@@ -1,7 +1,11 @@
+
 {% for tag in collections.tags %}
 
   {% for item in collections.all | getPage("/tag/" + tag + "/") %}
-    <a href="/tag/{{ tag }}">{{ item.data.title}}</a>
+    <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
+
+
+
   {% endfor %}
 
 {% endfor %}

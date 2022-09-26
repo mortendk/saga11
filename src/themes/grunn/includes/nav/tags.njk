@@ -5,13 +5,17 @@ List of all tags
 {%- if env.mode != 'prod' %}<!-- __includes/nav/tags.njk  -->{%- endif  -%}
 
 <nav aria-label="All Tags" class="flex flex-row space-x-4">
+
   {% for tag in collections.tags %}
+
     {% for item in collections.all | getPage("/tag/" + tag + "/") %}
 
       <a href="/tag/{{ tag }}" class="inline-block px-2 py-1 bg-red-200 text-red-800 rounded text-sm">
-        {{ item.data.title}}
+        {{ item.data.title }}
       </a>
+
     {% endfor %}
 
   {% endfor %}
+
 </nav>
