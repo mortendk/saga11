@@ -26,14 +26,14 @@
   }
 
   .sr-tab {
-    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
+    @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
   }
 
   .scrollbar::-webkit-scrollbar {
     @apply h-2 w-2;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-slate-400;
+    @apply bg-slate-400 dark:bg-slate-900;
   }
   .scrollbar::-webkit-scrollbar-track {
     background: transparent;

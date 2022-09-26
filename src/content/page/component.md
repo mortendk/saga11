@@ -12,6 +12,15 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: images
+    template: components/images/images.njk
+    images:
+      - image: /upload/spaceship.png
+        title: alt text 2
+      - image: /upload/spaceship.png
+        title: "alt text "
+    title: image gallery
+    text: "l﻿orem "
   - type: price
     template: components/price/price.njk
     title: Price table
@@ -121,15 +130,6 @@ components:
     date_end: 2022-09-26 14:21:02
     date_allday: true
     template: components/calendar/calendar.njk
-  - type: images
-    template: components/images/images.njk
-    images:
-      - image: /upload/spaceship.png
-        title: alt text 2
-      - image: /upload/spaceship.png
-        title: "alt text "
-    title: image gallery
-    text: "l﻿orem "
   - type: text
     template: components/text/text.njk
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

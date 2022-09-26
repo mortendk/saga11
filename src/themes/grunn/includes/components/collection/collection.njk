@@ -20,13 +20,16 @@
     <article class="" aria-label="Post {{ item.data.title}}">
       <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
 
-      <div class= "aspect-video overflow-hidden">
-        {% picture
-            img=item.data.card.image,
-            width=[300, 600],
-            alt=item.data.card.alt
-        %}
+      <div class="shadow-lg aspect-video overflow-hidden">
+      {% picture
+          img=item.data.card.image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="",
+          loading = "eager"
+      %}
       </div>
+
 
       <div class="shadow border dark:border-none rounded px-4 py-2 border-slate-100 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100">
         <h3 class="mt-2 text-2xl dark:text-cyan-200">

@@ -12,9 +12,9 @@ This is the default template for the page type
 
 <h1 class="text-cyan-700 dark:text-cyan-200 text-8xl mb-8 text-center">{{ title }}</h1>
 
-
 {# List all page compoenents #}
 {% include "components/all.njk" %}
+
 <div class="prose dark:prose-invert">
   {{ content | markdown | safe }}
 </div>

@@ -8,8 +8,8 @@
 
   <article class="shadow border dark:border-none border-slate-100 bg-white dark:bg-slate-900">
     <a href="{{ item.url }}">
-      <div class="shadow-lg aspect-video overflow-hidden">
 
+      <div class="shadow-lg aspect-video overflow-hidden">
       {% picture
           img=item.data.card.image,
           width=[400,800],
@@ -17,8 +17,8 @@
           css="",
           loading = "eager"
       %}
-
       </div>
+
       <div class="p-4">
         <div class="text-2xl text-cyan-800 dark:text-cyan-200">{{item.data.card.title }}</div>
         <div class="mt-2">{{ item.data.card.text }}</div>
