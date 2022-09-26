@@ -10,9 +10,7 @@ Specfic page to control the layout for the frontpage
 #}
 {%- if env.mode != 'prod' %}<!-- /Users/mdk/Web/saga11/src/themes/grunn/layouts/page/frontpage.njk  -->{%- endif -%}
 
-<h1 class="text-5xl md:text-7xl text-cyan-700 ">{{ title }}</h1>
-
-<article class="flex flex-row">
+<article class="flex flex-col md:flex-row">
   <div class="aspect-video overflow-hidden mt-4">
     {% picture
         img=image,
@@ -23,8 +21,7 @@ Specfic page to control the layout for the frontpage
     %}
   </div>
 
-
-  <div class="prose prose-xl ml-4 p-4 bg-white rounded-md shadow-md">
+  <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-slate-700">
     {{ content | safe }}
   </div>
 </article>

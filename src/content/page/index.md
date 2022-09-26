@@ -1,6 +1,11 @@
 ---
 title: Saga 11
 image: /upload/spaceship.png
+card:
+  title: Saga11 is the most awesome stuff ever
+  image: /upload/spaceship.png
+  alt: spaceship
+  text: card text ..
 url: /
 eleventyNavigation:
   key: main

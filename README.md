@@ -1,8 +1,11 @@
 Saga eleven - A Static Website builder powered by 11ty and netlifycms
 
-## ⚠️ Beta Version 0.3
+# HTML + MarkDown = 💜
 
-Fair warning this is still in alpha ;)
+## ⚠️ This is Beta software
+
+Fair warning this is still in beta - but your
+probably a geek so you know this ;)
 
 ## Quick start
 

@@ -4,17 +4,18 @@ Global header for the site
  #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/header.njk -->{%- endif  -%}
 
-{% include "notification.njk" %}
-<header class="relative bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+<header class="relative dark:bg-slate-800 bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
   {# main wrap header elements #}
   <div class="pagewidth flex flex-row h-full justify-between">
+
+    {# logo and menu #}
     <div class="flex flex-row">
 
-      <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center mr-4">
+      <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center md:mr-4">
         {% include "svg/saga11.svg" %}
         <h1 class="sr-only">{{site.title}}</h1>
       </a>
@@ -23,7 +24,8 @@ Global header for the site
     </div>
 
   {% if site.rss %}
-    <div class="flex justify-end items-center">
+    <div class="hidden md:flex justify-end items-center">
+
     <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-slate-400 hover:text-orange-500">
       <span class="sr-only">RSS Feed</span>
       {% include "svg/rss.svg" %}
@@ -32,8 +34,9 @@ Global header for the site
   {% endif %}
 
 
-    <div class="inline-flex items-center text-2xl md:hidden">
-      {{ site.title }}
+    <div class="flex items-center md:hidden text-2xl text-teal-700 dark:text-teal-100 ">
+     <div>{{ site.title }}</div>
+
     </div>
 
     {# mobile menu burron #}
@@ -59,4 +62,4 @@ Global header for the site
 
   {% include "nav/menu-mobile.njk" %}
 </header>
-
+{% include "notification.njk" %}

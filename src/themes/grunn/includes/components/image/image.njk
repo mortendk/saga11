@@ -1,9 +1,21 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/components/image/image.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/image/image.njk -->{%- endif -%}
 
-<article class="">
-  <h2 class="text-3xl">
-    {{ component.title  }}
-  </h2>
+<article class="py-4">
+
+  {# title + text #}
+  <article class="mx-auto max-w-3xl pb-4">
+    <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+      {{ component.title }}
+    </h3>
+
+
+    {% if component.text %}
+      <div class="prose prose-xl dark:prose-invert">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
+  </article>
+
 
   {% picture
     img=component.image,
@@ -13,10 +25,5 @@
     alt=component.alt
   %}
 
-  {% if component.text %}
-    <div class="prose prose-xl">
-      {{ component.text  | markdown | safe  }}
-    </div>
-  {% endif %}
 
 </article>
