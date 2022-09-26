@@ -46,8 +46,9 @@
 
     {# url link #}
     {% if item.url %}
-      <a href="{{ item.url }}" target="_blank" class="flex w-12 h-12 justify-center items-center rounded-full hover:bg-blue-100">
-      <div class="w-8 text-[#1DA1F2] hover:text-[#1DA1F2]/7 hover:w-6">
+      <a href="{{ item.url }}" target="_blank"  rel="noopener" class="flex w-12 h-12 justify-center items-center rounded-full">
+      <div class="sr-only">{{ item.url }}</div>
+      <div class="w-8 text-slate-800 dark:text-cyan-100 hover:w-6">
         {% include "svg/arrow-top-right-on-square.svg" %}
         </div>
       </a>

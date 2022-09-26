@@ -1,7 +1,8 @@
 ---
 title: The Big List of existing components
+image: /upload/spaceship.png
 card:
-  title: title
+  title: Title from a card
   image: /upload/spaceship.png
   alt: alt text for image
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

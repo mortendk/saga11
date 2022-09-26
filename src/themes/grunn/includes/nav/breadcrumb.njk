@@ -6,7 +6,7 @@
 
 {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true, allowMissing: true}) %}
 
-<nav class="inline-flex flex-row items-center p-2">
+<nav class="inline-flex flex-row items-center p-2"  aria-label="breadcrumb navigation">
 
   {% for item in bread %}
     {# home #}
