@@ -74,11 +74,10 @@
 
           {% picture
             img=item.image,
-            width=[400,800, 1600],
-            sizes="(min-width: 1600px) 50vw, 100vw",
+            width=[640,1024, 1563],
+            sizes="(max-width: 640px) 50vw, 100vw",
             css="rounded-sm"
           %}
-
 
         {# title and text #}
         {% if item.title or item.text %}
