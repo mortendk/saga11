@@ -12,6 +12,14 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: features
+    template: components/feature/feature.njk
+    title: Feature
+    text: l﻿orem..
+    feature:
+      - icon: icons/beaker.svg
+        title: This is a feature
+        text: T﻿his is why this is amazing
   - type: cta
     template: components/cta/cta.njk
     title: "This is a CTA "
