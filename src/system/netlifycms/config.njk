@@ -156,8 +156,8 @@ collections:
             summary: "{{fields.image}} {{fields.teaser}} "
             fields:
               - { label: "title", name: "title", widget: "string", required: false }
-              - { label: "url", name: "url", widget: "string", required: false }
-              - { label: "cta", name: "cta", widget: "string", required: false }
+              - { label: "ctalink", name: "url", widget: "string", required: false }
+              - { label: "cta text", name: "cta", widget: "string", required: false }
               - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
               - { label: "Image alt", name: "alt", widget: "string", required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
@@ -177,6 +177,7 @@ collections:
             summary: "{{fields.image}} {{fields.teaser}} "
             fields:
               - { label: "title", name: "title", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
               - label: Testamonial
                 name: testamonial
                 widget: list
@@ -188,7 +189,7 @@ collections:
                   - { label: Person, name: person, widget: string, required: false }
                   - { label: Person title, name: persontitle, widget: string, required: false }
                   - { label: url, name: url, widget: string, required: false }
-              - { label: "Text", name: "text", widget: "markdown", required: false }
+
               - name: "template"
                 label: "Template"
                 widget: relation
@@ -205,6 +206,7 @@ collections:
             summary: "{{fields.image}} {{fields.teaser}} "
             fields:
               - { label: "title", name: "title", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
               - label: feature
                 name: feature
                 widget: list
@@ -212,7 +214,18 @@ collections:
                 fields:
                   - { label: title, name: title, widget: string, required: false }
                   - { label: "Text", name: "text", widget: "markdown", required: false }
-              - { label: "Text", name: "text", widget: "markdown", required: false }
+                  - name: "icon"
+                    label: "icon"
+                    widget: relation
+                    collection: icons
+                    searchFields: [title]
+                    valueField: "icons/{{filename}}.{{extension}}"
+                    displayFields: ["icons/{{filename}}.{{extension}}"]
+                    required: true
+                    default: "icons/beaker.svg"
+
+
+
               - name: "template"
                 label: "Template"
                 widget: relation
@@ -985,6 +998,19 @@ collections:
     hide: true
     format: frontmatter
     extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  # Components Links
+  - name: icons
+    label: "icons"
+{% endraw %}
+    folder: "src/themes/{{ theme }}/includes/icons"
+{% raw %}
+    slug: "{{title}}"
+    hide: false
+    format: frontmatter
+    extension: svg
     fields:
       - { label: "name", name: "name", widget: "string" }
 
