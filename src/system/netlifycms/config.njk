@@ -663,13 +663,13 @@ collections:
         field: tags
 
     fields:
-      - { label: "Title", name: "title", widget: "string", default: "Notification!"  }
+      - { label: "Title", name: "title", widget: "string"}
       - label: status
         name: "status"
         widget: "select"
         multiple: false
         options: ["info", "warning", "alert"]
-        default: ["warning"]
+        default: "info"
       - label: "text"
         name: "text"
         widget: "markdown"
@@ -678,7 +678,6 @@ collections:
           - italic
           - link
         required: false
-
       - label: "Body"
         name: "body"
         widget: "markdown"
@@ -694,8 +693,7 @@ collections:
           - image
           - code-block
         required: false
-
-      - { label: "link to page", name: "showlink", widget: "boolean", default: true }
+      - { label: "link to page", name: "showlink", widget: "boolean", default: false }
 
       # Date
       - label: "Date"
@@ -1012,7 +1010,7 @@ collections:
     folder: "src/themes/{{ theme }}/includes/icons"
 {% raw %}
     slug: "{{title}}"
-    hide: false
+    hide: true
     format: frontmatter
     extension: svg
     fields:

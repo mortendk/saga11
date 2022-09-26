@@ -4,21 +4,23 @@ collection that graps all post .allpost is defined in .eleventy.js
 #}
 {%- if env.mode != 'prod' %}<!-- src/__includes/nav/posts.njk  -->{%- endif  -%}
 
-<nav class="" aria-label="All posts">
+<nav class="py-4" aria-label="All posts">
 
   {% for item in collections.allPosts %}
 
-    <div class="border-b border-slate-200 mb-4">
+    <div class="border-b border-slate-300 dark:border-cyan-400 py-2 mb-4">
       {# link #}
       {% if item.url in page.url -%}
-        <a href="{{ item.url }}" class="block font-bold" aria-current="page">
+        <a href="{{ item.url }}" class="block font-bold text-xl text-cyan-700 dark:text-cyan-200" aria-current="page">
           {{item.data.title}}
         </a>
       {% else %}
-        <a href="{{ item.url }}" class="block ">{{item.data.title}}</a>
+        <a href="{{ item.url }}" class="block text-slate-800 dark:text-cyan-200">
+          {{ item.data.title }}
+        </a>
       {% endif %}
       {# date #}
-      <div class="text-sm">
+      <div class="text-sm text-slate-700 dark:text-cyan-200">
         {{ item.data.date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
       </div>
 
