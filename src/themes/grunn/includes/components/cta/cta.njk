@@ -1,13 +1,13 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/cards/large.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/cta/cta.njk-->{%- endif -%}
 
 
-<article class="lg:relative bg-white my-4">
+<article class="relative bg-white dark:bg-slate-900 my-4">
 
   <div class="lg:py-20">
     {# text #}
     <div class="lg:w-1/2 px-8">
 
-      <h2 class="text-5xl text-cyan-700 pb-8">
+      <h2 class="text-5xl text-cyan-700 dark:text-cyan-100 pb-8">
         {{ component.title }}
       </h2>
 

@@ -1,3 +1,4 @@
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/pagecard/pagecard.njk -->{%- endif -%}
 {# Page card
 ------------------------------------------------
 This template controls how the pagecard template is rendered.
@@ -5,10 +6,6 @@ This template controls how the pagecard template is rendered.
 We count the amount of cards that are attached to the componenet pagecard and defines a grid
 that matches - and then includes the right card include that matches
 #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/components/pagecard/pagecard.njk -->{%- endif -%}
-
-{# Add a grip to wrap around all the cards if theres more than one  #}
-
 
 {% if component.page | length >= 4 %} <section class="grid grid-cols-4 gap-4 my-4">
 {% elseif component.page | length == 3 %} <section class="grid grid-cols-3 gap-4 my-4">
@@ -30,15 +27,15 @@ that matches - and then includes the right card include that matches
     {# Test which card we wanna use  #}
     {% if component.page | length == "1" %}
       {# Single Card  #}
-      <article class="lg:relative bg-white">
+      <article class="lg:relative bg-white dark:bg-slate-900">
 
         <div class="lg:py-20">
           {# text #}
           <div class="lg:w-1/2 px-8">
 
-            <h2 class="text-5xl text-cyan-700 pb-8">{{ item.data.card.title }}</h2>
+            <h2 class="text-5xl text-cyan-700 dark:text-cyan-200 pb-8">{{ item.data.card.title }}</h2>
 
-            <div class="text-xl">{{ item.data.card.text }}</div>
+            <div class="prose prose-xl dark:prose-invert">{{ item.data.card.text }}</div>
 
             <div class="flex justify-center mt-8">
               <a href="{{ item.url }}"
@@ -50,14 +47,14 @@ that matches - and then includes the right card include that matches
           </div>
         </div>
 
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+        <div class="w-full lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
 
           {% picture
             img=item.data.card.image,
             width=[400, 800],
             sizes="(min-width: 1600px) 50vw, 100vw",
             alt=item.data.card.alt,
-            css="absolute inset-0 w-full h-full object-cover"
+            css="lg:absolute lg:inset-0 w-full h-full object-cover"
           %}
         </div>
 
@@ -81,7 +78,7 @@ that matches - and then includes the right card include that matches
 
           <div class="px-4 py-2 border-slate-100 text-slate-800 hover:text-slate-500">
             <h2 class="text-2xl">{{ item.data.title }}</h2>
-            <div>{{ item.data.card.teaser }}</div>
+            <div>{{ item.data.card.text }}</div>
           </div>
 
         </a>

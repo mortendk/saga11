@@ -280,6 +280,8 @@ collections:
             widget: object
             summary: '{{fields.files.file }} || {{fields.template}}'
             fields:
+              - { label: title, name: title, widget: string, required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
               - label: Files
                 name: files
                 widget: list
@@ -589,6 +591,7 @@ collections:
           - code
           - quote
           - bulleted-list
+          - link
         editor_components:
           - image
           - code-block

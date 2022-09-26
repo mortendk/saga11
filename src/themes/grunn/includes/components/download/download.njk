@@ -1,10 +1,23 @@
-{%- if env.mode != 'prod' %}  <!-- src/__includes/components/download/download.njk -->{%- endif  -%}
+{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/download/download.njk  -->{%- endif  -%}
 
 <section class="max-w-7xl mx-auto">
-  <h2 class="text-5xl text-cyan-700 text-center mb-4">{{ component.title }} </h2>
 
-  <div class="flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300">
-  {# <div class="grid grid-cols-3 gap-2 bg-slate-200 justify-center"> #}
+
+  {# title + text #}
+  <article class="mx-auto max-w-3xl">
+    <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+      {{ component.title }}
+    </h3>
+    {% if component.text %}
+      <div class="prose prose-xl dark:prose-invert">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
+  </article>
+
+
+  <div class="flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800">
+
 
   {% for item in component.files %}
 
@@ -19,7 +32,7 @@
 
     {# Download Card #}
     <a href="{{ item.file }}"
-      class="flex flex-row basis-60 p-2 m-2 bg-white shadow rounded-md hover:rotate-1 hover:text-slate-600
+      class="flex flex-row items-center basis-60 p-2 m-2 bg-white dark:bg-slate-900 shadow rounded-md
     ">
       {# icon #}
       <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
@@ -27,7 +40,7 @@
           {% include "svg/download.svg" %}
         </div>
       </div>
-      <div class="ml-2  block">{{ title }}</div>
+      <div class="ml-2">{{ title }}</div>
     </a>
 
 

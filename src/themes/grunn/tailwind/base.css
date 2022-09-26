@@ -3,10 +3,10 @@
 @layer base {
   /* a11y  */
   a {
-    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
+    @apply focus:border-tabcolor hover:cursor-pointer focus:border focus:border-dashed focus:outline-none;
   }
   form button {
-    @apply focus:border focus:border-dashed focus:border-tabcolor focus:outline-none;
+    @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
   }
 
   /* form  */

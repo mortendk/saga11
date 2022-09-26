@@ -10,11 +10,23 @@ This is the default template for the page type
 
 {% include "nav/breadcrumb.njk" %}
 
-<h1 class="text-cyan-700 text-8xl mb-8 text-center">{{ title }}</h1>
+<h1 class="text-cyan-700 dark:text-cyan-200 text-5xl lg:text-8xl mb-8 text-center">{{ title }}</h1>
 
+<div class="aspect-video overflow-hidden">
+  {% picture
+      img=card.image,
+      width=[200,400, 1600],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="shadow rounded-xl",
+      loading = "eager"
+  %}
+</div>
+
+{% include "share.njk" %}
 
 {# List all page compoenents #}
 {% include "components/all.njk" %}
-<div class="prose">
+
+<div class="prose dark:prose-invert">
   {{ content | markdown | safe }}
 </div>

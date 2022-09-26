@@ -4,30 +4,30 @@
 
   <article class="mx-auto max-w-3xl">
 
-    <h3 class="text-5xl text-cyan-700 text-center mb-4">
+    <h2 class="text-5xl text-cyan-700 text-center mb-4 dark:text-cyan-200">
       {{ component.title }}
-    </h3>
+    </h2>
 
     {% if component.text %}
-      <div class="prose prose-xl text-center">
+      <article class="prose prose-xl dark:prose-invert">
         {{ component.text  | markdown | safe  }}
-      </div>
+      </article>
     {% endif %}
 
   </article>
 
   {# wrapper for the list #}
-  <div class="flex flex-row justify-center mx-auto max-w-7xl mt-8">
+  <div class="md:flex flex-row justify-center mx-auto md:max-w-7xl mt-8">
   {# Price list #}
   {% for item in component.price %}
 
-    <article class="w-80 border shadow rounded-md bg-white p-4 mx-2  {% if item.featured %} border-cyan-300 {% endif %}">
+    <article class="md:w-80 border shadow rounded-md bg-white dark:bg-slate-900 p-4 m-2 {% if item.featured %} border-cyan-300 {% else %} dark:border-black {% endif %}">
 
-      <h3 class="text-4xl text-cyan-700 mt-6 mb-4 text-center">
+      <h3 class="text-4xl text-cyan-700  dark:text-cyan-100 mt-6 mb-4 text-center">
         {{ item.title }}
       </h3>
 
-      <div class="text-3xl text-cyan-800 bg-slate-50 text-center py-4 -ml-4 -mr-4 mb-4">
+      <div class="text-3xl text-cyan-800 dark:bg-cyan-900 dark:text-white bg-slate-50 dark:bg-slate-800 text-center py-4 -ml-4 -mr-4 mb-4">
         {{ item.price }}
       </div>
 
@@ -35,14 +35,15 @@
 
         <a href="{{ item.url }}"
           class="px-4 py-3 rounded font-bold
-          bg-sky-200 border  border-sky-400
+          bg-sky-200 dark:bg-sky-800 border  border-sky-400
           hover:bg-sky-300
+
         "> Get this one </a>
 
       </div>
 
       {% if item.text %}
-        <div class="prose">
+        <div class="prose dark:prose-invert">
           {{ item.text  | markdown | safe  }}
         </div>
       {% endif %}
@@ -60,7 +61,7 @@
             <div class="w-5 text-slate-300">
               {% include "svg/check.svg" %}
             </div>
-            <div class="line-through text-slate-400">
+            <div class="line-through text-slate-400 dark:text-slate-200">
           {% endif %}
 
           {{ element.title }}

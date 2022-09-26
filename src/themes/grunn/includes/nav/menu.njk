@@ -1,15 +1,10 @@
-{# Menu template
-------------------------------------------------
-Render the whole menu with all sub items
- #}
 {%- if env.mode != 'prod' %}<!-- /src/themes/grunn/includes/nav/menu.njk -->{%- endif  -%}
 
 {# Menu desktop #}
 <nav class="h-full hidden md:block" aria-label="Main Menu">
   <div class="flex justify-between h-full">
-    {% set menulvl1 = "inline-flex items-center text-xl font-bold border-b-4  transition hover:bg-cyan-50/50 hover:border-cyan-500/50" %}
-    {% set var = value %}
-    {% set menulvl2 = "p-4 text-lg  hover:text-cyan-600 hover:bg-cyan-500/10" %}
+    {% set menulvl1 = "inline-flex items-center text-xl font-bold border-b-4 transition hover:bg-cyan-50/50 dark:hover:bg-slate-900 hover:border-cyan-500/50" %}
+    {% set menulvl2 = "p-4 text-lg hover:text-cyan-600 hover:bg-cyan-500/10" %}
     <div class="flex space-x-4">
 
     {# level 1 #}
@@ -20,13 +15,13 @@ Render the whole menu with all sub items
       <a href="{{ item.url }}"
         {# active page #}
         {% if item.url in page.url %}
-          aria-current="page" class="{{ menulvl1 }} text-cyan-600 border-cyan-500/20"
+          aria-current="page" class="{{ menulvl1 }} text-cyan-600 dark:text-cyan-200 border-cyan-500/20"
         {% else  %}
-          class="{{menulvl1 }} text-slate-500 border-transparent"
+          class="{{menulvl1 }} text-slate-500 dark:text-cyan-200 border-transparent"
         {% endif %}
         {# if target #}
         {% if item.target %}
-          target="_blank"
+          target="_blank" rel="noopener"
         {% endif %}
       >
         {{ item.title }}
@@ -35,19 +30,17 @@ Render the whole menu with all sub items
       {% else %}
       {# Level 2  #}
         <div x-data="{openmenuitem: false}"
-            class="{{ menulvl1 }} text-slate-500 border-transparent"
+            class="{{ menulvl1 }} text-slate-500 dark:text-cyan-200 border-transparent"
             @click="openmenuitem = true"
         >
           <div class="flex items-center">
             <div>{{ item.title }}</div>
-            <div class="w-4 h-4 text-slate-400 ml-2 mt-2">{% include "svg/chevron-down.svg" %}</div>
-
-
+            <div class="w-4 h-4 text-slate-400 dark:text-cyan-200 ml-2 mt-2">{% include "svg/chevron-down.svg" %}</div>
           </div>
 
           {# Here level 2that opens up when clicked #}
             <div
-              class="absolute z-40 top-20 min-h-40 w-60 bg-white/90 shadow-lg flex flex-col rounded-md"
+              class="absolute z-40 top-20 min-h-40 w-60 bg-white/90 dark:bg-slate-900/90 shadow-lg flex flex-col rounded-md dark:rounded-none"
               x-cloak
               x-show="openmenuitem"
               @mouseover="openmenuitem = true"
@@ -60,7 +53,7 @@ Render the whole menu with all sub items
             {# Loop next level #}
             {%- for item in collections.all | eleventyNavigation(item.key) %}
               <a href="{{ item.url }}" class="{{ menulvl2 }}"
-                 {% if item.target %}target="_blank" {% endif %}
+                 {% if item.target %}target="_blank" rel="noopener" {% endif %}
               >
               {{ item.title }}
               </a>

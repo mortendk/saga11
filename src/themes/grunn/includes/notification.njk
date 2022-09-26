@@ -1,18 +1,18 @@
-<section class="w-full flex flex-col justify-center items-center">
+<section class="w-full flex flex-col justify-center items-center" aria-label="notification">
 
   {% for item in collections.allNotification | sortByOrder%}
     <div
-      class="w-full relative flex flex-row items-center justify-between
+      class="
+        w-full relative flex flex-row items-center justify-between
 
-      {% if item.data.status =="alert" %}
-        bg-red-900 text-white
-      {% elif item.data.status =="warning" %}
-        bg-amber-300 text-orange-800
-      {% elif item.data.status =="info" %}
-        bg-sky-200 text-sky-800
-      {% endif %}
-
-      p-4 rounded-md shadow"
+        {% if item.data.status =="alert" %}
+          bg-red-900 text-white
+        {% elif item.data.status =="warning" %}
+          bg-amber-300 text-orange-800
+        {% elif item.data.status =="info" %}
+          bg-sky-200 text-sky-800
+        {% endif %}
+      "
       x-data="{ showNotification: true }"
       x-show="showNotification"
     >

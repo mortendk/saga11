@@ -1,13 +1,13 @@
 {%- if env.mode != 'prod' %}  <!-- __includes/share.njk  -->{%- endif  -%}
 {% set thisurl = env.url + page.url %}
 
-<div class="flex mt-4 items-center">
-Share:
+<div class="flex flex-row space-x-4 mt-4 items-center">
 {# pinterest #}
 <a
   class="block w-8"
   href="http://pinterest.com/pin/create/link/?url={{ thisurl }}"
   target="_blank" rel="noopener noreferrer nofollow">
+  <div class="sr-only">pinterest</div>
   {% include "svg/some/pinterest.svg" %}
 </a>
 
@@ -16,6 +16,7 @@ Share:
   class="block w-8"
   href="https://twitter.com/intent/tweet?text={{thisurl}}%20%23hashtag%20%40{{some.twitter}}"
   target="_blank" rel="noopener noreferrer nofollow">
+  <div class="sr-only">Twitter</div>
   {% include "svg/some/twitter.svg" %}
 </a>
 
@@ -24,6 +25,7 @@ Share:
   class="block w-8"
   href="https://www.facebook.com/sharer/sharer.php?u={{ thisurl }}"
   target="_blank" rel="noopener noreferrer nofollow">
+  <div class="sr-only">Facebook</div>
   {% include "svg/some/facebook.svg" %}
 </a>
 
@@ -32,6 +34,7 @@ Share:
   class="block w-8"
   target="_blank" rel="noopener noreferrer nofollow"
   href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ thisurl }}&amp;title={{title}}&amp;summary={{teaser}}&amp;source={{site.title}}">
+  <div class="sr-only">Linkedin</div>
   {% include "svg/some/linkedin.svg" %}
 </a>
 

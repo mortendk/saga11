@@ -1,18 +1,22 @@
-{#
-------------------------------------------------
-GALLERY
-------------------------------------------------
-#}
-{%- if env.mode != 'prod' %}  <!-- src/__includes/components/images/images.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/images/images.njk -->{%- endif -%}
 
 {% set gallery = component.images %}
 
-{# The slider window as open ? wrapper for the bacjgrioubd  #}
+
+  <h1 class="text-5xl text-cyan-700 dark:text-cyan-200 text-center py-4 ">{{ component.title }}</h1>
+  {% if component.text %}
+  <div class="text-center text-xl py-4">
+    {{ component.text | markdown | safe }}
+  </div>
+  {% endif %}
+
+
+{# The slider window as open ? wrapper for the bg  #}
 <section
     aria-label="Image gallery"
     class=""
     x-data="{isSliderOpen: false}"
-    :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full bg-black/90' : 'w-full relative mb-4 mt-4'"
+    :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full' : 'w-full relative mb-4 mt-4'"
     x-on:keydown.escape="isSliderOpen=false"
     x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
     x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
@@ -23,12 +27,6 @@ GALLERY
     :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
   >
 
-  <h1 class="text-5xl text-cyan-700 text-center py-4 ">{{ component.title }}</h1>
-  {% if component.text %}
-  <div class="text-center text-xl py-4">
-    {{ component.text | markdown | safe }}
-  </div>
-  {% endif %}
     {# pre next #}
     <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
           tabindex="0"
@@ -49,7 +47,8 @@ GALLERY
     {# open/close toggler  #}
     <button
           type="button" aria-label="open close image"
-          class="hidden md:block w-6 h-6 text-white z-10 absolute right-2 top-2"
+          class="hidden md:block w-6 h-6 z-10 absolute right-2 top-2"
+          :class="isSliderOpen ? 'text-white dark:text-cyan-200' : 'text-white'"
           @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
       <span x-show="isSliderOpen">
         {% include "svg/close.svg" %}
@@ -62,7 +61,7 @@ GALLERY
     {# Image wrapper for the gallery #}
     <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
-        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-slate-300">
+        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-slate-200 dark:bg-slate-900 h-full">
 
       {# loop through all the images #}
       {% for item in gallery %}
@@ -70,7 +69,7 @@ GALLERY
         <div aria-label="image" role="img"
         x-ref="slideitem{{ loop.index }}"
         class="flex flex-shrink-0 overflow-auto relative md:aspect-video w-full h-full mr-2 snap-center transition"
-        :class="isSliderOpen ? 'aspect-video justify-center items-center' : 'aspect-square'"
+        :class="isSliderOpen ? 'md:aspect-video justify-center items-center' : ''"
         >
 
           {% picture

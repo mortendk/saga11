@@ -1,25 +1,29 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/components/templates/all-pages.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/templates/all-pages.njk -->{%- endif -%}
 
+<h2 class="text-5xl text-center text-cyan-700 dark:text-cyan-200">All pages</h2>
 
-<section class="grid md:grid-cols-3 gap-4">
+<section class="grid md:grid-cols-3 gap-4 py-4">
+
 {% for item in collections.allPages  %}
 
-  <article class="p-2 shadow border m-1">
+  <article class="shadow border dark:border-none border-slate-100 bg-white dark:bg-slate-900">
     <a href="{{ item.url }}">
-      <div class="shadow-lg aspect-video overflow-hidden mb-4">
 
+      <div class="shadow-lg aspect-video overflow-hidden">
       {% picture
           img=item.data.card.image,
           width=[400,800],
           sizes="(min-width: 1600px) 50vw, 100vw",
-          css="shadow rounded-xl",
+          css="",
           loading = "eager"
       %}
-
       </div>
-      <div class="text-xl ">{{item.data.title}}</div>
-      <div class="mt-2">{{ item.data.teaser }}</div>
-      <time>{{ item.data.date | formatDate("DDD  T", "DK") }}</time>
+
+      <div class="p-4">
+        <div class="text-2xl text-cyan-800 dark:text-cyan-200">{{item.data.card.title }}</div>
+        <div class="mt-2">{{ item.data.card.text }}</div>
+        <time class="font-bold text-slate-600 dark:text-slate-200 text-right py-4 block">{{ item.date | formatDate("DDD  T", "DK") }}</time>
+      </div>
     </div>
     </a>
   </article>

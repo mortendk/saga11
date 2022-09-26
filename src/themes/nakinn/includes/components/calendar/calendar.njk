@@ -21,10 +21,10 @@
   {% endif %}
 
   {# Add to calendar link #}
-  <a href="{% calendar google, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">Google</a>
-  <a href="{% calendar ics, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">ics</a>
-  <a href="{% calendar outlook, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">outlook</a>
-  <a href="{% calendar office365, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">office365</a>
-  <a href="{% calendar yahoo, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank">yahoo</a>
+  <a href="{% calendar google, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"    target="_blank"  rel="noopener">Google</a>
+  <a href="{% calendar ics, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"       target="_blank"  rel="noopener">ics</a>
+  <a href="{% calendar outlook, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"   target="_blank"  rel="noopener">outlook</a>
+  <a href="{% calendar office365, component.date_start, component.date_end, component.date_allday, title, teaser, location %}" target="_blank"  rel="noopener">office365</a>
+  <a href="{% calendar yahoo, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"     target="_blank"  rel="noopener">yahoo</a>
 
 {% endif %}

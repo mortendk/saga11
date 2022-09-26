@@ -1,0 +1,22 @@
+---
+layout: default.njk
+saga-template-name: notification
+---
+{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
+
+<article class="mx-auto max-w-2xl">
+
+  <h1 class="text-5xl py-4">{{ title }}</h1>
+  <div class="bg-slate-200 dark:bg-slate-900 rounded py-2 ">
+    <time class="text-slate-700  dark:text-slate-200">{{ date | formatDate("DDD  T", "DK") }}</time>
+     - {{ status }}
+  </div>
+  <div class="text-2xl">
+    {{ text | markdown | safe }}
+  </div>
+  <div class="prose prose-xl dark:prose-invert">
+    {{ content | safe }}
+  </div>
+
+</article>
+

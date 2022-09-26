@@ -1,11 +1,11 @@
-{%- if env.mode != 'prod' %}  <!-- src/__includes/components/form/form.njk -->{%- endif  -%}
+{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/form/form.njk -->{%- endif  -%}
 
-<section class="max-w-xl mx-auto">
+<section class="md:max-w-xl mx-auto py-4">
 
-  <h3 class="text-teal-700 text-4xl mb-4">{{ component.title }}</h3>
+  <h3 class="text-cyan-700 dark:text-cyan-200 text-4xl mb-4">{{ component.title }}</h3>
 
   {% if component.text %}
-    <div class="prose prose-lg">
+    <div class="prose prose-lg dark:prose-invert">
       {{ component.text  | markdown | safe  }}
     </div>
   {% endif %}
@@ -37,10 +37,11 @@
     {% endfor %}
 
 
-    <div class="flex flex-row justify-between">
+    <div class="flex flex-row justify-end">
 
-      <input type="reset" value="reset"
+      {# <input type="reset" value="reset"
              class="px-4 py-2 rounded-sm font-bold uppercase bg-slate-400 text-slate-800 hover:bg-slate-300">
+  #}
       <button
           aria-label="Submit"
           class="px-4 py-2 rounded-sm font-bold uppercase bg-lime-400 text-green-900 hover:bg-lime-300">Send</button>

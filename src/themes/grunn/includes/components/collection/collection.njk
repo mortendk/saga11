@@ -1,18 +1,16 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/components/collection/collection.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/collection/collection.njk -->{%- endif -%}
 
-{# COLLECTION OF POSTS
-------------------------------------------------
-https://www.11ty.dev/docs/collections/
-#}
-{%- if env.mode != 'prod' %}<!-- __includes/section-collection.njk  -->{%- endif -%}
-
-<h2 class="text-cyan-700 text-3xl mb-8 text-center">{{ component.title }}</h2>
-
-{% if component.text %}
-  <div class="prose lg:prose-xl mx-auto max-w-2xl">
-    {{ component.text  | markdown | safe  }}
-  </div>
-{% endif %}
+  {# title + text #}
+  <article class="mx-auto max-w-3xl">
+    <h2 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+      {{ component.title }}
+    </h2>
+    {% if component.text %}
+      <div class="text-xl">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
+  </article>
 
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
@@ -21,23 +19,30 @@ https://www.11ty.dev/docs/collections/
 
     <article class="" aria-label="Post {{ item.data.title}}">
       <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
-      <div class= "aspect-video overflow-hidden bg-slate-400">
-        {% picture
-            img=item.data.card.image,
-            width=[300, 600],
-            alt=item.data.card.alt
-        %}
+
+      <div class="shadow-lg aspect-video overflow-hidden">
+      {% picture
+          img=item.data.card.image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="",
+          loading = "eager"
+      %}
       </div>
-      <div class="shadow border rounded px-4 py-2 border-slate-100 bg-white text-slate-800 hover:text-slate-500">
-        <h3 class="mt-2 text-2xl">
+
+
+      <div class="shadow border dark:border-none rounded px-4 py-2 border-slate-100 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100">
+        <h3 class="mt-2 text-2xl dark:text-cyan-200">
           {{item.data.title}}
         </h3>
+
         <div class="mt-2">
-          {{ item.data.teaser }}
+          {{ item.data.card.text }}
         </div>
 
       </div>
     </a>
+
     </article>
 
   {% endfor %}

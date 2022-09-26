@@ -6,24 +6,24 @@
 
 {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true, allowMissing: true}) %}
 
-<nav class="inline-flex flex-row items-center p-2">
+<nav class="inline-flex flex-row items-center p-2"  aria-label="breadcrumb navigation">
 
   {% for item in bread %}
     {# home #}
     {% if loop.first %}
-      <a href="{{item.url }}" class="flex items-center mr-2 text-slate-700">
-        <div class="w-4 mr-1 text-slate-600">{% include "svg/home-modern.svg" %}</div>
+      <a href="{{item.url }}" class="flex items-center mr-2 text-slate-700 dark:text-cyan-200">
+        <div class="w-4 mr-1 text-slate-600 dark:text-cyan-200">{% include "svg/home-modern.svg" %}</div>
         Home
       </a>
     {% elseif not loop.last %}
     {#  #}
       /
-      <a href="{{item.url }}" class="ml-2 underline text-slate-700">
+      <a href="{{item.url }}" class="ml-2 underline text-slate-700 dark:text-cyan-200">
           {{item.title }}
       </a>
     {% else %}
       /
-      <div class="text-slate-700 ml-2">
+      <div class="text-slate-700 dark:text-cyan-200 ml-2">
         {{item.title }}
       </div>
 
