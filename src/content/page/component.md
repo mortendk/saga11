@@ -33,6 +33,8 @@ components:
         title: alt text 2
       - image: /upload/spaceship.png
         title: "alt text "
+    title: image gallery
+    text: "l﻿orem "
   - type: image
     template: components/image/image.njk
     title: image and text

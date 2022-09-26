@@ -7,6 +7,13 @@ GALLERY image cards
 
 {% if component.images | length %}
 <div class="grid md:grid-cols-4 gap-2 my-4">
+{{ item.title }}
+
+{% if item.text %}
+{{ item.text | markdown |safe }}
+{% endif %}
+
+
 
   {% for item in component.images %}
   <article aria-label="image item {{loop.index}}" class="">
