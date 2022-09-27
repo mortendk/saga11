@@ -6,19 +6,22 @@ saga-template-name: Post Default
 ------------------------------------------------
 post template
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- ___layouts/post/post.njk  -->
+{%- endif -%}
 <h1 class="text-6xl dark:text-cyan-200 pb-4">{{ title }}</h1>
 
-<div class="aspect-video overflow-hidden shadow-lg ">
-  {% picture
-      img=card.image,
+{% if image %}
+  <div class="aspect-video overflow-hidden shadow-lg ">
+    {% picture
+      img=image,
       width=[640,1280,1536],
       sizes="(max-width: 640px) 50vw, 100vw",
       css="",
       loading = "eager"
   %}
-</div>
-
+  </div>
+{% endif %}
 
 <article class="flex flex-col md:flex-row ">
   <div class="md:w-4/6">

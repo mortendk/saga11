@@ -17,9 +17,9 @@ async function picture(image) {
     // console.log(`❌ empty img string`);
   }
   const src = "src" + image.img;
-  const widths = image.width || [100, 200, 400];
+  const widths = image.width || [640, 1024, 1563];
   const formats = image.format || ["webp", "jpeg"];
-  const sizes = image.sizes || "(min-width: 1200px) 50vw, 100vw";
+  const sizes = image.sizes || "(max-width: 640px) 50vw, 100vw";
   const css = image.css || "";
   const alt = image.alt || "";
   const loading = image.loading || "lazy"; //lazy vs eager
@@ -30,12 +30,15 @@ async function picture(image) {
       widths: widths,
       formats: formats,
       outputDir: "_site/img/", // seind image directly to the site build
+      sharpOptions: {
+        animated: true,
+      },
       urlPath: "/img/",
-      // cacheOptions: {
-      //   duration: "1d",
-      //   directory: ".cache",
-      //   removeUrlQueryParams: false,
-      // },
+      cacheOptions: {
+        duration: "1d",
+        directory: ".cache",
+        removeUrlQueryParams: false,
+      },
       filenameFormat: function (id, src, width, format, options) {
         const extension = path.extname(src);
         const name = path.basename(src, extension);

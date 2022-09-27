@@ -1,8 +1,8 @@
 ---
 title: Hello World
-image: /upload/spaceship.png
+image: ""
 card:
-  image: /upload/spaceship.png
+  image: /upload/4hundo.gif
   alt: To the moon
   teaser: This is a teaser for a blogpost
   title: Hello world blogpost
@@ -19,6 +19,11 @@ date: 2022-09-19 17:14:55
 layout: post/post.njk
 eleventyExcludeFromCollections: false
 ---
+content 
+
+{% picture img="/upload/4hundo.gif", alt="4 1231 hundo" %}
+
+## \
 This is probably the best description ever of a movie
 
 > Space ship movie
@@ -33,17 +38,11 @@ This is probably the best description ever of a movie
 
 `this is a small code block`
 
-* l﻿iste item a
+* liste item a
 * l﻿iste item b
 
-t﻿his is *italic* and this is **bold**  and this is a [link](https://saga11.dev)
+This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
 
 ```html
 <h1>code</h1>
 ```
-
-and an image
-
-![image alt ](/upload/spaceship.png "This is the title for an image")
-
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur aliquid accusantium alias sunt dolore perspiciatis, debitis distinctio quam magnam neque, eaque voluptates error dignissimos dicta vero commodi? Omnis, eaque ipsum?
