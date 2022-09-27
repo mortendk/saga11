@@ -197,18 +197,17 @@ eleventyNavigation:
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
-This is probably the best description ever of a movie
+**This is probably the best description ever of a movie**
 
 > Space ship movie
 > Space ship people get up from sleeping coffin and have eat.
 > Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 
+# h1 H﻿eres a title
 
-# h1 H﻿eres a title  
+## h2 H﻿eres a title
 
-## h2 H﻿eres a title  
-
-### h3 H﻿eres a title  
+### h3 H﻿eres a title
 
 `this is a small code block`
 
@@ -217,12 +216,10 @@ This is probably the best description ever of a movie
 
 t﻿his is *italic* and this is **bold**
 
-
-
 ```html
 <h1>code</h1>
 ```
 
-and an image
+Image:
 
 ![image alt ](/upload/spaceship.png "This is the title for an image")
