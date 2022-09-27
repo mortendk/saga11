@@ -6,6 +6,11 @@ card:
   image: /upload/spaceship.png
   alt: spaceship
   text: card text ..
+components:
+  - type: collection
+    title: Collection
+    template: components/collection/collection.njk
+    collection: saga11
 tags:
   - saga11
 url: /
