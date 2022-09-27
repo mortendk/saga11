@@ -5,17 +5,47 @@ eleventyExcludeFromCollections: true
 ---
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>{{site.title }} | {{ title }}</title>
-</head>
-<body>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js?123"></script>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{site.title }} | {{ title }}</title>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js?123"></script>
 
+    <!-- Netlify Identity Widget -->
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <!-- Netlify Identity Widget -->
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</body>
+    <script>
+      CMS.registerEditorComponent({
+        id: "shortcode-picture",
+        label: "Shortcode: Picture",
+        fields: [
+          {
+            name: 'image',
+            label: 'image',
+            widget: 'image',
+            choose_url: false
+          }, {
+            name: 'alt',
+            label: 'alt',
+            widget: 'string',
+            default: ''
+          }
+        ],
+        pattern: /^{\% picture img="(.*?)", alt="(.*?)" \%}$/ms,
+        fromBlock: function (match) {
+          return {image: match[1], alt: match[2]};
+        },
+        toBlock: function (data) {
+          return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
+        },
+        toPreview: function (data) {
+          return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
+        }
+      });
+    </script>
+
+  </body>
 </html>
