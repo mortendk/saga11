@@ -42,8 +42,8 @@ collections:
   # Pages Collection
   # -----------------------------------------------------------------
   - name: page
-    label: Pages
-    label_singular: Page
+    label: 🏩 Pages
+    label_singular: 🏩 Page
     description: "Pages with components"
     folder: "src/content/page"
     slug: "{{title}}"
@@ -70,7 +70,7 @@ collections:
       - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
 
       - name: card
-        label: card
+        label: 🏙 card
         widget: object
         collapsed: true
         summary: "{{fields.image}} {{fields.teaser}} "
@@ -82,15 +82,15 @@ collections:
 
 
       # COMPONENETS
-      - label: 'Components'
-        label_singular: 'Component'
+      - label: '👷 PageBuilder - Components'
+        label_singular: '👷 Component'
         name: 'components'
         widget: 'list'
         add_to_top: true
         collapsed: true
         types:
 
-          - label: 'Text Markdown'
+          - label: '💬 Text Markdown'
             name: 'text'
             widget: object
             summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
@@ -106,7 +106,7 @@ collections:
                 required: true
                 default: "components/text/text.njk"
 
-          - label: 'Image & Text'
+          - label: '🌉 Image & Text'
             name: 'image'
             widget: object
             summary: "{{fields.text | truncate(100, '...')}}  || {{fields.template}}"
@@ -125,7 +125,7 @@ collections:
                 required: true
                 default: "components/image/image.njk"
 
-          - label: 'Image Gallery'
+          - label: '🌇 🌉Image Gallery'
             name: 'images'
             widget: object
             summary: '{{fields.title}} || {{fields.template}}'
@@ -151,7 +151,7 @@ collections:
                 default: "components/images/images.njk"
 
           - name: cta
-            label: CTA
+            label: 📣 CTA
             widget: object
             summary: "{{fields.image}} {{fields.teaser}} "
             fields:
@@ -172,7 +172,7 @@ collections:
                 default: "components/cta/cta.njk"
 
           - name: testamonials
-            label: Testamonials
+            label: 💬 Testamonials
             widget: object
             summary: "{{fields.image}} {{fields.teaser}} "
             fields:
@@ -201,7 +201,7 @@ collections:
                 default: "components/testamonial/testamonial.njk"
 
           - name: features
-            label: Features
+            label: ✅ Features
             widget: object
             summary: "{{fields.image}} {{fields.teaser}} "
             fields:
@@ -238,7 +238,7 @@ collections:
                 default: "components/feature/feature.njk"
 
           - name: "calendar"
-            label: "Calendar Event"
+            label: "📆 Calendar"
             widget: object
             summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
             fields:
@@ -276,7 +276,7 @@ collections:
               default: "components/calendar/calendar.njk"
 
           - name: "download"
-            label: "Download"
+            label: "⤵️ Download"
             widget: object
             summary: '{{fields.files.file }} || {{fields.template}}'
             fields:
@@ -300,7 +300,7 @@ collections:
                 default: "components/download/download.njk"
 
           - name: price
-            label: Price table
+            label: 💶 Price Table
             widget: object
             summary: "{{fields.title}} {{fields.teaser}} "
             fields:
@@ -335,7 +335,7 @@ collections:
 
 
           - name: links
-            label: Links
+            label: 🔗 Links
             widget: object
             summary: "{{fields.title}} {{fields.url}} "
             fields:
@@ -361,7 +361,7 @@ collections:
 
 
 
-          - label: 'Form'
+          - label: ' 💌 Form'
             name: 'form'
             widget: object
             summary: '{{fields.title}} || {{fields.template}}'
@@ -391,7 +391,7 @@ collections:
                 default: "components/form/form.njk"
 
 
-          - label: 'Cards - Collection by tags'
+          - label: '🗂 Collection'
             name: 'collection'
             widget: object
             summary: '{{fields.collection}} || {{fields.template}}'
@@ -419,7 +419,7 @@ collections:
 
 
           - name: "pagecard"
-            label: "Cards Page"
+            label: "📑 Cards Page"
             widget: object
             summary: '{{fields.page}} || {{fields.template}}'
             fields:
@@ -443,7 +443,7 @@ collections:
                 default: "components/pagecard/pagecard.njk"
 
           - name: "njktemplate"
-            label: "Nunjucks Template"
+            label: "🤖 Nunjucks Template"
             widget: object
             summary: '{{fields.page}} || {{fields.template}}'
             fields:
@@ -457,7 +457,7 @@ collections:
                 required: true
                 default: "components/templates/default.njk"
 
-      - label: "Body"
+      - label: "👩‍💻 Content"
         name: "body"
         widget: "markdown"
         buttons:
@@ -471,14 +471,14 @@ collections:
           - quote
           - bulleted-list
         editor_components:
-          - image
+          - shortcode-picture
           - code-block
         required: false
 
 
       # Tags
       - name: tags
-        label: tags
+        label: 🏷 Tags
         widget: relation
         collection: tags
         searchFields: [title]
@@ -490,7 +490,7 @@ collections:
       - { label: "url", name: "url", widget: "string" }
 
       - name: eleventyNavigation
-        label: Navigation
+        label: 🍔 Navigation
         widget: object
         collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
@@ -511,7 +511,7 @@ collections:
 
       # Layout selector
       - name: "layout"
-        label: "Layout Selector"
+        label: "💅 Select Template"
         widget: relation
         collection: pagetemplates
         searchFields: [saga-template-name]
@@ -522,7 +522,7 @@ collections:
         hint: "select the template file t hat should render this page - templates are in /src/__layouts/page/"
 
       - {
-          label: "Draft Mode",
+          label: "😴 Draft Mode",
           name: "eleventyExcludeFromCollections",
           widget: "boolean",
           default: false,
@@ -534,7 +534,7 @@ collections:
   # Post Collection
   # -----------------------------------------------------------------
   - name: post
-    label: Posts
+    label: 🧑🏽‍💻 Posts
     label_singular: Post
     description: "Post fx blogpost etc"
     folder: "src/content/post"
@@ -565,21 +565,21 @@ collections:
       summary: "{{title}}"
 
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image", required: false, choose_url: false}
+      - { label: " Title", name: "title", widget: "string" }
+      - { label: "🌇 Image", name: "image", widget: "image", required: false, choose_url: false}
 
       - name: card
-        label: card
+        label: 🏙 card
         widget: object
         collapsed: true
         summary: "{{fields.image}} {{fields.teaser}} "
         fields:
-        - { label: "title", name: "title", widget: "string", required: false }
-        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Title", name: "title", widget: "string", required: false }
+        - { label: "🌇 Image", name: "image", widget: "image", required: false, choose_url: false }
         - { label: "Image alt", name: "alt", widget: "string", required: false }
         - { label: "Text", name: "text", widget: "text", required: false }
 
-      - label: "Body"
+      - label: "👩‍💻 Content"
         name: "body"
         widget: "markdown"
         buttons:
@@ -599,7 +599,7 @@ collections:
 
       # Tags
       - name: tags
-        label: tags
+        label: 🏷 Tags
         widget: relation
         collection: tags
         searchFields: [title]
@@ -609,7 +609,7 @@ collections:
         multiple: true
 
       # Date
-      - label: "Date"
+      - label: "🕒 Date"
         name: "date"
         widget: "datetime"
         date_format: "DD.MM.YYYY"
@@ -619,7 +619,7 @@ collections:
 
       # Layout selector
       - name: "layout"
-        label: "Layout Selector"
+        label: "💅 Select Template"
         widget: relation
         collection: posttemplates
         searchFields: [saga-template-name]
@@ -629,7 +629,7 @@ collections:
         required: true
 
       - {
-          label: "Draft Mode",
+          label: "😴 Draft Mode",
           name: "eleventyExcludeFromCollections",
           widget: "boolean",
           default: false,
@@ -641,8 +641,8 @@ collections:
   # Notifications
   # -----------------------------------------------------------------
   - name: notification
-    label: notifications
-    label_singular: notification
+    label: 📣 Notifications
+    label_singular: Notification
     description: "Notifications and alerts"
     folder: "src/content/notification"
     slug: "{{title}}"
@@ -652,7 +652,7 @@ collections:
     editor:
       preview: false
     # Overview
-    summary: "{{title}} [{{url}}]"
+    summary: "{{title}} Status: [{{status}}]"
     sortable_fields: ["title", "date"]
     view_filters:
       - label: Drafts
@@ -664,13 +664,13 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string"}
-      - label: status
+      - label: 💁🏽‍♂️ status
         name: "status"
         widget: "select"
         multiple: false
         options: ["info", "warning", "alert"]
         default: "info"
-      - label: "text"
+      - label: "❗️info"
         name: "text"
         widget: "markdown"
         buttons:
@@ -678,7 +678,7 @@ collections:
           - italic
           - link
         required: false
-      - label: "Body"
+      - label: "👩‍💻 Page"
         name: "body"
         widget: "markdown"
         buttons:
@@ -690,13 +690,13 @@ collections:
           - quote
           - bulleted-list
         editor_components:
-          - image
+          - shortcode-picture
           - code-block
         required: false
       - { label: "link to page", name: "showlink", widget: "boolean", default: false }
 
       # Date
-      - label: "Date"
+      - label: "🕒 Date"
         name: "date"
         widget: "datetime"
         date_format: "DD.MM.YYYY"
@@ -705,7 +705,7 @@ collections:
         picker_utc: true
 
       - {
-          label: "Draft Mode",
+          label: "😴 Draft Mode",
           name: "eleventyExcludeFromCollections",
           widget: "boolean",
           default: false,
@@ -717,9 +717,9 @@ collections:
   # Menu Items
   # -----------------------------------------------------------------
   - name: menuitem
-    label: menu items
+    label: 🍔 Menu Items
     label_singular: menuitem
-    description: "Single menu items for menus"
+    description: "Single menu items for menus - Version: 1.0"
     folder: "src/content/menuitem"
     slug: "{{title}}"
     preview_path: notification/{{title}}/
@@ -728,7 +728,7 @@ collections:
     editor:
       preview: false
     # Overview
-    summary: "{{title}} [{{url}}]"
+    summary: "{{title}} | Url: {{eleventyNavigation.url}} | Parent: {{eleventyNavigation.parent}}"
     sortable_fields: ["title"]
     view_filters:
       - label: Drafts
@@ -740,17 +740,15 @@ collections:
 
     fields:
       - { label: "title", name: "title", widget: "string", required: true}
-
       - name: eleventyNavigation
         label: Navigation
         widget: object
         collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
-        - { label: "title", name: "title", widget: "string", required: true}
+        - { label: "titel(key)", name: key", widget: "string", required: true, hint: "We use title and key as the same to keep it simple"}
         - { label: "url", name: "url", widget: "string", default : "https://", required: false}
         - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
-
         - name: "parent"
           label: parent menu item
           widget: relation
@@ -762,16 +760,15 @@ collections:
           required: false
           multiple: false
           hint: "This is used for referencing the pages - a trick cause netlifycms cant combine collections"
-        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "Machine key is used for other pages to identify this" }
         - { label: "order", name: "order", widget: "number", required: false}
-
+        - { label: "description", name: "description", widget: "text", default : "", required: false}
 
   # -----------------------------------------------------------------
   # Relations Tags
   # -----------------------------------------------------------------
   - name: tags
-    label_singular: tag
-    label: "Tags"
+    label_singular: Tag
+    label: 🏷 Tags
     folder: "src/content/tags"
     slug: "{{title}}"
     hide: false
@@ -780,7 +777,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - {
-          label: "Draft Mode",
+          label: "😴 Draft Mode",
           name: "eleventyExcludeFromCollections",
           widget: "boolean",
           default: false,
@@ -1020,8 +1017,8 @@ collections:
   # -----------------------------------------------------------------
   # Setings
   # -----------------------------------------------------------------
-  - label: "Settings"
-    name: "settings"
+  - label: ⚙️ Settings
+    name: Settings
     files:
       - label: "Site Settings"
         name: "sitesettings"
@@ -1032,7 +1029,7 @@ collections:
           - { label: keywords, name: keywords, widget: text, required: false }
           - { label: header, name: header, widget: text, required: false, hint: "data inside of header ex for tracking " }
 
-          - { label: footer, name: footer, widget: markdown, required: false }
+          - { label: footer, name: footer, widget: text, required: false }
           - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
           - { label: "humans.txt", name: humantxt, widget: text, required: false }
 

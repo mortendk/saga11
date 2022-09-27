@@ -2,7 +2,9 @@
 ------------------------------------------------
 Global header for the site
  #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/header.njk -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/__includes/header.njk -->
+{%- endif  -%}
 
 <header class="relative dark:bg-slate-800 bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
@@ -16,6 +18,7 @@ Global header for the site
     <div class="flex flex-row">
 
       <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center md:mr-4">
+        {# quick n fast logo #}
         {% include "svg/saga11.svg" %}
         <h1 class="sr-only">{{site.title}}</h1>
       </a>
@@ -23,19 +26,18 @@ Global header for the site
       {% include "nav/menu.njk" %}
     </div>
 
-  {% if site.rss %}
-    <div class="hidden md:flex justify-end items-center">
+    {% if site.rss %}
+      <div class="hidden md:flex justify-end items-center">
 
-    <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-slate-400 dark:text-slate-100 hover:text-orange-500">
-      <span class="sr-only">RSS Feed</span>
-      {% include "svg/rss.svg" %}
-    </a>
-    </div>
-  {% endif %}
-
+        <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-slate-400 dark:text-slate-100 hover:text-orange-500">
+          <span class="sr-only">RSS Feed</span>
+          {% include "svg/rss.svg" %}
+        </a>
+      </div>
+    {% endif %}
 
     <div class="flex items-center md:hidden text-2xl text-teal-700 dark:text-teal-100 ">
-     <div>{{ site.title }}</div>
+      <div>{{ site.title }}</div>
 
     </div>
 
