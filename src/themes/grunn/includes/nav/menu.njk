@@ -23,6 +23,10 @@
         {% if item.target %}
           target="_blank" rel="noopener"
         {% endif %}
+
+        {% if item.excerpt %}
+          title="{{ item.excerpt | markdown | safe }}"
+        {% endif %}
       >
         {{ item.title }}
       </a>
@@ -48,12 +52,16 @@
             >
 
             {# We repeat the link from placeholder above so it works on a ipad etc #}
-            <a href="{{ item.url }}" class="{{ menulvl2 }}">{{ item.title }}</a>
+            <a href="{{ item.url }}"
+               class="{{ menulvl2 }}"
+               {% if item.excerpt %}title="{{ item.excerpt | markdown | safe }}" {% endif %}
+            >{{ item.title }}</a>
 
             {# Loop next level #}
             {%- for item in collections.all | eleventyNavigation(item.key) %}
               <a href="{{ item.url }}" class="{{ menulvl2 }}"
                  {% if item.target %}target="_blank" rel="noopener" {% endif %}
+                {% if item.excerpt %}title="{{ item.excerpt | markdown | safe }}" {% endif %}
               >
               {{ item.title }}
               </a>

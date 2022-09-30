@@ -15,9 +15,11 @@ tags:
   - saga11
 url: /
 eleventyNavigation:
-  key: main
+  parent: ""
   title: Home
-  order: 0
+  order: 10
+  key: main
+  excerpt: Mega text
 layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
