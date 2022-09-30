@@ -194,6 +194,7 @@ eleventyNavigation:
   parent: main
   key: component
   order: 10
+  excerpt: "*This is the text for the menu*"
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---

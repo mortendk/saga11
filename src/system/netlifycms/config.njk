@@ -502,12 +502,12 @@ collections:
           collection: page
           searchFields: [title]
           valueField: "{{eleventyNavigation.key}}"
-          displayFields: ["Title: {{title}} | nerd info key: '{{eleventyNavigation.key}}'"]
+          displayFields: ["Title: {{title}} | key: '{{eleventyNavigation.key}}'"]
           required: false
           multiple: false
-
-        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system main is used for the frontpage" }
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system Main is used for the frontpage - and should always be" }
         - { label: "order", name: "order", widget: "number", required: false}
+        - { label: "text", name: "excerpt", widget: "markdown", default : "", required: false, hint: 'If the theme supports it '}
 
       # Layout selector
       - name: "layout"
@@ -746,8 +746,8 @@ collections:
         collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
-        - { label: "titel(key)", name: key", widget: "string", required: true, hint: "We use title and key as the same to keep it simple"}
-        - { label: "url", name: "url", widget: "string", default : "https://", required: false}
+        - { label: "key", name: key, widget: "string", required: true, hint: "Title and key"}
+        - { label: "url", name: url, widget: "string", default : "https://", required: false}
         - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
         - name: "parent"
           label: parent menu item
@@ -759,9 +759,8 @@ collections:
           displayFields: ["Title: {{title}} |  key: '{{eleventyNavigation.key}}'"]
           required: false
           multiple: false
-          hint: "This is used for referencing the pages - a trick cause netlifycms cant combine collections"
         - { label: "order", name: "order", widget: "number", required: false}
-        - { label: "description", name: "description", widget: "text", default : "", required: false}
+        - { label: "text", name: "excerpt", widget: "text", default : "", required: false, hint: 'If the theme supports it '}
 
   # -----------------------------------------------------------------
   # Relations Tags
