@@ -24,17 +24,17 @@ Global header for the site
     <button @click="darkMode = !darkMode" class="w-8" aria-label="toggle color scheme">
       {# darkmode on #}
       <div x-show="darkMode" class="bg-slate-200 p-2 rounded">
-        <div class="w-4 text-slate-700">{% include "svg/sun.svg" %}</div>
+        <div class="w-4 text-slate-700">{% include "icons/sun.svg" %}</div>
       </div>
 
       {# darkmode not actived #}
       <div x-show="!darkMode" class="bg-slate-700 p-2 rounded">
-        <div class="w-4 text-slate-100">{% include "svg/moon.svg" %}</div>
+        <div class="w-4 text-slate-100">{% include "icons/moon.svg" %}</div>
       </div>
     </button>
 
     <button @click="localStorage.clear()" class="bg-slate-200 p-2 rounded w-8" aria-label="Clear Local storage from this site">
-      <div class="w-4 text-slate-700">{% include "svg/trash.svg" %}</div>
+      <div class="w-4 text-slate-700">{% include "icons/trash.svg" %}</div>
     </button>
 
   </div>

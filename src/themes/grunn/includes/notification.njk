@@ -17,7 +17,7 @@
       x-show="showNotification"
     >
       <div class=" mx-auto flex flex-col md:flex-row items-center">
-        <div class="w-4 h-4 mr-2">{% include "svg/bell.svg" %}</div>
+        <div class="w-4 h-4 mr-2">{% include "icons/bell.svg" %}</div>
 
         {% if item.data.showlink %}
           <a href="{{ item.url }}">
@@ -41,7 +41,7 @@
         aria-label="Close notification"
         @click="showNotification = false"
         class="w-6 h-6 hover:rotate-90 transition">
-        {% include "svg/close.svg" %}
+        {% include "icons/close.svg" %}
         </button> #}
     </div>
 

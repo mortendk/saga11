@@ -17,7 +17,7 @@ A simple pre / next nav for collections
   {# previous  link #}
   {%- if previousPost %}
     <a href="{{ previousPost.url | url }}" title="{{ previousPost.data.title }}" class="flex flex-row items-center w-full">
-      <div class="w-8 text-black">{% include "svg/left.svg" %}</div>
+      <div class="w-8 text-black">{% include "icons/left.svg" %}</div>
       <div>{{ previousPost.data.title }}</div>
     </a>
   {% endif %}
@@ -25,7 +25,7 @@ A simple pre / next nav for collections
   {%- if nextPost %}
     <a href="{{ nextPost.url | url }}" title="{{ nextPost.data.title }}" class="flex flex-row items-center justify-end w-full">
       <div>{{ nextPost.data.title }}</div>
-      <div class="w-8 text-black">{% include "svg/right.svg" %}</div>
+      <div class="w-8 text-black">{% include "icons/right.svg" %}</div>
    </a>
   {% endif %}
   {# /if pre of next #}
