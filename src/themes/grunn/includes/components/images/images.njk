@@ -33,7 +33,7 @@
           type="button" aria-label="Previous"
           :class="isSliderOpen ? 'md:hidden' : 'md:block'"
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 left-2 z-10 -translate-y-1/2">
-      {% include "svg/left.svg" %}
+      {% include "icons/left.svg" %}
     </button>
 
     <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
@@ -41,7 +41,7 @@
           type="button" aria-label="Previous"
           :class="isSliderOpen ? 'md:hidden' : 'md:block'"
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
-      {% include "svg/right.svg" %}
+      {% include "icons/right.svg" %}
     </button>
 
     {# open/close toggler  #}
@@ -51,10 +51,10 @@
           :class="isSliderOpen ? 'text-white dark:text-cyan-200' : 'text-white'"
           @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
       <span x-show="isSliderOpen">
-        {% include "svg/close.svg" %}
+        {% include "icons/close.svg" %}
       </span>
       <span x-show="!isSliderOpen">
-        {% include "svg/open.svg" %}
+        {% include "icons/open.svg" %}
       </span>
     </button>
 
