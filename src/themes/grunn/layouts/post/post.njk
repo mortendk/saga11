@@ -27,7 +27,24 @@ post template
   <div class="md:w-4/6">
 
     <footer class="mt-4 text-lg flex flex-row space-x-4">
-      {% include "nav/tags.njk" %}
+
+
+    {% for tag in tags %}
+
+      {% for item in collections.all | getPage("/tag/" + tag + "/") %}
+
+        <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
+
+          {% if item.data.icon %}
+            <div class="h-4 w-4 mr-2">{% include  item.data.icon %}</div>
+          {% endif %}
+          {{ item.data.title }}
+
+        </a>
+
+      {% endfor %}
+    {% endfor %}
+
       <time>{{ date | formatDate("DDD  T", "DK") }}</time>
     </footer>
 

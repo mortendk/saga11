@@ -45,6 +45,34 @@ eleventyExcludeFromCollections: true
           return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
         }
       });
+
+      CMS.registerEditorComponent({
+        id: "shortcode-nunjucks",
+        label: "Shortcode: nunjucks  Raw",
+        fields: [
+          {
+            name: 'image',
+            label: 'image',
+            widget: 'image',
+            choose_url: false
+          }, {
+            name: 'alt',
+            label: 'alt',
+            widget: 'string',
+            default: ''
+          }
+        ],
+        pattern: /^{\% picture img="(.*?)", alt="(.*?)" \%}$/ms,
+        fromBlock: function (match) {
+          return {image: match[1], alt: match[2]};
+        },
+        toBlock: function (data) {
+          return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
+        },
+        toPreview: function (data) {
+          return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
+        }
+      });
     </script>
 
   </body>

@@ -769,13 +769,26 @@ collections:
   - name: tags
     label_singular: Tag
     label: 🏷 Tags
-    folder: "src/content/tags"
+    folder: "src/content/tag"
     slug: "{{title}}"
     hide: false
     create: true
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "content", name: "body", widget: "markdown" }
+      - name: "icon"
+        label: "icon"
+        widget: relation
+        options_length: 300
+        collection: icons
+        searchFields: [title]
+        valueField: "icons/{{filename}}.{{extension}}"
+        displayFields: ["icons/{{filename}}.{{extension}}"]
+        required: true
+        default: "icons/beaker.svg"
+        hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
+
       - {
           label: "😴 Draft Mode",
           name: "eleventyExcludeFromCollections",
