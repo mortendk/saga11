@@ -720,7 +720,7 @@ collections:
   - name: menuitem
     label: 🍔 Menu Items
     label_singular: menuitem
-    description: "Single menu items for menus - Version: 1.0"
+    description: "Single menu items to be included in the exising navigation structre. | Version: 1.0"
     folder: "src/content/menuitem"
     slug: "{{title}}"
     preview_path: notification/{{title}}/
@@ -769,20 +769,43 @@ collections:
   - name: tags
     label_singular: Tag
     label: 🏷 Tags
-    folder: "src/content/tags"
+    description: "Tags used to catagorize content. | Version: 1.0"
+    folder: "src/content/tag"
     slug: "{{title}}"
     hide: false
     create: true
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "😴 Draft Mode",
-          name: "eleventyExcludeFromCollections",
-          widget: "boolean",
-          default: false,
-          required: false,
-        }
+      - label: "👩‍💻 Content"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-one
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+          - link
+        editor_components:
+          - code-block
+          - shortcode-picture
+        required: false
+
+      - name: "icon"
+        label: "icon"
+        widget: relation
+        options_length: 300
+        collection: icons
+        searchFields: [title]
+        valueField: "icons/{{filename}}.{{extension}}"
+        displayFields: ["icons/{{filename}}.{{extension}}"]
+        required: true
+        default: "icons/beaker.svg"
+        hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
 
 
   # -----------------------------------------------------------------

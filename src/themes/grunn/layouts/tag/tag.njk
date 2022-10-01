@@ -1,26 +1,38 @@
 ---
 layout: default.njk
-saga-template-name: Tag
+saga-template-name: tag
 ---
-{# Tag
-------------------------------------------------
-the tag page auto generated from src/systempages/tag.njk
-#}
-{%- if env.mode != 'prod' %}<!-- ___layouts/system/tag.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/layouts/tag/tag.njk  -->{%- endif -%}
+
+<article class="mx-auto max-w-2xl">
+
+  <h1 class="text-6xl text-cyan-700 dark:text-cyan-200 text-center ">{{ title }}</h1>
+
+  {% if icon %}
+    <div class="h-20 w-20">{% include  icon %}</div>
+  {% endif %}
 
 
-<h1 class="text-6xl text-cyan-700 dark:text-cyan-200 text-center ">{{ title }}</h1>
+  {% include "nav/tags.njk" %}
 
-{% include "nav/tags.njk" %}
+  <div class="prose prose-xl max-w-full dark:prose-invert">
+    {{ content | safe }}
+  </div>
 
-  {# {% for item in collections.all | getPage("/tag/" + tag + "/" ) %}
-    <a href="/tag/{{ tag }}">{{ item.data.title }}</a>
-  {% endfor %} #}
+</article>
 
 
 <section class="md:grid grid-cols-3 gap-4 py-4">
-{# collection with all items with [tag] #}
-{% for item in collections[ tag ]  %}
+
+{#
+the page.fileslug is the tags identifier in all the md files
+ex:
+tags:
+  - saga11
+
+That then refers to the file tag/saga.md that constainss all the data the we use on this page.
+ #}
+{% for item in collections[ page.fileSlug ]  %}
 
   <article class="shadow border dark:border-none border-slate-100 bg-white dark:bg-slate-900">
     <a href="{{ item.url }}" class="">
@@ -44,4 +56,3 @@ the tag page auto generated from src/systempages/tag.njk
   </article>
 
 {% endfor %}
-</section>

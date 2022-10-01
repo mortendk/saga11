@@ -13,6 +13,7 @@ components:
     collection: saga11
 tags:
   - saga11
+  - test
 url: /
 eleventyNavigation:
   parent: ""

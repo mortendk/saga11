@@ -1,3 +1,3 @@
 module.exports = function (tags) {
-  return (tags || []).filter((tag) => ["menu", "relation", "frontpage"].indexOf(tag) === -1);
+  return (tags || []).filter((tag) => ["relation"].indexOf(tag) === -1);
 };
