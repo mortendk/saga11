@@ -776,7 +776,24 @@ collections:
     delete: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "content", name: "body", widget: "markdown" }
+      - label: "👩‍💻 Content"
+        name: "body"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - heading-one
+          - heading-two
+          - heading-three
+          - code
+          - quote
+          - bulleted-list
+          - link
+        editor_components:
+          - code-block
+          - shortcode-picture
+        required: false
+
       - name: "icon"
         label: "icon"
         widget: relation
