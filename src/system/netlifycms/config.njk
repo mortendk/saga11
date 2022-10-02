@@ -807,6 +807,26 @@ collections:
         default: "icons/beaker.svg"
         hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
       - { label: "RSS feed", name: "rssfeed", widget: "boolean", default: true, required: true }
+      - name: eleventyNavigation
+        label: 🍔 Navigation
+        widget: object
+        collapsed: false
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "title", name: "title", widget: "string", required: false}
+        - name: "parent"
+          label: Parent page
+          widget: relation
+          collection: page
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: ["Title: {{title}} | key: '{{eleventyNavigation.key}}'"]
+          required: false
+          multiple: false
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system Main is used for the frontpage - and should always be" }
+        - { label: "order", name: "order", widget: "number", required: false}
+        - { label: "text", name: "excerpt", widget: "markdown", default : "", required: false, hint: 'If the theme supports it '}
+
 
   # -----------------------------------------------------------------
   # Templates selectors
