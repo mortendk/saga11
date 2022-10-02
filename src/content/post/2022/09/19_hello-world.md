@@ -15,12 +15,13 @@ card:
     "
 tags:
   - saga11
-  - css
+  - rssfeed
 date: 2022-09-19 17:14:55
 layout: post/post.njk
 eleventyExcludeFromCollections: false
 ---
-content 
+
+content
 
 {% picture img="/upload/4hundo.gif", alt="4 1231 hundo" %}
 
@@ -38,10 +39,10 @@ This is probably the best description ever of a movie
 
 `this is a small code block`
 
-* liste item a
-* l﻿iste item b
+- liste item a
+- l﻿iste item b
 
-This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
+This is _italic_ and this is **bold** and this is a [link](https://saga11.dev)
 
 ```html
 <h1>code</h1>

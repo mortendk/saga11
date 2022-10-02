@@ -1,4 +1,5 @@
 {
   "permalink": "tag/{{ page.fileSlug | slugify }}/",
-  "layout": "tag/tag.njk"
+  "layout": "tag/tag.njk",
+  "tags": "{{ page.fileSlug | slugify }}"
 }

@@ -93,8 +93,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("allPosts", require("./src/system/11ty/collection/allPosts.js"));
   eleventyConfig.addCollection("allPages", require("./src/system/11ty/collection/allPages.js"));
   eleventyConfig.addCollection("allNotification", require("./src/system/11ty/collection/allNotification.js"));
-  eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags"));
+  eleventyConfig.addCollection("allTags", require("./src/system/11ty/collection/allTags.js"));
   eleventyConfig.addCollection("styleguide", require("./src/system/11ty/collection/styleguide.js"));
+
+  eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags"));
 
   // Transform
   if (env.mode == "prod") {

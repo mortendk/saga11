@@ -27,7 +27,7 @@ components:
     title: Price table
     price:
       - featured: false
-        title: basic
+        title: Small
         price: "100"
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

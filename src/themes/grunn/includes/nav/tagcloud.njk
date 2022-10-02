@@ -1,0 +1,27 @@
+{# Tag Cloud
+------------------------------------------------
+List of all tags
+#}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/tagcloud.njk  -->{%- endif  -%}
+
+<nav aria-label="All Tags" class="flex flex-row space-x-4">
+
+{% for tag in collections.tags %}
+
+  {% for item in collections.all | getPage("/tag/" + tag + "/") %}
+
+    <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
+
+      {% if item.data.icon %}
+        <div class="h-4 w-4 mr-2">{% include  item.data.icon %}</div>
+      {% endif %}
+
+      {{ item.data.title }}
+
+    </a>
+
+  {% endfor %}
+
+{% endfor %}
+
+</nav>

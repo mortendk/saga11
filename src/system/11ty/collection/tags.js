@@ -1,5 +1,6 @@
+// The filter hides the tag from collections
 function filterTags(tags) {
-  return (tags || []).filter((tag) => ["menu", "relation", "frontpage"].indexOf(tag) === -1);
+  return (tags || []).filter((tag) => ["rssfeed", "relation"].indexOf(tag) === -1);
 }
 
 module.exports = function (collection) {

@@ -1,23 +1,34 @@
 ---
-permalink: feed.xml
+pagination:
+  data: collections.allTags
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+  eleventyComputed:
+    title: "{{ tag.data.title }}"
+permalink: feed/{{ tag.data.title | replace(" ", "") | slugify }}.xml
+eleventyComputed:
+  title: "{{ tag.data.title }}"
+  content: "{{ tag.data.content }}"
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>{{ site.title }}</title>
-  <subtitle>{{ site.description }}</subtitle>
-  <link href="{{ env.url }}/feed.xml" rel="self"/>
+  <title>{{ site.title }}: {{ title }}</title>
+  <subtitle>{{ content }} </subtitle>
+  <link href="{{ env.url }}/feed/{{ title | slugify }}.xml" rel="self"/>
+  <link href="{{ env.url }}"/>
   <generator uri="https://saga11.dev">{{eleventy.generator}}</generator>
   <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
   <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
   <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-  <id>{{ env.url }}/</id>
+  <id>{{ env.url }}/tag/{{ title | slugify }}</id>
   <author>
     <name>{{ site.authorname }}</name>
     <email>{{ site.authoremail }}</email>
   </author>
-  {%- for item in collections.rssfeed | reverse %}
+  {%- for item in collections[ tag.fileSlug ] | reverse %}
 
   {%- set absolutePostUrl = item.url | url | absoluteUrl(env.url) %}
 
