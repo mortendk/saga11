@@ -13,6 +13,8 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: njktemplate
+    template: components/templates/all-tags.njk
   - type: images
     template: components/images/images.njk
     images:
