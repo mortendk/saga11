@@ -2,10 +2,10 @@
 title: Saga11
 image: /upload/spaceship.png
 card:
-  title: Saga11 is the most awesome stuff ever
+  title: "This is the frontpage card "
   image: /upload/spaceship.png
   alt: spaceship
-  text: card text ..
+  text: The frontpage card that we use for sharing
 components:
   - type: collection
     title: Collection
