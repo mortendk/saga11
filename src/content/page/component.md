@@ -13,6 +13,27 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: Adress
+    title: Adress Book
+    text: H﻿eres the Adresses to things
+    adress:
+      - name: Name of person
+        street: Regnbuepladsen
+        zip: "1550"
+        country: denmark
+        url: https://saga11.dev
+        email: foo@bar.dk
+        phone: +45 12 34 56 78
+        locality: København K
+      - name: Name of person
+        street: Regnbuepladsen
+        zip: "1550"
+        country: denmark
+        url: https://saga11.dev
+        email: foo@bar.dk
+        phone: +45 12 34 56 78
+        locality: København K
+    template: components/adress/adress.njk
   - type: njktemplate
     template: components/templates/all-tags.njk
   - type: images
@@ -200,6 +221,7 @@ eleventyNavigation:
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
+
 **This is probably the best description ever of a movie**
 
 > Space ship movie
@@ -214,10 +236,10 @@ eleventyExcludeFromCollections: false
 
 `this is a small code block`
 
-* l﻿iste item a
-* l﻿iste item b
+- l﻿iste item a
+- l﻿iste item b
 
-t﻿his is *italic* and this is **bold**
+t﻿his is _italic_ and this is **bold**
 
 ```html
 <h1>code</h1>
