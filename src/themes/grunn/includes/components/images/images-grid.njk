@@ -1,0 +1,32 @@
+{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/images/images-grid.njk -->{%- endif -%}
+
+<h1 class="text-5xl text-cyan-700 dark:text-cyan-200 text-center py-4 ">{{ component.title }}</h1>
+{% if component.text %}
+  <div class="text-center text-xl py-4">
+    {{ component.text | markdown | safe }}
+  </div>
+{% endif %}
+
+<div class="grid md:grid-cols-3 gap-4 my-4">
+
+  {% for item in component.images %}
+
+    <article aria-label="image item {{loop.index}}" class="">
+      {% picture
+        img=item.image,
+        width=[400,800],
+        sizes="(min-width: 1600px) 50vw, 100vw",
+        css="rounded-sm"
+      %}
+
+      <div class="px-4 py-2 dark:text-white text-slate-700 bg-slate-900">
+        {{ item.title }}dd
+      </div>
+
+    </article>
+
+  {% endfor %}
+
+</div>
+
+
