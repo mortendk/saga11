@@ -27,13 +27,14 @@
     {% endif %}
   </article>
 
-  <div class="max-w-7xl flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800">
+  <div class="grid md:grid-cols-3 gap-4 my-4" aria-label="Adresses">
+  {# <div class="max-w-7xl flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800"> #}
 
   {# Adress #}
   {% for item in component.adress %}
 
-    <article itemscope="" itemtype="http://schema.org/Organization" class="flex-1 bg-slate-900">
-      <h2 itemprop="name">{{ item.name }}</h2>
+    <article itemscope="" itemtype="http://schema.org/Organization" class="bg-slate-300 dark:bg-slate-900 p-4 rounded-lg">
+      <h2 itemprop="name" class="text-2xl">{{ item.name }}</h2>
 
       <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
       <div itemprop="streetAddress" class="pr-2">{{ item.street }}</div>
@@ -45,15 +46,21 @@
 
       <div itemprop="addressCountry">{{ item.country }}</div>
 
-      <br><br>
+      <div class="py-4">
+        <div class="flex flex-row items-center">
+          <div class="w-4 h-4 text-white mr-2">{% include "icons/phone.svg" %}</div>
+          <a href="tel:+{{ item.phone | replace("", "") }}" itemprop="telephone">{{ item.phone }}</a>
+        </div>
 
-      <div>
-        Phone: <a href="tel:+{{ item.phone | replace("", "") }}" itemprop="telephone">{{ item.phone }}</a>
-      </div>
+        <div class="flex flex-row items-center">
+          <div class="w-4 h-4 text-white mr-2">{% include "icons/envelope.svg" %}</div>
+          <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
+        </div>
 
-      <div>
-        <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
-        <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
+        <div class="flex flex-row items-center">
+          <div class="w-4 h-4 text-white mr-2">{% include "icons/arrow-top-right-on-square.svg" %}</div>
+          <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
+        </div>
       </div>
 
       <button
