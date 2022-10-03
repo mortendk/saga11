@@ -24,6 +24,7 @@ components:
         url: https://saga11.dev
         email: foo@bar.dk
         phone: +45 12 34 56 78
+        locality: København K
     template: components/adress/adress.njk
   - type: njktemplate
     template: components/templates/all-tags.njk
