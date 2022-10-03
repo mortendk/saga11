@@ -52,7 +52,6 @@ eleventyExcludeFromCollections: true
           %}
           ]]>
         {% endif %}
-       {{ item.data.card.text | log  }}
         {{ item.templateContent | truncate(400, true, "..." ) | htmlToAbsoluteUrls(absolutePostUrl) }}
       </content>
     </entry>

@@ -1,0 +1,46 @@
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/adress/adress/adress.njk-->{%- endif -%}
+
+<section class="max-w-7xl mx-auto py-8">
+
+  {# title + text #}
+  <article class="mx-auto max-w-3xl">
+    <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+      {{ component.title }}
+    </h3>
+    {% if component.text %}
+      <div class="prose prose-xl dark:prose-invert">
+        {{ component.text  | markdown | safe  }}
+      </div>
+    {% endif %}
+  </article>
+
+  <div class="flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800">
+
+  {% for item in component.adress %}
+
+    <article itemscope="" itemtype="http://schema.org/Organization">
+      <h2 itemprop="name">{{ item.name }}</h2>
+
+      <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+        <div itemprop="streetAddress">{{ item.adress }}</div>
+        <span itemprop="postalCode">{{ item.zip }}</span>
+        <span itemprop="addressCountry">{{ item.country }}</span>
+        <span itemprop="addressLocality">{{ item.locality }}</span>
+      </div>
+
+      <div>
+        Tlf: <a href="tel:+{{ item.phone | replace("", "") }}" itemprop="telephone">{{ item.phone }}</a>
+      </div>
+
+      <div>
+        <a href="mailto:fdm@fdm.dk" itemprop="email">fdm@fdm.dk</a><br>
+        <a itemprop="url" href="{{ item.url }}">{{ item.url }}</a>
+      </div>
+
+    </article>
+
+  {% endfor %}
+
+  </div>
+
+</section>

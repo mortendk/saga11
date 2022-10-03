@@ -239,7 +239,7 @@ collections:
                 default: "components/feature/feature.njk"
 
           - name: "calendar"
-            label: "📆 Calendar"
+            label: "📆 Calendar / Event"
             widget: object
             summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
             fields:
@@ -275,6 +275,40 @@ collections:
               displayFields: ["components/calendar/{{filename}}.{{extension}}"]
               required: true
               default: "components/calendar/calendar.njk"
+
+          - name: "Adress"
+            label: "🗺 Adress"
+            widget: object
+            summary: '{{fields.title}}'
+            fields:
+              - { label: title, name: title, widget: string, required: false }
+              - { label: "Text", name: "text", widget: "markdown", required: false }
+              - label: Adress
+                name: adress
+                summary: '{{fields.name}} {{fields.street}} {{fields.zip}} {{fields.country}} {{fields.website}} {{fields.email}}'
+                widget: list
+                add_to_top: true
+                fields:
+                  - { label: name, name: name, widget: string, required: false }
+                  - { label: street, name: street, widget: string, required: false }
+                  - { label: zip, name: zip, widget: string, required: false }
+                  - { label: country, name: country, widget: string, required: false }
+                  - { label: Locality, name: locality, widget: string, required: false }
+                  - { label: phone, name: phone, widget: string,required: false }
+
+                  - { label: url, name: url, widget: string, default:"https://",required: false }
+                  - { label: email, name: email, widget: string, default:"email@domaine.com",required: false }
+              - name: "template"
+                label: "Template"
+                widget: relation
+                collection: componentTemplateAdress
+                searchFields: [title]
+                valueField: "components/adress/{{filename}}.{{extension}}"
+                displayFields: ["components/adress/{{filename}}.{{extension}}"]
+                required: true
+                default: "components/adress/adress.njk"
+
+
 
           - name: "download"
             label: "⤵️ Download"
@@ -983,7 +1017,7 @@ collections:
     fields:
       - { label: "name", name: "name", widget: "string" }
 
-  # Components Download
+  # Components calendar
   - name: componentTemplateCalendar
     label: "Template"
 {% endraw %}
@@ -995,6 +1029,22 @@ collections:
     extension: njk
     fields:
       - { label: "name", name: "name", widget: "string" }
+
+  # Components calendar
+  - name: componentTemplateAdress
+    label: "Template"
+{% endraw %}
+    folder: "src/themes/{{ theme }}/includes/components/adress"
+{% raw %}
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+
+
 
   # Components Download
   - name: componentTemplateTemplates
