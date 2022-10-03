@@ -19,15 +19,16 @@ eleventyExcludeFromCollections: true
   <subtitle>{{ content }} </subtitle>
   <link href="{{ env.url }}/feed/{{ title | slugify }}.xml" rel="self"/>
   <link href="{{ env.url }}"/>
-  <generator uri="https://saga11.dev">{{eleventy.generator}}</generator>
+  <generator uri="https://saga11.dev">Saga11</generator>
   <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
   <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
-  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <updated>{{ collections[ tag.fileSlug ] | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ env.url }}/tag/{{ title | slugify }}</id>
   <author>
     <name>{{ site.authorname }}</name>
     <email>{{ site.authoremail }}</email>
   </author>
+
   {%- for item in collections[ tag.fileSlug ] | reverse %}
 
   {%- set absolutePostUrl = item.url | url | absoluteUrl(env.url) %}
@@ -39,12 +40,20 @@ eleventyExcludeFromCollections: true
       <updated>{{ item.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-        {% if item.data.card.image %}
-          <![CDATA[
-            {# {% picture item.data.image, [640],"",['webp'],'alt','css','nope', env.url %} #}
+      {% if item.data.card.image %}
+        <![CDATA[
+          {% picture
+            img=item.data.card.image,
+            width=[640],
+            format="png",
+            sizes="",
+            css="",
+            loading = ""
+          %}
           ]]>
         {% endif %}
-        {{ item.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}
+       {{ item.data.card.text | log  }}
+        {{ item.templateContent | truncate(400, true, "..." ) | htmlToAbsoluteUrls(absolutePostUrl) }}
       </content>
     </entry>
 
