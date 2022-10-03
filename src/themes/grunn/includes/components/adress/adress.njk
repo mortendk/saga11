@@ -27,12 +27,12 @@
     {% endif %}
   </article>
 
-  <div class="flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800">
+  <div class="max-w-7xl flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800">
 
   {# Adress #}
   {% for item in component.adress %}
 
-    <article itemscope="" itemtype="http://schema.org/Organization">
+    <article itemscope="" itemtype="http://schema.org/Organization" class="flex-1 bg-slate-900">
       <h2 itemprop="name">{{ item.name }}</h2>
 
       <div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">

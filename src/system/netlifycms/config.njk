@@ -1148,24 +1148,20 @@ collections:
         name: "sitesettings"
         file: "src/content/data/site.json"
         fields:
-          - { label: title, name: title, widget: string }
-          - { label: description, name: description, widget: text, required: false }
-          - { label: keywords, name: keywords, widget: text, required: false }
-          - { label: header, name: header, widget: text, required: false, hint: "data inside of header ex for tracking " }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text, required: false }
+          - { label: Keywords, name: keywords, widget: text, required: false }
+          - { label: Header, name: header, widget: text, required: false, hint: "data inside of header ex for tracking " }
 
-          - { label: footer, name: footer, widget: text, required: false }
+          - { label: Footer, name: footer, widget: text, required: false }
           - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
-          - { label: "humans.txt", name: humantxt, widget: text, required: false }
+          - { label: "Humans.txt", name: humantxt, widget: text, required: false }
 
-          - { label: "rss feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: "RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
           - { label: Author (rss), name: authorname, widget: string, required: false, hint: "Feed Author name"}
           - { label: Aurthor Email (rss), name: authoremail,widget: string, required: false,hint: "Feed Author name"}
 
-          - { label: browesercolor, name: color, widget: color, required: false }
-
-          - { label: "Adress", name: "adress", widget: "string", required: false }
-          - { label: "zip", name: "zip", widget: "string", required: false }
-          - { label: "country", name: "country", widget: "string", required: false }
+          - { label: Browesercolor, name: color, widget: color, required: false }
 
       - label: "Social Network links"
         name: "some"
