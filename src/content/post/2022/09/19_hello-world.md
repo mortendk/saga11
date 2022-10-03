@@ -4,7 +4,6 @@ image: ""
 card:
   image: /upload/4hundo.gif
   alt: To the moon
-  teaser: This is a teaser for a blogpost
   title: Hello world blogpost
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

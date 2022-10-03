@@ -22,13 +22,13 @@ eleventyExcludeFromCollections: true
   {%- set absolutePostUrl = item.url | url | absoluteUrl(env.url) %}
 
     <entry>
-      <title>{{ item.data.title }}</title>
+      <title>{{ item.data.card.title }}</title>
       <link href="{{ absolutePostUrl }}"/>
-      <summary> {{item.data.teaser }} </summary>
+      <summary> {{item.data.card.text }} </summary>
       <updated>{{ item.date | dateToRfc3339 }}</updated>
       <id>{{ absolutePostUrl }}</id>
       <content type="html">
-        {% if item.data.image %}
+        {% if item.data.card.image %}
           <![CDATA[
             {# {% picture item.data.image, [640],"",['webp'],'alt','css','nope', env.url %} #}
           ]]>
