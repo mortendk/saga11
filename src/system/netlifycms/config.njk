@@ -775,6 +775,9 @@ collections:
     hide: false
     create: true
     delete: false
+    editor:
+      preview: false
+
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - label: "👩‍💻 Content"
@@ -806,11 +809,11 @@ collections:
         required: true
         default: "icons/beaker.svg"
         hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
-      - { label: "RSS feed", name: "rssfeed", widget: "boolean", default: true, required: true }
+
       - name: eleventyNavigation
         label: 🍔 Navigation
         widget: object
-        collapsed: false
+        collapsed: true
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
         - { label: "title", name: "title", widget: "string", required: false}
@@ -825,7 +828,20 @@ collections:
           multiple: false
         - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system Main is used for the frontpage - and should always be" }
         - { label: "order", name: "order", widget: "number", required: false}
-        - { label: "text", name: "excerpt", widget: "markdown", default : "", required: false, hint: 'If the theme supports it '}
+        - { label: "text", name: "excerpt", widget: "markdown", default : "", required: false}
+
+      # Layout selector
+      - name: "layout"
+        label: "💅 Select Template"
+        widget: relation
+        collection: tagtemplates
+        searchFields: [saga-template-name]
+        valueField: "tag/{{filename}}.{{extension}}"
+        displayFields: ["saga-template-name", " (File: _layouts/tag/{{filename}}.{{extension}})"]
+        default: "post/post.njk"
+        required: true
+
+
 
 
   # -----------------------------------------------------------------
@@ -851,6 +867,21 @@ collections:
     label: "page Templates"
 {% endraw %}
     folder: "src/themes/{{ theme }}/layouts/page"
+{% raw %}
+    slug: "{{title}}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+
+  - name: tagtemplates
+    label_singular: template
+    label: "tag Templates"
+{% endraw %}
+    folder: "src/themes/{{ theme }}/layouts/tag"
 {% raw %}
     slug: "{{title}}"
     hide: true

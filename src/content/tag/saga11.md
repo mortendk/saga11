@@ -7,5 +7,6 @@ rssfeed: true
 eleventyNavigation:
   title: "tag menu "
   parent: main
+layout: tag/tag.njk
 ---
 b﻿la bal
