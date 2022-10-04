@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/adress/adress/adress.njk-->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/address/address/address.njk-->{%- endif -%}
 
 <section class="max-w-7xl mx-auto py-8">
 
@@ -27,11 +27,11 @@
     {% endif %}
   </article>
 
-  <div class="grid md:grid-cols-3 gap-4 my-4" aria-label="Adresses">
+  <div class="grid md:grid-cols-3 gap-4 my-4" aria-label="Address">
   {# <div class="max-w-7xl flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-slate-300 dark:bg-slate-800"> #}
 
-  {# Adress #}
-  {% for item in component.adress %}
+  {# address #}
+  {% for item in component.address %}
 
     <article itemscope="" itemtype="http://schema.org/Organization" class="bg-slate-300 dark:bg-slate-900 p-4 rounded-lg">
       <h2 itemprop="name" class="text-2xl">{{ item.name }}</h2>
@@ -64,7 +64,7 @@
       </div>
 
       <button
-        onclick="openinmap('{{ site.adress }},{{ site.zip }},{{ site.country }}')"
+        onclick="openinmap('{{ site.address }},{{ site.zip }},{{ site.country }}')"
         target="_blank" rel="noopener" class="inline-flex flex-row items-center  p-1 font-bold"
         >
         <div class="w-4 mr-2">{% include "icons/map-pin.svg" %}</div>

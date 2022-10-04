@@ -4,8 +4,6 @@
 
 <section class="grid md:grid-cols-3 gap-4 py-4">
 
-
-
   {% for tag in collections.tags %}
 
     {% for item in collections.all | getPage("/tag/" + tag + "/") %}
