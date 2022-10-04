@@ -276,15 +276,15 @@ collections:
               required: true
               default: "components/calendar/calendar.njk"
 
-          - name: "Adress"
-            label: "🗺 Adress"
+          - name: "Address"
+            label: "🗺 Address"
             widget: object
             summary: '{{fields.title}}'
             fields:
               - { label: title, name: title, widget: string, required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
-              - label: Adress
-                name: adress
+              - label: Address
+                name: address
                 summary: '{{fields.name}} {{fields.street}} {{fields.zip}} {{fields.country}} {{fields.website}} {{fields.email}}'
                 widget: list
                 add_to_top: true
@@ -301,12 +301,12 @@ collections:
               - name: "template"
                 label: "Template"
                 widget: relation
-                collection: componentTemplateAdress
+                collection: componentTemplateAddress
                 searchFields: [title]
-                valueField: "components/adress/{{filename}}.{{extension}}"
-                displayFields: ["components/adress/{{filename}}.{{extension}}"]
+                valueField: "components/address/{{filename}}.{{extension}}"
+                displayFields: ["components/address/{{filename}}.{{extension}}"]
                 required: true
-                default: "components/adress/adress.njk"
+                default: "components/address/address.njk"
 
 
 
@@ -1031,10 +1031,10 @@ collections:
       - { label: "name", name: "name", widget: "string" }
 
   # Components calendar
-  - name: componentTemplateAdress
+  - name: componentTemplateAddress
     label: "Template"
 {% endraw %}
-    folder: "src/themes/{{ theme }}/includes/components/adress"
+    folder: "src/themes/{{ theme }}/includes/components/address"
 {% raw %}
     slug: "{{title}}"
     hide: true

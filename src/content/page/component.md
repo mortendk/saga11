@@ -21,10 +21,10 @@ components:
       - image: /upload/4hundo.gif
       - image: /upload/spaceship.png
         title: "image title "
-  - type: Adress
-    title: Adress Book
-    text: H﻿eres the Adresses to things
-    adress:
+  - type: address
+    title: address Book
+    text: H﻿eres the addresses to things
+    address:
       - name: Name of person
         street: Regnbuepladsen
         zip: "1550"
@@ -41,7 +41,7 @@ components:
         email: foo@bar.dk
         phone: +45 12 34 56 78
         locality: København K
-    template: components/adress/adress.njk
+    template: components/address/address.njk
   - type: njktemplate
     template: components/templates/all-tags.njk
   - type: images
