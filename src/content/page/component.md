@@ -13,6 +13,14 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: images
+    template: components/images/images-grid.njk
+    title: image gallery alternative
+    text: t﻿his is a gallery with another template
+    images:
+      - image: /upload/4hundo.gif
+      - image: /upload/spaceship.png
+        title: "image title "
   - type: Adress
     title: Adress Book
     text: H﻿eres the Adresses to things
