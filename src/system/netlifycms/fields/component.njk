@@ -8,7 +8,7 @@
         collapsed: true
         types:
 
-          - label: '💬 Text Markdown'
+          - label: '🧾 Text Markdown'
             name: 'text'
             widget: object
             summary: "{{fields.text | truncate(100, '...')}} || {{fields.template}}"
@@ -226,8 +226,6 @@
                 required: true
                 default: "components/address/address.njk"
 
-
-
           - name: "download"
             label: "⤵️ Download"
             widget: object
@@ -286,7 +284,6 @@
                 required: true
                 default: "components/price/price.njk"
 
-
           - name: links
             label: 🔗 Links
             widget: object
@@ -310,8 +307,6 @@
                 displayFields: ["components/link/{{filename}}.{{extension}}"]
                 required: true
                 default: "components/link/link.njk"
-
-
 
 
           - label: ' 💌 Form'

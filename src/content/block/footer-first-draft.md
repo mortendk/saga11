@@ -2,9 +2,6 @@
 title: A Footer Block
 blockposition: footer
 components:
-  - type: text
-    template: components/text/text.njk
-    text: bla bla bla b
   - type: Address
     template: components/address/address.njk
     address:
