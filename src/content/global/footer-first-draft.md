@@ -1,12 +1,12 @@
 ---
-title: Footer first draft
+title: Footer
 area: footer
 components:
   - type: text
     template: components/text/text.njk
-    text: footer text
+    text: bla bla bla b
   - type: Address
-    template: components/address/address-footer.njk
+    template: components/address/address.njk
     address:
       - street: flensborgade 32 st th
         zip: "1669"

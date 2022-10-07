@@ -1,7 +1,7 @@
 {%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/text/text.njk -->{%- endif -%}
 
 {% if component.text %}
-<div class="prose prose-xl dark:prose-invert mx-auto py-4">
+<div class="prose prose-xl dark:prose-invert py-4">
   {{ component.text  | markdown | safe  }}
 </div>
 {% endif %}
