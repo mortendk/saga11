@@ -1,6 +1,6 @@
 ---
-title: Footer
-area: footer
+title: A Footer Block
+blockposition: footer
 components:
   - type: text
     template: components/text/text.njk
@@ -18,6 +18,6 @@ components:
         email: email@morten.dk
   - type: njktemplate
     template: components/templates/socialmedia.njk
-layout: global/global.njk
+layout: block/block.njk
 eleventyExcludeFromCollections: false
 ---

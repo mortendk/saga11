@@ -225,19 +225,19 @@ collections:
   # -----------------------------------------------------------------
   # Globals
   # -----------------------------------------------------------------
-  - name: global
-    label: 🌏 Globals
-    label_singular: 🌏 Global
+  - name: block
+    label: 🗄 Blocks
+    label_singular: 🗄 block
     description: "Global content elements with components"
-    folder: "src/content/global"
+    folder: "src/content/block"
     slug: "{{title}}"
-    preview_path: global/{{title}}/
+    preview_path: block/{{title}}/
     create: true
     delete: true
     editor:
       preview: false
     # Overview
-    summary: "{{title}}]"
+    summary: "{{title}} position: {{blockposition}}"
     sortable_fields: ["title"]
     view_filters:
       - label: Drafts
@@ -249,11 +249,11 @@ collections:
 
     fields:
       - { label: "Title", name: "title", widget: "string"}
-      - label: 🏗 Area
-        name: "area"
+      - label: 🏗 position
+        name: "blockposition"
         widget: "select"
         multiple: false
-        options: ["header", "footer", "sidebar"]
+        options: ["footer-top", "footer"]
         default: "footer"
 
 {% endraw %}
