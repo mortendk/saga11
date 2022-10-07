@@ -2,9 +2,7 @@
 permalink: /admin/config.yml
 eleventyExcludeFromCollections: true
 ---
-# Macros for template collections
 {% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
-
 backend:
   name: git-gateway
   branch: {{ env.branch }}
