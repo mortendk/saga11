@@ -1,0 +1,43 @@
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Blocks
+  # -----------------------------------------------------------------
+  - name: block
+    label: 🗄 Blocks
+    label_singular: 🗄 block
+    description: "Global content elements with components"
+    folder: "src/content/block"
+    slug: "{{title}}"
+    preview_path: block/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} position: {{blockposition}}"
+    sortable_fields: ["title"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+{% endraw %}
+  {% include "src/system/netlifycms/fields/title.njk" %}
+{% raw %}
+
+      - label: 🏗 position
+        name: "blockposition"
+        widget: "select"
+        multiple: false
+        options: ["footer-top", "footer"]
+        default: "footer"
+
+{% endraw %}
+{% include "src/system/netlifycms/fields/component.njk" %}
+{% include "src/system/netlifycms/fields/draft.njk" %}
+{% raw %}

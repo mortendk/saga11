@@ -1,0 +1,53 @@
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Notifications
+  # -----------------------------------------------------------------
+  - name: notification
+    label: 📣 Notifications
+    label_singular: 📣 Notification
+    description: "Notifications and alerts"
+    folder: "src/content/notification"
+    slug: "{{title}}"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} Status: [{{status}}]"
+    sortable_fields: ["title", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+{% endraw %}
+  {% include "src/system/netlifycms/fields/title.njk" %}
+{% raw %}
+      - label: 💁🏽‍♂️ status
+        name: "status"
+        widget: "select"
+        multiple: false
+        options: ["info", "warning", "alert"]
+        default: "info"
+
+      - label: "❗️info"
+        name: "text"
+        widget: "markdown"
+        buttons:
+          - bold
+          - italic
+          - link
+        required: false
+      - { label: "link to page", name: "showlink", widget: "boolean", default: false }
+
+{% endraw %}
+  {% include "src/system/netlifycms/fields/content.njk" %}
+  {% include "src/system/netlifycms/fields/date.njk" %}
+  {% include "src/system/netlifycms/fields/draft.njk" %}
+{% raw %}

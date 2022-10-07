@@ -1,0 +1,47 @@
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Post Collection
+  # -----------------------------------------------------------------
+  - name: post
+    label: 🧑🏽‍💻 Posts
+    label_singular: 🧑🏽‍💻 Post
+    description: "Post fx blogpost etc"
+    folder: "src/content/post"
+    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
+    preview_path: /post/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{{title}} {{url.parent}} {{card.image}} "
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: "Parent: "
+        field: url.parent
+      - label: Tag
+        field: tags
+      - label: "Date: "
+        field: date
+        pattern: "([0-9]+(-[0-9]+)+)"
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+
+    fields:
+{% endraw %}
+  {% include "src/system/netlifycms/fields/title.njk" %}
+  {% include "src/system/netlifycms/fields/image.njk" %}
+  {% include "src/system/netlifycms/fields/card.njk" %}
+  {% include "src/system/netlifycms/fields/content.njk" %}
+  {% include "src/system/netlifycms/fields/tags.njk" %}
+  {% include "src/system/netlifycms/fields/date.njk" %}
+  {{ templaterelation( collection="posttemplates", folder="post") }}
+  {% include "src/system/netlifycms/fields/draft.njk" %}
+{% raw %}
