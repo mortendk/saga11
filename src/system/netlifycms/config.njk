@@ -2,16 +2,9 @@
 permalink: /admin/config.yml
 eleventyExcludeFromCollections: true
 ---
-# Setup
-# 1 Add users netlify identity
-# https://app.netlify.com/sites/[SITENAME]/settings/identity#external-providers
+# Macros for template collections
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
 
-# 2 enable git gateway
-# https://app.netlify.com/sites/[SITENAME]/settings/identity#git-gateway
-
-# Doc
-# https://preview-auth-doc--netlify-cms-www.netlify.app/docs/customization/
-#
 backend:
   name: git-gateway
   branch: {{ env.branch }}
@@ -20,10 +13,7 @@ local_backend: true
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/img/icon-admin.png
 display_url: {{ env.url }}
-# Macros for template collections
-{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
-{# set this to raw so jnunjucks dont mess with the {{ }} #}
-{% raw %}
+
 search: true
 # publish_mode: editorial_workflow
 show_preview_links: true
@@ -35,8 +25,6 @@ media_folder: "src/upload/"
 public_folder: "/upload"
 
 collections:
-{% endraw %}
-
   {% include "src/system/netlifycms/collections/page.njk" %}
   {% include "src/system/netlifycms/collections/post.njk" %}
   {% include "src/system/netlifycms/collections/block.njk" %}
