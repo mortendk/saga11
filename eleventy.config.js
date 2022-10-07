@@ -95,8 +95,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("allNotification", require("./src/system/11ty/collection/allNotification.js"));
   eleventyConfig.addCollection("allTags", require("./src/system/11ty/collection/allTags.js"));
   eleventyConfig.addCollection("styleguide", require("./src/system/11ty/collection/styleguide.js"));
-
   eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags"));
+
+  eleventyConfig.addCollection("layoutArea", function (collection) {
+    return collection.getAll().filter((item) => item.data.area);
+  });
 
   // Transform
   if (env.mode == "prod") {

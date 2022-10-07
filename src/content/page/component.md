@@ -13,6 +13,11 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: Address
+    template: components/address/address.njk
+    title: "123"
+    address:
+      - name: "123"
   - type: images
     template: components/images/images-grid.njk
     title: image gallery alternative
@@ -21,27 +26,6 @@ components:
       - image: /upload/4hundo.gif
       - image: /upload/spaceship.png
         title: "image title "
-  - type: address
-    title: address Book
-    text: H﻿eres the addresses to things
-    address:
-      - name: Name of person
-        street: Regnbuepladsen
-        zip: "1550"
-        country: denmark
-        url: https://saga11.dev
-        email: foo@bar.dk
-        phone: +45 12 34 56 78
-        locality: København K
-      - name: Name of person
-        street: Regnbuepladsen
-        zip: "1550"
-        country: denmark
-        url: https://saga11.dev
-        email: foo@bar.dk
-        phone: +45 12 34 56 78
-        locality: København K
-    template: components/address/address.njk
   - type: njktemplate
     template: components/templates/all-tags.njk
   - type: images
@@ -219,6 +203,7 @@ components:
       est laborum.
 tags:
   - saga11
+  - test
 url: component
 eleventyNavigation:
   title: Components
