@@ -1,0 +1,13 @@
+{% raw %}
+  - name: icons
+    label: "icons"
+{% endraw %}
+    folder: "src/themes/{{ theme }}/includes/icons"
+{% raw %}
+    slug: "{{title}}"
+    hide: true
+    format: frontmatter
+    extension: svg
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+{% endraw %}

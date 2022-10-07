@@ -2,7 +2,6 @@
 permalink: /admin/config.yml
 eleventyExcludeFromCollections: true
 ---
-
 # Setup
 # 1 Add users netlify identity
 # https://app.netlify.com/sites/[SITENAME]/settings/identity#external-providers
@@ -17,37 +16,36 @@ backend:
   name: git-gateway
   branch: {{ env.branch }}
 local_backend: true
-
 #SETTINGS
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/img/icon-admin.png
 display_url: {{ env.url }}
-
-{# set this to raw so jnunjucks dont mess with the {{ }} #}
 # Macros for template collections
 {% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{# set this to raw so jnunjucks dont mess with the {{ }} #}
 {% raw %}
 search: true
 # publish_mode: editorial_workflow
 show_preview_links: true
-
 slug:
   encoding: "ascii"
   clean_accents: true
   sanitize_replacement: "-"
-
 media_folder: "src/upload/"
 public_folder: "/upload"
 
-
 collections:
 {% endraw %}
+
   {% include "src/system/netlifycms/collections/page.njk" %}
   {% include "src/system/netlifycms/collections/post.njk" %}
-  {% include "src/system/netlifycms/collections/notification.njk" %}
   {% include "src/system/netlifycms/collections/block.njk" %}
   {% include "src/system/netlifycms/collections/menuitem.njk" %}
   {% include "src/system/netlifycms/collections/tag.njk" %}
+  {% include "src/system/netlifycms/collections/notification.njk" %}
+
+  {% include "src/system/netlifycms/collections/settings.njk" %}
+  {% include "src/system/netlifycms/collections/icons.njk" %}
 
   {{ templatecollection( name="pagetemplates", path="layouts/page", theme = theme) }}
   {{ templatecollection( name="posttemplates", path="layouts/post", theme = theme) }}
@@ -67,152 +65,3 @@ collections:
   {{ templatecollection( name="componentTemplateFeature", path="includes/components/feature", theme = theme) }}
   {{ templatecollection( name="componentTemplatePrice", path="includes/components/price", theme = theme) }}
   {{ templatecollection( name="componentTemplateLink", path="includes/components/link", theme = theme) }}
-{% raw %}
-
-  # icons
-  - name: icons
-    label: "icons"
-{% endraw %}
-    folder: "src/themes/{{ theme }}/includes/icons"
-{% raw %}
-    slug: "{{title}}"
-    hide: true
-    format: frontmatter
-    extension: svg
-    fields:
-      - { label: "name", name: "name", widget: "string" }
-
-  # -----------------------------------------------------------------
-  # Setings
-  # -----------------------------------------------------------------
-  - label: ⚙️ Settings
-    name: Settings
-    files:
-      - label: "Site Settings"
-        name: "sitesettings"
-        file: "src/content/data/site.json"
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text, required: false }
-          - { label: Keywords, name: keywords, widget: text, required: false }
-          - { label: Header, name: header, widget: text, required: false, hint: "Data block placed inside the header tag ex for tracking scripts" }
-          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
-          - { label: "Humans.txt", name: humantxt, widget: text, required: false }
-          - { label: "RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
-          - { label: Author (rss), name: authorname, widget: string, required: false, hint: "Feed Author name"}
-          - { label: Author Email (rss), name: Authoremail,widget: string, required: false,hint: "Feed Author name"}
-          - { label: Browesercolor, name: color, widget: color, required: false }
-
-      - label: "Social Network links"
-        name: "some"
-        file: "src/content/data/some.json"
-        fields:
-
-          - {
-              label: facebook,
-              name: facebook,
-              widget: string,
-              required: false,
-              hint: "https://www.facebook.com/...",
-            }
-          - {
-              label: youtube,
-              name: youtube,
-              widget: string,
-              required: false,
-              hint: "https://www.youtube.com/...",
-            }
-          - {
-              label: twitter,
-              name: twitter,
-              widget: string,
-              required: false,
-              hint: "https://www.twitter.com/...",
-            }
-          - {
-              label: pinterest,
-              name: pinterest,
-              widget: string,
-              required: false,
-              hint: "https://www.pinterest.com/...",
-            }
-          - {
-              label: pinterest_verification,
-              name: pinterest_verification,
-              widget: string,
-              required: false,
-              hint: "can be found on https://www.pinterest.dk/settings/claim",
-            }
-          - {
-              label: linkedin,
-              name: linkedin,
-              widget: string,
-              required: false,
-              hint: "https://www.linkedin.com/in/...",
-            }
-          - {
-              label: instagram,
-              name: instagram,
-              widget: string,
-              required: false,
-              hint: "https://www.instagram.com/...",
-            }
-          - {
-              label: github,
-              name: github,
-              widget: string,
-              required: false,
-              hint: "https://github.com/...",
-            }
-          - {
-              label: dribble,
-              name: dribble,
-              widget: string,
-              required: false,
-              hint: "https://dribbble.com/[name]",
-            }
-          - {
-              label: tiktok,
-              name: tiktok,
-              widget: string,
-              required: false,
-              hint: "https://tiktok.com/@[name]",
-            }
-          - {
-              label: Twitch,
-              name: twitch,
-              widget: string,
-              required: false,
-              hint: "https://twitch.tv/[name]",
-            }
-          - {
-              label: Patreon,
-              name: patreon,
-              widget: string,
-              required: false,
-              hint: "https://patreon.com/[name]",
-            }
-          - {
-              label: Discord,
-              name: discord,
-              widget: string,
-              required: false,
-              hint: "https://discord.gg/[name]",
-            }
-
-          - {
-              label: Soundcloud,
-              name: soundcloud,
-              widget: string,
-              required: false,
-              hint: "https://soundcloud.com/[name]",
-            }
-          - {
-              label: Bandcamp,
-              name: bandcamp,
-              widget: string,
-              required: false,
-              hint: "https://[name].bandcamp.com/",
-            }
-
-{% endraw %}
