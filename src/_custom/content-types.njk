@@ -1,17 +1,18 @@
 {% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
 {% raw %}
-  - name: custom
-    label: 🧑🏽‍💻 custom content type
-    label_singular: 🧑🏽‍💻 custom
-    description: "Post fx blogpost etc"
-    folder: "src/content/custom"
-    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
-    preview_path: /custom/{{title}}/
+  - name: foobar
+    label: 💜 Foobar
+    label_singular: 💜 Foobar
+    description: "This is an example of a custom content type"
+    folder: "src/content/foobar"
+    slug: "{{title}}"
+    preview_path: /foobar/{{title}}/
     create: true
     delete: true
+    hide: true
     editor:
       preview: false
-    summary: "{{title}} {{url.parent}} {{card.image}} "
+    summary: "{{title}}"
     sortable_fields: ["title", "order", "date"]
     view_filters:
       - label: Drafts
@@ -27,4 +28,5 @@
 {% endraw %}
   {% include "src/system/netlifycms/fields/title.njk" %}
   {% include "src/system/netlifycms/fields/draft.njk" %}
+  {% include "src/system/netlifycms/fields/content.njk" %}
 {% raw %}

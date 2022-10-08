@@ -15,6 +15,10 @@ A content type is a "collection" in netlifycms termonology, but to not everythin
 The ui is located at localhost:3791/admin.
 to make it work online a bit more setup is needed
 
+### custom content types (aka colllections in ncms language)
+
+the definitions can be added to \_custom
+
 ## Setup
 
 1 Add users netlify identity
