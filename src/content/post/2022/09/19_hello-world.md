@@ -33,11 +33,14 @@ This is probably the best description ever of a movie
 
 `this is a small code block`
 
-- liste item a
-- l﻿iste item b
+- Llist item a
+- List item b
 
 This is _italic_ and this is **bold** and this is a [link](https://saga11.dev)
 
 ```html
 <h1>code</h1>
 ```
+
+Heres a youtube link wonder what we wanna do with that
+https://www.youtube.com/watch?v=p1nwLilQy64

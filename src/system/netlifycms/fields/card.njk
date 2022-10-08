@@ -1,0 +1,12 @@
+{% raw %}
+      - name: card
+        label: 🏙 card
+        widget: object
+        collapsed: true
+        summary: "{{fields.image}} {{fields.teaser}} "
+        fields:
+        - { label: "title", name: "title", widget: "string", required: false }
+        - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+        - { label: "Image alt", name: "alt", widget: "string", required: false }
+        - { label: "Text", name: "text", widget: "text", required: false }
+{% endraw %}

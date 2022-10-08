@@ -1,0 +1,53 @@
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Menu Items
+  # -----------------------------------------------------------------
+  - name: menuitem
+    label: 🍔 Menu Items
+    label_singular: 🍔 Menu Item
+    description: "Single menu items to be included in the exising navigation structre. | Version: 1.0"
+    folder: "src/content/menuitem"
+    slug: "{{title}}"
+    preview_path: notification/{{title}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    # Overview
+    summary: "{{title}} | Url: {{eleventyNavigation.url}} | Parent: {{eleventyNavigation.parent}}"
+    sortable_fields: ["title"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+
+    fields:
+{% endraw %}
+  {% include "src/system/netlifycms/fields/title.njk" %}
+{% raw %}
+
+      - name: eleventyNavigation
+        label: 🍔 Navigation
+        widget: object
+        collapsed: false
+        summary: "{{fields.key}} |  {{fields.parent}}"
+        fields:
+        - { label: "key", name: key, widget: "string", required: true, hint: "Title and key"}
+        - { label: "url", name: url, widget: "string", default : "https://", required: false}
+        - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
+        - name: "parent"
+          label: parent menu item
+          widget: relation
+          collection: page
+          default: main
+          searchFields: [title]
+          valueField: "{{eleventyNavigation.key}}"
+          displayFields: ["Title: {{title}} |  key: '{{eleventyNavigation.key}}'"]
+          required: false
+          multiple: false
+        - { label: "order", name: "order", widget: "number", required: false}
+        - { label: "text", name: "excerpt", widget: "text", default : "", required: false, hint: 'If the theme supports it '}

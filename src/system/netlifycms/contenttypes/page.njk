@@ -1,0 +1,40 @@
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Pages Collection
+  # -----------------------------------------------------------------
+  - name: page
+    label: 🏩 Pages
+    label_singular: 🏩 Page
+    description: "Pages with components"
+    folder: "src/content/page"
+    slug: "{{title}}"
+    preview_path: /{{url}}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{{title}} (url: {{url}}) "
+    sortable_fields: ["title","url", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
+    fields:
+{% endraw %}
+  {% include "src/system/netlifycms/fields/title.njk" %}
+  {% include "src/system/netlifycms/fields/image.njk" %}
+  {% include "src/system/netlifycms/fields/card.njk" %}
+  {% include "src/system/netlifycms/fields/component.njk" %}
+  {% include "src/system/netlifycms/fields/content.njk" %}
+  {% include "src/system/netlifycms/fields/tags.njk" %}
+  {% include "src/system/netlifycms/fields/url.njk" %}
+  {% include "src/system/netlifycms/fields/menu.njk" %}
+  {{ templaterelation( collection="pagetemplates", folder="page") }}
+  {% include "src/system/netlifycms/fields/draft.njk" %}

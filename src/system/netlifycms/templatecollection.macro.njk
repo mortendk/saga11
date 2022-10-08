@@ -1,0 +1,30 @@
+{% macro templatecollection(name, path, theme) -%}
+
+  - name: {{ name }}
+    label_singular: template
+    label: "{{ name }} Templates"
+    folder: "src/themes/{{ theme }}/{{ path }}"
+  {% raw %}
+    slug: "{{title}}"
+  {% endraw %}
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: njk
+    fields:
+      - { label: "name", name: "name", widget: "string" }
+{%- endmacro %}
+
+{% macro templaterelation(collection, folder) -%}
+      # Layout selector
+      - name: "layout"
+        label: "💅 Select Template"
+        widget: relation
+        collection: {{ collection }}
+        searchFields: [saga-template-name]
+        valueField: "{{ folder }}/{% raw %}{{filename}}.{{extension}}{% endraw %}"
+        displayFields: ["saga-template-name", " (File: layouts/{{ folder }}/{% raw %}{{filename}}.{{extension}}{% endraw %})"]
+        required: true
+        default: "page/page.njk"
+{%- endmacro %}

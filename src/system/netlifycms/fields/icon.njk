@@ -1,0 +1,13 @@
+{% raw %}
+      - name: "icon"
+        label: "icon"
+        widget: relation
+        options_length: 300
+        collection: icons
+        searchFields: [title]
+        valueField: "icons/{{filename}}.{{extension}}"
+        displayFields: ["icons/{{filename}}.{{extension}}"]
+        required: true
+        default: "icons/beaker.svg"
+        hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
+{% endraw %}

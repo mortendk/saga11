@@ -1,0 +1,25 @@
+{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Relations Tags
+  # -----------------------------------------------------------------
+  - name: tags
+    label_singular: 🏷 Tag
+    label: 🏷 Tags
+    description: "Tags used to catagorize content. | Version: 1.0"
+    folder: "src/content/tag"
+    slug: "{{title}}"
+    hide: false
+    create: true
+    delete: false
+    editor:
+      preview: false
+
+    fields:
+{% endraw %}
+  {% include "src/system/netlifycms/fields/title.njk" %}
+  {% include "src/system/netlifycms/fields/content.njk" %}
+  {% include "src/system/netlifycms/fields/icon.njk" %}
+  {% include "src/system/netlifycms/fields/menu.njk" %}
+  {{ templaterelation( collection="tagtemplates", folder="tag") }}
+{% raw %}

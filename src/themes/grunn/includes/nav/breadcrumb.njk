@@ -1,8 +1,6 @@
 {%- if env.mode != 'prod' %}<!-- src/__includes/nav/breadcrumb.njk  -->{%- endif  -%}
 
-
 {% if eleventyNavigation.key %}
-
 
 {% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true, allowMissing: true}) %}
 
