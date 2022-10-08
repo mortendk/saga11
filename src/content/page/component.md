@@ -15,9 +15,39 @@ card:
 components:
   - type: Address
     template: components/address/address.njk
-    title: "This is an adresse"
+    title: This is an adresse
     address:
-      - name: "123"
+      - name: name 1
+        street: street
+        zip: "1234"
+        country: denmark
+        locality: copenhagen
+        phone: "1234567889"
+        url: https://saga11.dev
+        email: foobar@saga11.dev
+      - name: name 2
+        street: street
+        zip: "1234"
+        country: denmark
+        locality: copenhagen
+        phone: "1234567889"
+        url: https://saga11.dev
+        email: foobar@saga11.dev
+      - name: name 3
+        street: street
+        zip: "1234"
+        country: denmark
+        locality: copenhagen
+        phone: "1234567889"
+        url: https://saga11.dev
+        email: foobar@saga11.dev
+    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
   - type: images
     template: components/images/images-grid.njk
     title: image gallery alternative
@@ -26,8 +56,6 @@ components:
       - image: /upload/4hundo.gif
       - image: /upload/spaceship.png
         title: "image title "
-  - type: njktemplate
-    template: components/templates/all-tags.njk
   - type: images
     template: components/images/images.njk
     images:
@@ -73,6 +101,14 @@ components:
             title: Super Awesome
           - active: true
             title: awesome
+      - featured: false
+        title: Lux
+        price: "999"
+        text: a﻿nother thing
+        url: "#"
+        elements:
+          - active: true
+            title: super super awesome
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -86,7 +122,13 @@ components:
     text: l﻿orem
     testamonial:
       - title: Everything is awesome
-        text: l﻿orem
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          ea commodo consequat. Duis aute irure dolor in reprehenderit in
+          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia
+          deserunt mollit anim id est laborum.
         image: /upload/spaceship.png
         person: Name
         persontitle: title
@@ -127,6 +169,15 @@ components:
       - icon: icons/beaker.svg
         title: This is a feature
         text: T﻿his is why this is amazing
+      - icon: icons/beaker.svg
+        title: This is a feature
+        text: T﻿his is why this is amazing
+      - icon: icons/beaker.svg
+        title: This is a feature
+        text: T﻿his is why this is amazing
+      - icon: icons/beaker.svg
+        title: This is a feature
+        text: T﻿his is why this is amazing
   - type: cta
     template: components/cta/cta.njk
     title: "This is a CTA "
@@ -141,11 +192,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-  - type: calendar
-    date_start: 2022-09-26 14:20:59
-    date_end: 2022-09-26 14:21:02
-    date_allday: true
-    template: components/calendar/calendar.njk
   - type: text
     template: components/text/text.njk
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -155,6 +201,11 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
+  - type: calendar
+    date_start: 2022-09-26 14:20:59
+    date_end: 2022-09-26 14:21:02
+    date_allday: true
+    template: components/calendar/calendar.njk
   - type: form
     title: Contact
     name: Contact
@@ -176,19 +227,10 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-  - type: njktemplate
-    template: components/templates/all-post.njk
   - type: pagecard
     template: components/pagecard/pagecard.njk
     page:
       - /
-  - type: collection
-    title: This is a Collection
-    template: components/collection/collection.njk
-    collection: saga11
-    text: l﻿orem ...
-  - type: njktemplate
-    template: components/templates/all-pages.njk
   - type: image
     template: components/image/image.njk
     title: image and text
@@ -201,6 +243,17 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
+  - type: collection
+    title: This is a Collection
+    template: components/collection/collection.njk
+    collection: saga11
+    text: l﻿orem ...
+  - type: njktemplate
+    template: components/templates/all-tags.njk
+  - type: njktemplate
+    template: components/templates/all-post.njk
+  - type: njktemplate
+    template: components/templates/all-pages.njk
 tags:
   - saga11
   - test
