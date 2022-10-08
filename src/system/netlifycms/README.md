@@ -1,3 +1,20 @@
+# NetlifyCMS
+
+Saga11 uses netlifycms as an ui to edit the site
+
+## Admin Setup
+
+### Content types (collections)
+
+A content type is a "collection" in netlifycms termonology, but to not everything to messy we keep the name "content type"
+
+### Fields are shared field types that can be reused
+
+## Local setup
+
+The ui is located at localhost:3791/admin.
+to make it work online a bit more setup is needed
+
 ## Setup
 
 1 Add users netlify identity

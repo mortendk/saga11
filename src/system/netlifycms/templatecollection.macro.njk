@@ -16,7 +16,6 @@
       - { label: "name", name: "name", widget: "string" }
 {%- endmacro %}
 
-
 {% macro templaterelation(collection, folder) -%}
       # Layout selector
       - name: "layout"
@@ -28,5 +27,4 @@
         displayFields: ["saga-template-name", " (File: layouts/{{ folder }}/{% raw %}{{filename}}.{{extension}}{% endraw %})"]
         required: true
         default: "page/page.njk"
-
 {%- endmacro %}

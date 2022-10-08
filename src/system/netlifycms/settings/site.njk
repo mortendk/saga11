@@ -1,0 +1,18 @@
+{% raw %}
+      - label: "Site Settings"
+        name: "sitesettings"
+        file: "src/content/data/site.json"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text, required: false }
+          - { label: Keywords, name: keywords, widget: text, required: false }
+          - { label: Header, name: header, widget: text, required: false, hint: "Data block placed inside the header tag ex for tracking scripts" }
+          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
+          - { label: "Humans.txt", name: humantxt, widget: text, required: false }
+          - { label: "RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: Author (rss), name: authorname, widget: string, required: false, hint: "Feed Author name"}
+          - { label: Author Email (rss), name: Authoremail,widget: string, required: false,hint: "Feed Author name"}
+          - { label: Browesercolor, name: color, widget: color, required: false }
+
+
+{% endraw %}

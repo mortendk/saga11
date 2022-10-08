@@ -23,17 +23,18 @@ media_folder: "src/upload/"
 public_folder: "/upload"
 
 collections:
-  {% include "src/system/netlifycms/collections/page.njk" %}
-  {% include "src/system/netlifycms/collections/post.njk" %}
-  {% include "src/system/netlifycms/collections/block.njk" %}
-  {% include "src/system/netlifycms/collections/menuitem.njk" %}
-  {% include "src/system/netlifycms/collections/tag.njk" %}
-  {% include "src/system/netlifycms/collections/notification.njk" %}
+  {% include "src/system/netlifycms/contenttypes/page.njk" %}
+  {% include "src/system/netlifycms/contenttypes/post.njk" %}
+  {% include "src/system/netlifycms/contenttypes/block.njk" %}
+  {% include "src/system/netlifycms/contenttypes/menuitem.njk" %}
+  {% include "src/system/netlifycms/contenttypes/tag.njk" %}
+  {% include "src/system/netlifycms/contenttypes/notification.njk" %}
   {# ductape custom collections #}
-  {% include "src/_custom-collection/collection.njk" %}
+  {% include "src/_custom/content-types.njk" %}
 
-  {% include "src/system/netlifycms/collections/settings.njk" %}
-  {% include "src/system/netlifycms/collections/icons.njk" %}
+  {% include "src/system/netlifycms/settings/settings.njk" %}
+
+  {% include "src/system/netlifycms/contenttypes/icons.njk" %}
 
   {{ templatecollection( name="pagetemplates", path="layouts/page", theme = theme) }}
   {{ templatecollection( name="posttemplates", path="layouts/post", theme = theme) }}
