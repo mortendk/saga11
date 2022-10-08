@@ -15,7 +15,7 @@ card:
 components:
   - type: Address
     template: components/address/address.njk
-    title: "123"
+    title: "This is an adresse"
     address:
       - name: "123"
   - type: images
@@ -214,6 +214,7 @@ eleventyNavigation:
 layout: page/page.njk
 eleventyExcludeFromCollections: false
 ---
+
 **This is probably the best description ever of a movie**
 
 > Space ship movie
@@ -228,17 +229,15 @@ eleventyExcludeFromCollections: false
 
 `this is a small code block`
 
-* l﻿iste item a
-* l﻿iste item b
+- liste item a
+- liste item b
 
-t﻿his is *italic* and this is **bold**
+t﻿his is _italic_ and this is **bold**
 
 ```html
 <h1>code</h1>
 ```
 
 This is an image
-
-
 
 {% picture img="/upload/spaceship.png", alt="this is an image of a Space ship movie Space ship people get up from sleeping coffin and have eat. Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg." %}

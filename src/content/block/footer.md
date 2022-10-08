@@ -1,5 +1,5 @@
 ---
-title: A Footer Block
+title: The Footer
 blockposition: footer
 components:
   - type: Address
