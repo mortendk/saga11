@@ -1,0 +1,4 @@
+---
+title: foo
+eleventyExcludeFromCollections: false
+---
