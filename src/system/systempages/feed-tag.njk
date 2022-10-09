@@ -1,0 +1,61 @@
+---
+pagination:
+  data: collections.allTags
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+  eleventyComputed:
+    title: "{{ tag.data.title }}"
+permalink: feed/{{ tag.data.title | replace(" ", "") | slugify }}.xml
+eleventyComputed:
+  title: "{{ tag.data.title }}"
+  content: "{{ tag.data.content }}"
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ site.title }}: {{ title }}</title>
+  <subtitle>{{ content }} </subtitle>
+  <link href="{{ env.url }}/feed/{{ title | slugify }}.xml" rel="self"/>
+  <link href="{{ env.url }}"/>
+  <generator uri="https://saga11.dev">Saga11</generator>
+  <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
+  <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
+  <updated>{{ collections[ tag.fileSlug ] | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ env.url }}/tag/{{ title | slugify }}</id>
+  <author>
+    <name>{{ site.authorname }}</name>
+    <email>{{ site.authoremail }}</email>
+  </author>
+
+  {%- for item in collections[ tag.fileSlug ] | reverse %}
+
+  {%- set absolutePostUrl = item.url | url | absoluteUrl(env.url) %}
+
+    <entry>
+      <title>{{ item.data.card.title }}</title>
+      <link href="{{ absolutePostUrl }}"/>
+      <summary> {{item.data.card.text }} </summary>
+      <updated>{{ item.date | dateToRfc3339 }}</updated>
+      <id>{{ absolutePostUrl }}</id>
+      <content type="html">
+      {% if item.data.card.image %}
+        <![CDATA[
+          {% picture
+            img=item.data.card.image,
+            width=[640],
+            format="png",
+            sizes="",
+            css="",
+            loading = ""
+          %}
+          ]]>
+        {% endif %}
+        {{ item.templateContent | truncate(400, true, "..." ) | htmlToAbsoluteUrls(absolutePostUrl) }}
+      </content>
+    </entry>
+
+  {%- endfor %}
+
+</feed>

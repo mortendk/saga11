@@ -1,4 +1,0 @@
----
-title: foo
-eleventyExcludeFromCollections: false
----
