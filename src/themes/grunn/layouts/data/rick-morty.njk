@@ -1,0 +1,34 @@
+---
+layout: default
+title: "Rick & Morty Characters {{ name }}"
+permalink: '/rick-morty/{{name|slug}}/'
+---
+
+<h1 class="text-5xl">{{ character.name }}</h1>
+<img src="{{ character.image }}" alt="picture of {{ character.name }}">
+{{ species }}
+{{ character.type }}
+{{ character.gender }}
+{{ character.episode }}
+<a href="{{ character.url }}">link</a>
+
+
+Location:
+<a href="{{ character.location.url }}">
+  {{ character.location.name }}
+</a>
+
+
+
+
+<section class="flex flex-row space-x-4 flex-wrap">
+{% for item in rickandmorty %}
+  <article class="bg-slate-900 m-2">
+  <a href="/rick-morty/{{ item.name |slugify }}">
+    <img src="{{ item.image }}" alt="picture of {{ item.name }}" class="w-32">
+    {{ item.name }}
+  </a>
+  </article>
+{% endfor %}
+</section>
+

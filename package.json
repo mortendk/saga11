@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",
+    "axios": "^1.1.2",
     "calendar-link": "^2.2.0",
     "dotenv-cli": "^6.0.0",
     "html-minifier": "^4.0.0",
