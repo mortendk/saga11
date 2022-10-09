@@ -109,7 +109,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/debug/");
 
   // global vars
-  eleventyConfig.addNunjucksGlobal("saga11version", "0.5 beta");
+  eleventyConfig.addNunjucksGlobal("saga11version", "0.5.5 beta");
   // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
 
