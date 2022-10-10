@@ -1,9 +1,8 @@
 const path = require("path");
 const fs = require("fs");
-const env = require("./src/content/data/env.js");
+const env = require("./src/content/_data/env.js");
 const settings = require("./saga11.config.js");
-// set default theme to base if nothing is set
-const theme = settings.theme || "base";
+const theme = settings.theme || "grunn";
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -14,22 +13,29 @@ async function picture(image) {
   // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
   if (image.img == "") {
     return "";
-    // console.log(`❌ empty img string`);
   }
-  const src = "src" + image.img;
+
   const widths = image.width || [640, 1024, 1563];
   const formats = image.format || ["webp", "jpeg"];
   const sizes = image.sizes || "(max-width: 640px) 50vw, 100vw";
   const css = image.css || "";
   const alt = image.alt || "";
-  const loading = image.loading || "lazy"; //lazy vs eager
+  const loading = image.loading || "lazy"; //lazy or eager
+  let src;
 
-  if (fs.existsSync(src)) {
-    // console.log(`✅  img exist: ${image.img}`);
+  if (fs.existsSync("src" + image.img)) {
+    src = "src" + image.img;
+  } else if (image.img.indexOf("http://") === 0 || image.img.indexOf("https://") === 0) {
+    src = image.img;
+  } else {
+    console.log(` nope src: ${image.img} - ${src}`);
+  }
+
+  if (src) {
     let metadata = await Image(src, {
       widths: widths,
       formats: formats,
-      outputDir: "_site/img/", // seind image directly to the site build
+      outputDir: "_site/img/", // send image directly to the site build
       sharpOptions: {
         animated: true,
       },
@@ -128,7 +134,7 @@ module.exports = function (eleventyConfig) {
       output: "_site",
       includes: "themes/" + theme + "/includes",
       layouts: "themes/" + theme + "/layouts",
-      data: "content/data",
+      data: "content/_data",
     },
   };
 };
