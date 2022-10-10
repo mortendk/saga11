@@ -1,5 +1,5 @@
 ---
-title: The Big List of existing components
+title: All existing components :)
 image: /upload/spaceship.png
 card:
   title: Title from a card
