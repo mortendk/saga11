@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const env = require("./src/content/data/env.js");
+const env = require("./src/content/_data/env.js");
 const settings = require("./saga11.config.js");
 const theme = settings.theme || "grunn";
 
@@ -134,7 +134,7 @@ module.exports = function (eleventyConfig) {
       output: "_site",
       includes: "themes/" + theme + "/includes",
       layouts: "themes/" + theme + "/layouts",
-      data: "content/data",
+      data: "content/_data",
     },
   };
 };
