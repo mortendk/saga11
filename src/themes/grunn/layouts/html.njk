@@ -5,7 +5,6 @@
   x-data="{ darkMode: localStorage.getItem('themeDarkMode') == 'true' }"
   x-init="$watch('darkMode', val => localStorage.setItem('themeDarkMode', val))"
   x-bind:class="{ 'dark': darkMode }"
-  {# Cowboy tric to set degault to darkmode  x-bind:class="{ 'dark': !darkMode }" #}
 >
   <head>
     <meta charset="UTF-8">
