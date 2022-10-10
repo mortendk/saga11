@@ -1,9 +1,12 @@
 {% raw %}
       - label: "Site Settings"
         name: "sitesettings"
-        file: "src/content/data/site.json"
+        file: "src/content/_data/site.json"
         fields:
           - { label: Title, name: title, widget: string }
+          - { label: favicon, name: favicon, widget: image, default: "/upload/favicon.svg" }
+          - { label: favicon color, name: faviconcolor, widget: color, required: false, enableAlpha : true }
+          - { label: Browesercolor, name: color, widget: color, required: false }
           - { label: Seo default Description, name: description, widget: text, required: false }
           - { label: Seo default Keywords, name: keywords, widget: text, required: false }
           - { label: Header, name: header, widget: text, required: false, hint: "Data block placed inside the header tag ex for tracking scripts" }
@@ -12,5 +15,5 @@
           - { label: "RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
           - { label: "RSS Author", name: authorname, widget: string, required: false, hint: "Feed Author name"}
           - { label: "RSS Author Email" , name: Authoremail,widget: string, required: false,hint: "Feed Author name"}
-          - { label: Browesercolor, name: color, widget: color, required: false }
+
 {% endraw %}

@@ -29,7 +29,7 @@
 
     {# {%- include "head/icon.njk" -%} #}
     {% favicons 'src/upload/favicon.svg',
-        appleIconBgColor='#123',
+        appleIconBgColor= site.faviconcolor,
         manifestData={
           "name": site.title ,
           "short_name": site.title,
