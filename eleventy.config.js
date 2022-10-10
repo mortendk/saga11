@@ -21,29 +21,17 @@ async function picture(image) {
   const css = image.css || "";
   const alt = image.alt || "";
   const loading = image.loading || "lazy"; //lazy or eager
+  let src;
 
-  let src = "src" + image.img;
-
-  // a really not so optimal way to test if its an existing image is actually there
-  // TODO: test if the image is actaully there
-  const isValidUrl = (urlString) => {
-    var urlPattern = new RegExp(
-      "^(https?:\\/\\/)?" + // validate protocol
-        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
-        "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
-        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
-        "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
-        "(\\#[-a-z\\d_]*)?$",
-      "i"
-    ); // validate fragment locator
-    return !!urlPattern.test(urlString);
-  };
-
-  if (isValidUrl(image.img)) {
+  if (fs.existsSync("src" + image.img)) {
+    src = "src" + image.img;
+  } else if (image.img.indexOf("http://") === 0 || image.img.indexOf("https://") === 0) {
     src = image.img;
+  } else {
+    console.log(` nope src: ${image.img} - ${src}`);
   }
 
-  if (fs.existsSync(src) || isValidUrl(image.img)) {
+  if (src) {
     let metadata = await Image(src, {
       widths: widths,
       formats: formats,
