@@ -2,7 +2,7 @@
 layout: default
 title: "Rick & Morty Characters {{ name }}"
 ---
-
+This is an example page of using external apis
 <h1 class="text-5xl">{{ character.name }}</h1>
 
   <div class="aspect-video overflow-hidden shadow-lg ">
@@ -24,14 +24,12 @@ Location:
 </a>
 </div>
 
-
 <div>
 {{ character.episode  | length }} Episodes:
 </div>
 {% for item in character.episode %}
   <a href="{{ item }}">{{ item | replace('https://rickandmortyapi.com/api/episode/','') }}</a>
 {% endfor %}
-
 
 
 <section class="flex flex-row space-x-4 flex-wrap">
