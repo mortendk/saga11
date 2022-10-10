@@ -24,6 +24,7 @@
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
+    "@11ty/eleventy-fetch": "^3.0.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.4",
     "luxon": "^3.0.1",
@@ -32,8 +33,6 @@
     "tailwindcss": "^3.1.6"
   },
   "dependencies": {
-    "@11ty/eleventy-fetch": "^3.0.0",
-    "axios": "^1.1.2",
     "calendar-link": "^2.2.0",
     "dotenv-cli": "^6.0.0",
     "html-minifier": "^4.0.0",

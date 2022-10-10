@@ -1,23 +1,36 @@
 ---
 layout: default
 title: "Rick & Morty Characters {{ name }}"
-permalink: '/rick-morty/{{name|slug}}/'
 ---
 
 <h1 class="text-5xl">{{ character.name }}</h1>
-<img src="{{ character.image }}" alt="picture of {{ character.name }}">
-{{ species }}
-{{ character.type }}
-{{ character.gender }}
-{{ character.episode }}
-<a href="{{ character.url }}">link</a>
 
+  <div class="aspect-video overflow-hidden shadow-lg ">
+    {% picture
+      img=character.image,
+      width=[640,1280,1536],
+      sizes="(max-width: 640px) 50vw, 100vw",
+      css= character.name,
+      loading = "lazy"
+  %}
+<div>
+Species: {{ character.species }} - Type: {{ character.type }} - {{ character.gender }}
+</div>
 
+<div>
 Location:
 <a href="{{ character.location.url }}">
   {{ character.location.name }}
 </a>
+</div>
 
+
+<div>
+{{ character.episode  | length }} Episodes:
+</div>
+{% for item in character.episode %}
+  <a href="{{ item }}">{{ item | replace('https://rickandmortyapi.com/api/episode/','') }}</a>
+{% endfor %}
 
 
 
@@ -25,7 +38,15 @@ Location:
 {% for item in rickandmorty %}
   <article class="bg-slate-900 m-2">
   <a href="/rick-morty/{{ item.name |slugify }}">
-    <img src="{{ item.image }}" alt="picture of {{ item.name }}" class="w-32">
+
+    {% picture
+      img=item.image,
+      width=[100],
+      sizes="(max-width: 640px) 50vw, 100vw",
+      css= item.name,
+      loading = "lazy"
+    %}
+
     {{ item.name }}
   </a>
   </article>
