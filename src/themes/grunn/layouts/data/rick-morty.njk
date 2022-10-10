@@ -35,9 +35,10 @@ Location:
 
 
 <section class="flex flex-row space-x-4 flex-wrap">
-{% for item in rickandmorty %}
-  <article class="bg-slate-900 m-2">
-  <a href="/rick-morty/{{ item.name |slugify }}">
+
+  {% for item in rickandmorty %}
+    <article class="bg-slate-900 m-2">
+    <a href="/rick-morty/{{ item.name |slugify }}">
 
     {% picture
       img=item.image,
@@ -46,10 +47,10 @@ Location:
       css= item.name,
       loading = "lazy"
     %}
-
     {{ item.name }}
   </a>
   </article>
 {% endfor %}
+
 </section>
 
