@@ -12,7 +12,7 @@ const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 
 async function picture(image) {
   // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
-  if (image.img == "") {
+  if (image.img == "" || !image.img) {
     return "";
   }
 
@@ -117,7 +117,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/debug/");
 
   // global vars
-  eleventyConfig.addNunjucksGlobal("saga11version", "0.6 beta");
+  eleventyConfig.addNunjucksGlobal("saga11version", "0.6.1 beta");
   // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
 
