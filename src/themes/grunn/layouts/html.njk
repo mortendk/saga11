@@ -9,30 +9,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {% if card.text %}
-      <meta name="description" content="{{ card.text }}">
+    {{ site.header | safe }}
+    {%- if card.text %}
+     <meta name="description" content="{{ card.text }}">
     {% else  %}
-      <meta name="description" content="{{ site.description }}">
-    {% endif %}
-
-    {% if site.keywords %}
-      <meta name="keywords" content="{{ site.keywords}}">
-    {% endif %}
+    <meta name="description" content="{{ site.description }}">
+    {% endif -%}
+    {%- if site.keywords %}<meta name="keywords" content="{{ site.keywords}}">{% endif -%}
 
     <meta name="generator" content="{{eleventy.generator}}">
     <meta name="theme-color" content="{{site.color}}">
     <link rel="author" href="humans.txt"/>
-
-    {{ site.header | safe }}
 
     {# pinterest #}
     {% if some.pinterest_verification %}
       <meta name="p:domain_verify" content="{{ some.pinterest_verification}}"/>
     {% endif %}
 
-    {%- include "head/opengraph.njk" -%}
-    {%- include "head/icon.njk" -%}
+    {%- include "src/system/icon.njk" -%}
+
     {%- include "head/splashscreens.njk" -%}
 
     {%- if env.mode == 'prod' %}
@@ -50,7 +45,6 @@
         {{ title }} | {{ site.title }}
       </title>
     {% endif %}
-
   </head>
 
   {{ content | safe }}

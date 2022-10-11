@@ -8,6 +8,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
+const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 
 async function picture(image) {
   // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
@@ -76,6 +77,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  eleventyConfig.addPlugin(faviconsPlugin);
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
   eleventyConfig.addShortcode("imageurl", require("./src/system/11ty/shortcode/imageurl"));
