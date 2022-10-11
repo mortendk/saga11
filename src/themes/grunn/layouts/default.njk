@@ -24,13 +24,6 @@ Calls the _base/base.njk that is holding all the basic html
 
 </main>
 
-{% for item in rickandmortycharacters %}
-  <a href="/rick-morty/{{ item.name |slugify }}">{{ item.name }}</a>
-  <br>
-{% endfor %}
-
-
-
 {%- include "edit.njk" %}
 
 {%- include "footer.njk" %}
