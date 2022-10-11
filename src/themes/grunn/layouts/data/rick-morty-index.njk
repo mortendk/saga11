@@ -1,0 +1,25 @@
+---
+layout: default.njk
+title: "Rick & Morty Characters {{ name }}"
+---
+
+<section class="flex flex-row space-x-4 flex-wrap">
+
+  {% for item in rickandmorty %}
+    <article class="bg-slate-900 m-2">
+    <a href="/rick-morty/{{ item.name |slugify }}">
+
+    {% picture
+      img=item.image,
+      width=[100],
+      sizes="(max-width: 640px) 50vw, 100vw",
+      css= item.name,
+      loading = "lazy"
+    %}
+    {{ item.name }}
+  </a>
+  </article>
+{% endfor %}
+
+</section>
+
