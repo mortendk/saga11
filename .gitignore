@@ -8,5 +8,3 @@ node_modules/
 .cache
 
 # saga build
-src/themes/grunn/assets/css/style.css
-src/themes/grunn/assets/css/style.min.css
