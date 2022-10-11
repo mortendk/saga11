@@ -47,9 +47,7 @@ async function picture(image) {
         removeUrlQueryParams: false,
       },
       filenameFormat: function (id, src, width, format, options) {
-        const extension = path.extname(src);
-        const name = path.basename(src, extension);
-        return `${name}-${width}w.${format}`;
+        return `${id}-${width}w.${format}`;
       },
     });
 
