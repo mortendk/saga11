@@ -1,0 +1,20 @@
+{# test if there is an icon #}
+{% if site.icon %}
+  {% set icon  = 'src/' + site.icon %}
+{% else %}
+  {% set icon = "src/system/icon.svg" %}
+{% endif %}
+
+{% favicons icon,
+    appleIconBgColor= site.faviconcolor,
+    manifestData={
+      "name": site.title ,
+      "short_name": site.title,
+      "start_url": "./",
+      "scope": "/",
+      "display": "standalone",
+      "background_color": site.color,
+      "theme_color": site.color,
+      "description": site.description
+    }
+%}

@@ -3,13 +3,13 @@
   "color": "#e413d1",
   "keywords": "11ty",
   "header": "",
-  "faviconcolor": "rgba(77, 11, 11, 0.65)",
+  "faviconcolor": "rgba(246, 0, 0, 0.65)",
   "authoremail": "Ragnar@valhalla",
   "rss": true,
-  "favicon": "/upload/favicon.svg",
   "authorname": "Ragnar",
   "country": "denmark",
   "errorpage": "404 Ush It haz broken",
-  "title": "Saga11",
+  "title": "Saga 11",
+  "icon": "",
   "description": "saga11"
 }

@@ -26,21 +26,7 @@
       <meta name="p:domain_verify" content="{{ some.pinterest_verification}}"/>
     {% endif %}
 
-
-    {# {%- include "head/icon.njk" -%} #}
-    {% favicons 'src/upload/favicon.svg',
-        appleIconBgColor= site.faviconcolor,
-        manifestData={
-          "name": site.title ,
-          "short_name": site.title,
-          "start_url": "./",
-          "scope": "/",
-          "display": "standalone",
-          "background_color": site.color,
-          "theme_color": site.color,
-          "description": site.description
-        }
-    %}
+    {%- include "src/system/icon.njk" -%}
 
     {%- include "head/splashscreens.njk" -%}
 
