@@ -11,7 +11,8 @@
           "script" : "npm run splash-screens:build",
           "type" : "runScript"
         }
-      ]
+      ],
+      "script" : "npm run splash-screens:build"
     },
     "run" : {
       "enabled" : true
