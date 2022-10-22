@@ -124,6 +124,8 @@ module.exports = function (eleventyConfig) {
     port: 3791,
   });
 
+  eleventyConfig.ignores.add("README.md");
+  eleventyConfig.ignores.add("src/themes/notactive/");
   // Directory setup
   return {
     markdownTemplateEngine: "njk",
