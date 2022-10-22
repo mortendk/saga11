@@ -54,3 +54,8 @@ Saga11 is a system to build static websites with a CMS
 The taget audience is webdesigners that wants complete control over the markup, and that wants a true seperation of settings, content and output
 
 Theres no fancy libraries or SPA or anything else. Its just a website HTML + CSS + a tiny bit of JS
+
+## Figma Resources
+
+Overview of all components
+https://www.figma.com/file/3lgQNUa3Y5TvV2V0XaQKoL/Saga-11?node-id=4266%3A924

@@ -1,0 +1,21 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "postActions" : [
+        {
+          "script" : "npm start",
+          "type" : "runScript"
+        },
+        {
+          "script" : "npm run splash-screens:build",
+          "type" : "runScript"
+        }
+      ],
+      "script" : "npm run splash-screens:build"
+    },
+    "run" : {
+      "enabled" : true
+    }
+  }
+}
