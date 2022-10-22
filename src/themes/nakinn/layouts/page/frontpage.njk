@@ -1,0 +1,29 @@
+---
+layout: default.njk
+saga-template-name: Frontpage
+---
+{#
+------------------------------------------------
+FRONTPAGE TEMPLATE
+------------------------------------------------
+Specfic page to control the layout for the frontpage
+#}
+{%- if env.mode != 'prod' %}<!-- /Users/mdk/Web/saga11/src/themes/grunn/layouts/page/frontpage.njk  -->{%- endif -%}
+
+<article class="flex flex-col md:flex-row">
+  <div class="aspect-video overflow-hidden mt-4">
+    {% picture
+        img=image,
+        width=[400,800],
+        sizes="(min-width: 1024px) 50vw, 100vw",
+        css="shadow rounded-xl r",
+        loading = "eager"
+    %}
+  </div>
+
+  <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-slate-700">
+    {{ content | safe }}
+  </div>
+</article>
+
+{% include "components/all.njk" %}

@@ -1,0 +1,85 @@
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/address/address/address.njk-->{%- endif -%}
+
+  {# This is used for the iphone / android so they  can work prober cause ... #}
+  <script>
+    function openinmap(map){
+    // If it's an iPhone..
+    if( (navigator.platform.indexOf("iPhone") != -1)
+      || (navigator.platform.indexOf("iPod") != -1)
+      || (navigator.platform.indexOf("iPad") != -1))
+        window.open("maps://maps.google.com/?q=" + map);
+    else
+        window.open("https://maps.google.com/?q=" + map );
+    }
+  </script>
+
+  {# title + text #}
+  {% if (component.title | length )  or ( componenet.text | length ) %}
+
+    <article class="mx-auto max-w-3xl">
+      {% if component.title %}
+        <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+          {{ component.title }}
+        </h3>
+      {% endif %}
+
+      {% if component.text %}
+        <div class="prose prose-xl dark:prose-invert">
+          {{ component.text  | markdown | safe  }}
+        </div>
+      {% endif %}
+    </article>
+  {% endif %}
+
+  <div class="flex flex-row space-x-8" aria-label="Address">
+
+  {# address #}
+  {% for item in component.address %}
+
+    <article>
+      <h2 class="text-2xl">{{ item.name }}</h2>
+      <div>{{ item.street }}</div>
+
+      <div class="flex flex-row">
+        <div>{{ item.locality }}</div>
+        <div>{{ item.zip }}</div>
+      </div>
+
+      <div>{{ item.country }}</div>
+
+      <div class="py-4">
+        {% if item.phone %}
+          <div class="flex flex-row items-center">
+            <div class="w-4 h-4 text-white mr-2">{% include "icons/phone.svg" %}</div>
+            <a href="tel:+{{ item.phone | replace("", "") }}" itemprop="telephone">{{ item.phone }}</a>
+          </div>
+        {% endif %}
+
+        {% if item.email %}
+          <div class="flex flex-row items-center">
+            <div class="w-4 h-4 text-white mr-2">{% include "icons/envelope.svg" %}</div>
+            <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
+          </div>
+        {% endif %}
+
+        {% if expr %}
+          <div class="flex flex-row items-center">
+            <div class="w-4 h-4 text-white mr-2">{% include "icons/arrow-top-right-on-square.svg" %}</div>
+            <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
+          </div>
+        {% endif %}
+      </div>
+
+      <button onclick="openinmap('{{ item.street }},{{ item.zip }},{{ item.country }}')"
+              target="_blank" rel="noopener"
+              class="inline-flex flex-row items-center  p-1 font-bold">
+        <div class="w-4 mr-2">{% include "icons/map-pin.svg" %}</div>
+        <div >Map</div>
+      </button>
+
+    </article>
+
+  {% endfor %}
+
+  </div>
+

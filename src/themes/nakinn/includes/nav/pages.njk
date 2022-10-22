@@ -1,0 +1,28 @@
+{# LIST ALL PAGES
+------------------------------------------------
+ #}
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/pages.njk -->{%- endif  -%}
+
+<nav class="" aria-label="Pages Navigation">
+  {% for item in collections.allPages | sortByOrder %}
+    {# Defines a menu title based on the user input  #}
+    {% set menutitle %}
+    {% if item.data.menulabel %}
+      {{ item.data.menulabel }}
+    {% else %}
+      {{ item.data.title }}
+    {% endif %}
+    {% endset %}
+
+    <div class="border-b border-slate-200 mb-4">
+      {# test if the item url is a part of the page url - if yes its "active #}
+      {% if item.url in page.url -%}
+        <a href="{{ item.url }}" title="{{ item.data.title }}" class="block font-bold" aria-current="page">
+          {{ menutitle }}
+        </a>
+      {% else %}
+        <a href="{{ item.url }}" title="{{ item.data.title }}" class="block ">{{ menutitle }}</a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</nav>

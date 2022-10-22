@@ -1,0 +1,36 @@
+{# POST PRE NEXT NAVIGATION
+------------------------------------------------
+A simple pre / next nav for collections
+
+ #}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/post-pre-next.njk  -->{%- endif  -%}
+
+
+{%- if collections.allPosts %}
+
+<nav class="flex flex-row justify-between w-full" aria-label="Pre and Next post">
+  {#  #}
+  {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
+  {%- set previousPost = collections.allPosts | getPreviousCollectionItem(page) %}
+
+  {%- if nextPost or previousPost %}
+  {# previous  link #}
+  {%- if previousPost %}
+    <a href="{{ previousPost.url | url }}" title="{{ previousPost.data.title }}" class="flex flex-row items-center w-full">
+      <div class="w-8 text-black dark:text-white">{% include "icons/arrow-left.svg" %}</div>
+      <div>{{ previousPost.data.title }}</div>
+    </a>
+  {% endif %}
+  {# Next  linl #}
+  {%- if nextPost %}
+    <a href="{{ nextPost.url | url }}" title="{{ nextPost.data.title }}" class="flex flex-row items-center justify-end w-full">
+      <div>{{ nextPost.data.title }}</div>
+      <div class="w-8 text-black dark:text-white">{% include "icons/arrow-right.svg" %}</div>
+   </a>
+  {% endif %}
+  {# /if pre of next #}
+  {%- endif %}
+</nav>
+
+{%- endif %}
+

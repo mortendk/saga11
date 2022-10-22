@@ -1,0 +1,22 @@
+{%- if env.mode != 'prod' %}<!-- __includes/nav/tags.njk  -->{%- endif  -%}
+
+{% for tag in tags %}
+
+  {# dont print the rssfeed tag cause its used for the machine #}
+  {% if tag != "rssfeed" %}
+
+    {% for item in collections.all | getPage("/tag/" + tag + "/") %}
+      <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
+
+        {% if item.data.icon %}
+          <div class="h-4 w-4 mr-2">{% include  item.data.icon %}</div>
+        {% endif %}
+
+        {{ item.data.title }}
+
+      </a>
+  {% endfor %}
+
+  {% endif %}
+
+{% endfor %}

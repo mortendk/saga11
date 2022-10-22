@@ -1,0 +1,33 @@
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/templates/all-tags.njk -->{%- endif -%}
+
+<h2 class="text-5xl text-center text-cyan-700 dark:text-cyan-200">All Tags</h2>
+
+<section class="grid md:grid-cols-3 gap-4 py-4">
+
+  {% for tag in collections.tags %}
+
+    {% for item in collections.all | getPage("/tag/" + tag + "/") %}
+    <article class="flex flex-col justify-center items-center shadow border dark:border-none border-slate-100 bg-white dark:bg-slate-900">
+
+      <a href="/tag/{{ tag }}">
+        {% if item.data.icon %}
+          <div class="h-12 w-12 mr-2">{% include  item.data.icon %}</div>
+        {% endif %}
+
+        <h3 class="text-3xl text-center">
+        {{ item.data.title }}
+        </h3>
+        <div class="text-center">
+          {{ item.data.content | markdown  | safe }}
+        </div>
+
+      </a>
+
+    </article>
+    {% endfor %}
+
+  {% endfor %}
+
+
+
+</section>
