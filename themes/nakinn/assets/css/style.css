@@ -1,0 +1,16 @@
+body {
+  background-color: #eeeeee;
+}
+
+h1,
+h2,
+h3,
+a {
+  color: rebeccapurple;
+}
+
+/* a quick way to make sure the included svgs dont explode when we load the theme the first time ;) */
+svg {
+  width: 2rem;
+  height: 2rem;
+}

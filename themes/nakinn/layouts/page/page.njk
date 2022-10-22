@@ -1,0 +1,32 @@
+---
+layout: default.njk
+saga-template-name: Page default
+---
+{# PAGE DEFAULT TEAMPLATE
+------------------------------------------------
+This is the default template for the page type
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
+
+{% include "nav/breadcrumb.njk" %}
+
+{{ title }}
+
+
+  {% picture
+      img=image,
+      width=[640,1024, 1563],
+      sizes="(max-width: 640px) 50vw, 100vw",
+      css="shadow rounded-xl",
+      loading = "eager"
+  %}
+
+
+{% include "share.njk" %}
+
+{# List all page compoenents #}
+{% include "components/all.njk" %}
+
+
+  {{ content | markdown | safe }}
+
