@@ -1,0 +1,23 @@
+{
+  "clips" : [
+    {
+      "children" : [
+        {
+          "content" : "{% picture\n\timg=image,\n\twidth=[400,800],\n\tsizes=\"(min-width: 1024px) 50vw, 100vw\",\n\tcss=\"shadow rounded-xl\",\n\tloading = \"eager\"\n%}\n",
+          "name" : "picture"
+        }
+      ],
+      "name" : "shortcode"
+    },
+    {
+      "content" : "{{ content | safe }}",
+      "name" : "content",
+      "trigger" : "content"
+    },
+    {
+      "content" : "{{ content | markdown | safe }}",
+      "name" : "content markdown",
+      "trigger" : "content-markdown"
+    }
+  ]
+}
