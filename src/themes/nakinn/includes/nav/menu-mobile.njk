@@ -21,17 +21,17 @@
       {% if item.url in page.url %}aria-current="page" class="{{mobileclasses}} font-bold"
       {% else  %} class="{{mobileclasses}}"
       {% endif %}
-    >{{ item.title }}</a>
+    >{{ item.title }}
   {% else %}
 
     {# placeholder #}
-    <div x-data="{openmenuitem: false}" class="flex flex-col" @click="openmenuitem = true">
 
-      <div class="{{mobileclasses}} flex flex-row justify-between items-center pr-4">
-        <div>{{ item.title }}</div>
-        <div class="h-4 w-4" x-show="openmenuitem">{% include "icons/chevron-down.svg" %}</div>
-        <div class="h-4 w-4" x-show="!openmenuitem">{% include "icons/chevron-right.svg" %}</div>
-      </div>
+
+
+        {{ item.title }}
+        {% include "icons/chevron-down.svg" %}
+        {% include "icons/chevron-right.svg" %}
+
 
 
       <div
@@ -42,14 +42,14 @@
         @click.outside="openmenuitem = false"
       >
         {# We repeat the link from placeholder above so it works on a ipad etc #}
-        <a href="{{ item.url }}" class="{{ mobileclasses }} pl-8">{{ item.title }}</a>
+        {{ item.title }}
 
         {# Loop next level #}
         {%- for item in collections.all | eleventyNavigation(item.key) %}
-          <a href="{{ item.url }}" class="{{ mobileclasses }} pl-8 ">{{ item.title }}</a>
+          {{ item.title }}
         {% endfor %}
-      </div>
-    </div>
+
+
     {# / placeholder #}
 
 
@@ -57,4 +57,4 @@
 
 {%- endfor -%}
 
-</nav>
+

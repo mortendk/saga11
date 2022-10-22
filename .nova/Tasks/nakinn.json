@@ -1,0 +1,12 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "npm run ELEVENTY_ENV=prod DEBUG=* eleventy\n"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "npx @11ty\/eleventy --serve --quiet\n"
+    }
+  }
+}

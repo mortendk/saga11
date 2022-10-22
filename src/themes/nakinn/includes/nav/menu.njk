@@ -1,11 +1,11 @@
 {%- if env.mode != 'prod' %}<!-- /src/themes/grunn/includes/nav/menu.njk -->{%- endif  -%}
 
 {# Menu desktop #}
-<nav class="h-full hidden md:block" aria-label="Main Menu">
-  <div class="flex justify-between h-full">
+
+
     {% set menulvl1 = "inline-flex items-center text-xl font-bold border-b-4 transition hover:bg-cyan-50/50 dark:hover:bg-slate-900 hover:border-cyan-500/50" %}
     {% set menulvl2 = "p-4 text-lg hover:text-cyan-600 hover:bg-cyan-500/10" %}
-    <div class="flex space-x-4">
+
 
     {# level 1 #}
     {%- for item in collections.all | eleventyNavigation("main") %}
@@ -29,7 +29,7 @@
         {% endif %}
       >
         {{ item.title }}
-      </a>
+
 
       {% else %}
       {# Level 2  #}
@@ -37,10 +37,10 @@
             class="{{ menulvl1 }} text-slate-500 dark:text-cyan-200 border-transparent"
             @click="openmenuitem = true"
         >
-          <div class="flex items-center">
-            <div>{{ item.title }}</div>
-            <div class="w-4 h-4 text-slate-400 dark:text-cyan-200 ml-2 mt-2">{% include "icons/chevron-down.svg" %}</div>
-          </div>
+
+            {{ item.title }}
+            {% include "icons/chevron-down.svg" %}
+
 
           {# Here level 2that opens up when clicked #}
             <div
@@ -55,7 +55,7 @@
             <a href="{{ item.url }}"
                class="{{ menulvl2 }}"
                {% if item.excerpt %}title="{{ item.excerpt | markdown | safe }}" {% endif %}
-            >{{ item.title }}</a>
+            >{{ item.title }}
 
             {# Loop next level #}
             {%- for item in collections.all | eleventyNavigation(item.key) %}
@@ -64,17 +64,17 @@
                 {% if item.excerpt %}title="{{ item.excerpt | markdown | safe }}" {% endif %}
               >
               {{ item.title }}
-              </a>
+
             {% endfor %}
-            </div>
-          </div>
+
+
 
       {# / Level 2  #}
       {%- endif -%}
     {%- endfor -%}
     {# /level 1  #}
-    </div>
 
-  </div>
-</nav>
+
+
+
 {# /Menu Desktop #}
