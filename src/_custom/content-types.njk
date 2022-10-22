@@ -1,5 +1,7 @@
 {% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
-{# syntax #}
+{# this file is included into the system/netlifycms/config.njk #}
+
+{#
 {% raw %}
   - name: foobar
     label: 💜 Foobar
@@ -10,7 +12,7 @@
     preview_path: /foobar/{{title}}/
     create: true
     delete: true
-    hide: true
+    hide: false
     editor:
       preview: false
     summary: "{{title}}"
@@ -31,3 +33,4 @@
   {% include "src/system/netlifycms/fields/draft.njk" %}
   {% include "src/system/netlifycms/fields/content.njk" %}
 {% raw %}
+ #}
