@@ -25,11 +25,13 @@ regex ftw
 
 ## vscode search (note to selv)
 
+```
 <(?![!])[^<>]+>
 ./src/themes/nakinn/
 \*.svg, html.njk, share.njk, address.njk, calendar.njk, opengraph.njk, splashscreens.njk, responsive.njk, socialmedia.njk
+```
 
-## Scripts for package.json
+## Scripts
 
 ```json
   "scripts": {

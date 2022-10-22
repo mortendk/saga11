@@ -16,59 +16,59 @@
   {# title + text #}
   {% if (component.title | length )  or ( componenet.text | length ) %}
 
-    <article class="mx-auto max-w-3xl">
+
       {% if component.title %}
-        <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+
           {{ component.title }}
-        </h3>
+
       {% endif %}
 
       {% if component.text %}
-        <div class="prose prose-xl dark:prose-invert">
+
           {{ component.text  | markdown | safe  }}
-        </div>
+
       {% endif %}
-    </article>
+
   {% endif %}
 
-  <div class="flex flex-row space-x-8" aria-label="Address">
+
 
   {# address #}
   {% for item in component.address %}
 
-    <article>
-      <h2 class="text-2xl">{{ item.name }}</h2>
-      <div>{{ item.street }}</div>
 
-      <div class="flex flex-row">
-        <div>{{ item.locality }}</div>
-        <div>{{ item.zip }}</div>
-      </div>
+      {{ item.name }}
+      {{ item.street }}
 
-      <div>{{ item.country }}</div>
 
-      <div class="py-4">
+        {{ item.locality }}
+        {{ item.zip }}
+
+
+      {{ item.country }}
+
+
         {% if item.phone %}
-          <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-white mr-2">{% include "icons/phone.svg" %}</div>
-            <a href="tel:+{{ item.phone | replace("", "") }}" itemprop="telephone">{{ item.phone }}</a>
-          </div>
+
+            {% include "icons/phone.svg" %}
+            {{ item.phone }}
+
         {% endif %}
 
         {% if item.email %}
-          <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-white mr-2">{% include "icons/envelope.svg" %}</div>
-            <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
-          </div>
+
+            {% include "icons/envelope.svg" %}
+            {{ item.email }}
+
         {% endif %}
 
         {% if expr %}
-          <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-white mr-2">{% include "icons/arrow-top-right-on-square.svg" %}</div>
-            <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
-          </div>
+
+            {% include "icons/arrow-top-right-on-square.svg" %}
+            {{ item.url }}
+
         {% endif %}
-      </div>
+
 
       <button onclick="openinmap('{{ item.street }},{{ item.zip }},{{ item.country }}')"
               target="_blank" rel="noopener"
