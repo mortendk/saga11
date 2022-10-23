@@ -1,6 +1,6 @@
 {
   "name": "saga11",
-  "version": "0.6.1beta",
+  "version": "0.7beta",
   "description": "Website builder based on 11ty & netlifycms",
   "main": "eleventy.config.js",
   "scripts": {

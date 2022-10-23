@@ -124,6 +124,7 @@ module.exports = function (eleventyConfig) {
     port: 3791,
   });
 
+  // ignore
   eleventyConfig.ignores.add("README.md");
 
   // the amazing theme selector
