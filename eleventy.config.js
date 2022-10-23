@@ -125,7 +125,11 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.ignores.add("README.md");
-  eleventyConfig.ignores.add("src/themes/notactive/");
+
+  // the amazing theme selector
+  eleventyConfig.ignores.add("src/themes/");
+  eleventyConfig.ignores.delete("src/themes/" + theme + "/");
+
   // Directory setup
   return {
     markdownTemplateEngine: "njk",
