@@ -1,13 +1,15 @@
 {#
-The settings can be used to edit json files ex for pernalink for a contenttyle
+  The settings can be used to edit json files ex for pernalink for a contenttyle
+  Its inserted to a yaml file so the spacing is there for a reason
 #}
+
 {#
-      - label: "💜 foobar Settings"
+      - label: "💜 foobar"
         name: "foobar"
         hide: true
         file: "src/content/foobar/foobar.json"
         fields:
-          - { label: permalink, name: permalink, widget: string, hint: "permalink: [foldername]/{{ title | slugify }}/" }
+          - { label: text, name: text, widget: string  }
  #}
 {% raw %}
 {% endraw %}
