@@ -112,7 +112,6 @@ module.exports = function (eleventyConfig) {
   // PassThrough
   eleventyConfig.addPassthroughCopy("src/themes/" + theme + "/assets/");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
-  eleventyConfig.addPassthroughCopy("src/debug/");
 
   // global vars
   eleventyConfig.addNunjucksGlobal("saga11version", "0.6.1 beta");
@@ -128,8 +127,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
 
   // the amazing theme selector
-  eleventyConfig.ignores.add("src/themes/");
-  eleventyConfig.ignores.delete("src/themes/" + theme + "/");
+  eleventyConfig.ignores.add("src/themes/nakinn");
 
   // Directory setup
   return {

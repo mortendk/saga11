@@ -6,6 +6,8 @@ const inspect = require("util").inspect;
 
 module.exports = function (content, arg) {
   const name = arg || "data";
+  const settings = require("./saga11.config.js");
+  const theme = settings.theme || "grunn";
 
   // ❌ Getting annoing json errors - todo: fix this prober
   delete content._templateContent;
@@ -23,8 +25,8 @@ module.exports = function (content, arg) {
   const debug = inspect(content);
 
   return `
-      <link rel="stylesheet" href="/debug/jsonpath-picker.css">
-      <script src="/debug/jsonpath-picker.min.js"></script>
+      <link rel="stylesheet" href="themes/${theme}/assets/debug/jsonpath-picker.css">
+      <script src="themes/${theme}/assets/debug/jsonpath-picker.min.js"></script>
 
       <div class="debug11ty">
         <h2>11ty 🎈 Debüg</h2>
