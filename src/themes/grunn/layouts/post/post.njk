@@ -6,10 +6,15 @@ saga-template-name: Post Default
 ------------------------------------------------
 post template
 #}
+
+  {{ collections.all[0].template.templateData.globalData | debug | safe }}
 {%- if env.mode != 'prod' %}
   <!-- ___layouts/post/post.njk  -->
 {%- endif -%}
 <h1 class="text-6xl dark:text-cyan-200 pb-4">{{ title }}</h1>
+
+{{ title | debug | safe  }}
+
 
 {% if image %}
   <div class="aspect-video overflow-hidden shadow-lg ">

@@ -114,6 +114,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
 
   // global vars
+  // TODO: grap the version from package.json
   eleventyConfig.addNunjucksGlobal("saga11version", "0.6.1 beta");
   // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
