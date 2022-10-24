@@ -4,6 +4,9 @@ const env = require("./src/content/_data/env.js");
 const settings = require("./saga11.config.js");
 const theme = settings.theme || "grunn";
 
+const packageJson = require("./package.json");
+const saga11version = packageJson.version;
+
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -112,10 +115,10 @@ module.exports = function (eleventyConfig) {
   // PassThrough
   eleventyConfig.addPassthroughCopy("src/themes/" + theme + "/assets/");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
+  eleventyConfig.addPassthroughCopy("src/debug/");
 
   // global vars
-  // TODO: grap the version from package.json
-  eleventyConfig.addNunjucksGlobal("saga11version", "0.6.1 beta");
+  eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
   // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
 
