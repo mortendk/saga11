@@ -1,0 +1,32 @@
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/templates/all-post.njk -->{%- endif -%}
+
+All Post
+
+
+
+{% for item in collections.allPosts  %}
+
+
+
+
+
+      {% picture
+          img=item.data.card.image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="",
+          loading = "eager"
+      %}
+
+
+
+        {{item.data.card.title }}
+        {{ item.data.card.text }}
+        {{ item.date | formatDate("DDD  T", "DK") }}
+
+
+
+
+
+{% endfor %}
+

@@ -1,0 +1,16 @@
+{%- if env.mode != 'prod' %}  <!-- _src/__includes/footer.njk  -->{%- endif  -%}
+
+{# Gets the collection for the area footer  #}
+{% for item in collections.blocks | sortByOrder %}
+  {% if item.data.blockposition == "footer" %}
+
+    {% asyncEach component in item.data.components %}
+      {% include component.template %}
+    {% endeach %}
+
+  {% endif %}
+{% endfor %}
+
+
+{% include "darkmode.njk" %}
+

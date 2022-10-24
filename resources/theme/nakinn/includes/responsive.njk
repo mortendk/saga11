@@ -1,0 +1,28 @@
+{%- if env.mode != 'prod' %}<!-- __includes/mediaquery.njk -->{%- endif  -%}
+<section class="fixed bottom-0 flex flex-col left-0 z-10 text-sm text-center w-full opacity-75">
+
+  <div class="sm:hidden bg-slate-50">
+    <code>Default</code>
+  </div>
+
+  <div class="hidden sm:block md:hidden  bg-slate-100">
+    <code>sm: 640px</code>
+  </div>
+
+  <div class="hidden md:block lg:hidden {{class}} md:bg-slate-100">
+    <div> md: 768px</div>
+  </div>
+
+  <div class="hidden lg:block xl:hidden {{class}} bg-slate-200">
+  <code>lg: 640</code>
+  </div>
+
+  <div class="hidden xl:block 2xl:hidden {{class}} bg-slate-300">
+    <code>xl 1280</code>
+  </div>
+
+  <div class="hidden 2xl:block  {{class}} bg-slate-400">
+    <code>2xl 1536</code>
+
+  </div>
+</section>

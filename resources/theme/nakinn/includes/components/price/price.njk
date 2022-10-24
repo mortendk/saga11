@@ -1,0 +1,76 @@
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/price/price.njk -->{%- endif -%}
+
+
+
+
+
+
+      {{ component.title }}
+
+
+    {% if component.text %}
+
+        {{ component.text  | markdown | safe  }}
+
+    {% endif %}
+
+
+
+  {# wrapper for the list #}
+
+  {# Price list #}
+  {% for item in component.price %}
+
+
+
+
+        {{ item.title }}
+
+
+
+        {{ item.price }}
+
+
+
+
+        <a href="{{ item.url }}"
+          class="px-4 py-3 rounded font-bold
+          bg-sky-200 dark:bg-sky-800 border  border-sky-400
+          hover:bg-sky-300
+
+        "> Get this one
+
+
+
+      {% if item.text %}
+
+          {{ item.text  | markdown | safe  }}
+
+      {% endif %}
+
+      {# price elements #}
+      {% for element in item.elements %}
+
+          {# icon #}
+          {% if element.active %}
+
+              {% include "icons/check-badge.svg" %}
+
+
+          {% else %}
+
+              {% include "icons/check.svg" %}
+
+
+          {% endif %}
+
+          {{ element.title }}
+
+
+      {% endfor %}
+      {# /price elements #}
+
+  {% endfor %}
+  {# /Price list #}
+
+

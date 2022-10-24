@@ -1,0 +1,27 @@
+{# Tag Cloud
+------------------------------------------------
+List of all tags
+#}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/tagcloud.njk  -->{%- endif  -%}
+
+
+
+{% for tag in collections.tags %}
+
+  {% for item in collections.all | getPage("/tag/" + tag + "/") %}
+
+
+
+      {% if item.data.icon %}
+        {% include  item.data.icon %}
+      {% endif %}
+
+      {{ item.data.title }}
+
+
+
+  {% endfor %}
+
+{% endfor %}
+
+
