@@ -1,0 +1,56 @@
+{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/feature/feature.njk  -->{%- endif  -%}
+
+
+  {# title + text #}
+
+
+      {{ component.title }}
+
+    {% if component.text %}
+
+        {{ component.text  | markdown | safe  }}
+
+    {% endif %}
+
+
+
+
+
+
+  {# Feature #}
+  {% for item in component.feature %}
+
+
+
+
+
+        {% if item.icon %}
+          {% include  item.icon %}
+        {% endif %}
+
+
+
+
+      {{ item.title }}
+
+      {% if item.text %}
+
+        {{ item.text  | markdown | safe  }}
+
+      {% endif %}
+
+
+
+
+
+    {# {% picture
+      img=item.image,
+      width=[400],
+      sizes="(min-width: 1600px) 50vw, 100vw",
+      css="rounded-full w-20 h-20 border border-teal-400",
+      alt=""
+    %} #}
+  {% endfor %}
+
+
+

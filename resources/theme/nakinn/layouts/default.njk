@@ -1,0 +1,23 @@
+---
+layout: html.njk
+---
+{# DEFAULT
+------------------------------------------------
+Calls the _base/base.njk that is holding all the basic html
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/default.njk  -->{%- endif -%}
+
+{# isModalOpen is used to test if theres a modal open then disable the scroll #}
+
+
+{%- include "header.njk" %}
+
+
+
+  {{ content | safe }}
+
+
+
+{%- include "edit.njk" %}
+
+{%- include "footer.njk" %}

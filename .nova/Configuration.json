@@ -1,4 +1,10 @@
 {
+  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
+    "json"
+  ],
+  "eablokker.tabsSidebar.config.customTabOrder" : [
+    "\/Users\/mdk\/Web\/saga11\/.nova\/Configuration.json"
+  ],
   "editor.default_syntax" : "nunjucks-html",
   "tailwindcss.workspace.tailwindConfig" : "\/Users\/mdk\/Web\/saga11\/src\/themes\/grunn\/tailwind.config.js",
   "workspace.art_style" : 1,

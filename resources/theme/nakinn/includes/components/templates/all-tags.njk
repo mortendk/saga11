@@ -1,0 +1,33 @@
+{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/templates/all-tags.njk -->{%- endif -%}
+
+All Tags
+
+
+
+  {% for tag in collections.tags %}
+
+    {% for item in collections.all | getPage("/tag/" + tag + "/") %}
+
+
+
+        {% if item.data.icon %}
+          {% include  item.data.icon %}
+        {% endif %}
+
+
+        {{ item.data.title }}
+
+
+          {{ item.data.content | markdown  | safe }}
+
+
+
+
+
+    {% endfor %}
+
+  {% endfor %}
+
+
+
+

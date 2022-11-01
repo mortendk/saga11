@@ -1,4 +1,5 @@
 const inspect = require("util").inspect;
+// const settings = require("./saga11.config.js");
 
 // Return a clickable json path pickers
 // using this amazing lib
@@ -6,6 +7,7 @@ const inspect = require("util").inspect;
 
 module.exports = function (content, arg) {
   const name = arg || "data";
+  // TODO: get the theme settings
 
   // ❌ Getting annoing json errors - todo: fix this prober
   delete content._templateContent;

@@ -1,0 +1,149 @@
+.debug11ty {
+  position: absolute;
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+  padding: 1rem;
+  overflow: hidden;
+  width: 80%;
+  margin: 2rem auto;
+  color: white;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+    rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.debug11ty h2 {
+  font-size: 5rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.debug11ty h3 {
+  font-size: 2rem;
+  padding: 0.5rem 0;
+  font-family: monospace;
+}
+
+.debug {
+  margin: 0 auto;
+  width: 40rem;
+  display: flex;
+}
+
+.debugbtn {
+  display: block;
+  padding: 0.5rem 1rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+  border-radius: 0.25rem 0 0 0.25rem;
+  width: 15rem;
+  transition: all 1s ease-in-out;
+}
+
+.debugbtn:hover {
+  background-color: #fc5c7d;
+}
+.debugpath {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin: 0 auto;
+  border: 1px solid white;
+  border-radius: 0 0.25rem 0.25rem 0;
+  height: 4rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  max-width: 100%;
+}
+
+.debugpath:focus {
+  color: purple;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px dotted purple;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.debugtextarea {
+  width: 100%;
+  height: 30rem;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.debugdata {
+  margin-left: 2rem;
+}
+
+.debuginfo {
+  font-style: italic;
+  padding: 1rem;
+}
+/* Tree view  */
+li {
+  color: white;
+}
+ul.json-dict,
+ol.json-array {
+  list-style-type: none;
+  margin: 0 0 0 1px;
+  padding-left: 2em;
+  border-left: 1px dashed #fff;
+  border-top: 1px dotted hotpink;
+}
+/*  */
+.json-string {
+  color: #000;
+  width: 10rem;
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 80%;
+  max-height: 10rem;
+  overflow: hidden;
+  display: inline-block;
+}
+.json-literal {
+  font-weight: bold;
+}
+a.json-toggle {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding: 0 0.5rem;
+}
+a.json-toggle:focus {
+  outline: 0;
+}
+a.json-toggle:before {
+  color: #aaa;
+  content: "🏷";
+  position: absolute;
+  display: inline-block;
+  width: 1em;
+  left: -1em;
+}
+a.json-toggle.collapsed:before {
+  content: "📔";
+}
+
+/* placeholder  */
+a.json-placeholder {
+  color: #fff;
+  padding: 0 1em;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+a.json-placeholder:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.pick-path {
+  color: lightgray;
+  cursor: pointer;
+  margin-left: 3px;
+}
+.pick-path:hover {
+  color: darkgray;
+}
