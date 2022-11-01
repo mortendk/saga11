@@ -1,4 +1,19 @@
 {
+  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
+    "nunjucks-html",
+    "json",
+    "javascript",
+    "plaintext"
+  ],
+  "eablokker.tabsSidebar.config.customTabOrder" : [
+    "\/Users\/mdk\/Web\/saga11\/src\/themes\/grunn\/includes\/share.njk",
+    "\/Users\/mdk\/Web\/saga11\/package.json",
+    "\/Users\/mdk\/Web\/saga11\/saga11.config.js",
+    "\/Users\/mdk\/Web\/saga11\/eleventy.config.js",
+    "\/Users\/mdk\/.Trash\/.eleventyignore",
+    "\/Users\/mdk\/Web\/saga11\/src\/themes\/grunn\/includes\/components\/images\/images.njk",
+    "\/Users\/mdk\/Web\/saga11\/.nova\/Configuration.json"
+  ],
   "editor.default_syntax" : "nunjucks-html",
   "tailwindcss.workspace.tailwindConfig" : "\/Users\/mdk\/Web\/saga11\/src\/themes\/grunn\/tailwind.config.js",
   "workspace.art_style" : 1,
