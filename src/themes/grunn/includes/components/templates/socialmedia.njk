@@ -11,6 +11,13 @@
     </a>
   {% endif %}
 
+  {% if some.mastodon %}
+    <a href="https://{{ some.mastodon }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      <span class="sr-only">Mastodon</span>
+      {% include "svg/some/mastodon.svg" %}
+    </a>
+  {% endif %}
+
   {% if some.linkedin %}
     <a href="https://linkedin.com/in/{{ some.linkedin }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
       <span class="sr-only">LinkedIn</span>
