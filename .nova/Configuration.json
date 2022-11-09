@@ -1,16 +1,10 @@
 {
-  "eablokker.tabsSidebar.config.customKindGroupsOrder" : [
-    "json"
-  ],
-  "eablokker.tabsSidebar.config.customTabOrder" : [
-    "\/Users\/mdk\/Web\/saga11\/.nova\/Configuration.json"
-  ],
-  "editor.default_syntax" : "nunjucks-html",
-  "tailwindcss.workspace.tailwindConfig" : "\/Users\/mdk\/Web\/saga11\/src\/themes\/grunn\/tailwind.config.js",
-  "workspace.art_style" : 1,
-  "workspace.color" : 9,
-  "workspace.name" : "Saga 11",
-  "workspace.preview_root" : "_site",
-  "workspace.preview_type" : "custom",
-  "workspace.preview_url" : "localhost:3791"
+  "eablokker.tabsSidebar.config.customKindGroupsOrder": ["env", "javascript", "xml", "nunjucks-html"],
+  "editor.default_syntax": "nunjucks-html",
+  "workspace.art_style": 1,
+  "workspace.color": 9,
+  "workspace.name": "Saga 11",
+  "workspace.preview_root": "_site",
+  "workspace.preview_type": "custom",
+  "workspace.preview_url": "localhost:3791"
 }
