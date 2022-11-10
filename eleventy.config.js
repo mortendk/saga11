@@ -124,7 +124,7 @@ module.exports = function (eleventyConfig) {
 
   // Local Server
   eleventyConfig.setServerOptions({
-    port: 3791,
+    port: env.siteport ,
   });
 
   // ignore README
