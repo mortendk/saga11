@@ -6,7 +6,10 @@ eleventyExcludeFromCollections: true
 backend:
   name: git-gateway
   branch: {{ env.branch }}
+
+
 local_backend:
+  # when using a custom proxy server port
   url: http://localhost:{{ env.netlifycmsport }}/api/v1
 
 #SETTINGS
