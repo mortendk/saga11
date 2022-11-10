@@ -1,5 +1,4 @@
 {
-  "eablokker.tabsSidebar.config.customKindGroupsOrder": ["env", "javascript", "xml", "nunjucks-html"],
   "editor.default_syntax": "nunjucks-html",
   "workspace.art_style": 1,
   "workspace.color": 9,
