@@ -2,16 +2,20 @@
 <div class="flex flex-col ">
 
   <label
-    for="form-item-{{ item.title | urlencode  }}"
-    class="font-bold text-lg text-slate-700 dark:text-cyan-100 hover:text-slate-800 hover:cursor-pointer">{{ item.title }}</label>
+    for="form-item-{{ item.title | slugify  }}"
+    class="font-bold text-lg hover:cursor-pointer">
+    {{ item.title }}
+    {% if item.required %} * {% endif %}
+  </label>
 
-    <textarea
-      name="{{ name }}"
-      id="form-item-{{ item.title | urlencode  }}"
-      placeholder="{{ item.placeholder }} "
-      {% if item.required %}required{% endif %}
-      class="w-full h-80
-            rounded bg-slate-200 border-slate-300  dark:text-slate-800
-            focus:outline-none focus:border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyan-500 focus:ring-white
-            focus:bg-slate-200"></textarea>
+  <textarea
+    name="{{ item.title | slugify }}"
+    id="form-item-{{ item.title | slugify  }}"
+    placeholder="{{ item.placeholder }} "
+    {% if item.required %}required{% endif %}
+    class="w-full h-80
+          rounded bg-slate-200 border-slate-300  dark:text-slate-800
+          focus:outline-none focus:border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyan-500 focus:ring-white
+          focus:bg-slate-200"></textarea>
+
 </div>
