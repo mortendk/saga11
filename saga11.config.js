@@ -3,4 +3,5 @@
 module.exports = {
   // Theme settings: nakinn / grunn
   theme: "grunn",
+  dateLocale: "da",
 };
