@@ -1,0 +1,46 @@
+{%- if env.mode != 'prod' %}<!-- 👋 field/options.njk --> file{%- endif  -%}
+<div class="flex flex-col">
+
+  <label
+    for="form-item-{{ item.title | slugify }}"
+    class="font-bold text-lg hover:text-slate-800 hover:cursor-pointer">
+    {{ item.title }}
+    {% if item.required %} * {% endif %}
+  </label>
+
+{# Dropdown #}
+{% if item.inputtype == "Dropdown" %}
+  <select name="select">
+
+  {% for option in item.option %}
+   <option label="{{ option.title | slugify }}" {% if option.checked %} selected {% endif %}>
+    {{ option.title }}
+  </option>
+  {% endfor %}
+
+  </select>
+{# /Dropdown #}
+
+{% elif item.inputtype == "Radio" %}
+{# Radio #}
+  {% for option in item.option %}
+  <div class="py-4">
+    <input type="radio" id="{{ option.title | slugify }}" name="{{item.title | slugify }}" {% if option.checked %}checked{% endif %}>
+    <label for="{{ option.title | slugify }}"> {{ option.title }} </label>
+  </div>
+  {% endfor %}
+{# /Radio #}
+
+{% elif item.inputtype == "Checkbox" %}
+{# Checkbox #}
+  {% for option in item.option %}
+  <div class="py-4">
+    <input type="checkbox" id="{{ option.title | slugify }}" {% if option.checked %}checked{% endif %}>
+    <label for="{{ option.title | slugify }}"> {{ option.title }} </label>
+  </div>
+  {% endfor %}
+
+{% endif %}
+{#/ Checkbox #}
+</div>
+

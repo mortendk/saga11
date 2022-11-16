@@ -28,20 +28,19 @@
     {# Create form elements #}
     {% for item in component.elements %}
 
-      {% if item.inputtype == "textarea" %}
+      {% if item.type == "textarea" %}
         {% include "components/form/field/textarea.njk" %}
-      {% else %}
+      {% elif item.type == "text" %}
         {% include "components/form/field/input.njk" %}
-      {% endif %}
+      {% elif item.type == "options" %}
+        {% include "components/form/field/options.njk" %}
+     {% endif %}
 
     {% endfor %}
 
 
     <div class="flex flex-row justify-end">
 
-      {# <input type="reset" value="reset"
-             class="px-4 py-2 rounded-sm font-bold uppercase bg-slate-400 text-slate-800 hover:bg-slate-300">
-  #}
       <button
           aria-label="Submit"
           class="px-4 py-2 rounded-sm font-bold uppercase bg-lime-400 text-green-900 hover:bg-lime-300">Send</button>

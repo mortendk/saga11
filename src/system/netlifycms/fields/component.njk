@@ -317,16 +317,44 @@
               - { label: title, name: title, widget: string, default: 'Contact', required: false }
               - { label: Form name, name: name, widget: string, default: 'Contact', required: true, hint: "The name of the form for netlify" }
               - { label: action url, name: action, widget: string, default: 'Contact', required: false, hint: "Link to the page the form goes to after submit" }
-              - label: elements
+              - label: Form elements
                 name: elements
                 widget: list
                 summary: '{{fields.title}} || {{fields.inputtype}}'
                 add_to_top: true
-                fields:
-                  - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date","textarea"], default: text }
-                  - { label: title, name: title, widget: string, required: false }
-                  - { label: placeholder, name: placeholder, widget: string, required: false }
-                  - { label: required, name: required, widget: boolean, default: false, required: false }
+                types:
+                  - label: "Input : text, tel, phone, url"
+                    name: text
+                    widget: list
+                    fields:
+                      - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date"], default: text }
+                      - { label: title, name: title, widget: string, required: true }
+                      - { label: placeholder, name: placeholder, widget: string, required: false }
+                      - { label: required, name: required, widget: boolean, default: false, required: false }
+                  - label: Textarea
+                    name: textarea
+                    widget: list
+                    fields:
+                      - { label: title, name: title, widget: string, required: true, default: Message }
+                      - { label: required, name: required, widget: boolean, default: false, required: false }
+
+                  - label: "Options: Dropdown / Checkbox / Radio"
+                    name: options
+                    widget: list
+                    fields:
+                      - { label: title, name: title, widget: string, required: true }
+                      - { label: "Option type", name: inputtype, widget: select, options: ["Dropdown", "Radio", "Checkbox"], default: Dropdown }
+                      - { label: required, name: required, widget: boolean, default: false, required: false }
+                      - label: option
+                        name: option
+                        widget: list
+                        summary: '{{fields.title}} || {{fields.inputtype}}'
+                        add_to_top: true
+                        fields:
+                          - { label: title, name: title, widget: string, required: true }
+                          - { label: "checked/selected", name: checked, widget: boolean, default: false, required: false }
+
+
               - { label: text, name: text, widget: markdown, required: false }
               - name: "template"
                 label: "Template"
