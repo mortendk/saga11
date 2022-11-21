@@ -1,9 +1,9 @@
 const path = require("path");
 const fs = require("fs");
+// Get settings
 const env = require("./src/content/_data/env.js");
 const settings = require("./saga11.config.js");
 const theme = settings.theme || "grunn";
-
 const packageJson = require("./package.json");
 const saga11version = packageJson.version;
 
@@ -77,8 +77,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
   eleventyConfig.addPlugin(faviconsPlugin);
+
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
   eleventyConfig.addShortcode("imageurl", require("./src/system/11ty/shortcode/imageurl"));
@@ -131,7 +131,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
 
   // the amazing theme selector
-  eleventyConfig.ignores.add("src/themes/nakinn");
+  eleventyConfig.ignores.add("src/themes/");
+  eleventyConfig.ignores.delete("src/themes/"  + theme );
+
 
   // Directory setup
   return {
