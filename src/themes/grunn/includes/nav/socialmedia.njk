@@ -52,17 +52,17 @@ Graps all the data thats added to the _data/some.json file
     </a>
   {% endif %}
 
-  {% if some.twitter %}
-    <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">Twitter</span>
-      {% include "svg/some/twitter.svg" %}
+  {% if some.github %}
+    <a href="https://github.com/{{ some.github }}" target="_blank" rel="me noopener noreferrer nofollow" class="{{css}}">
+      <span class="sr-only">GitHub</span>
+      {% include "svg/some/github.svg" %}
     </a>
   {% endif %}
 
-  {% if some.github %}
-    <a href="https://github.com/{{ some.github }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">GitHub</span>
-      {% include "svg/some/github.svg" %}
+  {% if some.pinterest %}
+    <a href="https://pinterest.com/{{ some.pinterest }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      <span class="sr-only">pinterest</span>
+      {% include "svg/some/pinterest.svg" %}
     </a>
   {% endif %}
 
@@ -114,13 +114,11 @@ Graps all the data thats added to the _data/some.json file
     </a>
   {% endif %}
 
-  {% if some.pinterest %}
-
-    <a href="https://pinterest.com/{{ some.pinterest }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
-      <span class="sr-only">pinterest</span>
-      {% include "svg/some/pinterest.svg" %}
+  {% if some.twitter %}
+    <a href="https://twitter.com/{{ some.twitter }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      <span class="sr-only">Twitter</span>
+      {% include "svg/some/twitter.svg" %}
     </a>
   {% endif %}
-
 
 </nav>
