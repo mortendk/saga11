@@ -2,7 +2,7 @@ An upgrade guide
 
 Heres a short guide to upgrade saga11
 
-### Delete:
+## Delete:
 These files and folder delete em
 
 /node_modules/
@@ -11,12 +11,13 @@ These files and folder delete em
 
 Both will be regenered when you `npm install` and `npm start`
 
-### Overvrite these files
+## Overvrite
 /eleventy.config.js
 /netlify.toml
 /src/debug
 /src/system
 
+## Config
 
 
 /src/themes/grunn
