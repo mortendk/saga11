@@ -30,6 +30,14 @@ Global header for the site
   {%- endif -%}
 {%- endset -%}
 
+{%- set twitterimage -%}
+  {%- if card.image -%}
+   {{ env.url }}/themes/{{ theme }}{%- imageurl img=card.image, size=[1024] -%}
+  {%- else -%}
+   {{ env.url }}/themes/{{ theme }}/assets/opengraph/facebook.jpg
+  {%- endif -%}
+{%- endset -%}
+
 {# Facebook #}
 <meta property="og:site_name" content="{{site.title}}">
 <meta property="og:title" content="{{ ogtitle }}">
@@ -40,8 +48,12 @@ Global header for the site
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 {# Twitter #}
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@{{some.twitter}}">
+
+
+<meta name="twitter:card" content="summary">
+{% if some.twitter %}
+<meta name="twitter:author" content="@{{some.twitter}}">
+{% endif %}
 <meta name="twitter:title" content="{{ ogtitle }}">
 <meta name="twitter:description" content="{{ ogdescription }}">
-<meta name="twitter:image" content="{{ ogimage }}">
+<meta name="twitter:image" content="{{ twitterimage }}">
