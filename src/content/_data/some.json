@@ -1,10 +1,11 @@
 {
   "pinterest_verification": "",
+  "mastodonme": true,
   "youtube": "saga11dev",
   "github": "",
   "soundcloud": "",
   "facebook": "",
-  "mastodon": "fosstodon.org/@saga11",
+  "mastodon": "htts://fosstodon.org/@saga11",
   "discord": "",
   "rss": true,
   "instagram": "saga11dev",
