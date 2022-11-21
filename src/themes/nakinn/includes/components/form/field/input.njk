@@ -1,22 +1,10 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/form/field/input.njk -->{%- endif  -%}
+{%- if env.mode != 'prod' %} <!-- src/themes/grunn/includes/components/form/field/input.njk -->{%- endif  -%}
+<div>
 
-
-  <label
-    for="form-item-{{ item.title | urlencode }}"
-    class="font-bold text-lg text-slate-700 dark:text-cyan-100 hover:text-slate-800 hover:cursor-pointer">
+  <label for="form-item-{{ item.title | slugify }}">
     {{ item.title }}
     {% if item.required %} * {% endif %}
+  </label>
 
-
-  <input
-  type="{{ item.inputtype }}"
-    name="{{ name }}"
-    id="form-item-{{ item.title | urlencode }}"
-    placeholder="{{ item.placeholder }} "
-    {% if item.required %}required{% endif %}
-    class="rounded bg-slate-200 border-slate-300 dark:text-slate-800
-           focus:outline-none focus:border-white focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyan-500 focus:ring-white
-           focus:bg-slate-200"
-  />
-
-
+  <input type="{{ item.inputtype }}" name="{{ item.title | slugify }}" id="form-item-{{ item.title | slugify }}" placeholder="{{ item.placeholder }} " {% if item.required %}required{% endif %} />
+</div>

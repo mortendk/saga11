@@ -314,9 +314,9 @@
             widget: object
             summary: '{{fields.title}} || {{fields.template}}'
             fields:
-              - { label: title, name: title, widget: string, default: 'Contact', required: false }
-              - { label: Form name, name: name, widget: string, default: 'Contact', required: true, hint: "The name of the form for netlify" }
-              - { label: action url, name: action, widget: string, default: 'Contact', required: false, hint: "Link to the page the form goes to after submit" }
+              - { label: title, name: title, widget: string, default: 'Form Submitted', required: false }
+              - { label: Form name, name: name, widget: string, default: 'contact', required: true, hint: "The name of the form" }
+              - { label: action url, name: action, widget: string, default: '/submitted', required: false, hint: "Link to the url the form goes to after submit" }
               - label: Form elements
                 name: elements
                 widget: list
