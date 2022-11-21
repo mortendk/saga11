@@ -1,8 +1,11 @@
 # Nakinn
 
-The Cleanest theme ever created!
+The Cleanest theme ever created(tm)
 
-The nakinn theme will be build when the grunn theme is done and the content definition is done as well :)
+Fair Warning
+The nakinn theme will be completely  build when the grunn theme is done and the content definition is done as well :)
+
+ITs a theme with all markup, css & js removed so the webdesigner can start from a truly clean slate.
 
 ## activate theme
 
@@ -23,7 +26,7 @@ regex ftw
 <(?![!])[^<>]+>
 ```
 
-## vscode search (note to selv)
+## vscode search refex
 
 ```
 <(?![!])[^<>]+>
@@ -32,6 +35,8 @@ regex ftw
 ```
 
 ## Scripts
+The scripts for grunn haves all kinds of tailwind funn stuff added.
+Heres a clean version
 
 ```json
   "scripts": {
