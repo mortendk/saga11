@@ -4,16 +4,38 @@
         file: "src/content/_data/site.json"
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: (fave)icon, name: icon, widget: image, choose_url: false, required: false, hint: "The icon is used to create favions Only takes square images - preferable an sbvg"}
+
+          - {label: 🐘 ✅ mastodon Verification (rel="me"),
+              name: mastodon_verification,
+              widget: string,
+              required: false,
+              hint: "The complete url (ex: https://fosstodon.org/@saga11) Used for mastodon verification ",
+            }
+          - {label: 👋 Github Verification (rel="me"),
+              name: github_verification,
+              widget: string,
+              required: false,
+              hint: "The complete url (ex: https://github.com/[name]) used for indieauth.com",
+            }
+          - {
+              label: 📍pinterest_verification,
+              name: pinterest_verification,
+              widget: string,
+              required: false,
+              hint: "can be found on https://www.pinterest.dk/settings/claim",
+            }
+          - { label: 👾 Header, name: header, widget: text, required: false, hint: "Data block placed inside the header tag ex for tracking scripts" }
+
+          - { label: 🌇 (fave)icon, name: icon, widget: image, choose_url: false, required: false, hint: "The icon is used to create favions Only takes square images - preferable an sbvg"}
           - { label: Icon color, name: faviconcolor, widget: color, required: true, enableAlpha : true }
           - { label: Browesercolor, name: color, widget: color, required: false }
-          - { label: Seo default Description, name: description, widget: text, required: false }
-          - { label: Seo default Keywords, name: keywords, widget: text, required: false }
-          - { label: Header, name: header, widget: text, required: false, hint: "Data block placed inside the header tag ex for tracking scripts" }
-          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
+          - { label: 🔎 Seo default Description, name: description, widget: text, required: false }
+          - { label: 🔎 Seo default Keywords, name: keywords, widget: text, required: false }
+          - { label: "😩 404 Errorpage", name: errorpage, widget: text, required: false }
           - { label: "Humans.txt", name: humantxt, widget: text, required: false }
-          - { label: "RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
-          - { label: "RSS Author", name: authorname, widget: string, required: false, hint: "Feed Author name"}
-          - { label: "RSS Author Email" , name: Authoremail,widget: string, required: false,hint: "Feed Author name"}
+          - { label: "🧡 RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: "🧡 RSS Author", name: authorname, widget: string, required: false, hint: "Feed Author name"}
+          - { label: "🧡 RSS Author Email" , name: Authoremail,widget: string, required: false,hint: "Feed Author name"}
+          - { label: "📱 IOS Splashscreen", name: splashscreen, widget: boolean, default: true, hint: "Add the mobile Splashscreens for ios (npm run splash-screens:build)",}
 
 {% endraw %}

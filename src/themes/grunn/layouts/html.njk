@@ -9,27 +9,50 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="{{ eleventy.generator }}">
+
     {{ site.header | safe }}
-    {%- if card.text %}
-     <meta name="description" content="{{ card.text }}">
-    {% else  %}
-    <meta name="description" content="{{ site.description }}">
-    {% endif -%}
-    {%- if site.keywords %}<meta name="keywords" content="{{ site.keywords}}">{% endif -%}
 
-    <meta name="generator" content="{{eleventy.generator}}">
-    <meta name="theme-color" content="{{site.color}}">
-    <link rel="author" href="humans.txt"/>
-
-    {# pinterest #}
-    {% if some.pinterest_verification %}
-      <meta name="p:domain_verify" content="{{ some.pinterest_verification}}"/>
+    {# Mastodon #}
+    {% if site.mastodon_verification %}
+      <link rel="me" href="{{ site.mastodon_verification }}">
     {% endif %}
 
+    {# Mastodon #}
+    {% if site.github_verification %}
+      <link rel="me" href="{{ site.github_verification }}">
+    {% endif %}
+
+    {# pinterest #}
+    {% if site.pinterest_verification %}
+      <meta name="p:domain_verify" content="{{ site.pinterest_verification }}"/>
+    {% endif %}
+
+    {% if site.humanstext %}
+      <link rel="author" href="/humans.txt" type="text/plain" />
+    {% endif %}
+
+    {%- if card.text %}
+      <meta name="description" content="{{ card.text }}">
+    {% else  %}
+      <meta name="description" content="{{ site.description }}">
+    {% endif -%}
+      {%- if site.keywords %}
+      <meta name="keywords" content="{{ site.keywords }}">
+    {% endif -%}
+
+
+
+    <meta name="theme-color" content="{{ site.color }}">
     {%- include "src/system/icon.njk" -%}
 
     {%- include "head/opengraph.njk" -%}
-    {%- include "head/splashscreens.njk" -%}
+
+    {% if site.splashscreen %}
+      {%- include "head/splashscreens.njk" -%}
+    {% endif %}
+
+
 
     {%- if env.mode == 'prod' %}
       <link href="{{ '/themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
