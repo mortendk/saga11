@@ -4,7 +4,7 @@ module.exports = function (content, name) {
   const debug = inspect(content);
 
   return `
-        <link rel="stylesheet" href="/debug/jsonpath-picker.css">
+        <link rel="stylesheet" href="/themes/debug/jsonpath-picker.css">
 
         <div class="debug11ty">
           <h2>11ty 🎈 Debüg</h2>

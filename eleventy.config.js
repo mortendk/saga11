@@ -115,7 +115,7 @@ module.exports = function (eleventyConfig) {
   // PassThrough
   eleventyConfig.addPassthroughCopy("src/themes/" + theme + "/assets/");
   eleventyConfig.addPassthroughCopy("src/service-workers.js");
-  eleventyConfig.addPassthroughCopy("src/debug/");
+  eleventyConfig.addPassthroughCopy("src/themes/debug/");
 
   // global vars
   eleventyConfig.addNunjucksGlobal("saga11version", saga11version);

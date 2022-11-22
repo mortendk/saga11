@@ -14,12 +14,14 @@ Both will be regenered when you `npm install` and `npm start`
 ## Overvrite
 /eleventy.config.js
 /netlify.toml
-/src/debug
 /src/system
-
-## Config
 
 
 /src/themes/grunn
 /src/themes/nakinn
 /src/themes/styleguide
+/src/themes/debug
+
+## Config
+package.json
+
