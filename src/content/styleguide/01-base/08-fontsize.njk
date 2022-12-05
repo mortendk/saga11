@@ -1,0 +1,47 @@
+---
+title: font size
+
+semantic:
+  - css: text-h1
+  - css: text-h2
+  - css: text-h3
+  - css: text-h4
+  - css: text-h5
+  - css: text-h6
+  - css: text-lg
+  - css: text-base
+  - css: text-sm
+
+size:
+  - css: text-9xl
+  - css: text-8xl
+  - css: text-7xl
+  - css: text-6xl
+  - css: text-5xl
+  - css: text-4xl
+  - css: text-3xl
+  - css: text-2xl
+  - css: text-xl
+  - css: text-lg
+  - css: text-sm
+
+text: Lorem ipsum dolor
+---
+
+
+<h2 class="text-h2">Semantic named</h2>
+{% for item in semantic %}
+<article class="bg-white shadow p-4 m-2">
+  <div class="text-sm text-neutral-400 text-left">Font size: {{ item.css }}</div>
+  <div class="{{ item.css }}">{{ text }}</div>
+</article>
+{% endfor %}
+
+<h2 class="text-h2">Size based</h2>
+{% for item in size %}
+<article class="bg-white shadow p-4 m-2">
+  <div class="text-sm text-neutral-400 text-left">Font size: {{ item.css }}</div>
+  <div class="{{ item.css }}">{{ text }}</div>
+</article>
+{% endfor %}
+

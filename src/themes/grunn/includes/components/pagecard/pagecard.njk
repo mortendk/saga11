@@ -27,7 +27,7 @@ that matches - and then includes the right card include that matches
     {# Test which card we wanna use  #}
     {% if component.page | length == "1" %}
       {# Single Card  #}
-      <article class="lg:relative bg-white dark:bg-slate-900">
+      <article class="lg:relative bg-white dark:bg-neutral-900">
 
         <div class="lg:py-20">
           {# text #}
@@ -67,7 +67,7 @@ that matches - and then includes the right card include that matches
 
         <a href="{{ item.url }}">
 
-          <div class= "aspect-video overflow-hidden bg-slate-400">
+          <div class= "aspect-video overflow-hidden bg-neutral-400">
             {% picture
               img=item.data.card.image,
               width=[400, 800],
@@ -76,7 +76,7 @@ that matches - and then includes the right card include that matches
             %}
           </div>
 
-          <div class="px-4 py-2 border-slate-100 text-slate-800 hover:text-slate-500">
+          <div class="px-4 py-2 border-neutral-100 text-neutral-800 hover:text-neutral-500">
             <h2 class="text-2xl">{{ item.data.title }}</h2>
             <div>{{ item.data.card.text }}</div>
           </div>

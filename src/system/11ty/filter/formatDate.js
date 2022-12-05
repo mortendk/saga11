@@ -1,3 +1,4 @@
+
 /**
  * Format a date with Luxon
  *
@@ -8,10 +9,11 @@
  */
 // https://github.com/moment/luxon/blob/master/docs/formatting.md
 // languages https://www.w3schools.com/jsref/jsref_tolocalestring.asp
-//  {{ date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
+//  {{ date | formatDate("cccc d. MMMM yyyy HH:mm", dateFormat, timeZone) }}
 const { DateTime } = require("luxon");
 
-module.exports = function (date, format, locale = "en") {
+// TODO: why cant we grap the data formats as default from saga11.config ?
+module.exports = function (date, format, dateLocale = "en", timeZone= "America/New_york") {
   date = new Date(date);
-  return DateTime.fromJSDate(date).setLocale(locale).toFormat(format);
+  return DateTime.fromJSDate(date).setZone(timeZone).setLocale(dateLocale).toFormat(format);
 };

@@ -7,6 +7,10 @@ const theme = settings.theme || "grunn";
 const packageJson = require("./package.json");
 const saga11version = packageJson.version;
 
+const dateFormat = settings.dateFormat || "";
+const timeZone = settings.timeZone || "";
+
+
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -119,8 +123,13 @@ module.exports = function (eleventyConfig) {
 
   // global vars
   eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
+
   // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
+
+  // Date and time fun
+  eleventyConfig.addNunjucksGlobal("timeZone", timeZone);
+  eleventyConfig.addNunjucksGlobal("dateFormat", dateFormat);
 
   // Local Server
   eleventyConfig.setServerOptions({
