@@ -1712,6 +1712,10 @@ form button:focus {
   min-height: 100vh;
 }
 
+.min-h-full {
+  min-height: 100%;
+}
+
 .w-full {
   width: 100%;
 }

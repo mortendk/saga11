@@ -1,8 +1,12 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/images/images.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- 👋 images/images.njk -->{%- endif -%}
+<section>
 
-{% set gallery = component.images %}
+  {% if component.title %}
+  <h1 class="text-5xl text-cyan-700 dark:text-cyan-200 text-center py-4 ">
+    {{ component.title }}
+  </h1>
+  {% endif %}
 
-  <h1 class="text-5xl text-cyan-700 dark:text-cyan-200 text-center py-4 ">{{ component.title }}</h1>
   {% if component.text %}
   <div class="text-center text-xl py-4">
     {{ component.text | markdown | safe }}
@@ -11,7 +15,7 @@
 
 
 {# The slider window as open ? wrapper for the bg  #}
-<section
+<div
     aria-label="Image gallery"
     class=""
     x-data="{isSliderOpen: false}"
@@ -20,6 +24,9 @@
     x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
     x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
 >
+
+{% set gallery = component.images %}
+
 
   <div
     class=""
@@ -105,6 +112,8 @@
 
   </div>
 
-</section>
+</div>
 
+
+</section>
 

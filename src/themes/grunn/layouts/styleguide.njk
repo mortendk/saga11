@@ -62,7 +62,7 @@ layout: html.njk
     </div>
 </header>
 
-<main id="main" tabindex="-1" class="mt-12 bg-background-50 h-full md:w-9/12 md:mx-auto">
+<main id="main" tabindex="-1" class="mt-12 md:w-9/12 md:mx-auto">
 
   {{ content | safe }}
 
@@ -84,8 +84,13 @@ layout: html.njk
 </div>
 
 
-{# <div class="max-w-screen-xl mx-auto">
+
+<div class="max-w-screen-xl mx-auto font-mono">
+🤖 file: {{ page.filePathStem | safe  }}
+
+<br>
+👩‍💻 Markup
     {% highlight "html" %}
       {{ content | safe }}
     {% endhighlight %}
-</div> #}
+</div>
