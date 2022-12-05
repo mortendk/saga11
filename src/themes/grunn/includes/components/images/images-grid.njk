@@ -15,7 +15,7 @@
 
 
 {# The slider window as open ? wrapper for the bg  #}
-<div
+  <div
     aria-label="Image gallery"
     class=""
     x-data="{isSliderOpen: false}"
@@ -23,7 +23,7 @@
     x-on:keydown.escape="isSliderOpen=false"
     x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
     x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
->
+  >
 
 {% set gallery = component.images %}
 
@@ -31,23 +31,6 @@
     class=""
     :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
   >
-
-    {# pre next #}
-    <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
-          tabindex="0"
-          type="button" aria-label="Previous"
-          :class="isSliderOpen ? 'md:hidden' : 'md:block'"
-          class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 left-2 z-10 -translate-y-1/2">
-      {% include "icons/arrow-left.svg" %}
-    </button>
-
-    <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
-          tabindex="0"
-          type="button" aria-label="Previous"
-          :class="isSliderOpen ? 'md:hidden' : 'md:block'"
-          class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
-      {% include "icons/arrow-right.svg" %}
-    </button>
 
     {# open/close toggler  #}
     <button
@@ -64,7 +47,8 @@
     </button>
 
     {# Image wrapper for the gallery #}
-    <div :class="isSliderOpen ? '' : 'scrollbar'"
+    <div
+       :class="isSliderOpen ? '' : 'hidden'"
         x-ref="slider"
         class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-200 dark:bg-neutral-900 h-full">
 
