@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}<!-- 👋 images/images.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- 👋 images/images-grid.njk -->{%- endif -%}
 <section>
 
   {% if component.title %}
@@ -26,7 +26,6 @@
 >
 
 {% set gallery = component.images %}
-
 
   <div
     class=""
@@ -99,14 +98,19 @@
     </div>
 
     {# gallery navigation #}
-    <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 justify-center">
+    <nav aria-label="gallery image navigation" class="grid grid-cols-4 gap-2 justify-center">
       {% for item in gallery %}
-      <button
-        @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-        class="block w-4 h-4 bg-neutral-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
-        type="button">
-        <span class="sr-only">Link to image {{ loop.index }}</span>
-      </button>
+      <div @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)" class="">
+        {% picture
+          img=item.image,
+          width=[200,400],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="rounded-sm"
+        %}
+       <h3>
+       {{ item.title }}
+       </h3>
+     </div>
       {% endfor %}
     </nav>
 
@@ -116,4 +120,5 @@
 
 
 </section>
+
 
