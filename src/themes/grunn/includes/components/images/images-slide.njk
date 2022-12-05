@@ -1,4 +1,6 @@
-{%- if env.mode != 'prod' %}<!-- 👋 images/images-grid.njk -->{%- endif -%}
+
+
+{%- if env.mode != 'prod' %}<!-- 👋 images/images.njk -->{%- endif -%}
 <section>
 
   {% if component.title %}
@@ -13,7 +15,6 @@
   </div>
   {% endif %}
 
-
 {# The slider window as open ? wrapper for the bg  #}
 <div
     aria-label="Image gallery"
@@ -26,6 +27,7 @@
 >
 
 {% set gallery = component.images %}
+
 
   <div
     class=""
@@ -66,7 +68,7 @@
     {# Image wrapper for the gallery #}
     <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
-        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-900 dark:bg-neutral-900 h-full">
+        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-200 dark:bg-neutral-900 h-full">
 
       {# loop through all the images #}
       {% for item in gallery %}
@@ -98,19 +100,14 @@
     </div>
 
     {# gallery navigation #}
-    <nav aria-label="gallery image navigation" class="grid grid-cols-4 gap-2 justify-center">
+    <nav aria-label="gallery image navigation" class="flex flex-row my-4 space-x-4 justify-center">
       {% for item in gallery %}
-      <div @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)" class="">
-        {% picture
-          img=item.image,
-          width=[200,400],
-          sizes="(min-width: 1600px) 50vw, 100vw",
-          css="rounded-sm"
-        %}
-       <h3>
-       {{ item.title }}
-       </h3>
-     </div>
+      <button
+        @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
+        class="block w-4 h-4 bg-neutral-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
+        type="button">
+        <span class="sr-only">Link to image {{ loop.index }}</span>
+      </button>
       {% endfor %}
     </nav>
 
@@ -120,5 +117,4 @@
 
 
 </section>
-
 

@@ -6,7 +6,13 @@ eleventyExcludeFromCollections: true
 backend:
   name: git-gateway
   branch: {{ env.branch }}
-
+  commit_messages:
+    create: Create {{collection}} “{{slug}}”
+    update: Update {{collection}} “{{slug}}”
+    delete: Delete {{collection}} “{{slug}}”
+    uploadMedia: Upload “{{path}}”
+    deleteMedia: Delete “{{path}}”
+    openAuthoring: '{{message}}'
 
 local_backend:
   # when using a custom proxy server port
@@ -26,6 +32,21 @@ slug:
   sanitize_replacement: "-"
 media_folder: "src/upload/"
 public_folder: "/upload"
+
+
+{# media_library:
+  name: cloudinary
+  config:
+    cloud_name: theme-machine
+    api_key: 436312946432468 #}
+
+{# media_library:
+  name: uploadcare
+  config:
+    publicKey: 297c6b5433daf68f09af
+    settings:
+      autoFilename: true
+      defaultOperations: '/resize/800x600/' #}
 
 collections:
   {% include "src/system/netlifycms/contenttypes/page.njk" %}

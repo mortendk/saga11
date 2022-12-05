@@ -33,7 +33,7 @@
     @apply h-2 w-2;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-slate-400 dark:bg-slate-900;
+    @apply bg-neutral-400 dark:bg-neutral-900;
   }
   .scrollbar::-webkit-scrollbar-track {
     background: transparent;

@@ -1,16 +1,17 @@
 {
   "name": "saga11",
-  "version": "0.7.2beta",
+  "version": "0.7.3beta",
   "description": "Website builder based on 11ty & netlifycms",
   "main": "eleventy.config.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "cleanup": "rm -rf _site",
-    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
-    "tw:watch": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.css --watch",
-    "tw:build": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.min.css --minify",
     "build": "npm run tw:build && npm run debug",
     "debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
+    "dev:upgrade": "npm update & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/typography@latest & npm install -D  @tailwindcss/forms@latest",
+    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
+    "tw:build": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.min.css --minify",
+    "tw:watch": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.css --watch",
     "splash-screens:build": "npm run splash-screens:screen & npm run splash-screens:screendark",
     "splash-screens:screen": "npx pwa-asset-generator http://localhost:3791/pwa-splashscreen/ src/themes/grunn/assets/splash_screens --path-override '/assets/splash_screens' -i src/themes/grunn/assets/splash_screens/index.html --splash-only ",
     "splash-screens:screendark": "npx pwa-asset-generator http://localhost:3791/pwa-splashscreen-dark/ src/themes/grunn/assets/splash_screens  --path-override '/assets/splash_screens' -i src/themes/grunn/assets/splash_screens/index.html --splash-only --dark-mode"
@@ -25,7 +26,7 @@
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
-    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.4",
     "luxon": "^3.0.1",
     "tailwindcss": "^3.1.6"

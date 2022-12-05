@@ -6,7 +6,7 @@ Global header for the site
   <!-- src/__includes/header.njk -->
 {%- endif  -%}
 
-<header class="relative dark:bg-slate-800 bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+<header class="relative dark:bg-neutral-800 bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   {# skip link #}
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
@@ -29,7 +29,7 @@ Global header for the site
     {% if site.rss %}
       <div class="hidden md:flex justify-end items-center">
 
-        <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-slate-400 dark:text-slate-100 hover:text-orange-500">
+        <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-neutral-400 dark:text-neutral-100 hover:text-orange-500">
           <span class="sr-only">RSS Feed</span>
           {% include "svg/rss.svg" %}
         </a>
@@ -55,7 +55,7 @@ Global header for the site
         before:absolute before:-top-2 before:h-1 before:w-8 before:bg-cyan-600 dark:before:bg-cyan-300 before:rounded-md before:content-[''] before:block
         after:absolute after:top-2 after:h-1 after:w-8 after:bg-cyan-800 dark:after:bg-cyan-500  after:rounded-md after:content-[''] after:block
         "
-        :class="openmenu ? 'rotate-45 before:rotate-90 before:translate-y-2 before:bg-slate-700  after:opacity-0' : '' "
+        :class="openmenu ? 'rotate-45 before:rotate-90 before:translate-y-2 before:bg-neutral-700  after:opacity-0' : '' "
         ></span>
       </span>
     </button>
