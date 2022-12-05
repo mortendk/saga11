@@ -1509,6 +1509,10 @@ form button:focus {
   top: 2rem;
 }
 
+.right-96 {
+  right: 24rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -1708,6 +1712,10 @@ form button:focus {
   height: 20rem;
 }
 
+.h-0 {
+  height: 0px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1798,6 +1806,10 @@ form button:focus {
 
 .w-\[1536px\] {
   width: 1536px;
+}
+
+.w-0 {
+  width: 0px;
 }
 
 .max-w-screen-xl {
