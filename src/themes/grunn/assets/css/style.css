@@ -1500,10 +1500,6 @@ form button:focus {
   bottom: 1rem;
 }
 
-.top-8 {
-  top: 2rem;
-}
-
 .z-50 {
   z-index: 50;
 }
@@ -1561,10 +1557,6 @@ form button:focus {
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
 }
 
 .ml-4 {
@@ -1659,10 +1651,6 @@ form button:focus {
   height: 100vh;
 }
 
-.h-1\/2 {
-  height: 50%;
-}
-
 .h-12 {
   height: 3rem;
 }
@@ -1713,10 +1701,6 @@ form button:focus {
 
 .w-8 {
   width: 2rem;
-}
-
-.w-52 {
-  width: 13rem;
 }
 
 .w-40 {
@@ -1795,10 +1779,6 @@ form button:focus {
   width: 1536px;
 }
 
-.max-w-screen-xl {
-  max-width: 1280px;
-}
-
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1829,6 +1809,10 @@ form button:focus {
 
 .max-w-screen-lg {
   max-width: 1024px;
+}
+
+.max-w-screen-xl {
+  max-width: 1280px;
 }
 
 .max-w-screen-2xl {
@@ -2026,10 +2010,6 @@ form button:focus {
 
 .overflow-x-auto {
   overflow-x: auto;
-}
-
-.overflow-y-auto {
-  overflow-y: auto;
 }
 
 .overflow-y-hidden {
@@ -2290,11 +2270,6 @@ form button:focus {
   background-color: rgb(219 39 119 / var(--tw-bg-opacity));
 }
 
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -2440,16 +2415,16 @@ form button:focus {
   text-align: right;
 }
 
-.font-mono {
-  font-family: firacoda;
-}
-
 .font-sans {
   font-family: barlow;
 }
 
 .font-serif {
   font-family: robotoslap;
+}
+
+.font-mono {
+  font-family: firacoda;
 }
 
 .text-3xl {
@@ -2530,11 +2505,6 @@ form button:focus {
 .text-slate-800 {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
-}
-
-.text-neutral-800 {
-  --tw-text-opacity: 1;
-  color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
 .text-slate-700 {
@@ -3065,11 +3035,6 @@ pre[class*="language-"] {
 .hover\:bg-sky-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-red-50:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 }
 
 .hover\:text-sky-700:hover {
