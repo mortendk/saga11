@@ -16,7 +16,7 @@
 
 <div class="md:grid grid-cols-3 gap-4">
   {% for item in component.testamonial %}
-  <article class="border-1 border-teal-300 bg-white dark:bg-slate-900 p-4 m-2 shadow rounded-sm">
+  <article class="border-1 border-teal-300 bg-white dark:bg-neutral-900 p-4 m-2 shadow rounded-sm">
     {# person #}
     <div class="flex flex-row items-center">
       {% picture
@@ -26,7 +26,7 @@
         css="rounded-full w-12 h-12 border border-teal-400  dark:border-teal-100 mr-4",
         alt=""
       %}
-      <div class="dark:text-slate-200 text-sm">
+      <div class="dark:text-neutral-200 text-sm">
         <div>{{ item.person }}</div>
         <div>{{ item.persontitle }}</div>
       </div>
@@ -48,7 +48,7 @@
     {% if item.url %}
       <a href="{{ item.url }}" target="_blank"  rel="noopener" class="flex w-12 h-12 justify-center items-center rounded-full">
       <div class="sr-only">{{ item.url }}</div>
-      <div class="w-8 text-slate-800 dark:text-cyan-100 hover:w-6">
+      <div class="w-8 text-neutral-800 dark:text-cyan-100 hover:w-6">
         {% include "icons/arrow-top-right-on-square.svg" %}
         </div>
       </a>

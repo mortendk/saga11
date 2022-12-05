@@ -1,9 +1,9 @@
-{%- if env.mode != 'prod' %}<!-- 👋 field/options.njk --> file{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- 👋 field/options.njk --> {%- endif  -%}
 <div class="flex flex-col">
 
   <label
     for="form-item-{{ item.title | slugify }}"
-    class="font-bold text-lg hover:text-slate-800 hover:cursor-pointer">
+    class="font-bold text-lg hover:text-neutral-800 hover:cursor-pointer">
     {{ item.title }}
     {% if item.required %} * {% endif %}
   </label>

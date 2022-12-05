@@ -6,7 +6,7 @@
 
 {% for item in collections.allPages  %}
 
-  <article class="shadow border dark:border-none border-slate-100 bg-white dark:bg-slate-900">
+  <article class="shadow border dark:border-none border-neutral-100 bg-white dark:bg-neutral-900">
     <a href="{{ item.url }}">
 
       <div class="shadow-lg aspect-video overflow-hidden">
@@ -22,7 +22,7 @@
       <div class="p-4">
         <div class="text-2xl text-cyan-800 dark:text-cyan-200">{{item.data.card.title }}</div>
         <div class="mt-2">{{ item.data.card.text }}</div>
-        <time class="font-bold text-slate-600 dark:text-slate-200 text-right py-4 block">{{ item.date | formatDate("DDD  T", "DK") }}</time>
+        <time class="font-bold text-neutral-600 dark:text-neutral-200 text-right py-4 block">{{ item.date | formatDate("DDD  T", "DK") }}</time>
       </div>
     </div>
     </a>

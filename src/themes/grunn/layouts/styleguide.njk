@@ -1,55 +1,91 @@
 ---
 layout: html.njk
 ---
-{#
-  This layout is used for the styleguide
- #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/styleguide.njk  -->{%- endif -%}
+{# This layout is used for the styleguide  #}
+{%- if env.mode != 'prod' %}<!-- 👋 layouts/styleguide.njk -->{%- endif -%}
 
 {# isModalOpen is used to test if theres a modal open then disable the scroll #}
-<body class="flex flex-col h-screen bg-slate-100"
-      x-data="{'isModalOpen': false}"
-      x-on:keydown.escape="isModalOpen=false"
-      :class="isModalOpen ? 'overflow-y-hidden':''"
+<body
+  class="flex flex-col h-screen bg-background-100 text-neutral-900 dark:bg-background-800 dark:text-neutral-50"
+  x-data="{'isModalOpen': false, isEditvisible: false, styleguideMenu:false}"
+  x-on:keydown.escape="isModalOpen=false"
+  x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
+  :class="isModalOpen ? 'overflow-y-hidden':''"
 >
 
-<main id="main" tabindex="-1" class="flex flex-row">
-  <div class="bg-white p-4 shadow-lg basis-2/12 min-h-screen">
-  <nav >
 
-    <a href="/styleguide" class="flex flex-row items-center">
-      <div class="w-8">{% include "svg/11ty.svg" %}</div>
-      <div>🎈 Styleguide</div>
-    </a>
+<header class="bg-white/80 shadow dark:bg-background-900 fixed w-full">
+  <div class="h-12 flex flex-row justify-between items-center px-8">
 
-      {% for item in collections.styleguide | sortByFilepath %}
-        {# todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  #}
-        <a href="{{ item.url }}" class="text-slate-800 {% if item.url in page.url %} font-bold{% endif %}">
-           {% if item.url in page.url %} 👉{% endif %}
-            {{item.data.title}}</a>
-        <br>
-      {% endfor %}
+    <div class="flex flex-row">
+      <button
+        @click="styleguideMenu = !styleguideMenu"
+        class="w-10 block space-x-2 focus:outline-none"
+        type="button"
+        aria-label="toggle mobile menu"
+        >
+        <span class="relative inline-block w-10 h-6">
+          <span class="
+          block mt-2 absolute w-6 h-1 bg-neutral-700 dark:bg-neutral-400 rounded-md
+          transition-all ease-linear duration-75
+          before:absolute before:-top-2 before:h-1 before:w-6 before:bg-neutral-600 dark:before:bg-neutral-300 before:rounded-md before:content-[''] before:block
+          after:absolute after:top-2 after:h-1 after:w-6 after:bg-neutral-800 dark:after:bg-neutral-500  after:rounded-md after:content-[''] after:block
+          "
+          :class="styleguideMenu ? 'rotate-45 before:rotate-90 before:translate-y-2 before:bg-neutral-700  after:opacity-0' : '' "
+          ></span>
+        </span>
+      </button>
 
-  </div>
-  <div class=" basis-10/12  mt-8 mx-4">
-
-    <h1 class="text-3xl text-center">{{ title | upper }} </h1>
-
-    <div class="bg-white mb-8">
-
+      <div>
+        <a href="/styleguide"> 🎈 Styleguide </a> / {{ title | upper }}
+      </div>
     </div>
 
+    <button @click="darkMode = !darkMode" class="w-8" aria-label="toggle color scheme">
+      {# darkmode on #}
+      <div x-show="darkMode" class="bg-neutral-200 p-2 rounded">
+        <div class="w-4 text-neutral-700">{% include "icons/sun.svg" %}</div>
+      </div>
+      {# darkmode not actived #}
+      <div x-show="!darkMode" class="bg-neutral-700 p-2 rounded">
+        <div class="w-4 text-neutral-100">{% include "icons/moon.svg" %}</div>
+      </div>
+    </button>
 
-    {{ content | safe }}
+    {# <div>
+    sm
+    lg
+    xl
+    2xl
+    </div> #}
 
-  </div>
+    </div>
+</header>
+
+<main id="main" tabindex="-1" class="mt-12 bg-background-50 h-full md:w-9/12 md:mx-auto">
+
+  {{ content | safe }}
 
 </main>
 
 {% include "responsive.njk" %}
 
-{# <div class="">
+
+<div class="bg-white mt-12 p-4 fixed  overflow-y-auto h-screen shadow-lg w-52" x-show="!styleguideMenu">
+
+  {% for item in collections.styleguide | sortByFilepath %}
+    {# todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  #}
+    <a href="{{ item.url }}" class="block text-neutral-800 {% if item.url in page.url %} font-bold{% endif %}">
+      {% if item.url in page.url %} 👉{% endif %}
+      {{item.data.title}}
+    </a>
+  {% endfor %}
+
+</div>
+
+
+{# <div class="max-w-screen-xl mx-auto">
     {% highlight "html" %}
-    {{ content | safe }}
+      {{ content | safe }}
     {% endhighlight %}
 </div> #}

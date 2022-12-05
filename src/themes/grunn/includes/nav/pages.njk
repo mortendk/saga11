@@ -14,7 +14,7 @@
     {% endif %}
     {% endset %}
 
-    <div class="border-b border-slate-200 mb-4">
+    <div class="border-b border-neutral-200 mb-4">
       {# test if the item url is a part of the page url - if yes its "active #}
       {% if item.url in page.url -%}
         <a href="{{ item.url }}" title="{{ item.data.title }}" class="block font-bold" aria-current="page">

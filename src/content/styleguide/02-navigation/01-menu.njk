@@ -8,26 +8,26 @@ title: Menu
 
   {% if not item.children | length %}
     {# first lvl links #}
-    <a href="{{ item.url }}" class="bg-slate-300">{{ item.title }}</a>
+    <a href="{{ item.url }}" class="bg-neutral-300">{{ item.title }}</a>
   {% else %}
 
     {# placeholder #}
-    <div x-data="{openmenuitem: false}" class="bg-slate-300 flex flex-row" @click="openmenuitem = true">
+    <div x-data="{openmenuitem: false}" class="bg-neutral-300 flex flex-row" @click="openmenuitem = true">
       <div>{{ item.title }}</div>
 
       <div
-        class="absolute z-40 top-8 w-60 bg-slate-500"
+        class="absolute z-40 top-8 w-60 bg-neutral-500"
         x-cloak
         x-show="openmenuitem"
         @mouseover="openmenuitem = true"
         @click.outside="openmenuitem = false"
       >
         {# We repeat the link from placeholder above so it works on a ipad etc #}
-        <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50">{{ item.title }}</a>
+        <a href="{{ item.url }}" class="block border-b p-2 border-neutral-200 hover:bg-red-50">{{ item.title }}</a>
 
         {# Loop next level #}
         {%- for item in collections.all | eleventyNavigation(item.key) %}
-          <a href="{{ item.url }}" class="block border-b p-2 border-slate-200 hover:bg-red-50">{{ item.title }}</a>
+          <a href="{{ item.url }}" class="block border-b p-2 border-neutral-200 hover:bg-red-50">{{ item.title }}</a>
         {% endfor %}
       </div>
     </div>

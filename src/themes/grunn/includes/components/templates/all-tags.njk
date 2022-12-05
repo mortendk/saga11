@@ -7,7 +7,7 @@
   {% for tag in collections.tags %}
 
     {% for item in collections.all | getPage("/tag/" + tag + "/") %}
-    <article class="flex flex-col justify-center items-center shadow border dark:border-none border-slate-100 bg-white dark:bg-slate-900">
+    <article class="flex flex-col justify-center items-center shadow border dark:border-none border-neutral-100 bg-white dark:bg-neutral-900">
 
       <a href="/tag/{{ tag }}">
         {% if item.data.icon %}

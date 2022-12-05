@@ -60,7 +60,7 @@
     {# Image wrapper for the gallery #}
     <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
-        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-slate-200 dark:bg-slate-900 h-full">
+        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-200 dark:bg-neutral-900 h-full">
 
       {# loop through all the images #}
       {% for item in gallery %}
@@ -96,7 +96,7 @@
       {% for item in gallery %}
       <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-        class="block w-4 h-4 bg-slate-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
+        class="block w-4 h-4 bg-neutral-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
         type="button">
         <span class="sr-only">Link to image {{ loop.index }}</span>
       </button>

@@ -28,10 +28,12 @@
           css="",
           loading = "eager"
       %}
+
+      {% if item.data.card.image %} {% else %} <div class="w-full h-full bg-neutral-200 flex items-center justify-center ">img</div>{% endif %}
       </div>
 
 
-      <div class="shadow border dark:border-none rounded px-4 py-2 border-slate-100 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100">
+      <div class="shadow border dark:border-none rounded px-4 py-2 border-neutral-100 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100">
         <h3 class="mt-2 text-2xl dark:text-cyan-200">
           {{item.data.title}}
         </h3>
