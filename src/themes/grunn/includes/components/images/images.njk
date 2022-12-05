@@ -66,7 +66,7 @@
     {# Image wrapper for the gallery #}
     <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
-        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-200 dark:bg-neutral-900 h-full">
+        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-900 dark:bg-neutral-900 h-full">
 
       {# loop through all the images #}
       {% for item in gallery %}
@@ -81,7 +81,7 @@
             img=item.image,
             width=[640,1024, 1563],
             sizes="(max-width: 640px) 50vw, 100vw",
-            css="rounded-sm"
+            css="w-full rounded-sm"
           %}
 
         {# title and text #}
