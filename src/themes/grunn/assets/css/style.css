@@ -1563,6 +1563,10 @@ form button:focus {
   margin-bottom: 2rem;
 }
 
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -1655,6 +1659,10 @@ form button:focus {
   height: 100vh;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -1705,6 +1713,10 @@ form button:focus {
 
 .w-8 {
   width: 2rem;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-40 {
@@ -1783,6 +1795,10 @@ form button:focus {
   width: 1536px;
 }
 
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1813,10 +1829,6 @@ form button:focus {
 
 .max-w-screen-lg {
   max-width: 1024px;
-}
-
-.max-w-screen-xl {
-  max-width: 1280px;
 }
 
 .max-w-screen-2xl {
@@ -2014,6 +2026,10 @@ form button:focus {
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .overflow-y-hidden {
@@ -2424,16 +2440,16 @@ form button:focus {
   text-align: right;
 }
 
+.font-mono {
+  font-family: firacoda;
+}
+
 .font-sans {
   font-family: barlow;
 }
 
 .font-serif {
   font-family: robotoslap;
-}
-
-.font-mono {
-  font-family: firacoda;
 }
 
 .text-3xl {
@@ -2514,6 +2530,11 @@ form button:focus {
 .text-slate-800 {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
+}
+
+.text-neutral-800 {
+  --tw-text-opacity: 1;
+  color: rgb(38 38 38 / var(--tw-text-opacity));
 }
 
 .text-slate-700 {
