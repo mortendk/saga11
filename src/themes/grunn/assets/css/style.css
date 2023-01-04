@@ -1489,10 +1489,6 @@ form button:focus {
   top: 0px;
 }
 
-.left-2 {
-  left: 0.5rem;
-}
-
 .right-2 {
   right: 0.5rem;
 }
@@ -1505,20 +1501,16 @@ form button:focus {
   bottom: 1rem;
 }
 
-.top-8 {
-  top: 2rem;
-}
-
-.right-96 {
-  right: 24rem;
-}
-
-.z-50 {
-  z-index: 50;
+.left-2 {
+  left: 0.5rem;
 }
 
 .z-20 {
   z-index: 20;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .z-10 {
@@ -1712,16 +1704,8 @@ form button:focus {
   height: 20rem;
 }
 
-.h-0 {
-  height: 0px;
-}
-
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-full {
-  min-height: 100%;
 }
 
 .w-full {
@@ -1806,10 +1790,6 @@ form button:focus {
 
 .w-\[1536px\] {
   width: 1536px;
-}
-
-.w-0 {
-  width: 0px;
 }
 
 .max-w-screen-xl {
@@ -2170,11 +2150,6 @@ form button:focus {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.bg-background-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
-}
-
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2263,13 +2238,18 @@ form button:focus {
   background-color: rgb(6 182 212 / var(--tw-bg-opacity));
 }
 
-.bg-black {
+.bg-neutral-800 {
   --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .bg-black\/70 {
   background-color: rgb(0 0 0 / 0.7);
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-orange-100 {
@@ -2310,11 +2290,6 @@ form button:focus {
 .bg-neutral-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
-
-.bg-neutral-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .bg-success-600 {
@@ -2477,16 +2452,16 @@ form button:focus {
   text-align: right;
 }
 
+.font-mono {
+  font-family: firacoda;
+}
+
 .font-sans {
   font-family: barlow;
 }
 
 .font-serif {
   font-family: robotoslap;
-}
-
-.font-mono {
-  font-family: firacoda;
 }
 
 .text-5xl {
@@ -3146,11 +3121,6 @@ pre[class*="language-"] {
 .hover\:bg-sky-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-red-50:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 }
 
 .hover\:text-sky-700:hover {
