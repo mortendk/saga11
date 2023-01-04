@@ -1505,10 +1505,6 @@ form button:focus {
   left: 0.5rem;
 }
 
-.top-8 {
-  top: 2rem;
-}
-
 .z-20 {
   z-index: 20;
 }
@@ -3125,11 +3121,6 @@ pre[class*="language-"] {
 .hover\:bg-sky-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-red-50:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 }
 
 .hover\:text-sky-700:hover {

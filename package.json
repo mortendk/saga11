@@ -1,6 +1,6 @@
 {
   "name": "saga11",
-  "version": "0.7.3beta",
+  "version": "0.7.4beta",
   "description": "Website builder based on 11ty & netlifycms",
   "main": "eleventy.config.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "author": "mortendk",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.18",
+    "@11ty/eleventy": "^2.0.0-canary.23",
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
@@ -29,7 +29,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.4",
     "luxon": "^3.0.1",
-    "tailwindcss": "^3.1.6"
+    "tailwindcss": "^3.2.0"
   },
   "dependencies": {
     "calendar-link": "^2.2.0",
