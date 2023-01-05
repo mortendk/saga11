@@ -9,3 +9,4 @@ node_modules/
 
 # saga build
 .nova/Configuration.json
+.nova/Configuration.json
