@@ -31,7 +31,7 @@ regex ftw
 ```
 <(?![!])[^<>]+>
 ./src/themes/nakinn/
-\*.svg, html.njk, share.njk, address.njk, calendar.njk, opengraph.njk, splashscreens.njk, responsive.njk, socialmedia.njk
+\*.svg, html.njk, share.njk, address.njk, calendar.njk, opengraph.njk, responsive.njk, socialmedia.njk
 ```
 
 ## Scripts
