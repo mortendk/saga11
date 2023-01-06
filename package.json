@@ -1,6 +1,6 @@
 {
   "name": "saga11",
-  "version": "0.7.4beta",
+  "version": "0.7.5beta",
   "description": "Website builder based on 11ty & netlifycms",
   "main": "eleventy.config.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "author": "mortendk",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.23",
+    "@11ty/eleventy": "^2.0.0-canary.24",
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
