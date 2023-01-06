@@ -1,17 +1,17 @@
 {
-  "humantxt": "/* TEAM */\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty with magic \n\n/* Software + Assets */\nvscode: https://code.visualstudio.com\nresponsively: https://responsively.app\n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\n\nIcons\nhttps://heroicons.com/\n",
+  "humantxt": "/* TEAM */\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty with magic \n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\n\nIcons\nhttps://heroicons.com/\n",
   "color": "#35034c",
-  "keywords": "11ty",
+  "keywords": "11ty saga 11",
   "header": "",
-  "faviconcolor": "#ffffff",
+  "faviconcolor": "#35034c",
   "authoremail": "Ragnar@valhalla",
   "mastodon_verification": "",
   "rss": true,
-  "splashscreen": false,
+  "splashscreen": true,
   "authorname": "Ragnar",
   "country": "denmark",
-  "errorpage": "404 Ush It haz broken",
+  "errorpage": "404 !",
   "title": "Saga 11",
   "icon": "",
-  "description": "saga11"
+  "description": "saga 11"
 }
