@@ -15,8 +15,6 @@ Both will be regenered when you `npm install` and `npm start`
 /eleventy.config.js
 /netlify.toml
 /src/system
-
-
 /src/themes/grunn
 /src/themes/nakinn
 /src/themes/styleguide
@@ -25,3 +23,4 @@ Both will be regenered when you `npm install` and `npm start`
 ## Config
 package.json
 
+the package file holds the scripts to build the site.
