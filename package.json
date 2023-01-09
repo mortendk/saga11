@@ -21,7 +21,7 @@
   "author": "mortendk",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.24",
+    "@11ty/eleventy": "^2.0.0-canary.25",
     "@11ty/eleventy-fetch": "^3.0.0",
     "@11ty/eleventy-img": "^2.0.1",
     "@11ty/eleventy-navigation": "^0.3.5",
@@ -39,6 +39,7 @@
     "html-minifier": "^4.0.0",
     "netlify-cms-proxy-server": "^1.3.24",
     "netlify-plugin-cache": "^1.0.3",
-    "pwa-asset-generator": "^6.1.1"
+    "pwa-asset-generator": "^6.1.1",
+    "sharp": "^0.31.3"
   }
 }
