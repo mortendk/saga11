@@ -35,11 +35,6 @@ The are configured in /saga11.config.js
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
 
-📲 PWA statupscreen
-
-```
-$ npm run splash-screens:build
-```
 
 🗑 Cleanup the build folder
 
