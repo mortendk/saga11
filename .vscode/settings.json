@@ -13,5 +13,10 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#c32d77",
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
+  "html.suggest.html5": true,
+  "emmet.includeLanguages": {
+    "njk": "html",
+    "nunjucks": "html"
+  }
 }

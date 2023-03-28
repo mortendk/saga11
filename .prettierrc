@@ -3,7 +3,7 @@
   "pluginSearchDirs": false,
   "overrides": [
     {
-      "files": ["*.njk"]
+      "files": ["**/*.njk"]
     }
   ]
 }
