@@ -31,10 +31,9 @@ The are configured in /saga11.config.js
 
 📜 content is in /src/content/
 
-🎈 saga11 is build on top of [11ty](https://11ty.dev) & [NetlifyCMS](https://netlifycms.com)
+🎈 saga11 is build on top of [11ty](https://11ty.dev) & [decap cms](https://decapcms.org/)
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
-
 
 🗑 Cleanup the build folder
 
@@ -44,7 +43,7 @@ $ npm run cleanup
 
 ## Static Sites FTW
 
-Saga11 is a system to build static websites with a CMS
+Saga11 is a system to build static websites
 
 The taget audience is webdesigners that wants complete control over the markup, and that wants a true seperation of settings, content and output
 
@@ -57,8 +56,8 @@ https://www.figma.com/file/3lgQNUa3Y5TvV2V0XaQKoL/Saga-11?node-id=4266%3A924
 
 ## Kill localhost:[portnumber]
 
-```sudo lsof -i :3791```
+`sudo lsof -i :3791`
 
-```kill -9 <PID>```
+`kill -9 <PID>`
 
-```sudo lsof -i :8081```
+`sudo lsof -i :8081`
