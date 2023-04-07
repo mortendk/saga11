@@ -1,4 +1,6 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/link/link.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/link/link.njk -->
+{%- endif -%}
 
 <section>
 
@@ -16,17 +18,17 @@
 
   <div class="md:grid grid-cols-3 gap-4 py-4">
 
-  {% for item in component.link %}
-  <article class="border-1 border-teal-300 bg-white dark:bg-neutral-900 p-4 m-2 shadow rounded-sm flex flex-row justify-center items-center ">
-    <a href="{{ item.url}}"
-      class="flex justify-center items-center text-neutral-800 dark:text-neutral-100 font-bold mr-4">
-      {{ item.title }}
-    </a>
-    <div class="h-4 w-4 text-teal-700 dark:text-cyan-200">
-      {% include "icons/arrow-top-right-on-square.svg" %}
-    </div>
-  </article>
-  {% endfor %}
+    {% for item in component.link %}
+      <article class="border-1 border-teal-300 bg-white dark:bg-gray-900 p-4 m-2 shadow rounded-sm flex flex-row justify-center items-center ">
+        <a href="{{ item.url}}"
+      class="flex justify-center items-center text-gray-800 dark:text-gray-100 font-bold mr-4">
+          {{ item.title }}
+        </a>
+        <div class="h-4 w-4 text-teal-700 dark:text-cyan-200">
+          {% include "icons/arrow-top-right-on-square.svg" %}
+        </div>
+      </article>
+    {% endfor %}
 
   </div>
 

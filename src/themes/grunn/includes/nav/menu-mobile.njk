@@ -1,4 +1,3 @@
-
 {# mobile menu  #}
 <nav
   x-cloak
@@ -10,51 +9,49 @@
   x-transition:leave="transition ease-in duration-300"
   x-transition:leave-start="translate-x-0"
   x-transition:leave-end="-translate-x-full"
-  class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white/95 dark:bg-neutral-800/95 shadow-xl"
+  class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white/95 dark:bg-gray-800/95 shadow-xl"
   aria-label="Mobile Menu
 ">
-  {% set mobileclasses = "block h-20 dark:text-cyan-200 flex items-center pl-4 text-lg border-b border-b-neutral-200 dark:border-b-neutral-500" %}
+  {% set mobileclasses = "block h-20 dark:text-cyan-200 flex items-center pl-4 text-lg border-b border-b-gray-200 dark:border-b-gray-500" %}
   {%- for item in collections.all | eleventyNavigation("main") %}
 
-  {% if not item.children | length %}
-    <a href="{{ item.url }}"
+    {% if not item.children | length %}
+      <a href="{{ item.url }}"
       {% if item.url in page.url %}aria-current="page" class="{{mobileclasses}} font-bold"
       {% else  %} class="{{mobileclasses}}"
       {% endif %}
     >{{ item.title }}</a>
-  {% else %}
+    {% else %}
 
-    {# placeholder #}
-    <div x-data="{openmenuitem: false}" class="flex flex-col" @click="openmenuitem = true">
+      {# placeholder #}
+      <div x-data="{openmenuitem: false}" class="flex flex-col" @click="openmenuitem = true">
 
-      <div class="{{mobileclasses}} flex flex-row justify-between items-center pr-4">
-        <div>{{ item.title }}</div>
-        <div class="h-4 w-4" x-show="openmenuitem">{% include "icons/chevron-down.svg" %}</div>
-        <div class="h-4 w-4" x-show="!openmenuitem">{% include "icons/chevron-right.svg" %}</div>
-      </div>
+        <div class="{{mobileclasses}} flex flex-row justify-between items-center pr-4">
+          <div>{{ item.title }}</div>
+          <div class="h-4 w-4" x-show="openmenuitem">{% include "icons/chevron-down.svg" %}</div>
+          <div class="h-4 w-4" x-show="!openmenuitem">{% include "icons/chevron-right.svg" %}</div>
+        </div>
 
-
-      <div
+        <div
         class=""
         x-cloak
         x-show="openmenuitem"
         @mouseover="openmenuitem = true"
         @click.outside="openmenuitem = false"
       >
-        {# We repeat the link from placeholder above so it works on a ipad etc #}
-        <a href="{{ item.url }}" class="{{ mobileclasses }} pl-8">{{ item.title }}</a>
+          {# We repeat the link from placeholder above so it works on a ipad etc #}
+          <a href="{{ item.url }}" class="{{ mobileclasses }} pl-8">{{ item.title }}</a>
 
-        {# Loop next level #}
-        {%- for item in collections.all | eleventyNavigation(item.key) %}
-          <a href="{{ item.url }}" class="{{ mobileclasses }} pl-8 ">{{ item.title }}</a>
-        {% endfor %}
+          {# Loop next level #}
+          {%- for item in collections.all | eleventyNavigation(item.key) %}
+            <a href="{{ item.url }}" class="{{ mobileclasses }} pl-8 ">{{ item.title }}</a>
+          {% endfor %}
+        </div>
       </div>
-    </div>
-    {# / placeholder #}
+      {# / placeholder #}
 
+    {% endif %}
 
-  {% endif %}
-
-{%- endfor -%}
+  {%- endfor -%}
 
 </nav>

@@ -1,33 +1,23 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/link/link.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/link/link.njk -->
+{%- endif -%}
 
+{# title + text #}
 
+{{ component.title }}
 
-  {# title + text #}
+{% if component.text %}
 
+  {{ component.text  | markdown | safe  }}
 
-      {{ component.title }}
+{% endif %}
 
-    {% if component.text %}
+{% for item in component.link %}
 
-        {{ component.text  | markdown | safe  }}
+  <a href="{{ item.url}}"
+      class="flex justify-center items-center text-gray-800 dark:text-gray-100 font-bold mr-4">
+    {{ item.title }}
 
-    {% endif %}
-
-
-
-
-  {% for item in component.link %}
-
-    <a href="{{ item.url}}"
-      class="flex justify-center items-center text-neutral-800 dark:text-neutral-100 font-bold mr-4">
-      {{ item.title }}
-
-
-      {% include "icons/arrow-top-right-on-square.svg" %}
-
+    {% include "icons/arrow-top-right-on-square.svg" %}
 
   {% endfor %}
-
-
-
-

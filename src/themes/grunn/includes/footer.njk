@@ -1,6 +1,8 @@
-{%- if env.mode != 'prod' %}  <!-- _src/__includes/footer.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- _src/__includes/footer.njk  -->
+{%- endif  -%}
 
-<footer class="bg-white dark:bg-neutral-900 dark:text-neutral-300 mt-16 py-4">
+<footer class="bg-white dark:bg-gray-900 dark:text-gray-300 mt-16 py-4">
 
   <section class="w-full flex flex-row pagewidth justify-between">
 
@@ -9,13 +11,13 @@
       {% if item.data.blockposition == "footer" %}
 
         {% asyncEach component in item.data.components %}
-          {% include component.template %}
+        {% include component.template %}
         {% endeach %}
 
       {% endif %}
     {% endfor %}
   </section>
 
-{% include "darkmode.njk" %}
+  {% include "darkmode.njk" %}
 
 </footer>

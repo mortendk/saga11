@@ -1,4 +1,6 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/feature/feature.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/feature/feature.njk  -->
+{%- endif  -%}
 <section class="py-4 mx-auto max-w-7xl">
 
   {# title + text #}
@@ -13,44 +15,40 @@
     {% endif %}
   </article>
 
-
-
   <div class="grid md:grid-cols-3 gap-4">
 
-  {# Feature #}
-  {% for item in component.feature %}
+    {# Feature #}
+    {% for item in component.feature %}
 
-  <article class="flex flex-row bg-white dark:bg-neutral-900 p-4 shadow">
+      <article class="flex flex-row bg-white dark:bg-gray-900 p-4 shadow">
 
-      <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
+        <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
 
-        {% if item.icon %}
-          <div class="h-6 w-6">{% include  item.icon %}</div>
-        {% endif %}
+          {% if item.icon %}
+            <div class="h-6 w-6">{% include item.icon %}</div>
+          {% endif %}
 
-      </div>
-
-    <div>
-      <div class="text-2xl text-cyan-600 dark:text-cyan-200">{{ item.title }}</div>
-
-      {% if item.text %}
-        <div class="prose prose-xl dark:prose-invert mx-auto">
-        {{ item.text  | markdown | safe  }}
         </div>
-      {% endif %}
 
-    </div>
-  </article>
+        <div>
+          <div class="text-2xl text-cyan-600 dark:text-cyan-200">{{ item.title }}</div>
 
+          {% if item.text %}
+            <div class="prose prose-xl dark:prose-invert mx-auto">
+              {{ item.text  | markdown | safe  }}
+            </div>
+          {% endif %}
 
-    {# {% picture
+        </div>
+      </article>
+
+      {# {% picture
       img=item.image,
       width=[400],
       sizes="(min-width: 1600px) 50vw, 100vw",
       css="rounded-full w-20 h-20 border border-teal-400",
       alt=""
     %} #}
-  {% endfor %}
+    {% endfor %}
 
-
-</section>
+  </section>
