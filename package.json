@@ -1,17 +1,17 @@
 {
   "name": "saga11",
-  "version": "0.7.8beta",
+  "version": "0.7.9beta",
   "description": "Website builder based on 11ty & netlifycms",
   "main": "eleventy.config.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
+    "cleanup": "rm -rf _site",
+    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "build": "npm run tw:build && npm run 11ty:build",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
-    "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "tw:build": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.min.css --minify",
     "tw:watch": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.css --watch",
-    "cleanup": "rm -rf _site",
     "upgrade": "npm install @11ty/eleventy@latest & npm update & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/typography@latest & npm install -D  @tailwindcss/forms@latest"
   },
   "keywords": [],
