@@ -61,3 +61,5 @@ https://www.figma.com/file/3lgQNUa3Y5TvV2V0XaQKoL/Saga-11?node-id=4266%3A924
 `kill -9 <PID>`
 
 `sudo lsof -i :8081`
+
+## A kinda manual

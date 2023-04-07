@@ -3,13 +3,13 @@ title: "Colors"
 
 background:
   - title: Light Background
-    css: bg-background-100
+    css: bg-slate-100
   - title: Dark Background
-    css: bg-background-800
+    css: bg-slate-800
 
 colors:
   - title: color 1
-    css: bg-color1-600
+    css: bg-red-600
   - title: color 2
     css: bg-color2-800
   - title: color 3
@@ -58,13 +58,13 @@ reactions:
 
 ---
 
-
 <h3 class="text-h3 text-center">Color Palette</h3>
 <section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
   {% for color in colors %}
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
+      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}}
+      </h2>
       <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
     </article>
   {% endfor %}
@@ -75,12 +75,12 @@ reactions:
   {% for color in reactions %}
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
+      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}}
+      </h2>
       <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
     </article>
   {% endfor %}
 </section>
-
 
 <h3 class="text-h3 text-center">Neutrals</h3>
 <section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
@@ -88,7 +88,8 @@ reactions:
 
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
+      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}}
+      </h2>
       <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
     </article>
   {% endfor %}
@@ -99,7 +100,8 @@ reactions:
   {% for color in background %}
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
+      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}}
+      </h2>
       <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
     </article>
   {% endfor %}
