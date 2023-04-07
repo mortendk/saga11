@@ -3,43 +3,39 @@ title: "Colors"
 
 background:
   - title: Light Background
-    css: bg-background-100
+    css: bg-slate-100
   - title: Dark Background
-    css: bg-background-800
+    css: bg-slate-800
 
 colors:
   - title: color 1
-    css: bg-color1-600
+    css: bg-red-600
   - title: color 2
-    css: bg-color2-800
+    css: bg-green-800
   - title: color 3
-    css: bg-color3-800
-  - title: color 4
-    css: bg-color4-800
-  - title: color 5
-    css: bg-color5-800
+    css: bg-blue-800
 
 neutrals:
   - title: neutral
-    css: bg-neutral-50
+    css: bg-gray-50
   - title: neutral
-    css: bg-neutral-100
+    css: bg-gray-100
   - title: neutral
-    css: bg-neutral-200
+    css: bg-gray-200
   - title: neutral
-    css: bg-neutral-300
+    css: bg-gray-300
   - title: neutral
-    css: bg-neutral-400
+    css: bg-gray-400
   - title: neutral
-    css: bg-neutral-500
+    css: bg-gray-500
   - title: neutral
-    css: bg-neutral-600
+    css: bg-gray-600
   - title: neutral
-    css: bg-neutral-700
+    css: bg-gray-700
   - title: neutral
-    css: bg-neutral-800
+    css: bg-gray-800
   - title: neutral
-    css: bg-neutral-900
+    css: bg-gray-900
 
 
 
@@ -58,14 +54,14 @@ reactions:
 
 ---
 
-
 <h3 class="text-h3 text-center">Color Palette</h3>
 <section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
   {% for color in colors %}
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
-      <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upper}}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
     </article>
   {% endfor %}
 </section>
@@ -75,12 +71,12 @@ reactions:
   {% for color in reactions %}
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
-      <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upper}}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
     </article>
   {% endfor %}
 </section>
-
 
 <h3 class="text-h3 text-center">Neutrals</h3>
 <section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
@@ -88,8 +84,9 @@ reactions:
 
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
-      <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upper}}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
     </article>
   {% endfor %}
 </section>
@@ -99,8 +96,9 @@ reactions:
   {% for color in background %}
     <article>
       <div class="rounded {{ color.css }} h-20 shadow-md"></div>
-      <h2 class="text-center text-lg text-neutral-500">{{ color.title | upper}} </h2>
-      <input value="{{ color.css }}" class="w-full text-center p-1 bg-neutral-50">
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upper}}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
     </article>
   {% endfor %}
 </section>

@@ -8,7 +8,9 @@ FRONTPAGE TEMPLATE
 ------------------------------------------------
 Specfic page to control the layout for the frontpage
 #}
-{%- if env.mode != 'prod' %}<!-- /Users/mdk/Web/saga11/src/themes/grunn/layouts/page/frontpage.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- /Users/mdk/Web/saga11/src/themes/grunn/layouts/page/frontpage.njk  -->
+{%- endif -%}
 
 <article class="flex flex-col md:flex-row">
   <div class="aspect-video overflow-hidden mt-4">
@@ -21,9 +23,8 @@ Specfic page to control the layout for the frontpage
     %}
   </div>
 
-  <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-neutral-700">
+  <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-gray-700">
     {{ content | safe }}
-
 
   </div>
 </article>

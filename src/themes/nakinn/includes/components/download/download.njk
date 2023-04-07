@@ -1,47 +1,36 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/download/download.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/download/download.njk  -->
+{%- endif  -%}
 
+{# title + text #}
 
+{{ component.title }}
 
-  {# title + text #}
+{% if component.text %}
 
+  {{ component.text  | markdown | safe  }}
 
-      {{ component.title }}
+{% endif %}
 
-    {% if component.text %}
+{% for item in component.files %}
 
-        {{ component.text  | markdown | safe  }}
+  {# set the file title #}
+  {% set title %}
+  {% if item.title %}
+    {{  item.title }}
+  {% else %}
+    {{ item.file }}
+  {% endif %}
+  {% endset %}
 
-    {% endif %}
-
-
-
-
-  {% for item in component.files %}
-
-    {# set the file title #}
-    {% set title %}
-      {% if item.title %}
-        {{  item.title }}
-      {% else %}
-        {{ item.file }}
-      {% endif %}
-    {% endset %}
-
-    {# Download Card #}
-    <a href="{{ item.file }}"
-      class="flex flex-row items-center basis-60 p-2 m-2 bg-white dark:bg-neutral-900 shadow rounded-md
+  {# Download Card #}
+  <a href="{{ item.file }}"
+      class="flex flex-row items-center basis-60 p-2 m-2 bg-white dark:bg-gray-900 shadow rounded-md
     ">
-      {# icon #}
+    {# icon #}
 
+    {% include "icons/arrow-down-tray.svg" %}
 
-          {% include "icons/arrow-down-tray.svg" %}
-
-
-      {{ title }}
-
-
+    {{ title }}
 
   {% endfor %}
-
-
-

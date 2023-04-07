@@ -1,4 +1,6 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/download/download.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/download/download.njk  -->
+{%- endif  -%}
 
 <section class="max-w-7xl mx-auto">
 
@@ -14,34 +16,33 @@
     {% endif %}
   </article>
 
-  <div class="flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-neutral-300 dark:bg-neutral-800">
+  <div class="flex flex-row flex-wrap justify-center mx-auto pagewidth mt-8 bg-gray-300 dark:bg-gray-800">
 
-  {% for item in component.files %}
+    {% for item in component.files %}
 
-    {# set the file title #}
-    {% set title %}
+      {# set the file title #}
+      {% set title %}
       {% if item.title %}
         {{  item.title }}
       {% else %}
         {{ item.file }}
       {% endif %}
-    {% endset %}
+      {% endset %}
 
-    {# Download Card #}
-    <a href="{{ item.file }}"
-      class="flex flex-row items-center basis-60 p-2 m-2 bg-white dark:bg-neutral-900 shadow rounded-md
+      {# Download Card #}
+      <a href="{{ item.file }}"
+      class="flex flex-row items-center basis-60 p-2 m-2 bg-white dark:bg-gray-900 shadow rounded-md
     ">
-      {# icon #}
-      <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
-        <div class="w-6">
-          {% include "icons/arrow-down-tray.svg" %}
+        {# icon #}
+        <div class="flex flex-none h-10 w-10 mr-2 items-center justify-center rounded-md bg-cyan-500 text-white">
+          <div class="w-6">
+            {% include "icons/arrow-down-tray.svg" %}
+          </div>
         </div>
-      </div>
-      <div class="ml-2">{{ title }}</div>
-    </a>
+        <div class="ml-2">{{ title }}</div>
+      </a>
 
-
-  {% endfor %}
+    {% endfor %}
   </div>
 
 </section>

@@ -1,14 +1,15 @@
-{%- if env.mode != 'prod' %}  <!-- src/themes/grunn/includes/components/images/images.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/images/images.njk -->
+{%- endif -%}
 
 {% set gallery = component.images %}
 
-  {{ component.title }}
-  {% if component.text %}
+{{ component.title }}
+{% if component.text %}
 
-    {{ component.text | markdown | safe }}
+  {{ component.text | markdown | safe }}
 
-  {% endif %}
-
+{% endif %}
 
 {# The slider window as open ? wrapper for the bg  #}
 <section
@@ -34,77 +35,62 @@
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 left-2 z-10 -translate-y-1/2">
       {% include "icons/arrow-left.svg" %}
 
-
-    <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
+      <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)"
           tabindex="0"
           type="button" aria-label="Previous"
           :class="isSliderOpen ? 'md:hidden' : 'md:block'"
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
-      {% include "icons/arrow-right.svg" %}
+        {% include "icons/arrow-right.svg" %}
 
-
-    {# open/close toggler  #}
-    <button
+        {# open/close toggler  #}
+        <button
           type="button" aria-label="open close image"
           class="hidden md:block w-6 h-6 z-10 absolute right-2 top-2"
           :class="isSliderOpen ? 'text-white dark:text-cyan-200' : 'text-white'"
           @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
 
-        {% include "icons/x-mark.svg" %}
+          {% include "icons/x-mark.svg" %}
 
+          {% include "icons/arrow-top-right-on-square.svg" %}
 
-        {% include "icons/arrow-top-right-on-square.svg" %}
-
-
-
-    {# Image wrapper for the gallery #}
-    <div :class="isSliderOpen ? '' : 'scrollbar'"
+          {# Image wrapper for the gallery #}
+          <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
-        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-neutral-200 dark:bg-neutral-900 h-full">
+        class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-gray-200 dark:bg-gray-900 h-full">
 
-      {# loop through all the images #}
-      {% for item in gallery %}
+            {# loop through all the images #}
+            {% for item in gallery %}
 
-        <div aria-label="image" role="img"
+              <div aria-label="image" role="img"
         x-ref="slideitem{{ loop.index }}"
         class="flex flex-shrink-0 overflow-auto relative md:aspect-video w-full h-full mr-2 snap-center transition"
         :class="isSliderOpen ? 'md:aspect-video justify-center items-center' : ''"
         >
 
-          {% picture
+                {% picture
             img=item.image,
             width=[640,1024, 1563],
             sizes="(max-width: 640px) 50vw, 100vw",
             css="rounded-sm"
           %}
 
-        {# title and text #}
-        {% if item.title or item.text %}
+                {# title and text #}
+                {% if item.title or item.text %}
 
-            {{ item.title }}
+                  {{ item.title }}
 
-        {% endif %}
+                {% endif %}
 
+              {% endfor %}
+              {# / images   #}
 
-      {% endfor %}
-      {# / images   #}
+              {# gallery navigation #}
 
-
-
-    {# gallery navigation #}
-
-      {% for item in gallery %}
-      <button
+              {% for item in gallery %}
+                <button
         @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)"
-        class="block w-4 h-4 bg-neutral-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
+        class="block w-4 h-4 bg-gray-400 rounded-full aspect-video overflow-hidden shadow hover:shadow-none"
         type="button">
         Link to image {{ loop.index }}
 
-      {% endfor %}
-
-
-
-
-
-
-
+                {% endfor %}

@@ -1,7 +1,8 @@
-{%- if env.mode != 'prod' %}<!-- src/themes/grunn/includes/components/cta/cta.njk-->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/themes/grunn/includes/components/cta/cta.njk-->
+{%- endif -%}
 
-
-<article class="relative bg-white dark:bg-neutral-900 my-4">
+<article class="relative bg-white dark:bg-gray-900 my-4">
 
   <div class="lg:py-20">
     {# text #}
@@ -16,10 +17,10 @@
       </div>
 
       <div class="flex justify-center mt-8">
-      <a href="{{ component.url }}"
+        <a href="{{ component.url }}"
          class="inline-block px-4 py-4 m-4 bg-cyan-700 text-white rounded text-xl">
-        {{ component.cta }}
-      </a>
+          {{ component.cta }}
+        </a>
       </div>
 
     </div>

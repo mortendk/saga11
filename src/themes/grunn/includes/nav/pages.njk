@@ -1,7 +1,9 @@
 {# LIST ALL PAGES
 ------------------------------------------------
  #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/nav/pages.njk -->{%- endif  -%}
+{%- if env.mode != 'prod' %}
+  <!-- src/__includes/nav/pages.njk -->
+{%- endif  -%}
 
 <nav class="" aria-label="Pages Navigation">
   {% for item in collections.allPages | sortByOrder %}
@@ -14,7 +16,7 @@
     {% endif %}
     {% endset %}
 
-    <div class="border-b border-neutral-200 mb-4">
+    <div class="border-b border-gray-200 mb-4">
       {# test if the item url is a part of the page url - if yes its "active #}
       {% if item.url in page.url -%}
         <a href="{{ item.url }}" title="{{ item.data.title }}" class="block font-bold" aria-current="page">
