@@ -28,20 +28,18 @@ size:
 text: Lorem ipsum dolor
 ---
 
-
 <h2 class="text-h2">Semantic named</h2>
 {% for item in semantic %}
-<article class="bg-white shadow p-4 m-2">
-  <div class="text-sm text-neutral-400 text-left">Font size: {{ item.css }}</div>
-  <div class="{{ item.css }}">{{ text }}</div>
-</article>
+  <article class="bg-white shadow p-4 m-2">
+    <div class="text-sm text-gray-400 text-left">Font size: {{ item.css }}</div>
+    <div class="{{ item.css }}">{{ text }}</div>
+  </article>
 {% endfor %}
 
 <h2 class="text-h2">Size based</h2>
 {% for item in size %}
-<article class="bg-white shadow p-4 m-2">
-  <div class="text-sm text-neutral-400 text-left">Font size: {{ item.css }}</div>
-  <div class="{{ item.css }}">{{ text }}</div>
-</article>
+  <article class="bg-white shadow p-4 m-2">
+    <div class="text-sm text-gray-400 text-left">Font size: {{ item.css }}</div>
+    <div class="{{ item.css }}">{{ text }}</div>
+  </article>
 {% endfor %}
-

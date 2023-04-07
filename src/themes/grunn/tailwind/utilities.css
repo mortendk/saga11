@@ -1,41 +1,4 @@
 @tailwind utilities;
 
 @layer utilities {
-  [x-cloak] {
-    display: none;
-  }
-
-  .center-center {
-    @apply flex items-center justify-center;
-  }
-
-  .pagewidth {
-    @apply mx-auto
-      w-full
-      px-2
-      lg:max-w-screen-lg
-      lg:px-0
-      xl:max-w-screen-xl
-      2xl:max-w-screen-2xl;
-  }
-
-  .fullwidth {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .sr-tab {
-    @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
-  }
-
-  .scrollbar::-webkit-scrollbar {
-    @apply h-2 w-2;
-  }
-  .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-neutral-400 dark:bg-neutral-900;
-  }
-  .scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
 }

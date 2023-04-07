@@ -5,22 +5,22 @@ saga-template-name: Under construction
 {# PAGE TEMPLATE UNDER CONSTRUCTION FTW
 ------------------------------------------------
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}
+  <!-- ___layouts/page/frontpage.njk  -->
+{%- endif -%}
 
-<body class="flex flex-col h-screen bg-neutral-900 center-center">
+<body class="flex flex-col h-screen bg-gray-900 center-center">
 
-<article class="w-1/2 mx-auto bg-neutral-900 text-white">
+  <article class="w-1/2 mx-auto bg-gray-900 text-white">
 
-  <h1 class="text-5xl font-bold text-center">{{ title }}</h1>
+    <h1 class="text-5xl font-bold text-center">{{ title }}</h1>
 
-  <div class="text-xl text-center">
-    {{ teaser | safe}}
-  </div>
+    <div class="text-xl text-center">
+      {{ teaser | safe}}
+    </div>
 
-  <div class="mt-8 center-center">
-    <img src="themes/{{ theme }}/assets/img/under-construction.gif" alt="under construction" width="100">
-  </div>
+    <div class="mt-8 center-center">
+      <img src="themes/{{ theme }}/assets/img/under-construction.gif" alt="under construction" width="100">
+    </div>
 
-
-</article>
-
+  </article>

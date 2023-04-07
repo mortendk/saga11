@@ -24,25 +24,24 @@ fonts:
 
 {# Family #}
 {% for font in fonts %}
-<article class="bg-white shadow p-4 m-2">
-  <div class="text-sm text-neutral-400 text-left">Font family</div>
-  <h1 class="text-7xl">{{ font.name }}</h1>
+  <article class="bg-white shadow p-4 m-2">
+    <div class="text-sm text-gray-400 text-left">Font family</div>
+    <h1 class="text-7xl">{{ font.name }}</h1>
 
-  {# weight #}
-  {# <div class="text-sm text-neutral-400 400 mt-8">Weight</div>
+    {# weight #}
+    {# <div class="text-sm text-gray-400 400 mt-8">Weight</div>
   <div>
     {% for item in font.weight %}
       {{ item }},
     {% endfor %}
   </div> #}
-  <div class="{{font.css}} my-4 text-xl p-2 flex flex-col space-y-4">
-    <div class="text-xl bold bg-neutral-300 p-2">{{font.css}}</div>
-    <div>{{ uppercase }}</div>
-    <div>{{ lowercase }}</div>
-    <div>{{ number }}</div>
-    <div>{{ text }}</div>
-  </div>
+    <div class="{{font.css}} my-4 text-xl p-2 flex flex-col space-y-4">
+      <div class="text-xl bold bg-gray-300 p-2">{{font.css}}</div>
+      <div>{{ uppercase }}</div>
+      <div>{{ lowercase }}</div>
+      <div>{{ number }}</div>
+      <div>{{ text }}</div>
+    </div>
 
-</article>
+  </article>
 {% endfor %}
-

@@ -54,8 +54,10 @@ Theres no fancy libraries or SPA or anything else. Its just a website HTML + CSS
 Overview of all components
 https://www.figma.com/file/3lgQNUa3Y5TvV2V0XaQKoL/Saga-11?node-id=4266%3A924
 
-## Kill localhost:[portnumber]
+## Kill portnumber
 
+if the portnumbers are in use all kinds of errors comes out :/
+8081 / 3791
 `sudo lsof -i :3791`
 
 `kill -9 <PID>`
