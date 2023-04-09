@@ -2430,10 +2430,6 @@ pre[class*="language-"] {
   background-color: var(--color-white);
 }
 
-.bg-background-dark {
-  background-color: var(--color-tone-800);
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -2524,10 +2520,6 @@ pre[class*="language-"] {
 .bg-orange-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 237 213 / var(--tw-bg-opacity));
-}
-
-.bg-primary {
-  background-color: var(--color-primary-200);
 }
 
 .bg-primary-600 {
@@ -2940,10 +2932,6 @@ pre[class*="language-"] {
 .text-indigo-500 {
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity));
-}
-
-.text-on-primary {
-  color: var(--balck);
 }
 
 .text-orange-700 {

@@ -89,22 +89,19 @@ module.exports = {
   "information-900": "var(--color-information-900)",
 
   background: "var(--color-white)",
-  "background-dark": "var(--color-tone-800)",
   text: "var(--color-black)",
-
-  link: "var(--color-secondary-700)",
 
   surface: "var(--color-tone-50)",
   "on-surface": "var(--color-tone-900)",
 
-  primary: "var(--color-primary-200)",
+  primary: "var(--color-primary-500)",
   "on-primary": "var(--balck)",
   "primary-alt": "var(--color-primary-700)",
   "on-primary-alt": "var(--black)",
 
   secondary: "var(--color-secondary-200)",
   "on-secondary": "var(--black)",
-  "secondary-alt": "var(--color-secondary-200)",
+  "secondary-alt": "var(--color-secondary-600)",
   "on-secondary-alt": "var(--black)",
 
   tetiary: "var(--color-tetiary-200)",
@@ -113,7 +110,6 @@ module.exports = {
   "on-tetiary-alt": "var(--black)",
 
   action: "var(--color-primary-500)",
+
   tabcolor: "var(--color-primary-500)",
-  "surface-dark": "var(--color-tone-800)",
-  "on-surface-dark": "var(--color-tone-100)",
 };
