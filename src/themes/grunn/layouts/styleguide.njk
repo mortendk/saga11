@@ -20,10 +20,10 @@ layout: html.njk
 
       <div class="flex flex-row">
         <button
-        @click="styleguideMenu = !styleguideMenu"
-        class="w-10 block space-x-2 focus:outline-none"
-        type="button"
-        aria-label="toggle mobile menu"
+          @click="styleguideMenu = !styleguideMenu"
+          class="w-10 block space-x-2 focus:outline-none"
+          type="button"
+          aria-label="toggle mobile menu"
         >
           <span class="relative inline-block w-10 h-6">
             <span class="
@@ -53,17 +53,10 @@ layout: html.njk
         </div>
       </button>
 
-      {# <div>
-    sm
-    lg
-    xl
-    2xl
-    </div> #}
-
     </div>
   </header>
 
-  <main id="main" tabindex="-1" class="mt-12 md:w-9/12 md:mx-auto">
+  <main id="main" tabindex="-1" class="mt-12 md:w-9/12 md:mx-auto pt-8">
 
     {{ content | safe }}
 
@@ -83,12 +76,15 @@ layout: html.njk
 
   </div>
 
-  <div class="max-w-screen-xl mx-auto font-mono">
-🤖 file: {{ page.filePathStem | safe  }}
+  <div class="md:w-9/12 mx-auto font-mono bg-fuchsia-100 text-black mt-20 p-4">
+  🤖 file: {{ page.filePathStem | safe  }}
+    <details>
+      <summary class="bg-fuchsia-600 hover:bg-fuchsia-700 rounded-sm  inline-block p-2">👩‍💻 Markup:</summary>
 
-    <br>
-👩‍💻 Markup
-    {% highlight "html" %}
-    {{ content | safe }}
-    {% endhighlight %}
+      {% highlight "html" %}
+      {{ content | safe }}
+      {% endhighlight %}
+
+    </details>
+
   </div>

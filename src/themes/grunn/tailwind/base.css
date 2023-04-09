@@ -1,12 +1,6 @@
 @tailwind base;
 
 @layer base {
-  /* Color scheme
-    https://tailwindcss.com/docs/customizing-colors#using-css-variables */
-  :root {
-    --color-tab: 255 0 0;
-  }
-
   /* a11y  */
   a {
     @apply focus:border-tabcolor hover:cursor-pointer focus:border focus:border-dashed focus:outline-none;
@@ -15,5 +9,4 @@
   form button {
     @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
   }
-
 }

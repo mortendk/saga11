@@ -29,7 +29,7 @@
     {% endif %}
 
     {% if site.humanstext %}
-      <link rel="author" href="/humans.txt" type="text/plain" />
+      <link rel="author" href="/humans.txt" type="text/plain"/>
     {% endif %}
 
     {%- if card.text %}
@@ -46,8 +46,6 @@
     {%- include "src/system/icon.njk" -%}
 
     {%- include "src/system/head/opengraph.njk" -%}
-
-
 
     {%- if env.mode == 'prod' %}
       <link href="{{ '/themes/' +  theme + '/assets/css/style.min.css' | url }}" rel="stylesheet">
@@ -66,6 +64,11 @@
       </title>
     {% endif %}
   </head>
+
+  <div class="bg-primary text-on-primary">
+
+buggaloog
+</div>
 
   {{ content | safe }}
 

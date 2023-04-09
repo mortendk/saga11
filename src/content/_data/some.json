@@ -1,13 +1,12 @@
 {
   "pinterest_verification": "",
-  "mastodonme": true,
   "youtube": "",
   "github": "",
   "soundcloud": "",
   "facebook": "",
   "mastodon": "https://fosstodon.org/@saga11",
+  "mastodonme": true,
   "discord": "",
-  "rss": true,
   "instagram": "",
   "twitter": "saga11",
   "twitch": "",
@@ -17,5 +16,6 @@
   "bandcamp": "",
   "tiktok": "",
   "pinterest": "",
-  "linkedin": ""
+  "linkedin": "",
+  "rss": true
 }

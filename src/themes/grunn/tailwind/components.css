@@ -1,6 +1,7 @@
 @tailwind components;
 
 @layer components {
+  /* alpinejs helper */
   [x-cloak] {
     display: none;
   }
@@ -33,7 +34,7 @@
     @apply h-2 w-2;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-neutral-400 dark:bg-neutral-900;
+    @apply bg-tone-400 dark:bg-tone-900;
   }
   .scrollbar::-webkit-scrollbar-track {
     background: transparent;
