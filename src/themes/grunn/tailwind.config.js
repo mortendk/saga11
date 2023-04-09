@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 // colors vars set in tailwind/base.css
-const colors = require("tailwindcss/colors");
+
+const colors = require("./tailwind/designToken-color");
+const fontsize = require("./tailwind/designToken-fontSize");
+const fontfamily = require("./tailwind/designToken-fontFamily");
 
 module.exports = {
   content: [
@@ -14,24 +17,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["barlow"],
-        serif: ["robotoslap"],
-        mono: ["firacoda"],
-      },
-      fontSize: {
-        h1: ["7rem", "1"],
-        h2: ["5rem", "1"],
-        h3: ["4rem", "1"],
-        h4: ["3rem", "1"],
-        h5: ["2rem", "1"],
-        h6: ["1.5rem", "1"],
-      },
-      colors: {
-        transparent: "transparent",
-        current: "currentColor",
-        tabcolor: "rgb(var(--color-tab) / <alpha-value>)",
-      },
+      fontFamily: fontfamily,
+      fontSize: fontsize,
+      colors: colors,
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

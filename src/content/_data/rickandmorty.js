@@ -1,3 +1,4 @@
+// Used for testing eleventyfetch
 const EleventyFetch = require("@11ty/eleventy-fetch");
 
 module.exports = async function () {
