@@ -41,6 +41,9 @@ The are configured in /saga11.config.js
 $ npm run cleanup
 ```
 
+## Admin interface
+https://docs.netlify.com/visitor-access/identity/
+
 ## Static Sites FTW
 
 Saga11 is a system to build static websites
@@ -63,3 +66,4 @@ if the portnumbers are in use all kinds of errors comes out :/
 `kill -9 <PID>`
 
 `sudo lsof -i :8081`
+
