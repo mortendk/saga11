@@ -1,7 +1,7 @@
 {
   "name": "saga11",
   "version": "0.7.11beta",
-  "description": "Website builder based on 11ty & netlifycms",
+  "description": "Website builder based on 11ty & Decab CMS (was netlifycms)",
   "main": "eleventy.config.js",
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
