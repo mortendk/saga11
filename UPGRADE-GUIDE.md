@@ -2,27 +2,22 @@ An upgrade guide
 
 Heres a short guide to upgrade saga11
 
-## Delete:
+## 1 Delete:
 
-These files and folder delete em
-
+/_site/
 /node_modules/
-/\_site/
 /package-lock.json
 
-Both will be regenered when you `npm install` and `npm start`
+(Both will be regenered when you `npm install` and `npm start`)
 
-## Overvrite
-
-/eleventy.config.js
-/netlify.toml
+## Overwrite
 /src/system
+/src/themes/debug
 /src/themes/grunn
 /src/themes/nakinn
-/src/themes/styleguide
-/src/themes/debug
 
 ## Config
-
-- package.json
-  the package file holds the scripts to build the site.
+eleventy.config.js
+netlify.toml
+package.json
+saga11.config.js
