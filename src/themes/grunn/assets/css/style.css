@@ -149,7 +149,7 @@ foo.addEventListener('click', () => {
 }
 
 /*
-! tailwindcss v3.3.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -774,6 +774,9 @@ form button:focus {
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -821,6 +824,9 @@ form button:focus {
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -2608,35 +2614,27 @@ pre[class*="language-"] {
 
 .from-gray-600 {
   --tw-gradient-from: #4b5563 var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(75 85 99 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-to-position:  ;
+  --tw-gradient-to: rgb(75 85 99 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .from-indigo-500 {
   --tw-gradient-from: #6366f1 var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(99 102 241 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-to-position:  ;
+  --tw-gradient-to: rgb(99 102 241 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .via-purple-500 {
-  --tw-gradient-via-position:  ;
   --tw-gradient-to: rgb(168 85 247 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
   --tw-gradient-stops: var(--tw-gradient-from), #a855f7 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-gray-900 {
   --tw-gradient-to: #111827 var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
 }
 
 .to-pink-500 {
   --tw-gradient-to: #ec4899 var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
 }
 
 .object-cover {
