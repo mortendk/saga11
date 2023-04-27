@@ -2,9 +2,11 @@
 # Rename this to .env and restart saga11
 # NEVER put an .env file into git - its off course put in git ignore
 # The values are picked up in /content/data/env.js
-# Make sure its permissions are -rw-r--r--@
-ELEVENTY_ENV = "dev" #dev / prod
+# enviroment: dev / prod
+# branch isnt used on local setup
+# Port is used for decap local setup
+ELEVENTY_ENV = "dev"
 SITE_URL = "http://localhost:3791"
 SITE_PORT = 3791
 BRANCH = "main"
-PORT = 8081 # netlifycms/decap
+PORT = 8082
