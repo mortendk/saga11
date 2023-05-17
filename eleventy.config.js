@@ -14,67 +14,67 @@ const timeZone = settings.timeZone || "";
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const Image = require("@11ty/eleventy-img");
+// const Image = require("@11ty/eleventy-img");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 
-async function picture(image) {
-  // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
-  if (image.img == "" || !image.img) {
-    return "";
-  }
-
-  const widths = image.width || [640, 1024, 1563];
-  const formats = image.format || ["webp", "jpeg"];
-  const sizes = image.sizes || "(max-width: 640px) 50vw, 100vw";
-  const css = image.css || "";
-  const alt = image.alt || "";
-  const loading = image.loading || "lazy"; //lazy or eager
-  let src;
-
-  if (fs.existsSync("src" + image.img)) {
-    src = "src" + image.img;
-  } else if (image.img.indexOf("http://") === 0 || image.img.indexOf("https://") === 0) {
-    src = image.img;
-  } else {
-    console.log(` nope src: ${image.img} - ${src}`);
-  }
-
-  if (src) {
-    let metadata = await Image(src, {
-      widths: widths,
-      formats: formats,
-      outputDir: "_site/img/", // send image directly to the site build
-      sharpOptions: {
-        animated: true,
-      },
-      urlPath: "/img/",
-      cacheOptions: {
-        duration: "1d",
-        directory: ".cache",
-        removeUrlQueryParams: false,
-      },
-      filenameFormat: function (id, src, width, format, options) {
-        return `${id}-${width}w.${format}`;
-      },
-    });
-
-    let imageAttributes = {
-      class: css,
-      alt: alt,
-      sizes: sizes,
-      loading: loading,
-      decoding: "async",
-    };
-
-    return Image.generateHTML(metadata, imageAttributes, {
-      whitespaceMode: "inline",
-    });
-  } else {
-    // console.log(`🎈 picture function: ${image} dont exist `);
-    // return `<!-- image function called but: ${image} -->`;
-    return "";
-  }
-}
+// async function picture(image) {
+//   // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
+//   if (image.img == "" || !image.img) {
+//     return "";
+//   }
+//
+//   const widths = image.width || [640, 1024, 1563];
+//   const formats = image.format || ["webp", "jpeg"];
+//   const sizes = image.sizes || "(max-width: 640px) 50vw, 100vw";
+//   const css = image.css || "";
+//   const alt = image.alt || "";
+//   const loading = image.loading || "lazy"; //lazy or eager
+//   let src;
+//
+//   if (fs.existsSync("src" + image.img)) {
+//     src = "src" + image.img;
+//   } else if (image.img.indexOf("http://") === 0 || image.img.indexOf("https://") === 0) {
+//     src = image.img;
+//   } else {
+//     console.log(` nope src: ${image.img} - ${src}`);
+//   }
+//
+//   if (src) {
+//     let metadata = await Image(src, {
+//       widths: widths,
+//       formats: formats,
+//       outputDir: "_site/img/", // send image directly to the site build
+//       sharpOptions: {
+//         animated: true,
+//       },
+//       urlPath: "/img/",
+//       cacheOptions: {
+//         duration: "1d",
+//         directory: ".cache",
+//         removeUrlQueryParams: false,
+//       },
+//       filenameFormat: function (id, src, width, format, options) {
+//         return `${id}-${width}w.${format}`;
+//       },
+//     });
+//
+//     let imageAttributes = {
+//       class: css,
+//       alt: alt,
+//       sizes: sizes,
+//       loading: loading,
+//       decoding: "async",
+//     };
+//
+//     return Image.generateHTML(metadata, imageAttributes, {
+//       whitespaceMode: "inline",
+//     });
+//   } else {
+//     // console.log(`🎈 picture function: ${image} dont exist `);
+//     // return `<!-- image function called but: ${image} -->`;
+//     return "";
+//   }
+// }
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -84,7 +84,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(faviconsPlugin);
 
   // Shortcodes
-  eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
+  // eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
+  eleventyConfig.addShortcode("picture", require("./src/_system/11ty/shortcode/image.js"));
   eleventyConfig.addShortcode("imageurl", require("./src/_system/11ty/shortcode/imageurl.js"));
   eleventyConfig.addShortcode("calendar", require("./src/_system/11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
@@ -125,11 +126,11 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addPassthroughCopy("src/themes/debug/");
 
   // global vars todo: is this existing for liquid ?
-  eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
+  // eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
   // eleventyConfig.addNunjucksGlobal("theme", theme);
   // Date and time fun
-  eleventyConfig.addNunjucksGlobal("timeZone", timeZone);
-  eleventyConfig.addNunjucksGlobal("dateFormat", dateFormat);
+  // eleventyConfig.addNunjucksGlobal("timeZone", timeZone);
+  // eleventyConfig.addNunjucksGlobal("dateFormat", dateFormat);
 
   // Local Server
   eleventyConfig.setServerOptions({
@@ -143,9 +144,14 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.ignores.add("src/themes/");
   // eleventyConfig.ignores.delete("src/themes/" + theme);
 
+  eleventyConfig.setLiquidOptions({
+    dynamicPartials: true,
+    strict_filters: true,
+  });
+
   // Directory setup
   return {
-    markdownTemplateEngine: "njk",
+    markdownTemplateEngine: "md",
     dataTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dir: {

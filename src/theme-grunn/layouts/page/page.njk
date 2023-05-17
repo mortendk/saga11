@@ -13,13 +13,13 @@ This is the default template for the page type
 <h1 class="text-cyan-700 dark:text-cyan-200 text-5xl lg:text-8xl mb-8 text-center">{{ title }}</h1>
 
 <div class="aspect-video overflow-hidden">
-  {% picture
+  {# {% picture
       img=image,
       width=[640,1024, 1563],
       sizes="(max-width: 640px) 50vw, 100vw",
       css="shadow rounded-xl",
       loading = "eager"
-  %}
+  %} #}
 </div>
 
 {% include "share.njk" %}

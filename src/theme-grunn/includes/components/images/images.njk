@@ -79,12 +79,12 @@
         :class="isSliderOpen ? 'md:aspect-video justify-center items-center' : ''"
         >
 
-            {% picture
+            {# {% picture
             img=item.image,
             width=[640,1024, 1563],
             sizes="(max-width: 640px) 50vw, 100vw",
             css="w-full rounded-sm"
-          %}
+          %} #}
 
             {# title and text #}
             {% if item.title or item.text %}
@@ -103,12 +103,12 @@
       <nav aria-label="gallery image navigation" class="grid grid-cols-4 gap-2 justify-center">
         {% for item in gallery %}
           <div @click="$refs.slideitem{{ loop.index }}.scrollIntoView(false)" class="">
-            {% picture
+            {# {% picture
           img=item.image,
           width=[200,400],
           sizes="(min-width: 1600px) 50vw, 100vw",
           css="rounded-sm"
-        %}
+        %} #}
             <h3>
               {{ item.title }}
             </h3>

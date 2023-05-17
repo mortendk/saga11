@@ -25,13 +25,13 @@
       <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
 
         <div class="shadow-lg aspect-video overflow-hidden">
-          {% picture
+          {# {% picture
           img=item.data.card.image,
           width=[400,800],
           sizes="(min-width: 1600px) 50vw, 100vw",
           css="",
           loading = "eager"
-      %}
+      %} #}
 
           {% if item.data.card.image %}
           {% else %}

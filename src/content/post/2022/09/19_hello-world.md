@@ -16,7 +16,7 @@ eleventyExcludeFromCollections: false
 
 content
 
-{% picture img="/content/upload/4hundo.gif", alt="4 1231 hundo" %}
+picture img="/content/upload/4hundo.gif", alt="4 1231 hundo"
 
 This is probably the best description ever of a movie
 

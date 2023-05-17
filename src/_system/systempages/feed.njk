@@ -31,14 +31,14 @@ eleventyExcludeFromCollections: true
       <content type="html">
       {% if item.data.card.image %}
         <![CDATA[
-          {% picture
+          {# {% picture
             img=item.data.card.image,
             width=[640],
             format="png",
             sizes="",
             css="",
             loading = ""
-          %}
+          %} #}
           ]]>
         {% endif %}
 
