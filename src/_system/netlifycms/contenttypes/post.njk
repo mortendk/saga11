@@ -1,4 +1,4 @@
-{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% from 'src/_system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
 {% raw %}
   # -----------------------------------------------------------------
   # Post Collection
@@ -36,12 +36,12 @@
 
     fields:
 {% endraw %}
-  {% include "src/system/netlifycms/fields/title.njk" %}
-  {% include "src/system/netlifycms/fields/image.njk" %}
-  {% include "src/system/netlifycms/fields/card.njk" %}
-  {% include "src/system/netlifycms/fields/content.njk" %}
-  {% include "src/system/netlifycms/fields/tags.njk" %}
-  {% include "src/system/netlifycms/fields/date.njk" %}
+  {% include "src/_system/netlifycms/fields/title.njk" %}
+  {% include "src/_system/netlifycms/fields/image.njk" %}
+  {% include "src/_system/netlifycms/fields/card.njk" %}
+  {% include "src/_system/netlifycms/fields/content.njk" %}
+  {% include "src/_system/netlifycms/fields/tags.njk" %}
+  {% include "src/_system/netlifycms/fields/date.njk" %}
   {{ templaterelation( collection="posttemplates", folder="post") }}
-  {% include "src/system/netlifycms/fields/draft.njk" %}
+  {% include "src/_system/netlifycms/fields/draft.njk" %}
 {% raw %}

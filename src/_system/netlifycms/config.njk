@@ -2,7 +2,7 @@
 permalink: /admin/config.yml
 eleventyExcludeFromCollections: true
 ---
-{% from 'src/system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
+{% from 'src/_system/netlifycms/templatecollection.macro.njk' import templatecollection, templaterelation %}
 backend:
   name: git-gateway
   branch: {{ env.branch }}
@@ -49,18 +49,18 @@ public_folder: "/content/upload"
       defaultOperations: '/resize/800x600/' #}
 
 collections:
-  {% include "src/system/netlifycms/contenttypes/page.njk" %}
-  {% include "src/system/netlifycms/contenttypes/post.njk" %}
-  {% include "src/system/netlifycms/contenttypes/block.njk" %}
-  {% include "src/system/netlifycms/contenttypes/menuitem.njk" %}
-  {% include "src/system/netlifycms/contenttypes/tag.njk" %}
-  {% include "src/system/netlifycms/contenttypes/notification.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/page.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/post.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/block.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/menuitem.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/tag.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/notification.njk" %}
   {# ductape custom collections #}
   {% include "src/content/_netlifycms/content-types.njk" %}
 
-  {% include "src/system/netlifycms/settings/settings.njk" %}
+  {% include "src/_system/netlifycms/settings/settings.njk" %}
 
-  {% include "src/system/netlifycms/contenttypes/icons.njk" %}
+  {% include "src/_system/netlifycms/contenttypes/icons.njk" %}
 
   {{ templatecollection( name="pagetemplates", path="layouts/page", theme = theme) }}
   {{ templatecollection( name="posttemplates", path="layouts/post", theme = theme) }}

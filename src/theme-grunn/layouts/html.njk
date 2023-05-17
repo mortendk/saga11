@@ -43,9 +43,9 @@
     {% endif -%}
 
     <meta name="theme-color" content="{{ site.color }}">
-    {%- include "src/system/icon.njk" -%}
+    {%- include "src/_system/icon.njk" -%}
 
-    {%- include "src/system/head/opengraph.njk" -%}
+    {%- include "src/_system/head/opengraph.njk" -%}
 
     {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
