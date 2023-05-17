@@ -1,0 +1,50 @@
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/collection/collection.njk -->{%- endif -%}
+
+  {# title + text #}
+
+
+      {{ component.title }}
+
+    {% if component.text %}
+
+        {{ component.text  | markdown | safe  }}
+
+    {% endif %}
+
+
+
+
+  {% for item in collections[component.collection]  %}
+    {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+
+
+
+
+
+      {% picture
+          img=item.data.card.image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="",
+          loading = "eager"
+      %}
+
+
+
+
+
+          {{item.data.title}}
+
+
+
+          {{ item.data.card.text }}
+
+
+
+
+
+
+
+  {% endfor %}
+
+

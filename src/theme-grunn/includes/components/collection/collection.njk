@@ -1,0 +1,58 @@
+{%- if env.mode != 'prod' %}
+  <!-- src/theme-grunn/includes/components/collection/collection.njk -->
+{%- endif -%}
+
+{# title + text #}
+<article class="mx-auto max-w-3xl">
+  <h2 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+    {{ component.title }}
+  </h2>
+  {% if component.text %}
+    <div class="text-xl">
+      {{ component.text  | markdown | safe  }}
+    </div>
+  {% endif %}
+</article>
+
+<section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
+
+  {% for item in collections[component.collection] %}
+    {%- if env.mode != 'prod' %}
+      <!-- markdown file: {{ item.inputPath }}  -->
+    {%- endif -%}
+
+    <article class="" aria-label="Post {{ item.data.title}}">
+      <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
+
+        <div class="shadow-lg aspect-video overflow-hidden">
+          {% picture
+          img=item.data.card.image,
+          width=[400,800],
+          sizes="(min-width: 1600px) 50vw, 100vw",
+          css="",
+          loading = "eager"
+      %}
+
+          {% if item.data.card.image %}
+          {% else %}
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center ">img</div>
+          {% endif %}
+        </div>
+
+        <div class="shadow border dark:border-none rounded px-4 py-2 border-gray-100 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+          <h3 class="mt-2 text-2xl dark:text-cyan-200">
+            {{item.data.title}}
+          </h3>
+
+          <div class="mt-2">
+            {{ item.data.card.text }}
+          </div>
+
+        </div>
+      </a>
+
+    </article>
+
+  {% endfor %}
+
+</section>

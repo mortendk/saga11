@@ -1,16 +1,16 @@
 const path = require("path");
 const fs = require("fs");
+
 // Get settings
-const env = require("./src/content/_data/env.js");
 const settings = require("./saga11.config.js");
-const theme = settings.theme || "grunn";
+const env = require("./src/content/_data/env.js");
+const theme = settings.theme || "theme-grunn";
 const packageJson = require("./package.json");
 const saga11version = packageJson.version;
-
 const dateFormat = settings.dateFormat || "";
 const timeZone = settings.timeZone || "";
 
-
+// plugins
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -85,7 +85,7 @@ module.exports = function (eleventyConfig) {
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
-  eleventyConfig.addShortcode("imageurl", require("./src/system/11ty/shortcode/imageurl"));
+  eleventyConfig.addShortcode("imageurl", require("./src/system/11ty/shortcode/imageurl.js"));
   eleventyConfig.addShortcode("calendar", require("./src/system/11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/system/11ty/shortcode/datediff.js"));
 
@@ -97,10 +97,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("sortByTitle", require("./src/system/11ty/filter/sortByTitle.js"));
   eleventyConfig.addFilter("sortByFilepath", require("./src/system/11ty/filter/sortByFilepath.js"));
   eleventyConfig.addFilter("filtertags", require("./src/system/11ty/filter/taglist.js"));
-  eleventyConfig.addFilter("getPage", require("./src/system/11ty/filter/getPage"));
-  eleventyConfig.addFilter("netlifycmsedit", require("./src/system/11ty/filter/netlifycmsediturl"));
-  eleventyConfig.addFilter("debug", require("./src/system/11ty/filter/debug"));
-  eleventyConfig.addFilter("debugpretty", require("./src/system/11ty/filter/debugPretty"));
+  eleventyConfig.addFilter("getPage", require("./src/system/11ty/filter/getPage.js"));
+  eleventyConfig.addFilter("netlifycmsedit", require("./src/system/11ty/filter/netlifycmsediturl.js"));
+  eleventyConfig.addFilter("debug", require("./src/system/11ty/filter/debug.js"));
+  eleventyConfig.addFilter("debugpretty", require("./src/system/11ty/filter/debugPretty.js"));
 
   // Collections
   eleventyConfig.addCollection("allPosts", require("./src/system/11ty/collection/allPosts.js"));
@@ -108,7 +108,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("allNotification", require("./src/system/11ty/collection/allNotification.js"));
   eleventyConfig.addCollection("allTags", require("./src/system/11ty/collection/allTags.js"));
   eleventyConfig.addCollection("styleguide", require("./src/system/11ty/collection/styleguide.js"));
-  eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags"));
+  eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags.js"));
   eleventyConfig.addCollection("blocks", require("./src/system/11ty/collection/blocks.js"));
 
   // Transform
@@ -116,33 +116,32 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("htmlmin", require("./src/system/11ty/transform/minify.js"));
   }
 
-  // PassThrough
-  eleventyConfig.addPassthroughCopy("src/themes/" + theme + "/assets/");
-  eleventyConfig.addPassthroughCopy("src/service-workers.js");
-  eleventyConfig.addPassthroughCopy("src/themes/debug/");
+  // PassThrough todo: can this be pushed to /_site/ instead of themes
+  // eleventyConfig.addPassthroughCopy("src/" + theme + "/assets/");
+  eleventyConfig.addPassthroughCopy({"src/theme-grunn/assets/" : "/assets/"});
+  eleventyConfig.addPassthroughCopy({"src/theme-grunn/service-workers.js" : "service-workers.js"});
+  // eleventyConfig.addPassthroughCopy({ "src/img": "subfolder/img" });
 
-  // global vars
+  // eleventyConfig.addPassthroughCopy("src/themes/debug/");
+
+  // global vars todo: is this existing for liquid ?
   eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
-
-  // get the theme folder name
   eleventyConfig.addNunjucksGlobal("theme", theme);
-
   // Date and time fun
   eleventyConfig.addNunjucksGlobal("timeZone", timeZone);
   eleventyConfig.addNunjucksGlobal("dateFormat", dateFormat);
 
   // Local Server
   eleventyConfig.setServerOptions({
-    port: env.siteport ,
+    port: env.siteport,
   });
 
-  // ignore README
+  // Ignore README
   eleventyConfig.ignores.add("README.md");
 
   // the amazing theme selector
-  eleventyConfig.ignores.add("src/themes/");
-  eleventyConfig.ignores.delete("src/themes/"  + theme );
-
+  // eleventyConfig.ignores.add("src/themes/");
+  // eleventyConfig.ignores.delete("src/themes/" + theme);
 
   // Directory setup
   return {
@@ -152,8 +151,8 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src/",
       output: "_site",
-      includes: "themes/" + theme + "/includes",
-      layouts: "themes/" + theme + "/layouts",
+      includes: theme + "/includes",
+      layouts: theme + "/layouts",
       data: "content/_data",
     },
   };

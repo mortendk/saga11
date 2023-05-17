@@ -1,0 +1,23 @@
+{%- if env.mode != 'prod' %}
+  <!-- src/theme-grunn/includes/components/link/link.njk -->
+{%- endif -%}
+
+{# title + text #}
+
+{{ component.title }}
+
+{% if component.text %}
+
+  {{ component.text  | markdown | safe  }}
+
+{% endif %}
+
+{% for item in component.link %}
+
+  <a href="{{ item.url}}"
+      class="flex justify-center items-center text-gray-800 dark:text-gray-100 font-bold mr-4">
+    {{ item.title }}
+
+    {% include "icons/arrow-top-right-on-square.svg" %}
+
+  {% endfor %}

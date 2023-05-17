@@ -1,0 +1,66 @@
+---
+layout: default.njk
+saga-template-name: tag
+---
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/layouts/tag/tag.njk  -->{%- endif -%}
+
+
+
+
+      {% if icon %}
+        {% include  icon %}
+      {% endif %}
+
+      {{ title }}
+
+
+    {% include "nav/tagcloud.njk" %}
+
+
+      {{ content | safe }}
+
+
+
+
+
+
+{#
+the page.fileslug is the tags identifier in all the md files
+ex:
+tags:
+  - saga11
+
+That then refers to the file tag/saga.md that constainss all the data the we use on this page.
+ #}
+{% for item in collections[ page.fileSlug ]  %}
+
+
+
+
+
+        {% picture
+          img=item.data.card.image,
+          width=[400, 800],
+          sizes="(min-width: 800px) 50vw, 100vw",
+          alt=item.data.card.alt
+        %}
+
+
+
+        {{item.data.card.title }}
+        {{ item.data.card.text }}
+        {{ item.date | formatDate("DDD  T", "DK") }}
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+  Grap the RSS
+  {% include "icons/rss.svg" %}
+

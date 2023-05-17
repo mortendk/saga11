@@ -1,9 +1,9 @@
 ---
 title: All existing components :)
-image: /upload/spaceship.png
+image: /content/upload/spaceship.png
 card:
   title: Title from a card
-  image: /upload/spaceship.png
+  image: /content/upload/spaceship.png
   alt: alt text for image
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -18,7 +18,7 @@ components:
     name: contact
     action: /submitted
     template: components/form/form.njk
-    text: "T﻿his is a webform "
+    text: "This is a webform "
     elements:
       - type: options
         inputtype: Checkbox
@@ -100,15 +100,15 @@ components:
     title: image gallery alternative
     text: this is a gallery with another template
     images:
-      - image: /upload/4hundo.gif
-      - image: /upload/spaceship.png
+      - image: /content/upload/4hundo.gif
+      - image: /content/upload/spaceship.png
         title: "image title "
   - type: images
     template: components/images/images.njk
     images:
-      - image: /upload/spaceship.png
+      - image: /content/upload/spaceship.png
         title: alt text 2
-      - image: /upload/spaceship.png
+      - image: /content/upload/spaceship.png
         title: "alt text "
     title: image gallery
     text: "lorem "
@@ -176,7 +176,7 @@ components:
           voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
           sint occaecat cupidatat non proident, sunt in culpa qui officia
           deserunt mollit anim id est laborum.
-        image: /upload/spaceship.png
+        image: /content/upload/spaceship.png
         person: Name
         persontitle: title
         url: https://saga11.dev
@@ -230,7 +230,7 @@ components:
     title: "This is a CTA "
     url: /
     cta: "CTA Text "
-    image: /upload/spaceship.png
+    image: /content/upload/spaceship.png
     alt: alt text for this image
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -260,7 +260,7 @@ components:
   - type: image
     template: components/image/image.njk
     title: image and text
-    image: /upload/spaceship.png
+    image: /content/upload/spaceship.png
     alt: This is an rocket going to the moon
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -319,4 +319,4 @@ this is _italic_ and this is **bold**
 
 This is an image
 
-{% picture img="/upload/spaceship.png", alt="this is an image of a Space ship movie Space ship people get up from sleeping coffin and have eat. Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg." %}
+{% picture img="/content/upload/spaceship.png", alt="this is an image of a Space ship movie Space ship people get up from sleeping coffin and have eat. Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg." %}

@@ -2,6 +2,6 @@
 // theme sets the theme path : nakinn / grunn
 // dateLocal for formating dates
 module.exports = {
-  theme: "grunn",
+  theme: "theme-grunn",
   dateLocale: "da",
 };

@@ -1,0 +1,38 @@
+---
+layout: default.njk
+saga-template-name: Post Default
+---
+
+{%- if env.mode != 'prod' %}
+  <!-- ___layouts/post/post.njk  -->
+{%- endif -%}
+
+<h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
+
+{% if image %}
+  <div class="aspect-video overflow-hidden shadow-lg">
+    {% picture img=image, width=[640,1280,1536], sizes="(max-width: 640px) 50vw, 100vw", css="", loading = "eager" %}
+  </div>
+{% endif %}
+
+<article class="flex flex-col md:flex-row">
+  <div class="md:w-4/6">
+    <footer class="mt-4 flex flex-row space-x-4 text-lg">
+      {% include "nav/tags.njk" %}
+
+      <time>{{ date | formatDate("DDD  T", "DK") }}</time>
+    </footer>
+
+    <div class="prose prose-xl dark:prose-invert max-w-full">
+      {{ content | safe }}
+    </div>
+
+    {# Pre next nav #}
+    {% include "nav/post-pre-next.njk" %}
+  </div>
+  {# sidebar #}
+  <div class="md:ml-4 md:w-2/6">
+    {# list of post #}
+    {% include "nav/posts.njk" %}
+    {% include "share.njk" %}</div>
+</article>

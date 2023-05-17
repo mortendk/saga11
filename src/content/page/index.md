@@ -1,6 +1,6 @@
 ---
 title: Saga11
-image: /upload/spaceship.png
+image: /content/upload/kazoo-funerels.jpg
 card:
   title: "This is the frontpage card "
   image: ""
@@ -12,7 +12,6 @@ components:
     template: components/collection/collection.njk
     collection: saga11
 tags:
-  - saga11
   - test
 url: /
 eleventyNavigation:
@@ -24,7 +23,7 @@ eleventyNavigation:
 layout: page/frontpage.njk
 eleventyExcludeFromCollections: false
 ---
-M﻿Ain branch ?\
+
 😍 it works{tm}
 
 👉 To make the admin work clone the env.example to .env

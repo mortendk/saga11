@@ -1,6 +1,6 @@
 ---
 title: Saga 11
-content: b﻿la bla
+content: bla bla
 icon: icons/arrow-down-left.svg
 eleventyExcludeFromCollections: false
 rssfeed: true
@@ -10,4 +10,4 @@ eleventyNavigation:
   order: 20
 layout: tag/tag.njk
 ---
-b﻿la bal
+bla bla

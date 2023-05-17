@@ -11,8 +11,8 @@
     "build": "npm run tw:build && npm run 11ty:build",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
-    "tw:build": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.min.css --minify",
-    "tw:watch": "npx tailwindcss -c src/themes/grunn/tailwind.config.js -i src/themes/grunn/tailwind/tailwind.css -o src/themes/grunn/assets/css/style.css --watch",
+    "tw:build": "npx tailwindcss -c src/theme-grunn/tailwind.config.js -i src/theme-grunn/tailwind/tailwind.css -o src/theme-grunn/assets/css/style.min.css --minify",
+    "tw:watch": "npx tailwindcss -c src/theme-grunn/tailwind.config.js -i src/theme-grunn/tailwind/tailwind.css -o src/theme-grunn/assets/css/style.css --watch",
     "upgrade": "npm install @11ty/eleventy@latest & npm update & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/typography@latest & npm install -D  @tailwindcss/forms@latest"
   },
   "keywords": [],

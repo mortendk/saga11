@@ -1,0 +1,11 @@
+{%- if env.mode != 'prod' %} <!-- src/theme-grunn/includes/components/form/field/textarea.njk -->{%- endif  -%}
+<div>
+
+  <label for="form-item-{{ item.title | slugify  }}">
+    {{ item.title }}
+    {% if item.required %} * {% endif %}
+  </label>
+
+  <textarea name="{{ item.title | slugify }}" id="form-item-{{ item.title | slugify  }}" placeholder="{{ item.placeholder }} " {% if item.required %}required{% endif %}></textarea>
+
+</div>
