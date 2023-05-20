@@ -1,8 +1,8 @@
-{%- if env.mode != 'prod' %}<!-- __includes/nav/tags.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/tags.liquid  -->{%- endif  -%}
 
 {% for tag in tags %}
 
-  {# dont print the rssfeed tag cause its used for the machine #}
+  {% comment %}dont print the rssfeed tag cause its used for the machine {% endcomment %}
   {% if tag != "rssfeed" %}
 
     {% for item in collections.all | getPage("/tag/" + tag + "/") %}

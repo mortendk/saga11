@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/templates/all-tags.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/templates/all-tags.liquid -->{%- endif -%}
 
 All Tags
 
@@ -18,7 +18,7 @@ All Tags
         {{ item.data.title }}
 
 
-          {{ item.data.content | markdown  | safe }}
+          {{ item.data.content | markdown   }}
 
 
 

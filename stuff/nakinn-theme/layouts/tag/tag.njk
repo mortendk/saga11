@@ -1,8 +1,8 @@
 ---
-layout: default.njk
+layout: default.liquid
 saga-template-name: tag
 ---
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/layouts/tag/tag.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/layouts/tag/tag.liquid  -->{%- endif -%}
 
 
 
@@ -14,10 +14,10 @@ saga-template-name: tag
       {{ title }}
 
 
-    {% include "nav/tagcloud.njk" %}
+    {% include "nav/tagcloud.liquid" %}
 
 
-      {{ content | safe }}
+      {{ content  }}
 
 
 
@@ -31,7 +31,7 @@ tags:
   - saga11
 
 That then refers to the file tag/saga.md that constainss all the data the we use on this page.
- #}
+ {% endcomment %}
 {% for item in collections[ page.fileSlug ]  %}
 
 

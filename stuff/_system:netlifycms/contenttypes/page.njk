@@ -1,0 +1,40 @@
+{% from 'src/_system/netlifycms/templatecollection.macro.liquid' import templatecollection, templaterelation %}
+{% raw %}
+  # -----------------------------------------------------------------
+  # Pages Collection
+  # -----------------------------------------------------------------
+  - name: page
+    label: 🏩 Pages
+    label_singular: 🏩 Page
+    description: "Pages with components"
+    folder: "src/content/page"
+    slug: "{{title}}"
+    preview_path: /{{url}}/
+    create: true
+    delete: true
+    editor:
+      preview: true
+    summary: "{{title}} (url: {{url}}) "
+    sortable_fields: ["title","url", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{{title}}"
+    fields:
+{% endraw %}
+  {% include "src/_system/netlifycms/fields/title.liquid" %}
+  {% include "src/_system/netlifycms/fields/image.liquid" %}
+  {% include "src/_system/netlifycms/fields/card.liquid" %}
+  {% include "src/_system/netlifycms/fields/component.liquid" %}
+  {% include "src/_system/netlifycms/fields/content.liquid" %}
+  {% include "src/_system/netlifycms/fields/tags.liquid" %}
+  {% include "src/_system/netlifycms/fields/url.liquid" %}
+  {% include "src/_system/netlifycms/fields/menu.liquid" %}
+  {{ templaterelation( collection="pagetemplates", folder="page") }}
+  {% include "src/_system/netlifycms/fields/draft.liquid" %}

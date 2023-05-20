@@ -1,4 +1,4 @@
-{# mobile menu  #}
+{% comment %}mobile menu  {% endcomment %}
 <nav
   x-cloak
   x-show="openmenu"
@@ -12,7 +12,7 @@
   class="md:hidden fixed z-50 top-16 w-11/12 h-full bg-white/95 dark:bg-gray-800/95 shadow-xl"
   aria-label="Mobile Menu
 ">
-  {% set mobileclasses = "block h-20 dark:text-cyan-200 flex items-center pl-4 text-lg border-b border-b-gray-200 dark:border-b-gray-500" %}
+  {% assign mobileclasses = "block h-20 dark:text-cyan-200 flex items-center pl-4 text-lg border-b border-b-gray-200 dark:border-b-gray-500" %}
   {%- for item in collections.all | eleventyNavigation("main") %}
 
     {% if not item.children | length %}
@@ -23,7 +23,7 @@
     >{{ item.title }}
       {% else %}
 
-        {# placeholder #}
+        {% comment %}placeholder {% endcomment %}
 
         {{ item.title }}
         {% include "icons/chevron-down.svg" %}
@@ -36,15 +36,15 @@
         @mouseover="openmenuitem = true"
         @click.outside="openmenuitem = false"
       >
-          {# We repeat the link from placeholder above so it works on a ipad etc #}
+          {% comment %}We repeat the link from placeholder above so it works on a ipad etc {% endcomment %}
           {{ item.title }}
 
-          {# Loop next level #}
+          {% comment %}Loop next level {% endcomment %}
           {%- for item in collections.all | eleventyNavigation(item.key) %}
             {{ item.title }}
           {% endfor %}
 
-          {# / placeholder #}
+          {% comment %}/ placeholder {% endcomment %}
 
         {% endif %}
 

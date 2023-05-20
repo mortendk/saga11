@@ -1,17 +1,17 @@
 {%- if env.mode != 'prod' %}
-  <!-- src/theme-grunn/includes/components/images/images.njk -->
+  <!-- src/theme-grunn/includes/components/images/images.liquid -->
 {%- endif -%}
 
-{% set gallery = component.images %}
+{% assign gallery = component.images %}
 
 {{ component.title }}
 {% if component.text %}
 
-  {{ component.text | markdown | safe }}
+  {{ component.text | markdown  }}
 
 {% endif %}
 
-{# The slider window as open ? wrapper for the bg  #}
+{% comment %}The slider window as open ? wrapper for the bg  {% endcomment %}
 <section
     aria-label="Image gallery"
     class=""
@@ -27,7 +27,7 @@
     :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0  -translate-y-1/2':''";
   >
 
-    {# pre next #}
+    {% comment %}pre next {% endcomment %}
     <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)"
           tabindex="0"
           type="button" aria-label="Previous"
@@ -42,7 +42,7 @@
           class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/2 right-2 z-10 -translate-y-1/2">
         {% include "icons/arrow-right.svg" %}
 
-        {# open/close toggler  #}
+        {% comment %}open/close toggler  {% endcomment %}
         <button
           type="button" aria-label="open close image"
           class="hidden md:block w-6 h-6 z-10 absolute right-2 top-2"
@@ -53,12 +53,12 @@
 
           {% include "icons/arrow-top-right-on-square.svg" %}
 
-          {# Image wrapper for the gallery #}
+          {% comment %}Image wrapper for the gallery {% endcomment %}
           <div :class="isSliderOpen ? '' : 'scrollbar'"
         x-ref="slider"
         class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-gray-200 dark:bg-gray-900 h-full">
 
-            {# loop through all the images #}
+            {% comment %}loop through all the images {% endcomment %}
             {% for item in gallery %}
 
               <div aria-label="image" role="img"
@@ -74,7 +74,7 @@
             css="rounded-sm"
           %}
 
-                {# title and text #}
+                {% comment %}title and text {% endcomment %}
                 {% if item.title or item.text %}
 
                   {{ item.title }}
@@ -82,9 +82,9 @@
                 {% endif %}
 
               {% endfor %}
-              {# / images   #}
+              {% comment %}/ images   {% endcomment %}
 
-              {# gallery navigation #}
+              {% comment %}gallery navigation {% endcomment %}
 
               {% for item in gallery %}
                 <button

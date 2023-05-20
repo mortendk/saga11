@@ -13,7 +13,7 @@
           {{ item.data.title }}
 
 
-          {{ item.data.text | markdown | safe  }}
+          {{ item.data.text | markdown   }}
 
 
         {% if item.data.showlink %}
@@ -25,7 +25,7 @@
 
       {#
         {% include "icons/close.svg" %}
-         #}
+         {% endcomment %}
 
 
   {% endfor %}

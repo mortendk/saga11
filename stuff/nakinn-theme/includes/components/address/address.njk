@@ -1,6 +1,6 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/address/address/address.njk-->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/address/address/address.liquid-->{%- endif -%}
 
-  {# This is used for the iphone / android so they  can work prober cause ... #}
+  {% comment %}This is used for the iphone / android so they  can work prober cause ... {% endcomment %}
   <script>
     function openinmap(map){
     // If it's an iPhone..
@@ -13,7 +13,7 @@
     }
   </script>
 
-  {# title + text #}
+  {% comment %}title + text {% endcomment %}
   {% if (component.title | length )  or ( componenet.text | length ) %}
 
 
@@ -25,7 +25,7 @@
 
       {% if component.text %}
 
-          {{ component.text  | markdown | safe  }}
+          {{ component.text  | markdown   }}
 
       {% endif %}
 
@@ -33,7 +33,7 @@
 
 
 
-  {# address #}
+  {% comment %}address {% endcomment %}
   {% for item in component.address %}
 
 

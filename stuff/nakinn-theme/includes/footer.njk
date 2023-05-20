@@ -1,6 +1,6 @@
-{%- if env.mode != 'prod' %}  <!-- _src/__includes/footer.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}  <!-- _src/__includes/footer.liquid  -->{%- endif  -%}
 
-{# Gets the collection for the area footer  #}
+{% comment %}Gets the collection for the area footer  {% endcomment %}
 {% for item in collections.blocks | sortByOrder %}
   {% if item.data.blockposition == "footer" %}
 
@@ -12,5 +12,5 @@
 {% endfor %}
 
 
-{% include "darkmode.njk" %}
+{% include "darkmode.liquid" %}
 

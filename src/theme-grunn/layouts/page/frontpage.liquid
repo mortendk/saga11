@@ -1,0 +1,44 @@
+---
+layout: default.liquid
+saga-template-name: Frontpage
+---
+{%- if env.mode != 'prod' %}
+  <!-- /Users/mdk/Web/saga11/file/theme-grunn/layouts/page/frontpage.liquid  -->
+{%- endif -%}
+
+<article class="flex flex-col md:flex-row">
+  <div class="aspect-video overflow-hidden mt-4">
+
+
+
+  {% if image %}
+    {% assign file = image %}
+    {% capture alt %}{{ title }}{% endcapture %}
+    {% assign sizes = '(min-width: 30em) 50vw, 100vw' %}
+    {% assign width = '400' | split: ', ' %}
+    {% comment %} webp, jpeg svg avif png gif {% endcomment %}
+    {% assign format = 'webp, jpeg' | split: ', ' %}
+    {% comment %} lazy / eager  {% endcomment %}
+    {% assign loading = 'lazy' %}
+    {% assign css = 'w-full' %}
+    {% comment %} create the image {% endcomment %}
+    {% image file, alt, sizes, width, format, loading, css %}
+  {% endif %}
+
+
+    {% comment %} {% picture
+        img=image,
+        width=[400,800],
+        sizes="(min-width: 1024px) 50vw, 100vw",
+        css="shadow rounded-xl r",
+        loading = "eager"
+    %}   {% endcomment %}
+  </div>
+
+  <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-gray-700">
+    {{ content  }}
+
+  </div>
+</article>
+
+{% include "components/all.liquid" %}

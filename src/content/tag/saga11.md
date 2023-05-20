@@ -8,6 +8,6 @@ eleventyNavigation:
   title: Tag test
   parent: main
   order: 20
-layout: tag/tag.njk
+layout: tag/tag.liquid
 ---
 bla bla

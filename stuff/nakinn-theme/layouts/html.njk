@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ eleventy.generator }}">
 
-    {{ site.header | safe }}
+    {{ site.header  }}
 
-    {# Mastodon #}
+    {% comment %}Mastodon {% endcomment %}
     {% if site.mastodon_verification %}
       <link rel="me" href="{{ site.mastodon_verification }}">
     {% endif %}
 
-    {# Mastodon #}
+    {% comment %}Mastodon {% endcomment %}
     {% if site.github_verification %}
       <link rel="me" href="{{ site.github_verification }}">
     {% endif %}
 
-    {# pinterest #}
+    {% comment %}pinterest {% endcomment %}
     {% if site.pinterest_verification %}
       <meta name="p:domain_verify" content="{{ site.pinterest_verification }}"/>
     {% endif %}
@@ -37,9 +37,9 @@
     {% endif -%}
 
     <meta name="theme-color" content="{{ site.color }}">
-    {%- include "src/_system/icon.njk" -%}
+    {%- include "src/_system/icon.liquid" -%}
 
-    {%- include "src/_system/head/opengraph.njk" -%}
+    {%- include "src/_system/head/opengraph.liquid" -%}
 
     {%- if env.mode == 'prod' %}
       <link href="{{ '/themes/' +  theme + '/assets/css/style.css' | url }}" rel="stylesheet">
@@ -47,7 +47,7 @@
       <link href="{{ '/themes/' +   theme + '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
 
-    {# title #}
+    {% comment %}title {% endcomment %}
     {% if page.url == "/" %}
       <title>
         {{ site.title }}
@@ -59,9 +59,9 @@
     {% endif %}
   </head>
 
-  {{ content | safe }}
+  {{ content  }}
 
-  {# Service worker #}
+  {% comment %}Service worker {% endcomment %}
   <script>
     if (navigator && navigator.serviceWorker) {
       navigator

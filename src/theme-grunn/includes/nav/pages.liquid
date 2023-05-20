@@ -1,0 +1,30 @@
+{% comment %}LIST ALL PAGES
+------------------------------------------------
+ {% endcomment %}
+{%- if env.mode != 'prod' %}
+  <!-- src/__includes/nav/pages.liquid -->
+{%- endif  -%}
+
+<nav class="" aria-label="Pages Navigation">
+  {% for item in collections.allPages | sortByOrder %}
+    {% comment %}Defines a menu title based on the user input  {% endcomment %}
+    {% capture menutitle %}
+      {% if item.data.menulabel %}
+        {{ item.data.menulabel }}
+      {% else %}
+        {{ item.data.title }}
+      {% endif %}
+    {% endcapture %}
+
+    <div class="border-b border-gray-200 mb-4">
+      {% comment %}test if the item url is a part of the page url - if yes its "active {% endcomment %}
+      {% if item.url in page.url -%}
+        <a href="{{ item.url }}" title="{{ item.data.title }}" class="block font-bold" aria-current="page">
+          {{ menutitle }}
+        </a>
+      {% else %}
+        <a href="{{ item.url }}" title="{{ item.data.title }}" class="block ">{{ menutitle }}</a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</nav>

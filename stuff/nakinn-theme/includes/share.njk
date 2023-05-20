@@ -1,7 +1,7 @@
-{%- if env.mode != 'prod' %}  <!-- __includes/share.njk  -->{%- endif  -%}
-{% set thisurl = env.url + page.url %}
+{%- if env.mode != 'prod' %}  <!-- __includes/share.liquid  -->{%- endif  -%}
+{% assign thisurl = env.url + page.url %}
 
-{# pinterest #}
+{% comment %}pinterest {% endcomment %}
 <a
   href="http://pinterest.com/pin/create/link/?url={{ thisurl }}"
   target="_blank" rel="noopener noreferrer nofollow">
@@ -9,7 +9,7 @@
   {% include "svg/some/pinterest.svg" %}
 </a>
 
-{# twitter #}
+{% comment %}twitter {% endcomment %}
 <a
   href="https://twitter.com/intent/tweet?text={{thisurl}}%20%23hashtag%20%40{{some.twitter}}"
   target="_blank" rel="noopener noreferrer nofollow">
@@ -17,7 +17,7 @@
   {% include "svg/some/twitter.svg" %}
 </a>
 
-{# fb  #}
+{% comment %}fb  {% endcomment %}
 <a
 
   href="https://www.facebook.com/sharer/sharer.php?u={{ thisurl }}"
@@ -26,7 +26,7 @@
   {% include "svg/some/facebook.svg" %}
 </a>
 
-{# linkedin #}
+{% comment %}linkedin {% endcomment %}
 <a
 
   target="_blank" rel="noopener noreferrer nofollow"

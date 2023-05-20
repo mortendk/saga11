@@ -17,7 +17,7 @@ components:
     title: Form component
     name: contact
     action: /submitted
-    template: components/form/form.njk
+    template: components/form/form.liquid
     text: "This is a webform "
     elements:
       - type: options
@@ -61,7 +61,7 @@ components:
         title: email
         placeholder: email
   - type: Address
-    template: components/address/address.njk
+    template: components/address/address.liquid
     title: This is an adresse
     address:
       - name: name 1
@@ -96,7 +96,7 @@ components:
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
   - type: images
-    template: components/images/images-grid.njk
+    template: components/images/images-grid.liquid
     title: image gallery alternative
     text: this is a gallery with another template
     images:
@@ -104,7 +104,7 @@ components:
       - image: /content/upload/spaceship.png
         title: "image title "
   - type: images
-    template: components/images/images.njk
+    template: components/images/images.liquid
     images:
       - image: /content/upload/spaceship.png
         title: alt text 2
@@ -113,7 +113,7 @@ components:
     title: image gallery
     text: "lorem "
   - type: price
-    template: components/price/price.njk
+    template: components/price/price.liquid
     title: Price table
     price:
       - featured: false
@@ -164,7 +164,7 @@ components:
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
   - type: testamonials
-    template: components/testamonial/testamonial.njk
+    template: components/testamonial/testamonial.liquid
     title: Our users say
     text: lorem
     testamonial:
@@ -181,7 +181,7 @@ components:
         persontitle: title
         url: https://saga11.dev
   - type: links
-    template: components/link/link.njk
+    template: components/link/link.liquid
     title: Links
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -196,7 +196,7 @@ components:
       - url: https://11ty.dev
         title: 11ty
   - type: download
-    template: components/download/download.njk
+    template: components/download/download.liquid
     files:
       - file: https://github.com/mortendk/saga11/archive/refs/tags/v.0.2.2-beta.zip
         title: "Download Saga11 beta "
@@ -209,7 +209,7 @@ components:
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
   - type: features
-    template: components/feature/feature.njk
+    template: components/feature/feature.liquid
     title: Feature
     text: lorem..
     feature:
@@ -226,7 +226,7 @@ components:
         title: This is a feature
         text: This is why this is amazing
   - type: cta
-    template: components/cta/cta.njk
+    template: components/cta/cta.liquid
     title: "This is a CTA "
     url: /
     cta: "CTA Text "
@@ -240,7 +240,7 @@ components:
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
   - type: text
-    template: components/text/text.njk
+    template: components/text/text.liquid
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -252,13 +252,13 @@ components:
     date_start: 2022-09-26 14:20:59
     date_end: 2022-09-26 14:21:02
     date_allday: true
-    template: components/calendar/calendar.njk
+    template: components/calendar/calendar.liquid
   - type: pagecard
-    template: components/pagecard/pagecard.njk
+    template: components/pagecard/pagecard.liquid
     page:
       - /
   - type: image
-    template: components/image/image.njk
+    template: components/image/image.liquid
     title: image and text
     image: /content/upload/spaceship.png
     alt: This is an rocket going to the moon
@@ -271,15 +271,15 @@ components:
       est laborum.
   - type: collection
     title: This is a Collection
-    template: components/collection/collection.njk
+    template: components/collection/collection.liquid
     collection: saga11
     text: lorem ...
   - type: njktemplate
-    template: components/templates/all-tags.njk
+    template: components/templates/all-tags.liquid
   - type: njktemplate
-    template: components/templates/all-post.njk
+    template: components/templates/all-post.liquid
   - type: njktemplate
-    template: components/templates/all-pages.njk
+    template: components/templates/all-pages.liquid
 tags:
   - saga11
   - test
@@ -290,7 +290,7 @@ eleventyNavigation:
   key: component
   order: 10
   excerpt: "*This is the text for the menu*"
-layout: page/page.njk
+layout: page/page.liquid
 eleventyExcludeFromCollections: false
 ---
 

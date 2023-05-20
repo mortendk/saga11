@@ -10,7 +10,7 @@ tags:
   - saga11
   - rssfeed
 date: 2022-09-19 17:14:55
-layout: post/post.njk
+layout: post/post.liquid
 eleventyExcludeFromCollections: false
 ---
 

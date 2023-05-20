@@ -1,8 +1,8 @@
 ---
-layout: html.njk
+layout: html.liquid
 saga-template-name: Link in Bio
 ---
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.liquid  -->{%- endif -%}
 
 
 
@@ -23,7 +23,7 @@ saga-template-name: Link in Bio
 
 
       {{ title }}
-      {{ content | safe }}
+      {{ content  }}
 
 
 
@@ -32,16 +32,16 @@ saga-template-name: Link in Bio
 
 
 
-    {% include "components/all.njk" %}
+    {% include "components/all.liquid" %}
 
 
       {% for item in link %}
 
-        {# Test if the user added the label ... #}
+        {% comment %}Test if the user added the label ... {% endcomment %}
         {% if item.label == "" %}
-          {% set label = item.url %}
+          {% assign label = item.url %}
         {% else %}
-          {% set label = item.label %}
+          {% assign label = item.label %}
         {% endif %}
 
         {{ label }}
@@ -49,9 +49,9 @@ saga-template-name: Link in Bio
 
 
     Social Media Platforms
-    {# SOME icons  #}
-    {% set css = "w-12 h-12 block text-sky-400 hover:text-sky-700 " %}
-    {% set linkattributes %}
+    {% comment %}SOME icons  {% endcomment %}
+    {% assign css = "w-12 h-12 block text-sky-400 hover:text-sky-700 " %}
+    {% assign linkattributes %}
       target=_blank rel=noopener noreferrer nofollow
     {% endset %}
 

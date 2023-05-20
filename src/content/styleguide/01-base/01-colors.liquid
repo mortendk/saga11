@@ -1,0 +1,85 @@
+---
+title: "Colors"
+
+background:
+  - title: bg
+    css: bg-background
+  - title: Dark
+    css: bg-background-dark
+
+colors:
+  - title: Primary
+    css: bg-primary-600
+  - title: secondary
+    css: bg-secondary-500
+  - title: tetiary
+    css: bg-tetiary-800
+
+neutrals:
+  - title: Tone
+    css: bg-tone-500
+  - title: Black
+    css: bg-black
+  - title: white
+    css: bg-white
+
+reactions:
+  - title: error
+    css: bg-error-500
+  - title: warning
+    css: bg-warning-500
+  - title: success
+    css: bg-success-500
+  - title: information
+    css: bg-information-500
+
+---
+
+<h3 class="text-h3 text-center">Color Palette</h3>
+<section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
+  {% for color in colors %}
+    <article>
+      <div class="rounded {{ color.css }} h-20 shadow-md"></div>
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upcase}}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
+    </article>
+  {% endfor %}
+</section>
+
+<h3 class="text-h3 text-center">Reactions</h3>
+<section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
+  {% for color in reactions %}
+    <article>
+      <div class="rounded {{ color.css }} h-20 shadow-md"></div>
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upcase }}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
+    </article>
+  {% endfor %}
+</section>
+
+<h3 class="text-h3 text-center">Neutrals</h3>
+<section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
+  {% for color in neutrals %}
+
+    <article>
+      <div class="rounded {{ color.css }} h-20 shadow-md"></div>
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upcase }}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
+    </article>
+  {% endfor %}
+</section>
+
+<h3 class="text-h3 text-center">Background</h3>
+<section class="grid grid-cols-5 gap-4 p-4 mb-8 bg-white">
+  {% for color in background %}
+    <article>
+      <div class="rounded {{ color.css }} h-20 shadow-md"></div>
+      <h2 class="text-center text-lg text-gray-500">{{ color.title | upcase }}
+      </h2>
+      <input value="{{ color.css }}" class="w-full text-center p-1 bg-gray-50">
+    </article>
+  {% endfor %}
+</section>

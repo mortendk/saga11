@@ -2,7 +2,16 @@ const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
-module.exports = async function (src, alt, sizes, width, format, loading, css) {
+module.exports = async function (file, alt, sizes, width, format, loading, css) {
+
+  if (fs.existsSync("src" + file)) {
+    src = "src" + file;
+  } else if (file.indexOf("http://") === 0 || file.indexOf("https://") === 0) {
+    src = file;
+  } else {
+    console.log(` nope src: ${file} - ${src}`);
+  }
+
   const csss = css || "";
   let metadata = await Image(src, {
     widths: width,

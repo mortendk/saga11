@@ -2,5 +2,5 @@
 title: RSS Feed
 icon: icons/beaker.svg
 rssfeed: true
-layout: tag/tag.njk
+layout: tag/tag.liquid
 ---

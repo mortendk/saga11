@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}  <!-- src/__includes/components/price/price.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}  <!-- src/__includes/components/price/price.liquid -->{%- endif -%}
 
 
 
@@ -10,15 +10,15 @@
 
     {% if component.text %}
 
-        {{ component.text  | markdown | safe  }}
+        {{ component.text  | markdown   }}
 
     {% endif %}
 
 
 
-  {# wrapper for the list #}
+  {% comment %}wrapper for the list {% endcomment %}
 
-  {# Price list #}
+  {% comment %}Price list {% endcomment %}
   {% for item in component.price %}
 
 
@@ -44,14 +44,14 @@
 
       {% if item.text %}
 
-          {{ item.text  | markdown | safe  }}
+          {{ item.text  | markdown   }}
 
       {% endif %}
 
-      {# price elements #}
+      {% comment %}price elements {% endcomment %}
       {% for element in item.elements %}
 
-          {# icon #}
+          {% comment %}icon {% endcomment %}
           {% if element.active %}
 
               {% include "icons/check-badge.svg" %}
@@ -68,9 +68,9 @@
 
 
       {% endfor %}
-      {# /price elements #}
+      {% comment %}/price elements {% endcomment %}
 
   {% endfor %}
-  {# /Price list #}
+  {% comment %}/Price list {% endcomment %}
 
 

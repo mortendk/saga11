@@ -1,0 +1,20 @@
+{% comment %}user control {% endcomment %}
+<div class="p-4 flex flex-row space-x-4 justify-end pagewidth">
+
+  <button @click="darkMode = !darkMode" class="w-8" aria-label="toggle color scheme">
+    {% comment %}darkmode on {% endcomment %}
+    <div x-show="darkMode" class="bg-gray-200 p-2 rounded">
+      <div class="w-4 text-gray-700">{% include "icons/sun.svg" %}</div>
+    </div>
+
+    {% comment %}darkmode not actived {% endcomment %}
+    <div x-show="!darkMode" class="bg-gray-700 p-2 rounded">
+      <div class="w-4 text-gray-100">{% include "icons/moon.svg" %}</div>
+    </div>
+  </button>
+
+  <button @click="localStorage.clear()" class="bg-gray-200 p-2 rounded w-8" aria-label="Clear Local storage from this site">
+    <div class="w-4 text-gray-700">{% include "icons/trash.svg" %}</div>
+  </button>
+
+</div>

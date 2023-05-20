@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}  <!-- src/theme-grunn/includes/components/form/form.njk -->{%- endif  -%}
+{%- if env.mode != 'prod' %}  <!-- src/theme-grunn/includes/components/form/form.liquid -->{%- endif  -%}
 
 <section class="md:max-w-xl mx-auto py-4">
 
@@ -6,34 +6,34 @@
 
   {% if component.text %}
     <div class="prose prose-lg dark:prose-invert">
-      {{ component.text  | markdown | safe  }}
+      {{ component.text  | markdown   }}
     </div>
   {% endif %}
 
 
   <form
     class="flex flex-col space-y-4 mb-4"
-    name="{{ component.name | urlencode }}"
+    name="{{ component.name | url_encode }}"
     method="POST"
     data-netlify="true"
     netlify-honeypot="bot-field"
     action="/{{ component.action }}/"
   >
-    {# <div data-netlify-recaptcha="true"></div> #}
+    {% comment %}<div data-netlify-recaptcha="true"></div> {% endcomment %}
     <div class="hidden">
       <label for="supersecret">secret</label>
       <input name="bot-field" id="supersecret" />
     </div>
 
-    {# Create form elements #}
+    {% comment %}Create form elements {% endcomment %}
     {% for item in component.elements %}
 
       {% if item.type == "textarea" %}
-        {% include "components/form/field/textarea.njk" %}
+        {% include "components/form/field/textarea.liquid" %}
       {% elif item.type == "text" %}
-        {% include "components/form/field/input.njk" %}
+        {% include "components/form/field/input.liquid" %}
       {% elif item.type == "options" %}
-        {% include "components/form/field/options.njk" %}
+        {% include "components/form/field/options.liquid" %}
      {% endif %}
 
     {% endfor %}

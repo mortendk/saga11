@@ -1,15 +1,15 @@
-{%- if env.mode != 'prod' %}  <!-- __includes/components/testamonial/testamonial.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}  <!-- __includes/components/testamonial/testamonial.liquid -->{%- endif -%}
 
 
 
-  {# title + text #}
+  {% comment %}title + text {% endcomment %}
 
 
       {{ component.title }}
 
     {% if component.text %}
 
-        {{ component.text  | markdown | safe  }}
+        {{ component.text  | markdown   }}
 
     {% endif %}
 
@@ -17,7 +17,7 @@
 
   {% for item in component.testamonial %}
 
-    {# person #}
+    {% comment %}person {% endcomment %}
 
       {% picture
         img=item.image,
@@ -31,20 +31,20 @@
         {{ item.persontitle }}
 
 
-    {# / person #}
+    {% comment %}/ person {% endcomment %}
 
-    {# quote #}
+    {% comment %}quote {% endcomment %}
 
       {{ item.title }}
 
 
     {% if item.text %}
 
-        {{ item.text  | markdown | safe  }}
+        {{ item.text  | markdown   }}
 
     {% endif %}
 
-    {# url link #}
+    {% comment %}url link {% endcomment %}
     {% if item.url %}
 
       {{ item.url }}

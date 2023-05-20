@@ -1,17 +1,17 @@
 ---
-layout: html.njk
+layout: html.liquid
 saga-template-name: 404
 ---
-{# 404
+{% comment %}404
 ------------------------------------------------
 The Amazing 404 page
 #}
-{%- if env.mode != 'prod' %} <!-- ___layouts/system/404post.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %} <!-- ___layouts/system/404post.liquid  -->{%- endif -%}
 
 
 
 
-  {# animate-ping #}
+  {% comment %}animate-ping {% endcomment %}
 
     {{ title }}
 
@@ -19,7 +19,7 @@ The Amazing 404 page
 
 
 
-      {{ site.errorpage | safe }}
+      {{ site.errorpage  }}
 
         🤖
 

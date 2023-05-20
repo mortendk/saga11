@@ -1,8 +1,8 @@
 ---
-layout: default.njk
+layout: default.liquid
 saga-template-name: notification
 ---
-{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.liquid  -->{%- endif -%}
 
 
 
@@ -12,10 +12,10 @@ saga-template-name: notification
      - {{ status }}
 
 
-    {{ text | markdown | safe }}
+    {{ text | markdown  }}
 
 
-    {{ content | safe }}
+    {{ content  }}
 
 
 

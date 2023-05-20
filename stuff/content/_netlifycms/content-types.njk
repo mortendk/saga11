@@ -1,0 +1,36 @@
+{% from 'src/_system/netlifycms/templatecollection.macro.liquid' import templatecollection, templaterelation %}
+{% comment %}this file is included into the system/netlifycms/config.liquid {% endcomment %}
+
+{#
+{% raw %}
+  - name: foobar
+    label: 💜 Foobar
+    label_singular: 💜 Foobar
+    description: "This is an example of a custom content type"
+    folder: "src/content/foobar"
+    slug: "{{title}}"
+    preview_path: /foobar/{{title}}/
+    create: true
+    delete: true
+    hide: false
+    editor:
+      preview: false
+    summary: "{{title}}"
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+    fields:
+{% endraw %}
+  {% include "src/_system/netlifycms/fields/title.liquid" %}
+  {% include "src/_system/netlifycms/fields/draft.liquid" %}
+  {% include "src/_system/netlifycms/fields/content.liquid" %}
+{% raw %}
+ {% endcomment %}

@@ -1,0 +1,37 @@
+---
+layout: default.liquid
+saga-template-name: Post Default
+---
+
+{%- if env.mode != 'prod' %}
+  <!-- ___layouts/post/post.liquid  -->
+{%- endif -%}
+
+<h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
+
+{% if image %}
+  <div class="aspect-video overflow-hidden shadow-lg">
+    {% comment %}{% picture img=image, width=[640,1280,1536], sizes="(max-width: 640px) 50vw, 100vw", css="", loading = "eager" %} {% endcomment %}
+  </div>
+{% endif %}
+
+<article class="flex flex-col md:flex-row">
+  <div class="md:w-4/6">
+    <footer class="mt-4 flex flex-row space-x-4 text-lg">
+      {% include "nav/tags.liquid" %}
+      <time>{{ date | date: "%Y-%m-%d %H:%M",  timeZone  }}</time>
+    </footer>
+
+    <div class="prose prose-xl dark:prose-invert max-w-full">
+      {{ content  }}
+    </div>
+
+    {% comment %}Pre next nav {% endcomment %}
+    {% include "nav/post-pre-next.liquid" %}
+  </div>
+  {% comment %}sidebar {% endcomment %}
+  <div class="md:ml-4 md:w-2/6">
+    {% comment %}list of post {% endcomment %}
+    {% include "nav/posts.liquid" %}
+    {% include "share.liquid" %}</div>
+</article>

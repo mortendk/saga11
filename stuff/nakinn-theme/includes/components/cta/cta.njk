@@ -1,10 +1,10 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/cta/cta.njk-->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/cta/cta.liquid-->{%- endif -%}
 
 
 
 
 
-    {# text #}
+    {% comment %}text {% endcomment %}
 
 
 
@@ -25,7 +25,7 @@
 
 
 
-  {# img #}
+  {% comment %}img {% endcomment %}
 
     {% picture
       img=component.image,

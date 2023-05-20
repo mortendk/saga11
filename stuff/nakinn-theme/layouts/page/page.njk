@@ -1,14 +1,14 @@
 ---
-layout: default.njk
+layout: default.liquid
 saga-template-name: Page default
 ---
-{# PAGE DEFAULT TEAMPLATE
+{% comment %}PAGE DEFAULT TEAMPLATE
 ------------------------------------------------
 This is the default template for the page type
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/page.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/page.liquid  -->{%- endif -%}
 
-{% include "nav/breadcrumb.njk" %}
+{% include "nav/breadcrumb.liquid" %}
 
 {{ title }}
 
@@ -22,11 +22,11 @@ This is the default template for the page type
   %}
 
 
-{% include "share.njk" %}
+{% include "share.liquid" %}
 
-{# List all page compoenents #}
-{% include "components/all.njk" %}
+{% comment %}List all page compoenents {% endcomment %}
+{% include "components/all.liquid" %}
 
 
-  {{ content | markdown | safe }}
+  {{ content | markdown  }}
 

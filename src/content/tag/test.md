@@ -6,5 +6,5 @@ eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: ""
   parent: ""
-layout: tag/tag.njk
+layout: tag/tag.liquid
 ---

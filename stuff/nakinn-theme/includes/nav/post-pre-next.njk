@@ -1,34 +1,34 @@
-{# POST PRE NEXT NAVIGATION
+{% comment %}POST PRE NEXT NAVIGATION
 ------------------------------------------------
 A simple pre / next nav for collections
 
- #}
-{%- if env.mode != 'prod' %}<!-- __includes/nav/post-pre-next.njk  -->{%- endif  -%}
+ {% endcomment %}
+{%- if env.mode != 'prod' %}<!-- __includes/nav/post-pre-next.liquid  -->{%- endif  -%}
 
 
 {%- if collections.allPosts %}
 
 
-  {#  #}
+  {% comment %} {% endcomment %}
   {%- set nextPost = collections.allPosts | getNextCollectionItem(page) %}
   {%- set previousPost = collections.allPosts | getPreviousCollectionItem(page) %}
 
   {%- if nextPost or previousPost %}
-  {# previous  link #}
+  {% comment %}previous  link {% endcomment %}
   {%- if previousPost %}
 
       {% include "icons/arrow-left.svg" %}
       {{ previousPost.data.title }}
 
   {% endif %}
-  {# Next  linl #}
+  {% comment %}Next  linl {% endcomment %}
   {%- if nextPost %}
 
       {{ nextPost.data.title }}
       {% include "icons/arrow-right.svg" %}
 
   {% endif %}
-  {# /if pre of next #}
+  {% comment %}/if pre of next {% endcomment %}
   {%- endif %}
 
 

@@ -1,14 +1,14 @@
 ---
-layout: html.njk
+layout: html.liquid
 ---
 {#
   This layout is used for the styleguide
- #}
+ {% endcomment %}
 {%- if env.mode != 'prod' %}
-  <!-- ___layouts/styleguide.njk  -->
+  <!-- ___layouts/styleguide.liquid  -->
 {%- endif -%}
 
-{# isModalOpen is used to test if theres a modal open then disable the scroll #}
+{% comment %}isModalOpen is used to test if theres a modal open then disable the scroll {% endcomment %}
 <body class="flex flex-col h-screen bg-gray-100"
       x-data="{'isModalOpen': false}"
       x-on:keydown.escape="isModalOpen=false"
@@ -20,7 +20,7 @@ layout: html.njk
 
 
       {% for item in collections.styleguide | sortByFilepath %}
-    {# todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  #}
+    {% comment %}todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  {% endcomment %}
 
     {% if item.url in page.url %} 👉{% endif %}
     {{item.data.title}}
@@ -29,12 +29,12 @@ layout: html.njk
 
   {{ title | upper }}
 
-  {{ content | safe }}
+  {{ content  }}
 
-  {% include "responsive.njk" %}
+  {% include "responsive.liquid" %}
 
   {#
     {% highlight "html" %}
-    {{ content | safe }}
+    {{ content  }}
     {% endhighlight %}
- #}
+ {% endcomment %}

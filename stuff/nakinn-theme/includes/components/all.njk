@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.liquid -->{%- endif -%}
 {#
   Tales from the loop ...
   ---------------------------------------------------------
@@ -6,9 +6,9 @@
   all the componenets and render them out as specified from the template files
   and the componenet type
 #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/component/all.liquid -->{%- endif -%}
 
-{# use async so images work #}
+{% comment %}use async so images work {% endcomment %}
 {% asyncEach component in components %}
 
   {% include component.template %}

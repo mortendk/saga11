@@ -1,13 +1,13 @@
 ---
-layout: default.njk
+layout: default.liquid
 saga-template-name: Post Default
 ---
-{# POST
+{% comment %}POST
 ------------------------------------------------
 post template
 #}
 {%- if env.mode != 'prod' %}
-  <!-- ___layouts/post/post.njk  -->
+  <!-- ___layouts/post/post.liquid  -->
 {%- endif -%}
 {{ title }}
 
@@ -28,26 +28,26 @@ post template
 
 
 
-    {% include "nav/tags.njk" %}
+    {% include "nav/tags.liquid" %}
 
       {{ date | formatDate("DDD  T", "DK") }}
 
 
 
-      {{ content | safe }}
+      {{ content  }}
 
 
-    {# Pre next nav #}
-    {% include "nav/post-pre-next.njk" %}
+    {% comment %}Pre next nav {% endcomment %}
+    {% include "nav/post-pre-next.liquid" %}
 
 
-  {# sidebar #}
+  {% comment %}sidebar {% endcomment %}
 
 
-    {# list of post #}
-    {% include "nav/posts.njk" %}
+    {% comment %}list of post {% endcomment %}
+    {% include "nav/posts.liquid" %}
 
-    {% include "share.njk" %}
+    {% include "share.liquid" %}
 
 
 

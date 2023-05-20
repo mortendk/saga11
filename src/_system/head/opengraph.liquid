@@ -1,0 +1,61 @@
+{%- if env.mode != 'prod' %}
+  <!-- __includes/head/opengraph.liquid  -->
+{%- endif  -%}
+
+{% capture ogurl -%}
+  {{- env.url | append: page.icon -}}
+{%- endcapture %}
+
+{% comment %} {% assign ogurl = env.url + page.url %}  {% endcomment %}
+
+{%- capture ogtitle -%}
+  {%- if card.title %}
+   {{- card.title -}}
+  {% else %}
+    {{- site.title -}}
+  {% endif %}
+{%- endcapture %}
+
+{%- capture ogdescription -%}
+  {%- if card.text -%}
+   {{- card.text -}}
+  {% else  %}
+    {{- site.description -}}
+  {% endif %}
+{%- endcapture %}
+
+{%- capture ogimage -%}
+  {%- if card.image -%}
+   {{ env.url }}/themes/{{ theme }}{%- imageurl img=card.image, size=[1200] -%}
+  {%- else -%}
+   {{ env.url }}/themes/{{ theme }}/assets/opengraph/facebook.jpg
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture twitterimage -%}
+  {%- if card.image -%}
+   {{ env.url }}/themes/{{ theme }}{%- imageurl img=card.image, size=[1024] -%}
+  {%- else -%}
+   {{ env.url }}/themes/{{ theme }}/assets/opengraph/facebook.jpg
+  {%- endif -%}
+{%- endcapture -%}
+
+{% comment %} Facebook  {% endcomment %}
+<meta property="og:site_name" content="{{site.title}}">
+<meta property="og:title" content="{{ ogtitle }}">
+<meta property="og:url" content="{{ ogurl }}">
+<meta property="og:description" content="{{ ogdescription }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ ogimage }}">
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+{% comment %} Twitter  {% endcomment %}
+{% comment %} {% comment %}<meta name="twitter:card" content="summary" /> {% endcomment %}
+<meta name="twitter:card" content="summary">
+{% if some.twitter %}
+<meta name="twitter:author" content="@{{some.twitter}}">
+{% endif %}
+<meta name="twitter:title" content="{{ ogtitle }}">
+<meta name="twitter:description" content="{{ ogdescription }}">
+<meta name="twitter:image" content="{{ twitterimage }}">

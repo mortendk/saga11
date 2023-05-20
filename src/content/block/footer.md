@@ -3,7 +3,7 @@ title: The Footer
 blockposition: footer
 components:
   - type: Address
-    template: components/address/address.njk
+    template: components/address/address.liquid
     address:
       - street: regnbuepladsen 1
         zip: "1550"
@@ -14,7 +14,7 @@ components:
         url: https://saga11.dev
         email: foobar@saga11.dev
   - type: njktemplate
-    template: components/templates/socialmedia.njk
-layout: block/block.njk
+    template: components/templates/socialmedia.liquid
+layout: block/block.liquid
 eleventyExcludeFromCollections: false
 ---

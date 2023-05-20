@@ -1,37 +1,37 @@
 {%- if env.mode != 'prod' %}
-  <!-- /src/theme-grunn/includes/nav/menu.njk -->
+  <!-- /src/theme-grunn/includes/nav/menu.liquid -->
 {%- endif  -%}
 
-{# Menu desktop #}
+{% comment %}Menu desktop {% endcomment %}
 
-{% set menulvl1 = "inline-flex items-center text-xl font-bold border-b-4 transition hover:bg-cyan-50/50 dark:hover:bg-gray-900 hover:border-cyan-500/50" %}
-{% set menulvl2 = "p-4 text-lg hover:text-cyan-600 hover:bg-cyan-500/10" %}
+{% assign menulvl1 = "inline-flex items-center text-xl font-bold border-b-4 transition hover:bg-cyan-50/50 dark:hover:bg-gray-900 hover:border-cyan-500/50" %}
+{% assign menulvl2 = "p-4 text-lg hover:text-cyan-600 hover:bg-cyan-500/10" %}
 
-{# level 1 #}
+{% comment %}level 1 {% endcomment %}
 {%- for item in collections.all | eleventyNavigation("main") %}
 
-  {# test if theres children to the first level of menu items #}
+  {% comment %}test if theres children to the first level of menu items {% endcomment %}
   {% if not item.children | length %}
     <a href="{{ item.url }}"
-        {# active page #}
+        {% comment %}active page {% endcomment %}
         {% if item.url in page.url %}
           aria-current="page" class="{{ menulvl1 }} text-cyan-600 dark:text-cyan-200 border-cyan-500/20"
         {% else  %}
           class="{{menulvl1 }} text-gray-500 dark:text-cyan-200 border-transparent"
         {% endif %}
-        {# if target #}
+        {% comment %}if target {% endcomment %}
         {% if item.target %}
           target="_blank" rel="noopener"
         {% endif %}
 
         {% if item.excerpt %}
-          title="{{ item.excerpt | markdown | safe }}"
+          title="{{ item.excerpt | markdown  }}"
         {% endif %}
       >
       {{ item.title }}
 
     {% else %}
-      {# Level 2  #}
+      {% comment %}Level 2  {% endcomment %}
       <div x-data="{openmenuitem: false}"
             class="{{ menulvl1 }} text-gray-500 dark:text-cyan-200 border-transparent"
             @click="openmenuitem = true"
@@ -40,7 +40,7 @@
         {{ item.title }}
         {% include "icons/chevron-down.svg" %}
 
-        {# Here level 2that opens up when clicked #}
+        {% comment %}Here level 2that opens up when clicked {% endcomment %}
         <div
               class="absolute z-40 top-20 min-h-40 w-60 bg-white/90 dark:bg-gray-900/90 shadow-lg flex flex-col rounded-md dark:rounded-none"
               x-cloak
@@ -49,25 +49,25 @@
               @click.outside="openmenuitem = false"
             >
 
-          {# We repeat the link from placeholder above so it works on a ipad etc #}
+          {% comment %}We repeat the link from placeholder above so it works on a ipad etc {% endcomment %}
           <a href="{{ item.url }}"
                class="{{ menulvl2 }}"
-               {% if item.excerpt %}title="{{ item.excerpt | markdown | safe }}" {% endif %}
+               {% if item.excerpt %}title="{{ item.excerpt | markdown  }}" {% endif %}
             >{{ item.title }}
 
-            {# Loop next level #}
+            {% comment %}Loop next level {% endcomment %}
             {%- for item in collections.all | eleventyNavigation(item.key) %}
               <a href="{{ item.url }}" class="{{ menulvl2 }}"
                  {% if item.target %}target="_blank" rel="noopener" {% endif %}
-                {% if item.excerpt %}title="{{ item.excerpt | markdown | safe }}" {% endif %}
+                {% if item.excerpt %}title="{{ item.excerpt | markdown  }}" {% endif %}
               >
                 {{ item.title }}
 
               {% endfor %}
 
-              {# / Level 2  #}
+              {% comment %}/ Level 2  {% endcomment %}
             {%- endif -%}
           {%- endfor -%}
-          {# /level 1  #}
+          {% comment %}/level 1  {% endcomment %}
 
-          {# /Menu Desktop #}
+          {% comment %}/Menu Desktop {% endcomment %}

@@ -1,29 +1,29 @@
-{# HEADER
+{% comment %}HEADER
 ------------------------------------------------
 Global header for the site
- #}
+ {% endcomment %}
 {%- if env.mode != 'prod' %}
-  <!-- src/__includes/header.njk -->
+  <!-- src/__includes/header.liquid -->
 {%- endif  -%}
 
 
 
-  {# skip link #}
+  {% comment %}skip link {% endcomment %}
   Skip to Content
 
-  {# main wrap header elements #}
+  {% comment %}main wrap header elements {% endcomment %}
 
 
-    {# logo and menu #}
+    {% comment %}logo and menu {% endcomment %}
 
 
 
-        {# quick n fast logo #}
+        {% comment %}quick n fast logo {% endcomment %}
         {% include "svg/saga11.svg" %}
         {{site.title}}
 
 
-      {% include "nav/menu.njk" %}
+      {% include "nav/menu.liquid" %}
 
 
     {% if site.rss %}
@@ -41,7 +41,7 @@ Global header for the site
 
 
 
-    {# mobile menu burron #}
+    {% comment %}mobile menu burron {% endcomment %}
 
 
 
@@ -50,6 +50,6 @@ Global header for the site
 
 
 
-  {% include "nav/menu-mobile.njk" %}
+  {% include "nav/menu-mobile.liquid" %}
 
-{% include "notification.njk" %}
+{% include "notification.liquid" %}

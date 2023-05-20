@@ -1,4 +1,4 @@
-{%- if env.mode != 'prod' %}<!-- 👋 field/options.njk --> {%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- 👋 field/options.liquid --> {%- endif  -%}
 <div>
 
   <label for="form-item-{{ item.title | slugify }}">
@@ -6,31 +6,31 @@
     {% if item.required %} * {% endif %}
   </label>
 
-  {# Dropdown #}
+  {% comment %}Dropdown {% endcomment %}
   {% if item.inputtype == "Dropdown" %}
-  <select name="select">
+    <select name="select">
 
-    {% for option in item.option %}
-    <option label="{{ option.title | slugify }}" {% if option.checked %} selected {% endif %}>
-      {{ option.title }}
-    </option>
-    {% endfor %}
+      {% for option in item.option %}
+      <option label="{{ option.title | slugify }}" {% if option.checked %} selected {% endif %}>
+        {{ option.title }}
+      </option>
+      {% endfor %}
 
   </select>
-  {# /Dropdown #}
-
+  {% comment %}/Dropdown {% endcomment %}
+{}
   {% elif item.inputtype == "Radio" %}
-  {# Radio #}
+  {% comment %}Radio {% endcomment %}
   {% for option in item.option %}
   <div>
     <input type="radio" id="radio-{{ option.title | slugify }}" name="{{item.title | slugify }}" {% if option.checked %}checked{% endif %}>
     <label for="radio-{{ option.title | slugify }}"> {{ option.title }} </label>
   </div>
   {% endfor %}
-  {# /Radio #}
+  {% comment %}/Radio {% endcomment %}
 
   {% elif item.inputtype == "Checkbox" %}
-  {# Checkbox #}
+  {% comment %}Checkbox {% endcomment %}
   {% for option in item.option %}
   <div>
     <input type="checkbox" id="checkbox-{{ option.title | slugify }}" {% if option.checked %}checked{% endif %}>
@@ -39,5 +39,5 @@
   {% endfor %}
 
   {% endif %}
-  {#/ Checkbox #}
+  {#/ Checkbox {% endcomment %}
 </div>

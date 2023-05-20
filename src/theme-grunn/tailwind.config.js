@@ -7,12 +7,12 @@ const fontfamily = require("./tailwind/designToken-fontFamily");
 
 module.exports = {
   content: [
-    "src/theme-grunn/layouts/*.njk",
-    "src/theme-grunn/layouts/**/*.njk",
-    "src/theme-grunn/includes/*.njk",
-    "src/theme-grunn/includes/**/*.njk",
-    "src/content/styleguide/*.njk",
-    "src/content/styleguide/**/*.njk",
+    "src/theme-grunn/layouts/*.liquid",
+    "src/theme-grunn/layouts/**/*.liquid",
+    "src/theme-grunn/includes/*.liquid",
+    "src/theme-grunn/includes/**/*.liquid",
+    "src/content/styleguide/*.liquid",
+    "src/content/styleguide/**/*.liquid",
   ],
   darkMode: "class",
   theme: {

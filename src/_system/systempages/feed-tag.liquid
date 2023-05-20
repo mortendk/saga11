@@ -1,0 +1,65 @@
+{% capture filename -%}
+  {{ tag.data.title | replace: " ", "" | slugify }}
+{%- endcapture %}
+---
+pagination:
+  data: collections.allTags
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true
+  eleventyComputed:
+    title: "{{ tag.data.title }}"
+permalink: feed/{{ filename }}.xml
+eleventyComputed:
+  title: "{{ tag.data.title }}"
+  content: "{{ tag.data.content }}"
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{ site.title }}: {{ title }}</title>
+  <subtitle>{{ content }} </subtitle>
+    <link href="{{ env.url }}/feed/{{ filename }}.xml" rel="self"/>
+  <link href="{{ env.url }}"/>
+  <generator uri="https://saga11.dev">Saga11</generator>
+  <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
+  <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
+  {% comment %} <updated>{{ collections[ tag.fileSlug ] | getNewestCollectionItemDate | dateToRfc3339 }}</updated> {% endcomment %}
+  <id>{{ env.url }}/tag/{{ title }}</id>
+  <author>
+    <name>{{ site.authorname }}</name>
+    <email>{{ site.authoremail }}</email>
+  </author>
+
+  {%- for item in collections[ tag.fileSlug ] | reverse %}
+    {% comment %} {%- assign absolutePostUrl = item.url | url | absoluteUrl(env.url) %} {% endcomment %}
+    {%- assign absolutePostUrl = item.url | url %}
+
+    <entry>
+      <title>{{ item.data.card.title }}</title>
+      <link href="{{ absolutePostUrl }}"/>
+      <summary> {{item.data.card.text }} </summary>
+      {% comment %} <updated>{{ item.date | dateToRfc3339 }}</updated> {% endcomment %}
+      <id>{{ absolutePostUrl }}</id>
+      <content type="html">
+      {% if item.data.card.image %}
+        <![CDATA[
+          {% comment %}{% picture
+            img=item.data.card.image,
+            width=[640],
+            format="png",
+            sizes="",
+            css="",
+            loading = ""
+          %} {% endcomment %}
+          ]]>
+        {% endif %}
+        {% comment %}  htmlToAbsoluteUrls(absolutePostUrl) {% endcomment %}
+        {{ item.templateContent | truncate: 400, "..."  }}
+      </content>
+    </entry>
+
+  {%- endfor %}
+
+</feed>

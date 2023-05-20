@@ -1,0 +1,32 @@
+---
+layout: default.liquid
+saga-template-name: Page default
+---
+{% comment %}PAGE DEFAULT TEAMPLATE
+------------------------------------------------
+This is the default template for the page type
+#}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/page.liquid  -->{%- endif -%}
+
+{% include "nav/breadcrumb.liquid" %}
+
+<h1 class="text-cyan-700 dark:text-cyan-200 text-5xl lg:text-8xl mb-8 text-center">{{ title }}</h1>
+
+<div class="aspect-video overflow-hidden">
+  {% comment %}{% picture
+      img=image,
+      width=[640,1024, 1563],
+      sizes="(max-width: 640px) 50vw, 100vw",
+      css="shadow rounded-xl",
+      loading = "eager"
+  %} {% endcomment %}
+</div>
+
+{% include "share.liquid" %}
+
+{% comment %}List all page compoenents {% endcomment %}
+{% include "components/all.liquid" %}
+
+<div class="prose dark:prose-invert">
+  {{ content | markdown  }}
+</div>

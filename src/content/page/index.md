@@ -9,7 +9,7 @@ card:
 components:
   - type: collection
     title: Collection
-    template: components/collection/collection.njk
+    template: components/collection/collection.liquid
     collection: saga11
 tags:
   - test
@@ -20,7 +20,7 @@ eleventyNavigation:
   order: 10
   key: main
   excerpt: Mega text
-layout: page/frontpage.njk
+layout: page/frontpage.liquid
 eleventyExcludeFromCollections: false
 ---
 

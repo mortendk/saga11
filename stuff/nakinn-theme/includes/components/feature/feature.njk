@@ -1,14 +1,14 @@
-{%- if env.mode != 'prod' %}  <!-- src/theme-grunn/includes/components/feature/feature.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}  <!-- src/theme-grunn/includes/components/feature/feature.liquid  -->{%- endif  -%}
 
 
-  {# title + text #}
+  {% comment %}title + text {% endcomment %}
 
 
       {{ component.title }}
 
     {% if component.text %}
 
-        {{ component.text  | markdown | safe  }}
+        {{ component.text  | markdown   }}
 
     {% endif %}
 
@@ -17,7 +17,7 @@
 
 
 
-  {# Feature #}
+  {% comment %}Feature {% endcomment %}
   {% for item in component.feature %}
 
 
@@ -35,7 +35,7 @@
 
       {% if item.text %}
 
-        {{ item.text  | markdown | safe  }}
+        {{ item.text  | markdown   }}
 
       {% endif %}
 
@@ -43,13 +43,13 @@
 
 
 
-    {# {% picture
+    {% comment %}{% picture
       img=item.image,
       width=[400],
       sizes="(min-width: 1600px) 50vw, 100vw",
       css="rounded-full w-20 h-20 border border-teal-400",
       alt=""
-    %} #}
+    %} {% endcomment %}
   {% endfor %}
 
 

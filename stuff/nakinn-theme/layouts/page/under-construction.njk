@@ -1,11 +1,11 @@
 ---
-layout: html.njk
+layout: html.liquid
 saga-template-name: Under construction
 ---
-{# PAGE TEMPLATE UNDER CONSTRUCTION FTW
+{% comment %}PAGE TEMPLATE UNDER CONSTRUCTION FTW
 ------------------------------------------------
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/frontpage.liquid  -->{%- endif -%}
 
 
 
@@ -14,7 +14,7 @@ saga-template-name: Under construction
   {{ title }}
 
 
-    {{ teaser | safe}}
+    {{ teaser }}
 
 
 

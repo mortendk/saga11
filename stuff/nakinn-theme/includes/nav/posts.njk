@@ -1,15 +1,15 @@
-{# ALL POST
+{% comment %}ALL POST
 ------------------------------------------------
 collection that graps all post .allpost is defined in .eleventy.js
 #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/nav/posts.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/posts.liquid  -->{%- endif  -%}
 
 
 
   {% for item in collections.allPosts %}
 
 
-      {# link #}
+      {% comment %}link {% endcomment %}
       {% if item.url in page.url -%}
 
           {{item.data.title}}
@@ -19,7 +19,7 @@ collection that graps all post .allpost is defined in .eleventy.js
           {{ item.data.title }}
 
       {% endif %}
-      {# date #}
+      {% comment %}date {% endcomment %}
 
         {{ item.data.date | formatDate("cccc d. MMMM yyyy HH:mm", "DK") }}
 

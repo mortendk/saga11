@@ -1,12 +1,12 @@
-{# LIST ALL PAGES
+{% comment %}LIST ALL PAGES
 ------------------------------------------------
- #}
-{%- if env.mode != 'prod' %}<!-- src/__includes/nav/pages.njk -->{%- endif  -%}
+ {% endcomment %}
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/pages.liquid -->{%- endif  -%}
 
 
   {% for item in collections.allPages | sortByOrder %}
-    {# Defines a menu title based on the user input  #}
-    {% set menutitle %}
+    {% comment %}Defines a menu title based on the user input  {% endcomment %}
+    {% assign menutitle %}
     {% if item.data.menulabel %}
       {{ item.data.menulabel }}
     {% else %}
@@ -15,7 +15,7 @@
     {% endset %}
 
 
-      {# test if the item url is a part of the page url - if yes its "active #}
+      {% comment %}test if the item url is a part of the page url - if yes its "active {% endcomment %}
       {% if item.url in page.url -%}
 
           {{ menutitle }}

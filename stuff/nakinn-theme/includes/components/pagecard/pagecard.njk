@@ -1,5 +1,5 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/pagecard/pagecard.njk -->{%- endif -%}
-{# Page card
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/pagecard/pagecard.liquid -->{%- endif -%}
+{% comment %}Page card
 ------------------------------------------------
 This template controls how the pagecard template is rendered.
 
@@ -15,22 +15,22 @@ that matches - and then includes the right card include that matches
 
 {% for page in component.page %}
 
-  {# test the page and correct the path if its the frontpage aka: / #}
-  {% if page == "/" %} {% set path = "/" %}
-  {% else  %} {% set path = "/" + page + "/" %}
+  {% comment %}test the page and correct the path if its the frontpage aka: / {% endcomment %}
+  {% if page == "/" %} {% assign path = "/" %}
+  {% else  %} {% assign path = "/" + page + "/" %}
   {% endif %}
 
-  {# Grap the data from collections.all  #}
+  {% comment %}Grap the data from collections.all  {% endcomment %}
   {% for item in collections.all | getPage( path ) -%}
 
 
-    {# Test which card we wanna use  #}
+    {% comment %}Test which card we wanna use  {% endcomment %}
     {% if component.page | length == "1" %}
-      {# Single Card  #}
+      {% comment %}Single Card  {% endcomment %}
 
 
 
-          {# text #}
+          {% comment %}text {% endcomment %}
 
 
             {{ item.data.card.title }}
@@ -59,10 +59,10 @@ that matches - and then includes the right card include that matches
 
 
 
-      {# / Single Card #}
+      {% comment %}/ Single Card {% endcomment %}
 
     {% else %}
-      {# Multiple card - If theres more than one show them as a card #}
+      {% comment %}Multiple card - If theres more than one show them as a card {% endcomment %}
 
 
 
@@ -83,7 +83,7 @@ that matches - and then includes the right card include that matches
 
 
 
-      {# Multiple card #}
+      {% comment %}Multiple card {% endcomment %}
 
 
 
@@ -94,7 +94,7 @@ that matches - and then includes the right card include that matches
 
 {% endfor %}
 
-{# close the section #}
+{% comment %}close the section {% endcomment %}
 {% if component.page | length > 1 %}
 
 {% endif %}

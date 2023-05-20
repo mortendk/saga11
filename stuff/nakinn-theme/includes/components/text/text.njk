@@ -1,8 +1,8 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/text/text.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/text/text.liquid -->{%- endif -%}
 
 {% if component.text %}
 
-  {{ component.text  | markdown | safe  }}
+  {{ component.text  | markdown   }}
 
 {% endif %}
 

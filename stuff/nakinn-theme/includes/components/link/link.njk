@@ -1,14 +1,14 @@
 {%- if env.mode != 'prod' %}
-  <!-- src/theme-grunn/includes/components/link/link.njk -->
+  <!-- src/theme-grunn/includes/components/link/link.liquid -->
 {%- endif -%}
 
-{# title + text #}
+{% comment %}title + text {% endcomment %}
 
 {{ component.title }}
 
 {% if component.text %}
 
-  {{ component.text  | markdown | safe  }}
+  {{ component.text  | markdown   }}
 
 {% endif %}
 

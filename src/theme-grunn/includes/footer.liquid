@@ -1,0 +1,23 @@
+{%- if env.mode != 'prod' %}
+  <!-- _src/__includes/footer.liquid  -->
+{%- endif  -%}
+
+<footer class="bg-white dark:bg-gray-900 dark:text-gray-300 mt-16 py-4">
+
+  <section class="w-full flex flex-row pagewidth justify-between">
+
+    {% comment %}Gets the collection for the area footer  {% endcomment %}
+    {% for item in collections.blocks | sortByOrder %}
+      {% if item.data.blockposition == "footer" %}
+
+        {% for component in item.data.components %}
+          {% include component.template %}
+        {% endfor %}
+
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  {% include "darkmode.liquid" %}
+
+</footer>

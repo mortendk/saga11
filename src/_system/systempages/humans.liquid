@@ -1,0 +1,19 @@
+---
+permalink: /humans.txt
+eleventyExcludeFromCollections: true
+---
+{{ site.title }}
+{{ env.url }}
+{{ eleventy.generator }}
+saga11: {{saga11.version }}
+---
+
+{{ site.humantxt }}
+
+---
+Build:
+{{ theme }}
+{% comment %} {{ page.date | formatDate("cccc d. MMMM yyyy HH:mm", dateFormat, timeZone ) }}  {% endcomment %}
+{{ page.date | date: "%Y-%m-%d %H:%M",  timeZone }}
+{% comment %} {{ "now" | date: "%Y-%m-%d %H:%M" }} => 2020-03-25 15:57
+  {% endcomment %}

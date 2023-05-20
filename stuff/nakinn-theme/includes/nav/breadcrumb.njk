@@ -1,20 +1,20 @@
-{%- if env.mode != 'prod' %}<!-- src/__includes/nav/breadcrumb.njk  -->{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- src/__includes/nav/breadcrumb.liquid  -->{%- endif  -%}
 
 {% if eleventyNavigation.key %}
 
-{% set bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true, allowMissing: true}) %}
+{% assign bread = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key,  { includeSelf: true, allowMissing: true}) %}
 
 
 
   {% for item in bread %}
-    {# home #}
+    {% comment %}home {% endcomment %}
     {% if loop.first %}
 
         {% include "icons/home-modern.svg" %}
         Home
 
     {% elseif not loop.last %}
-    {#  #}
+    {% comment %} {% endcomment %}
       /
 
           {{item.title }}

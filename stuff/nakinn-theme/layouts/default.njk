@@ -1,23 +1,23 @@
 ---
-layout: html.njk
+layout: html.liquid
 ---
-{# DEFAULT
+{% comment %}DEFAULT
 ------------------------------------------------
-Calls the _base/base.njk that is holding all the basic html
+Calls the _base/base.liquid that is holding all the basic html
 #}
-{%- if env.mode != 'prod' %}<!-- ___layouts/default.njk  -->{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/default.liquid  -->{%- endif -%}
 
-{# isModalOpen is used to test if theres a modal open then disable the scroll #}
-
-
-{%- include "header.njk" %}
+{% comment %}isModalOpen is used to test if theres a modal open then disable the scroll {% endcomment %}
 
 
-
-  {{ content | safe }}
+{%- include "header.liquid" %}
 
 
 
-{%- include "edit.njk" %}
+  {{ content  }}
 
-{%- include "footer.njk" %}
+
+
+{%- include "edit.liquid" %}
+
+{%- include "footer.liquid" %}

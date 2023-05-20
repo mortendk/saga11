@@ -1,0 +1,36 @@
+{%- if env.mode != 'prod' %} <!-- src/theme-grunn/includes/components/form/form.liquid -->{%- endif  -%}
+
+{{ component.title }}
+
+{% if component.text %}
+  {{ component.text  | markdown   }}
+{% endif %}
+
+
+<form name="{{ component.name | url_encode }}" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/{{ component.action }}/">
+  {% comment %}<div data-netlify-recaptcha="true"></div> {% endcomment %}
+  <div hidden>
+    <label for="supersecret">secret</label>
+    <input name="bot-field" id="supersecret" />
+  </div>
+
+  {% comment %}Create form elements {% endcomment %}
+  {% for item in component.elements %}
+
+    {% if item.type == "textarea" %}
+      {% include "components/form/field/textarea.liquid" %}
+    {% elsif item.type == "text" %}
+      {% include "components/form/field/input.liquid" %}
+    {% elsif item.type == "options" %}
+      {% include "components/form/field/options.liquid" %}
+    {% endif %}
+
+  {% endfor %}
+
+
+
+
+  <button aria-label="Submit">Send</button>
+  </div>
+
+</form>

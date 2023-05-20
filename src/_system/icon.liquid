@@ -1,0 +1,25 @@
+{% if site.icon %}
+  {% capture icon -%}
+    {{- "src/" | append: site.icon -}}
+  {%- endcapture %}
+{% else %}
+  {% assign icon = "src/_system/icon.svg" %}
+{% endif %}
+
+{% favicons icon %}
+
+{% comment %}
+{% favicons icon,
+    appleIconBgColor = site.faviconcolor,
+    manifestData={
+      "name": site.title ,
+      "short_name": site.title,
+      "start_url": "./",
+      "scope": "/",
+      "display": "standalone",
+      "background_color": site.color,
+      "theme_color": site.color,
+      "description": site.description
+    }
+%} {% endcomment %}
+

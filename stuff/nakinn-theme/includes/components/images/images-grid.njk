@@ -1,9 +1,9 @@
-{%- if env.mode != 'prod' %}  <!-- src/theme-grunn/includes/components/images/images-grid.njk -->{%- endif -%}
+{%- if env.mode != 'prod' %}  <!-- src/theme-grunn/includes/components/images/images-grid.liquid -->{%- endif -%}
 
 {{ component.title }}
 {% if component.text %}
 
-    {{ component.text | markdown | safe }}
+    {{ component.text | markdown  }}
 
 {% endif %}
 
