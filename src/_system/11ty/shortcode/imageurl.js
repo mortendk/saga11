@@ -1,30 +1,29 @@
-//<div class="bg-cover h-16" style="background-image:url({% imageurl img="/upload/cyber.png", width=[800] %})"></div>
 const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
 // Returns an url  for an image
-module.exports = function (image) {
-  const src = "src" + image.img;
-  const widths = image.width || [1200];
-  const formats = image.format || ["jpeg"];
+module.exports = async function (image, width, format) {
+  const src = "src" + image;
+  const widths = width || ["750"];;
+  const formats = format || ["jpeg"];
 
   // console.log(`🎈 imageurl generate: ${src}`);
   //does the image exist - we dont want to break the build.
   if (fs.existsSync(src)) {
     let options = {
-      widths,
-      formats,
+      widths : widths,
+      formats: formats,
       urlPath: "/img/",
       outputDir: "./_site/img/",
       // sensible filenames:
-      filenameFormat: function (id, src, width, format, options) {
-        const extension = path.extname(src);
-        const name = path.basename(src, extension);
-        return `${name}-${width}w.${format}`;
-      },
+      // filenameFormat: function (src, width, format) {
+      //   const extension = path.extname(src);
+      //   const name = path.basename(src, extension);
+      //   return `${name}-${width}w.${format}`;
+      // },
     };
-
+    // console.log(`🎈 imageurl next: ${options}`);
     // Generate the image
     Image(src, options);
     metadata = Image.statsSync(src, options);

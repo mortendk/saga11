@@ -2,20 +2,21 @@ const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
-module.exports = async function (file, alt, sizes, width, format, loading, css) {
-
+module.exports = async function (file, width, format, alttext, sizes, loading, css, filename) {
+  // src = "src" + file;
   if (fs.existsSync("src" + file)) {
     src = "src" + file;
   } else if (file.indexOf("http://") === 0 || file.indexOf("https://") === 0) {
     src = file;
   } else {
-    console.log(` nope src: ${file} - ${src}`);
+    console.log(` missing src: ${file} - ${src}`);
   }
 
-  const csss = css || "";
+  const cssclasses = css || "";
+
   let metadata = await Image(src, {
     widths: width,
-    formats: format,
+    formats: format ,
     urlPath: "/img/",
     outputDir: "_site/img/",
     sharpOptions: {
@@ -32,10 +33,10 @@ module.exports = async function (file, alt, sizes, width, format, loading, css) 
   });
 
   let imageAttributes = {
-    alt,
+    alt: alttext || "",
     sizes,
     loading,
-    class: csss,
+    class: cssclasses,
     decoding: "async",
   };
 

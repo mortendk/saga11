@@ -2,9 +2,9 @@
 title: Hello World
 image: ""
 card:
+  title: Hello world blogpost
   image: /content/upload/spaceship.png
   alt: To the moon
-  title: Hello world blogpost
   text: "This is text in a card and used for sharing and teaser on the site. "
 tags:
   - saga11

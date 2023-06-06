@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
   <generator uri="https://saga11.dev">Saga11</generator>
   <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
   <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
-  {% comment %} <updated>{{ collections[ tag.fileSlug ] | getNewestCollectionItemDate | dateToRfc3339 }}</updated> {% endcomment %}
+  {% comment %} TODO: Feedtag dates<updated>{{ collections[ tag.fileSlug ] | getNewestCollectionItemDate | dateToRfc3339 }}</updated> {% endcomment %}
   <id>{{ env.url }}/tag/{{ title }}</id>
   <author>
     <name>{{ site.authorname }}</name>

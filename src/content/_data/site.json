@@ -12,5 +12,6 @@
   "errorpage": "404 !",
   "title": "Saga11 Installation",
   "icon": "/content/upload/saga11icon.svg",
+  "opengraph": "/content/upload/opengraph.jpg",
   "description": "saga 11"
 }

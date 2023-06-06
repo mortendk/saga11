@@ -9,8 +9,6 @@ saga-template-name: Frontpage
 <article class="flex flex-col md:flex-row">
   <div class="aspect-video overflow-hidden mt-4">
 
-
-
   {% if image %}
     {% assign file = image %}
     {% capture alt %}{{ title }}{% endcapture %}
@@ -22,22 +20,14 @@ saga-template-name: Frontpage
     {% assign loading = 'lazy' %}
     {% assign css = 'w-full' %}
     {% comment %} create the image {% endcomment %}
-    {% image file, alt, sizes, width, format, loading, css %}
+    {% assign filename = '' %}
+    {% image file, width, format, alt, sizes, loading, css %}
   {% endif %}
 
-
-    {% comment %} {% picture
-        img=image,
-        width=[400,800],
-        sizes="(min-width: 1024px) 50vw, 100vw",
-        css="shadow rounded-xl r",
-        loading = "eager"
-    %}   {% endcomment %}
   </div>
 
   <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-gray-700">
     {{ content  }}
-
   </div>
 </article>
 

@@ -3,7 +3,7 @@ title: Saga11
 image: /content/upload/kazoo-funerels.jpg
 card:
   title: "This is the frontpage card "
-  image: ""
+  image: "/content/upload/spaceship.png"
   alt: spaceship
   text: The frontpage card that we use for sharing
 components:

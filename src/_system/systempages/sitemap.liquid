@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
   {% for page in collections.all %}
     <url>
       <loc>{{ env.url }}{{ page.url | url }}</loc>
-      {% comment %} <lastmod>{{ page.date | toISOString }}</lastmod>  {% endcomment %}
+      {% comment %} TODO: sitemap dates <lastmod>{{ page.date | toISOString }}</lastmod>  {% endcomment %}
     </url>
   {% endfor %}
 </urlset>
