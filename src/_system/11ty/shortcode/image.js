@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
-module.exports = async function (file, width, format, alttext, sizes, loading, css, filename) {
+module.exports = async function (file, width, format, alttext, sizes, loading, css) {
   // src = "src" + file;
   if (fs.existsSync("src" + file)) {
     src = "src" + file;

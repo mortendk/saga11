@@ -1,19 +1,15 @@
 {%- if env.mode != 'prod' %}<!-- src/__includes/component/all.liquid -->{%- endif -%}
 
-  {% comment %} Tales from the loop ...
-  ---------------------------------------------------------
-  This is where the magic happens and we loop through
-  all the componenets and render them out as specified from the template files
-  and the componenet type {% endcomment %}
+{% comment %} Tales from the loop ...
+---------------------------------------------------------
+This is where the magic happens and we loop through
+all the componenets and render them out as specified from the template files
+and the componenet type
+{% endcomment %}
 
-{%- if env.mode != 'prod' %}
-  <!-- src/__includes/component/all.liquid -->
-{%- endif -%}
 
 {% for component in components %}
-  <section class="max-w-7xl mx-auto py-8">
-    {% include component.template %}
-  </section>
+<section class="max-w-7xl mx-auto py-8">
+  {% include component.template %}
+</section>
 {% endfor %}
-
-{% comment %} {% endeach %} {% endcomment %}

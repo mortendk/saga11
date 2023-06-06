@@ -1,6 +1,6 @@
 ---
 title: Saga11
-image: /content/upload/kazoo-funerels.jpg
+image: /content/upload/spaceship.png
 card:
   title: "This is the frontpage card "
   image: "/content/upload/spaceship.png"
