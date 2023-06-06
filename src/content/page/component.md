@@ -60,6 +60,50 @@ components:
         required: true
         title: email
         placeholder: email
+tags:
+  - saga11
+  - test
+url: component
+eleventyNavigation:
+  title: Components
+  parent: main
+  key: component
+  order: 10
+  excerpt: "*This is the text for the menu*"
+layout: page/page.liquid
+eleventyExcludeFromCollections: false
+---
+
+**This is probably the best description ever of a movie**
+
+> Space ship movie
+> Space ship people get up from sleeping coffin and have eat.
+> Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
+
+# h1 Heres a title
+
+## h2 Heres a title
+
+### h3 Heres a title
+
+`this is a small code block`
+
+- liste item a
+- liste item b
+
+this is _italic_ and this is **bold**
+
+```html
+<h1>code</h1>
+```
+
+This is an image
+
+picture img="/content/upload/spaceship.png", alt="this is an image of a Space ship movie Space ship people get up from sleeping coffin and have eat. Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg."
+
+
+
+
   - type: Address
     template: components/address/address.liquid
     title: This is an adresse
@@ -280,43 +324,3 @@ components:
     template: components/templates/all-post.liquid
   - type: njktemplate
     template: components/templates/all-pages.liquid
-tags:
-  - saga11
-  - test
-url: component
-eleventyNavigation:
-  title: Components
-  parent: main
-  key: component
-  order: 10
-  excerpt: "*This is the text for the menu*"
-layout: page/page.liquid
-eleventyExcludeFromCollections: false
----
-
-**This is probably the best description ever of a movie**
-
-> Space ship movie
-> Space ship people get up from sleeping coffin and have eat.
-> Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
-
-# h1 Heres a title
-
-## h2 Heres a title
-
-### h3 Heres a title
-
-`this is a small code block`
-
-- liste item a
-- liste item b
-
-this is _italic_ and this is **bold**
-
-```html
-<h1>code</h1>
-```
-
-This is an image
-
-picture img="/content/upload/spaceship.png", alt="this is an image of a Space ship movie Space ship people get up from sleeping coffin and have eat. Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg."

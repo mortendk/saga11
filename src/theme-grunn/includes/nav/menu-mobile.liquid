@@ -8,7 +8,7 @@
 
 
   {% assign menu = collections.all | eleventyNavigation: "main" %}
-  {%- for item in menu  %}
+  {%- for item in menu %}
 
   {% if not item.children.size %}
   <a href="{{ item.url }}" {% if item.url in page.url %}aria-current="page" class="{{mobileclasses}} font-bold" {% else  %} class="{{mobileclasses}}" {% endif %}>{{ item.title }}</a>

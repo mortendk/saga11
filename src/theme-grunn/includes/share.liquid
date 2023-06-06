@@ -1,41 +1,34 @@
-{%- if env.mode != 'prod' %}  <!-- __includes/share.liquid  -->{%- endif  -%}
-  {% capture thisurl -%}
-  {{- env.url | append: page.url -}}
+{%- if env.mode != 'prod' %}
+<!-- 👋 sections src/theme-grunn/includes/share.liquid -->
+{%- endif  -%}
+
+{% capture thisurl -%}
+{{- env.url | append: page.url -}}
 {%- endcapture %}
 {% comment %} {% assign thisurl = env.url + page.url %} {% endcomment %}
-Share this
+
+Share this:
 <div class="flex flex-row space-x-4 mt-4 items-center">
   {% comment %}pinterest {% endcomment %}
-  <a
-    class="block w-8"
-    href="http://pinterest.com/pin/create/link/?url={{ thisurl }}"
-    target="_blank" rel="noopener noreferrer nofollow">
+  <a class="block w-8" href="http://pinterest.com/pin/create/link/?url={{ thisurl }}" target="_blank" rel="noopener noreferrer nofollow">
     <div class="sr-only">pinterest</div>
     {% include "svg/some/pinterest.svg" %}
   </a>
 
   {% comment %}twitter {% endcomment %}
-  <a
-    class="block w-8"
-    href="https://twitter.com/intent/tweet?text={{thisurl}}%20%23hashtag%20%40{{some.twitter}}"
-    target="_blank" rel="noopener noreferrer nofollow">
+  <a class="block w-8" href="https://twitter.com/intent/tweet?text={{thisurl}}%20%23hashtag%20%40{{some.twitter}}" target="_blank" rel="noopener noreferrer nofollow">
     <div class="sr-only">Twitter</div>
     {% include "svg/some/twitter.svg" %}
   </a>
 
-  {% comment %}fb  {% endcomment %}
-  <a
-    class="block w-8"
-    href="https://www.facebook.com/sharer/sharer.php?u={{ thisurl }}"
-    target="_blank" rel="noopener noreferrer nofollow">
+  {% comment %}fb {% endcomment %}
+  <a class="block w-8" href="https://www.facebook.com/sharer/sharer.php?u={{ thisurl }}" target="_blank" rel="noopener noreferrer nofollow">
     <div class="sr-only">Facebook</div>
     {% include "svg/some/facebook.svg" %}
   </a>
 
   {% comment %}linkedin {% endcomment %}
-  <a
-    class="block w-8"
-    target="_blank" rel="noopener noreferrer nofollow"
+  <a class="block w-8" target="_blank" rel="noopener noreferrer nofollow"
     href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ thisurl }}&amp;title={{title}}&amp;summary={{teaser}}&amp;source={{site.title}}">
     <div class="sr-only">Linkedin</div>
     {% include "svg/some/linkedin.svg" %}
