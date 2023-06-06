@@ -5,3 +5,4 @@ module.exports = {
   theme: "theme-grunn",
   dateLocale: "da",
 };
+// TODO: datelocal settings
