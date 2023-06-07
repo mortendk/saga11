@@ -1,8 +1,7 @@
 {%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/text/text.liquid -->{%- endif -%}
 
 {% if component.text %}
-<div class="prose prose-xl dark:prose-invert py-4">
-  {{ component.text  | markdown   }}
+<div class="prose prose-xl mx-auto dark:prose-invert py-4">
+  {{ component.text    }}
 </div>
 {% endif %}
-

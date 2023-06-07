@@ -1,22 +1,26 @@
-{% comment %} Tag Cloud
-------------------------------------------------
-List of all tags {% endcomment %}
-
 {%- if env.mode != 'prod' %}<!-- __includes/nav/tagcloud.liquid  -->{%- endif  -%}
 
-<nav aria-label="All Tags" class="flex flex-row space-x-4">
+<nav aria-label="All Tags" class="flex flex-row space-x-2">
 
-{% for tag in collections.tags %}
-  {% for item in collections.all | getPage("/tag/" + tag + "/") %}
-
-    <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
-      {% if item.data.icon %}
-        <div class="h-4 w-4 mr-2">{% include  item.data.icon %}</div>
-      {% endif %}
-      {{ item.data.title }}
+  {% for item in collections.allTags %}
+  {% if item.fileSlug != "rssfeed" %}
+  <div class="bg-tone-200 p-1">
+    <a href="/tag/{{ item.fileSlug }}">
+      {{ item.data.title }},
     </a>
 
+    <div class="h-4 w-4 mr-2">
+      {% include item.data.icon %}
+    </div>
+  </div>
+
+  {% comment %} {% assign page = "/tag/" | append: item.fileSlug | append: "/"%}
+  {% assign items = collections.all | getPage: page %}
+  {% for item in items %}
+  {{ item.data.title }} |
+  {% endfor %} {% endcomment %}
+
+  {% endif %}
   {% endfor %}
-{% endfor %}
 
 </nav>

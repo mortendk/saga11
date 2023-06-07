@@ -4,30 +4,48 @@ saga-template-name: Post Default
 ---
 
 {%- if env.mode != 'prod' %}
-  <!-- ___layouts/post/post.liquid  -->
+<!-- ___layouts/post/post.liquid  -->
 {%- endif -%}
 
 <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
 
 {% if image %}
-  <div class="aspect-video overflow-hidden shadow-lg">
-    {% comment %}{% picture img=image, width=[640,1280,1536], sizes="(max-width: 640px) 50vw, 100vw", css="", loading = "eager" %} {% endcomment %}
-  </div>
+<div class="aspect-video overflow-hidden shadow-lg">
+  {% render 'image.liquid',
+  file: image,
+  alt: title,
+  sizes: "(min-width: 30em) 50vw, 100vw",
+  widths: "400, 800, 1200",
+  format: "webp",
+  loading: "lazy",
+  css: "w-full"
+  %}
+</div>
 {% endif %}
 
 <article class="flex flex-col md:flex-row">
   <div class="md:w-4/6">
-    <footer class="mt-4 flex flex-row space-x-4 text-lg">
-      {% include "nav/tags.liquid" %}
-      <time>{{ date | date: "%Y-%m-%d %H:%M",  timeZone  }}</time>
-    </footer>
+    <a class="mt-4 flex flex-row space-x-4">
+      {% comment %} {% include "nav/tags.liquid" %} {% endcomment %}
 
-    <div class="prose prose-xl dark:prose-invert max-w-full">
-      {{ content  }}
-    </div>
 
-    {% comment %}Pre next nav {% endcomment %}
-    {% include "nav/post-pre-next.liquid" %}
+      {% for tag in tags %}
+      {% if tag != "rssfeed" %}
+      <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
+        {{ tag  }}
+      </a>
+      {% endif %}
+      {% endfor %}
+
+      <time>{{ date | date: "%d %m %Y %H:%M", timeZone }}</time>
+      </footer>
+
+      <div class="prose prose-xl dark:prose-invert max-w-full">
+        {{ content }}
+      </div>
+
+      {% comment %}Pre next nav {% endcomment %}
+      {% comment %} {% include "nav/post-pre-next.liquid" %} {% endcomment %}
   </div>
   {% comment %}sidebar {% endcomment %}
   <div class="md:ml-4 md:w-2/6">

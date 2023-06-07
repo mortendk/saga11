@@ -1,6 +1,6 @@
 ---
 title: Hello World
-image: ""
+image: /content/upload/spaceship.png
 card:
   title: Hello world blogpost
   image: /content/upload/spaceship.png
@@ -8,6 +8,7 @@ card:
   text: "This is text in a card and used for sharing and teaser on the site. "
 tags:
   - saga11
+  - test
   - rssfeed
 date: 2022-09-19 17:14:55
 layout: post/post.liquid

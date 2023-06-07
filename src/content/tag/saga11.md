@@ -1,6 +1,5 @@
 ---
 title: Saga 11
-content: bla bla
 icon: icons/arrow-down-left.svg
 eleventyExcludeFromCollections: false
 rssfeed: true

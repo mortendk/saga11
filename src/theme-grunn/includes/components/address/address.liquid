@@ -16,11 +16,11 @@
   {% endif %}
 </article>
 
-<div class="flex flex-row space-x-8" aria-label="Address">
+<div class="flex space-x-8 w-full py-8" aria-label="Address">
 
   {% comment %}address {% endcomment %}
   {% for item in component.address %}
-  <article>
+  <article class="flex-1">
     <h2 class="text-2xl">{{ item.name }}</h2>
     <div>{{ item.street }}</div>
 

@@ -1,6 +1,4 @@
 {% if file %}
-<div class="aspect-video overflow-hidden">
-  {% assign width = widths | split: ', ' %}
-  {% image file, width, format, alt, sizes, loading, css %}
-</div>
+{% assign width = widths | split: ', ' %}
+{% image file, width, format, alt, sizes, loading, css %}
 {% endif %}

@@ -10,19 +10,21 @@
 
 
     {% if component.text %}
-      <div class="prose prose-xl dark:prose-invert">
-        {{ component.text  | markdown   }}
-      </div>
+    <div class="prose prose-xl dark:prose-invert">
+      {{ component.text  | markdown   }}
+    </div>
     {% endif %}
   </article>
 
+  {% render 'image.liquid',
+  file: component.image,
+  alt: component.title,
+  sizes: "(max-width: 640px) 50vw, 100vw",
+  widths: "640,1024, 1563",
+  format: "webp",
+  loading: "lazy",
+  css: "w-full"
+%}
 
-  {% comment %} {% picture
-    img=component.image,
-    width=[640,1024, 1563],
-    sizes="(max-width: 640px) 50vw, 100vw",
-    css="rounded-sm",
-    alt=component.alt
-  %} {% endcomment %}
 
 </article>

@@ -1,22 +1,30 @@
 {%- if env.mode != 'prod' %}<!-- __includes/nav/tags.liquid  -->{%- endif  -%}
 
+tags.liquid
+
+
+{% assign page = "/tag/" | append: item.fileSlug | append: "/"%}
+{% assign items = collections.all | getPage: page %}
+{% for item in items %}
+{{ item.data.title }} |
+{% endfor %}
+{% endfor %}
+
+
 {% for tag in tags %}
-
-  {% comment %}dont print the rssfeed tag cause its used for the machine {% endcomment %}
-  {% if tag != "rssfeed" %}
-
-    {% for item in collections.all | getPage("/tag/" + tag + "/") %}
-      <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
-
-        {% if item.data.icon %}
-          <div class="h-4 w-4 mr-2">{% include  item.data.icon %}</div>
-        {% endif %}
-
-        {{ item.data.title }}
-
-      </a>
-  {% endfor %}
-
+{% if tag != "rssfeed" %}
+{% for item in collections.all | getPage("/tag/" + tag + "/") %}
+<a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
+  {% if item.data.icon %}
+  <div class="h-4 w-4 mr-2">
+    {% include item.data.icon %}
+  </div>
   {% endif %}
+  x
+  {{ item.data.title }}
+</a>
+{% endfor %}
+
+{% endif %}
 
 {% endfor %}

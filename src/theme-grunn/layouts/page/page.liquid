@@ -10,18 +10,19 @@ saga-template-name: Page default
 
 <h1 class="text-5xl">{{ title }}</h1>
 
+<div class="aspect-video overflow-hidden">
 
-{% render
-'image.liquid',
-  file: image,
-  alt: title,
-  sizes: "(min-width: 30em) 50vw, 100vw",
-  widths: "400, 800, 1200",
-  format: "webp",
-  loading: "lazy",
-  css: "w-full"
-%}
 
+  {% render 'image.liquid',
+      file: image,
+      alt: title,
+      sizes: "(min-width: 30em) 50vw, 100vw",
+      widths: "400, 800, 1200",
+      format: "webp",
+      loading: "lazy",
+      css: "w-full"
+  %}
+</div>
 
 
 {% include "share.liquid" %}

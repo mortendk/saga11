@@ -12,7 +12,7 @@
 
   {% if component.text %}
   <div class="text-xl">
-    {{ component.text  | markdown   }}
+    {{ component.text  | markdown }}
   </div>
   {% endif %}
 
@@ -26,37 +26,15 @@
   <!-- markdown file: {{ item.inputPath }}  -->
   {%- endif -%}
 
-  <article class="" aria-label="Post {{ item.data.title}}">
-    <a href="{{ item.url }}" title="{{item.data.title}}" tabindex="0">
+  {% render 'card',
+  title: item.data.card.title,
+  text: item.data.card.text,
+  image: item.data.card.image,
+  url: item.url,
+  date: item.date
+  %}
 
-      <div class="shadow-lg aspect-video overflow-hidden">
-        {% if item.data.card.image %}
-        {% render
-            'image.liquid',
-            file: item.data.card.image,
-            alt: title,
-            sizes: "(min-width: 30em) 50vw, 100vw",
-            widths: "400, 800",
-            format: "webp",
-            loading: "lazy",
-            css: "w-full"
-          %}
-        {% endif %}
-      </div>
 
-      <div class="shadow border dark:border-none rounded px-4 py-2 border-gray-100 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h3 class="mt-2 text-2xl dark:text-cyan-200">
-          {{item.data.title}}
-        </h3>
-
-        <div class="mt-2">
-          {{ item.data.card.text }}
-        </div>
-
-      </div>
-    </a>
-
-  </article>
 
   {% endfor %}
 </section>

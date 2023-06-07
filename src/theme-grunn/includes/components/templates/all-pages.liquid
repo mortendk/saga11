@@ -1,34 +1,21 @@
 {%- if env.mode != 'prod' %}
-  <!-- src/theme-grunn/includes/components/templates/all-pages.liquid -->
+<!-- src/theme-grunn/includes/components/templates/all-pages.liquid -->
 {%- endif -%}
 
-<h2 class="text-5xl text-center text-cyan-700 dark:text-cyan-200">All pages</h2>
+<section>
+  <h2 class="text-5xl text-center text-cyan-700 dark:text-cyan-200">All pages</h2>
 
-<section class="grid md:grid-cols-3 gap-4 py-4">
+  <div class="grid md:grid-cols-3 gap-4 py-4">
 
-  {% for item in collections.allPages %}
+    {% for item in collections.allPages %}
+    {% render 'card',
+    title: item.data.card.title,
+    text: item.data.card.text,
+    image: item.data.card.image,
+    url: item.url,
+    date: item.date
+    %}
 
-    <article class="shadow border dark:border-none border-gray-100 bg-white dark:bg-gray-900">
-      <a href="{{ item.url }}">
-
-        <div class="shadow-lg aspect-video overflow-hidden">
-          {% comment %}{% picture
-          img=item.data.card.image,
-          width=[400,800],
-          sizes="(min-width: 1600px) 50vw, 100vw",
-          css="",
-          loading = "eager"
-      %} {% endcomment %}
-        </div>
-
-        <div class="p-4">
-          <div class="text-2xl text-cyan-800 dark:text-cyan-200">{{item.data.card.title }}</div>
-          <div class="mt-2">{{ item.data.card.text }}</div>
-          <time class="font-bold text-gray-600 dark:text-gray-200 text-right py-4 block">{{ item.date | date: "%Y-%m-%d %H:%M",  timeZone }}</time>
-        </div>
-      </div>
-    </a>
-  </article>
-
-{% endfor %}
+    {% endfor %}
+  </div>
 </section>
