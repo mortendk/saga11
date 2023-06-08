@@ -1,30 +1,25 @@
 {%- if env.mode != 'prod' %}<!-- __includes/nav/tags.liquid  -->{%- endif  -%}
 
-tags.liquid
+<div class="flex flex-row space-x-2 py-2">
+  {% for tag in tags %}
+  {% if tag != "rssfeed" %}
+  {% assign page = "/tag/" | append: tag | append: "/"%}
+  {% assign items = collections.all | getPage: page %}
+  {% for item in items %}
 
+  <div class="bg-tone-100 p-2 flex flex-row space-x-1 items-center rounded-sm">
+    <a href="/tag/{{ item.fileSlug }}">
+      {{ item.data.title }}
+    </a>
 
-{% assign page = "/tag/" | append: item.fileSlug | append: "/"%}
-{% assign items = collections.all | getPage: page %}
-{% for item in items %}
-{{ item.data.title }} |
-{% endfor %}
-{% endfor %}
-
-
-{% for tag in tags %}
-{% if tag != "rssfeed" %}
-{% for item in collections.all | getPage("/tag/" + tag + "/") %}
-<a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
-  {% if item.data.icon %}
-  <div class="h-4 w-4 mr-2">
-    {% include item.data.icon %}
+    {% if item.data.icon %}
+    <div class="h-4 w-4 mr-2">
+      {% include item.data.icon %}
+    </div>
+    {% endif %}
   </div>
+
+  {% endfor %}
   {% endif %}
-  x
-  {{ item.data.title }}
-</a>
-{% endfor %}
-
-{% endif %}
-
-{% endfor %}
+  {% endfor %}
+</div>

@@ -15,7 +15,6 @@
     {{ component.text  | markdown }}
   </div>
   {% endif %}
-
 </article>
 
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
@@ -26,15 +25,14 @@
   <!-- markdown file: {{ item.inputPath }}  -->
   {%- endif -%}
 
-  {% render 'card',
-  title: item.data.card.title,
-  text: item.data.card.text,
-  image: item.data.card.image,
-  url: item.url,
-  date: item.date
+  {%
+    render 'card',
+    title: item.data.card.title,
+    text: item.data.card.text,
+    image: item.data.card.image,
+    url: item.url,
+    date: item.date
   %}
-
-
 
   {% endfor %}
 </section>

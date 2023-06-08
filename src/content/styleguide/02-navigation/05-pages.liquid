@@ -3,4 +3,4 @@ title: Nav pages
 
 ---
 
-{% include "nav/pages.liquid" %}
+{% render "nav/links", url: url, collection : collections.allPages %}

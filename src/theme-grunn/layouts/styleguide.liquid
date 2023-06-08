@@ -1,39 +1,28 @@
 ---
 layout: html.liquid
 ---
-{% comment %}This layout is used for the styleguide  {% endcomment %}
+{% comment %}This layout is used for the styleguide {% endcomment %}
 {%- if env.mode != 'prod' %}
-  <!-- 👋 layouts/styleguide.liquid -->
+<!-- 👋 layouts/styleguide.liquid -->
 {%- endif -%}
 
 {% comment %}isModalOpen is used to test if theres a modal open then disable the scroll {% endcomment %}
-<body
-  class="flex flex-col h-screen bg-slate-100 text-gray-900 dark:bg-slate-800 dark:text-gray-50"
-  x-data="{'isModalOpen': false, isEditvisible: false, styleguideMenu:false}"
-  x-on:keydown.escape="isModalOpen=false"
-  x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
-  :class="isModalOpen ? 'overflow-y-hidden':''"
->
+
+<body class="flex flex-col h-screen bg-slate-100 text-gray-900 dark:bg-slate-800 dark:text-gray-50" x-data="{'isModalOpen': false, isEditvisible: false, styleguideMenu:false}"
+  x-on:keydown.escape="isModalOpen=false" x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible" :class="isModalOpen ? 'overflow-y-hidden':''">
 
   <header class="bg-white/80 shadow dark:bg-slate-900 fixed z-20 w-full">
     <div class="h-12 flex flex-row justify-between items-center px-8">
 
       <div class="flex flex-row">
-        <button
-          @click="styleguideMenu = !styleguideMenu"
-          class="w-10 block space-x-2 focus:outline-none"
-          type="button"
-          aria-label="toggle mobile menu"
-        >
+        <button @click="styleguideMenu = !styleguideMenu" class="w-10 block space-x-2 focus:outline-none" type="button" aria-label="toggle mobile menu">
           <span class="relative inline-block w-10 h-6">
             <span class="
           block mt-2 absolute w-6 h-1 bg-gray-700 dark:bg-gray-400 rounded-md
           transition-all ease-linear duration-75
           before:absolute before:-top-2 before:h-1 before:w-6 before:bg-gray-600 dark:before:bg-gray-300 before:rounded-md before:content-[''] before:block
           after:absolute after:top-2 after:h-1 after:w-6 after:bg-gray-800 dark:after:bg-gray-500  after:rounded-md after:content-[''] after:block
-          "
-          :class="styleguideMenu ? 'rotate-45 before:rotate-90 before:translate-y-2 before:bg-gray-700  after:opacity-0' : '' "
-          ></span>
+          " :class="styleguideMenu ? 'rotate-45 before:rotate-90 before:translate-y-2 before:bg-gray-700  after:opacity-0' : '' "></span>
           </span>
         </button>
 
@@ -62,22 +51,22 @@ layout: html.liquid
 
   </main>
 
-  {% include "responsive.liquid" %}
+  {% include "misc/responsive" %}
 
   <div class="bg-white mt-12 p-4 fixed  overflow-y-auto h-screen shadow-lg w-52" x-show="!styleguideMenu">
 
     {% for item in collections.styleguide | sortByFilepath %}
-      {% comment %}todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}}  {% endcomment %}
-      <a href="{{ item.url }}" class="block text-gray-800 {% if item.url in page.url %} font-bold{% endif %}">
-        {% if item.url in page.url %} 👉{% endif %}
-        {{item.data.title}}
-      </a>
+    {% comment %}todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}} {% endcomment %}
+    <a href="{{ item.url }}" class="block text-gray-800 {% if item.url in page.url %} font-bold{% endif %}">
+      {% if item.url in page.url %} 👉{% endif %}
+      {{item.data.title}}
+    </a>
     {% endfor %}
 
   </div>
 
   <div class="md:w-9/12 mx-auto font-mono bg-fuchsia-100 text-black mt-20 p-4">
-  🤖 file: {{ page.filePathStem   }}
+    🤖 file: {{ page.filePathStem   }}
     <details>
       <summary class="bg-fuchsia-600 hover:bg-fuchsia-700 rounded-sm  inline-block p-2">👩‍💻 Markup:</summary>
 

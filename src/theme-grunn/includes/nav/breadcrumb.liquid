@@ -1,18 +1,22 @@
 ---
 navOptions:
-  allowMissing: true
-  includeSelf: true
+allowMissing: true
+includeSelf: true
 ---
+{% comment %} TODO: how do i add the navoptions in a liquid include ? {% endcomment %}
 {%- if env.mode != 'prod' %}
 <!-- 👋 sections src/theme-grunn/includes/nav/breadcrumb.liquid -->
 {%- endif -%}
-
+wtf
 {% if eleventyNavigation.key %}
-
+{% comment %}
+this dosnt rewally work..
+{% endcomment %}
+{% assign allowMissing = true %}
+{% assign includeSelf = true %}
 {% assign navPages = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key, navOptions %}
 
 <nav class="inline-flex flex-row items-center p-2" aria-label="breadcrumb navigation">
-
   {% for item in bread %}
   {% comment %}home {% endcomment %}
   {% if loop.first %}

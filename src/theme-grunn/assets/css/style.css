@@ -2279,6 +2279,12 @@ pre[class*="language-"] {
   gap: 1rem;
 }
 
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -2535,11 +2541,6 @@ pre[class*="language-"] {
   background-color: var(--color-primary-600);
 }
 
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-
 .bg-red-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
@@ -2587,6 +2588,10 @@ pre[class*="language-"] {
   background-color: var(--color-tetiary-800);
 }
 
+.bg-tone-100 {
+  background-color: var(--color-tone-100);
+}
+
 .bg-tone-500 {
   background-color: var(--color-tone-500);
 }
@@ -2610,24 +2615,6 @@ pre[class*="language-"] {
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
-}
-
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
-
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
-}
-
-.bg-tone-400 {
-  background-color: var(--color-tone-400);
-}
-
-.bg-tone-200 {
-  background-color: var(--color-tone-200);
 }
 
 .bg-gradient-to-r {
@@ -2682,11 +2669,6 @@ pre[class*="language-"] {
 
 .p-8 {
   padding: 2rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .px-4 {
@@ -2975,11 +2957,6 @@ pre[class*="language-"] {
 
 .text-primary-700 {
   color: var(--color-primary-700);
-}
-
-.text-red-800 {
-  --tw-text-opacity: 1;
-  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 
 .text-sky-400 {
@@ -3348,11 +3325,6 @@ pre[class*="language-"] {
 :is(.dark .dark\:border-black) {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
-:is(.dark .dark\:border-cyan-400) {
-  --tw-border-opacity: 1;
-  border-color: rgb(34 211 238 / var(--tw-border-opacity));
 }
 
 :is(.dark .dark\:border-teal-100) {

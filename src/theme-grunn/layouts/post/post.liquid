@@ -9,9 +9,22 @@ saga-template-name: Post Default
 
 <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
 
+{% render "nav/links",
+  collection : collections.allPosts,
+  url: page.url,
+  showdate: true
+%}
+
+{% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
+{% assign nextPost =    collections.allPosts | getNextCollectionItem %}
+{% include 'nav/pre-next.liquid',
+      previousPost: previousPost,
+      nextPost: nextPost
+%}
+
 {% if image %}
 <div class="aspect-video overflow-hidden shadow-lg">
-  {% render 'image.liquid',
+  {% include 'image.liquid',
   file: image,
   alt: title,
   sizes: "(min-width: 30em) 50vw, 100vw",
@@ -25,31 +38,19 @@ saga-template-name: Post Default
 
 <article class="flex flex-col md:flex-row">
   <div class="md:w-4/6">
-    <a class="mt-4 flex flex-row space-x-4">
-      {% comment %} {% include "nav/tags.liquid" %} {% endcomment %}
 
+    {% include "nav/tags.liquid" %}
 
-      {% for tag in tags %}
-      {% if tag != "rssfeed" %}
-      <a href="/tag/{{ tag }}" class="inline-flex items-center px-2 py-1 rounded text-sm text-red-800 bg-red-100">
-        {{ tag  }}
-      </a>
-      {% endif %}
-      {% endfor %}
+    <time>{{ date | date: "%d %m %Y %H:%M", timeZone }}</time>
 
-      <time>{{ date | date: "%d %m %Y %H:%M", timeZone }}</time>
-      </footer>
+    <div class="prose prose-xl dark:prose-invert max-w-full">
+      {{ content }}
+    </div>
 
-      <div class="prose prose-xl dark:prose-invert max-w-full">
-        {{ content }}
-      </div>
-
-      {% comment %}Pre next nav {% endcomment %}
-      {% comment %} {% include "nav/post-pre-next.liquid" %} {% endcomment %}
   </div>
   {% comment %}sidebar {% endcomment %}
   <div class="md:ml-4 md:w-2/6">
-    {% comment %}list of post {% endcomment %}
-    {% include "nav/posts.liquid" %}
-    {% include "share.liquid" %}</div>
+
+
+    {% include "nav/share.liquid" %}</div>
 </article>
