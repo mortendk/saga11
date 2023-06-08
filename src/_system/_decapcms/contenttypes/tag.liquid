@@ -1,6 +1,3 @@
-{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection,
-templaterelation %}
-{% raw %}
   # -----------------------------------------------------------------
   # Relations Tags
   # -----------------------------------------------------------------
@@ -15,12 +12,12 @@ templaterelation %}
     delete: false
     editor:
       preview: false
-
     fields:
-{% endraw %}
 {% include "_system/_decapcms/fields/title.liquid" %}
 {% include "_system/_decapcms/fields/content.liquid" %}
-{% include "_system/_decapcms/fields/icon.liquid" %}
 {% include "_system/_decapcms/fields/menu.liquid" %}
-{{ templaterelation( collection="tagtemplates", folder="tag") }}
-{% raw %}
+{% include '_system/_decapcms/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}
+{% comment %}
+{% include "_system/_decapcms/fields/icon.liquid" %}
+{% include '_system/_decapcms/template-relation.liquid', tagtemplates: 'pagetemplates', folder: "tag" %}
+{% endcomment %}

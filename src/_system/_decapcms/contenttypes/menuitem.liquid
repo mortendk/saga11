@@ -1,6 +1,3 @@
-{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection,
-templaterelation %}
-{% raw %}
   # -----------------------------------------------------------------
   # Menu Items
   # -----------------------------------------------------------------
@@ -16,7 +13,7 @@ templaterelation %}
     editor:
       preview: false
     # Overview
-    summary: "{{title}} | Url: {{eleventyNavigation.url}} | Parent: {{eleventyNavigation.parent}}"
+    summary: "{% raw %}{{title}} | Url: {{eleventyNavigation.url}} | Parent: {{eleventyNavigation.parent}}{% endraw %}"
     sortable_fields: ["title"]
     view_filters:
       - label: Drafts
@@ -25,12 +22,8 @@ templaterelation %}
     view_groups:
       - label: Tags
         field: tags
-
     fields:
-{% endraw %}
 {% include "_system/_decapcms/fields/title.liquid" %}
-{% raw %}
-
       - name: eleventyNavigation
         label: 🍔 Navigation
         widget: object
@@ -46,9 +39,10 @@ templaterelation %}
           collection: page
           default: main
           searchFields: [title]
-          valueField: "{{eleventyNavigation.key}}"
-          displayFields: ["Title: {{title}} |  key: '{{eleventyNavigation.key}}'"]
+          valueField: "{% raw %}{{eleventyNavigation.key}}{% endraw %}"
+          displayFields: ["Title: {% raw %}{{title}} |  key: '{{eleventyNavigation.key}} {% endraw %}'"]
           required: false
           multiple: false
         - { label: "order", name: "order", widget: "number", required: false}
         - { label: "text", name: "excerpt", widget: "text", default : "", required: false, hint: 'If the theme supports it '}
+

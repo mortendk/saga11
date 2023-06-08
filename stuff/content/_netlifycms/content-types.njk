@@ -1,4 +1,4 @@
-{% from 'src/_system/netlifycms/templatecollection.macro.liquid' import templatecollection, templaterelation %}
+{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection, templaterelation %}
 {% comment %}this file is included into the system/netlifycms/config.liquid {% endcomment %}
 
 {#
@@ -29,8 +29,8 @@
       summary: "{{title}}"
     fields:
 {% endraw %}
-  {% include "src/_system/netlifycms/fields/title.liquid" %}
-  {% include "src/_system/netlifycms/fields/draft.liquid" %}
-  {% include "src/_system/netlifycms/fields/content.liquid" %}
+  {% include "_system/_decapcms/fields/title.liquid" %}
+  {% include "_system/_decapcms/fields/draft.liquid" %}
+  {% include "_system/_decapcms/fields/content.liquid" %}
 {% raw %}
  {% endcomment %}

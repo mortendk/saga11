@@ -1,9 +1,6 @@
-{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection,
-templaterelation %}
-{% raw %}
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   # Post Collection
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   - name: post
     label: 🧑🏽‍💻 Posts
     label_singular: 🧑🏽‍💻 Post
@@ -15,9 +12,7 @@ templaterelation %}
     delete: true
     editor:
       preview: false
-    summary: "{{title}}
-  {{url.parent}}
-  {{card.image}} "
+    summary: "{% raw %}{{title}} {{url.parent}} {{card.image}}{% endraw %} "
     sortable_fields: ["title", "order", "date"]
     view_filters:
       - label: Drafts
@@ -35,16 +30,13 @@ templaterelation %}
         field: eleventyExcludeFromCollections
     nested:
       depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}"
-
+      summary: "{% raw %}{{title}}{% endraw %}"
     fields:
-{% endraw %}
 {% include "_system/_decapcms/fields/title.liquid" %}
 {% include "_system/_decapcms/fields/image.liquid" %}
 {% include "_system/_decapcms/fields/card.liquid" %}
 {% include "_system/_decapcms/fields/content.liquid" %}
 {% include "_system/_decapcms/fields/tags.liquid" %}
 {% include "_system/_decapcms/fields/date.liquid" %}
-{{ templaterelation( collection="posttemplates", folder="post") }}
+{% include '_system/_decapcms/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
 {% include "_system/_decapcms/fields/draft.liquid" %}
-{% raw %}

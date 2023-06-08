@@ -1,9 +1,6 @@
-{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection,
-templaterelation %}
-{% raw %}
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   # Notifications
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   - name: notification
     label: 📣 Notifications
     label_singular: 📣 Notification
@@ -25,11 +22,8 @@ templaterelation %}
     view_groups:
       - label: Tags
         field: tags
-
     fields:
-{% endraw %}
 {% include "_system/_decapcms/fields/title.liquid" %}
-{% raw %}
       - label: 💁🏽‍♂️ status
         name: "status"
         widget: "select"
@@ -45,10 +39,12 @@ templaterelation %}
           - italic
           - link
         required: false
-      - { label: "link to page", name: "showlink", widget: "boolean", default: false }
 
-{% endraw %}
+      - label: "link to page"
+        name: "showlink"
+        widget: "boolean"
+        default: false
+
 {% include "_system/_decapcms/fields/content.liquid" %}
 {% include "_system/_decapcms/fields/date.liquid" %}
 {% include "_system/_decapcms/fields/draft.liquid" %}
-{% raw %}

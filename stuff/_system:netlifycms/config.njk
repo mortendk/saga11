@@ -2,7 +2,7 @@
 permalink: /admin/config.yml
 eleventyExcludeFromCollections: true
 ---
-{% from 'src/_system/netlifycms/templatecollection.macro.liquid' import templatecollection, templaterelation %}
+{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection, templaterelation %}
 backend:
   name: git-gateway
   branch: {{ env.branch }}
@@ -49,18 +49,18 @@ public_folder: "/content/upload"
       defaultOperations: '/resize/800x600/' {% endcomment %}
 
 collections:
-  {% include "src/_system/netlifycms/contenttypes/page.liquid" %}
-  {% include "src/_system/netlifycms/contenttypes/post.liquid" %}
-  {% include "src/_system/netlifycms/contenttypes/block.liquid" %}
-  {% include "src/_system/netlifycms/contenttypes/menuitem.liquid" %}
-  {% include "src/_system/netlifycms/contenttypes/tag.liquid" %}
-  {% include "src/_system/netlifycms/contenttypes/notification.liquid" %}
+  {% include "_system/_decapcms/contenttypes/page.liquid" %}
+  {% include "_system/_decapcms/contenttypes/post.liquid" %}
+  {% include "_system/_decapcms/contenttypes/block.liquid" %}
+  {% include "_system/_decapcms/contenttypes/menuitem.liquid" %}
+  {% include "_system/_decapcms/contenttypes/tag.liquid" %}
+  {% include "_system/_decapcms/contenttypes/notification.liquid" %}
   {% comment %}ductape custom collections {% endcomment %}
   {% include "src/content/_netlifycms/content-types.liquid" %}
 
-  {% include "src/_system/netlifycms/settings/settings.liquid" %}
+  {% include "_system/_decapcms/settings/settings.liquid" %}
 
-  {% include "src/_system/netlifycms/contenttypes/icons.liquid" %}
+  {% include "_system/_decapcms/contenttypes/icons.liquid" %}
 
   {{ templatecollection( name="pagetemplates", path="layouts/page", theme = theme) }}
   {{ templatecollection( name="posttemplates", path="layouts/post", theme = theme) }}

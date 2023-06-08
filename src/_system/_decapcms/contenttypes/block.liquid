@@ -1,9 +1,6 @@
-{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection,
-templaterelation %}
-{% raw %}
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   # Blocks
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   - name: block
     label: 🗄 Blocks
     label_singular: 🗄 block
@@ -26,8 +23,6 @@ templaterelation %}
       - label: Tags
         field: tags
     fields:
-{% endraw %}
-
 {% include "_system/_decapcms/fields/title.liquid" %}
 {% include "_system/_decapcms/fields/blockposition.liquid" %}
 {% include "_system/_decapcms/fields/component.liquid" %}

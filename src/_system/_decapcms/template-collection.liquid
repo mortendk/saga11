@@ -1,0 +1,15 @@
+  # Relation Collection
+  - name: {{ name }}
+    label_singular: template
+    label: "{{ name }} Templates"
+    folder: "src/{{ theme }}/{{ path }}"
+    slug: "{% raw %}{{title}}{% endraw %}"
+    hide: true
+    create: false
+    delete: false
+    format: frontmatter
+    extension: liquid
+    fields:
+      - label: "name"
+        name: "name"
+        widget: "string"

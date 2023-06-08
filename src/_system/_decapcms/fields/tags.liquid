@@ -1,0 +1,9 @@
+      - name: tags
+        label: 🏷 Tags
+        widget: relation
+        collection: tags
+        searchFields: [title]
+        valueField: "{% raw %}{{slug}}{% endraw %}"
+        display_fields: ["title"]
+        required: false
+        multiple: true

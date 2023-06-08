@@ -1,9 +1,6 @@
-{% from '_system/_decapcms/templatecollection.macro.liquid' import templatecollection,
-templaterelation %}
-{% raw %}
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   # Pages Collection
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   - name: page
     label: 🏩 Pages
     label_singular: 🏩 Page
@@ -15,7 +12,7 @@ templaterelation %}
     delete: true
     editor:
       preview: true
-    summary: "{{title}} (url: {{url}}) "
+    summary: "{% raw %}{{title}} (url: {{url}}){% endraw %} "
     sortable_fields: ["title","url", "order", "date"]
     view_filters:
       - label: Drafts
@@ -28,14 +25,14 @@ templaterelation %}
       depth: 5 # max depth to show in the collection tree
       summary: "{{title}}"
     fields:
-{% endraw %}
 {% include "_system/_decapcms/fields/title.liquid" %}
-{% include "_system/_decapcms/fields/image.liquid" %}
 {% include "_system/_decapcms/fields/card.liquid" %}
 {% include "_system/_decapcms/fields/component.liquid" %}
+{% include "_system/_decapcms/fields/image.liquid" %}
 {% include "_system/_decapcms/fields/content.liquid" %}
 {% include "_system/_decapcms/fields/tags.liquid" %}
 {% include "_system/_decapcms/fields/url.liquid" %}
-{% include "_system/_decapcms/fields/menu.liquid" %}
-{{ templaterelation( collection="pagetemplates", folder="page") }}
+{% include '_system/_decapcms/template-relation.liquid', collection: 'pagetemplates', folder: "page" %}
+{% include "_system/_decapcms/fields/date.liquid" %}
 {% include "_system/_decapcms/fields/draft.liquid" %}
+{% include "_system/_decapcms/fields/menu.liquid" %}
