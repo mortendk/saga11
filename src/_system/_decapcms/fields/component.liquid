@@ -9,7 +9,7 @@
           - label: '🧾 Text Markdown'
             name: 'text'
             widget: object
-            summary: "{{fields.text | truncate: "100" }} || {{fields.template}}"
+            summary: "{{fields.text | truncate: "100" }} || {% raw %}{{fields.template}}{% endraw %}"
             fields:
               - { label: text, name: text, widget: markdown, required: false }
               - name: "template"
@@ -17,15 +17,15 @@
                 widget: relation
                 collection: componentTemplateText
                 searchFields: [title]
-                valueField: "components/text/{{filename}}.{{extension}}"
-                displayFields: ["components/text/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/text/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/text/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/text/text.liquid"
 
           - label: '🌉 Image & Text'
             name: 'image'
             widget: object
-            summary: "{{fields.text | truncate: "100" }}  || {{fields.template}}"
+            summary: "{{fields.text | truncate: "100" }}  || {% raw %}{{fields.template}}{% endraw %}"
             fields:
               - { label: title, name: title, widget: string, required: false }
               - { label: text, name: text, widget: markdown, required: false }
@@ -36,15 +36,15 @@
                 widget: relation
                 collection: componentTemplateImage
                 searchFields: [title]
-                valueField: "components/image/{{filename}}.{{extension}}"
-                displayFields: ["components/image/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/image/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/image/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/image/image.liquid"
 
           - label: '🌇 🌉Image Gallery'
             name: 'images'
             widget: object
-            summary: '{{fields.title}} || {{fields.template}}'
+            summary: '{{fields.title}} || {% raw %}{{fields.template}}{% endraw %}'
             fields:
               - { label: title, name: title, widget: string, required: false }
               - { label: text, name: text, widget: markdown, required: false }
@@ -61,15 +61,15 @@
                 widget: relation
                 collection: componentTemplateImages
                 searchFields: [title]
-                valueField: "components/images/{{filename}}.{{extension}}"
-                displayFields: ["components/images/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/images/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/images/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/images/images.liquid"
 
           - name: cta
             label: 📣 CTA
             widget: object
-            summary: "{{fields.image}} {{fields.teaser}} "
+            summary: "{% raw %}{{fields.image}} {{fields.teaser}}{% endraw %}"
             fields:
               - { label: "title", name: "title", widget: "string", required: false }
               - { label: "ctalink", name: "url", widget: "string", required: false }
@@ -82,15 +82,15 @@
                 widget: relation
                 collection: componentTemplateCta
                 searchFields: [title]
-                valueField: "components/cta/{{filename}}.{{extension}}"
-                displayFields: ["components/cta/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/cta/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/cta/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/cta/cta.liquid"
 
           - name: testamonials
             label: 💬 Testamonials
             widget: object
-            summary: "{{fields.image}} {{fields.teaser}} "
+            summary: "{% raw %}{{fields.image}} {{fields.teaser}} {% endraw %}"
             fields:
               - { label: "title", name: "title", widget: "string", required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
@@ -111,15 +111,15 @@
                 widget: relation
                 collection: componentTemplateTestamonial
                 searchFields: [title]
-                valueField: "components/testamonial/{{filename}}.{{extension}}"
-                displayFields: ["components/testamonial/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/testamonial/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/testamonial/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/testamonial/testamonial.liquid"
 
           - name: features
             label: ✅ Features
             widget: object
-            summary: "{{fields.image}} {{fields.teaser}} "
+            summary: "{% raw %} {{fields.title }} {{fields.teaser}} {% endraw %}"
             fields:
               - { label: "title", name: "title", widget: "string", required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
@@ -136,28 +136,26 @@
                     options_length: 300
                     collection: icons
                     searchFields: [title]
-                    valueField: "icons/{{filename}}.{{extension}}"
-                    displayFields: ["icons/{{filename}}.{{extension}}"]
+                    valueField: "{% raw %}icons/{{filename}}.{{extension}}{% endraw %}"
+                    displayFields: ["{% raw %}icons/{{filename}}.{{extension}}{% endraw %}"]
                     required: true
                     default: "icons/beaker.svg"
                     hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
-
-
 
               - name: "template"
                 label: "Template"
                 widget: relation
                 collection: componentTemplateFeature
                 searchFields: [title]
-                valueField: "components/feature/{{filename}}.{{extension}}"
-                displayFields: ["components/feature/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/feature/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/feature/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/feature/feature.liquid"
 
           - name: "calendar"
             label: "📆 Calendar / Event"
             widget: object
-            summary: '{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}'
+            summary: '{% raw %}{{fields.date_start}} - {{fields.date_start}} || {{fields.template}}{% endraw %}'
             fields:
             - label: "Calendar start"
               name: "date_start"
@@ -187,21 +185,21 @@
               widget: relation
               collection: componentTemplateCalendar
               searchFields: [title]
-              valueField: "components/calendar/{{filename}}.{{extension}}"
-              displayFields: ["components/calendar/{{filename}}.{{extension}}"]
+              valueField: "{% raw %}components/calendar/{{filename}}.{{extension}}{% endraw %}"
+              displayFields: ["{% raw %}components/calendar/{{filename}}.{{extension}}{% endraw %}"]
               required: true
               default: "components/calendar/calendar.liquid"
 
           - name: "Address"
             label: "🗺 Address"
             widget: object
-            summary: '{{fields.title}}'
+            summary: '{% raw %}{{fields.title}}{% endraw %}'
             fields:
               - { label: title, name: title, widget: string, required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
               - label: Address
                 name: address
-                summary: '{{fields.name}} {{fields.street}} {{fields.zip}} {{fields.country}} {{fields.website}} {{fields.email}}'
+                summary: '{% raw %}{{fields.name}} {{fields.street}} {{fields.zip}} {{fields.country}} {{fields.website}} {{fields.email}}{% endraw %}'
                 widget: list
                 add_to_top: true
                 fields:
@@ -219,15 +217,15 @@
                 widget: relation
                 collection: componentTemplateAddress
                 searchFields: [title]
-                valueField: "components/address/{{filename}}.{{extension}}"
-                displayFields: ["components/address/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/address/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/address/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/address/address.liquid"
 
           - name: "download"
             label: "⤵️ Download"
             widget: object
-            summary: '{{fields.files.file }} || {{fields.template}}'
+            summary: '{% raw %}{{fields.files.file }} || {{fields.template}}{% endraw %}'
             fields:
               - { label: title, name: title, widget: string, required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
@@ -243,8 +241,8 @@
                 widget: relation
                 collection: componentTemplateDownload
                 searchFields: [title]
-                valueField: "components/download/{{filename}}.{{extension}}"
-                displayFields: ["components/download/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/download/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/download/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/download/download.liquid"
 
@@ -277,8 +275,8 @@
                 widget: relation
                 collection: componentTemplatePrice
                 searchFields: [title]
-                valueField: "components/price/{{filename}}.{{extension}}"
-                displayFields: ["components/price/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/price/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/price/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/price/price.liquid"
 
@@ -301,8 +299,8 @@
                 widget: relation
                 collection: componentTemplateLink
                 searchFields: [title]
-                valueField: "components/link/{{filename}}.{{extension}}"
-                displayFields: ["components/link/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/link/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/link/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/link/link.liquid"
 
@@ -318,7 +316,7 @@
               - label: Form elements
                 name: elements
                 widget: list
-                summary: '{{fields.title}} || {{fields.inputtype}}'
+                summary: '{% raw %}{{fields.title}} || {{fields.inputtype}}{% endraw %}'
                 add_to_top: true
                 types:
                   - label: "Input : text, tel, phone, url"
@@ -346,7 +344,7 @@
                       - label: option
                         name: option
                         widget: list
-                        summary: '{{fields.title}} || {{fields.inputtype}}'
+                        summary: '{% raw %}{{fields.title}} || {{fields.inputtype}}{% endraw %}'
                         add_to_top: true
                         fields:
                           - { label: title, name: title, widget: string, required: true }
@@ -359,8 +357,8 @@
                 widget: relation
                 collection: componentTemplateForm
                 searchFields: [title]
-                valueField: "components/form/{{filename}}.{{extension}}"
-                displayFields: ["components/form/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/form/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/form/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/form/form.liquid"
 
@@ -368,14 +366,14 @@
           - label: '🗂 Collection'
             name: 'collection'
             widget: object
-            summary: '{{fields.collection}} || {{fields.template}}'
+            summary: '{% raw %}{{fields.collection}} || {{fields.template}}{% endraw %}'
             fields:
               - name: collection
                 label: collection
                 widget: relation
                 collection: tags
                 searchFields: [title]
-                valueField: "{{slug}}"
+                valueField: "{% raw %}{{slug}}{% endraw %}"
                 display_fields: ["title"]
                 multiple: false
                 hint: "Select all content with the tag"
@@ -386,8 +384,8 @@
                 widget: relation
                 collection: componentTemplateCollection
                 searchFields: [title]
-                valueField: "components/collection/{{filename}}.{{extension}}"
-                displayFields: ["components/collection/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/collection/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/collection/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/collection/collection.liquid"
 
@@ -395,15 +393,15 @@
           - name: "pagecard"
             label: "📑 Cards Page"
             widget: object
-            summary: '{{fields.page}} || {{fields.template}}'
+            summary: '{% raw %}{{fields.page}} || {{fields.template}}{% endraw %}'
             fields:
               - name: page
                 label: Related Pages
                 widget: relation
                 collection: page
                 searchFields: [title]
-                valueField: "{{url}}"
-                displayFields: ["url: {{url}}  - Title: {{title}}"]
+                valueField: "{% raw %}{{url}}{% endraw %}"
+                displayFields: ["url: {% raw %}{{url}}  - Title: {{title}}{% endraw %}"]
                 required: false
                 multiple: true
               - name: "template"
@@ -411,23 +409,23 @@
                 widget: relation
                 collection: componentTemplatePagecard
                 searchFields: [title]
-                valueField: "components/pagecard/{{filename}}.{{extension}}"
-                displayFields: ["components/pagecard/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/pagecard/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/pagecard/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/pagecard/pagecard.liquid"
 
           - name: "njktemplate"
-            label: "🤖 Nunjucks Template"
+            label: "🤖 Template"
             widget: object
-            summary: '{{fields.page}} || {{fields.template}}'
+            summary: '{% raw %}{{fields.page}} || {{fields.template}}{% endraw %}'
             fields:
               - name: "template"
                 label: "Template"
                 widget: relation
                 collection: componentTemplateTemplates
                 searchFields: [title]
-                valueField: "components/templates/{{filename}}.{{extension}}"
-                displayFields: ["components/templates/{{filename}}.{{extension}}"]
+                valueField: "{% raw %}components/templates/{{filename}}.{{extension}}{% endraw %}"
+                displayFields: ["{% raw %}components/templates/{{filename}}.{{extension}}{% endraw %}"]
                 required: true
                 default: "components/templates/default.liquid"
 
