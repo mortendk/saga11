@@ -4,9 +4,9 @@
   - name: tags
     label_singular: 🏷 Tag
     label: 🏷 Tags
-    description: "Tags used to catagorize content. | Version: 1.0"
+    description: "Tags used to catagorize content"
     folder: "src/content/tag"
-    slug: "{{title}}"
+    slug: "{% raw %}{{title}}{% endraw %}"
     hide: false
     create: true
     delete: false
@@ -16,8 +16,8 @@
 {% include "_system/_decapcms/fields/title.liquid" %}
 {% include "_system/_decapcms/fields/content.liquid" %}
 {% include "_system/_decapcms/fields/menu.liquid" %}
-{% include '_system/_decapcms/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}
-{% comment %}
 {% include "_system/_decapcms/fields/icon.liquid" %}
+{% comment %}
+{% include '_system/_decapcms/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}
 {% include '_system/_decapcms/template-relation.liquid', tagtemplates: 'pagetemplates', folder: "tag" %}
 {% endcomment %}

@@ -1,0 +1,28 @@
+  - name: foobar
+    label: 💜 Cusom collec
+    label_singular: 💜 Foobar
+    description: "This is an example of a custom content type"
+    folder: "src/content/foobar"
+    slug: "{{title}}"
+    preview_path: /foobar/{{title}}/
+    create: true
+    delete: true
+    hide: false
+    editor:
+      preview: false
+    summary: "{{title}}"
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+    fields:
+{% include "_system/_decapcms/fields/title.liquid" %}
+{% include "_system/_decapcms/fields/content.liquid" %}
+{% include "_system/_decapcms/fields/draft.liquid" %}

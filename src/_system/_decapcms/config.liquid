@@ -24,13 +24,15 @@ media_folder: "src/content/upload/"
 public_folder: "/content/upload"
 
 collections:
-{% include "_system/_decapcms/contenttypes/block.liquid" %}
 {% include "_system/_decapcms/contenttypes/page.liquid" %}
 {% include "_system/_decapcms/contenttypes/post.liquid" %}
 {% include "_system/_decapcms/contenttypes/notification.liquid" %}
 {% include "_system/_decapcms/contenttypes/tag.liquid" %}
 {% include "_system/_decapcms/contenttypes/menuitem.liquid" %}
+{% include "_system/_decapcms/contenttypes/block.liquid" %}
 {% include "_system/_decapcms/settings/settings.liquid" %}
+
+{% include "_custom/decapcms/collections.liquid" %}
 
 {% include "_system/_decapcms/contenttypes/icons.liquid" %}
 
@@ -52,34 +54,3 @@ collections:
 {% include '_system/_decapcms/template-collection.liquid', name: 'componentTemplateFeature', path: 'includes/components/feature', theme: theme %}
 {% include '_system/_decapcms/template-collection.liquid', name: 'componentTemplatePrice', path: 'includes/components/price', theme: theme %}
 {% include '_system/_decapcms/template-collection.liquid', name: 'componentTemplateLink', path: 'includes/components/link', theme: theme %}
-
-
-{% comment %}
-
-
-
-
-
-
-{% include "_src/content/_netlifycms/content-types.liquid" %}
-
-  {{ templatecollection( name="pagetemplates", path="layouts/page", theme = theme) }}
-  {{ templatecollection( name="posttemplates", path="layouts/post", theme = theme) }}
-  {{ templatecollection( name="tagtemplates", path="layouts/tag", theme = theme) }}
-
-  {{ templatecollection( name="componentTemplatePagecard", path="includes/components/pagecard", theme = theme) }}
-  {{ templatecollection( name="componentTemplateCollection", path="includes/components/collection", theme = theme) }}
-  {{ templatecollection( name="componentTemplateImages", path="includes/components/images", theme = theme) }}
-  {{ templatecollection( name="componentTemplateImage", path="includes/components/image", theme = theme) }}
-  {{ templatecollection( name="componentTemplateText", path="includes/components/text", theme = theme) }}
-  {{ templatecollection( name="componentTemplateForm", path="includes/components/form", theme = theme) }}
-  {{ templatecollection( name="componentTemplateDownload", path="includes/components/download", theme = theme) }}
-  {{ templatecollection( name="componentTemplateCalendar", path="includes/components/calendar", theme = theme) }}
-  {{ templatecollection( name="componentTemplateAddress", path="includes/components/address", theme = theme) }}
-  {{ templatecollection( name="componentTemplateTemplates", path="includes/components/templates", theme = theme) }}
-  {{ templatecollection( name="componentTemplateCta", path="includes/components/cta", theme = theme) }}
-  {{ templatecollection( name="componentTemplateTestamonial", path="includes/components/testamonial", theme = theme) }}
-  {{ templatecollection( name="componentTemplateFeature", path="includes/components/feature", theme = theme) }}
-  {{ templatecollection( name="componentTemplatePrice", path="includes/components/price", theme = theme) }}
-  {{ templatecollection( name="componentTemplateLink", path="includes/components/link", theme = theme) }}
-{% endcomment %}
