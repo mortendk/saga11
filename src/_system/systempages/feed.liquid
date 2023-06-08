@@ -7,11 +7,11 @@ eleventyExcludeFromCollections: true
 
   <title>{{ site.title }}</title>
   <subtitle>{{ site.description }}</subtitle>
-  <link href="{{ env.url }}/feed.xml" rel="self"/>
+  <link href="{{ env.url }}/feed.xml" rel="self" />
   <generator uri="https://saga11.dev">Saga11</generator>
-  <logo>{{env.url}}/assets/icon/icon-safari.png</logo>
-  <icon>{{env.url}}/assets/icon/icon-safari.png</icon>
-  {% comment %} TODO: feed dates <updated>{{ collections.rssfeed | getNewestCollectionItemDate | dateToRfc3339 }}</updated>  {% endcomment %}
+  <logo>{{env.url}}/icon-safari.png</logo>
+  <icon>{{env.url}}/icon-safari.png</icon>
+  <updated>{{ collections.rssfeed | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ env.url }}/</id>
   <author>
     <name>{{ site.authorname }}</name>
@@ -19,32 +19,29 @@ eleventyExcludeFromCollections: true
   </author>
 
   {%- for item in collections.rssfeed | reverse %}
-
-  {% comment %} {%- assign absolutePostUrl = item.url | url | absoluteUrl(env.url) %}  {% endcomment %}
-
-    <entry>
-      <title>{{ item.data.card.title }}</title>
-      <link href="{{ absolutePostUrl }}"/>
-      <summary> {{item.data.card.text }} </summary>
-      {% comment %} <updated>{{ item.date | dateToRfc3339 }}</updated>  {% endcomment %}
-      <id>{{ absolutePostUrl }}</id>
-      <content type="html">
+  <entry>
+    <titlxe>{{ item.data.card.title }}</titlxe>
+    <link href="{{ env.url }}/{{item.url}}" />
+    <summary> {{item.data.card.text }} </summary>
+    <updated>{{ item.date | dateToRfc3339 }}</updated>
+    <id>{{ item.url }}</id>
+    <content type="html">
       {% if item.data.card.image %}
-        <![CDATA[
-          {% comment %}{% picture
-            img=item.data.card.image,
-            width=[640],
-            format="png",
-            sizes="",
-            css="",
-            loading = ""
-          %} {% endcomment %}
+      <![CDATA[
+        {%- include 'image.liquid',
+        file: item.data.card.image,
+        alt: title,
+        sizes: "a",
+        widths: "800",
+        format: "webp",
+        loading: "",
+        css: ""
+        -%}
           ]]>
-        {% endif %}
-
-        {% comment %} {{ item.templateContent | truncate(400, true, "..." ) | htmlToAbsoluteUrls(absolutePostUrl) }}  {% endcomment %}
-      </content>
-    </entry>
+      {% endif %}
+      {{ item.templateContent | strip_html |truncate: "400" }}
+    </content>
+  </entry>
 
   {%- endfor %}
 

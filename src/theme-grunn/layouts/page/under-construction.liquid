@@ -2,11 +2,8 @@
 layout: html.liquid
 saga-template-name: Under construction
 ---
-{% comment %}PAGE TEMPLATE UNDER CONSTRUCTION FTW
-------------------------------------------------
-#}
 {%- if env.mode != 'prod' %}
-  <!-- ___layouts/page/frontpage.liquid  -->
+<!-- ___layouts/page/frontpage.liquid  -->
 {%- endif -%}
 
 <body class="flex flex-col h-screen bg-gray-900 center-center">
@@ -20,7 +17,7 @@ saga-template-name: Under construction
     </div>
 
     <div class="mt-8 center-center">
-      <img src="themes/{{ theme }}/assets/img/under-construction.gif" alt="under construction" width="100">
+      <img src="{{ theme }}/assets/img/under-construction.gif" alt="under construction" width="100">
     </div>
 
   </article>

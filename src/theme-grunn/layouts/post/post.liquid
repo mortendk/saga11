@@ -8,8 +8,9 @@ saga-template-name: Post Default
 {%- endif -%}
 
 <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
+{% include "nav/share.liquid" %}
 
-{% render "nav/links",
+{% include "nav/links",
   collection : collections.allPosts,
   url: page.url,
   showdate: true
@@ -38,19 +39,13 @@ saga-template-name: Post Default
 
 <article class="flex flex-col md:flex-row">
   <div class="md:w-4/6">
-
-    {% include "nav/tags.liquid" %}
-
     <time>{{ date | date: "%d %m %Y %H:%M", timeZone }}</time>
-
     <div class="prose prose-xl dark:prose-invert max-w-full">
       {{ content }}
     </div>
-
   </div>
-  {% comment %}sidebar {% endcomment %}
+
   <div class="md:ml-4 md:w-2/6">
 
-
-    {% include "nav/share.liquid" %}</div>
+  </div>
 </article>

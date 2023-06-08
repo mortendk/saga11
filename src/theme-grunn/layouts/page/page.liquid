@@ -3,14 +3,15 @@ layout: default.liquid
 saga-template-name: Page default
 ---
 {% comment %}
-todo: Page should be renamed to something else ...
-apparently liquid cand figure out whats a page.url vs this page
+TODO: Page should be renamed to something else apparently liquid cand figure out whats a page.url vs this page
 {% endcomment %}
 {%- if env.mode != 'prod' %}
 <!-- 👋 sections src/theme-grunn/layouts/page/page.liquid -->
 {%- endif -%}
 
 <h1 class="text-5xl">{{ title }}</h1>
+
+{% include "nav/share.liquid" %}
 
 tags:
 {% include "nav/tags" %}
@@ -22,7 +23,7 @@ link list
 
 
 
-{% comment %} <div class="aspect-video overflow-hidden">
+<div class="aspect-video overflow-hidden">
 
   {% render 'image.liquid',
       file: image,
@@ -33,10 +34,7 @@ link list
       loading: "lazy",
       css: "w-full"
   %}
-</div> {% endcomment %}
-
-
-
+</div>
 
 
 <div class="prose dark:prose-invert">
@@ -44,5 +42,3 @@ link list
 </div>
 
 {% include "components/all.liquid" %}
-
-{% include "nav/share.liquid" %}

@@ -13,7 +13,4 @@ saga11: {{saga11.version }}
 ---
 Build:
 {{ theme }}
-{% comment %} {{ page.date | formatDate("cccc d. MMMM yyyy HH:mm", dateFormat, timeZone ) }}  {% endcomment %}
-{{ page.date | date: "%Y-%m-%d %H:%M",  timeZone }}
-{% comment %} {{ "now" | date: "%Y-%m-%d %H:%M" }} => 2020-03-25 15:57
-  {% endcomment %}
+{{ page.date | date: "%d %m %Y %H:%M", timeZone }}
