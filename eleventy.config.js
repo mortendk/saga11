@@ -14,7 +14,6 @@ const timeZone = settings.timeZone || "";
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-// const Image = require("@11ty/eleventy-img");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 
 module.exports = function (eleventyConfig) {
@@ -40,6 +39,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("filtertags", require("./src/_system/11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));
+  //RSS filters
+  eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
+  eleventyConfig.addLiquidFilter("dateToRfc822", pluginRss.dateToRfc822);
+  eleventyConfig.addLiquidFilter("getNewestCollectionItemDate", pluginRss.getNewestCollectionItemDate);
+  eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
+
+
   // eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
   // eleventyConfig.addFilter("debugpretty", require("./src/_system/11ty/filter/debugPretty.js"));
 
@@ -57,9 +63,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
   }
 
+  // Fix placement of files
   eleventyConfig.addPassthroughCopy({"src/theme-grunn/assets/" : "/assets/"});
   eleventyConfig.addPassthroughCopy({"src/theme-grunn/service-workers.js" : "service-workers.js"});
-
 
   // eleventyConfig.addPassthroughCopy("src/themes/debug/");
 
