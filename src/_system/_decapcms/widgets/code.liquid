@@ -1,0 +1,10 @@
+      - label: "{{ label }}"
+        name: "{{ name  }}"
+        widget: "code"
+        {% if output_code_only %}output_code_only: {{ output_code_only }}{% endif %}
+        {% if default %}default: {{ default }}{% endif %}
+        {% if required %}required: {{ required }}{% endif %}
+        {% if hint %}hint: {{ hint }}{% endif %}
+
+
+

@@ -1,0 +1,12 @@
+{% assign options = options | split: "," %}
+{% assign default = default | split: "," %}
+      - label: "{{ label }}"
+        name: "{{ name  }}"
+        widget: "select"
+        {% if multiple %}multiple: {{ multiple }}{% endif %}
+        min: 1
+        max: 2
+        options: [{{ options }}]
+        {% if default %}default: {{ default }}{% endif %}
+        {% if required %}required: {{ required }}{% endif %}
+        {% if hint %}hint: {{ hint }}{% endif %}

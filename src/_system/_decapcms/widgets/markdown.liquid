@@ -1,6 +1,5 @@
-{% raw %}
-      - label: "👩‍💻 Content"
-        name: "body"
+      - label: "{{ label }}"
+        name: "{{ name }}"
         widget: "markdown"
         buttons:
           - link
@@ -15,5 +14,6 @@
         editor_components:
           - shortcode-picture
           - code-block
-        required: false
-{% endraw %}
+        {% if required %}required: {{ required }}{% endif %}
+        {% if hint %}hint: {{ hint }}{% endif %}
+        {% if default %}default: {{ default }}{% endif %}

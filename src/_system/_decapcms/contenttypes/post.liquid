@@ -7,7 +7,7 @@
     description: "Post fx blogpost etc"
     folder: "src/content/post"
     slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
-    preview_path: /post/{{title}}/
+    preview_path: /post/{% raw %}{{title}}{% endraw %}/
     create: true
     delete: true
     editor:
@@ -38,5 +38,5 @@
 {% include "_system/_decapcms/fields/content.liquid" %}
 {% include "_system/_decapcms/fields/tags.liquid" %}
 {% include "_system/_decapcms/fields/date.liquid" %}
-{% include '_system/_decapcms/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
 {% include "_system/_decapcms/fields/draft.liquid" %}

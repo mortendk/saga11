@@ -16,7 +16,7 @@ eleventyExcludeFromCollections: true
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     CMS.registerPreviewStyle("style.css");
-
+    {% comment %}
     // COMPONENTS
     CMS.registerEditorComponent({
       id: "shortcode-picture",
@@ -46,6 +46,7 @@ eleventyExcludeFromCollections: true
       }
     });
   </script>
+{% endcomment %}
 {% comment %}
   <script>
     // https://github.com/netlify/netlify-cms/issues/2183
