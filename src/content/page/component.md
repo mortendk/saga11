@@ -14,12 +14,12 @@ card:
 components:
   - type: calendar
     date_start: 2023-06-10 09:00:10
-    date_end: 2023-06-11 11:59:45
-    date_allday: false
+    date_end: 2023-06-10 11:59:45
+    date_allday: true
     template: components/calendar/calendar.liquid
   - type: calendar
     date_start: 2023-06-10 09:00:10
-    date_end: 2023-06-10 11:59:45
+    date_end: 2023-06-12 11:59:45
     date_allday: false
     template: components/calendar/calendar.liquid
   - type: njktemplate
