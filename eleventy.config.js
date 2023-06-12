@@ -7,7 +7,7 @@ const env = require("./src/content/_data/env.js");
 const theme = settings.theme || "theme-grunn";
 const packageJson = require("./package.json");
 const saga11version = packageJson.version;
-const dateFormat = settings.dateFormat || "";
+const dateLocalize = settings.dateLocalize || "";
 const timeZone = settings.timeZone || "";
 
 // plugins
@@ -30,7 +30,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
 
   // Filters
-  eleventyConfig.addFilter("formatDate", require("./src/_system/11ty/filter/formatDate.js"));
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
   eleventyConfig.addFilter("sortByOrder", require("./src/_system/11ty/filter/sortByOrder.js"));
@@ -39,6 +38,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("filtertags", require("./src/_system/11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));
+  eleventyConfig.addFilter("weekday", require("./src/_system/11ty/filter/dateWeekday.js"));
+  eleventyConfig.addFilter("month", require("./src/_system/11ty/filter/dateMonth.js"));
+  eleventyConfig.addFilter("dateformat", require("./src/_system/11ty/filter/dateFormat.js"));
+
   //RSS filters
   eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
   eleventyConfig.addLiquidFilter("dateToRfc822", pluginRss.dateToRfc822);
@@ -70,11 +73,14 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addPassthroughCopy("src/themes/debug/");
 
   // global vars todo: is this existing for liquid ?
-  // eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
-  // eleventyConfig.addNunjucksGlobal("theme", theme);
+  eleventyConfig.addGlobalData("saga11version", saga11version);
+  eleventyConfig.addGlobalData("theme", theme);
+  eleventyConfig.addGlobalData("timezone", timeZone);
+  eleventyConfig.addGlobalData("dateLocalize", dateLocalize);
+
   // Date and time fun
-  // eleventyConfig.addNunjucksGlobal("timeZone", timeZone);
-  // eleventyConfig.addNunjucksGlobal("dateFormat", dateFormat);
+  // eleventyConfig.addGlobalData("timeZone", timeZone);
+  // eleventyConfig.addGlobalData("dateFormat", dateFormat);
 
   // Local Server
   eleventyConfig.setServerOptions({

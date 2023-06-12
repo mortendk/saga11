@@ -3,6 +3,7 @@
 // dateLocal for formating dates
 module.exports = {
   theme: "theme-grunn",
-  dateLocale: "da",
+  dateLocalize: "Da",
+  timeZone: "Europe/Copenhagen"
 };
 // TODO: datelocal settings

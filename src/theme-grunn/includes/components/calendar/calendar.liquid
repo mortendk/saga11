@@ -1,24 +1,62 @@
 {%- if env.mode != 'prod' %}
 <!-- 👋 calendar/calendar.liquid -->
 {%- endif -%}
+  {% comment %}
+    https://strftime.net/
+    https://ruby-doc.org/3.2.2/strftime_formatting_rdoc.html
+  {% endcomment %}
 
-{% comment %} {% if component.date_start %}
+{% if component.date_start %}
 <article>
+<div class="bg-lime-400">
+  week: {{ component.date_start | weekday: dateLocalize, "long" | capitalize  }}
+  <br>
+  month: {{ component.date_start | month: dateLocalize, "long" | capitalize  }}
+  <br>
+  format: {{ component.date_start | dateformat: dateLocalize, "full" | capitalize  }}<br>
+  long: {{ component.date_start | dateformat: dateLocalize, "long" | capitalize  }}<br>
+  medium: {{ component.date_start | dateformat: dateLocalize, "medium" | capitalize  }}<br>
+  short: {{ component.date_start | dateformat: dateLocalize, "short" | capitalize  }}<br>
+  <br>
 
-  {{ component.date_start | formatDate("DDD") }}
+  </div>
 
-  {% if (component.date_allday == true) and (component.date_start  | formatDate("ccc d MMMM")  == date_end  | formatDate("ccc d MMMM") ) %}
-    <div class="text-3xl">{{ component.date_start | formatDate("ccc d MMMM") }}</div>
-    <div class="text-xl">All Day</div>
-  {% elseif (component.date_start  | formatDate("ccc d MMMM")  == component.date_end  | formatDate("ccc d MMMM") ) %}
-    <div class="text-3xl">{{ component.date_start | formatDate("ccc d MMMM") }}</div>
-    <div class="text-xl">{{ component.date_start | formatDate("HH:mm") }} - {{ component.date_end | formatDate("HH:mm") }}</div>
-  {% elseif (date_start  | formatDate("yyyy")  == date_end  | formatDate("yyyy") ) %}
-    <div class="text-3xl">
-      {{ component.date_start | formatDate("d MMMM HH:mm (ccc)") }} - {{ component.date_end | formatDate("ccc d MMMM HH:mm (ccc) ") }}  {{ component.date_start  | formatDate("yy") }}
-    </div>
+<br>
+{{ component.date_start | date: long }}
+  <div class="bg-slate-200"></div>
+  {{ component.date_start | date: "%A %d %B kl %H:%M", timezone }}
+  <br>
+  {{ component.date_end | date: "%A %d %B kl %H:%M", timezone }}
+  </div>
+  {% comment %}
+    Test for All day events
+  {% endcomment %}
+  {% assign daystart = component.date_start | date: "%A %d %B" %}
+  {% assign dayend = component.date_end | date: "%A %d %B" %}
+  {% if component.date_allday == true %}
+    {% comment %}All day{% endcomment %}
+    {% if daystart == dayend %}
+      <div class="text-2xl">{{ component.date_start | date: "%A %d %B", timezone }}</div>
+    {% else %}
+      <div class="text-2xl">
+        {{ component.date_start | date: "%A %d %B", timezone }} -
+        {{ component.date_end | date: "%A %d %B", timezone }}
+      </div>
+    {% endif %}
+    {% comment %}/All day{% endcomment %}
   {% else %}
-    <div class="text-3xl">{{ component.date_start | formatDate("ccc d MMMM yy HH:mm") }} - {{ component.date_end | formatDate("ccc d MMMM HH:mm") }}</div>
+    {% if daystart == dayend %}
+      <div class="text-2xl">
+      {{ component.date_start | date: "%A %d %B", timezone }}
+      {{ component.date_start | date: "%H:%M", timezone }} -
+      {{ component.date_end | date: "%H:%M", timezone }}
+      </div>
+    {% else %}
+      <div class="text-2xl">
+      {{ component.date_start | date: "%A %d %B %H:%M", timezone }} -
+      {{ component.date_end | date: "%A %d %B %H:%M", timezone }}
+      </div>
+    {% endif %}
   {% endif %}
 
   <div>
@@ -27,7 +65,8 @@
     <a href="{% calendar outlook, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"    target="_blank"  rel="noopener" class="inline-block p-2 bg-sky-100 rounded-md border border-sky-200 text-sky-700">outlook</a>
     <a href="{% calendar office365, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"  target="_blank"  rel="noopener" class="inline-block p-2 bg-sky-100 rounded-md border border-sky-200 text-sky-700">office365</a>
     <a href="{% calendar yahoo, component.date_start, component.date_end, component.date_allday, title, teaser, location %}"      target="_blank"  rel="noopener" class="inline-block p-2 bg-sky-100 rounded-md border border-sky-200 text-sky-700">yahoo</a>
-  </div>
-</article>
+    </div>
 
-{% endif %} {% endcomment %}
+  </article>
+
+{% endif %}

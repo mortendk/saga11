@@ -1,24 +1,26 @@
 {% comment %}
 
-{% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
-{% assign nextPost =    collections.allPosts | getNextCollectionItem %}
+{% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
+{% assign next =    collections.copenhellshows | getNextCollectionItem %}
 {% include 'nav/pre-next.liquid',
-      previousPost: previousPost,
-      nextPost: nextPost
+      previous: previous,
+      next: next,
+      pretext: previous.item.data.title,
+      nexttext: next.item.data.title,
 %}
 
 {% endcomment %}
 <nav class="flex flex-row justify-between w-full" aria-label="Pre and Next post">
-  {% if previousPost %}
-  <a href="{{ previousPost.url }}" class="flex flex-row items-center">
+  {% if previous %}
+  <a href="{{ previous.url }}" class="flex flex-row items-center">
     <div class="w-4 text-black">{% include "icons/arrow-left.svg" %}</div>
-    <div>{{ previousPost.data.title }}</div>
+    <div>{{ pretext }}</div>
   </a>
   {% endif %}
 
-  {% if nextPost %}
-  <a href="{{ nextPost.url }}" class="flex flex-row items-center justify-end w-full">
-    <div>{{ nextPost.data.title }}</div>
+  {% if next %}
+  <a href="{{ next.url }}" class="flex flex-row items-center justify-end w-full">
+    <div>{{ nexttext }}</div>
     <div class="w-4 text-black">{% include "icons/arrow-right.svg" %}</div>
   </a>
   {% endif %}

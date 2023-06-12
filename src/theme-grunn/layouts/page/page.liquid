@@ -11,17 +11,7 @@ TODO: Page should be renamed to something else apparently liquid cand figure out
 
 <h1 class="text-5xl">{{ title }}</h1>
 
-{% include "nav/share.liquid" %}
-
-tags:
-{% include "nav/tags" %}
-{% include "nav/tagcloud" %}
-
-link list
-{% include "nav/links", url: url, collection : collections.allPages %}
-{% include "nav/links", url: url, collection : collections.allPosts, showdate: true %}
-
-
+{% include "components/all.liquid" %}
 
 <div class="aspect-video overflow-hidden">
 
@@ -41,4 +31,16 @@ link list
   {{ content }}
 </div>
 
-{% include "components/all.liquid" %}
+
+
+{% include "nav/share.liquid" %}
+
+tags:
+{% include "nav/tags" %}
+{% include "nav/tagcloud" %}
+
+link list
+{% include "nav/links", url: url, collection : collections.allPages %}
+{% include "nav/links", url: url, collection : collections.allPosts, showdate: true %}
+
+

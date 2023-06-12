@@ -1,6 +1,8 @@
 {
   "humantxt": "/* TEAM */\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty with magic \n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\n\nIcons\nhttps://heroicons.com/\n",
   "color": "#35034c",
+  "opengraph": "/content/upload/opengraph.jpg",
+  "shortname": "saga 11",
   "keywords": "11ty saga 11",
   "header": "",
   "faviconcolor": "#35034c",
@@ -10,8 +12,7 @@
   "authorname": "Ragnar",
   "country": "denmark",
   "errorpage": "404 !",
-  "title": "Saga11 Installation",
+  "title": "Saga11 Test site",
   "icon": "/content/upload/saga11icon.svg",
-  "opengraph": "/content/upload/opengraph.jpg",
   "description": "saga 11"
 }

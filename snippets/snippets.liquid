@@ -1,0 +1,36 @@
+{% comment %}
+  Generate image
+{% endcomment %}
+{% include 'image.liquid',
+  file: image,
+  alt: title,
+  sizes: "(min-width: 30em) 50vw, 100vw",
+  widths: "400, 800, 1200",
+  format: "webp",
+  loading: "lazy",
+  css: "w-full"
+%}
+
+
+{% comment %}
+  Pre next collection
+{% endcomment %}
+{% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
+{% assign next =    collections.copenhellshows | getNextCollectionItem %}
+{% include 'nav/pre-next.liquid',
+      previous: previous,
+      next: next,
+      pretext: previous.data.show.object.title,
+      nexttext: next.data.show.object.title,
+%}
+
+{% comment %}
+  Date
+{% endcomment %}
+
+week: {{ component.date_start | weekday: dateLocalize, "long" | capitalize }}
+month: {{ component.date_start | month: dateLocalize, "long" | capitalize }}
+format: {{ component.date_start | dateformat: dateLocalize, "full" | capitalize }}
+long: {{ component.date_start | dateformat: dateLocalize, "long" | capitalize }}
+medium: {{ component.date_start | dateformat: dateLocalize, "medium" | capitalize }}
+short: {{ component.date_start | dateformat: dateLocalize, "short" | capitalize }}

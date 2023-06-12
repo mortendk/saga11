@@ -1,6 +1,5 @@
 ---
 title: All existing components :)
-image: /content/upload/spaceship.png
 card:
   title: Title from a card
   image: /content/upload/spaceship.png
@@ -13,13 +12,22 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: calendar
+    date_start: 2023-06-10 09:00:10
+    date_end: 2023-06-11 11:59:45
+    date_allday: false
+    template: components/calendar/calendar.liquid
+  - type: calendar
+    date_start: 2023-06-10 09:00:10
+    date_end: 2023-06-10 11:59:45
+    date_allday: false
+    template: components/calendar/calendar.liquid
   - type: njktemplate
     template: components/templates/socialmedia.liquid
   - type: njktemplate
     template: components/templates/all-pages.liquid
   - type: njktemplate
     template: components/templates/all-post.liquid
-
   - type: collection
     title: This is a Collection
     template: components/collection/collection.liquid
@@ -37,7 +45,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-
   - type: text
     template: components/text/text.liquid
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -47,7 +54,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-
   - type: cta
     template: components/cta/cta.liquid
     title: "This is a CTA "
@@ -62,7 +68,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-
   - type: features
     template: components/feature/feature.liquid
     title: Feature
@@ -80,7 +85,6 @@ components:
       - icon: icons/beaker.svg
         title: This is a feature
         text: This is why this is amazing
-
   - type: download
     template: components/download/download.liquid
     files:
@@ -94,7 +98,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-
   - type: links
     template: components/link/link.liquid
     title: Links
@@ -110,7 +113,6 @@ components:
         title: Saga11
       - url: https://11ty.dev
         title: 11ty
-
   - type: testamonials
     template: components/testamonial/testamonial.liquid
     title: Our users say
@@ -152,7 +154,6 @@ components:
         person: Name
         persontitle: title
         url: https://saga11.dev
-
   - type: price
     template: components/price/price.liquid
     title: Price table
@@ -211,7 +212,7 @@ components:
       - image: /content/upload/spaceship.png
         title: alt text first image
       - image: /content/upload/4hundo.gif
-        title: "alt text seconda image"
+        title: alt text seconda image
       - image: /content/upload/kazoo-funerels.jpg
         title: "333"
   - type: images
@@ -221,10 +222,9 @@ components:
       - image: /content/upload/spaceship.png
         title: alt text first image
       - image: /content/upload/4hundo.gif
-        title: "alt text seconda image"
+        title: alt text seconda image
       - image: /content/upload/kazoo-funerels.jpg
         title: "333"
-
     text: "lorem "
   - type: form
     title: Form component
@@ -308,25 +308,22 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
+image: /content/upload/spaceship.png
 tags:
   - saga11
   - test
 url: component
+layout: page/page.liquid
+date: 2023-06-12 11:58:55
+eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Components
   parent: main
   key: component
   order: 10
   excerpt: "*This is the text for the menu*"
-layout: page/page.liquid
-eleventyExcludeFromCollections: false
 ---
 
-  - type: calendar
-    date_start: 2022-09-26 14:20:59
-    date_end: 2022-09-26 14:21:02
-    date_allday: true
-    template: components/calendar/calendar.liquid
   - type: pagecard
     template: components/pagecard/pagecard.liquid
     page:

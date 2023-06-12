@@ -19,8 +19,10 @@ saga-template-name: Post Default
 {% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
 {% assign nextPost =    collections.allPosts | getNextCollectionItem %}
 {% include 'nav/pre-next.liquid',
-      previousPost: previousPost,
-      nextPost: nextPost
+      previous: previousPost,
+      next: nextPost,
+      pretext: previousPost.data.title,
+      nexttext: nextPost.data.title,
 %}
 
 {% if image %}
