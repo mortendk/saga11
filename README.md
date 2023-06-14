@@ -1,5 +1,10 @@
 Saga eleven - A Static Website builder powered by 11ty and netlifycms
 
+## 14.june 23 : The next version (beta 0.8) will shift to liquid instead of nunjucks 
+I got frustrated with the lack of includes and images - so when 0.8 gets out here over the summer its gonna be in liquid 
+follow along in the liquid branch
+
+
 # HTML + MarkDown = 💜
 
 ## ⚠️ This is Beta software
