@@ -12,6 +12,12 @@ card:
     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     "
 components:
+  - type: pagecard
+    template: components/pagecard/pagecard.liquid
+    page:
+      - /
+      - foo
+      - component
   - type: calendar
     date_start: 2023-06-10 09:00:10
     date_end: 2023-06-10 11:59:45
@@ -323,16 +329,6 @@ eleventyNavigation:
   order: 10
   excerpt: "*This is the text for the menu*"
 ---
-
-  - type: pagecard
-    template: components/pagecard/pagecard.liquid
-    page:
-      - /
-
-
-
-
-
 
 **This is probably the best description ever of a movie**
 

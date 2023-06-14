@@ -8,7 +8,7 @@ card:
   text: This is a page and just a page
 tags:
   - test
-url: /pagefoo
+url: foo
 eleventyNavigation:
   parent: main
   title: Page

@@ -1,7 +1,7 @@
 {% comment %}
   Generate image
 {% endcomment %}
-{% include 'image.liquid',
+{% render 'image.liquid',
   file: image,
   alt: title,
   sizes: "(min-width: 30em) 50vw, 100vw",
@@ -17,7 +17,7 @@
 {% endcomment %}
 {% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
 {% assign next =    collections.copenhellshows | getNextCollectionItem %}
-{% include 'nav/pre-next.liquid',
+{% render 'nav/pre-next.liquid',
       previous: previous,
       next: next,
       pretext: previous.data.show.object.title,

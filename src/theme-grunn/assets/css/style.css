@@ -2223,10 +2223,6 @@ pre[class*="language-"] {
   grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -2526,11 +2522,6 @@ pre[class*="language-"] {
 
 .bg-information-500 {
   background-color: var(--color-information-500);
-}
-
-.bg-lime-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(163 230 53 / var(--tw-bg-opacity));
 }
 
 .bg-orange-100 {
@@ -3259,11 +3250,6 @@ pre[class*="language-"] {
   color: rgb(21 94 117 / var(--tw-text-opacity));
 }
 
-.hover\:text-gray-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
-}
-
 .hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -3571,14 +3557,6 @@ pre[class*="language-"] {
 @media (min-width: 1024px) {
   .lg\:absolute {
     position: absolute;
-  }
-
-  .lg\:relative {
-    position: relative;
-  }
-
-  .lg\:inset-0 {
-    inset: 0px;
   }
 
   .lg\:inset-y-0 {

@@ -1,5 +1,7 @@
 const path = require("path");
 const fs = require("fs");
+const util = require('util');
+
 
 // Get settings
 const settings = require("./saga11.config.js");
@@ -48,8 +50,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidFilter("getNewestCollectionItemDate", pluginRss.getNewestCollectionItemDate);
   eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
 
-
-  // eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
+  eleventyConfig.addFilter('console', function(value) {
+    const str = util.inspect(value);
+    return `<pre style="white-space: pre-wrap;">${unescape(str)}</pre>;`
+  });
+  eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
   // eleventyConfig.addFilter("debugpretty", require("./src/_system/11ty/filter/debugPretty.js"));
 
   // Collections

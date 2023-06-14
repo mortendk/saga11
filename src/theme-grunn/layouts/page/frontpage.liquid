@@ -6,6 +6,23 @@ saga-template-name: Frontpage
 <!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->
 {%- endif -%}
 
+{%
+  # this is a comment
+%}
+
+
+{% assign all = collections.saga11  | sort_natural: "data.title"  %}
+{% for item in all  limit: 10 %}
+
+  {{ item.data.order }} -
+  {{ item.data.title }}
+<br>
+
+{% endfor %}
+
+{% comment %}
+
+
 <article class="flex flex-col md:flex-row">
 
   {% render
@@ -25,3 +42,4 @@ saga-template-name: Frontpage
 </article>
 
 {% include "components/all.liquid" %}
+{% endcomment %}

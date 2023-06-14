@@ -3,12 +3,12 @@
 {%- endif -%}
 
 {% if component.date_start %}
-  {% capture day %}
+
+{% capture day %}
   {% assign daystart = component.date_start | date: "%A %d %B" %}
   {% assign dayend = component.date_end | date: "%A %d %B" %}
 
   {% if component.date_allday == true %}
-    {% comment %}All day{% endcomment %}
     {% if daystart == dayend %}
       {{ component.date_start | dateformat: dateLocalize, "full" | capitalize  }}
     {% else %}

@@ -1,4 +1,12 @@
 {% comment %}
+  {%
+    render 'card',
+    title: item.data.card.title,
+    text: item.data.card.text,
+    image: item.data.card.image,
+    url: item.url,
+    date: item.date
+  %}
 
 {% endcomment %}
 <article aria-label="Post {{ title}}">

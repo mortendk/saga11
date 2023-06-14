@@ -1,0 +1,33 @@
+https://shopify.github.io/liquid
+
+Global:
+{{ site | json }}
+{{ some | json }}
+{{ env | json }}
+{{ page | json }}
+
+Theme & system:
+{{ eleventy | json }}
+{{ saga11version }}
+{{ eleventy.version }}
+{{ theme }}
+{{ layout }}
+
+Time:
+{{ timezone }}
+{{ dateLocalize }}
+
+Content:
+{{ title }}
+{{ image }}
+{{ card | json }}
+{{ tags | json}}
+{{ url }}
+
+{{ eleventyNavigation | json }}
+
+Debug data
+{% for item in collection.all limit: 2 %}
+  {{ item | debug }}
+{% endfor %}
+
