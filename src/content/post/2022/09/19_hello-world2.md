@@ -1,8 +1,6 @@
 ---
-layout: post/post.liquid
-order: 10
 title: A this is a bla bla
-image: /content/upload/spaceship.png
+image: ""
 card:
   title: Hello world blogpost
   image: /content/upload/spaceship.png
@@ -12,7 +10,9 @@ tags:
   - saga11
   - test
   - rssfeed
+order: 10
 date: 2022-09-22 17:14:55
+layout: post/post.liquid
 eleventyExcludeFromCollections: false
 ---
 
