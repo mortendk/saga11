@@ -16,37 +16,46 @@ eleventyExcludeFromCollections: true
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     CMS.registerPreviewStyle("style.css");
-    {% comment %}
+
     // COMPONENTS
     CMS.registerEditorComponent({
-      id: "shortcode-picture",
-      label: "Shortcode: Picture",
+      id: "shortcode-image",
+      label: "Shortcode: image",
+      collapsed: true,
       fields: [
         {
           name: 'image',
           label: 'image',
           widget: 'image',
-          choose_url: false
-        }, {
+          choose_url: true
+        },
+        {
           name: 'alt',
           label: 'alt',
+          widget: 'string'
+        },
+        {
+          name: 'widths',
+          label: 'widths',
           widget: 'string',
-          default: ''
+          default: '640',
+          required: true,
+          hint: 'widths can be set as an array ex: 400, 800, 1200'
         }
       ],
-      pattern: /^{\% picture img="(.*?)", alt="(.*?)" \%}$/ms,
+      pattern: /^{\% render "image.liquid" file:"(.*?)", alt:"(.*?)", widths:"(.*?)" \%}$/ms,
       fromBlock: function (match) {
-        return {image: match[1], alt: match[2]};
+        return {image: match[1], alt: match[2],widths: match[3]};
       },
       toBlock: function (data) {
-        return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
+        return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}", widths:"${data.widths}" \%\}`;
       },
       toPreview: function (data) {
-        return `\{\% picture img="${data.image}", alt="${data.alt}" \%\}`;
+        return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}"  \%\}`;
       }
     });
   </script>
-{% endcomment %}
+
 {% comment %}
   <script>
     // https://github.com/netlify/netlify-cms/issues/2183

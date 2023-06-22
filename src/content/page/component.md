@@ -1,5 +1,5 @@
 ---
-title: All existing components
+title: Components
 card:
   title: Title from a card
   image: /content/upload/spaceship.png

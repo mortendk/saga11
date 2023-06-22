@@ -37,6 +37,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("month", require("./src/_system/11ty/filter/dateMonth.js"));
   eleventyConfig.addFilter("dateformat", require("./src/_system/11ty/filter/dateFormat.js"));
 
+  // todo: do we need these post liquid change
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
   eleventyConfig.addFilter("sortByOrder", require("./src/_system/11ty/filter/sortByOrder.js"));
   eleventyConfig.addFilter("sortByTitle", require("./src/_system/11ty/filter/sortByTitle.js"));
@@ -50,6 +51,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidFilter("getNewestCollectionItemDate", pluginRss.getNewestCollectionItemDate);
   eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
 
+  // gimme the data filter
   eleventyConfig.addFilter('console', function(value) {
     const str = util.inspect(value);
     return `<pre style="white-space: pre-wrap;">${unescape(str)}</pre>;`

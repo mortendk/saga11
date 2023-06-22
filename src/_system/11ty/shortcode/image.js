@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
-module.exports = async function (file, width, format, alttext, sizes, loading, css) {
+module.exports = async function (file, widths, format, alttext, sizes, loading, css) {
   // src = "src" + file;
   if (fs.existsSync("src" + file)) {
     src = "src" + file;
@@ -12,11 +12,16 @@ module.exports = async function (file, width, format, alttext, sizes, loading, c
     console.log(` missing src: ${file} - ${src}`);
   }
 
-  const cssclasses = css || "";
+  const theCss = css || "";
+  const theFormat = format || "webp";
+  const theSizes = sizes || "(min-width: 30em) 50vw, 100vw";
+  const theLoading = loading || "lazy";
+  const theWidths = widths || ["640", "1024", "1563"];
+
 
   let metadata = await Image(src, {
-    widths: width,
-    formats: format ,
+    widths: theWidths,
+    formats: theFormat ,
     urlPath: "/img/",
     outputDir: "_site/img/",
     sharpOptions: {
@@ -27,16 +32,16 @@ module.exports = async function (file, width, format, alttext, sizes, loading, c
       directory: ".cache",
       removeUrlQueryParams: false,
     },
-    filenameFormat: function (id, src, width, format, options) {
-      return `${id}-${width}w.${format}`;
+    filenameFormat: function (id, src, width, formats, options) {
+      return `${id}-${width}w.${formats}`;
     },
   });
 
   let imageAttributes = {
     alt: alttext || "",
-    sizes,
-    loading,
-    class: cssclasses,
+    sizes: theSizes,
+    loading: theLoading,
+    class: theCss,
     decoding: "async",
   };
 
