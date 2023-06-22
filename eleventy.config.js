@@ -2,6 +2,10 @@ const path = require("path");
 const fs = require("fs");
 const util = require('util');
 
+const markdownIt = require('markdown-it');
+const markdownItEleventyImg = require("markdown-it-eleventy-img");
+
+
 // Get settings
 const settings = require("./saga11.config.js");
 const env = require("./src/content/_data/env.js");
@@ -103,6 +107,30 @@ module.exports = function (eleventyConfig) {
     dynamicPartials: true,
     strict_filters: true,
   });
+
+  eleventyConfig.setLibrary('md', markdownIt ({
+    html: true,
+    breaks: true,
+    linkify: true
+  })
+  .use(markdownItEleventyImg, {
+    imgOptions: {
+      widths: [640, 1200],
+      urlPath: "/img",
+      outputDir: "./_site/img/",
+      formats: ["webp"]
+    },
+    globalAttributes: {
+      class: "markdown-image",
+      decoding: "async",
+      loading: "lazy",
+      // If you use multiple widths,
+      // don't forget to add a `sizes` attribute.
+      sizes: "100vw"
+    },
+    resolvePath: (filepath) => path.join('src', filepath)
+
+  }));
 
   return {
     dir: {

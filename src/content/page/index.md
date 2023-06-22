@@ -24,7 +24,7 @@ eleventyNavigation:
   key: main
   excerpt: Mega text
 ---
-{% render "image.liquid" file:"/content/upload/4hundo.gif", alt:"test", widths:"500" %}
+![MEGA SPACESHOP](/content/upload/spaceship.png "skdjflsjkd")
 
 😍 it works{tm}
 
