@@ -34,6 +34,7 @@
 %}
 {% include "_system/_decapcms/fields/card.liquid" %}
 {% include "_system/_decapcms/fields/component.liquid" %}
+
 {% include "_system/_decapcms/widgets/image",
   name: "image",
   label: "Image",
@@ -43,8 +44,17 @@
   required: "false",
   hint: "image"
 %}
-{% include "_system/_decapcms/fields/content.liquid" %}
+
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
 {% include "_system/_decapcms/fields/tags.liquid" %}
+
 {% include "_system/_decapcms/widgets/number",
   name: "order",
   label: "order",
@@ -55,14 +65,31 @@
   required: false,
   hint: "optional order"
 %}
-{% include "_system/_decapcms/fields/url.liquid" %}
+
+{% include "_system/_decapcms/widgets/string",
+  name: "url",
+  label: "url",
+  default: "",
+  required: false,
+  hint: ""
+%}
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page" %}
+
 {% include "_system/_decapcms/widgets/datetime",
   name: "date",
   label: "Date",
   default: "true",
   required: "false",
-  hint: "help text"
+  hint: ""
 %}
-{% include "_system/_decapcms/fields/draft.liquid" %}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "😴 Draft Mode",
+  default: "false",
+  required: "false",
+  hint: "Draft mode"
+%}
+
+
 {% include "_system/_decapcms/fields/menu.liquid" %}

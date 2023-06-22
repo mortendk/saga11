@@ -13,8 +13,22 @@
     editor:
       preview: false
     fields:
-{% include "_system/_decapcms/fields/title.liquid" %}
-{% include "_system/_decapcms/fields/content.liquid" %}
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
 {% include "_system/_decapcms/fields/menu.liquid" %}
 
 {% comment %}

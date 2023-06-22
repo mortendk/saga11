@@ -32,7 +32,13 @@
       depth: 100 # max depth to show in the collection tree
       summary: "{% raw %}{{title}}{% endraw %}"
     fields:
-{% include "_system/_decapcms/fields/title.liquid" %}
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
 {% include "_system/_decapcms/widgets/image",
   name: "image",
   label: "image",
@@ -43,7 +49,15 @@
   hint: "image"
 %}
 {% include "_system/_decapcms/fields/card.liquid" %}
-{% include "_system/_decapcms/fields/content.liquid" %}
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
+
 {% include "_system/_decapcms/fields/tags.liquid" %}
 {% include "_system/_decapcms/widgets/number",
   name: "order",
@@ -63,4 +77,12 @@
   hint: "help text"
 %}
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
-{% include "_system/_decapcms/fields/draft.liquid" %}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "😴 Draft Mode",
+  default: "false",
+  required: "false",
+  hint: "Draft mode"
+%}
+

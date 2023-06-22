@@ -4,7 +4,7 @@
     description: "This is an example of a custom content type"
     folder: "src/content/custom"
     slug: "{% raw %}{{title}}{% endraw %}"
-    preview_path: /foobar/{% raw %}{{title}}{% endraw %}/
+    preview_path: /custom/{% raw %}{{title}}{% endraw %}/
     create: true
     delete: true
     hide: false
@@ -120,4 +120,11 @@
   hint: "help text"
 %}
 
-{% include "_system/_decapcms/fields/draft.liquid" %}
+{% include "_system/_decapcms/widgets/boolean",
+name: "eleventyExcludeFromCollections",
+label: "😴 Draft Mode",
+default: "false",
+required: "false",
+hint: "Draft mode"
+%}
+

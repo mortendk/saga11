@@ -23,7 +23,21 @@
       - label: Tags
         field: tags
     fields:
-{% include "_system/_decapcms/fields/title.liquid" %}
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
 {% include "_system/_decapcms/fields/blockposition.liquid" %}
 {% include "_system/_decapcms/fields/component.liquid" %}
-{% include "_system/_decapcms/fields/draft.liquid" %}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "😴 Draft Mode",
+  default: "false",
+  required: "false",
+  hint: "Draft mode"
+%}
+

@@ -23,7 +23,13 @@
       - label: Tags
         field: tags
     fields:
-{% include "_system/_decapcms/fields/title.liquid" %}
+{% include "_system/_decapcms/widgets/string",
+    name: "title",
+    label: "title",
+    default: "",
+    required: true,
+    hint: ""
+%}
       - label: 💁🏽‍♂️ status
         name: "status"
         widget: "select"
@@ -45,6 +51,27 @@
         widget: "boolean"
         default: false
 
-{% include "_system/_decapcms/fields/content.liquid" %}
-{% include "_system/_decapcms/fields/date.liquid" %}
-{% include "_system/_decapcms/fields/draft.liquid" %}
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
+{% include "_system/_decapcms/widgets/datetime",
+  name: "date",
+  label: "Date",
+  default: "true",
+  required: "false",
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "😴 Draft Mode",
+  default: "false",
+  required: "false",
+  hint: "Draft mode"
+%}
+
