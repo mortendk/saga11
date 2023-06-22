@@ -82,7 +82,7 @@ module.exports = function (eleventyConfig) {
   // Fix placement of files
   eleventyConfig.addPassthroughCopy({"src/theme-grunn/assets/" : "/assets/"});
   eleventyConfig.addPassthroughCopy({"src/theme-grunn/service-workers.js" : "service-workers.js"});
-
+  eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/upload/"});
   // eleventyConfig.addPassthroughCopy("src/themes/debug/");
 
   // global vars todo: is this existing for liquid ?
@@ -90,10 +90,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("theme", theme);
   eleventyConfig.addGlobalData("timezone", timeZone);
   eleventyConfig.addGlobalData("dateLocalize", dateLocalize);
-
-  // Date and time fun
-  // eleventyConfig.addGlobalData("timeZone", timeZone);
-  // eleventyConfig.addGlobalData("dateFormat", dateFormat);
 
   // Local Server
   eleventyConfig.setServerOptions({
@@ -122,7 +118,7 @@ module.exports = function (eleventyConfig) {
       formats: ["webp"]
     },
     globalAttributes: {
-      class: "markdown-image",
+      class: "md-image",
       decoding: "async",
       loading: "lazy",
       // If you use multiple widths,
@@ -135,7 +131,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(embedYouTube, {
     // just an example, see default values below:
-    embedClass: 'embedvideo',
+    embedClass: 'md-embedvideo',
     lite: true,
     modestBranding: true
   });
