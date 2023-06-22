@@ -2,68 +2,73 @@
 <!-- 👋 sections src/theme-grunn/includes/components/address/address.liquid -->
 {%- endif -%}
 
-<article class="mx-auto max-w-3xl">
-  {% if component.title %}
-  <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
-    {{ component.title }}
-  </h3>
-  {% endif %}
+<section class="flex flex-row py-20 px-20">
+  <div class="basis-5/12 pr-20">
 
-  {% if component.text %}
-  <div class="prose prose-xl dark:prose-invert">
-    {{ component.text | markdown }}
+    {% if component.title %}
+      <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4">{{ component.title }}</h3>
+    {% endif %}
+
+    {% if component.text %}
+      <div class="prose prose-xl dark:prose-invert">{{ component.text }}</div>
+    {% endif %}
+
   </div>
-  {% endif %}
-</article>
-
-<div class="flex space-x-8 w-full py-8" aria-label="Address">
+  <div class="basis-7/12 grid grid-cols-2 gap-4">
 
   {% comment %}address {% endcomment %}
   {% for item in component.address %}
-  <article class="flex-1">
-    <h2 class="text-2xl">{{ item.name }}</h2>
-    <div>{{ item.street }}</div>
+    <article class="bg-tone-50 shadow-sm rounded-sm p-8" aria-label="Address">
 
-    <div class="flex flex-row">
-      <div>{{ item.locality }}</div>
-      <div>{{ item.zip }}</div>
-    </div>
+      <h2 class="text-2xl pb-4">{{ item.name }}</h2>
 
-    <div>{{ item.country }}</div>
-
-    <div class="py-4">
-      {% if item.phone %}
-      <div class="flex flex-row items-center">
-        <div class="w-4 h-4 text-black mr-2">{% include "./phone.svg" %}</div>
-        <a href="tel:{{ item.phone | replace:" ", "" }}" itemprop="telephone">{{ item.phone }}</a>
+      <div class="flex flex-row">
+        <div class="w-4 h-4 text-tone-300 mr-2">{% include "./building-office-2.svg" %}</div>
+        <div class="space-y-1">
+          <div>{{ item.street }}</div>
+          <div>{{ item.locality }}</div>
+          <div>{{ item.zip }}</div>
+          <div>{{ item.country }}</div>
+        </div>
       </div>
-      {% endif %}
 
-      {% if item.email %}
-      <div class="flex flex-row items-center">
-        <div class="w-4 h-4 text-black mr-2">{% include "./envelope.svg" %}</div>
-        <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
+      <div class="flex flex-col space-y-4 pt-4">
+        {% if item.phone %}
+          <div class="flex flex-row items-center">
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./phone.svg" %}</div>
+            <a href="tel:{{ item.phone | replace:" ", "" }}" itemprop="telephone">{{ item.phone }}</a>
+          </div>
+        {% endif %}
+
+        {% if item.email %}
+          <div class="flex flex-row items-center">
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./envelope.svg" %}</div>
+            <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
+          </div>
+        {% endif %}
+
+        {% if item.url %}
+          <div class="flex flex-row items-center">
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./arrow-top-right-on-square.svg" %}</div>
+            <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
+          </div>
+        {% endif %}
       </div>
+      {% if item.street and item.zip and item.country %}
+      <button onclick="openinmap('{{ item.street }},{{ item.zip }},{{ item.country }}')" target="_blank" rel="noopener" class="inline-flex flex-row items-center">
+        <div class="w-4 mr-2">{% include "./map-pin.svg" %}</div>
+        <div>Map</div>
+      </button>
       {% endif %}
+    </article>
 
-      {% if item.url %}
-      <div class="flex flex-row items-center">
-        <div class="w-4 h-4 text-black mr-2">{% include "./arrow-top-right-on-square.svg" %}</div>
-        <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
-      </div>
-      {% endif %}
-    </div>
+    {% endfor %}
 
-    <button onclick="openinmap('{{ item.street }},{{ item.zip }},{{ item.country }}')" target="_blank" rel="noopener" class="inline-flex flex-row items-center  p-1 font-bold">
-      <div class="w-4 mr-2">{% include "./map-pin.svg" %}</div>
-      <div>Map</div>
-    </button>
 
-  </article>
+  </div>
+</section>
 
-  {% endfor %}
 
-</div>
 
 
 {% comment %}This is used for the iphone / android so they can work prober cause ...
