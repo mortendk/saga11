@@ -29,7 +29,7 @@
             fields:
               - { label: title, name: title, widget: string, required: false }
               - { label: text, name: text, widget: markdown, required: false }
-              - { label: Image, name: image, widget: image, choose_url: false,required: false }
+              - { label: Image, name: image, widget: image, choose_url: true,required: false }
               - { label: alt, name: alt, widget: string, required: false }
               - name: "template"
                 label: "Template"
@@ -54,7 +54,7 @@
                 widget: list
                 add_to_top: true
                 fields:
-                  - { label: Image, name: image, widget: image, choose_url: false }
+                  - { label: Image, name: image, widget: image, choose_url: true }
                   - { label: title, name: title, widget: string, required: false }
               - name: "template"
                 label: "Template"
@@ -74,7 +74,7 @@
               - { label: "title", name: "title", widget: "string", required: false }
               - { label: "ctalink", name: "url", widget: "string", required: false }
               - { label: "cta text", name: "cta", widget: "string", required: false }
-              - { label: "Image", name: "image", widget: "image", required: false, choose_url: false }
+              - { label: "Image", name: "image", widget: "image", required: false, choose_url: true }
               - { label: "Image alt", name: "alt", widget: "string", required: false }
               - { label: "Text", name: "text", widget: "markdown", required: false }
               - name: "template"
@@ -101,7 +101,7 @@
                 fields:
                   - { label: title, name: title, widget: string, required: false }
                   - { label: "Text", name: "text", widget: "markdown", required: false }
-                  - { label: Image, name: image, widget: "image", required: false, choose_url: false }
+                  - { label: Image, name: image, widget: "image", required: false, choose_url: true }
                   - { label: Person, name: person, widget: string, required: false }
                   - { label: Person title, name: persontitle, widget: string, required: false }
                   - { label: url, name: url, widget: string, required: false }

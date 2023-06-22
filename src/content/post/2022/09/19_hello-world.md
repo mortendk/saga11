@@ -1,18 +1,18 @@
 ---
-layout: post/post.liquid
-order: 5
 title: B boom Hello World
 image: /content/upload/spaceship.png
 card:
   title: Hello world blogpost
-  image: /content/upload/spaceship.png
+  image: https://images.unsplash.com/photo-1586622992874-27d98f198139
   alt: To the moon
   text: "This is text in a card and used for sharing and teaser on the site. "
 tags:
   - saga11
   - test
   - rssfeed
+order: 5
 date: 2023-07-27 00:00:00
+layout: post/post.liquid
 eleventyExcludeFromCollections: false
 ---
 

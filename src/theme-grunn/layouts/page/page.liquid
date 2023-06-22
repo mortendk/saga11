@@ -2,12 +2,7 @@
 layout: default.liquid
 saga-template-name: Page default
 ---
-{% comment %}
-TODO: Page should be renamed to something else apparently liquid cand figure out whats a page.url vs this page
-{% endcomment %}
-{%- if env.mode != 'prod' %}
-<!-- 👋 sections src/theme-grunn/layouts/page/page.liquid -->
-{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/page.liquid -->{%- endif -%}
 
 <h1 class="text-5xl">{{ title }}</h1>
 

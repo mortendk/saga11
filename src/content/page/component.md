@@ -202,8 +202,6 @@ components:
         title: alt text first image
       - image: /content/upload/4hundo.gif
         title: alt text seconda image
-      - image: /content/upload/kazoo-funerels.jpg
-        title: "333"
   - type: images
     template: components/images/images-grid.liquid
     title: image gallery grid
@@ -212,8 +210,6 @@ components:
         title: alt text first image
       - image: /content/upload/4hundo.gif
         title: alt text seconda image
-      - image: /content/upload/kazoo-funerels.jpg
-        title: "333"
     text: "lorem "
   - type: form
     title: Form component
@@ -297,7 +293,7 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-image: /content/upload/spaceship.png
+image: https://images.unsplash.com/photo-1496449903678-68ddcb189a24
 tags:
   - saga11
   - rssfeed

@@ -8,14 +8,11 @@ data: copenhell stuff
     <a href="{{ item.url  }}">{{ item.data.show.object.title }}</a>
     {{ item.data.show.venue.title }}
 
-
-      {{ item.data.show.date_start | date: "%A %d  %B" }}
-      kl: {{ item.data.show.time_start | replace: ":00", "" }}
-      tags
-
-
+    {{ item.data.show.date_start | date: "%A %d  %B" }}
+    kl: {{ item.data.show.time_start | replace: ":00", "" }}
+    tags
 
    </div>
 
-   {{ item.data.show | json  }}
-  {% endfor %}
+  {{ item.data.show | json  }}
+{% endfor %}

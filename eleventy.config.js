@@ -2,7 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const util = require('util');
 
-
 // Get settings
 const settings = require("./saga11.config.js");
 const env = require("./src/content/_data/env.js");
@@ -33,18 +32,17 @@ module.exports = function (eleventyConfig) {
 
   // Filters
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
-  eleventyConfig.addFilter("sortByOrder", require("./src/_system/11ty/filter/sortByOrder.js"));
-  eleventyConfig.addFilter("sortByTitle", require("./src/_system/11ty/filter/sortByTitle.js"));
-  eleventyConfig.addFilter("sortByFilepath", require("./src/_system/11ty/filter/sortByFilepath.js"));
-  eleventyConfig.addFilter("filtertags", require("./src/_system/11ty/filter/taglist.js"));
-  eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));
-
   eleventyConfig.addFilter("weekday", require("./src/_system/11ty/filter/dateWeekday.js"));
   eleventyConfig.addFilter("month", require("./src/_system/11ty/filter/dateMonth.js"));
   eleventyConfig.addFilter("dateformat", require("./src/_system/11ty/filter/dateFormat.js"));
 
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
+  eleventyConfig.addFilter("sortByOrder", require("./src/_system/11ty/filter/sortByOrder.js"));
+  eleventyConfig.addFilter("sortByTitle", require("./src/_system/11ty/filter/sortByTitle.js"));
+  eleventyConfig.addFilter("sortByFilepath", require("./src/_system/11ty/filter/sortByFilepath.js"));
+  eleventyConfig.addFilter("filtertags", require("./src/_system/11ty/filter/taglist.js"));
+  eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
 
   //RSS filters
   eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
@@ -56,6 +54,7 @@ module.exports = function (eleventyConfig) {
     const str = util.inspect(value);
     return `<pre style="white-space: pre-wrap;">${unescape(str)}</pre>;`
   });
+
   eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
   // eleventyConfig.addFilter("debugpretty", require("./src/_system/11ty/filter/debugPretty.js"));
 
