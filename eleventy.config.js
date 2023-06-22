@@ -4,6 +4,7 @@ const util = require('util');
 
 const markdownIt = require('markdown-it');
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
+const embedYouTube = require("eleventy-plugin-youtube-embed");
 
 
 // Get settings
@@ -131,6 +132,13 @@ module.exports = function (eleventyConfig) {
     resolvePath: (filepath) => path.join('src', filepath)
 
   }));
+
+  eleventyConfig.addPlugin(embedYouTube, {
+    // just an example, see default values below:
+    embedClass: 'embedvideo',
+    lite: true,
+    modestBranding: true
+  });
 
   return {
     dir: {

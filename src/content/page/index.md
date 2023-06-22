@@ -24,7 +24,7 @@ eleventyNavigation:
   key: main
   excerpt: Mega text
 ---
-![MEGA SPACESHOP](/content/upload/spaceship.png "skdjflsjkd")
+![MEGA SPACESHOP](/content/upload/spaceship.png "youtube.com/watch?v=dQw4w9WgXcQskdjflsjkd")
 
 😍 it works{tm}
 
@@ -39,3 +39,8 @@ eleventyNavigation:
 🎈 saga11 is build on top of [11ty](https://11ty.dev) & [NetlifyCMS](https://netlifycms.com)
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
+
+L﻿ets get rolling
+
+\
+youtube.com/watch?v=dQw4w9WgXcQ
