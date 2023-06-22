@@ -26,8 +26,6 @@ eleventyNavigation:
 ---
 {% render "image.liquid" file:"/content/upload/4hundo.gif", alt:"test", widths:"500" %}
 
-{% render "image.liquid" file:"https://images.unsplash.com/photo-1586622992874-27d98f198139", alt:"foovar", widths:"400, 800, 1200" %}
-
 😍 it works{tm}
 
 👉 To make the admin work clone the env.example to .env
