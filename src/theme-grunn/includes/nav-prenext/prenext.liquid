@@ -1,0 +1,27 @@
+{% comment %}
+
+{% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
+{% assign next =    collections.copenhellshows | getNextCollectionItem %}
+{% include 'nav/pre-next.liquid',
+      previous: previous,
+      next: next,
+      pretext: previous.item.data.title,
+      nexttext: next.item.data.title,
+%}
+
+{% endcomment %}
+<nav class="flex flex-row justify-between w-full" aria-label="Pre and Next post">
+  {% if previous %}
+  <a href="{{ previous.url }}" class="flex flex-row items-center">
+    <div class="w-4 text-black">{% include "./arrow-left.svg" %}</div>
+    <div>{{ pretext }}</div>
+  </a>
+  {% endif %}
+
+  {% if next %}
+  <a href="{{ next.url }}" class="flex flex-row items-center justify-end w-full">
+    <div>{{ nexttext }}</div>
+    <div class="w-4 text-black">{% include "./arrow-right.svg" %}</div>
+  </a>
+  {% endif %}
+</nav>

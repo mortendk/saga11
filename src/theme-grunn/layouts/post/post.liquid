@@ -8,17 +8,21 @@ saga-template-name: Post Default
 {%- endif -%}
 
 <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
-{% include "nav/share.liquid" %}
 
-{% include "nav/links",
-  collection : collections.allPosts,
-  url: page.url,
-  showdate: true
+{% include "some/share.liquid" %}
+
+{% include "linklist/linklist.liquid",
+    collection : collections.allPosts,
+    url: page.url,
+    limit: 3,
+    sort: "data.title",
+    showdate: true
 %}
+
 
 {% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
 {% assign nextPost =    collections.allPosts | getNextCollectionItem %}
-{% include 'nav/pre-next.liquid',
+{% include 'nav-prenext/prenext.liquid',
       previous: previousPost,
       next: nextPost,
       pretext: previousPost.data.title,
@@ -26,17 +30,17 @@ saga-template-name: Post Default
 %}
 
 {% if image %}
-<div class="aspect-video overflow-hidden shadow-lg">
-  {% include 'image.liquid',
-  file: image,
-  alt: title,
-  sizes: "(min-width: 30em) 50vw, 100vw",
-  widths: "400, 800, 1200",
-  format: "webp",
-  loading: "lazy",
-  css: "w-full"
-  %}
-</div>
+  <div class="aspect-video overflow-hidden shadow-lg">
+    {% include 'image.liquid',
+    file: image,
+    alt: title,
+    sizes: "(min-width: 30em) 50vw, 100vw",
+    widths: "400, 800, 1200",
+    format: "webp",
+    loading: "lazy",
+    css: "w-full"
+    %}
+  </div>
 {% endif %}
 
 <article class="flex flex-col md:flex-row">

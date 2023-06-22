@@ -2,17 +2,8 @@
 <!-- 👋 pagecard/pagecard.liquid -->
 {%- endif -%}
 
-{% comment %}
-Page card
-------------------------------------------------
-This template controls how the pagecard template is rendered.
 
-We count the amount of cards that are attached to the componenet pagecard and defines a grid
-that matches - and then includes the right card include that matches
-  | where: "url", page
-{% endcomment %}
-
-<section class="grid grid-cols-4 gap-4">
+<section class="grid grid-cols-3 gap-4">
 {% for page in component.page %}
 
   {% assign pages = collections.all  %}

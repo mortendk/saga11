@@ -1,0 +1,52 @@
+{%- if env.mode != 'prod' %}
+<!-- 👋 nav/menu.liquid -->
+{%- endif  -%}
+
+{% assign menulvl1 = "inline-flex items-center text-xl font-bold border-b-4 transition hover:bg-cyan-50/50 dark:hover:bg-gray-900 hover:border-cyan-500/50" %}
+{% assign menulvl2 = "p-4 text-lg hover:text-cyan-600 hover:bg-cyan-500/10" %}
+
+<nav class="h-full hidden md:block" aria-label="Main Menu">
+  <div class="flex justify-between h-full">
+    <div class="flex space-x-4">
+      {% comment %}level 1 {% endcomment %}
+      {% assign menu = collections.all | eleventyNavigation: "main" %}
+      {%- for item in menu  %}
+      {% comment %}test if theres children to the first level of menu items {% endcomment %}
+      {% if not item.children.size %}
+      <a href="{{ item.url }}" {% if item.url in page.url %} aria-current="page" class="{{ menulvl1 }} text-cyan-600 dark:text-cyan-200 border-cyan-500/20" {% else  %}
+        class="{{ menulvl1 }} text-gray-500 dark:text-cyan-200 border-transparent" {% endif %} {% if item.target %} target="_blank" rel="noopener" {% endif %} {% if item.excerpt %}
+        title="{{ item.excerpt | markdown  }}" {% endif %}>
+        {{ item.title }}
+      </a>
+      {% else %}
+      {% comment %}Level 1 + level 2 {% endcomment %}
+      <div x-data="{openmenuitem: false}" class="{{ menulvl1 }} text-gray-500 dark:text-cyan-200 border-transparent" @click="openmenuitem = true">
+        <div class="flex items-center">
+          <div>{{ item.title }}</div>
+          <div class="w-4 h-4 text-gray-400 dark:text-cyan-200 ml-2 mt-2">{% include "./chevron-down.svg" %}</div>
+        </div>
+        {% comment %}Here level 2that opens up when clicked {% endcomment %}
+        <div class="absolute z-40 top-20 min-h-40 w-60 bg-white/90 dark:bg-gray-900/90 shadow-lg flex flex-col rounded-md dark:rounded-none" x-cloak x-show="openmenuitem"
+          @mouseover="openmenuitem = true" @click.outside="openmenuitem = false">
+          {% comment %}We repeat the link from placeholder above so it works on a ipad etc {% endcomment %}
+          <a href="{{ item.url }}" class="{{ menulvl2 }}" {% if item.excerpt %} title="{{ item.excerpt }}" {% endif %}>{{ item.title }} </a>
+
+          {% comment %}Loop next level {% endcomment %}
+          {% assign submenu = collections.all | eleventyNavigation: item.key %}
+          {%- for item in submenu %}
+          <a href="{{ item.url }}" class="{{ menulvl2 }}" {% if item.target %}target="_blank" rel="noopener" {% endif %} {% if item.excerpt %}title="{{ item.excerpt }}" {% endif %}>
+            {{ item.title }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% comment %}/ Level 2 {% endcomment %}
+      {%- endif -%}
+      {%- endfor -%}
+      {% comment %}/level 1 {% endcomment %}
+    </div>
+
+  </div>
+</nav>
+{% comment %}/Menu Desktop {% endcomment %}

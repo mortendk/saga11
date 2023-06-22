@@ -1,5 +1,5 @@
 ---
-title: All existing components :)
+title: All existing components
 card:
   title: Title from a card
   image: /content/upload/spaceship.png
@@ -74,23 +74,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-  - type: features
-    template: components/feature/feature.liquid
-    title: Feature
-    text: lorem..
-    feature:
-      - icon: icons/beaker.svg
-        title: This is a feature
-        text: This is why this is amazing
-      - icon: icons/beaker.svg
-        title: This is a feature
-        text: This is why this is amazing
-      - icon: icons/beaker.svg
-        title: This is a feature
-        text: This is why this is amazing
-      - icon: icons/beaker.svg
-        title: This is a feature
-        text: This is why this is amazing
   - type: download
     template: components/download/download.liquid
     files:
@@ -317,7 +300,8 @@ components:
 image: /content/upload/spaceship.png
 tags:
   - saga11
-  - test
+  - rssfeed
+order: 3
 url: component
 layout: page/page.liquid
 date: 2023-06-12 11:58:55

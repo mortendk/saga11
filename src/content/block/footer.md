@@ -2,6 +2,8 @@
 title: The Footer
 blockposition: footer
 components:
+  - type: njktemplate
+    template: components/templates/socialmedia.liquid
   - type: Address
     template: components/address/address.liquid
     address:
@@ -13,8 +15,7 @@ components:
         phone: +45 12 34 56
         url: https://saga11.dev
         email: foobar@saga11.dev
-  - type: njktemplate
-    template: components/templates/socialmedia.liquid
+    text: c﻿ontact os
 layout: block/block.liquid
 eleventyExcludeFromCollections: false
 ---

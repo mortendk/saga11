@@ -7,15 +7,13 @@
     url: item.url,
     date: item.date
   %}
-
 {% endcomment %}
 <article aria-label="Post {{ title}}">
   <a href="{{ url }}" title="{{ title}}" tabindex="0">
 
-    <div class="shadow-lg aspect-video overflow-hidden">
-      {% if image %}
-      {% render
-          'image.liquid',
+  <div class="shadow-lg aspect-video overflow-hidden bg-tone-100">
+    {% if image %}
+      {% include 'image.liquid',
           file: image,
           alt: title,
           sizes: "(min-width: 30em) 50vw, 100vw",
@@ -23,19 +21,20 @@
           format: "webp",
           loading: "lazy",
           css: "w-full"
-        %}
-      {% endif %}
+      %}
+    {% endif %}
+  </div>
+
+  <div class="shadow border dark:border-none rounded px-4 py-2 border-gray-100 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <h3 class="mt-2 text-2xl dark:text-cyan-200">{{ title }}</h3>
+
+    <div class="mt-2 line-clamp-3">
+        {{ text }}
     </div>
 
-    <div class="shadow border dark:border-none rounded px-4 py-2 border-gray-100 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-      <h3 class="mt-2 text-2xl dark:text-cyan-200">
-        {{ title }}
-      </h3>
-
-      <div class="mt-2">
-        {{ text }}
-      </div>
-
+    <div class="pt-2 text-tone-600 text-right">
+      {{ date | dateformat: dateLocalize, "short" }}
+      {{ date | date: "%H:%M" }}
     </div>
   </a>
 </article>

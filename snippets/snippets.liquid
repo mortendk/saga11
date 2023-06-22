@@ -17,7 +17,7 @@
 {% endcomment %}
 {% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
 {% assign next =    collections.copenhellshows | getNextCollectionItem %}
-{% render 'nav/pre-next.liquid',
+{% render 'nav-prenext/prenext.liquid',
       previous: previous,
       next: next,
       pretext: previous.data.show.object.title,
@@ -34,3 +34,8 @@ format: {{ component.date_start | dateformat: dateLocalize, "full" | capitalize 
 long: {{ component.date_start | dateformat: dateLocalize, "long" | capitalize }}
 medium: {{ component.date_start | dateformat: dateLocalize, "medium" | capitalize }}
 short: {{ component.date_start | dateformat: dateLocalize, "short" | capitalize }}
+
+
+{{ date | dateformat: dateLocalize, "short" }}
+{{ date | date: "%H:%M" }}
+

@@ -27,22 +27,22 @@
       {% comment %}pre next {% endcomment %}
       <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" tabindex="0" type="button" aria-label="Previous" :class="isSliderOpen ? 'md:block' : 'md:block'"
         class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/3 left-2 z-10 -translate-y-1/2">
-        {% include "icons/arrow-left.svg" %}
+        {% include "./arrow-left.svg" %}
       </button>
 
       <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)" tabindex="0" type="button" aria-label="Previous" :class="isSliderOpen ? 'md:block' : 'md:block'"
         class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/3 right-2 z-10 -translate-y-1/2">
-        {% include "icons/arrow-right.svg" %}
+        {% include "./arrow-right.svg" %}
       </button>
 
       {% comment %} open/close toggler {% endcomment %}
       <button type="button" aria-label="open close image" class="hidden md:block w-6 h-6 z-10 absolute right-2 top-2" :class="isSliderOpen ? 'text-white dark:text-cyan-200' : 'text-white'"
         @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
         <span x-show="isSliderOpen">
-          {% include "icons/x-mark.svg" %}
+          {% include "./x-mark.svg" %}
         </span>
         <span x-show="!isSliderOpen">
-          {% include "icons/arrow-top-right-on-square.svg" %}
+          {% include "./arrow-top-right-on-square.svg" %}
         </span>
       </button>
 

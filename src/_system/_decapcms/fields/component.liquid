@@ -116,42 +116,6 @@
                 required: true
                 default: "components/testamonial/testamonial.liquid"
 
-          - name: features
-            label: ✅ Features
-            widget: object
-            summary: "{% raw %} {{fields.title }} {{fields.teaser}} {% endraw %}"
-            fields:
-              - { label: "title", name: "title", widget: "string", required: false }
-              - { label: "Text", name: "text", widget: "markdown", required: false }
-              - label: feature
-                name: feature
-                widget: list
-                add_to_top: true
-                fields:
-                  - { label: title, name: title, widget: string, required: false }
-                  - { label: "Text", name: "text", widget: "markdown", required: false }
-                  - name: "icon"
-                    label: "icon"
-                    widget: relation
-                    options_length: 300
-                    collection: icons
-                    searchFields: [title]
-                    valueField: "{% raw %}icons/{{filename}}.{{extension}}{% endraw %}"
-                    displayFields: ["{% raw %}icons/{{filename}}.{{extension}}{% endraw %}"]
-                    required: true
-                    default: "icons/beaker.svg"
-                    hint: "All icons are located in theme/[themename]/icons - the grunn icons are https://heroicons.com/"
-
-              - name: "template"
-                label: "Template"
-                widget: relation
-                collection: componentTemplateFeature
-                searchFields: [title]
-                valueField: "{% raw %}components/feature/{{filename}}.{{extension}}{% endraw %}"
-                displayFields: ["{% raw %}components/feature/{{filename}}.{{extension}}{% endraw %}"]
-                required: true
-                default: "components/feature/feature.liquid"
-
           - name: "calendar"
             label: "📆 Calendar / Event"
             widget: object
@@ -310,9 +274,9 @@
             widget: object
             summary: '{{fields.title}} || {{fields.template}}'
             fields:
-              - { label: title, name: title, widget: string, default: 'Form Submitted', required: false }
-              - { label: Form name, name: name, widget: string, default: 'contact', required: true, hint: "The name of the form" }
-              - { label: action url, name: action, widget: string, default: '/submitted', required: false, hint: "Link to the url the form goes to after submit" }
+              - { label: title, name: title, widget: string, default: '', required: false }
+              - { label: Form name, name: name, widget: string, default: 'formname', required: true, hint: "Used as the forms name make it unique" }
+              - { label: action url, name: action, widget: string, default: '/submitted', required: true, hint: "Link to the url the form goes to after submit" }
               - label: Form elements
                 name: elements
                 widget: list

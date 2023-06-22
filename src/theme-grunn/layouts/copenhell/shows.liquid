@@ -1,0 +1,30 @@
+---
+layout: default.liquid
+saga-template-name: copenhell shows
+---
+
+<h2 class=" text-3xl">{{ show.object.title }} </h2>
+<div>
+  venue: {{ show.venue.title  }}
+</div>
+<div class="bg-slate-200">
+  {{ show.date_start | date: "%A %d  %B" }}
+  kl: {{ show.time_start | replace: ":00", "" }}
+</div>
+
+{% for foo in show.tags %}
+  <div>{{ foo }}</div>
+{% endfor %}
+
+<div>
+  <pre>{{ show  | json  }}</pre>
+</div>
+
+{% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
+{% assign next =    collections.copenhellshows | getNextCollectionItem %}
+{% include 'nav-prenext/prenext.liquid',
+      previous: previous,
+      next: next,
+      pretext: previous.data.show.object.title,
+      nexttext: next.data.show.object.title,
+%}

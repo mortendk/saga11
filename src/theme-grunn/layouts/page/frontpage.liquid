@@ -2,39 +2,35 @@
 layout: default.liquid
 saga-template-name: Frontpage
 ---
-{%- if env.mode != 'prod' %}
-<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->
-{%- endif -%}
-
-{%
-  # this is a comment
-%}
-
-
-{% assign all = collections.saga11  | sort_natural: "data.title"  %}
-{% for item in all  limit: 10 %}
-
-  {{ item.data.order }} -
-  {{ item.data.title }}
-<br>
-
-{% endfor %}
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->{%- endif -%}
 
 {% comment %}
+{% assign items = collections.saga11 | sort: "data.order" | reverse %}
+{% endcomment %}
 
+{% assign sortField = "date" %}
+{% assign items = collections.saga11 | sort: sortField | reverse  %}
+
+{% for item in items limit: 10 %}
+<a href="{{ item.url  }}">
+  {{ item.date | date: "%d.%m %Y" }}
+  |
+  {{ item.data.title }}
+  | {{ item.data.order }}
+</a>
+<br>
+{% endfor %}
 
 <article class="flex flex-col md:flex-row">
-
-  {% render
-      'image.liquid',
-        file: image,
-        alt: title,
-        sizes: "(min-width: 30em) 50vw, 100vw",
-        widths: "400, 800, 1200",
-        format: "webp",
-        loading: "lazy",
-        css: "w-full"
- %}
+  {% render 'image.liquid',
+      file: image,
+      alt: title,
+      sizes: "(min-width: 30em) 50vw, 100vw",
+      widths: "400, 800, 1200",
+      format: "webp",
+      loading: "lazy",
+      css: "w-full"
+  %}
 
   <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-gray-700">
     {{ content }}
@@ -42,4 +38,5 @@ saga-template-name: Frontpage
 </article>
 
 {% include "components/all.liquid" %}
-{% endcomment %}
+
+

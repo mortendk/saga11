@@ -51,10 +51,10 @@
 
       {% comment %}url link {% endcomment %}
       {% if item.url %}
-      <a href="{{ item.url }}" target="_blank" rel="noopener" class="flex w-12 h-12 justify-center items-center rounded-full">
+      <a href="{{ item.url }}" target="_blank" class="flex w-12 h-12 justify-center items-center rounded-full">
         <div class="sr-only">{{ item.url }}</div>
         <div class="w-8 text-gray-800 dark:text-cyan-100 hover:w-6">
-          {% include "icons/arrow-top-right-on-square.svg" %}
+          {% include "./arrow-top-right-on-square.svg" %}
         </div>
       </a>
       {% endif %}

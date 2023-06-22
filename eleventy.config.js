@@ -32,7 +32,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
 
   // Filters
-  eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
   eleventyConfig.addFilter("sortByOrder", require("./src/_system/11ty/filter/sortByOrder.js"));
   eleventyConfig.addFilter("sortByTitle", require("./src/_system/11ty/filter/sortByTitle.js"));
@@ -40,9 +39,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("filtertags", require("./src/_system/11ty/filter/taglist.js"));
   eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));
+
   eleventyConfig.addFilter("weekday", require("./src/_system/11ty/filter/dateWeekday.js"));
   eleventyConfig.addFilter("month", require("./src/_system/11ty/filter/dateMonth.js"));
   eleventyConfig.addFilter("dateformat", require("./src/_system/11ty/filter/dateFormat.js"));
+
+  eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
 
   //RSS filters
   eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
@@ -96,6 +98,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
 
   eleventyConfig.setLiquidOptions({
+    jsTruthy: true,
     dynamicPartials: true,
     strict_filters: true,
   });

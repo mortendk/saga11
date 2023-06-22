@@ -1,28 +1,28 @@
-{%- if env.mode != 'prod' %}
-<!-- 👋 field/options.liquid -->
-{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- 👋 field/options.liquid -->{%- endif -%}
+
 <div class="flex flex-col">
-
-  {% comment %}Dropdown {% endcomment %}
+  {% comment %} Dropdown {% endcomment %}
   {% if item.inputtype == "Dropdown" %}
-  <label for="form-item-{{ item.title | slugify }}" class="font-bold text-lg hover:text-gray-800 hover:cursor-pointer">
-    {{ item.title }}
-    {% if item.required %} * {% endif %}
-  </label>
+    <label for="form-item-{{ item.title | slugify }}" class="text-lg hover:text-gray-800 hover:cursor-pointer">
+      {{ item.title }}
+      {% if item.required %} * {% endif %}
+    </label>
 
-  <select name="{{ item.title | slugify }}" id="form-item-{{ item.title | slugify }}">
+    <select name="{{ item.title | slugify }}" id="form-item-{{ item.title | slugify }}">
 
-    {% for option in item.option %}
-    <option label="{{ option.title | slugify }}" {% if option.checked %} selected {% endif %}>
-      {{ option.title }}
-    </option>
-    {% endfor %}
+      <option>{{ item.title }}</option>
 
-  </select>
+      {% for option in item.option %}
+        <option value="{{ option.title | slugify }}"  {% if option.checked %} selected {% endif %}>
+          {{ option.title }}
+        </option>
+      {% endfor %}
+
+    </select>
   {% comment %}/Dropdown {% endcomment %}
-
   {% elsif item.inputtype == "Radio" %}
-  <div class="font-bold text-lg">
+
+    <div class="font-bold text-lg">
     {{ item.title }}
     {% if item.required %} * {% endif %}:
   </div>

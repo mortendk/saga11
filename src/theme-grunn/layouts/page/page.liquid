@@ -11,10 +11,12 @@ TODO: Page should be renamed to something else apparently liquid cand figure out
 
 <h1 class="text-5xl">{{ title }}</h1>
 
+{% include "linklist/linklist.liquid", collection : collections.allPages, url: url %}
+
 {% include "components/all.liquid" %}
 
-<div class="aspect-video overflow-hidden">
-
+{% if image %}
+  <div class="aspect-video overflow-hidden">
   {% render 'image.liquid',
       file: image,
       alt: title,
@@ -24,23 +26,14 @@ TODO: Page should be renamed to something else apparently liquid cand figure out
       loading: "lazy",
       css: "w-full"
   %}
-</div>
+  </div>
+{% endif %}
 
 
 <div class="prose dark:prose-invert">
   {{ content }}
 </div>
 
-
-
-{% include "nav/share.liquid" %}
-
-tags:
-{% include "nav/tags" %}
-{% include "nav/tagcloud" %}
-
-link list
-{% include "nav/links", url: url, collection : collections.allPages %}
-{% include "nav/links", url: url, collection : collections.allPosts, showdate: true %}
-
-
+{% include "some/share.liquid" %}
+{% include "tag/tags.liquid" %}
+{% include "tag/tagcloud.liquid" %}

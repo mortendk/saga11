@@ -1,27 +1,28 @@
 ---
 title: Saga11
-image: /content/upload/spaceship.png
 card:
   title: "This is the frontpage card "
-  image: "/content/upload/spaceship.png"
+  image: /content/upload/spaceship.png
   alt: spaceship
   text: The frontpage card that we use for sharing
 components:
   - type: collection
-    title: Collection
+    title: ""
     template: components/collection/collection.liquid
     collection: saga11
+image: /content/upload/spaceship.png
 tags:
   - test
 url: /
+layout: page/frontpage.liquid
+date: 2023-06-20 22:01:46
+eleventyExcludeFromCollections: false
 eleventyNavigation:
   parent: ""
   title: Home
   order: 10
   key: main
   excerpt: Mega text
-layout: page/frontpage.liquid
-eleventyExcludeFromCollections: false
 ---
 
 😍 it works{tm}

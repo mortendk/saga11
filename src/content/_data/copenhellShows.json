@@ -1,0 +1,192 @@
+{
+  "224": {
+    "_id": 224,
+    "date_end": "2023-06-15",
+    "date_start": "2023-06-15",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 94,
+      "title": "Aborted",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-15",
+    "ref_date_end": "2023-06-15",
+    "slug": "aborted",
+    "sort_order": null,
+    "tags": [
+      182,
+      189,
+      212
+    ],
+    "time_end": null,
+    "time_start": "14:45:00",
+    "venue": {
+      "_id": 171,
+      "title": "Hades"
+    }
+  },
+  "225": {
+    "_id": 225,
+    "date_end": "2023-06-18",
+    "date_start": "2023-06-18",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 95,
+      "title": "Afsky",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-17",
+    "ref_date_end": "2023-06-18",
+    "slug": "afsky",
+    "sort_order": null,
+    "tags": [
+      180,
+      213
+    ],
+    "time_end": null,
+    "time_start": "00:30:00",
+    "venue": {
+      "_id": 172,
+      "title": "Gehenna"
+    }
+  },
+  "226": {
+    "_id": 226,
+    "date_end": "2023-06-16",
+    "date_start": "2023-06-16",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 96,
+      "title": "Angelus Apatrida",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-16",
+    "ref_date_end": "2023-06-16",
+    "slug": "angelus-apatrida",
+    "sort_order": null,
+    "tags": [
+      183,
+      218
+    ],
+    "time_end": null,
+    "time_start": "16:45:00",
+    "venue": {
+      "_id": 172,
+      "title": "Gehenna"
+    }
+  },
+  "227": {
+    "_id": 227,
+    "date_end": "2023-06-16",
+    "date_start": "2023-06-16",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 97,
+      "title": "Angra",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-16",
+    "ref_date_end": "2023-06-16",
+    "slug": "angra",
+    "sort_order": null,
+    "tags": [
+      195,
+      223
+    ],
+    "time_end": null,
+    "time_start": "14:15:00",
+    "venue": {
+      "_id": 170,
+      "title": "Helv\u00edti"
+    }
+  },
+  "228": {
+    "_id": 228,
+    "date_end": "2023-06-17",
+    "date_start": "2023-06-17",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 98,
+      "title": "Angus McSix",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-17",
+    "ref_date_end": "2023-06-17",
+    "slug": "angus-mcsix",
+    "sort_order": null,
+    "tags": [
+      181,
+      223
+    ],
+    "time_end": null,
+    "time_start": "16:45:00",
+    "venue": {
+      "_id": 171,
+      "title": "Hades"
+    }
+  },
+  "229": {
+    "_id": 229,
+    "date_end": "2023-06-16",
+    "date_start": "2023-06-16",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 99,
+      "title": "Architects",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-16",
+    "ref_date_end": "2023-06-16",
+    "slug": "architects",
+    "sort_order": null,
+    "tags": [
+      181,
+      220
+    ],
+    "time_end": null,
+    "time_start": "18:30:00",
+    "venue": {
+      "_id": 170,
+      "title": "Helv\u00edti"
+    }
+  },
+  "230": {
+    "_id": 230,
+    "date_end": "2023-06-17",
+    "date_start": "2023-06-17",
+    "linkTicket": null,
+    "livestreamUrl": null,
+    "object": {
+      "_id": 100,
+      "title": "Billy F Gibbons",
+      "type": 0
+    },
+    "price": null,
+    "ref_date": "2023-06-17",
+    "ref_date_end": "2023-06-17",
+    "slug": "billy-f-gibbons",
+    "sort_order": null,
+    "tags": [
+      176,
+      179
+    ],
+    "time_end": null,
+    "time_start": "15:45:00",
+    "venue": {
+      "_id": 170,
+      "title": "Helv\u00edti"
+    }
+  }
+}

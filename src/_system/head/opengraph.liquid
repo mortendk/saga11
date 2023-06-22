@@ -4,12 +4,12 @@
 
 {% comment %} Image {% endcomment %}
 {%- capture ogimage -%}
-{% assign width = '1200' | split: ', ' %}
-{%- if image -%}
-  {{ env.url }}{%- imageurl image, width -%}
+  {% assign width = '1200' | split: ', ' %}
+  {%- if image -%}
+    {{ env.url }}{%- imageurl image, width -%}
   {%- else -%}
-   {{ env.url }}{{ site.opengraph }}
-{%- endif -%}
+    {{ env.url }}{%- imageurl site.opengraph, width -%}
+  {%- endif -%}
 {%- endcapture -%}
 
 {% assign url = env.url | append: url %}

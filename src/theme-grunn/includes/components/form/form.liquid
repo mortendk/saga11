@@ -1,36 +1,39 @@
 {%- if env.mode != 'prod' %} <!-- src/theme-grunn/includes/components/form/form.liquid -->{%- endif  -%}
 
-{{ component.title }}
+<section class="flex flex-row">
 
-{% if component.text %}
-{{ component.text  | markdown   }}
-{% endif %}
+  <div class="bg-primary-100 basis-1/2 mr-4 p-8">
+    {% if component.title %}
+      <h2 class="text-3xl pb-4">{{ component.title }}</h2>
+    {% endif %}
+
+    {% if component.text %}
+      {{ component.text  | markdown   }}
+    {% endif %}
+  </div>
 
 
-<form name="{{ component.name | url_encode }}" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/{{ component.action }}/">
+<form name="{{ component.name | url_encode }}" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/{{ component.action }}/"
+      class="basis-1/2 py-20 px-20 flex flex-col space-y-4">
   {% comment %}<div data-netlify-recaptcha="true"></div> {% endcomment %}
   <div hidden>
     <label for="supersecret">secret</label>
     <input name="bot-field" id="supersecret" />
   </div>
 
-  {% comment %}Create form elements {% endcomment %}
+  {% comment %}All the form elements {% endcomment %}
   {% for item in component.elements %}
-
-  {% if item.type == "textarea" %}
-  {% include "components/form/field/textarea.liquid" %}
-  {% elsif item.type == "text" %}
-  {% include "components/form/field/input.liquid" %}
-  {% elsif item.type == "options" %}
-  {% include "components/form/field/options.liquid" %}
-  {% endif %}
-
+    {% if item.type == "textarea" %}
+      {% include "components/form/field/textarea.liquid" %}
+    {% elsif item.type == "text" %}
+      {% include "components/form/field/input.liquid" %}
+    {% elsif item.type == "options" %}
+      {% include "components/form/field/options.liquid" %}
+    {% endif %}
   {% endfor %}
 
+  <button aria-label="Submit" class="bg-primary-500 p-4 my-20">Send</button>
 
-
-
-  <button aria-label="Submit" class="bg-primary-500 p-4 my-2">Send</button>
-  </div>
 
 </form>
+</section>

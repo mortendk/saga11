@@ -34,11 +34,11 @@ layout: html.liquid
       <button @click="darkMode = !darkMode" class="w-8" aria-label="toggle color scheme">
         {% comment %}darkmode on {% endcomment %}
         <div x-show="darkMode" class="bg-gray-200 p-2 rounded">
-          <div class="w-4 text-gray-700">{% include "icons/sun.svg" %}</div>
+          Light
         </div>
         {% comment %}darkmode not actived {% endcomment %}
         <div x-show="!darkMode" class="bg-gray-700 p-2 rounded">
-          <div class="w-4 text-gray-100">{% include "icons/moon.svg" %}</div>
+          Dark
         </div>
       </button>
 

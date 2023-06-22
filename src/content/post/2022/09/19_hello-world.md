@@ -1,5 +1,7 @@
 ---
-title: Hello World
+layout: post/post.liquid
+order: 5
+title: B boom Hello World
 image: /content/upload/spaceship.png
 card:
   title: Hello world blogpost
@@ -11,8 +13,6 @@ tags:
   - test
   - rssfeed
 date: 2023-07-27 00:00:00
-order: 5
-layout: post/post.liquid
 eleventyExcludeFromCollections: false
 ---
 

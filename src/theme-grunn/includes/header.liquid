@@ -1,7 +1,6 @@
 {%- if env.mode != 'prod' %}
 <!-- 👋 includes/header.liquid -->
 {%- endif  -%}
-
 <header class="relative dark:bg-gray-800 bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
 
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
@@ -18,7 +17,7 @@
         <h1 class="sr-only">{{site.title}}</h1>
       </a>
 
-      {% include "nav/menu.liquid" %}
+      {% include "menu/menu.liquid" %}
     </div>
 
     {% if site.rss %}
@@ -50,8 +49,8 @@
 
   </div>
 
-  {% include "nav/menu-mobile.liquid" %}
+  {% include "menu/menu-mobile.liquid" %}
 
 </header>
+{% include "../layouts/notification/bar.liquid" %}
 
-{% include "misc/notification" %}

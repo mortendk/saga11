@@ -26,12 +26,12 @@
   {%- endif -%}
 
   {%
-    render 'card',
-    title: item.data.card.title,
-    text: item.data.card.text,
-    image: item.data.card.image,
-    url: item.url,
-    date: item.date
+    render 'card.liquid',
+      title: item.data.card.title,
+      text: item.data.card.text,
+      image: item.data.card.image,
+      url: item.url,
+      date: item.date
   %}
 
   {% endfor %}

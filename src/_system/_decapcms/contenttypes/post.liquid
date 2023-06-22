@@ -33,10 +33,34 @@
       summary: "{% raw %}{{title}}{% endraw %}"
     fields:
 {% include "_system/_decapcms/fields/title.liquid" %}
-{% include "_system/_decapcms/fields/image.liquid" %}
+{% include "_system/_decapcms/widgets/image",
+  name: "image",
+  label: "image",
+  default: "/content/upload/spaceship.png"
+  choose_url: true,
+  allow_multiple: false,
+  required: "false",
+  hint: "image"
+%}
 {% include "_system/_decapcms/fields/card.liquid" %}
 {% include "_system/_decapcms/fields/content.liquid" %}
 {% include "_system/_decapcms/fields/tags.liquid" %}
-{% include "_system/_decapcms/fields/date.liquid" %}
+{% include "_system/_decapcms/widgets/number",
+  name: "order",
+  label: "order",
+  default: 1,
+  min: "1",
+  max: "200",
+  step: "1",
+  required: false,
+  hint: "optional order"
+%}
+{% include "_system/_decapcms/widgets/datetime",
+  name: "date",
+  label: "Date",
+  default: "true",
+  required: "false",
+  hint: "help text"
+%}
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
 {% include "_system/_decapcms/fields/draft.liquid" %}

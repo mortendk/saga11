@@ -10,13 +10,16 @@ saga-template-name: tag
   <article class="mx-auto max-w-7xl">
 
     <h1 class="text-6xl text-primary-700 dark:text-cyan-200 flex flex-row justify-center items-center">
-      {% if icon %}
-      <div class="h-16 w-16">{% include icon %}</div>
-      {% endif %}
-      {{ title }}
+{% comment %}
+
+{% if icon %}
+<div class="h-16 w-16">{% include icon %}</div>
+{% endif %}
+{% endcomment %}
+{{ title }}
     </h1>
 
-    {% include "nav/tagcloud.liquid" %}
+    {% include "tag/tagcloud.liquid" %}
 
     <div class="prose prose-xl max-w-full dark:prose-invert ml-4">
       {{ content }}
@@ -50,7 +53,7 @@ saga-template-name: tag
 
   <a href="/feed/{{ title | replace: " ", "" |  slugify }}.xml" class="flex flex-row items-center underline">
     <div>Grap the {{ title | replace: " ", "" |  slugify }} RSS feed </div>
-    <div class="w-4 h-4 text-black ml-2">{% include "icons/rss.svg" %}</div>
+    <div class="w-4 h-4 text-black ml-2">{% include "svg/rss.svg" %}</div>
   </a>
 
 </section>

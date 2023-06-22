@@ -1,6 +1,3 @@
-{% capture filename -%}
-{{ tag.data.title | replace: " ", "" | slugify }}
-{%- endcapture %}
 ---
 pagination:
   data: collections.allTags
@@ -9,10 +6,7 @@ pagination:
   addAllPagesToCollections: true
 eleventyComputed:
   title: "{{ tag.data.title }}"
-  permalink: feed/{{ filename }}.xml
-  eleventyComputed:
-  title: "{{ tag.data.title }}"
-  content: "{{ tag.data.content }}"
+  permalink: feed/{{ tag.data.title | slugify }}.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>

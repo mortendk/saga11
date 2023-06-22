@@ -34,28 +34,28 @@
     <div class="py-4">
       {% if item.phone %}
       <div class="flex flex-row items-center">
-        <div class="w-4 h-4 text-black mr-2">{% include "icons/phone.svg" %}</div>
+        <div class="w-4 h-4 text-black mr-2">{% include "./phone.svg" %}</div>
         <a href="tel:{{ item.phone | replace:" ", "" }}" itemprop="telephone">{{ item.phone }}</a>
       </div>
       {% endif %}
 
       {% if item.email %}
       <div class="flex flex-row items-center">
-        <div class="w-4 h-4 text-black mr-2">{% include "icons/envelope.svg" %}</div>
+        <div class="w-4 h-4 text-black mr-2">{% include "./envelope.svg" %}</div>
         <a href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a><br>
       </div>
       {% endif %}
 
       {% if item.url %}
       <div class="flex flex-row items-center">
-        <div class="w-4 h-4 text-black mr-2">{% include "icons/arrow-top-right-on-square.svg" %}</div>
+        <div class="w-4 h-4 text-black mr-2">{% include "./arrow-top-right-on-square.svg" %}</div>
         <a itemprop="url" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url }}</a>
       </div>
       {% endif %}
     </div>
 
     <button onclick="openinmap('{{ item.street }},{{ item.zip }},{{ item.country }}')" target="_blank" rel="noopener" class="inline-flex flex-row items-center  p-1 font-bold">
-      <div class="w-4 mr-2">{% include "icons/map-pin.svg" %}</div>
+      <div class="w-4 mr-2">{% include "./map-pin.svg" %}</div>
       <div>Map</div>
     </button>
 
@@ -64,7 +64,10 @@
   {% endfor %}
 
 </div>
-{% comment %}This is used for the iphone / android so they can work prober cause ... {% endcomment %}
+
+
+{% comment %}This is used for the iphone / android so they can work prober cause ...
+{% endcomment %}
 <script>
   function openinmap(map) {
     // If it's an iPhone..
@@ -76,3 +79,4 @@
       window.open("https://maps.google.com/?q=" + map);
   }
 </script>
+
