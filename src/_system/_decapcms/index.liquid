@@ -18,7 +18,8 @@ eleventyExcludeFromCollections: true
     CMS.registerPreviewStyle("style.css");
 
     // COMPONENTS
-    CMS.registerEditorComponent({
+    CMS.registerEditorComponent(
+      {
       id: "shortcode-image",
       label: "Shortcode: image",
       collapsed: true,
@@ -53,7 +54,42 @@ eleventyExcludeFromCollections: true
       toPreview: function (data) {
         return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}"  \%\}`;
       }
-    });
+    }
+    );
+
+
+  CMS.registerEditorComponent({
+    // Internal id of the component
+    id: "video",
+    // Visible label
+    label: "Video html5",
+    fields: [
+      {
+        name: 'file',
+        label: 'file',
+        widget: 'file'
+      },
+      {
+        name: 'width',
+        label: 'width',
+        widget: 'number'
+      }
+
+    ],
+    pattern: /^<video controls><source src="(.*?)"><\/video>$/ms,
+    fromBlock: function(match) {
+      return {
+        summary: match[1],
+        detail: match[2]
+      };
+    },
+    toBlock: function(data) {
+      return `<video controls><source src="${data.file}"><\/video>`;
+    },
+    toPreview: function(data) {
+      return `<video controls><source src="${data.file}"><\/video>`;
+    }
+  });
   </script>
 
 {% comment %}
