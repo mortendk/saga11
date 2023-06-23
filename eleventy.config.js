@@ -2,11 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const util = require('util');
 
-const markdownIt = require('markdown-it');
-const markdownItEleventyImg = require("markdown-it-eleventy-img");
-const embedYouTube = require("eleventy-plugin-youtube-embed");
-
-
 // Get settings
 const settings = require("./saga11.config.js");
 const env = require("./src/content/_data/env.js");
@@ -21,6 +16,11 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
+
+const markdownIt = require('markdown-it');
+const markdownItEleventyImg = require("markdown-it-eleventy-img");
+const embedYouTube = require("eleventy-plugin-youtube-embed");
+const embedVimeo = require("eleventy-plugin-vimeo-embed");
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -99,18 +99,19 @@ module.exports = function (eleventyConfig) {
   // Ignore README
   eleventyConfig.ignores.add("README.md");
 
+  // Liquid options
   eleventyConfig.setLiquidOptions({
     jsTruthy: true,
     dynamicPartials: true,
     strict_filters: true,
   });
 
+  // Markdown IT
   eleventyConfig.setLibrary('md', markdownIt ({
     html: true,
     breaks: true,
     linkify: true
-  })
-  .use(markdownItEleventyImg, {
+  }).use(markdownItEleventyImg, {
     imgOptions: {
       widths: [640, 1200],
       urlPath: "/img",
@@ -121,19 +122,23 @@ module.exports = function (eleventyConfig) {
       class: "md-image",
       decoding: "async",
       loading: "lazy",
-      // If you use multiple widths,
-      // don't forget to add a `sizes` attribute.
       sizes: "100vw"
     },
     resolvePath: (filepath) => path.join('src', filepath)
 
   }));
 
+  // embed youtube
   eleventyConfig.addPlugin(embedYouTube, {
-    // just an example, see default values below:
-    embedClass: 'md-embedvideo',
+    embedClass: 'md-video',
     lite: true,
     modestBranding: true
+  });
+
+  // embed vimeo
+  eleventyConfig.addPlugin(embedVimeo, {
+    embedClass: 'md-video',
+    dnt: true
   });
 
   return {
