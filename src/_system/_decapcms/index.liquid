@@ -73,8 +73,7 @@ eleventyExcludeFromCollections: true
     pattern: /^<video controls><source src="(.*?)"><\/video>$/ms,
     fromBlock: function(match) {
       return {
-        summary: match[1],
-        detail: match[2]
+        file: match[1]
       };
     },
     toBlock: function(data) {
