@@ -4,24 +4,25 @@ saga-template-name: Frontpage
 ---
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->{%- endif -%}
 
-{% comment %}
-{% assign items = collections.saga11 | sort: "data.order" | reverse %}
-{% endcomment %}
 
-{% assign sortField = "date" %}
+{% assign sortField = "item.data.title" %}
 {% assign items = collections.saga11 | sort: sortField | reverse  %}
 
 {% for item in items limit: 10 %}
 <a href="{{ item.url  }}">
-  {{ item.date | date: "%d.%m %Y" }}
+  {{ item.data.title }} -
+{{ item.date | date: "%d.%m %Y" }}
   |
-  {{ item.data.title }}
+
   | {{ item.data.order }}
 </a>
 <br>
 {% endfor %}
 
+
 <article class="flex flex-col md:flex-row">
+  <div class="aspect-video overflow-hidden">
+
   {% render 'image.liquid',
       file: image,
       alt: title,
@@ -31,7 +32,7 @@ saga-template-name: Frontpage
       loading: "lazy",
       css: "w-full"
   %}
-
+  </div>
   <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-gray-700">
     {{ content }}
   </div>

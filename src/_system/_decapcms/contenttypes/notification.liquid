@@ -13,15 +13,17 @@
     editor:
       preview: false
     # Overview
-    summary: "{% raw %}{{title}} Status: [{{status}}]{% endraw %}"
+    summary: "{% raw %}{{title}} Status: {{status}} Draft: {{eleventyExcludeFromCollections}}{% endraw %}"
     sortable_fields: ["title", "date"]
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
     view_groups:
-      - label: Tags
-        field: tags
+      - label: Draft
+        field: eleventyExcludeFromCollections
+      - label: Status
+        field: status
     fields:
 {% include "_system/_decapcms/widgets/string",
     name: "title",
@@ -30,6 +32,15 @@
     required: true,
     hint: ""
 %}
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "😴 Draft Mode",
+  default: "false",
+  required: "false",
+  hint: "Draft mode"
+%}
+
+
       - label: 💁🏽‍♂️ status
         name: "status"
         widget: "select"
@@ -65,13 +76,5 @@
   default: "true",
   required: "false",
   hint: ""
-%}
-
-{% include "_system/_decapcms/widgets/boolean",
-  name: "eleventyExcludeFromCollections",
-  label: "😴 Draft Mode",
-  default: "false",
-  required: "false",
-  hint: "Draft mode"
 %}
 

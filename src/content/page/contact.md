@@ -43,7 +43,7 @@ eleventyNavigation:
     This is a text 
 
     D﻿o we need something badass as a internalkey 
-  title: contact
+  title: Contact
   parent: main
   order: 20
 ---

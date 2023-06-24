@@ -5,13 +5,11 @@
 ">
   {% assign mobileclasses = "block h-20 dark:text-cyan-200 flex items-center pl-4 text-lg border-b border-b-gray-200 dark:border-b-gray-500" %}
 
-
-
   {% assign menu = collections.all | eleventyNavigation: "main" %}
   {%- for item in menu %}
 
   {% if not item.children.size %}
-  <a href="{{ item.url }}" {% if item.url in page.url %}aria-current="page" class="{{mobileclasses}} font-bold" {% else  %} class="{{mobileclasses}}" {% endif %}>{{ item.title }}</a>
+  <a href="{{ item.url }}" {% if item.url contains page.url %}aria-current="page" class="{{mobileclasses}} font-bold" {% else  %} class="{{mobileclasses}}" {% endif %}>{{ item.title }}</a>
 
   {% else %}
   {% comment %}placeholder {% endcomment %}
@@ -38,7 +36,6 @@
   {% comment %}/ placeholder {% endcomment %}
 
   {% endif %}
-
   {%- endfor -%}
 
 </nav>

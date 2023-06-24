@@ -2128,10 +2128,6 @@ pre[class*="language-"] {
   max-width: 32rem;
 }
 
-.max-w-prose {
-  max-width: 65ch;
-}
-
 .max-w-screen-2xl {
   max-width: 1536px;
 }
@@ -2168,6 +2164,10 @@ pre[class*="language-"] {
   flex-basis: 50%;
 }
 
+.basis-4\/12 {
+  flex-basis: 33.333333%;
+}
+
 .basis-5\/12 {
   flex-basis: 41.666667%;
 }
@@ -2182,10 +2182,6 @@ pre[class*="language-"] {
 
 .basis-8\/12 {
   flex-basis: 66.666667%;
-}
-
-.basis-4\/12 {
-  flex-basis: 33.333333%;
 }
 
 .-translate-x-full {
@@ -3663,6 +3659,14 @@ pre[class*="language-"] {
 
   .lg\:w-1\/2 {
     width: 50%;
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:py-20 {

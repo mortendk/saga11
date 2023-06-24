@@ -13,15 +13,15 @@
     editor:
       preview: false
     # Overview
-    summary: "{{title}} position: {{blockposition}}"
+    summary: "{% raw %}{{title}} position: {{blockposition}}{% endraw %}"
     sortable_fields: ["title"]
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
         pattern: true
     view_groups:
-      - label: Tags
-        field: tags
+      - label: Position
+        field: blockposition
     fields:
 {% include "_system/_decapcms/widgets/string",
   name: "title",

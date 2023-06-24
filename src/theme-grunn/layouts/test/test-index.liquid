@@ -6,7 +6,7 @@ saga-template-name: test
   testdata comes from  _datapagination/test.liquid
 {% endcomment %}
 
-<section class="grid grid-cols-4 gap-4">
+<section class="grid lg:grid-cols-3 gap-4">
 {% for item in collections.testdata %}
 
   {% assign title = item.data.city.card.title | default: item.data.city.title %}
