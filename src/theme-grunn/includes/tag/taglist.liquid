@@ -1,0 +1,16 @@
+
+<nav aria-label="Tags" class="flex flex-col w-64">
+  {% for item in collections.allTags %}
+  {% if item.fileSlug != "rssfeed" %}
+
+    <a href="/tag/{{ item.fileSlug }}" class="flex flex-row justify-between w-full border-b py-2">
+      <div class="">{{ item.data.title }}</div>
+      <div class="bg-tone-50 border border-tone-100 p-1 text-sm w-6 h-6 flex items-center justify-center rounded-full">
+        {{ collections[item.fileSlug] | size }}
+      </div>
+    </a>
+
+  {% endif %}
+  {% endfor %}
+</nav>
+

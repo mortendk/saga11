@@ -31,8 +31,4 @@
 
 {% include "_system/_decapcms/fields/menu.liquid" %}
 
-{% comment %}
-{% include "_system/_decapcms/fields/icon.liquid" %}
-{% include '_system/_decapcms/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}
-{% include '_system/_decapcms/template-relation.liquid', tagtemplates: 'pagetemplates', folder: "tag" %}
-{% endcomment %}
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}

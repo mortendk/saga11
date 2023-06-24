@@ -10,6 +10,7 @@ saga-template-name: Post Default
 <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
 
 {% include "some/share.liquid" %}
+{% include "tag/tags.liquid" %}
 
 {% include "linklist/linklist.liquid",
     collection : collections.allPosts,
@@ -18,7 +19,6 @@ saga-template-name: Post Default
     sort: "data.title",
     showdate: true
 %}
-
 
 {% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
 {% assign nextPost =    collections.allPosts | getNextCollectionItem %}

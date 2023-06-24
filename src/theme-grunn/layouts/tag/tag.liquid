@@ -6,26 +6,19 @@ saga-template-name: tag
 <!-- src/theme-grunn/layouts/tag/tag.liquid  -->
 {%- endif -%}
 
-<section>
-  <article class="mx-auto max-w-7xl">
+<article class="">
+  <h1 class="text-6xl text-primary-700">
+    {{ title }}
+  </h1>
 
-    <h1 class="text-6xl text-primary-700 dark:text-cyan-200 flex flex-row justify-center items-center">
-{% comment %}
 
-{% if icon %}
-<div class="h-16 w-16">{% include icon %}</div>
-{% endif %}
-{% endcomment %}
-{{ title }}
-    </h1>
+  {% include "tag/taglist.liquid" %}
 
-    {% include "tag/tagcloud.liquid" %}
+  <div class="prose prose-xl">
+    {{ content }}
+  </div>
 
-    <div class="prose prose-xl max-w-full dark:prose-invert ml-4">
-      {{ content }}
-    </div>
-
-  </article>
+</article>
 
   <div class="md:grid grid-cols-3 gap-4 py-4">
 
@@ -34,26 +27,22 @@ saga-template-name: tag
     ex:
     tags:
     - saga11
-    That then refers to the file tag/saga.md that constainss all the data the we use on this page.
+    That then refers to the file tag/saga11.md that constainss all the data the we use on this page.
     {% endcomment %}
 
     {% for item in collections[page.fileSlug] %}
-
-    {% render 'card',
-      title: item.data.card.title,
-      text: item.data.card.text,
-      image: item.data.card.image,
-      url: item.url,
-      date: item.date
-  %}
-
+      {% render 'card',
+        title: item.data.card.title,
+        text: item.data.card.text,
+        image: item.data.card.image,
+        url: item.url,
+        date: item.date
+      %}
     {% endfor %}
 
   </div>
 
-  <a href="/feed/{{ title | replace: " ", "" |  slugify }}.xml" class="flex flex-row items-center underline">
-    <div>Grap the {{ title | replace: " ", "" |  slugify }} RSS feed </div>
-    <div class="w-4 h-4 text-black ml-2">{% include "svg/rss.svg" %}</div>
+  <a href="/feed/{{ title | slugify }}.xml" class="flex flex-row items-center justify-center">
+    <div class="w-4 h-4 mr-2">{% include "svg/rss.svg" %}</div>
+    <div>{{ title }} feed </div>
   </a>
-
-</section>
