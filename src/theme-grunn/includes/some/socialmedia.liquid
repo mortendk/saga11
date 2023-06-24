@@ -6,7 +6,7 @@
 <nav class="flex flex-wrap flex-grow justify-center space-x-8 mt-4" aria-label="Menu Social media links">
 
   {% if site.rss %}
-    <a href="/feed.xml" class="md:hidden w-8 h-8 m-4 block text-orange-700 dark:text-orange-200">
+    <a href="/feed.xml" class="{{ css }}">
       <span class="sr-only">RSS Feed</span>
       {% include "svg/rss.svg" %}
     </a>
