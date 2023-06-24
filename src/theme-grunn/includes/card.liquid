@@ -1,5 +1,17 @@
 {% comment %}
-  {%
+{% assign image = card.image | default: image %}
+{% assign title = card.title | default: title %}
+{% assign text = card.text | default: text | truncatewords: "20",  " ..."  %}
+{%
+  render 'card.liquid',
+    title: title,
+    text: text,
+    image: image,
+    url: url,
+    date: page.date
+%}
+
+{%
     render 'card',
     title: item.data.card.title,
     text: item.data.card.text,
@@ -9,6 +21,7 @@
   %}
 {% endcomment %}
 <article aria-label="Post {{ title}}">
+
   <a href="{{ url }}" title="{{ title}}" tabindex="0">
 
   <div class="shadow-lg aspect-video overflow-hidden bg-tone-100">
@@ -31,10 +44,11 @@
     <div class="mt-2 line-clamp-3">
         {{ text }}
     </div>
-
-    <div class="pt-2 text-tone-600 text-right">
-      {{ date | dateformat: dateLocalize, "short" }}
-      {{ date | date: "%H:%M" }}
-    </div>
+    {% if date %}
+      <div class="pt-2 text-tone-600 text-right">
+        {{ date | dateformat: dateLocalize, "long" }}
+        {{ date | date: "%H:%M" }}
+      </div>
+    {% endif %}
   </a>
 </article>

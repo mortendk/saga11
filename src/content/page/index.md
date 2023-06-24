@@ -5,11 +5,7 @@ card:
   image: /content/upload/spaceship.png
   alt: spaceship
   text: The frontpage card that we use for sharing
-components:
-  - type: collection
-    title: ""
-    template: components/collection/collection.liquid
-    collection: saga11
+components: []
 image: https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80
 tags:
   - test
@@ -24,7 +20,13 @@ eleventyNavigation:
   key: main
   excerpt: Mega text
 ---
-![MEGA SPACESHOP](/content/upload/spaceship.png "youtube.com/watch?v=dQw4w9WgXcQskdjflsjkd")
+Video
+
+<video controls><source src="/content/upload/pexels-eva-toscano-10530358-3840x2160-24fps.mp4"></video>
+
+
+
+![Always add an alt text](/content/upload/spaceship.png "This is an image title")
 
 😍 it works{tm}
 
@@ -40,7 +42,12 @@ eleventyNavigation:
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
 
-L﻿ets get rolling
+Lets get rolling
 
-\
 youtube.com/watch?v=dQw4w9WgXcQ
+
+Vimeo
+
+
+https://vimeo.com/347565673
+

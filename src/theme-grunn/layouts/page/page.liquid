@@ -4,6 +4,9 @@ saga-template-name: Page default
 ---
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/page.liquid -->{%- endif -%}
 
+
+
+
 <h1 class="text-5xl">{{ title }}</h1>
 
 {% include "linklist/linklist.liquid", collection : collections.allPages, url: url %}

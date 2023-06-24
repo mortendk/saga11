@@ -57,12 +57,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
 
   // gimme the data filter
-  eleventyConfig.addFilter('console', function(value) {
+  eleventyConfig.addFilter('dump', function(value) {
     const str = util.inspect(value);
-    return `<pre style="white-space: pre-wrap;">${unescape(str)}</pre>;`
+    return `<pre style="white-space: pre-wrap; background: #eee; color: #666; padding: 1rem; border: 1px dashed #ccc">${unescape(str)}</pre>`
   });
 
-  eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
+  // eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
   // eleventyConfig.addFilter("debugpretty", require("./src/_system/11ty/filter/debugPretty.js"));
 
   // Collections

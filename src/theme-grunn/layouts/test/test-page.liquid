@@ -1,0 +1,38 @@
+---
+layout: default.liquid
+saga-template-name: Test City
+---
+
+<article class="flex flex-row space-x-8">
+  <div class="basis-8/12">
+  <h2 class=" text-6xl pb-4">{{ city.title }}</h2>
+  <div class="aspect-video overflow-hidden shadow-lg rounded">
+    {% render 'image.liquid', file: city.image, widths: "800", css: "w-full" %}
+  </div>
+
+  <div class="prose-xl py-8 pl-4">
+    {{ city.text }}
+  </div>
+
+  {% assign previous = collections.testdata | getPreviousCollectionItem %}
+  {% assign next =    collections.testdata | getNextCollectionItem %}
+  {% include 'nav-prenext/prenext.liquid',
+        previous: previous,
+        next: next,
+        pretext: previous.data.city.title,
+        nexttext: next.data.city.title,
+  %}
+  </div>
+  <div class="basis-4/12">
+
+  {% render "linklist/linklist.liquid",
+      collection : collections.testdata,
+      url: page.url,
+      alias: 'city'
+  %}
+
+
+  </div>
+</article>
+
+

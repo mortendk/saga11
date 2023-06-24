@@ -2128,6 +2128,10 @@ pre[class*="language-"] {
   max-width: 32rem;
 }
 
+.max-w-prose {
+  max-width: 65ch;
+}
+
 .max-w-screen-2xl {
   max-width: 1536px;
 }
@@ -2174,6 +2178,14 @@ pre[class*="language-"] {
 
 .basis-7\/12 {
   flex-basis: 58.333333%;
+}
+
+.basis-8\/12 {
+  flex-basis: 66.666667%;
+}
+
+.basis-4\/12 {
+  flex-basis: 33.333333%;
 }
 
 .-translate-x-full {
@@ -2598,11 +2610,6 @@ pre[class*="language-"] {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
-
 .bg-slate-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(100 116 139 / var(--tw-bg-opacity));
@@ -2750,6 +2757,11 @@ pre[class*="language-"] {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-4 {

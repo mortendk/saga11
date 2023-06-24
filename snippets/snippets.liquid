@@ -1,3 +1,16 @@
+{% assign image = card.image | default: image %}
+{% assign title = card.title | default: title %}
+{% assign text = card.text | default: text | truncatewords: "20",  " ..."  %}
+{%
+  render 'card.liquid',
+    title: title,
+    text: text,
+    image: image,
+    url: url,
+    date: page.date
+%}
+
+
 {% comment %}
   Generate image
 {% endcomment %}

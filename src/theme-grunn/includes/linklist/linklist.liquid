@@ -1,14 +1,12 @@
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/includes/linklist.liquid -->{%- endif -%}
 
 {% comment %}
-
 {% include "linklist/linklist.liquid",
     collection : collections.allPosts,
     limit: 3,
     sort: "data.title",
     showdate: true
 %}
-
 {% endcomment %}
 
 {% capture limit %}
@@ -20,13 +18,14 @@
 {% endcapture %}
 
 <nav aria-label="Page Navigation">
-
   {% assign items = collection | sort: sort %}
   {% for item in items limit: limit %}
 
     {% capture menutitle %}
     {% if item.data.eleventyNavigation.title %}
       {{ item.data.eleventyNavigation.title }}
+    {% elsif item.data[alias].title %}
+      {{ item.data[alias].title }}
     {% else %}
       {{ item.data.title }}
     {% endif %}
