@@ -14,18 +14,17 @@
       {% comment %}test if theres children to the first level of menu items {% endcomment %}
       {% if not item.children.size %}
       <a href="{{ item.url }}"
-        {% if item.url contains page.url %}
+        {% if page.url !="/" and item.url contains page.url %}
           aria-current="page"
           class="{{ menulvl1 }}  text-cyan-600 dark:text-cyan-200 border-cyan-500/20"
-        {% else  %}
+        {% else %}
           class="{{ menulvl1 }} font-bold text-gray-500 dark:text-cyan-200 border-transparent"
         {% endif %}
-        {% if item.target %} target="_blank" rel="noopener" {% endif %}
-        {% if item.text %}
-          title="{{ item.text }}"
-        {% endif %}
+        {% if item.target %} target="_blank" {% endif %}
+        {% if item.text %} title="{{ item.text }}"{% endif %}
       >
         {{ item.title }}
+
       </a>
       {% else %}
       {% comment %}Level 1 + level 2 {% endcomment %}
