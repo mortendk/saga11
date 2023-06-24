@@ -2192,6 +2192,14 @@ pre[class*="language-"] {
   flex-basis: 66.666667%;
 }
 
+.basis-10\/12 {
+  flex-basis: 83.333333%;
+}
+
+.basis-2\/12 {
+  flex-basis: 16.666667%;
+}
+
 .-translate-x-full {
   --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
