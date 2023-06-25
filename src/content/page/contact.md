@@ -1,10 +1,6 @@
 ---
 title: Contact
 components:
-  - type: pagecard
-    template: components/pagecard/pagecard.liquid
-    page:
-      - component
   - type: form
     title: "Contact form "
     name: formname

@@ -37,18 +37,11 @@ module.exports = function (eleventyConfig) {
 
   // Filters
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
+  eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));
   eleventyConfig.addFilter("weekday", require("./src/_system/11ty/filter/dateWeekday.js"));
   eleventyConfig.addFilter("month", require("./src/_system/11ty/filter/dateMonth.js"));
   eleventyConfig.addFilter("dateformat", require("./src/_system/11ty/filter/dateFormat.js"));
-
-  // todo: do we need these post liquid change
-  eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
-  eleventyConfig.addFilter("sortByOrder", require("./src/_system/11ty/filter/sortByOrder.js"));
-  eleventyConfig.addFilter("sortByTitle", require("./src/_system/11ty/filter/sortByTitle.js"));
-  eleventyConfig.addFilter("sortByFilepath", require("./src/_system/11ty/filter/sortByFilepath.js"));
-  eleventyConfig.addFilter("filtertags", require("./src/_system/11ty/filter/taglist.js"));
-  eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
 
   //RSS filters
   eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
@@ -56,14 +49,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidFilter("getNewestCollectionItemDate", pluginRss.getNewestCollectionItemDate);
   eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
 
-  // gimme the data filter
+  // Dump & Debug
   eleventyConfig.addFilter('dump', function(value) {
     const str = util.inspect(value);
     return `<pre style="white-space: pre-wrap; background: #eee; color: #666; padding: 1rem; border: 1px dashed #ccc">${unescape(str)}</pre>`
   });
 
-  // eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
-  // eleventyConfig.addFilter("debugpretty", require("./src/_system/11ty/filter/debugPretty.js"));
+  eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
 
   // Collections
   eleventyConfig.addCollection("allPosts", require("./src/_system/11ty/collection/allPosts.js"));
@@ -83,7 +75,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/theme-grunn/assets/" : "/assets/"});
   eleventyConfig.addPassthroughCopy({"src/theme-grunn/service-workers.js" : "service-workers.js"});
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
-  // eleventyConfig.addPassthroughCopy("src/themes/debug/");
 
   // global vars todo: is this existing for liquid ?
   eleventyConfig.addGlobalData("saga11version", saga11version);
@@ -95,9 +86,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setServerOptions({
     port: env.siteport,
   });
-
-  // Ignore README
-  // eleventyConfig.ignores.add("README.md");
 
   // Liquid options
   eleventyConfig.setLiquidOptions({

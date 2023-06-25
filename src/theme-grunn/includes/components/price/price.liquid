@@ -12,7 +12,7 @@
 
     {% if component.text %}
       <article class="prose prose-xl dark:prose-invert">
-        {{ component.text  | markdown   }}
+        {{ component.text }}
       </article>
     {% endif %}
 
@@ -46,7 +46,7 @@
 
         {% if item.text %}
           <div class="prose dark:prose-invert">
-            {{ item.text  | markdown   }}
+            {{ item.text }}
           </div>
         {% endif %}
 
