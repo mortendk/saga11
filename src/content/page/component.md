@@ -32,8 +32,6 @@ components:
     template: components/templates/socialmedia.liquid
   - type: njktemplate
     template: components/templates/all-pages.liquid
-  - type: njktemplate
-    template: components/templates/all-post.liquid
   - type: collection
     title: This is a Collection
     template: components/collection/collection.liquid
@@ -108,43 +106,24 @@ components:
   - type: testamonials
     template: components/testamonial/testamonial.liquid
     title: Our users say
-    text: lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    text: Testimonials provide valuable insights and firsthand experiences from
+      satisfied customers, showcasing the exceptional quality, service, and
+      satisfaction they have received from a product or company.
     testamonial:
-      - title: Everything is awesome
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat. Duis aute irure dolor in reprehenderit in
-          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.
-        image: /content/upload/spaceship.png
-        person: Name
-        persontitle: title
-        url: https://saga11.dev
-      - title: Everything is awesome
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat. Duis aute irure dolor in reprehenderit in
-          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.
-        image: /content/upload/spaceship.png
-        person: Name
-        persontitle: title
-        url: https://saga11.dev
-      - title: Everything is awesome
-        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-          ea commodo consequat. Duis aute irure dolor in reprehenderit in
-          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-          sint occaecat cupidatat non proident, sunt in culpa qui officia
-          deserunt mollit anim id est laborum.
-        image: /content/upload/spaceship.png
-        person: Name
-        persontitle: title
+      - title: This coffee is a delightful...
+        text: This coffee is a delightful blend of rich flavors, with a smooth and
+          velvety texture that leaves me craving another cup.
+        image: https://images.unsplash.com/photo-1514327605112-b887c0e61c0a
+        person: Lady Cortado
+        persontitle: Barista
+        url: ""
+      - title: This CMS offers a user-friendly interface, r
+        text: This CMS offers a user-friendly interface, robust features, and seamless
+          customization options, making it an ideal choice for managing and
+          updating websites effortlessly.
+        image: https://images.unsplash.com/photo-1521336993297-77c615af0169
+        person: Ragnar Lodbrok
+        persontitle: Webjanitor
         url: https://saga11.dev
   - type: price
     template: components/price/price.liquid
@@ -221,6 +200,16 @@ components:
     template: components/form/form.liquid
     text: "This is a webform "
     elements:
+      - type: text
+        inputtype: text
+        required: false
+        title: name
+        placeholder: Name
+      - type: text
+        inputtype: email
+        required: true
+        title: email
+        placeholder: email
       - type: options
         inputtype: Checkbox
         required: false
@@ -251,16 +240,10 @@ components:
       - type: textarea
         title: Message
         required: false
-      - type: text
-        inputtype: text
-        required: false
-        title: name
-        placeholder: Name
-      - type: text
-        inputtype: email
-        required: true
-        title: email
-        placeholder: email
+      - type: button
+        title: Send
+        resettitle: Reset
+        reset: true
   - type: Address
     template: components/address/address.liquid
     title: This is an adresse
@@ -336,10 +319,37 @@ this is _italic_ and this is **bold**
 <h1>code</h1>
 ```
 
-This is an image
 
-picture img="/content/upload/spaceship.png", alt="this is an image of a Space ship movie Space ship people get up from sleeping coffin and have eat. Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg."
+Video
 
+<video controls><source src="/content/upload/pexels-eva-toscano-10530358-3840x2160-24fps.mp4"></video>
+
+
+
+![Always add an alt text](/content/upload/spaceship.png "This is an image title")
+
+😍 it works{tm}
+
+👉 To make the admin work clone the env.example to .env
+
+🤖 go to the [admin interface admin](/admin)
+
+💅 Themes are in /src/themes/
+
+📜 content is in /src/content/
+
+🎈 saga11 is build on top of [11ty](https://11ty.dev) & [NetlifyCMS](https://netlifycms.com)
+
+🪲 bugs & comments [github](https://github.com/mortendk/saga11)
+
+Lets get rolling
+
+youtube.com/watch?v=dQw4w9WgXcQ
+
+Vimeo
+
+
+https://vimeo.com/347565673
 
 
 
