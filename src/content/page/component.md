@@ -98,6 +98,9 @@ components:
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     link:
+      - url: https://liquidjs.com
+      - url: https://decapcms.org
+      - url: https://shopify.github.io/liquid/
       - url: https://saga11.dev
         title: Saga11
       - url: https://11ty.dev

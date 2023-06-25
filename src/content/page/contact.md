@@ -1,6 +1,12 @@
 ---
 title: Contact
 components:
+  - type: collection
+    size: 3
+    template: components/collection/collection.liquid
+    collection: saga11
+    order: data.order
+    reverse: true
   - type: form
     title: "Contact form "
     name: formname

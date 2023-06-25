@@ -330,7 +330,7 @@
           - label: '🗂 Collection'
             name: 'collection'
             widget: object
-            summary: '{% raw %}{{fields.collection}} || {{fields.template}}{% endraw %}'
+            summary: '{% raw %}{{fields.collection}} Order by {{fields.order}} Reverse: {{fields.reverse}} Size: {{fields.size}} |  🎨: {{fields.template}}{% endraw %}'
             fields:
               - name: collection
                 label: collection
@@ -340,8 +340,11 @@
                 valueField: "{% raw %}{{slug}}{% endraw %}"
                 display_fields: ["title"]
                 multiple: false
-                hint: "Select all content with the tag"
-              - { label: title, name: title, widget: string, default: 'Collection', required: false }
+                hint: "Select the tag for the collection"
+              - { label: order, name: order, widget: select, options: ['date','data.title', 'data.order'], default: 'date', required: false, hint: "select the data field for ordering" }
+              - { label: reverse, name: reverse, widget: boolean, required: false, hint: "Reverse the order" }
+              - { label: size, name: size, widget: number, default: '10', min: 1, required: false }
+              - { label: title, name: title, widget: string, required: false }
               - { label: text, name: text, widget: markdown, required: false }
               - name: "template"
                 label: "Template"

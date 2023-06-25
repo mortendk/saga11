@@ -2,6 +2,8 @@
 <!-- 👋 sections src/theme-grunn/includes/components/collection/collection.liquid -->
 {%- endif -%}
 
+
+
 {% comment %}title + text {% endcomment %}
 <article class="mx-auto max-w-3xl">
   {% if component.title %}
@@ -17,22 +19,34 @@
   {% endif %}
 </article>
 
+
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
-  {% for item in collections[component.collection] %}
+{% assign sortField = component.order %}
+{% assign size = component.size %}
 
-  {%- if env.mode != 'prod' %}
-  <!-- markdown file: {{ item.inputPath }}  -->
-  {%- endif -%}
+{% if component.reverse %}
+  {% assign items = collections[component.collection] | sort: sortField | reverse %}
+{% else %}
+  {% assign items = collections[component.collection] | sort: sortField  %}
+{% endif %}
 
+{% for item in items limit: size %}
+
+  {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+
+  {% assign title = item.data.card.title | default: item.data.title %}
+  {% assign image = item.data.card.image | default: item.data.image %}
+  {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
   {%
     render 'card.liquid',
-      title: item.data.card.title,
-      text: item.data.card.text,
-      image: item.data.card.image,
+      title: title,
+      text: text,
+      image: image,
       url: item.url,
       date: item.date
   %}
+
 
   {% endfor %}
 </section>

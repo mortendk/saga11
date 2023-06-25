@@ -97,7 +97,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Ignore README
-  eleventyConfig.ignores.add("README.md");
+  // eleventyConfig.ignores.add("README.md");
 
   // Liquid options
   eleventyConfig.setLiquidOptions({

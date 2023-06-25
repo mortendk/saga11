@@ -19,14 +19,22 @@
   <div class="md:grid grid-cols-3 gap-4 py-4">
 
     {% for item in component.link %}
-      <article class="border-1 border-teal-300 bg-white dark:bg-gray-900 p-4 m-2 shadow rounded-sm flex flex-row justify-center items-center ">
-        <a href="{{ item.url}}"
-      class="flex justify-center items-center text-gray-800 dark:text-gray-100 font-bold mr-4">
-          {{ item.title }}
-        </a>
-        <div class="h-4 w-4 text-teal-700 dark:text-cyan-200">
-          {% include "./arrow-top-right-on-square.svg" %}
-        </div>
+      <article class="border-1 border-teal-300 bg-white dark:bg-gray-900 p-4 m-2 shadow rounded-sm">
+        <a href="{{ item.url}}" class="flex flex-col items-center text-gray-800 dark:text-gray-100 font-bold mr-4 ">
+          <div class="border shadow-md ">
+
+            <img src="https://v1.opengraph.11ty.dev/https%3A%2F%2Fwww.{{ item.url | replace: "https://", "" }}%2F/" alt="" loading="lazy" decoding="async" width="375" height="197">
+          </div>
+          <div>
+          {% if item.title %}
+            {{ item.title }}
+          {% else %}
+          {{ item.url | replace: "https://", "" }}
+          {% endif %}
+          </div>
+
+          </a>
+
       </article>
     {% endfor %}
 

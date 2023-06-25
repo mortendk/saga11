@@ -1,3 +1,6 @@
+{% comment %}
+  card
+{% endcomment %}
 {% assign image = card.image | default: image %}
 {% assign title = card.title | default: title %}
 {% assign text = card.text | default: text | truncatewords: "20",  " ..."  %}
@@ -14,16 +17,21 @@
 {% comment %}
   Generate image
 {% endcomment %}
-{% render 'image.liquid',
-  file: image,
-  alt: title,
-  sizes: "(min-width: 30em) 50vw, 100vw",
-  widths: "400, 800, 1200",
-  format: "webp",
-  loading: "lazy",
-  css: "w-full"
-%}
+{% if image %}
+  {% render 'image.liquid',
+    file: image,
+    alt: title,
+    sizes: "(min-width: 30em) 50vw, 100vw",
+    widths: "400, 800, 1200",
+    format: "webp",
+    loading: "lazy",
+    css: "w-full"
+  %}
+{% endif %}
 
+{% if image %}
+  {% render 'image.liquid', file: image, widths: "400" %}
+{% endif %}
 
 {% comment %}
   Pre next collection

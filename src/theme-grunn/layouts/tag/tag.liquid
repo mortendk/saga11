@@ -12,12 +12,18 @@ tags:
 That then refers to the file tag/saga11.md that constainss all the data the we use on this page.
 {% endcomment %}
 
+{% comment %}
+this dosnt rewally work..
+{% endcomment %}
+
+
 <article class="flex flex-row space-x-8">
   <div class="basis-2/12">
-    {% include "tag/taglist.liquid" %}
+
   </div>
   <div class="basis-10/12">
     <h1 class="text-6xl text-primary-700">{{ title }}</h1>
+
     <div class="prose prose-xl">
       {{ content }}
     </div>
