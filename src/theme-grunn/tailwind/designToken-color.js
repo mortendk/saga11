@@ -13,6 +13,7 @@ module.exports = {
   "primary-700": "var(--color-primary-700)",
   "primary-800": "var(--color-primary-800)",
   "primary-900": "var(--color-primary-900)",
+
   "secondary-50": "var(--color-secondary-50)",
   "secondary-100": "var(--color-secondary-100)",
   "secondary-200": "var(--color-secondary-200)",
@@ -23,6 +24,7 @@ module.exports = {
   "secondary-700": "var(--color-secondary-700)",
   "secondary-800": "var(--color-secondary-800)",
   "secondary-900": "var(--color-secondary-900)",
+
   "tetiary-50": "var(--color-tetiary-50)",
   "tetiary-100": "var(--color-tetiary-100)",
   "tetiary-200": "var(--color-tetiary-200)",
@@ -33,6 +35,7 @@ module.exports = {
   "tetiary-700": "var(--color-tetiary-700)",
   "tetiary-800": "var(--color-tetiary-800)",
   "tetiary-900": "var(--color-tetiary-900)",
+
   "tone-50": "var(--color-tone-50)",
   "tone-100": "var(--color-tone-100)",
   "tone-200": "var(--color-tone-200)",

@@ -33,6 +33,8 @@
   {% render 'image.liquid', file: image, widths: "400" %}
 {% endif %}
 
+{% include "linklist/linklist.liquid", collection : collections.allPages, url: url %}
+
 {% comment %}
   Pre next collection
 {% endcomment %}

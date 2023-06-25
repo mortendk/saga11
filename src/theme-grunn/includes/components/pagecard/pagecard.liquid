@@ -5,17 +5,20 @@
 
 <section class="grid grid-cols-3 gap-4">
 {% for page in component.page %}
-
   {% assign pages = collections.all  %}
-
   {% for item in pages %}
-  {% if item.data.url == page %}
 
+    {% if item.data.url == page %}
+
+
+    {% assign title = item.data.card.title | default: item.data.title %}
+    {% assign image = item.data.card.image | default: item.data.image %}
+    {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
     {%
-      render 'card',
-        title: item.data.card.title,
-        text: item.data.card.text,
-        image: item.data.card.image,
+      render 'card.liquid',
+        title: title,
+        text: text,
+        image: image,
         url: item.url,
         date: item.date
     %}

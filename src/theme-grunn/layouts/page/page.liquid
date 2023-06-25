@@ -5,13 +5,12 @@ saga-template-name: Page default
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/page.liquid -->{%- endif -%}
 
 
-
-
 <h1 class="text-5xl">{{ title }}</h1>
+{% include "tag/tags.liquid" %}
 
-{% include "linklist/linklist.liquid", collection : collections.allPages, url: url %}
 
-{% include "components/all.liquid" %}
+{{ page.date | dateformat: dateLocalize, "full" }}
+{{ page.date | date: "%H:%M" }}
 
 {% if image %}
   <div class="aspect-video overflow-hidden">
@@ -27,11 +26,13 @@ saga-template-name: Page default
   </div>
 {% endif %}
 
-
 <div class="prose dark:prose-invert">
   {{ content }}
 </div>
 
+
+{% include "components/all.liquid" %}
+
 {% include "some/share.liquid" %}
-{% include "tag/tags.liquid" %}
-{% include "tag/tagcloud.liquid" %}
+
+
