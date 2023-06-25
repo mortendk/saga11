@@ -2,9 +2,7 @@
 layout: html.liquid
 ---
 {% comment %}This layout is used for the styleguide {% endcomment %}
-{%- if env.mode != 'prod' %}
-<!-- 👋 layouts/styleguide.liquid -->
-{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- 👋 layouts/styleguide.liquid -->{%- endif -%}
 
 {% comment %}isModalOpen is used to test if theres a modal open then disable the scroll {% endcomment %}
 
@@ -57,8 +55,8 @@ layout: html.liquid
 
     {% for item in collections.styleguide | sortByFilepath %}
     {% comment %}todo: group based on the filepath ?{{ item.filePathStem | replace('/_system/styleguide/', '')}} {% endcomment %}
-    <a href="{{ item.url }}" class="block text-gray-800 {% if item.url in page.url %} font-bold{% endif %}">
-      {% if item.url in page.url %} 👉{% endif %}
+    <a href="{{ item.url }}" class="block text-gray-800 {% if item.url contains page.url %} font-bold{% endif %}">
+      {% if page.url contains item.url %} 👉{% endif %}
       {{item.data.title}}
     </a>
     {% endfor %}
