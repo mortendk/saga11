@@ -297,7 +297,6 @@
                     fields:
                       - { label: title, name: title, widget: string, required: true, default: Message }
                       - { label: required, name: required, widget: boolean, default: false, required: false }
-
                   - label: "Options: Dropdown / Checkbox / Radio"
                     name: options
                     widget: list
@@ -313,7 +312,13 @@
                         fields:
                           - { label: title, name: title, widget: string, required: true }
                           - { label: "checked/selected", name: checked, widget: boolean, default: false, required: false }
-
+                  - label: Button
+                    name: button
+                    widget: list
+                    fields:
+                      - { label: "Submit Title", name: title, widget: string, required: true, default: "Send" }
+                      - { label: "Reset button", name: reset, widget: boolean, required: false }
+                      - { label: "Reset title", name: resettitle, widget: string, required: false, default: "Reset" }
 
               - { label: text, name: text, widget: markdown, required: false }
               - name: "template"

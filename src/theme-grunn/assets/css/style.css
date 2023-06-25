@@ -2307,6 +2307,10 @@ pre[class*="language-"] {
   justify-content: space-between;
 }
 
+.justify-items-center {
+  justify-items: center;
+}
+
 .gap-2 {
   gap: 0.5rem;
 }
@@ -2672,6 +2676,18 @@ pre[class*="language-"] {
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
+}
+
+.bg-tone-300 {
+  background-color: var(--color-tone-300);
+}
+
+.bg-tone-200 {
+  background-color: var(--color-tone-200);
+}
+
+.bg-primary-800 {
+  background-color: var(--color-primary-800);
 }
 
 .bg-gradient-to-r {
@@ -3323,6 +3339,14 @@ pre[class*="language-"] {
 .hover\:bg-sky-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary-400:hover {
+  background-color: var(--color-primary-400);
+}
+
+.hover\:bg-primary-600:hover {
+  background-color: var(--color-primary-600);
 }
 
 .hover\:text-cyan-600:hover {

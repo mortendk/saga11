@@ -1,0 +1,13 @@
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/includes/components/form/field/button.liquid -->{%- endif  -%}
+
+<div class="flex flex-row justify-between">
+  {% if item.reset %}
+    <input type="reset" value="{{ item.resettitle }}" class="bg-tone-200 text-white py-3 px-8 rounded-md">
+  {% endif %}
+
+  <button aria-label="Submit" class="bg-primary-800 hover:bg-primary-600 text-white py-3 px-8 rounded-md">
+    {{ item.title }}
+  </button>
+
+
+</div>

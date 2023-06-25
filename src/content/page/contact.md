@@ -19,7 +19,7 @@ components:
         placeholder: Email
       - type: options
         inputtype: Dropdown
-        required: true
+        required: false
         title: Dropdown
         option:
           - checked: true
@@ -29,9 +29,13 @@ components:
       - type: textarea
         title: Message
         required: true
+      - type: button
+        title: Send
+        resettitle: Reset
+        reset: true
     text: |-
-      Y﻿ou can totally contact us :) 
-      t﻿ext with stuff on it 
+      Y﻿ou can totally contact us :)
+      t﻿ext with stuff on it
 image: ""
 order: 1
 url: contact
@@ -40,9 +44,9 @@ date: 2023-06-21 20:03:22
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   excerpt: |-
-    This is a text 
+    This is a text
 
-    D﻿o we need something badass as a internalkey 
+    D﻿o we need something badass as a internalkey
   title: Contact
   parent: main
   order: 20

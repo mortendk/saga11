@@ -8,7 +8,7 @@
     {% endif %}
 
     {% if component.text %}
-      {{ component.text }}
+      {{ component.text  }}
     {% endif %}
   </div>
 
@@ -29,10 +29,12 @@
       {% include "components/form/field/input.liquid" %}
     {% elsif item.type == "options" %}
       {% include "components/form/field/options.liquid" %}
+    {% elsif item.type == "button" %}
+      {% include "components/form/field/button.liquid" %}
     {% endif %}
   {% endfor %}
 
-  <button aria-label="Submit" class="bg-primary-500 p-4 my-20">Send</button>
+
 
 
 </form>
