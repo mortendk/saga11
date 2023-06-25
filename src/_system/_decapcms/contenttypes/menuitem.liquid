@@ -46,9 +46,9 @@
           default: main
           searchFields: [title]
           valueField: "{% raw %}{{eleventyNavigation.key}}{% endraw %}"
-          displayFields: ["Title: {% raw %}{{title}} |  key: '{{eleventyNavigation.key}} {% endraw %}'"]
+          displayFields: ["Title: {% raw %}{{title}} | key: '{{eleventyNavigation.key}} {% endraw %}'"]
           required: false
           multiple: false
         - { label: "order", name: "order", widget: "number", required: false}
-        - { label: "text", name: "excerpt", widget: "text", default : "", required: false, hint: 'If the theme supports it '}
+        - { label: "text", name: "text", widget: "text", required: false}
 

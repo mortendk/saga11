@@ -43,11 +43,7 @@ layout: page/page.liquid
 date: 2023-06-21 20:03:22
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  excerpt: |-
-    This is a text
-
-    D﻿o we need something badass as a internalkey
   title: Contact
-  parent: main
+  parent: footer
   order: 20
 ---

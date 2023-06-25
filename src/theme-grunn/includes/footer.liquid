@@ -1,20 +1,18 @@
 {%- if env.mode != 'prod' %}<!-- _src/__includes/footer.liquid  -->{%- endif  -%}
 
-<footer class="bg-white dark:bg-gray-900 dark:text-gray-300 mt-16 py-4">
-  <section class="w-full flex flex-col pagewidth justify-between">
+<footer class="bg-tone-100 dark:bg-gray-900 dark:text-gray-300 mt-16 py-4">
+  <div class="pagewidth">
 
-    {% comment %}Gets the collection for the area footer {% endcomment %}
-    {% for item in collections.blocks | sortByOrder %}
-      {% if item.data.blockposition == "footer" %}
 
-      {% for component in item.data.components %}
-        {% include component.template %}
-      {% endfor %}
+{% include "darkmode/darkmode.liquid" %}
+{% include "some/socialmedia.liquid" %}
 
-      {% endif %}
+  {% assign menu = collections.all | eleventyNavigation: "footer" %}
+
+  <nav class="flex flex-col">
+    {% for item in menu %}
+      <a href="{{ item.url }}" class="block">{{ item.title }}</a>
     {% endfor %}
-  </section>
-
-  {% include "darkmode/darkmode.liquid" %}
-
+  </nav>
+  </div>
 </footer>

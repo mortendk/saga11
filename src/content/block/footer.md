@@ -5,7 +5,7 @@ components:
   - type: njktemplate
     template: components/templates/socialmedia.liquid
   - type: Address
-    template: components/address/address.liquid
+    template: components/address/address-footer.liquid
     address:
       - street: regnbuepladsen 1
         zip: "1550"
