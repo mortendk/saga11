@@ -6,7 +6,8 @@
 
 {% include "darkmode/darkmode.liquid" %}
 {% include "some/socialmedia.liquid" %}
-
+  {{ site.title }}
+  {{ site.icon }}
   {% assign menu = collections.all | eleventyNavigation: "footer" %}
 
   <nav class="flex flex-col">

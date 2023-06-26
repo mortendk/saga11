@@ -1,6 +1,6 @@
   - name: custom
-    label: "💜 Cusom collection"
-    label_singular: 💜 custom content
+    label: "💜 Custom contenttypes"
+    label_singular: 💜 Custom contenttype
     description: "This is an example of a custom content type"
     folder: "src/content/custom"
     slug: "{% raw %}{{title}}{% endraw %}"
@@ -23,6 +23,13 @@
       depth: 100 # max depth to show in the collection tree
       summary: "{{title}}"
     fields:
+{% include "_system/_decapcms/widgets/string",
+    name: "title",
+    label: "title",
+    default: "",
+    required: true,
+    hint: "Title"
+%}
 {% include "_system/_decapcms/widgets/code",
     name: "code",
     label: "code",
@@ -68,13 +75,6 @@
   required: true,
   hint: "number 2-20 step: 2"
 %}
-{% include "_system/_decapcms/widgets/string",
-  name: "title",
-  label: "title",
-  default: "",
-  required: true,
-  hint: "Title"
-%}
 {% include "_system/_decapcms/widgets/image",
   name: "image",
   label: "📷 image",
@@ -86,7 +86,7 @@
 %}
 {% include "_system/_decapcms/widgets/datetime",
   name: "date",
-  label: "🕒 Date",
+  label: "Date",
   default: "true",
   required: "false",
   hint: "help text"
@@ -121,10 +121,51 @@
 %}
 
 {% include "_system/_decapcms/widgets/boolean",
-name: "eleventyExcludeFromCollections",
-label: "😴 Draft Mode",
-default: "false",
-required: "false",
-hint: "Draft mode"
+  name: "eleventyExcludeFromCollections",
+  label: "Collection Hide",
+  default: "false",
+  required: "false",
+  hint: "Hide from collections"
 %}
 
+{% include "_system/_decapcms/widgets/boolean",
+  name: "permalink",
+  label: "Visible",
+  default: true,
+  required: "false",
+  hint: "Set to false if you want to hide this page"
+%}
+
+
+  - name: test
+    label: "🔥test"
+    label_singular: 💜 test
+    description: "This is an example of a custom content type"
+    folder: "src/content/custom"
+    slug: "{% raw %}{{title}}{% endraw %}"
+    preview_path: /custom/{% raw %}{{title}}{% endraw %}/
+    create: true
+    delete: true
+    hide: false
+    editor:
+      preview: false
+    summary: "{% raw %}{{title}}{% endraw %}"
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{{title}}"
+    fields:
+{% include "_system/_decapcms/widgets/string",
+    name: "title",
+    label: "title",
+    default: "",
+    required: true,
+    hint: "Title"
+%}
