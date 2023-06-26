@@ -4,3 +4,9 @@ saga-template-name: tags overview
 ---
 
 {% include "tag/taglist.liquid" %}
+
+
+
+{% for item in collections.custom %}
+-  {{ item.data.title }} <br>
+{% endfor %}
