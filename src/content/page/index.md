@@ -1,5 +1,5 @@
 ---
-title: Saga11
+title: Saga11 mega awesome
 url: /
 card:
   title: "This is the frontpage card "
