@@ -4,7 +4,6 @@ url: footer
 image: ""
 order: 1
 eleventyExcludeFromCollections: true
-permalink: true
 eleventyNavigation:
   key: footer
   title: footer
