@@ -4,7 +4,9 @@
   "description": "Website builder based on 11ty & Decap CMS",
   "main": "eleventy.config.js",
   "config": {
-    "theme": "theme-grunn"
+    "theme": "theme-grunn",
+    "dateLocalize": "Da",
+    "timeZone": "Europe/Copenhagen"
   },
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
