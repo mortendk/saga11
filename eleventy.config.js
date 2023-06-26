@@ -2,14 +2,13 @@ const path = require("path");
 const fs = require("fs");
 const util = require('util');
 
-// Get settings
-const settings = require("./saga11.config.js");
 const env = require("./src/content/_data/env.js");
-const theme = settings.theme || "theme-grunn";
-const packageJson = require("./package.json");
-const saga11version = packageJson.version;
-const dateLocalize = settings.dateLocalize || "";
-const timeZone = settings.timeZone || "";
+const package = require("./package.json");
+
+const saga11version = package.version;
+const theme = package.config.theme;
+const dateLocalize = package.config.dateLocalize || "";
+const timeZone = package.config.timeZone || "";
 
 // plugins
 const pluginRss = require("@11ty/eleventy-plugin-rss");
@@ -77,7 +76,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
-  // global vars todo: is this existing for liquid ?
+  // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
   eleventyConfig.addGlobalData("theme", theme);
   eleventyConfig.addGlobalData("timezone", timeZone);

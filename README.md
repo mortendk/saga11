@@ -26,8 +26,9 @@ $ npm  start
 
 🤖 go to the [admin interface admin](/admin)
 
-💅 Themes are in /src/themes/
-The are configured in /saga11.config.js
+💅 Themes : /src/theme-grunn/
+can be renamed in package.json
+
 
 📜 content is in /src/content/
 

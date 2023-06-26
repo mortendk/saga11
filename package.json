@@ -3,6 +3,11 @@
   "version": "0.8.beta",
   "description": "Website builder based on 11ty & Decap CMS",
   "main": "eleventy.config.js",
+  "config": {
+    "theme": "theme-grunn",
+    "dateLocalize": "Da",
+    "timeZone": "Europe/Copenhagen"
+  },
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "clean": "rm -rf _site",
@@ -11,8 +16,8 @@
     "build": "npm run tw:build && npm run 11ty:build",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
-    "tw:build": "npx tailwindcss -c src/theme-grunn/tailwind.config.js -i src/theme-grunn/tailwind/tailwind.css -o src/theme-grunn/assets/css/style.min.css --minify",
-    "tw:watch": "npx tailwindcss -c src/theme-grunn/tailwind.config.js -i src/theme-grunn/tailwind/tailwind.css -o src/theme-grunn/assets/css/style.css --watch",
+    "tw:build": "npx tailwindcss -c src/${npm_package_config_theme}/tailwind.config.js -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.min.css --minify",
+    "tw:watch": "npx tailwindcss -c src/${npm_package_config_theme}/tailwind.config.js -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.css --watch",
     "upgrade": "npm install @11ty/eleventy@latest & npm update & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/typography@latest & npm install -D  @tailwindcss/forms@latest"
   },
   "keywords": [],
