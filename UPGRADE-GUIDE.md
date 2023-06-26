@@ -1,9 +1,6 @@
-An upgrade guide
-
 Heres a short guide to upgrade saga11
 
 ## 1 Delete:
-
 /_site/
 /node_modules/
 /package-lock.json
@@ -11,13 +8,10 @@ Heres a short guide to upgrade saga11
 (Both will be regenered when you `npm install` and `npm start`)
 
 ## Overwrite
-/src/system
-/src/themes/debug
-/src/themes/grunn
-/src/themes/nakinn
+/src/_system
 
-## Config
+## Config files
+package.json
 eleventy.config.js
 netlify.toml
-package.json
-saga11.config.js
+

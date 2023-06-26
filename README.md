@@ -9,26 +9,29 @@ probably a geek so you know this ;)
 
 ## Quick start
 
-1. install saga
+1. Enviroment setup
+
+```
+$ npm  run setup
+```
+open the /.env for port settings and gitbranch
+
+2. Install Saga11
 
 ```
 $ npm install
 ```
 
-2. Spin it up:
+3. Spin it up:
 
 ```
 $ npm  start
 ```
 
-👉 To make the admin work clone the env.example to .env
-(else the system dont know where the admin is)
-
 🤖 go to the [admin interface admin](/admin)
 
-💅 Themes : /src/theme-grunn/
+💅 Theme : /src/theme-grunn/
 can be renamed in package.json
-
 
 📜 content is in /src/content/
 
@@ -42,8 +45,7 @@ can be renamed in package.json
 $ npm run cleanup
 ```
 
-## Admin interface
-
+## Admin access online
 https://docs.netlify.com/visitor-access/identity/
 
 ## Static Sites FTW
