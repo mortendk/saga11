@@ -1,16 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 // colors vars set in tailwind/base.css
 
+// get the theme name
+const settings = require("../../saga11.config.js");
+const theme = settings.theme;
+
 const colors = require("./tailwind/designToken-color");
 const fontsize = require("./tailwind/designToken-fontSize");
 const fontfamily = require("./tailwind/designToken-fontFamily");
 
 module.exports = {
   content: [
-    "src/theme-grunn/layouts/*.liquid",
-    "src/theme-grunn/layouts/**/*.liquid",
-    "src/theme-grunn/includes/*.liquid",
-    "src/theme-grunn/includes/**/*.liquid",
+    "src/" + theme + "/layouts/*.liquid",
+    "src/" + theme + "/layouts/**/*.liquid",
+    "src/" + theme + "/includes/*.liquid",
+    "src/" + theme + "/includes/**/*.liquid",
     "src/content/styleguide/*.liquid",
     "src/content/styleguide/**/*.liquid",
   ],
