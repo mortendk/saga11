@@ -34,21 +34,20 @@
 %}
 {% include "_system/_decapcms/widgets/boolean",
   name: "eleventyExcludeFromCollections",
-  label: "😴 Draft Mode",
+  label: "Collection Hide",
   default: "false",
   required: "false",
-  hint: "Draft mode"
+  hint: "Hide from collections"
 %}
 
-
-      - label: 💁🏽‍♂️ status
+      - label: 💁🏽‍♂️ Status
         name: "status"
         widget: "select"
         multiple: false
         options: ["info", "warning", "alert"]
         default: "info"
 
-      - label: "❗️info"
+      - label: " ℹ️ Info"
         name: "text"
         widget: "markdown"
         buttons:
@@ -57,7 +56,7 @@
           - link
         required: false
 
-      - label: "link to page"
+      - label: "link to the page"
         name: "showlink"
         widget: "boolean"
         default: false
