@@ -1,0 +1,34 @@
+  # -----------------------------------------------------------------
+  # Relations Tags
+  # -----------------------------------------------------------------
+  - name: tags
+    label_singular: 🏷 Tag
+    label: 🏷 Tags
+    description: "Tags used to catagorize content"
+    folder: "src/content/tag"
+    slug: "{% raw %}{{title}}{% endraw %}"
+    hide: false
+    create: true
+    delete: false
+    editor:
+      preview: false
+    fields:
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
+{% include "_system/_decapcms/fields/menu.liquid" %}
+
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}

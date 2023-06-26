@@ -1,0 +1,38 @@
+---
+layout: default.liquid
+saga-template-name: Page default
+---
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/page.liquid -->{%- endif -%}
+
+
+<h1 class="text-5xl">{{ title }}</h1>
+
+{% include "tag/tags.liquid" %}
+
+{{ page.date | dateformat: dateLocalize, "full" }}
+{{ page.date | date: "%H:%M" }}
+
+{% if image %}
+  <div class="aspect-video overflow-hidden">
+  {% render 'image.liquid',
+      file: image,
+      alt: title,
+      sizes: "(min-width: 30em) 50vw, 100vw",
+      widths: "400, 800, 1200",
+      format: "webp",
+      loading: "lazy",
+      css: "w-full"
+  %}
+  </div>
+{% endif %}
+
+<div class="prose mx-auto">
+  {{ content }}
+</div>
+
+
+{% include "components/all.liquid" %}
+
+{% include "some/share.liquid" %}
+
+

@@ -1,30 +1,29 @@
 ---
 title: Saga11
-image: /upload/spaceship.png
+url: /
 card:
   title: "This is the frontpage card "
-  image: ""
+  image: /content/upload/default.png
   alt: spaceship
   text: The frontpage card that we use for sharing
 components:
   - type: collection
-    title: Collection
-    template: components/collection/collection.njk
+    order: data.order
+    size: 3
+    template: components/collection/collection.liquid
     collection: saga11
+image: https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80
 tags:
   - saga11
-  - test
-url: /
-eleventyNavigation:
-  parent: ""
-  title: Home
-  order: 10
-  key: main
-  excerpt: Mega text
-layout: page/frontpage.njk
+order: 1
+layout: page/frontpage.liquid
+date: 2023-06-20 22:01:46
 eleventyExcludeFromCollections: false
+eleventyNavigation:
+  title: Home
+  order: 0
+  key: main
 ---
-M﻿Ain branch ?\
 😍 it works{tm}
 
 👉 To make the admin work clone the env.example to .env

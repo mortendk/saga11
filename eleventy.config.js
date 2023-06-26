@@ -1,80 +1,26 @@
 const path = require("path");
 const fs = require("fs");
+const util = require('util');
+
 // Get settings
-const env = require("./src/content/_data/env.js");
 const settings = require("./saga11.config.js");
-const theme = settings.theme || "grunn";
+const env = require("./src/content/_data/env.js");
+const theme = settings.theme || "theme-grunn";
 const packageJson = require("./package.json");
 const saga11version = packageJson.version;
-
-const dateFormat = settings.dateFormat || "";
+const dateLocalize = settings.dateLocalize || "";
 const timeZone = settings.timeZone || "";
 
-
+// plugins
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const Image = require("@11ty/eleventy-img");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 
-async function picture(image) {
-  // netlifycms have a tendency to create an empty image in the markdown image: "" so test for this and kill it
-  if (image.img == "" || !image.img) {
-    return "";
-  }
-
-  const widths = image.width || [640, 1024, 1563];
-  const formats = image.format || ["webp", "jpeg"];
-  const sizes = image.sizes || "(max-width: 640px) 50vw, 100vw";
-  const css = image.css || "";
-  const alt = image.alt || "";
-  const loading = image.loading || "lazy"; //lazy or eager
-  let src;
-
-  if (fs.existsSync("src" + image.img)) {
-    src = "src" + image.img;
-  } else if (image.img.indexOf("http://") === 0 || image.img.indexOf("https://") === 0) {
-    src = image.img;
-  } else {
-    console.log(` nope src: ${image.img} - ${src}`);
-  }
-
-  if (src) {
-    let metadata = await Image(src, {
-      widths: widths,
-      formats: formats,
-      outputDir: "_site/img/", // send image directly to the site build
-      sharpOptions: {
-        animated: true,
-      },
-      urlPath: "/img/",
-      cacheOptions: {
-        duration: "1d",
-        directory: ".cache",
-        removeUrlQueryParams: false,
-      },
-      filenameFormat: function (id, src, width, format, options) {
-        return `${id}-${width}w.${format}`;
-      },
-    });
-
-    let imageAttributes = {
-      class: css,
-      alt: alt,
-      sizes: sizes,
-      loading: loading,
-      decoding: "async",
-    };
-
-    return Image.generateHTML(metadata, imageAttributes, {
-      whitespaceMode: "inline",
-    });
-  } else {
-    // console.log(`🎈 picture function: ${image} dont exist `);
-    // return `<!-- image function called but: ${image} -->`;
-    return "";
-  }
-}
+const markdownIt = require('markdown-it');
+const markdownItEleventyImg = require("markdown-it-eleventy-img");
+const embedYouTube = require("eleventy-plugin-youtube-embed");
+const embedVimeo = require("eleventy-plugin-vimeo-embed");
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -84,76 +30,112 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(faviconsPlugin);
 
   // Shortcodes
-  eleventyConfig.addNunjucksAsyncShortcode("picture", picture);
-  eleventyConfig.addShortcode("imageurl", require("./src/system/11ty/shortcode/imageurl"));
-  eleventyConfig.addShortcode("calendar", require("./src/system/11ty/shortcode/calendarlinks.js"));
-  eleventyConfig.addShortcode("datediff", require("./src/system/11ty/shortcode/datediff.js"));
+  eleventyConfig.addShortcode("image", require("./src/_system/11ty/shortcode/image.js"));
+  eleventyConfig.addShortcode("imageurl", require("./src/_system/11ty/shortcode/imageurl.js"));
+  eleventyConfig.addShortcode("calendar", require("./src/_system/11ty/shortcode/calendarlinks.js"));
+  eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
 
   // Filters
-  eleventyConfig.addFilter("formatDate", require("./src/system/11ty/filter/formatDate.js"));
-  eleventyConfig.addFilter("markdown", require("./src/system/11ty/filter/markdown.js"));
-  eleventyConfig.addFilter("slugify", require("./src/system/11ty/filter/slugify.js"));
-  eleventyConfig.addFilter("sortByOrder", require("./src/system/11ty/filter/sortByOrder.js"));
-  eleventyConfig.addFilter("sortByTitle", require("./src/system/11ty/filter/sortByTitle.js"));
-  eleventyConfig.addFilter("sortByFilepath", require("./src/system/11ty/filter/sortByFilepath.js"));
-  eleventyConfig.addFilter("filtertags", require("./src/system/11ty/filter/taglist.js"));
-  eleventyConfig.addFilter("getPage", require("./src/system/11ty/filter/getPage"));
-  eleventyConfig.addFilter("netlifycmsedit", require("./src/system/11ty/filter/netlifycmsediturl"));
-  eleventyConfig.addFilter("debug", require("./src/system/11ty/filter/debug"));
-  eleventyConfig.addFilter("debugpretty", require("./src/system/11ty/filter/debugPretty"));
+  eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
+  eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
+  eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
+  eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));
+  eleventyConfig.addFilter("weekday", require("./src/_system/11ty/filter/dateWeekday.js"));
+  eleventyConfig.addFilter("month", require("./src/_system/11ty/filter/dateMonth.js"));
+  eleventyConfig.addFilter("dateformat", require("./src/_system/11ty/filter/dateFormat.js"));
+
+  //RSS filters
+  eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
+  eleventyConfig.addLiquidFilter("dateToRfc822", pluginRss.dateToRfc822);
+  eleventyConfig.addLiquidFilter("getNewestCollectionItemDate", pluginRss.getNewestCollectionItemDate);
+  eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
+
+  // Dump & Debug
+  eleventyConfig.addFilter('dump', function(value) {
+    const str = util.inspect(value);
+    return `<pre style="white-space: pre-wrap; background: #eee; color: #666; padding: 1rem; border: 1px dashed #ccc">${unescape(str)}</pre>`
+  });
+
+  eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
 
   // Collections
-  eleventyConfig.addCollection("allPosts", require("./src/system/11ty/collection/allPosts.js"));
-  eleventyConfig.addCollection("allPages", require("./src/system/11ty/collection/allPages.js"));
-  eleventyConfig.addCollection("allNotification", require("./src/system/11ty/collection/allNotification.js"));
-  eleventyConfig.addCollection("allTags", require("./src/system/11ty/collection/allTags.js"));
-  eleventyConfig.addCollection("styleguide", require("./src/system/11ty/collection/styleguide.js"));
-  eleventyConfig.addCollection("tags", require("./src/system/11ty/collection/tags"));
-  eleventyConfig.addCollection("blocks", require("./src/system/11ty/collection/blocks.js"));
+  eleventyConfig.addCollection("allPosts", require("./src/_system/11ty/collection/allPosts.js"));
+  eleventyConfig.addCollection("allPages", require("./src/_system/11ty/collection/allPages.js"));
+  eleventyConfig.addCollection("allNotification", require("./src/_system/11ty/collection/allNotification.js"));
+  eleventyConfig.addCollection("allTags", require("./src/_system/11ty/collection/allTags.js"));
+  eleventyConfig.addCollection("tags", require("./src/_system/11ty/collection/tags.js"));
+  eleventyConfig.addCollection("blocks", require("./src/_system/11ty/collection/blocks.js"));
+  eleventyConfig.addCollection("styleguide", require("./src/_system/11ty/collection/styleguide.js"));
 
   // Transform
   if (env.mode == "prod") {
-    eleventyConfig.addTransform("htmlmin", require("./src/system/11ty/transform/minify.js"));
+    eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
   }
 
-  // PassThrough
-  eleventyConfig.addPassthroughCopy("src/themes/" + theme + "/assets/");
-  eleventyConfig.addPassthroughCopy("src/service-workers.js");
-  eleventyConfig.addPassthroughCopy("src/themes/debug/");
+  // Fix placement of files
+  eleventyConfig.addPassthroughCopy({"src/theme-grunn/assets/" : "/assets/"});
+  eleventyConfig.addPassthroughCopy({"src/theme-grunn/service-workers.js" : "service-workers.js"});
+  eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
-  // global vars
-  eleventyConfig.addNunjucksGlobal("saga11version", saga11version);
-
-  // get the theme folder name
-  eleventyConfig.addNunjucksGlobal("theme", theme);
-
-  // Date and time fun
-  eleventyConfig.addNunjucksGlobal("timeZone", timeZone);
-  eleventyConfig.addNunjucksGlobal("dateFormat", dateFormat);
+  // global vars todo: is this existing for liquid ?
+  eleventyConfig.addGlobalData("saga11version", saga11version);
+  eleventyConfig.addGlobalData("theme", theme);
+  eleventyConfig.addGlobalData("timezone", timeZone);
+  eleventyConfig.addGlobalData("dateLocalize", dateLocalize);
 
   // Local Server
   eleventyConfig.setServerOptions({
-    port: env.siteport ,
+    port: env.siteport,
   });
 
-  // ignore README
-  eleventyConfig.ignores.add("README.md");
+  // Liquid options
+  eleventyConfig.setLiquidOptions({
+    jsTruthy: true,
+    dynamicPartials: true,
+    strict_filters: true,
+  });
 
-  // the amazing theme selector
-  eleventyConfig.ignores.add("src/themes/");
-  eleventyConfig.ignores.delete("src/themes/"  + theme );
+  // Markdown IT
+  eleventyConfig.setLibrary('md', markdownIt ({
+    html: true,
+    breaks: true,
+    linkify: true
+  }).use(markdownItEleventyImg, {
+    imgOptions: {
+      widths: [640, 1200],
+      urlPath: "/img",
+      outputDir: "./_site/img/",
+      formats: ["webp"]
+    },
+    globalAttributes: {
+      class: "md-image",
+      decoding: "async",
+      loading: "lazy",
+      sizes: "100vw"
+    },
+    resolvePath: (filepath) => path.join('src', filepath)
 
+  }));
 
-  // Directory setup
+  // embed youtube
+  eleventyConfig.addPlugin(embedYouTube, {
+    embedClass: 'md-video',
+    lite: true,
+    modestBranding: true
+  });
+
+  // embed vimeo
+  eleventyConfig.addPlugin(embedVimeo, {
+    embedClass: 'md-video',
+    dnt: true
+  });
+
   return {
-    markdownTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
     dir: {
       input: "src/",
       output: "_site",
-      includes: "themes/" + theme + "/includes",
-      layouts: "themes/" + theme + "/layouts",
+      includes: theme + "/includes",
+      layouts: theme + "/layouts",
       data: "content/_data",
     },
   };

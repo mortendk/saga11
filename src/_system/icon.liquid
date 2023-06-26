@@ -1,0 +1,12 @@
+{% comment %}
+Generates the icons and html - look at systempages/webminfest for the manifest file
+ {% endcomment %}
+{% if site.icon %}
+  {% capture icon -%}
+    {{- "src/" | append: site.icon -}}
+  {%- endcapture %}
+{% else %}
+  {% assign icon = "src/_system/icon.svg" %}
+{% endif %}
+{% assign icon = "src/_system/icon.svg" %}
+{% favicons icon %}

@@ -1,0 +1,16 @@
+{% comment %}
+{% render 'image.liquid',
+  file: image,
+  alt: title,
+  sizes: "(min-width: 30em) 50vw, 100vw",
+  widths: "400, 800, 1200",
+  format: "webp",
+  loading: "lazy",
+  css: "w-full"
+%}
+{% endcomment %}
+
+{% if file %}
+{% assign width = widths | split: ', ' %}
+{% image file, width, format, alt, sizes, loading, css %}
+{% endif %}

@@ -1,0 +1,24 @@
+{%- if env.mode != 'prod' %}<!-- __includes/nav/tagcloud.liquid  -->{%- endif  -%}
+
+<nav aria-label="All Tags" class="flex flex-row space-x-2">
+  {% for item in collections.allTags %}
+  {% if item.fileSlug != "rssfeed" %}
+
+  <div class="bg-tone-100 p-2 flex flex-row space-x-1 items-center rounded-sm">
+    <a href="/tag/{{ item.fileSlug }}">
+      {{ item.data.title }}
+    </a>
+
+    {% if item.data.icon %}
+    <div class="h-4 w-4 mr-2">
+      {% include './tag.svg' %}
+    {% comment %}
+      {% include item.data.icon %}
+    {% endcomment %}
+    </div>
+    {% endif %}
+  </div>
+
+  {% endif %}
+  {% endfor %}
+</nav>

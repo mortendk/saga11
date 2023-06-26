@@ -1,23 +1,23 @@
 ---
-title: Hello World
-image: ""
+title: B boom Hello World
+image: /content/upload/default.png
 card:
-  image: /upload/spaceship.png
-  alt: To the moon
   title: Hello world blogpost
-  text: "This is text in a card and used for sharing and teaser on the site.
-    "
+  image: https://images.unsplash.com/photo-1586622992874-27d98f198139
+  alt: To the moon
+  text: "This is text in a card and used for sharing and teaser on the site. "
 tags:
   - saga11
+  - test
   - rssfeed
-date: 2022-09-19 17:14:55
-layout: post/post.njk
+order: 5
+date: 2023-07-27 00:00:00
+layout: post/post.liquid
 eleventyExcludeFromCollections: false
 ---
-
 content
 
-{% picture img="/upload/4hundo.gif", alt="4 1231 hundo" %}
+picture img="/content/upload/4hundo.gif", alt="4 1231 hundo"
 
 This is probably the best description ever of a movie
 
@@ -33,14 +33,16 @@ This is probably the best description ever of a movie
 
 `this is a small code block`
 
-- Llist item a
-- List item b
+* Llist item a
+* List item b
 
-This is _italic_ and this is **bold** and this is a [link](https://saga11.dev)
+This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
 
 ```html
 <h1>code</h1>
 ```
 
-Heres a youtube link wonder what we wanna do with that
+Heres a youtube link
+
+
 https://www.youtube.com/watch?v=p1nwLilQy64

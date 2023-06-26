@@ -1,0 +1,49 @@
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/includes/linklist.liquid -->{%- endif -%}
+
+{% comment %}
+{% include "linklist/linklist.liquid",
+    collection : collections.allPosts,
+    limit: 3,
+    sort: "data.title",
+    showdate: true
+%}
+{% endcomment %}
+
+{% capture limit %}
+  {% if limit %}{{ limit }} {% else %} 10 {% endif %}
+{% endcapture %}
+
+{% capture sort %}
+  {% if sort %}{{ sort }}{% else %} date {% endif %}
+{% endcapture %}
+
+<nav aria-label="Page Navigation">
+  {% assign items = collection | sort: sort %}
+  {% for item in items limit: limit %}
+
+    {% capture menutitle %}
+    {% if item.data.eleventyNavigation.title %}
+      {{ item.data.eleventyNavigation.title }}
+    {% elsif item.data[alias].title %}
+      {{ item.data[alias].title }}
+    {% else %}
+      {{ item.data.title }}
+    {% endif %}
+  {% endcapture %}
+
+  <div class="border-b border-gray-200 mb-4">
+
+    <a href="{{ item.url }}" title="{{ item.data.title }}" class="block {% if item.url contains url -%} font-bold {% endif %}"
+      {% if item.url contains url -%} aria-current="page" {% endif %}>
+      {{ menutitle }}
+    </a>
+
+    {% if showdate %}
+    <div class="text-sm text-gray-700 dark:text-cyan-200">
+      {{ item.data.date | date: "%d %m  %Y %H:%M", timeZone }}
+    </div>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+</nav>

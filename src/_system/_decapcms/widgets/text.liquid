@@ -1,0 +1,9 @@
+      - label: "{{ label }}"
+        name: "{{ name  }}"
+        widget: "text"
+        {% if default %}default: {{ default }}{% endif %}
+        {% if required %}required: {{ required }}{% endif %}
+        {% if hint %}hint: {{ hint }}{% endif %}
+
+
+

@@ -1,0 +1,13 @@
+---
+tags:
+  - testdata
+pagination:
+  data: test
+  alias: city
+  size: 1
+  addAllPagesToCollections: true
+  resolve: values
+layout: test/test-page.liquid
+permalink: 'test/{{ pagination.pageNumber }}/'
+eleventyExcludeFromCollections: false
+---

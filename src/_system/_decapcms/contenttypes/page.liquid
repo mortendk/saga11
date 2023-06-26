@@ -1,0 +1,91 @@
+  # ---------------------------------------------------------------
+  # Pages Collection
+  # ---------------------------------------------------------------
+  - name: page
+    label: 🏩 Pages
+    label_singular: 🏩 Page
+    description: "Pages with components"
+    folder: "src/content/page"
+    slug: "{{title}}"
+    preview_path: /{% raw %}{{url}}{% endraw %}/
+    create: true
+    delete: true
+    editor:
+      preview: true
+    summary: "{% raw %}{{title}} | url: {{url}} | {{permalink}}{% endraw %} "
+    sortable_fields: ["url", "title", "order"]
+    view_filters:
+      - label: collection
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+      - label: permalink
+        field: permalink
+    nested:
+      depth: 5 # max depth to show in the collection tree
+      summary: "{% raw %}{{title}}{% endraw %}"
+    fields:
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/string",
+  name: "url",
+  label: "url",
+  default: "",
+  required: false,
+  hint: ""
+%}
+
+{% include "_system/_decapcms/fields/card.liquid" %}
+
+{% include "_system/_decapcms/fields/component.liquid" %}
+
+{% include "_system/_decapcms/widgets/image",
+  name: "image",
+  label: "Image",
+  default: "/content/upload/default.png"
+  choose_url: true,
+  allow_multiple: false,
+  required: "false",
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: ""
+%}
+
+{% include "_system/_decapcms/fields/tags.liquid" %}
+
+{% include "_system/_decapcms/widgets/number",
+  name: "order",
+  label: "Collection Order",
+  default: 1,
+  min: "1",
+  max: "200",
+  step: "1",
+  required: false,
+  hint: "Optional order"
+%}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "Collection Hide",
+  default: "false",
+  required: "false",
+  hint: "Hide from collections"
+%}
+
+{% include "_system/_decapcms/fields/menu.liquid" %}
+
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page" %}

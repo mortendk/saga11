@@ -1,0 +1,37 @@
+{% assign value = "Page foo" %}
+{% assign items = collections.all | where: "data.title", value %}
+
+{% for item in items reversed limit: 2 %}
+  url: {{ item.url }}
+  title: {{ item.data.title }}
+{% endfor %}
+
+{% assign value = "Page foo" %}
+{% assign all = collections.test | sort: "data.order" %}
+{% for item in all  limit: 2 %}
+   {{ item.data.title }}
+{% endfor %}
+
+{% comment %}
+  sort data
+{% endcomment %}
+
+
+
+{% assign sortField = "data.order" %}
+{% assign items = collections.saga11 | sort: sortField | reverse  %}
+{% for item in items limit: 10 %}
+  {{ item.date | date: "%d.%m %Y" }} |
+  {{ item.data.order }} |
+  {{ item.data.title }} |
+  <hr>
+{% endfor %}
+
+
+
+<table>
+{% tablerow item in collections.test cols:2 %}
+  {{ item.data.title }}
+  {{ item.data.order }}
+{% endtablerow %}
+</table>

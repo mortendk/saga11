@@ -1,0 +1,9 @@
+      - label: "{{ label }}"
+        name: "{{ name  }}"
+        widget: "boolean"
+        {% if default %}default: {{ default }}{% else%}true{% endif %}
+        {% if required %}required: {{ required }}{% endif %}
+        {% if hint %}hint: {{ hint }}{% endif %}
+
+
+

@@ -1,0 +1,15 @@
+compoment
+fields:
+- { label: title, name: title, widget: string, required: false }
+- { label: "Text", name: "text", widget: "markdown", required: false }
+- name: "icon"
+  label: "icon"
+  widget: relation
+  options_length: 300
+  collection: icons
+  searchFields: [title]
+  valueField: "{% raw %}icons/{{filename}}.{{extension}}{% endraw %}"
+  displayFields: ["{% raw %}icons/{{filename}}.{{extension}}{% endraw %}"]
+  required: true
+  default: "icons/beaker.svg"
+  hint: "All icons are located in theme/icons"

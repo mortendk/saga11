@@ -1,0 +1,26 @@
+      - label: "Verification & Seo"
+        name: "verification"
+        file: "src/content/_data/verification.json"
+        fields:
+          - {label: 🐘 ✅ mastodon Verification (rel="me"),
+              name: mastodon_verification,
+              widget: string,
+              required: false,
+              hint: "The complete url (ex: https://fosstodon.org/@saga11) Used for mastodon verification ",
+            }
+          - {label: 👋 Github Verification (rel="me"),
+              name: github_verification,
+              widget: string,
+              required: false,
+              hint: "The complete url (ex: https://github.com/[name]) used for indieauth.com",
+            }
+          - {
+              label: 📍 Pinterest verification,
+              name: pinterest_verification,
+              widget: string,
+              required: false,
+              hint: "can be found on https://www.pinterest.dk/settings/claim",
+            }
+          - { label: 👾 Header (tracking scripts), name: header, widget: text, required: false, hint: "Data block placed inside the header tag ex for tracking scripts" }
+          - { label: 🔎 Seo default Description, name: description, widget: text, required: false }
+          - { label: 🔎 Seo default Keywords, name: keywords, widget: text, required: false }

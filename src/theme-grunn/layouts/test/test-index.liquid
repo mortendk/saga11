@@ -1,0 +1,24 @@
+---
+layout: default.liquid
+saga-template-name: test
+---
+{% comment %}
+  testdata comes from  _datapagination/test.liquid
+{% endcomment %}
+
+<section class="grid lg:grid-cols-3 gap-4">
+{% for item in collections.testdata %}
+
+  {% assign title = item.data.city.card.title | default: item.data.city.title %}
+  {% assign image = item.data.city.card.image | default: item.data.city.image %}
+  {% assign text = item.data.city.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
+  {%
+    render 'card.liquid',
+      title: title,
+      text: text,
+      image: image,
+      url: item.url,
+  %}
+
+{% endfor %}
+</section>

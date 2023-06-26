@@ -1,0 +1,182 @@
+---
+title: Admin
+permalink: /admin/index.html
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{site.title }} | {{ title }}</title>
+</head>
+
+<body>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js?123"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    CMS.registerPreviewStyle("style.css");
+
+    // COMPONENTS
+    CMS.registerEditorComponent(
+      {
+      id: "shortcode-image",
+      label: "Shortcode: image",
+      collapsed: true,
+      fields: [
+        {
+          name: 'image',
+          label: 'image',
+          widget: 'image',
+          choose_url: true
+        },
+        {
+          name: 'alt',
+          label: 'alt',
+          widget: 'string'
+        },
+        {
+          name: 'widths',
+          label: 'widths',
+          widget: 'string',
+          default: '640',
+          required: true,
+          hint: 'widths can be set as an array ex: 400, 800, 1200'
+        }
+      ],
+      pattern: /^{\% render "image.liquid" file:"(.*?)", alt:"(.*?)", widths:"(.*?)" \%}$/ms,
+      fromBlock: function (match) {
+        return {image: match[1], alt: match[2],widths: match[3]};
+      },
+      toBlock: function (data) {
+        return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}", widths:"${data.widths}" \%\}`;
+      },
+      toPreview: function (data) {
+        return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}"  \%\}`;
+      }
+    }
+    );
+
+
+  CMS.registerEditorComponent({
+    // Internal id of the component
+    id: "video",
+    // Visible label
+    label: "Video html5",
+    fields: [
+      {
+        name: 'file',
+        label: 'file',
+        widget: 'file'
+      }
+    ],
+    pattern: /^<video controls><source src="(.*?)"><\/video>$/ms,
+    fromBlock: function(match) {
+      return {
+        file: match[1]
+      };
+    },
+    toBlock: function(data) {
+      return `<video controls><source src="${data.file}"><\/video>`;
+    },
+    toPreview: function(data) {
+      return `<video controls><source src="${data.file}"><\/video>`;
+    }
+  });
+  </script>
+
+{% comment %}
+  <script>
+    // https://github.com/netlify/netlify-cms/issues/2183
+    window.previewDataCMS = {};
+    const GeneratePreview = (type, properties = []) => createClass({
+      render: function () {
+        const { entry } = this.props;
+        const data = { type };
+        const keys = (properties || []);
+        if (Array.isArray(keys)) {
+          keys.forEach((key) => {
+            try {
+              const tmp = entry.getIn(['data', key]);
+              data[key] = tmp === 'undefined' ? '' : tmp;
+            } catch (e) {
+              console.log(e);
+            }
+          })
+          try {
+            data.mediaFiles = entry.get('mediaFiles')
+          } catch (e) {
+            console.log(e);
+          }
+        }
+        let host = window.location.host;
+        const isLocal = ['localhost', '127.0.0.1', '0.0.0.0'].includes((host || 'default-online').split(':')[0]);
+        const src = `${isLocal ? 'http' : 'https'}://${host}/preview/index.html`; //url!
+        window.previewDataCMS = data;
+        const html = `<iframe border="0" src="${src}" width="100%" height="100%" style="border: 1px solid #EEE; height: calc(100vh - 80px)"></iframe>`;
+        return h('div', { dangerouslySetInnerHTML: { __html: html } });
+      },
+    });
+    CMS.registerPreviewTemplate('page', GeneratePreview('page', ['title', 'date', 'tags', 'url', 'content']));
+    CMS.registerPreviewTemplate('poses', GeneratePreview('poses', ['poses']));
+    CMS.registerPreviewTemplate('colors', GeneratePreview('colors', ['title', 'image']));
+  </script>
+
+{% endcomment %}
+
+  {% comment %}
+  <script>
+  var PagePreview = createClass({
+    render: function() {
+      var entry = this.props.entry;
+      var image = entry.getIn(['data', 'image']);
+      var bg = this.props.getAsset(image);
+      return h('div', {},
+        h('h1', {}, entry.getIn(['data', 'title'])),
+        h('h2', {}, entry.getIn(['data', 'card.title'])),
+        h('img', {src: bg.toString()}),
+        h('div', {"className": "text"}, this.props.widgetFor('body'))
+      );
+    }
+  });
+
+  CMS.registerPreviewTemplate("page", PagePreview);
+  </script>
+{% endcomment %}
+
+{% comment %}
+<script>
+  var GeneralPreview = createClass({
+    // Object fields are simpler than lists - instead of `widgetsFor` returning
+    // an array of objects, it returns a single object. Accessing the shape of
+    // that object is the same as the shape of objects returned for list fields:
+    //
+    // {
+    //   data: { front_limit: 0, author: 'Chris' },
+    //   widgets: { front_limit: (<WidgetComponent>), author: (WidgetComponent>)}
+    // }
+    render: function() {
+      var entry = this.props.entry;
+      var title = entry.getIn(['data', 'site_title']);
+      var posts = entry.getIn(['data', 'card']);
+
+      return h('div', {},
+        h('h1', {}, title),
+        h('dl', {},
+          h('dt', {}, 'Posts on Frontpage'),
+          h('dd', {}, this.props.widgetsFor('posts').getIn(['widgets', 'front_limit']) || 0),
+
+          h('dt', {}, 'Default Author'),
+          h('dd', {}, this.props.widgetsFor('posts').getIn(['data', 'author']) || 'None'),
+        )
+      );
+    }
+  });
+
+  CMS.registerPreviewTemplate("general", GeneralPreview);
+  </script>
+
+{% endcomment %}
+
+</body>
+</html>

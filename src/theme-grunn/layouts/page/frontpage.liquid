@@ -1,0 +1,28 @@
+---
+layout: default.liquid
+saga-template-name: Frontpage
+---
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->{%- endif -%}
+
+<article class="flex flex-col md:flex-row">
+  {% if image %}
+    <div class="aspect-video overflow-hidden">
+    {% render 'image.liquid',
+      file: image,
+      alt: title,
+      sizes: "(min-width: 30em) 50vw, 100vw",
+      widths: "400, 800, 1200",
+      format: "webp",
+      loading: "lazy",
+      css: "w-full"
+    %}
+    </div>
+  {% endif %}
+
+  <div class="prose prose-xl dark:prose-invert mt-4 md:mt-0 md:ml-4 p-4 bg-white rounded-md shadow-md dark:bg-gray-700">
+    {{ content }}
+  </div>
+</article>
+
+{% include "components/all.liquid" %}
+

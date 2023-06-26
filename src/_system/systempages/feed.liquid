@@ -1,0 +1,47 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ env.url }}/feed.xml" rel="self" />
+  <generator uri="https://saga11.dev">Saga11</generator>
+  <logo>{{env.url}}/icon-safari.png</logo>
+  <icon>{{env.url}}/icon-safari.png</icon>
+  <updated>{{ collections.rssfeed | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ env.url }}/</id>
+  <author>
+    <name>{{ site.authorname }}</name>
+    <email>{{ site.authoremail }}</email>
+  </author>
+
+  {%- for item in collections.rssfeed | reverse %}
+  <entry>
+    <titlxe>{{ item.data.card.title }}</titlxe>
+    <link href="{{ env.url }}/{{item.url}}" />
+    <summary> {{item.data.card.text }} </summary>
+    <updated>{{ item.date | dateToRfc3339 }}</updated>
+    <id>{{ item.url }}</id>
+    <content type="html">
+      {% if item.data.card.image %}
+      <![CDATA[
+        {%- include 'image.liquid',
+          file: item.data.card.image,
+          alt: title,
+          sizes: "a",
+          widths: "800",
+          format: "webp",
+          loading: "",
+          css: ""
+        -%}
+          ]]>
+      {% endif %}
+      {{ item.templateContent | strip_html | truncate: "400" }}
+    </content>
+  </entry>
+
+  {%- endfor %}
+
+</feed>

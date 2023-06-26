@@ -1,0 +1,64 @@
+{%- if env.mode != 'prod' %}
+<!-- __includes/components/testamonial/testamonial.liquid -->
+{%- endif -%}
+
+<section class="">
+
+  {% comment %}title + text {% endcomment %}
+  <article class="mx-auto max-w-3xl py-4">
+    {% if component.title %}
+    <h3 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
+      {{ component.title }}
+    </h3>
+    {% endif %}
+
+    {% if component.text %}
+    <div class="prose prose-xl dark:prose-invert">
+      {{ component.text  }}
+    </div>
+    {% endif %}
+  </article>
+
+  <div class="md:grid grid-cols-3 gap-4">
+    {% for item in component.testamonial %}
+    <article class="border-1 border-teal-300 bg-white dark:bg-gray-900 p-4 m-2 shadow rounded-sm">
+      {% comment %}person {% endcomment %}
+      <div class="flex flex-row items-center">
+        {% render 'image.liquid',
+            file: item.image,
+            widths: "200",
+            loading: "lazy",
+            css: "rounded-full w-24 h-24 border border-teal-400 dark:border-teal-100 mr-4"
+          %}
+
+        <div class="dark:text-gray-200 text-sm">
+          <div>{{ item.person }}</div>
+          <div>{{ item.persontitle }}</div>
+        </div>
+      </div>
+      {% comment %}/ person {% endcomment %}
+
+      {% comment %}quote {% endcomment %}
+      <h3 class="text-xl text-cyan-700 dark:text-cyan-200">
+        {{ item.title }}
+      </h3>
+
+      {% if item.text %}
+      <div class="text  dark:text-cyan-200">
+        {{ item.text    }}
+      </div>
+      {% endif %}
+
+      {% comment %}url link {% endcomment %}
+      {% if item.url %}
+      <a href="{{ item.url }}" target="_blank" class="flex w-12 h-12 justify-center items-center rounded-full">
+        <div class="sr-only">{{ item.url }}</div>
+        <div class="w-8 text-gray-800 dark:text-cyan-100 hover:w-6">
+          {% include "./arrow-top-right-on-square.svg" %}
+        </div>
+      </a>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>

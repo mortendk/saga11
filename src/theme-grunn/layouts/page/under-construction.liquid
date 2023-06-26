@@ -1,0 +1,23 @@
+---
+layout: html.liquid
+saga-template-name: Under construction
+---
+{%- if env.mode != 'prod' %}
+<!-- ___layouts/page/frontpage.liquid  -->
+{%- endif -%}
+
+<body class="flex flex-col h-screen bg-gray-900 center-center">
+
+  <article class="w-1/2 mx-auto bg-gray-900 text-white">
+
+    <h1 class="text-5xl font-bold text-center">{{ title }}</h1>
+
+    <div class="text-xl text-center">
+      {{ teaser }}
+    </div>
+
+    <div class="mt-8 center-center">
+      <img src="/assets/img/under-construction.gif" alt="under construction" width="100">
+    </div>
+
+  </article>

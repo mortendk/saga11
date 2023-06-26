@@ -1,0 +1,20 @@
+{%- if env.mode != 'prod' %}
+<!-- src/theme-grunn/includes/components/templates/all-post.liquid -->
+{%- endif -%}
+
+<h2 class="text-5xl text-center text-cyan-700 dark:text-cyan-200">All Post</h2>
+
+<section class="grid md:grid-cols-3 gap-4 py-4">
+
+  {% for item in collections.allPosts %}
+
+  {% render 'card',
+    title: item.data.card.title,
+    text: item.data.card.text,
+    image: item.data.card.image,
+    url: item.url,
+    date: item.date
+    %}
+
+  {% endfor %}
+</section>

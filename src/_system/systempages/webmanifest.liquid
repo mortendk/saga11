@@ -1,0 +1,24 @@
+---
+permalink: /manifest.webmanifest
+eleventyExcludeFromCollections: true
+---
+{% comment %} TODO maskable icon {% endcomment %}
+{
+  "name": "{{ site.title }}",
+  "short_name": "{{ site.shortname }}",
+  "start_url": "./",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "{{ site.color }}",
+  "theme_color": "{{ site.color }}",
+  "description": "{{ site.description }}",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },    {
+      "src": "/maskable-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

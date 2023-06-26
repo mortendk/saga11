@@ -1,0 +1,40 @@
+{%- if env.mode != 'prod' %}
+<!-- 👋 sections src/theme-grunn/includes/components/images/images-grid.liquid -->
+{%- endif -%}
+
+<section>
+  {% if component.title %}
+  <h1 class="text-5xl text-cyan-700 dark:text-cyan-200 text-center py-4 ">
+    {{ component.title }}
+  </h1>
+  {% endif %}
+
+  {% if component.text %}
+  <div class="text-center text-xl py-4">
+    {{ component.text }}
+  </div>
+  {% endif %}
+
+  <div class="grid grid-cols-4 gap-4">
+    {% assign gallery = component.images %}
+    {% for item in gallery %}
+    <div class="flex flex-col">
+      {% render 'image.liquid',
+          file: item.image,
+          alt: item.title,
+          sizes: "(max-width: 640px) 50vw, 100vw",
+          widths: "640,1024, 1563",
+          format: "webp",
+          loading: "lazy",
+          css: "w-full"
+      %}
+
+      {% if item.title or item.text %}
+        <h3>{{ item.title }}</h3>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+
+</section>

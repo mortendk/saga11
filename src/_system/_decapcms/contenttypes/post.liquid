@@ -1,0 +1,88 @@
+  # ---------------------------------------------------------------
+  # Post Collection
+  # ---------------------------------------------------------------
+  - name: post
+    label: 🧑🏽‍💻 Posts
+    label_singular: 🧑🏽‍💻 Post
+    description: "Post fx blogpost etc"
+    folder: "src/content/post"
+    slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
+    preview_path: /post/{% raw %}{{title}}{% endraw %}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{% raw %}{{title}} {{url.parent}} {{card.image}}{% endraw %} "
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: "Parent: "
+        field: url.parent
+      - label: Tag
+        field: tags
+      - label: "Date: "
+        field: date
+        pattern: "([0-9]+(-[0-9]+)+)"
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: "{% raw %}{{title}}{% endraw %}"
+    fields:
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
+{% include "_system/_decapcms/widgets/image",
+  name: "image",
+  label: "image",
+  default: "/content/upload/default.png"
+  choose_url: true,
+  allow_multiple: false,
+  required: "false",
+  hint: "image"
+%}
+{% include "_system/_decapcms/fields/card.liquid" %}
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
+
+{% include "_system/_decapcms/fields/tags.liquid" %}
+{% include "_system/_decapcms/widgets/number",
+  name: "order",
+  label: "order",
+  default: 1,
+  min: "1",
+  max: "200",
+  step: "1",
+  required: false,
+  hint: "optional order"
+%}
+{% include "_system/_decapcms/widgets/datetime",
+  name: "date",
+  label: "Date",
+  default: "true",
+  required: "false",
+  hint: "help text"
+%}
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "😴 Draft Mode",
+  default: "false",
+  required: "false",
+  hint: "Draft mode"
+%}
+

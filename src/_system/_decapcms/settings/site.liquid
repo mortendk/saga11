@@ -1,0 +1,13 @@
+      - label: "Site Settings"
+        name: "sitesettings"
+        file: "src/content/_data/site.json"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: "shortname", name: shortname, widget: string }
+          - { label: 🌇 (fave)icon, name: icon, widget: image, choose_url: false, required: false, hint: "The icon is used to create favions Only takes square images - preferable an svg"}
+          - { label: Icon color, name: faviconcolor, widget: color, required: true, enableAlpha : true }
+          - { label: Browesercolor, name: color, widget: color, required: false }
+          - { label: opengraph, name: opengraph, widget: image, default: "/content/upload/saga11icon.svg", choose_url: false, required: false, hint: "opengraph"}
+          - { label: "🧡 RSS Feed", name: rss, widget: boolean, default: true, hint: "/feed.xml",}
+          - { label: "🧡 RSS Author", name: authorname, widget: string, required: false, hint: "Feed Author name"}
+          - { label: "🧡 RSS Author Email" , name: Authoremail,widget: string, required: false,hint: "Feed Author name"}

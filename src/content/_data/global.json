@@ -1,0 +1,14 @@
+{
+  "errorpage": "g﻿lobal 404 error page yo\n\nCan this become markdown ? cause ",
+  "footer": "opening hours: \nmonday 9-10\ntuesday 22: 40",
+  "humantxt": "humans ?",
+  "address": {
+    "name": "Saga 11",
+    "street": "Valhalla 200",
+    "zip": "1666",
+    "country": "denmark",
+    "phone": "+4529700666",
+    "url": "https://morten.dk",
+    "email": "foo@bar.dk"
+  }
+}

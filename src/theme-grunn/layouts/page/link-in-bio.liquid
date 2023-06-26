@@ -1,0 +1,157 @@
+---
+layout: html.liquid
+saga-template-name: Link in Bio
+---
+{%- if env.mode != 'prod' %}<!-- ___layouts/page/link-in-bio.liquid  -->{%- endif -%}
+
+<body class="flex flex-col h-screen bg-gray-900">
+<main id="main" tabindex="-1" class="flex-grow pt-14 bg-gradient-to-t from-gray-600 to-gray-900 text-white">
+  <div class="max-w-lg mx-auto">
+
+    <article class="flex flex-col">
+
+      <div class="flex items-center justify-center">
+        {% render 'image.liquid',
+          file: image,
+          widths: "600",
+          format: "webp",
+          loading: "lazy",
+          css: "w-36 h-36 rounded-full"
+        %}
+      </div>
+
+      <h2 class="text-4xl text-center py-2">{{ title }}</h2>
+      <div class="text-xl mx-auto p-2">{{ content }}</div>
+
+    </article>
+
+    <div class="text-2xl font-bold text-center p-4">
+      <a href="{{env.url}}">{{ site.title }}</a>
+    </div>
+
+    {% include "components/all.liquid" %}
+
+    <article class="flex flex-col">
+        {% for item in link %}
+
+          {% comment %}Test if the user added the label ... {% endcomment %}
+          {% if item.label == "" %}
+            {% assign label = item.url %}
+          {% else %}
+            {% assign label = item.label %}
+          {% endif %}
+
+          <a href="{{ item.url }}" rel="noopener noreferrer nofollow" class="block bg-white/90 p-4 m-4 rounded-lg text-blue-500 font-bold text-xl text-center"> wtf{{ label }}</a>
+        {% endfor %}
+      </article>
+
+
+      {% comment %}SOME icons{% endcomment %}
+      {% assign csslink = "text-sky-100 flex flex-row items-center text-lg border border-sky-500  bg-sky-900 rounded-sm p-1 space-x-4" %}
+      {% assign cssicon = "w-12 h-12" %}
+
+      <nav class="flex flex-col space-y-4" aria-label="Menu Social">
+
+        {% if some.linkedin %}
+          <a href="https://linkedin.com/in/{{ some.linkedin }}" class="{{csslink}}">
+            <div class="{{ cssicon }}">{% include "svg/some/linkedin.svg" %}</div>
+            <div>LinkedIn</div>
+          </a>
+        {% endif %}
+
+        {% if some.facebook %}
+          <a href="https://facebook.com/{{ some.facebook }}" class="{{csslink}}">
+            <div class="{{ cssicon }}">{% include "svg/some/facebook.svg" %}</div>
+            <div>Facebook</div>
+          </a>
+        {% endif %}
+
+        {% if some.instagram %}
+          <a href="https://instagram.com/{{ some.instagram }}" class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/instagram.svg" %}</div>
+          <div>Instagram</div>
+          </a>
+        {% endif %}
+
+        {% if some.youtube %}
+          <a href="https://instagram.com/{{ some.youtube }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/youtube.svg" %}</div>
+          <div>youtube</div>
+          </a>
+        {% endif %}
+
+        {% if some.twitter %}
+          <a href="https://twitter.com/{{ some.twitter }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/twitter.svg" %}</div>
+          <div>My Twitter: </div>
+          </a>
+        {% endif %}
+
+        {% if some.github %}
+          <a href="https://github.com/{{ some.github }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/github.svg" %}</div>
+          <div>GitHub</div>
+          </a>
+        {% endif %}
+
+        {% if some.dribble %}
+          <a href="https://dribbble.com/{{ some.dribble }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/dribble.svg" %}</div>
+          <div>Dribbble</div>
+          </a>
+        {% endif %}
+
+        {% if some.tiktok %}
+        <a href="https://tiktok.com/@{{ some.tiktok }}"  class="{{csslink}}">
+          <div class="{{cssicon }}">{% include "svg/some/tiktok.svg" %}</div>
+          <div>tiktok</div>
+          </a>
+        {% endif %}
+
+        {% if some.twitch %}
+          <a href="https://twitch.tv/{{ some.twitch }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/twitch.svg" %}</div>
+          <div>twitch</div>
+          </a>
+        {% endif %}
+
+        {% if some.patron %}
+          <a href="https://patron.com/{{ some.patron }}"  class="{{csslink}}">
+          Pateron
+        </a>
+        {% endif %}
+
+        {% if some.discord %}
+          <a href="https://discord.gg/{{ some.discord }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/discord.svg" %}</div>
+          <div>discord</div>
+          </a>
+        {% endif %}
+
+        {% if some.soundcloud %}
+          <a href="https://soundcloud.com/{{ some.soundcloud }}"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/soundcloud.svg" %}</div>
+            <div>Soundcloud</div>
+          </a>
+        {% endif %}
+
+        {% if some.bandcamp %}
+          <a href="https://{{ some.bandcamp }}.bandcamp.com"  class="{{csslink}}">
+          <div class="{{ cssicon }}">{% include "svg/some/bandcamp.svg" %}</div>
+            <div>bandcamp</div>
+          </a>
+        {% endif %}
+
+        {% if site.rss %}
+        <a href="/feed.xml" class="{{csslink}}">
+        <div class="{{ cssicon }}">{% include "svg/rss.svg" %}</div>
+        <div>RSS Feed</div>
+        </a>
+      {% endif %}
+
+      </div>
+    </main>
+
+    <footer class="bg-gray-600 text-center p-4 text-white">
+      <a href="{{env.url}}">{{ site.title }}</a>
+    </footer>

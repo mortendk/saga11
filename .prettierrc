@@ -1,9 +1,0 @@
-{
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "pluginSearchDirs": false,
-  "overrides": [
-    {
-      "files": ["**/*.njk"]
-    }
-  ]
-}

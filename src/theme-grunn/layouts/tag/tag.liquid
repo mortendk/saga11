@@ -1,0 +1,48 @@
+---
+layout: default.liquid
+saga-template-name: tag
+---
+{%- if env.mode != 'prod' %}<!-- src/theme-grunn/layouts/tag/tag.liquid  -->{%- endif -%}
+
+{% comment %}
+the page.fileslug is the tags identifier in all the md files
+ex:
+tags:
+- saga11
+That then refers to the file tag/saga11.md that constainss all the data the we use on this page.
+{% endcomment %}
+
+{% comment %}
+this dosnt rewally work..
+{% endcomment %}
+
+
+<article class="flex flex-row space-x-8">
+  <div class="basis-2/12">
+    {% include "tag/taglist.liquid" %}
+  </div>
+  <div class="basis-10/12">
+    <h1 class="text-6xl text-primary-700">{{ title }}</h1>
+
+    <div class="prose prose-xl">
+      {{ content }}
+    </div>
+
+    <div class="md:grid grid-cols-3 gap-4 py-4">
+      {% for item in collections[page.fileSlug] %}
+        {% render 'card',
+          title: item.data.card.title,
+          text: item.data.card.text,
+          image: item.data.card.image,
+          url: item.url,
+          date: item.date
+        %}
+      {% endfor %}
+    </div>
+
+</article>
+
+  <a href="/feed/{{ title | slugify }}.xml" class="flex flex-row items-center justify-center">
+    <div class="w-4 h-4 mr-2">{% include "svg/rss.svg" %}</div>
+    <div>{{ title }} feed </div>
+  </a>

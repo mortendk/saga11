@@ -1,0 +1,100 @@
+{%- if env.mode != 'prod' %}
+<!-- 👋 images/images.liquid -->
+{%- endif -%}
+
+<section>
+
+  {% if component.title %}
+  <h1 class="text-5xl text-cyan-700 dark:text-cyan-200 text-center py-4 ">
+    {{ component.title }}
+  </h1>
+  {% endif %}
+
+  {% if component.text %}
+  <div class="text-center text-xl py-4">
+    {{ component.text }}
+  </div>
+  {% endif %}
+
+  {% comment %}The slider window as open ? wrapper for the bg {% endcomment %}
+  <div aria-label="Image gallery" class="" x-data="{isSliderOpen: false}" :class="isSliderOpen ? 'fixed top-0 left-0 z-40 h-full w-full' : 'w-full relative mb-4 mt-4'"
+    x-on:keydown.escape="isSliderOpen=false" x-on:keydown.left="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" x-on:keydown.right="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)">
+
+    {% assign gallery = component.images %}
+
+    <div class="" :class="isSliderOpen ? 'absolute top-1/2 w-full h-full mt-0 -translate-y-1/2':''">
+
+      {% comment %}pre next {% endcomment %}
+      <button @click="$refs.slider.scrollBy(-$refs.slideitem1.clientWidth,0)" tabindex="0" type="button" aria-label="Previous" :class="isSliderOpen ? 'md:block' : 'md:block'"
+        class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/3 left-2 z-10 -translate-y-1/2">
+        {% include "./arrow-left.svg" %}
+      </button>
+
+      <button @click="$refs.slider.scrollBy($refs.slideitem1.clientWidth,0)" tabindex="0" type="button" aria-label="Previous" :class="isSliderOpen ? 'md:block' : 'md:block'"
+        class="hidden bg-black text-white rounded-full w-10 h-10 absolute top-1/3 right-2 z-10 -translate-y-1/2">
+        {% include "./arrow-right.svg" %}
+      </button>
+
+      {% comment %} open/close toggler {% endcomment %}
+      <button type="button" aria-label="open close image" class="hidden md:block w-6 h-6 z-10 absolute right-2 top-2" :class="isSliderOpen ? 'text-white dark:text-cyan-200' : 'text-white'"
+        @click="isSliderOpen = !isSliderOpen, isModalOpen = !isModalOpen">
+        <span x-show="isSliderOpen">
+          {% include "./x-mark.svg" %}
+        </span>
+        <span x-show="!isSliderOpen">
+          {% include "./arrow-top-right-on-square.svg" %}
+        </span>
+      </button>
+
+      {% comment %}Image wrapper for the gallery {% endcomment %}
+      <div :class="isSliderOpen ? '' : 'scrollbar'" x-ref="slider" class="flex overflow-x-auto scroll-smooth snap-mandatory snap-x z-0 bg-gray-600 dark:bg-gray-900 h-full">
+
+        {% comment %}loop through all the images {% endcomment %}
+        {% for item in gallery %}
+
+        <div aria-label="image" role="img" x-ref="slideitem{{ forloop.index }}" class="flex flex-shrink-0 overflow-auto relative md:aspect-video w-full h-full mr-2 snap-center transition"
+          :class="isSliderOpen ? 'md:aspect-video justify-center items-center' : ''">
+
+          {% render 'image.liquid',
+            file: item.image,
+            alt: item.title,
+            sizes: "(max-width: 640px) 50vw, 100vw",
+            widths: "640,1024, 1563",
+            format: "webp",
+            loading: "lazy",
+            css: "w-full"
+          %}
+
+          {% comment %}title and text {% endcomment %}
+          {% if item.title or item.text %}
+          <div class="absolute bottom-4 w-full bg-black/70 text-white text-center p-2">
+            title: <div class="text-3xl">{{ item.title }}</div>
+            {{ item.text }}
+          </div>
+          {% endif %}
+
+        </div>
+        {% endfor %}
+        {% comment %}/ images {% endcomment %}
+
+      </div>
+
+      {% comment %}gallery navigation {% endcomment %}
+      <nav aria-label="gallery image navigation" class="flex flex-row pt-4 space-x-4">
+        {% for item in gallery %}
+        <div @click="$refs.slideitem{{ forloop.index }}.scrollIntoView(false)" class="">
+          <div class="aspect-square overflow-hidden w-16 bg-slate-500">
+            {% render 'image.liquid',file: item.image, alt: item.title, widths: "200", format: "webp",loading: "lazy", css: "w-full" %}
+          </div>
+          <div>
+            {{ item.title }}
+          </div>
+        </div>
+        {% endfor %}
+      </nav>
+
+    </div>
+
+  </div>
+
+</section>

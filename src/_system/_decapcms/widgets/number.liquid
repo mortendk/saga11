@@ -1,0 +1,10 @@
+      - label: "{{ label }}"
+        name: "{{ name  }}"
+        widget: "number"
+        {% if default %}default: {{ default }}{% endif %}
+        required: {{ required }}
+        {% if hint %}hint: "{{ hint }}"{% endif %}
+        value_type: {% if value_type %}{{ value_type }}{% else %}int{% endif %}
+        min: {{ min}}
+        max: {{ max }}
+        step: {{ step }}

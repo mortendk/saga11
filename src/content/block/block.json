@@ -1,3 +1,0 @@
-{
-  "permalink": "block/{{ title | slugify }}/"
-}
