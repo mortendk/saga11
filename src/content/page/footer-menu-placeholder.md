@@ -1,10 +1,10 @@
 ---
 title: Footer  placeholder
+url: footer
 image: ""
 order: 1
 eleventyExcludeFromCollections: true
-url: footer
-permalink: false
+permalink: true
 eleventyNavigation:
   key: footer
   title: footer
