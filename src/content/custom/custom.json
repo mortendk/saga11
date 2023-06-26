@@ -1,4 +1,4 @@
 {
   "permalink": "custom/{{ page.filePathStem }}.html",
-  "tags": "custom"
+  "tags": "foldercustom"
 }

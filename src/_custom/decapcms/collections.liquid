@@ -1,7 +1,7 @@
   - name: custom
-    label: "💜 Custom contenttypes"
-    label_singular: 💜 Custom contenttype
-    description: "This is an example of a custom content type"
+    label: "💜 Custom Contents"
+    label_singular: 💜 Custom Content
+    description: "This is an example of a Custom content type"
     folder: "src/content/custom"
     slug: "{% raw %}{{title}}{% endraw %}"
     preview_path: /custom/{% raw %}{{title}}{% endraw %}/
@@ -134,38 +134,4 @@
   default: true,
   required: "false",
   hint: "Set to false if you want to hide this page"
-%}
-
-
-  - name: test
-    label: "🔥test"
-    label_singular: 💜 test
-    description: "This is an example of a custom content type"
-    folder: "src/content/custom"
-    slug: "{% raw %}{{title}}{% endraw %}"
-    preview_path: /custom/{% raw %}{{title}}{% endraw %}/
-    create: true
-    delete: true
-    hide: false
-    editor:
-      preview: false
-    summary: "{% raw %}{{title}}{% endraw %}"
-    sortable_fields: ["title", "order", "date"]
-    view_filters:
-      - label: Drafts
-        field: eleventyExcludeFromCollections
-        pattern: true
-    view_groups:
-      - label: Drafts
-        field: eleventyExcludeFromCollections
-    nested:
-      depth: 100 # max depth to show in the collection tree
-      summary: "{{title}}"
-    fields:
-{% include "_system/_decapcms/widgets/string",
-    name: "title",
-    label: "title",
-    default: "",
-    required: true,
-    hint: "Title"
 %}
