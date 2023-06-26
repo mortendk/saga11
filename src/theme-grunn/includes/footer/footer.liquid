@@ -64,10 +64,6 @@
       </div>
       <div>
         <div class="text-xl">{{ site.title }}</div>
-        <div class="prose">
-          {{ global.footer }}
-        </div>
-
         <div>
           {{ address }}
         </div>
@@ -89,6 +85,10 @@
 
   {% comment %} Follow us{% endcomment %}
   <div class="basis-1/4">
+    <div class="prose">
+      {{ global.footer }}
+    </div>
+
       {% include "some/socialmedia.liquid" %}
   </div>
 
