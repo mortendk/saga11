@@ -86,14 +86,6 @@
   hint: "Hide from collections"
 %}
 
-{% include "_system/_decapcms/widgets/boolean",
-  name: "permalink",
-  label: "Visible",
-  default: true,
-  required: "false",
-  hint: "Set to false if you want to hide this page"
-%}
-
 {% include "_system/_decapcms/fields/menu.liquid" %}
 
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page" %}
