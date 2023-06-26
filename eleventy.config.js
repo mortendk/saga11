@@ -5,9 +5,10 @@ const util = require('util');
 // Get settings
 const settings = require("./saga11.config.js");
 const env = require("./src/content/_data/env.js");
-const theme = settings.theme || "theme-grunn";
+// const theme = settings.theme || "theme-grunn";
 const packageJson = require("./package.json");
 const saga11version = packageJson.version;
+const theme = packageJson.config.theme;
 const dateLocalize = settings.dateLocalize || "";
 const timeZone = settings.timeZone || "";
 

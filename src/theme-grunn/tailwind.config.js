@@ -2,8 +2,8 @@
 // colors vars set in tailwind/base.css
 
 // get the theme name
-const settings = require("../../saga11.config.js");
-const theme = settings.theme;
+const package = require("../../package.json");
+const theme = package.config.theme;
 
 const colors = require("./tailwind/designToken-color");
 const fontsize = require("./tailwind/designToken-fontSize");
