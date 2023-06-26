@@ -73,8 +73,8 @@ module.exports = function (eleventyConfig) {
   }
 
   // Fix placement of files
-  eleventyConfig.addPassthroughCopy({"src/theme-grunn/assets/" : "/assets/"});
-  eleventyConfig.addPassthroughCopy({"src/theme-grunn/service-workers.js" : "service-workers.js"});
+  eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/assets/"] : "/assets/"});
+  eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
   // global vars todo: is this existing for liquid ?
