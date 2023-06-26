@@ -36,6 +36,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
 
   // Filters
+  eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
   eleventyConfig.addFilter("getPage", require("./src/_system/11ty/filter/getPage.js"));
   eleventyConfig.addFilter("netlifycmsedit", require("./src/_system/11ty/filter/netlifycmsediturl.js"));

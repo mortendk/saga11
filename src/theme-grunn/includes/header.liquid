@@ -27,12 +27,13 @@
         <span class="sr-only">RSS Feed</span>
         {% include "svg/rss.svg" %}
       </a>
-    </div>
+      {% include "darkmode/darkmode.liquid" %}
+      </div>
     {% endif %}
+
 
     <div class="flex items-center md:hidden text-2xl text-teal-700 dark:text-teal-100 ">
       <div>{{ site.title }}</div>
-
     </div>
 
     {% comment %}mobile menu burron {% endcomment %}

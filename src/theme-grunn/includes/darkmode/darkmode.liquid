@@ -12,9 +12,11 @@
       <div class="w-4 text-gray-100">{% include "./moon.svg" %}</div>
     </div>
   </button>
+    {% comment %}
 
-  <button @click="localStorage.clear()" class="bg-gray-200 p-2 rounded w-8" aria-label="Clear Local storage from this site">
-    <div class="w-4 text-gray-700">{% include "./trash.svg" %}</div>
-  </button>
+    <button @click="localStorage.clear()" class="bg-gray-200 p-2 rounded w-8" aria-label="Clear Local storage from this site">
+      <div class="w-4 text-gray-700">{% include "./trash.svg" %}</div>
+      </button>
+    {% endcomment %}
 
 </div>

@@ -2,7 +2,7 @@
 title: Components
 card:
   title: Title from a card
-  image: /content/upload/spaceship.png
+  image: /content/upload/default.png
   alt: alt text for image
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -40,7 +40,7 @@ components:
   - type: image
     template: components/image/image.liquid
     title: image and text
-    image: /content/upload/spaceship.png
+    image: /content/upload/default.png
     alt: This is an rocket going to the moon
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -63,7 +63,7 @@ components:
     title: "This is a CTA "
     url: /
     cta: "CTA Text "
-    image: /content/upload/spaceship.png
+    image: /content/upload/default.png
     alt: alt text for this image
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -180,7 +180,7 @@ components:
     template: components/images/images.liquid
     title: image gallery slide
     images:
-      - image: /content/upload/spaceship.png
+      - image: /content/upload/default.png
         title: alt text first image
       - image: /content/upload/4hundo.gif
         title: alt text seconda image
@@ -188,7 +188,7 @@ components:
     template: components/images/images-grid.liquid
     title: image gallery grid
     images:
-      - image: /content/upload/spaceship.png
+      - image: /content/upload/default.png
         title: alt text first image
       - image: /content/upload/4hundo.gif
         title: alt text seconda image
@@ -326,7 +326,7 @@ Video
 
 
 
-![Always add an alt text](/content/upload/spaceship.png "This is an image title")
+![Always add an alt text](/content/upload/default.png "This is an image title")
 
 😍 it works{tm}
 

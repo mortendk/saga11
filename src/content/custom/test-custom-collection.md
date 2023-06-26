@@ -1,6 +1,6 @@
 ---
 title: test custom collection
-image: /content/upload/spaceship.png
+image: /content/upload/default.png
 datetime: 2023-06-09 11:14:58
 boolean: true
 string: default yo

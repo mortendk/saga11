@@ -3,7 +3,7 @@ title: A this is a bla bla
 image: ""
 card:
   title: Hello world blogpost
-  image: /content/upload/spaceship.png
+  image: /content/upload/default.png
   alt: To the moon
   text: "This is text in a card and used for sharing and teaser on the site. "
 tags:

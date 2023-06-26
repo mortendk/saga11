@@ -9,9 +9,8 @@
   "authoremail": "Ragnar@valhalla",
   "mastodon_verification": "",
   "rss": true,
-  "authorname": "Ragnar",
+  "authorname": "",
   "errorpage": "404 !",
   "title": "Saga11 Test site",
-  "icon": "/content/upload/saga11icon.svg",
-  "description": "saga 11"
+  "icon": "/content/upload/saga11icon.svg"
 }

@@ -8,20 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="{{ eleventy.generator }}">
 
-    {{ site.header  }}
+    {{ verification.header  }}
 
     {% comment %}Mastodon {% endcomment %}
-    {%- if site.mastodon_verification %}
+    {%- if verification.mastodon_verification %}
       <link rel="me" href="{{ site.mastodon_verification }}">
     {% endif -%}
 
     {% comment %} Github {% endcomment %}
-    {%- if site.github_verification %}
+    {%- if verification.github_verification %}
     <link rel="me" href="{{ site.github_verification }}">
     {% endif =%}
 
     {% comment %}pinterest {% endcomment %}
-    {%- if site.pinterest_verification %}
+    {%- if verification.pinterest_verification %}
     <meta name="p:domain_verify" content="{{ site.pinterest_verification }}" />
     {% endif -%}
 

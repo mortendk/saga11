@@ -1,6 +1,6 @@
 ---
 title: Form Submitted thanx
-image: /content/upload/spaceship.png
+image: /content/upload/default.png
 url: submitted
 eleventyNavigation:
   excerpt: ""

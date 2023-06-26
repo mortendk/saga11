@@ -1,6 +1,6 @@
 ---
 title: B boom Hello World
-image: /content/upload/spaceship.png
+image: /content/upload/default.png
 card:
   title: Hello world blogpost
   image: https://images.unsplash.com/photo-1586622992874-27d98f198139

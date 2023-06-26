@@ -1,0 +1,20 @@
+      - label: "Global Content"
+        name: "Global"
+        file: "src/content/_data/global.json"
+        fields:
+          - { label: "404 Errorpage", name: errorpage, widget: text, required: false }
+          - { label: "footer", name: footer, widget: text, required: false }
+          - name: address
+            label: Address
+            widget: object
+            collapsed: false
+            summary: "{% raw %}{{fields.image}} {{fields.teaser}}{% endraw %}"
+            fields:
+            - { label: name, name: name, widget: string, required: false }
+            - { label: street, name: street, widget: string, required: false }
+            - { label: zip, name: zip, widget: string, required: false }
+            - { label: country, name: country, widget: string, required: false }
+            - { label: Locality, name: locality, widget: string, required: false }
+            - { label: phone, name: phone, widget: string,required: false }
+            - { label: url, name: url, widget: string, default:"https://",required: false }
+            - { label: email, name: email, widget: string, default:"email@domaine.com",required: false }
