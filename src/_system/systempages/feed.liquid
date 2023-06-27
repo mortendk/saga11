@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
     <content type="html">
       {% assign img = item.data.card.image | default: item.data.image %}
       <![CDATA[
-        {%- include 'image.liquid', file: img, widths: "800", format: "webp" %}
+
       ]]>
       {{ item.templateContent | strip_html | truncatewords: "50" }}
     </content>
