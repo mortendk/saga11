@@ -1,0 +1,25 @@
+      - name: seo
+        label: 🔍 SEO & Sharing
+        widget: object
+        collapsed: true
+        summary: "{% raw %} Title: '{{fields.title}}' | Description: '{{fields.content}}' | Robots: {{fields.index}}, {{fields.follow}} {% endraw %}"
+        fields:
+          - { label: "title", name: "title", widget: "string", required: false, hint: 'seo title' }
+          - { label: "Meta Description", name: "description", widget: "text", required: false }
+          - label: "Show this page in search Engines"
+            name: "index"
+            widget: "select"
+            default: "index"
+            options:
+              - { label: "Yes", value: "index" }
+              - { label: "No dont show", value: "noindex" }
+          - label: "Search Engines follow the links"
+            name: "follow"
+            widget: "select"
+            default: "nofollow"
+            options:
+              - { label: "Yes", value: "follow" }
+              - { label: "No", value: "nofollow" }
+
+
+
