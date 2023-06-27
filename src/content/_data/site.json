@@ -1,16 +1,11 @@
 {
-  "humantxt": "/* TEAM */\n\n/* THANKS */\n\n/* SITE */\nStandards: HTML5, CSS3\nBuild on: 11ty with magic \n\nhttps://saga11.dev\nhttps://11ty.dev\nhttps://tailwindcss.com\n\nIcons\nhttps://heroicons.com/\n",
-  "color": "#35034c",
-  "opengraph": "/content/upload/opengraph.jpg",
+  "title": "Saga11 Test site",
   "shortname": "saga 11",
-  "keywords": "11ty saga 11",
-  "header": "",
+  "opengraph": "/content/upload/opengraph.jpg",
+  "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, html & css ",
+  "color": "#35034c",
   "faviconcolor": "#35034c",
   "authoremail": "Ragnar@valhalla",
-  "mastodon_verification": "",
   "rss": true,
-  "authorname": "",
-  "errorpage": "404 !",
-  "title": "Saga11 Test site",
   "icon": "/content/upload/saga11icon.svg"
 }
