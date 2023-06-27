@@ -34,7 +34,6 @@ eleventyExcludeFromCollections: true
     <id>{{ absolutePostUrl }}</id>
     <content type="html">
       {% if item.data.card.image %}
-      {% comment %}
       <![CDATA[
         {%- include 'image.liquid',
         file: item.data.card.image,
@@ -46,7 +45,6 @@ eleventyExcludeFromCollections: true
         css: ""
         -%}
       ]]>
-      {% endcomment %}
       {% endif %}
 
       {{ item.templateContent | strip_html |truncate: "400" }}

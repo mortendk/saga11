@@ -8,6 +8,8 @@ eleventyExcludeFromCollections: true
   <subtitle>{{ site.description | strip_newlines | escape }}</subtitle>
   <link href="{{ env.url }}/feed.xml" rel="self" />
   <generator uri="https://saga11.dev">Saga11</generator>
+  <logo>{{env.url}}{% render 'imageurl.liquid' file: site.icon, widths: '144', format: 'png' %}</logo>
+  <icon>{{env.url}}{% render 'imageurl.liquid' file: site.icon, widths: '144', format: 'png' %}</icon>
   <updated>{{ collections.rssfeed | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
   <id>{{ env.url }}</id>
   <author>
@@ -25,7 +27,7 @@ eleventyExcludeFromCollections: true
     <content type="html">
       {% assign img = item.data.card.image | default: item.data.image %}
       <![CDATA[
-
+        {%- include 'image.liquid', file: img, widths: "800", format: "webp" %}
       ]]>
       {{ item.templateContent | strip_html | truncatewords: "50" }}
     </content>
