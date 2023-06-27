@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
 
   {%- for item in collections.rssfeed | reverse %}
   <entry>
-    <titlxe>{{ item.data.card.title | default: item.data.title }}</titlxe>
+    <title>{{ item.data.card.title | default: item.data.title }}</title>
     <link href="{{item.url | prepend: env.url }}" />
     <summary> {{item.data.card.text | default: item.templateContent | strip_html | strip_newlines | escape}} </summary>
     <updated>{{ item.date | dateToRfc3339 }}</updated>
