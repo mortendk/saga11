@@ -1,11 +1,12 @@
 {
-  "title": "Saga11 Test site",
-  "shortname": "saga 11",
-  "opengraph": "/content/upload/opengraph.jpg",
-  "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, html & css ",
+  "display": "fullscreen",
   "color": "#35034c",
+  "opengraph": "/content/upload/opengraph.jpg",
+  "shortname": "saga 11",
   "faviconcolor": "#35034c",
   "authoremail": "Ragnar@valhalla",
   "rss": true,
-  "icon": "/content/upload/saga11icon.svg"
+  "title": "Saga11 Test site",
+  "icon": "/content/upload/saga11icon.svg",
+  "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, html & css "
 }

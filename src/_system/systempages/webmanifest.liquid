@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
   "short_name": "{{ site.shortname }}",
   "start_url": "./",
   "scope": "/",
-  "display": "standalone",
+  "display": {{ site.display | default: "standalone" }},
   "background_color": "{{ site.color }}",
   "theme_color": "{{ site.color }}",
   "description": "{{ site.description }}",
