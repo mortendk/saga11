@@ -6,10 +6,7 @@ card:
   image: /content/upload/default.png
   alt: To the moon
   text: "This is text in a card and used for sharing and teaser on the site. "
-tags:
-  - saga11
-  - test
-  - rssfeed
+tags: []
 order: 10
 date: 2022-09-22 17:14:55
 layout: post/post.liquid

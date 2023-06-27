@@ -3,10 +3,12 @@ layout: html.liquid
 ---
 {%- if env.mode != 'prod' %}<!-- ___layouts/default.liquid  -->{%- endif -%}
 {% comment %}isModalOpen is used to test if theres a modal open then disable the scroll {% endcomment %}
-<body class="flex flex-col h-screen bg-slate-100 text-gray-900 dark:bg-slate-800 dark:text-gray-50"
-      x-data="{'isModalOpen': false, isEditvisible: false}" x-on:keydown.escape="isModalOpen=false"
-      x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
-      :class="openmenu ? 'overflow-hidden' : ' ', isModalOpen ? 'overflow-y-hidden':'' "
+<body
+  class="flex flex-col h-screen bg-slate-100 text-gray-900 dark:bg-slate-800 dark:text-gray-50"
+  x-data="{'isModalOpen': false, isEditvisible: false, openmenu: false}"
+  x-on:keydown.escape="isModalOpen=false"
+  x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
+  :class="openmenu ? 'overflow-hidden' : ' ', isModalOpen ? 'overflow-y-hidden':'' "
 >
 
   {%- include "header.liquid" %}
