@@ -2,7 +2,7 @@
         label: 🏙 card
         widget: object
         collapsed: true
-        summary: "{% raw %}{{fields.image}} {{fields.teaser}}{% endraw %}"
+        summary: "{% raw %}Title: '{{fields.title}}' | Image: {{fields.image}} | Text: '{{fields.text}}'{% endraw %}"
         fields:
           - { label: "title", name: "title", widget: "string", required: false }
           - { label: "Image", name: "image", widget: "image", required: false, choose_url: true }

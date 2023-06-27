@@ -4,14 +4,14 @@ saga-template-name: Frontpage
 ---
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->{%- endif -%}
 
-<article class="flex flex-col md:flex-row">
+<article class="flex flex-col md:flex-row justify-between">
   {% if image %}
     <div class="aspect-video overflow-hidden">
     {% render 'image.liquid',
       file: image,
       alt: title,
       sizes: "(min-width: 30em) 50vw, 100vw",
-      widths: "400, 800, 1200",
+      widths: "640, 1200, 1500",
       format: "webp",
       loading: "lazy",
       css: "w-full"

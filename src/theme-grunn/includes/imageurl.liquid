@@ -9,7 +9,9 @@
   css: "w-full"
 %}
 {% endcomment %}
-{%- if file -%}
+
+{% if file %}
 {% assign width = widths | split: ', ' %}
-{%- image file, width, format, alt, sizes, loading, css -%}
-{%- endif -%}
+{% imageurl file, width, format %}
+{% endif %}
+

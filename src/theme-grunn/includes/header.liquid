@@ -21,16 +21,14 @@
     </div>
 
     {% if site.rss %}
-    <div class="hidden md:flex justify-end items-center">
-
-      <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-gray-400 dark:text-gray-100 hover:text-orange-500">
-        <span class="sr-only">RSS Feed</span>
-        {% include "svg/rss.svg" %}
-      </a>
-      {% include "darkmode/darkmode.liquid" %}
+      <div class="hidden md:flex justify-end items-center">
+        <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-gray-400 dark:text-gray-100 hover:text-orange-500">
+          <span class="sr-only">RSS Feed</span>
+          {% include "svg/rss.svg" %}
+        </a>
+        {% include "darkmode/darkmode.liquid" %}
       </div>
     {% endif %}
-
 
     <div class="flex items-center md:hidden text-2xl text-teal-700 dark:text-teal-100 ">
       <div>{{ site.title }}</div>
