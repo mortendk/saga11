@@ -1,0 +1,33 @@
+
+<nav aria-labelledby="my-pagination" class="flex justify-center">
+  <h2 class="sr-only" id="my-pagination">Pagination</h2>
+  <ol class="flex flex-row space-x-2">
+
+    <li>
+      {% if page.url != pagination.href.first %}
+        <a href="{{ pagination.href.first }}">First</a>
+      {% endif %}
+    </li>
+    <li>
+      {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% endif %}
+    </li>
+
+    {%- for pageEntry in pagination.pages %}
+    <li>
+      <a href="{{ pagination.hrefs[ forloop.index0 ] }}"
+       class="{% if page.url == pagination.hrefs[ forloop.index0 ] %} font-bold{% endif %}"
+        {% if page.url == pagination.hrefs[ forloop.index0 ] %} aria-current="page"{% endif %}>
+      {{ forloop.index }}
+
+    </a></li>
+    {%- endfor %}
+
+    <li>
+      {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}
+    </li>
+    <li>
+      {% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>{% else %}Last{% endif %}
+    </li>
+  </ol>
+</nav>
+
