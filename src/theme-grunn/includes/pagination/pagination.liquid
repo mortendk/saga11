@@ -12,21 +12,23 @@
       {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% endif %}
     </li>
 
+
     {%- for pageEntry in pagination.pages %}
     <li>
       <a href="{{ pagination.hrefs[ forloop.index0 ] }}"
-       class="{% if page.url == pagination.hrefs[ forloop.index0 ] %} font-bold{% endif %}"
+        class="{% if page.url == pagination.hrefs[ forloop.index0 ] %} font-bold{% endif %}"
         {% if page.url == pagination.hrefs[ forloop.index0 ] %} aria-current="page"{% endif %}>
       {{ forloop.index }}
-
-    </a></li>
+      </a>
+    </li>
     {%- endfor %}
 
+
     <li>
-      {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}
+      {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% endif %}
     </li>
     <li>
-      {% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>{% else %}Last{% endif %}
+      {% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>{% endif %}
     </li>
   </ol>
 </nav>

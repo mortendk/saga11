@@ -3,7 +3,6 @@ layout: default.liquid
 saga-template-name: Post Pagination
 ---
 
-
 <section class="grid md:grid-cols-3 gap-4 py-4">
   {% for item in posts %}
 
@@ -20,6 +19,5 @@ saga-template-name: Post Pagination
     %}
   {% endfor %}
 </section>
-
 
 {% render 'pagination/pagination.liquid', pagination: pagination, page: page %}
