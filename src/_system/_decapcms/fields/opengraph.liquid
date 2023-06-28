@@ -1,0 +1,9 @@
+      - name: opengraph
+        label: 👋 Opengraph
+        widget: object
+        collapsed: true
+        summary: "{% raw %}Title: '{{fields.title}}' | Image: {{fields.image}} | Description: '{{fields.description}}'{% endraw %}"
+        fields:
+          - { label: "Image", name: "image", widget: "image", required: false, choose_url: true }
+          - { label: "Title", name: "title", widget: "string", required: false, hint: 'Opengraph Card title' }
+          - { label: "Description", name: "description", widget: "text", required: false }

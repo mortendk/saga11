@@ -1,30 +1,39 @@
 ---
-title: Saga11
+title: Saga 11
 url: /
-card:
-  title: "This is the frontpage card "
-  image: /content/upload/default.png
-  alt: spaceship
-  text: The frontpage card that we use for sharing
+image: https://images.unsplash.com/photo-1520333789090-1afc82db536a
 components:
   - type: collection
     order: data.order
     size: 3
     template: components/collection/collection.liquid
     collection: saga11
-image: https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80
+card:
+  title: "This is the frontpage card "
+  image: ""
+  alt: spaceship
+  text: The frontpage card that we use for sharing
 tags:
   - saga11
 order: 1
-layout: page/frontpage.liquid
-date: 2023-06-20 22:01:46
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Home
   order: 0
   key: main
+opengraph:
+  image: /content/upload/4hundo.gif
+  title: "This is open graph "
+  description: "This is OG description "
+layout: page/frontpage.liquid
+date: 2023-06-20 22:01:46
+seo:
+  index: index
+  follow: nofollow
+  title: This is the Seo title
+  description: This is the desription used for meta tags yo
 ---
-😍 it works{tm}
+😍 it works {tm}
 
 👉 To make the admin work clone the env.example to .env
 

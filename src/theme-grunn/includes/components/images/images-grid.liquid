@@ -19,7 +19,7 @@
     {% assign gallery = component.images %}
     {% for item in gallery %}
     <div class="flex flex-col">
-      {% render 'image.liquid',
+      {% render 'image/image.liquid',
           file: item.image,
           alt: item.title,
           sizes: "(max-width: 640px) 50vw, 100vw",

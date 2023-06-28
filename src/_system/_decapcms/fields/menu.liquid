@@ -1,8 +1,8 @@
       - name: eleventyNavigation
-        label: 🍔 Navigation
+        label: 🍔 Menu
         widget: object
         collapsed: true
-        summary: "{% raw %}{{fields.key}} |  {{fields.parent}} {% endraw %}"
+        summary: "{% raw %} Title: {{fields.title}} | Parent: {{fields.parent}} | Text: {{fields.text}} | Key: {{fields.key}} | Order: {{fields.order}} |  {% endraw %}"
         fields:
         - { label: "title", name: "title", widget: "string", required: false}
         - name: "parent"

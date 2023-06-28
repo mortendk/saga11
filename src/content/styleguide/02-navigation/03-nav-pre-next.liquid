@@ -1,5 +1,17 @@
 ---
 title: Nav Pre & Next
-
 ---
-How to add pre next ?
+
+{% for item in collections.testdata %}
+  {{ item | dump  }}
+{% endfor %}
+
+{% assign previous = collections.testdata | getPreviousCollectionItem %}
+{% assign next =    collections.testdata | getNextCollectionItem %}
+{% include 'nav-prenext/prenext.liquid',
+      previous: previous,
+      next: next,
+      pretext: previous.data.city.title,
+      nexttext: next.data.city.title,
+%}
+

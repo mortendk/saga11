@@ -8,17 +8,12 @@ card:
   text: "This is text in a card and used for sharing and teaser on the site. "
 tags:
   - saga11
-  - test
-  - rssfeed
-date: 2021-09-19 17:14:55
 order: 7
-layout: post/post.liquid
 eleventyExcludeFromCollections: false
+date: 2021-09-19 17:14:55
+layout: post/post.liquid
 ---
 
-content
-
-picture img="/content/upload/4hundo.gif", alt="4 1231 hundo"
 
 This is probably the best description ever of a movie
 
@@ -34,10 +29,10 @@ This is probably the best description ever of a movie
 
 `this is a small code block`
 
-- Llist item a
-- List item b
+* Llist item a
+* List item b
 
-This is _italic_ and this is **bold** and this is a [link](https://saga11.dev)
+This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
 
 ```html
 <h1>code</h1>

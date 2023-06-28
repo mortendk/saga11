@@ -1,7 +1,7 @@
 {%- if env.mode != 'prod' %}
 <!-- 👋 includes/header.liquid -->
 {%- endif  -%}
-<header class="relative dark:bg-gray-800 bg-white w-full z-20 h-16 md:h-20" x-data="{ openmenu: false }">
+<header class="fixed z-50 lg:relative dark:bg-gray-800 bg-white w-full h-16 md:h-20" x-data="{ openmenu: false }">
 
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
 
@@ -21,7 +21,7 @@
     </div>
 
     {% if site.rss %}
-    <div class="hidden md:flex justify-end items-center">
+      <div class="hidden md:flex justify-end items-center">
 
       <a href="/feed.xml" class="hidden md:block w-6 h-6 justify-self-end text-gray-400 dark:text-gray-100 hover:text-orange-500">
         <span class="sr-only">RSS Feed</span>

@@ -12,7 +12,7 @@
     delete: true
     editor:
       preview: true
-    summary: "{% raw %}{{title}} | url: {{url}} | {{permalink}}{% endraw %} "
+    summary: "{% raw %}🏩  {{title}} | url: {{url}} | {{permalink}}{% endraw %} "
     sortable_fields: ["url", "title", "order"]
     view_filters:
       - label: collection
@@ -43,10 +43,6 @@
   hint: ""
 %}
 
-{% include "_system/_decapcms/fields/card.liquid" %}
-
-{% include "_system/_decapcms/fields/component.liquid" %}
-
 {% include "_system/_decapcms/widgets/image",
   name: "image",
   label: "Image",
@@ -64,6 +60,10 @@
   required: "false",
   hint: ""
 %}
+
+{% include "_system/_decapcms/fields/component.liquid" %}
+
+{% include "_system/_decapcms/fields/card.liquid" %}
 
 {% include "_system/_decapcms/fields/tags.liquid" %}
 
@@ -87,5 +87,9 @@
 %}
 
 {% include "_system/_decapcms/fields/menu.liquid" %}
+
+{% include "_system/_decapcms/fields/opengraph.liquid" %}
+
+{% include "_system/_decapcms/fields/seo.liquid" %}
 
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page" %}

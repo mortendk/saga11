@@ -2,43 +2,44 @@ const path = require("path");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
-// Returns an url  for an image
-module.exports = async function (image, width, format) {
-  const src = "src" + image;
-  const widths = width || ["750"];;
-  const formats = format || ["jpeg"];
-
-  // console.log(`🎈 imageurl generate: ${src}`);
-  //does the image exist - we dont want to break the build.
-  if (fs.existsSync(src)) {
-    let options = {
-      widths : widths,
-      formats: formats,
-      urlPath: "/img/",
-      outputDir: "./_site/img/",
-      // sensible filenames:
-      // filenameFormat: function (src, width, format) {
-      //   const extension = path.extname(src);
-      //   const name = path.basename(src, extension);
-      //   return `${name}-${width}w.${format}`;
-      // },
-    };
-    // console.log(`🎈 imageurl next: ${options}`);
-    // Generate the image
-    Image(src, options);
-    metadata = Image.statsSync(src, options);
-
-    let filename;
-    if (formats == "jpeg") {
-      filename = metadata.jpeg[0].url;
-    } else if (format == "png") {
-      filename = metadata.png[0].url;
-    } else if (format == "gif") {
-      filename = metadata.gif[0].url;
-    } else {
-      filename = metadata.webp[0].url;
-    }
-    // console.log(`🎈 filename: ${filename}`);
-    return filename;
+module.exports = async function (file, width, format) {
+  if (fs.existsSync("src" + file)) {
+    src = "src" + file;
+  } else if (file.indexOf("http://") === 0 || file.indexOf("https://") === 0) {
+    src = file;
+  } else {
+    console.log(`🚨 missing file: ${file} - src ${src}`);
   }
+
+  const theFormat = format || "webp";
+  const theWidth = width || ["1024"];
+
+  let options = await Image(src, {
+    widths: theWidth,
+    formats: theFormat ,
+    urlPath: "/img/",
+    outputDir: "_site/img/",
+    cacheOptions: {
+      duration: "1d",
+      directory: ".cache",
+      removeUrlQueryParams: false,
+    },
+    filenameFormat: function (id, src,theWidth, formats) {
+      return `${id}-${theWidth}w.${formats}`;
+    },
+  });
+
+  // console.log("🦐 Object: %o", options)
+  let filename;
+  if (theFormat == "jpeg") {
+    filename = options.jpeg[0].url;
+  } else if (format == "png") {
+    filename = options.png[0].url;
+  } else if (format == "gif") {
+    filename = options.gif[0].url;
+  } else {
+    filename = options.webp[0].url;
+  }
+
+  return filename;
 };
