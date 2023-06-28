@@ -4,9 +4,10 @@
   - name: tags
     label_singular: 🏷 Tag
     label: 🏷 Tags
-    description: "Tags used to catagorize content"
+    description: "Tagging to generate content for collections"
     folder: "src/content/tag"
     slug: "{% raw %}{{title}}{% endraw %}"
+    summary: "{% raw %}🏷  {{title}} {% endraw %} "
     hide: false
     create: true
     delete: false
@@ -33,8 +34,6 @@
 
 {% include "_system/_decapcms/fields/seo.liquid" %}
 
-
 {% include "_system/_decapcms/fields/menu.liquid" %}
-
 
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}
