@@ -2572,11 +2572,6 @@ pre[class*="language-"] {
   background-color: var(--color-information-500);
 }
 
-.bg-orange-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 237 213 / var(--tw-bg-opacity));
-}
-
 .bg-primary-100 {
   background-color: var(--color-primary-100);
 }
@@ -3028,11 +3023,6 @@ pre[class*="language-"] {
 .text-orange-700 {
   --tw-text-opacity: 1;
   color: rgb(194 65 12 / var(--tw-text-opacity));
-}
-
-.text-orange-900 {
-  --tw-text-opacity: 1;
-  color: rgb(124 45 18 / var(--tw-text-opacity));
 }
 
 .text-primary-600 {
