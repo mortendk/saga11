@@ -6,7 +6,7 @@ components:
   - type: form
     title: "Contact form "
     name: contact
-    action: /submitted
+    action: /contact/thanx
     template: components/form/form.liquid
     elements:
       - type: text

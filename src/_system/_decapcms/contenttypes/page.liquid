@@ -11,8 +11,8 @@
     create: true
     delete: true
     editor:
-      preview: true
-    summary: "{% raw %}🏩  {{title}} | url: {{url}} | {{permalink}}{% endraw %} "
+      preview: false
+    summary: "{% raw %}🏩 Title '{{title}}' Url: '{{url}}' {% endraw %} "
     sortable_fields: ["url", "title", "order"]
     view_filters:
       - label: collection
@@ -21,10 +21,8 @@
     view_groups:
       - label: Tags
         field: tags
-      - label: permalink
-        field: permalink
     nested:
-      depth: 5 # max depth to show in the collection tree
+      depth: 1
       summary: "{% raw %}{{title}}{% endraw %}"
     fields:
 {% include "_system/_decapcms/widgets/string",

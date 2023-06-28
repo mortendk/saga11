@@ -4,7 +4,7 @@
   - name: menuitem
     label: 🍔 Menu Items
     label_singular: 🍔 Menu Item
-    description: "Single menu items to be included in the exising navigation structre. | Version: 1.0"
+    description: "Single menu items to be included in the exising navigation"
     folder: "src/content/menuitem"
     slug: "{{title}}"
     preview_path: notification/{{title}}/
@@ -25,10 +25,10 @@
     fields:
 {% include "_system/_decapcms/widgets/string",
   name: "title",
-  label: "title",
+  label: "Title",
   default: "",
   required: true,
-  hint: ""
+  hint: "The title is used for admin reference - the menu items title is set in the navigation"
 %}
       - name: eleventyNavigation
         label: 🍔 Navigation
@@ -36,11 +36,12 @@
         collapsed: false
         summary: "{{fields.key}} |  {{fields.parent}}"
         fields:
-        - { label: "key", name: key, widget: "string", required: true, hint: "Title and key"}
-        - { label: "url", name: url, widget: "string", required: false, hint: "Full url https://saga11.dev"}
+        - { label: "Title", name: title, widget: "string", required: true, hint: "Title"}
+        - { label: "Machine key", name: key, widget: "string", required: true, hint: "Title and key"}
+        - { label: "Url", name: url, widget: "string", required: false, hint: "Full url https://saga11.dev"}
         - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
         - name: "parent"
-          label: parent menu item
+          label: Parent menu item
           widget: relation
           collection: page
           default: main
@@ -49,6 +50,6 @@
           displayFields: ["Title: {% raw %}{{title}} | key: '{{eleventyNavigation.key}} {% endraw %}'"]
           required: false
           multiple: false
-        - { label: "order", name: "order", widget: "number", required: false}
+        - { label: "Order", name: "order", widget: "number", required: false}
         - { label: "text", name: "text", widget: "text", required: false}
 

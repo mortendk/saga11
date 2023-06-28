@@ -16,5 +16,5 @@
           multiple: false
         - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system Main is used for the frontpage - and should always be" }
         - { label: "Order", name: "order", widget: "number", required: false}
-        - { label: "Description", name: "description", widget: "text", default : "", required: false }
-        - { label: "Text string", name: "string", widget: "string", default : "", required: false, hint: "a string that can be used for icon name / color" }
+        - { label: "Text", name: "text", widget: "text", required: false}
+        - { label: "String", name: "optional", widget: "string", required: false, hint: "an optional text string that can be used  in the theme ala {% raw %}{{ item.optional }}{% endraw %}" }
