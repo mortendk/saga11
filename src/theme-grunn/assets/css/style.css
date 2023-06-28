@@ -2685,6 +2685,11 @@ pre[class*="language-"] {
   background-color: rgb(255 255 255 / 0.95);
 }
 
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
