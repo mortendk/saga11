@@ -27,14 +27,14 @@ That then refers to the file tag/saga11.md that constainss all the data the we u
     <div class="md:grid grid-cols-3 gap-4 py-4">
       {% for item in collections[page.fileSlug] %}
 
-        {% assign title = item.data.card.title | default: item.data.title %}
-        {% assign image = item.data.card.image | default: item.data.image %}
-        {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
+        {% assign cardtitle = item.data.card.title | default: item.data.title %}
+        {% assign cardimage = item.data.card.image | default: item.data.image %}
+        {% assign cardtext = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
         {%
           render 'card.liquid',
-            title: title,
-            text: text,
-            image: image,
+            title: cardtitle,
+            text: cardtext,
+            image: cardimage,
             url: item.url,
             date: item.date
         %}
@@ -43,6 +43,7 @@ That then refers to the file tag/saga11.md that constainss all the data the we u
     </div>
 
 </article>
+
 
 <a href="/feed/{{ title | slugify }}.xml" class="flex flex-row items-center justify-center">
   <div class="w-4 h-4 mr-2">{% include "svg/rss.svg" %}</div>
