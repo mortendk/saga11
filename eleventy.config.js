@@ -63,7 +63,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("allNotification", require("./src/_system/11ty/collection/allNotification.js"));
   eleventyConfig.addCollection("allTags", require("./src/_system/11ty/collection/allTags.js"));
   eleventyConfig.addCollection("tags", require("./src/_system/11ty/collection/tags.js"));
-  eleventyConfig.addCollection("blocks", require("./src/_system/11ty/collection/blocks.js"));
   eleventyConfig.addCollection("styleguide", require("./src/_system/11ty/collection/styleguide.js"));
 
   // Transform
