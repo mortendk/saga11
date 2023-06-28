@@ -55,6 +55,8 @@
       env: env,
       some: some
     -%}
+    {% comment %} netlify identity {% endcomment %}
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     {%- if env.mode == 'prod' %}
     <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">

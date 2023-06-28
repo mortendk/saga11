@@ -8,13 +8,16 @@ card:
   text: "This is text in a card and used for sharing and teaser on the site. "
 tags: []
 order: 5
-date: 2023-07-27 00:00:00
-layout: post/post.liquid
 eleventyExcludeFromCollections: false
+date: 2023-07-27 00:00:00
+seo:
+  index: index
+  follow: follow
+layout: post/post.liquid
 ---
 content
 
-picture img="/content/upload/4hundo.gif", alt="4 1231 hundo"
+
 
 This is probably the best description ever of a movie
 
@@ -40,6 +43,5 @@ This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
 ```
 
 Heres a youtube link
-
 
 https://www.youtube.com/watch?v=p1nwLilQy64

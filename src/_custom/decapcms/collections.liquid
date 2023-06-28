@@ -30,6 +30,11 @@
     required: true,
     hint: "Title"
 %}
+
+{% include "_system/_decapcms/fields/opengraph.liquid" %}
+
+{% include "_system/_decapcms/fields/seo.liquid" %}
+
 {% include "_system/_decapcms/widgets/code",
     name: "code",
     label: "code",
@@ -59,7 +64,7 @@
 {% include "_system/_decapcms/widgets/select",
     name: "select",
     label: "select",
-    options: " 'one' ,'two dfgdjfklgd','three'"
+    options: " 'one' ,'two','three'"
     default: "one",
     multiple: true,
     required: true,
@@ -135,7 +140,6 @@
   required: "false",
   hint: "Set to false if you want to hide this page"
 %}
-
 
   - name: test
     label: "🔥test"
