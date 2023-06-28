@@ -1,6 +1,6 @@
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   # Relations Tags
-  # -----------------------------------------------------------------
+  # ---------------------------------------------------------------
   - name: tags
     label_singular: 🏷 Tag
     label: 🏷 Tags
@@ -22,6 +22,16 @@
   hint: ""
 %}
 
+{% include "_system/_decapcms/widgets/image",
+  name: "image",
+  label: "Image",
+  default: "/content/upload/default.png"
+  choose_url: true,
+  allow_multiple: false,
+  required: "false",
+  hint: ""
+%}
+
 {% include "_system/_decapcms/widgets/markdown",
   name: "body",
   label: "Body",
@@ -29,6 +39,8 @@
   required: "false",
   hint: "help text"
 %}
+
+{% include "_system/_decapcms/fields/card.liquid" %}
 
 {% include "_system/_decapcms/fields/opengraph.liquid" %}
 
