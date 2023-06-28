@@ -10,6 +10,9 @@ eleventyExcludeFromCollections: false
 eleventyNavigation:
   description: ""
   string: ""
+  title: Blog post
+  parent: main
+  order: 20
 seo:
   index: index
   follow: nofollow
