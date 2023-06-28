@@ -3,7 +3,7 @@
 {% comment %} Image{% endcomment %}
 {% capture ogimage %}
   {% if image %}
-    {% render 'imageurl.liquid', file: image, widths: "1200",format: "webp" %}
+    {% render 'image/imageurl.liquid', file: image, widths: "1200",format: "webp" %}
   {% endif %}
 {% endcapture %}
 
