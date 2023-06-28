@@ -4,8 +4,8 @@ icon: icons/arrow-down-left.svg
 eleventyExcludeFromCollections: false
 rssfeed: true
 eleventyNavigation:
-  title: Tag page
-  parent: main
+  title: ""
+  parent: ""
   order: 20
 layout: tag/tag.liquid
 ---

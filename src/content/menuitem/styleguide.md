@@ -5,5 +5,5 @@ eleventyNavigation:
   target: true
   parent: main
   key: Styleguide
-  order: 10
+  order: 100
 ---
