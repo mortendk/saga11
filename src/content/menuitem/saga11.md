@@ -1,5 +1,5 @@
 ---
-title: Saga11 link
+title: Saga11 external link
 eleventyNavigation:
   url: https://saga11.dev
   target: true

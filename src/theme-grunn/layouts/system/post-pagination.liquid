@@ -1,8 +1,10 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/templates/all-pages.liquid -->{%- endif -%}
+---
+layout: default.liquid
+saga-template-name: Post Pagination
+---
 
 <section class="grid md:grid-cols-3 gap-4 py-4">
-
-  {% for item in collections.allPages %}
+  {% for item in posts %}
 
     {% assign title = item.data.card.title | default: item.data.title %}
     {% assign image = item.data.card.image | default: item.data.image %}
@@ -15,8 +17,7 @@
         url: item.url,
         date: item.date
     %}
-
-
   {% endfor %}
 </section>
 
+{% render 'pagination/pagination.liquid', pagination: pagination, page: page %}

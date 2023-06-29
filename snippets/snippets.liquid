@@ -13,7 +13,7 @@
 
 {% comment %} image {% endcomment %}
 {% if image %}
-  {% render 'image.liquid',
+  {% render 'image/image.liquid',
     file: image,
     alt: title,
     sizes: "(min-width: 30em) 50vw, 100vw",
@@ -25,7 +25,7 @@
 {% endif %}
 
 {% if image %}
-  {% render 'image.liquid', file: image, widths: "400" %}
+  {% render 'image/image.liquid', file: image, widths: "400" %}
 {% endif %}
 
 {% comment %} Link list {% endcomment %}

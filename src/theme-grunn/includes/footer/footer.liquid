@@ -59,7 +59,7 @@
 
       <div class="">
         {% if site.icon %}
-          {% render 'image.liquid', file: site.icon, widths: "400", css:"w-24" %}
+          {% render 'image/image.liquid', file: site.icon, widths: "400", css:"w-24" %}
         {% endif %}
       </div>
       <div>
@@ -90,7 +90,12 @@
     </div>
 
       {% include "some/socialmedia.liquid" %}
-  </div>
+      <div class="py-2">
+        Build with ⚔️ + 💜
+      </div>
+      <div>Saga11 : {{ saga11version }}</div>
+      <div>{{ eleventy.generator }}</div>
+      </div>
 
 
 </div>

@@ -48,5 +48,8 @@ Navigation
 Debug data
 {% for item in collection.all limit: 2 %}
   {{ item | debug }}
+  {{ item.data.templateContent }}
 {% endfor %}
+
+
 

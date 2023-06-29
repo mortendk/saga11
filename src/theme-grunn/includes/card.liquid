@@ -22,13 +22,12 @@
 {% endcomment %}
 <article aria-label="Post {{ title}}">
 
-  <a href="{{ url }}" title="{{ title}}" tabindex="0">
+  <a href="{{ url }}" title="{{ title }}" tabindex="0">
 
   <div class="shadow-lg aspect-video overflow-hidden bg-tone-100">
     {% if image %}
-      {% include 'image.liquid',
+      {% include 'image/image.liquid',
           file: image,
-          alt: title,
           sizes: "(min-width: 30em) 50vw, 100vw",
           widths: "400, 800",
           format: "webp",
@@ -42,7 +41,6 @@
     <h3 class="mt-2 text-2xl dark:text-cyan-200">{{ title }}</h3>
 
     <div class="mt-2 line-clamp-3">
-
       {{ text }}
     </div>
     {% if date %}

@@ -1,0 +1,10 @@
+---
+title: Post
+permalink: "post/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber | plus: 1 }}/{% endif %}index.html"
+layout: system/post-pagination
+pagination:
+  data: collections.allPosts
+  size: 12
+  alias: posts
+  generatePageOnEmptyData: true
+---

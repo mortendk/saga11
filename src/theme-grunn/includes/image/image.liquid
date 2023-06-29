@@ -1,5 +1,5 @@
 {% comment %}
-{% render 'image.liquid',
+{% render 'image/image.liquid',
   file: image,
   alt: title,
   sizes: "(min-width: 30em) 50vw, 100vw",
@@ -9,8 +9,7 @@
   css: "w-full"
 %}
 {% endcomment %}
-
-{% if file %}
+{%- if file -%}
 {% assign width = widths | split: ', ' %}
-{% image file, width, format, alt, sizes, loading, css %}
-{% endif %}
+{%- image file, width, format, alt, sizes, loading, css -%}
+{%- endif -%}

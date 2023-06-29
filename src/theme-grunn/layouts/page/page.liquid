@@ -8,12 +8,9 @@ saga-template-name: Page default
 
 {% include "tag/tags.liquid" %}
 
-{{ page.date | dateformat: dateLocalize, "full" }}
-{{ page.date | date: "%H:%M" }}
-
 {% if image %}
   <div class="aspect-video overflow-hidden">
-  {% render 'image.liquid',
+  {% render 'image/image.liquid',
       file: image,
       alt: title,
       sizes: "(min-width: 30em) 50vw, 100vw",

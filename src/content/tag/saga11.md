@@ -3,11 +3,11 @@ title: Saga 11
 icon: icons/arrow-down-left.svg
 eleventyExcludeFromCollections: false
 rssfeed: true
+image: /content/upload/saga11icon.svg
 eleventyNavigation:
-  title: Tag page
-  parent: main
+  title: ""
+  parent: ""
   order: 20
 layout: tag/tag.liquid
 ---
-
-This is a Tag page
+T﻿he tag page for "Saga11"

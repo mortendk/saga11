@@ -7,7 +7,7 @@ saga-template-name: Test City
   <div class="basis-8/12">
   <h2 class=" text-6xl pb-4">{{ city.title }}</h2>
   <div class="aspect-video overflow-hidden shadow-lg rounded">
-    {% render 'image.liquid', file: city.image, widths: "800", css: "w-full" %}
+    {% render 'image/image.liquid', file: city.image, widths: "800", css: "w-full" %}
   </div>
 
   <div class="prose-xl py-8 pl-4">

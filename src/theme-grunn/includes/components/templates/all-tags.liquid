@@ -2,8 +2,8 @@
 
 <section class="grid md:grid-cols-3 gap-4 py-4">
 
-  {% for item in collections.allPages %}
-
+  {% for item in collections.allTags %}
+    {% if item.fileSlug != "rssfeed" %}
     {% assign title = item.data.card.title | default: item.data.title %}
     {% assign image = item.data.card.image | default: item.data.image %}
     {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
@@ -16,7 +16,7 @@
         date: item.date
     %}
 
-
+  {% endif %}
   {% endfor %}
 </section>
 

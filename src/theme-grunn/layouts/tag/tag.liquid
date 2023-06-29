@@ -12,10 +12,6 @@ tags:
 That then refers to the file tag/saga11.md that constainss all the data the we use on this page.
 {% endcomment %}
 
-{% comment %}
-this dosnt rewally work..
-{% endcomment %}
-
 
 <article class="flex flex-row space-x-8">
   <div class="basis-2/12">
@@ -24,25 +20,32 @@ this dosnt rewally work..
   <div class="basis-10/12">
     <h1 class="text-6xl text-primary-700">{{ title }}</h1>
 
-    <div class="prose prose-xl">
+    <div class="prose prose-xl py-4">
       {{ content }}
     </div>
 
     <div class="md:grid grid-cols-3 gap-4 py-4">
       {% for item in collections[page.fileSlug] %}
-        {% render 'card',
-          title: item.data.card.title,
-          text: item.data.card.text,
-          image: item.data.card.image,
-          url: item.url,
-          date: item.date
+
+        {% assign cardtitle = item.data.card.title | default: item.data.title %}
+        {% assign cardimage = item.data.card.image | default: item.data.image %}
+        {% assign cardtext = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
+        {%
+          render 'card.liquid',
+            title: cardtitle,
+            text: cardtext,
+            image: cardimage,
+            url: item.url,
+            date: item.date
         %}
+
       {% endfor %}
     </div>
 
 </article>
 
-  <a href="/feed/{{ title | slugify }}.xml" class="flex flex-row items-center justify-center">
-    <div class="w-4 h-4 mr-2">{% include "svg/rss.svg" %}</div>
-    <div>{{ title }} feed </div>
-  </a>
+
+<a href="/feed/{{ title | slugify }}.xml" class="flex flex-row items-center justify-center">
+  <div class="w-4 h-4 mr-2">{% include "svg/rss.svg" %}</div>
+  <div>{{ title }} feed </div>
+</a>

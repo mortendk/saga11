@@ -5,5 +5,6 @@ eleventyNavigation:
   target: true
   parent: component
   key: Styleguide
-  order: 10
+  order: 100
+  title: The Styleguide
 ---

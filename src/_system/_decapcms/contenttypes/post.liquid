@@ -47,7 +47,7 @@
   required: "false",
   hint: "image"
 %}
-{% include "_system/_decapcms/fields/card.liquid" %}
+
 {% include "_system/_decapcms/widgets/markdown",
   name: "body",
   label: "Body",
@@ -56,8 +56,10 @@
   hint: "help text"
 %}
 
+{% include "_system/_decapcms/fields/card.liquid" %}
 
 {% include "_system/_decapcms/fields/tags.liquid" %}
+
 {% include "_system/_decapcms/widgets/number",
   name: "order",
   label: "order",
@@ -68,14 +70,6 @@
   required: false,
   hint: "optional order"
 %}
-{% include "_system/_decapcms/widgets/datetime",
-  name: "date",
-  label: "Date",
-  default: "true",
-  required: "false",
-  hint: "help text"
-%}
-{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
 
 {% include "_system/_decapcms/widgets/boolean",
   name: "eleventyExcludeFromCollections",

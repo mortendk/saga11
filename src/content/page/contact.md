@@ -1,10 +1,12 @@
 ---
 title: Contact
+url: contact
+image: ""
 components:
   - type: form
     title: "Contact form "
-    name: formname
-    action: /submitted
+    name: contact
+    action: /contact/thanx
     template: components/form/form.liquid
     elements:
       - type: text
@@ -36,9 +38,7 @@ components:
     text: |-
       Y﻿ou can totally contact us :)
       t﻿ext with stuff on it
-image: ""
 order: 1
-url: contact
 layout: page/page.liquid
 date: 2023-06-21 20:03:22
 eleventyExcludeFromCollections: false
