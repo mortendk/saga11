@@ -1,24 +1,19 @@
 ---
-title: Hello World3
-image: /content/upload/default.png
+title: Hello World
+image: ""
 card:
-  title: Hello world blogpost
+  title: Hello world
   image: /content/upload/default.png
-  alt: To the moon
-  text: "This is text in a card and used for sharing and teaser on the site. "
+  text: "This is text in a card and used for sharing and teaser on the site"
 tags:
   - saga11
-  - test
   - rssfeed
-date: 2021-09-19 17:14:55
-order: 7
+order: 1
+date: 2022-11-11 23:58:00
 layout: post/post.liquid
 eleventyExcludeFromCollections: false
 ---
-
-content
-
-picture img="/content/upload/4hundo.gif", alt="4 1231 hundo"
+Hello there!
 
 This is probably the best description ever of a movie
 
@@ -26,11 +21,17 @@ This is probably the best description ever of a movie
 > Space ship people get up from sleeping coffin and have eat.
 > Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
 
-# h1 H﻿eres a title
+# H1 Heres some multimedia(tm)
 
-## h2 H﻿eres a title
+<video controls><source src="/content/upload/pexels-eva-toscano-10530358-3840x2160-24fps.mp4"></video>
 
-### h3 H﻿eres a title
+![Always add an alt text](/content/upload/default.png "This is an image title")
+
+## h2 Heres a title
+
+lorem
+
+### h3 Heres a title
 
 `this is a small code block`
 
@@ -44,4 +45,11 @@ This is _italic_ and this is **bold** and this is a [link](https://saga11.dev)
 ```
 
 Heres a youtube link wonder what we wanna do with that
-https://www.youtube.com/watch?v=p1nwLilQy64
+
+The tube
+
+youtube.com/watch?v=dQw4w9WgXcQ
+
+Vimeo
+
+https://vimeo.com/347565673

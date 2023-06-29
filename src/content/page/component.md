@@ -296,60 +296,17 @@ eleventyNavigation:
   excerpt: "*This is the text for the menu*"
 ---
 
-**This is probably the best description ever of a movie**
-
-> Space ship movie
-> Space ship people get up from sleeping coffin and have eat.
-> Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
-
-# h1 Heres a title
-
-## h2 Heres a title
-
-### h3 Heres a title
-
-`this is a small code block`
-
-- liste item a
-- liste item b
-
-this is _italic_ and this is **bold**
-
-```html
-<h1>code</h1>
-```
-
-
-Video
-
-<video controls><source src="/content/upload/pexels-eva-toscano-10530358-3840x2160-24fps.mp4"></video>
-
-
-
-![Always add an alt text](/content/upload/default.png "This is an image title")
-
 😍 it works{tm}
 
 👉 To make the admin work clone the env.example to .env
 
 🤖 go to the [admin interface admin](/admin)
 
-💅 Themes are in /src/themes/
+💅 Themes are in /src/themes-[themename]/
 
 📜 content is in /src/content/
 
-🎈 saga11 is build on top of [11ty](https://11ty.dev) & [NetlifyCMS](https://netlifycms.com)
+🎈 saga11 is build on top of [11ty](https://11ty.dev) & [decap](https://decapcms.com)
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
-
-Lets get rolling
-
-youtube.com/watch?v=dQw4w9WgXcQ
-
-Vimeo
-
-
-https://vimeo.com/347565673
-
-
 

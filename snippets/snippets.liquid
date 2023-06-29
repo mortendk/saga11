@@ -1,22 +1,17 @@
-{% comment %}
-  card
-{% endcomment %}
-{% assign image = card.image | default: image %}
-{% assign title = card.title | default: title %}
-{% assign text = card.text | default: text | truncatewords: "20",  " ..."  %}
+{% comment %} card {% endcomment %}
+{% assign cardimage = card.image | default: image %}
+{% assign cardtitle = card.title | default: title %}
+{% assign cardtext = card.text | default: text | truncatewords: "20",  " ..."  %}
 {%
   render 'card.liquid',
-    title: title,
-    text: text,
-    image: image,
+    title: cardtitle,
+    text: cardtext,
+    image: cardimage,
     url: url,
     date: page.date
 %}
 
-
-{% comment %}
-  Generate image
-{% endcomment %}
+{% comment %} image {% endcomment %}
 {% if image %}
   {% render 'image.liquid',
     file: image,
@@ -33,31 +28,26 @@
   {% render 'image.liquid', file: image, widths: "400" %}
 {% endif %}
 
+{% comment %} Link list {% endcomment %}
 {% include "linklist/linklist.liquid", collection : collections.allPages, url: url %}
 
-{% comment %}
-  Pre next collection
-{% endcomment %}
+{% comment %} Pre next collection {% endcomment %}
 {% assign previous = collections.copenhellshows | getPreviousCollectionItem %}
 {% assign next =    collections.copenhellshows | getNextCollectionItem %}
-{% render 'nav-prenext/prenext.liquid',
+{% render 'prenext/prenext.liquid',
       previous: previous,
       next: next,
       pretext: previous.data.show.object.title,
       nexttext: next.data.show.object.title,
 %}
 
-{% comment %}
-  Date
-{% endcomment %}
-
+{% comment %} Date{% endcomment %}
 week: {{ component.date_start | weekday: dateLocalize, "long" | capitalize }}
 month: {{ component.date_start | month: dateLocalize, "long" | capitalize }}
 format: {{ component.date_start | dateformat: dateLocalize, "full" | capitalize }}
 long: {{ component.date_start | dateformat: dateLocalize, "long" | capitalize }}
 medium: {{ component.date_start | dateformat: dateLocalize, "medium" | capitalize }}
 short: {{ component.date_start | dateformat: dateLocalize, "short" | capitalize }}
-
 
 {{ date | dateformat: dateLocalize, "short" }}
 {{ date | date: "%H:%M" }}

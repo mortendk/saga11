@@ -3,7 +3,7 @@ title: Styleguide
 eleventyNavigation:
   url: /styleguide/
   target: true
-  parent: main
+  parent: component
   key: Styleguide
   order: 10
 ---

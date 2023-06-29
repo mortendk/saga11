@@ -1,5 +1,4 @@
 {
-  "title": "Saga11 Test site",
   "opengraph": "/content/upload/opengraph.jpg",
   "shortname": "saga 11",
   "keywords": "11ty saga 11",
@@ -7,6 +6,7 @@
   "faviconcolor": "#35034c",
   "authoremail": "Ragnar@valhalla",
   "rss": true,
-  "authorname": "",
-  "icon": "/content/upload/saga11icon.svg"
+  "title": "Saga11",
+  "icon": "/content/upload/saga11icon.svg",
+  "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS   "
 }
