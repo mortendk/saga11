@@ -6,5 +6,5 @@ eleventyNavigation:
   order: 100
   key: saga11
   parent: component
-  title: "SAGA "
+  title: saga11.dev
 ---

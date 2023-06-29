@@ -32,7 +32,7 @@
 
         {% if global.address.url %}
           <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./link.svg" %}</div>
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./globe.svg" %}</div>
             <a itemprop="url" href="{{ global.address.url }}" target="_blank" rel="noopener">{{ global.address.url }}</a>
           </div>
         {% endif %}
@@ -40,7 +40,7 @@
 
       {% if global.address.street and global.address.zip and global.address.country %}
       <button onclick="openinmap('{{ global.address.street }},{{ global.address.zip }},{{ global.address.country }}')" target="_blank" rel="noopener" class="inline-flex flex-row items-center">
-        <div class="w-4 mr-2">{% include "./map-pin.svg" %}</div>
+        <div class="w-4 h-4 text-tone-300 mr-2">{% include "./map-pin.svg" %}</div>
         <div>Map</div>
       </button>
       {% endif %}
@@ -77,7 +77,7 @@
       <nav class="flex flex-col">
         {% for item in menu %}
           <a href="{{ item.url }}" class="flex flex-row items-center">
-            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./link.svg" %}</div>
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./globe.svg" %}</div>
           {{ item.title }}</a>
         {% endfor %}
       </nav>
@@ -101,4 +101,18 @@
 </div>
 </footer>
 
+
+{% comment %}This is used for the iphone / android so they can work prober cause ...
+{% endcomment %}
+<script>
+  function openinmap(map) {
+    // If it's an iPhone..
+    if ((navigator.platform.indexOf("iPhone") != -1)
+      || (navigator.platform.indexOf("iPod") != -1)
+      || (navigator.platform.indexOf("iPad") != -1))
+      window.open("maps://maps.google.com/?q=" + map);
+    else
+      window.open("https://maps.google.com/?q=" + map);
+  }
+</script>
 

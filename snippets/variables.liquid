@@ -1,7 +1,10 @@
 https://shopify.github.io/liquid
 
-{{ components | console }}
-
+Debug
+{{ foo | console }}
+{{ foo | debug }}
+{{ foo | dump }}
+{{ foo | json }}
 {%
   # this is a comment
 %}
@@ -9,7 +12,6 @@ https://shopify.github.io/liquid
 {% comment %}
   also a comment
 {% endcomment %}
-
 
 Global:
 {{ site | json }}
@@ -19,8 +21,8 @@ Global:
 
 Theme & system:
 {{ eleventy | json }}
-{{ saga11version }}
 {{ eleventy.version }}
+{{ saga11version }}
 {{ theme }}
 {{ layout }}
 
@@ -35,7 +37,12 @@ Content:
 {{ tags | json}}
 {{ url }}
 {{ page.url }}
+{{ content }}
+{{ templateContent }}
 
+{{ post.templateContent }}
+
+Navigation
 {{ eleventyNavigation | json }}
 
 Debug data

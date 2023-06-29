@@ -2,47 +2,41 @@
 <!-- 👋 sections src/theme-grunn/includes/components/collection/collection.liquid -->
 {%- endif -%}
 
-
 <article class="mx-auto max-w-3xl">
   {% if component.title %}
-  <h2 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">
-    {{ component.title }}
-  </h2>
+    <h2 class="text-5xl text-cyan-700 dark:text-cyan-200 py-4 text-center">{{ component.title }}</h2>
   {% endif %}
 
   {% if component.text %}
-  <div class="text-xl">
-    {{ component.text }}
-  </div>
+    <div class="text-xl">{{ component.text }}</div>
   {% endif %}
 </article>
 
 <section class="grid md:grid-cols-3 gap-4 my-4" aria-label="Collection">
 
-{% assign sortField = component.order %}
-{% assign size = component.size %}
+  {% assign sortField = component.order %}
+  {% assign size = component.size %}
 
-{% if component.reverse %}
-  {% assign items = collections[component.collection] | sort: sortField | reverse %}
-{% else %}
-  {% assign items = collections[component.collection] | sort: sortField  %}
-{% endif %}
+  {% if component.reverse %}
+    {% assign items = collections[component.collection] | sort: sortField | reverse %}
+  {% else %}
+    {% assign items = collections[component.collection] | sort: sortField  %}
+  {% endif %}
 
-{% for item in items limit: size %}
+  {% for item in items limit: size %}
+    {%- if env.mode != 'prod' %}<!-- md file: {{ item.inputPath }}  -->{%- endif -%}
 
-  {%- if env.mode != 'prod' %}<!-- markdown file: {{ item.inputPath }}  -->{%- endif -%}
+    {% assign title = item.data.card.title | default: item.data.title %}
+    {% assign image = item.data.card.image | default: item.data.image %}
+    {% assign text = item.data.card.text | default: item.data.content | strip_html | truncatewords: "20",  " ..."  %}
 
-  {% assign title = item.data.card.title | default: item.data.title %}
-  {% assign image = item.data.card.image | default: item.data.image %}
-  {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
-  {%
-    render 'card.liquid',
-      title: title,
-      text: text,
-      image: image,
-      url: item.url,
-      date: item.date
-  %}
-
+    {% render 'card.liquid',
+        title: title,
+        text: text,
+        image: image,
+        url: item.url,
+        date: item.date
+    %}
   {% endfor %}
+
 </section>

@@ -4,7 +4,7 @@
   - name: post
     label: 🧑🏽‍💻 Posts
     label_singular: 🧑🏽‍💻 Post
-    description: "Post fx blogpost etc"
+    description: "blogpost"
     folder: "src/content/post"
     slug: "{{year}}/{{month}}/{{day}}_{{slug}}"
     preview_path: /post/{% raw %}{{title}}{% endraw %}/
@@ -19,17 +19,15 @@
         field: eleventyExcludeFromCollections
         pattern: true
     view_groups:
-      - label: "Parent: "
-        field: url.parent
       - label: Tag
         field: tags
-      - label: "Date: "
+      - label: "Date"
         field: date
         pattern: "([0-9]+(-[0-9]+)+)"
       - label: Drafts
         field: eleventyExcludeFromCollections
     nested:
-      depth: 100 # max depth to show in the collection tree
+      depth: 5 # max depth to show in the collection tree
       summary: "{% raw %}{{title}}{% endraw %}"
     fields:
 {% include "_system/_decapcms/widgets/string",
@@ -39,6 +37,7 @@
   required: true,
   hint: ""
 %}
+
 {% include "_system/_decapcms/widgets/image",
   name: "image",
   label: "image",
@@ -78,6 +77,14 @@
   default: "false",
   required: "false",
   hint: "Hide from collections"
+%}
+
+{% include "_system/_decapcms/widgets/string",
+  name: "author",
+  label: "author",
+  default: "",
+  required: "false",
+  hint: "Author name"
 %}
 
 {% include "_system/_decapcms/widgets/datetime",

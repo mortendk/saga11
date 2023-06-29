@@ -1,3 +1,10 @@
+{% for item in collections.foo %}
+  {{ forloop.index }}
+  {{ item.data.title }}
+{% endfor %}
+
+
+
 {% assign value = "Page foo" %}
 {% assign items = collections.all | where: "data.title", value %}
 
@@ -16,8 +23,6 @@
   sort data
 {% endcomment %}
 
-
-
 {% assign sortField = "data.order" %}
 {% assign items = collections.saga11 | sort: sortField | reverse  %}
 {% for item in items limit: 10 %}
@@ -26,7 +31,6 @@
   {{ item.data.title }} |
   <hr>
 {% endfor %}
-
 
 
 <table>

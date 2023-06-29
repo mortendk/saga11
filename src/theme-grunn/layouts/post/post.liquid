@@ -3,55 +3,66 @@ layout: default.liquid
 saga-template-name: Post Default
 ---
 
-{%- if env.mode != 'prod' %}
-<!-- ___layouts/post/post.liquid  -->
-{%- endif -%}
+{%- if env.mode != 'prod' %}<!-- ___layouts/post/post.liquid  -->{%- endif -%}
 
-<h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
-
-{% include "some/share.liquid" %}
-{% include "tag/tags.liquid" %}
-
-{% include "linklist/linklist.liquid",
-    collection : collections.allPosts,
-    url: page.url,
-    limit: 3,
-    sort: "data.title",
-    showdate: true
-%}
-
-{% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
-{% assign nextPost =    collections.allPosts | getNextCollectionItem %}
-{% include 'nav-prenext/prenext.liquid',
-      previous: previousPost,
-      next: nextPost,
-      pretext: previousPost.data.title,
-      nexttext: nextPost.data.title,
-%}
-
-{% if image %}
-  <div class="aspect-video overflow-hidden shadow-lg">
-    {% include 'image/image.liquid',
-    file: image,
-    alt: title,
-    sizes: "(min-width: 30em) 50vw, 100vw",
-    widths: "400, 800, 1200",
-    format: "webp",
-    loading: "lazy",
-    css: "w-full"
-    %}
-  </div>
-{% endif %}
-
-<article class="flex flex-col md:flex-row">
+<article class="flex flex-col md:flex-row space-x-8">
   <div class="md:w-4/6">
-    <time>{{ date | date: "%d %m %Y %H:%M", timeZone }}</time>
+
+    <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
+
+    <div class="py-4 text-tone-500 flex flex-row items-center space-x-2">
+      <div>{{ date | dateformat: dateLocalize, "long" }}</div>
+      <div>{{ date | date: "%H:%M" }}</div>
+      <div>{{ author }}</div>
+      <div>
+        {% include "tag/tags.liquid" %}
+      </div>
+      </div>
+
+
+  {% if image %}
+    <div class="aspect-video overflow-hidden shadow-lg">
+      {% include 'image/image.liquid',
+      file: image,
+      alt: title,
+      sizes: "(min-width: 30em) 50vw, 100vw",
+      widths: "400, 800, 1200",
+      format: "webp",
+      loading: "lazy",
+      css: "w-full"
+      %}
+    </div>
+  {% endif %}
+
+
+
     <div class="prose prose-xl dark:prose-invert max-w-full">
       {{ content }}
     </div>
   </div>
 
   <div class="md:ml-4 md:w-2/6">
+
+    {% include "linklist/linklist.liquid",
+        collection : collections.allPosts,
+        url: page.url,
+        limit: 3,
+        sort: "data.title",
+        showdate: true
+    %}
+
+    {% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
+    {% assign nextPost =    collections.allPosts | getNextCollectionItem %}
+    {% render 'prenext/prenext.liquid',
+          previous: previousPost,
+          next: nextPost,
+          pretext: previousPost.data.title,
+          nexttext: nextPost.data.title,
+    %}
+
+    {% include "tag/tagcloud.liquid" %}
+
+    {% include "some/share.liquid" %}
 
   </div>
 </article>

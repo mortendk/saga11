@@ -10,20 +10,20 @@
 
     {% if item.data.url == page %}
 
-
-    {% assign title = item.data.card.title | default: item.data.title %}
-    {% assign image = item.data.card.image | default: item.data.image %}
-    {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
-    {%
-      render 'card.liquid',
-        title: title,
-        text: text,
-        image: image,
-        url: item.url,
-        date: item.date
-    %}
+      {% assign title = item.data.card.title | default: item.data.title %}
+      {% assign image = item.data.card.image | default: item.data.image %}
+      {% assign text = item.data.card.text | default: item.data.content | strip_html | truncatewords: "20",  " ..."  %}
+      {%
+        render 'card.liquid',
+          title: title,
+          text: text,
+          image: image,
+          url: item.url,
+          date: item.date
+      %}
 
     {% endif %}
+
   {% endfor %}
 {% endfor %}
 </section>

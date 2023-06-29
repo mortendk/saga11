@@ -8,7 +8,7 @@ title: Nav Pre & Next
 
 {% assign previous = collections.testdata | getPreviousCollectionItem %}
 {% assign next =    collections.testdata | getNextCollectionItem %}
-{% include 'nav-prenext/prenext.liquid',
+{% include 'prenext/prenext.liquid',
       previous: previous,
       next: next,
       pretext: previous.data.city.title,

@@ -43,7 +43,7 @@
 
     {% comment %} OPENGRAPH {% endcomment %}
     {% assign ogImage = opengraph.image | default: site.opengraph %}
-    {% assign ogTitle = opengraph.title | default: site.title  %}
+    {% assign ogTitle = opengraph.title | default: title  %}
     {% assign ogText =  opengraph.description | default: site.description %}
 
     {%- render "_system/head/opengraph.liquid",
