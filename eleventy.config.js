@@ -26,8 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(faviconsPlugin);
-
+  eleventyConfig.addPlugin(faviconsPlugin, {'generateManifest': false});
   // Shortcodes
   eleventyConfig.addShortcode("image", require("./src/_system/11ty/shortcode/image.js"));
   eleventyConfig.addShortcode("imageurl", require("./src/_system/11ty/shortcode/imageurl.js"));

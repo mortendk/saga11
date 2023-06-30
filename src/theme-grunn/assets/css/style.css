@@ -3052,6 +3052,10 @@ pre[class*="language-"] {
   color: var(--color-tone-300);
 }
 
+.text-tone-500 {
+  color: var(--color-tone-500);
+}
+
 .text-tone-600 {
   color: var(--color-tone-600);
 }
@@ -3063,10 +3067,6 @@ pre[class*="language-"] {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-tone-500 {
-  color: var(--color-tone-500);
 }
 
 .underline {

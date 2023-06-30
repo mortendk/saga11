@@ -1,0 +1,12 @@
+{% comment %}
+
+{% endcomment %}
+{% if icon %}
+  {% assign faveicon = "src/" | append: icon  %}
+{% else %}
+  {% assign faveicon = "src/_system/icon.svg" %}
+{% endif %}
+
+{% favicons faveicon %}
+
+<link rel="manifest" href="/manifest.webmanifest">
