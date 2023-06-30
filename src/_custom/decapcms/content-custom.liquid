@@ -1,0 +1,44 @@
+  - name: custom
+    label: "🎨 customs"
+    label_singular: "🎨 custom"
+    description: "custom test"
+    folder: "src/content/custom"
+    slug: "{% raw %}{{title}}{% endraw %}"
+    preview_path: /custom/{% raw %}{{title}}{% endraw %}/
+    create: true
+    delete: true
+    hide: false
+    editor:
+      preview: false
+    summary: "{% raw %}{{title}} Rate:{{rate}}{% endraw %}"
+    sortable_fields: ["title", "order", "date"]
+    view_filters:
+      - label: Drafts
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Group
+        field: group
+    nested:
+      depth: 1 # max depth to show in the collection tree
+      summary: "{{title}}"
+    fields:
+{% include "_system/_decapcms/widgets/string",
+name: "title",
+label: "title",
+default: "",
+required: true,
+hint: "Title"
+%}
+
+{% include "_system/_decapcms/widgets/image",
+name: "image",
+label: "image",
+default: "/content/upload/default.png"
+choose_url: true,
+allow_multiple: false,
+required: "false",
+hint: "image"
+%}
+
+{% include "_system/_decapcms/fields/tags.liquid" %}
