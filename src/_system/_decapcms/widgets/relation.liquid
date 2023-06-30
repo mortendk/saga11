@@ -1,0 +1,10 @@
+      - name: "{{ name  }}"
+        label:  "{{ label }}"
+        widget: relation
+        collection: {{ contenttype }}
+        searchFields: [title]
+        valueField: "{% raw %}{{slug}}{% endraw %}"
+        display_fields: ["title"]
+        {% if required %}required: {{ required }}{% endif %}
+        {% if multiple %}multiple: {{ multiple }}{% endif %}
+        {% if hint %}hint: {{ hint }}{% endif %}

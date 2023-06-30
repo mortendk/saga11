@@ -39,7 +39,7 @@
 
     <meta name="theme-color" content="{{ site.color }}">
 
-    {%- render "_system/icon.liquid" -%}
+    {%- render "_system/head/icon.liquid", icon: site.icon -%}
 
     {% comment %} OPENGRAPH {% endcomment %}
     {% assign ogImage = opengraph.image | default: site.opengraph %}
