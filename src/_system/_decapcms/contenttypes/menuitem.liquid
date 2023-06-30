@@ -29,26 +29,5 @@
   required: true,
   hint: "The title is used for admin reference - the menu items title is set in the navigation"
 %}
-      - name: eleventyNavigation
-        label: 🍔 Navigation
-        widget: object
-        collapsed: false
-        summary: "{{fields.key}} |  {{fields.parent}}"
-        fields:
-        - { label: "Title", name: title, widget: "string", required: true, hint: "Title"}
-        - { label: "Machine key", name: key, widget: "string", required: true, hint: "Title and key"}
-        - { label: "Url", name: url, widget: "string", required: false, hint: "Full url https://saga11.dev"}
-        - { label: "Open in new window", name: "target", widget: "boolean", default: false, required: false, }
-        - name: "parent"
-          label: Parent menu item
-          widget: relation
-          collection: page
-          default: main
-          searchFields: [title]
-          valueField: "{% raw %}{{eleventyNavigation.key}}{% endraw %}"
-          displayFields: ["Title: {% raw %}{{title}} | key: '{{eleventyNavigation.key}} {% endraw %}'"]
-          required: false
-          multiple: false
-        - { label: "Order", name: "order", widget: "number", required: false}
-        - { label: "text", name: "text", widget: "text", required: false}
 
+{% include "_system/_decapcms/fields/menu.liquid" %}
