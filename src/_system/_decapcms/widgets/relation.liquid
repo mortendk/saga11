@@ -1,6 +1,7 @@
       - name: "{{ name  }}"
         label:  "{{ label }}"
         widget: relation
+        i18n: true
         collection: {{ contenttype }}
         searchFields: [title]
         valueField: "{% raw %}{{slug}}{% endraw %}"

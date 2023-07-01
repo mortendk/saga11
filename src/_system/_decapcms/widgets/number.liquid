@@ -1,6 +1,7 @@
       - label: "{{ label }}"
         name: "{{ name  }}"
         widget: "number"
+        i18n: true
         {% if default %}default: {{ default }}{% endif %}
         required: {{ required }}
         {% if hint %}hint: "{{ hint }}"{% endif %}

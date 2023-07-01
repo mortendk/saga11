@@ -8,6 +8,10 @@ backend:
 local_backend:
   # when using a custom proxy server port
   url: http://localhost:{{ env.netlifycmsport }}/api/v1
+i18n:
+  structure: multiple_folders
+  locales: [en, da]
+  default_locale: en
 #SETTINGS
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/img/icon-admin.png
@@ -23,6 +27,7 @@ media_folder: "src/content/upload/"
 public_folder: "/content/upload"
 
 collections:
+{% include "_system/_decapcms/contenttypes/i18n.liquid" %}
 {% include "_system/_decapcms/contenttypes/page.liquid" %}
 {% include "_system/_decapcms/contenttypes/post.liquid" %}
 {% include "_system/_decapcms/contenttypes/notification.liquid" %}

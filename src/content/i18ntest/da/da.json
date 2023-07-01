@@ -1,0 +1,4 @@
+{
+  "lang": "da",
+  "permalink": "da/i18n/{{ url | slugify }}/"
+}

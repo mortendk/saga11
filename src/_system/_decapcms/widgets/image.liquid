@@ -1,6 +1,7 @@
       - label: "📷 {{ label }}"
         name: "{{ name }}"
         widget: "image"
+        i18n: true
         {% if default %}default: {{ default }}{% endif %}
         choose_url: {% if choose_url %}{{ choose_url }}{% else  %}false{% endif %}
         {% if required %}required: {{ required }}{% endif %}

@@ -6,7 +6,31 @@ saga-template-name: Page default
 
 <h1 class="text-5xl">{{ title }}</h1>
 
-{% include "tag/tags.liquid" %}
+
+Lang: {{ page.lang | upcase }}
+
+
+{{ page.url | locale_url }}
+
+local links
+<nav>
+    <a href="{{ page.url }}" lang="{{ page.lang }}" hreflang="{{ page.lang }}">
+      {{ page.lang  }}
+    </a>
+
+    {% for link in page.url | locale_links  %}
+    <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">
+      {{ link.lang  }}</a
+    >
+    {% endfor %}
+  </nav>
+
+
+
+
+
+
+  {% include "tag/tags.liquid" %}
 
 {% if image %}
   <div class="aspect-video overflow-hidden">
@@ -26,9 +50,13 @@ saga-template-name: Page default
   {{ content }}
 </div>
 
-
+{% comment %}
 {% include "components/all.liquid" %}
 
 {% include "some/share.liquid" %}
 
+{% endcomment %}
 
+
+
+https://www.lenesaile.com/en/blog/internationalization-with-eleventy-20-and-netlify/

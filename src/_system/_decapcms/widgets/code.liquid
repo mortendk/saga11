@@ -1,6 +1,7 @@
       - label: "{{ label }}"
         name: "{{ name  }}"
         widget: "code"
+        i18n: true
         {% if output_code_only %}output_code_only: {{ output_code_only }}{% endif %}
         {% if default %}default: {{ default }}{% endif %}
         {% if required %}required: {{ required }}{% endif %}

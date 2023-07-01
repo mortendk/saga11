@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const util = require('util');
 
+const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const env = require("./src/content/_data/env.js");
 const package = require("./package.json");
 
@@ -27,6 +28,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(faviconsPlugin, {'generateManifest': false});
+  eleventyConfig.addPlugin(EleventyI18nPlugin, {
+    // any valid BCP 47-compatible language tag is supported
+    defaultLanguage: "en", // Required, this site uses "en"
+    filters: {
+      // transform a URL with the current page’s locale code
+      url: "locale_url",
+
+      // find the other localized content for a specific input file
+      links: "locale_links",
+      errorMode: "strict"
+    },
+  });
   // Shortcodes
   eleventyConfig.addShortcode("image", require("./src/_system/11ty/shortcode/image.js"));
   eleventyConfig.addShortcode("imageurl", require("./src/_system/11ty/shortcode/imageurl.js"));
