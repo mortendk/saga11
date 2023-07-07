@@ -15,7 +15,7 @@ saga-template-name: Post Default
       <div>{{ date | date: "%H:%M" }}</div>
       <div>{{ author }}</div>
       <div>
-        {% include "tag/tags.liquid" %}
+        {% include "some/share.liquid", pageurl: page.url%}
       </div>
       </div>
 
