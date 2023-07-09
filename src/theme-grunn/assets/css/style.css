@@ -2254,6 +2254,11 @@ pre[class*="language-"] {
   scroll-snap-align: center;
 }
 
+.columns-2 {
+  -moz-columns: 2;
+       columns: 2;
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -2382,6 +2387,10 @@ pre[class*="language-"] {
 
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded {
@@ -2680,6 +2689,12 @@ pre[class*="language-"] {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
 
+.from-cyan-400 {
+  --tw-gradient-from: #22d3ee var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(34 211 238 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-gray-600 {
   --tw-gradient-from: #4b5563 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(75 85 99 / 0) var(--tw-gradient-to-position);
@@ -2701,8 +2716,17 @@ pre[class*="language-"] {
   --tw-gradient-to: #111827 var(--tw-gradient-to-position);
 }
 
+.to-indigo-600 {
+  --tw-gradient-to: #4f46e5 var(--tw-gradient-to-position);
+}
+
 .to-pink-500 {
   --tw-gradient-to: #ec4899 var(--tw-gradient-to-position);
+}
+
+.bg-clip-text {
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 
 .object-cover {
@@ -2744,6 +2768,11 @@ pre[class*="language-"] {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .py-2 {
@@ -3058,6 +3087,10 @@ pre[class*="language-"] {
 
 .text-tone-600 {
   color: var(--color-tone-600);
+}
+
+.text-transparent {
+  color: transparent;
 }
 
 .text-warning-900 {
@@ -3685,13 +3718,31 @@ pre[class*="language-"] {
     width: 50%;
   }
 
+  .lg\:columns-4 {
+    -moz-columns: 4;
+         columns: 4;
+  }
+
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
   }
 
   .lg\:py-20 {
     padding-top: 5rem;
     padding-bottom: 5rem;
+  }
+
+  .lg\:text-9xl {
+    font-size: 8rem;
+    line-height: 1;
   }
 }
 
