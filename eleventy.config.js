@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const util = require('util');
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 const env = require("./src/content/_data/env.js");
 const package = require("./package.json");
@@ -16,6 +17,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 
+
 const markdownIt = require('markdown-it');
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
 const embedYouTube = require("eleventy-plugin-youtube-embed");
@@ -27,6 +29,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(faviconsPlugin, {'generateManifest': false});
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
+
   // Shortcodes
   eleventyConfig.addShortcode("image", require("./src/_system/11ty/shortcode/image.js"));
   eleventyConfig.addShortcode("imageurl", require("./src/_system/11ty/shortcode/imageurl.js"));

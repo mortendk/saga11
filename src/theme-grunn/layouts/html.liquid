@@ -37,9 +37,20 @@
         seo: seo
     -%}
 
+    {% comment %} icons & manifest {% endcomment %}
     <meta name="theme-color" content="{{ site.color }}">
 
-    {%- render "_system/head/icon.liquid", icon: site.icon -%}
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    {% renderTemplate "njk", site %}
+      {% if icon %}
+        {% set icon  = 'src/' + icon %}
+      {% else %}
+        {% set icon = "src/_system/icon.png" %}
+      {% endif %}
+
+      {% favicons icon, appleIconBgColor=faviconcolor, appleIconPadding=10, generateManifest=false %}
+    {% endrenderTemplate %}
 
     {% comment %} OPENGRAPH {% endcomment %}
     {% assign ogImage = opengraph.image | default: site.opengraph %}
