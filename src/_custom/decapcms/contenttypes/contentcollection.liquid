@@ -1,0 +1,112 @@
+  # ---------------------------------------------------------------
+  # Pages Collection
+  # ---------------------------------------------------------------
+  - name: pagination
+    label:  🗂️ Content collections
+    label_singular: 🗂️ Content collection
+    description: "Collection of data by tags or 11tys collections"
+    folder: "src/content/contentcollection"
+    slug: "{{title}}"
+    preview_path: /{% raw %}{{path}}{% endraw %}/
+    create: true
+    delete: true
+    editor:
+      preview: false
+    summary: "{% raw %}🏩 Title '{{title}}' {{pagination.data}} Url: '{{path}}' {% endraw %} "
+    sortable_fields: ["url", "title", "order"]
+    view_filters:
+      - label: collection
+        field: eleventyExcludeFromCollections
+        pattern: true
+    view_groups:
+      - label: Tags
+        field: tags
+    nested:
+      depth: 1
+      summary: "{% raw %}{{title}}{% endraw %}"
+    fields:
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
+
+{% include "_system/_decapcms/fields/pagination.liquid" %}
+
+{% include "_system/_decapcms/widgets/string",
+  name: "path",
+  label: "path",
+  default: "",
+  required: true,
+  hint: "the prefix for the paginated pages fx[path]/[number] ⛔️ Make sure the prefix dont collide with an existing url"
+%}
+
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'contentcollectionTemplates', folder: "contentcollection" %}
+
+
+{% include "_system/_decapcms/widgets/image",
+  name: "image",
+  label: "Image",
+  default: "/content/upload/default.png"
+  choose_url: true,
+  allow_multiple: false,
+  required: "false",
+  hint: ""
+%}
+
+
+{% include "_system/_decapcms/widgets/string",
+  name: "alt",
+  label: "alt",
+  default: "",
+  required: "false",
+  hint: "alt text"
+%}
+
+{% include "_system/_decapcms/widgets/string",
+  name: "photocredit",
+  label: "Photo Credit",
+  default: "",
+  required: "false",
+  hint: "alt text"
+%}
+
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: ""
+%}
+
+{% include "_system/_decapcms/fields/card.liquid" %}
+
+{% include "_system/_decapcms/fields/tags.liquid" %}
+
+{% include "_system/_decapcms/widgets/number",
+  name: "order",
+  label: "Collection Order",
+  default: 1,
+  min: "1",
+  max: "200",
+  step: "1",
+  required: false,
+  hint: "Optional order"
+%}
+
+{% include "_system/_decapcms/widgets/boolean",
+  name: "eleventyExcludeFromCollections",
+  label: "Collection Hide",
+  default: "false",
+  required: "false",
+  hint: "Hide from collections"
+%}
+
+{% include "_system/_decapcms/fields/menu.liquid" %}
+
+{% include "_system/_decapcms/fields/opengraph.liquid" %}
+
+{% include "_system/_decapcms/fields/seo.liquid" %}
+

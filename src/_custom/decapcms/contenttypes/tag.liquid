@@ -1,0 +1,51 @@
+  # ---------------------------------------------------------------
+  # Relations Tags
+  # ---------------------------------------------------------------
+  - name: tags
+    label_singular: 🏷 Tag
+    label: 🏷 Tags
+    description: "Tagging to generate content for collections"
+    folder: "src/content/tag"
+    slug: "{% raw %}{{title}}{% endraw %}"
+    summary: "{% raw %}🏷  {{title}} {% endraw %} "
+    hide: false
+    create: true
+    delete: false
+    editor:
+      preview: false
+    fields:
+{% include "_system/_decapcms/widgets/string",
+  name: "title",
+  label: "title",
+  default: "",
+  required: true,
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/image",
+  name: "image",
+  label: "Image",
+  default: "/content/upload/default.png"
+  choose_url: true,
+  allow_multiple: false,
+  required: "false",
+  hint: ""
+%}
+
+{% include "_system/_decapcms/widgets/markdown",
+  name: "body",
+  label: "Body",
+  default: "",
+  required: "false",
+  hint: "help text"
+%}
+
+{% include "_system/_decapcms/fields/card.liquid" %}
+
+{% include "_system/_decapcms/fields/opengraph.liquid" %}
+
+{% include "_system/_decapcms/fields/seo.liquid" %}
+
+{% include "_system/_decapcms/fields/menu.liquid" %}
+
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'tagtemplates', folder: "tag" %}

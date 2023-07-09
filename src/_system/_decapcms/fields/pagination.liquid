@@ -1,0 +1,27 @@
+      - name: pagination
+        label: ↔️ pagination
+        widget: object
+        collapsed: false
+        summary: "{% raw %} Title: '{{fields.title}}' | Description: '{{fields.content}}' | Robots: {{fields.index}}, {{fields.follow}} {% endraw %}"
+        fields:
+          - label: "size"
+            name: "size"
+            widget: "number"
+            default: 2
+            value_type: "int"
+            min: 2
+            max: 101
+            step: 1
+          - { label: "alias", name: "alias", widget: "hidden", default: "contentcollection"}
+          - { label: "generatePageOnEmptyData", name: "generatePageOnEmptyData", widget: "hidden", default: "true"}
+          - name: "data"
+            label:  "data"
+            widget: relation
+            collection: tags
+            searchFields: [title]
+            valueField: "collections.{% raw %}{{slug}}{% endraw %}"
+            display_fields: ["title"]
+            required: true
+            multiple: false
+            hint: "the collection"
+
