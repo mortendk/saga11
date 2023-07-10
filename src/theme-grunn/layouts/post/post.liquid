@@ -44,15 +44,15 @@ saga-template-name: Post Default
   <div class="md:ml-4 md:w-2/6">
 
     {% include "linklist/linklist.liquid",
-        collection : collections.allPosts,
+        collection : collections.contentfolderposts,
         url: page.url,
         limit: 3,
         sort: "data.title",
         showdate: true
     %}
 
-    {% assign previousPost = collections.allPosts | getPreviousCollectionItem %}
-    {% assign nextPost =    collections.allPosts | getNextCollectionItem %}
+    {% assign previousPost = collections.contentfolderposts | getPreviousCollectionItem %}
+    {% assign nextPost =    collections.contentfolderposts | getNextCollectionItem %}
     {% render 'prenext/prenext.liquid',
           previous: previousPost,
           next: nextPost,
