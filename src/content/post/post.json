@@ -1,3 +1,4 @@
 {
-  "permalink": "post/{{ title | slugify }}/"
+  "permalink": "post/{{ title | slugify }}/",
+  "tags": "contentfolderposts"
 }

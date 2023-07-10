@@ -16,7 +16,10 @@
           - image
           - video
           - code-block
-          - shortcode-image
+
         {% if required %}required: {{ required }}{% endif %}
         {% if hint %}hint: {{ hint }}{% endif %}
         {% if default %}default: {{ default }}{% endif %}
+{% comment %}
+            - shortcode-image
+{% endcomment %}
