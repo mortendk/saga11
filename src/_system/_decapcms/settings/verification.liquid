@@ -2,6 +2,12 @@
         name: "verification"
         file: "src/content/_data/verification.json"
         fields:
+          - {label:  ✅ Google site Verification (content="code"),
+              name: google_site_verification,
+              widget: string,
+              required: false,
+              hint: "verification tag https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification",
+            }
           - {label: 🐘 ✅ mastodon Verification (rel="me"),
               name: mastodon_verification,
               widget: string,

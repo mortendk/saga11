@@ -13,6 +13,11 @@
 
     {{ verification.header  }}
 
+    {% comment %} Google {% endcomment %}
+    {%- if verification.google_site_verification %}
+      <meta name="google-site-verification" content="{{ verification.google_site_verification }}" />
+    {% endif -%}
+
     {% comment %}Mastodon {% endcomment %}
     {%- if verification.mastodon_verification %}
       <link rel="me" href="{{ verification.mastodon_verification }}">
