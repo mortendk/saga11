@@ -61,10 +61,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
 
   // Collections
-  eleventyConfig.addCollection("allPosts", require("./src/_system/11ty/collection/allPosts.js"));
-  eleventyConfig.addCollection("allPages", require("./src/_system/11ty/collection/allPages.js"));
-  eleventyConfig.addCollection("allNotification", require("./src/_system/11ty/collection/allNotification.js"));
-  eleventyConfig.addCollection("allTags", require("./src/_system/11ty/collection/allTags.js"));
   eleventyConfig.addCollection("tags", require("./src/_system/11ty/collection/tags.js"));
   eleventyConfig.addCollection("styleguide", require("./src/_system/11ty/collection/styleguide.js"));
 

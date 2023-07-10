@@ -14,6 +14,18 @@ eleventyExcludeFromCollections: true
 <body>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js?123"></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    /* Workaround for text editor https://github.com/decaporg/decap-cms/issues/5092 */
+    textarea {
+      -webkit-user-modify: read-write !important;
+    }
+    [data-slate-editor] {
+      -webkit-user-modify: read-write !important;
+    }
+
+    </style>
+
   <script>
     CMS.registerPreviewStyle("style.css");
 
@@ -83,6 +95,8 @@ eleventyExcludeFromCollections: true
       return `<video controls><source src="${data.file}"><\/video>`;
     }
   });
+
+
   </script>
 
 {% comment %}
