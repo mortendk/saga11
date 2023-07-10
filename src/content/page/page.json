@@ -1,4 +1,4 @@
 {
-  "permalink": "/{{ url | slugify }}/"
+  "permalink": "/{{ url | slugify }}/",
   "tags": "contentfolderpages"
 }
