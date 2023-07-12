@@ -29,7 +29,7 @@ eleventyExcludeFromCollections: true
     <title>{{ item.data.card.title | default: item.data.title }}</title>
     <link href="{{item.url | prepend: env.url }}" />
     <summary> {{item.data.card.text | default: item.templateContent | strip_html | strip_newlines | escape}} </summary>
-    <updated>{{ item.date | dateToRfc3339 }}</updated>
+    <updated>{{ item.created | dateToRfc3339 }}</updated>
     <id>{{ item.url }}</id>
     <content type="html">
       {% assign img = item.data.card.image | default: item.data.image %}
