@@ -3,11 +3,24 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   {% for page in collections.all %}
-  <url>
-    <loc>{{ env.url }}{{ page.url | url }}</loc>
-    <lastmod>{{ page.date | date: '%m/%d/%y %-I:%M %p' }}</lastmod>
-  </url>
+
+
+    {%- unless page.url == false or
+      page.url contains '/false' or
+      page.url contains '/_custom/' or
+      page.url contains '/styleguide/' or
+      page.url contains '/_system/'  or
+      page.url contains '/test/' or
+      page.url contains '/contentfolder' or
+      page.url contains '/README'
+    -%}
+      <url>
+        <loc>{{ page.url | prepend: env.url }}</loc>
+        <lastmod>{{ page.date | date: '%m/%d/%y %-I:%M %p' }}</lastmod>
+      </url>
+
+  {%- endunless -%}
   {% endfor %}
 </urlset>

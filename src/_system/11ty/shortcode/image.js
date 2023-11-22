@@ -44,7 +44,9 @@ module.exports = async function (file, widths, format, alttext, sizes, loading, 
   };
 
   // You bet we throw an error on a missing alt (alt="" works okay)
-  return Image.generateHTML(metadata, imageAttributes, {
-    whitespaceMode: "inline",
-  });
+  		return Image.generateHTML(metadata, imageAttributes);
+
+  // return Image.generateHTML(metadata, imageAttributes, {
+  //   whitespaceMode: "inline",
+  // });
 };

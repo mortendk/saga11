@@ -1,11 +1,11 @@
   # ---------------------------------------------------------------
-  # Pages Collection
+  # Pages Pagination
   # ---------------------------------------------------------------
-  - name: pagination
-    label:  🗂️ Content collections
-    label_singular: 🗂️ Content collection
-    description: "Collection of data by tags or 11tys collections"
-    folder: "src/content/contentcollection"
+  - name: pagepagination
+    label:  🗂️ Page Pagination
+    label_singular: 🗂️ Page pagnination
+    description: "a Page with paginations based on a Collection"
+    folder: "src/content/pagepagination"
     slug: "{{title}}"
     preview_path: /{% raw %}{{path}}{% endraw %}/
     create: true
@@ -43,7 +43,7 @@
   hint: "the prefix for the paginated pages fx[path]/[number] ⛔️ Make sure the prefix dont collide with an existing url"
 %}
 
-{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'contentcollectionTemplates', folder: "contentcollection" %}
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagepaginationTemplates', folder: "pagepagination", default: 'pagepagination/pagepagination.liquid' %}
 
 
 {% include "_system/_decapcms/widgets/image",

@@ -39,7 +39,7 @@ Content:
 {{ page.url }}
 {{ content }}
 {{ templateContent }}
-
+{{item.templateContent}}
 {{ post.templateContent }}
 
 Navigation
@@ -48,8 +48,11 @@ Navigation
 Debug data
 {% for item in collection.all limit: 2 %}
   {{ item | debug }}
-  {{ item.data.templateContent }}
+  {{ item.templateContent }}
 {% endfor %}
 
 
 
+
+Global
+{{ collections.all[0].template.templateData.globalData | dump }}

@@ -1,4 +1,4 @@
 {
-  "layout": "system/post-pagination.liquid",
+  "layout": "pagepagination/pagepagination.liquid",
   "permalink": "{{ path }}/{% if pagination.pageNumber > 0 %}{{pagination.pageNumber | plus:1 }}/{% endif %}index.html"
 }

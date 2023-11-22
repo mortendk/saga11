@@ -35,12 +35,12 @@
 
     {% comment %} SEO {% endcomment %}
     {% assign seocanonical = page.url | prepend: env.url  %}
-    {% assign seodescription = seo.description | default: site.description  %}
-    {%- render "_system/head/seo.liquid",
-        canonical: seocanonical,
-        description: seodescription,
-        seo: seo
-    -%}
+    {% assign seodescription = seo.description | default: opengraph.description | default: card.text | default: site.description  %}
+    <meta name="description" content="{{ seodescription }}">
+    <link rel="canonical" href="{{ seocanonical }}" />
+    <meta name=”robots” content="{{ seo.index | default: "index" }}, {{ seo.follow | default: "nofollow" }}">
+
+
 
     {% comment %} icons & manifest {% endcomment %}
     <meta name="theme-color" content="{{ site.color }}">

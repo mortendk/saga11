@@ -33,15 +33,15 @@
   hint: ""
 %}
 
-{% include "_system/_decapcms/widgets/string",
+{% include "_system/_decapcms/widgets/string.liquid",
   name: "url",
   label: "url",
   default: "",
-  required: false,
+  required: true,
   hint: ""
 %}
 
-{% include "_system/_decapcms/widgets/image",
+{% include "_system/_decapcms/widgets/image.liquid",
   name: "image",
   label: "Image",
   default: "/content/upload/default.png"
@@ -51,7 +51,7 @@
   hint: ""
 %}
 
-{% include "_system/_decapcms/widgets/string",
+{% include "_system/_decapcms/widgets/string.liquid",
   name: "alt",
   label: "alt",
   default: "",
@@ -59,7 +59,7 @@
   hint: "alt text"
 %}
 
-{% include "_system/_decapcms/widgets/string",
+{% include "_system/_decapcms/widgets/string.liquid",
   name: "photocredit",
   label: "Photo Credit",
   default: "",
@@ -67,7 +67,7 @@
   hint: "alt text"
 %}
 
-{% include "_system/_decapcms/widgets/markdown",
+{% include "_system/_decapcms/widgets/markdown.liquid",
   name: "body",
   label: "Body",
   default: "",
@@ -92,7 +92,7 @@
   hint: "Optional order"
 %}
 
-{% include "_system/_decapcms/widgets/boolean",
+{% include "_system/_decapcms/widgets/boolean.liquid",
   name: "eleventyExcludeFromCollections",
   label: "Collection Hide",
   default: "false",
@@ -106,4 +106,13 @@
 
 {% include "_system/_decapcms/fields/seo.liquid" %}
 
-{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page" %}
+
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page", default: 'page/page.liquid' %}
+
+{% include "_system/_decapcms/widgets/string.liquid",
+  name: "permalink",
+  label: "Publish",
+  default: "",
+  required: "false",
+  hint: "Set publish (permalink) to 'false' if you don want to publish this page"
+%}

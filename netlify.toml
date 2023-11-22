@@ -1,8 +1,38 @@
 [[plugins]]
   package = "netlify-plugin-cache"
 
+
 [plugins.inputs]
-  paths = [ ".cache" ]
+  paths = [
+    "_site/img", # Eleventy Image Disk Cache
+    ".cache" # Remote Asset Cache
+  ]
+
+[[plugins]]
+  package = "netlify-plugin-inline-critical-css"
+
+  [plugins.inputs]
+    fileFilter = ["*.html"]
+    directoryFilter = ["!node_modules"]
+    extract = false
+    dimensions = [
+      { width = 414, height = 896 },
+      { width = 1920, height = 1080 }
+    ]
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+  [plugins.inputs]
+    contexts = [
+      'production',
+      'branch-deploy',
+      'deploy-preview'
+    ]
+
+  [plugins.inputs.minifierOptions]
+    removeComments = true
+    collapseInlineTagWhitespace = true
 
 [build]
   publish = "_site"

@@ -7,7 +7,7 @@
   "Authoremail": "sdsd",
   "authoremail": "",
   "rss": true,
-  "title": "Saga11 Test site",
+  "authorname": "mortendk",
   "icon": "/content/upload/saga11icon.svg",
   "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS   ",
   "maskableicon": "/content/upload/maskable-icon.png"

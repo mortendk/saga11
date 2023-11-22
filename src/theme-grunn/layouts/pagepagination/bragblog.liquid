@@ -1,0 +1,54 @@
+---
+layout: default.liquid
+saga-template-name: Pagination BragBlog
+---
+{%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-mdk/layouts/contentcollection/bragblog.liquid -->{%- endif -%}
+
+<div class="bg-tone-100 py-12">
+  <h1
+    class="
+    text-7xl lg:text-9xl pagewidth
+    font-display pagewidth break-words
+    bg-gradient-to-r from-cyan-400 to-indigo-600 bg-clip-text text-transparent"
+    id="top">
+    {{ title }}
+  </h1>
+</div>
+
+<section class="pagewidth grid grid-cols-1 lg:grid-cols-3 gap-2">
+
+{% assign all = contentcollection | sort: "date" | reverse  %}
+{% for item in all %}
+
+
+  {% capture img %}
+    {% if item.data.image %}
+    {% include 'image/image.liquid',
+        file: item.data.image,
+        widths: "64",
+        format: "webp",
+        loading: "lazy",
+        css: "h-full w-full object-cover"
+    %}
+  {% endif %}
+  {% endcapture %}
+    <article>
+      <h2 class="font-display text-lg"> {{ item.data.title }}</h2>
+      <time datetime="2020-03-16">{{ item.date | dateformat: dateLocalize, "short" }}</time>
+      <div class="flex flex-row ">
+        <div class="w-16 h-16 flex-none">
+          {{ img  }}
+        </div>
+        <div>
+          {{ item.templateContent }}
+        </div>
+
+      </div>
+    </article>
+
+{% endfor %}
+
+</section>
+
+{% render 'pagination/pagination.liquid', pagination: pagination, page: page %}
+
