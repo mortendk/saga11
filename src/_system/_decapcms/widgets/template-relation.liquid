@@ -6,4 +6,4 @@
         valueField: "{{ folder }}/{% raw %}{{filename}}.{{extension}}{% endraw %}"
         displayFields: ["saga-template-name", " (File: layouts/{{ folder }}/{% raw %}{{filename}}.{{extension}}{% endraw %})"]
         required: true
-        default: "page/page.liquid"
+        default: {{ default }}

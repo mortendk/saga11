@@ -26,7 +26,7 @@
 {% assign sortField = "data.order" %}
 {% assign items = collections.saga11 | sort: sortField | reverse  %}
 {% for item in items limit: 10 %}
-  {{ item.date | date: "%d.%m %Y" }} |
+  {{ item.created | date: "%d.%m %Y" }} |
   {{ item.data.order }} |
   {{ item.data.title }} |
   <hr>

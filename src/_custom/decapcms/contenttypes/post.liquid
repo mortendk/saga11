@@ -12,8 +12,8 @@
     delete: true
     editor:
       preview: false
-    summary: "{% raw %}{{title}} {{url.parent}} {{card.image}}{% endraw %} "
-    sortable_fields: ["title", "order", "date"]
+    summary: "{% raw %}{{title}} {{url.parent}} date:{{created}} {{card.image}}{% endraw %} "
+    sortable_fields: ["title", "order", "created"]
     view_filters:
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -21,8 +21,8 @@
     view_groups:
       - label: Tag
         field: tags
-      - label: "Date"
-        field: date
+      - label: created
+        field: created
         pattern: "([0-9]+(-[0-9]+)+)"
       - label: Drafts
         field: eleventyExcludeFromCollections
@@ -60,6 +60,24 @@
 
 {% include "_system/_decapcms/fields/tags.liquid" %}
 
+{% include "_system/_decapcms/widgets/datetime",
+  name: "created",
+  label: "created",
+  default: "",
+  required: true,
+  hint: "The day"
+%}
+
+{% include "_system/_decapcms/widgets/relation",
+name: "authors",
+label: "authors",
+contenttype: "author"
+required: "false",
+hint: "Who wrote this",
+multiple: true
+%}
+
+
 {% include "_system/_decapcms/widgets/number",
   name: "order",
   label: "order",
@@ -79,25 +97,17 @@
   hint: "Hide from collections"
 %}
 
-{% include "_system/_decapcms/widgets/string",
-  name: "author",
-  label: "author",
+{% include "_system/_decapcms/fields/opengraph.liquid" %}
+
+{% include "_system/_decapcms/widgets/string.liquid",
+  name: "url",
+  label: "url",
   default: "",
   required: "false",
-  hint: "Author name"
+  hint: "Overwrite the title generated url"
 %}
-
-{% include "_system/_decapcms/widgets/datetime",
-  name: "date",
-  label: "Date",
-  default: "true",
-  required: "false",
-  hint: "help text"
-%}
-
-{% include "_system/_decapcms/fields/opengraph.liquid" %}
 
 {% include "_system/_decapcms/fields/seo.liquid" %}
 
-{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post" %}
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'posttemplates', folder: "post", default: 'post/post.liquid' %}
 

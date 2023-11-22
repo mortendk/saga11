@@ -6,7 +6,6 @@
           - bold
           - italic
           - code
-          - heading-one
           - heading-two
           - heading-three
           - code
@@ -15,11 +14,11 @@
         editor_components:
           - image
           - video
+          - liquidcodeblock
           - code-block
-
         {% if required %}required: {{ required }}{% endif %}
         {% if hint %}hint: {{ hint }}{% endif %}
         {% if default %}default: {{ default }}{% endif %}
-{% comment %}
-            - shortcode-image
+          {% comment %}
+  - shortcode-image
 {% endcomment %}

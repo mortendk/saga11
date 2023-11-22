@@ -1,0 +1,46 @@
+---
+layout: default.liquid
+saga-template-name: Page pagination
+---
+{% comment %}
+  yeah masonry !
+{% endcomment %}
+
+<div class="bg-tone-100 py-12">
+
+  <h1
+    class="
+    text-7xl lg:text-9xl pagewidth
+    font-display pagewidth break-words
+    bg-gradient-to-r from-cyan-400 to-indigo-600 bg-clip-text text-transparent"
+    id="top">
+    {{ title }}
+  </h1>
+</div>
+{% comment %}
+
+<section class="pagewidth pt-8 gap-2 columns-2 lg:gap-4 lg:columns-4">
+{% endcomment %}
+<section class="pagewidth grid grid-cols-1 lg:grid-cols-3 gap-3">
+
+{% assign all = contentcollection | sort: "date" | reverse  %}
+{% for item in all %}
+  {% assign title = item.data.card.title | default: item.data.title %}
+  {% assign image = item.data.card.image | default: item.data.image %}
+  {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
+  {%
+    render 'card.liquid',
+      title: title,
+      text: text,
+      image: image,
+      url: item.url,
+      date: item.created
+      tags: item.data.tags
+      loop: forloop.index
+  %}
+{% endfor %}
+
+</section>
+
+{% render 'pagination/pagination.liquid', pagination: pagination, page: page %}
+

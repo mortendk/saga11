@@ -1,0 +1,7 @@
+{
+  "permalink": "author/{{ page.fileSlug | slugify }}/",
+  "tags": [
+    "{{ page.fileSlug | slugify }}",
+    "contentfolderauthors"
+  ]
+}
