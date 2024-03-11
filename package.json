@@ -13,6 +13,7 @@
     "clean": "rm -rf _site",
     "local-setup": "cp env-example .env",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
+    "watch:prod": "ELEVENTY_ENV=prod npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "build": "npm run tw:build && npm run 11ty:build",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",

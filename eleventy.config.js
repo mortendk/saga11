@@ -87,8 +87,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
-  // eleventyConfig.addPassthroughCopy({ ["src/content/upload/faveicon.svg" ] : "faveicon.svg"});
-  eleventyConfig.addPassthroughCopy({ ["src" + site.faveicon ] : "faveicon.svg"});
+  //faveicon
+  eleventyConfig.addPassthroughCopy({ ["src" + site.faveicon ] : "icon.svg"});
 
 
 
@@ -150,16 +150,16 @@ module.exports = function (eleventyConfig) {
   });
 
   // HTML minify
-  // if (env.mode == "prod") {
-    // eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
-    // eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+  if (env.mode == "prod") {
+    eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
+    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
     // eleventyConfig.addPlugin(criticalCss, {
     //   width: 1300,
     //   height: 900,
     // });
 
-  // }
+  }
 
 
   return {
