@@ -24,14 +24,14 @@
 
   <a href="{{ url }}" title="{{ title }}" tabindex="0">
 
-  <div class="shadow-lg aspect-video overflow-hidden bg-tone-100">
+  <div class="shadow-lg aspect-video w-full overflow-hidden bg-tone-100">
     {% if image %}
       {% include 'image/image.liquid',
           file: image,
           sizes: "(min-width: 30em) 50vw, 100vw",
-          widths: "400, 800",
+          widths: "640, 1200",
           format: "webp",
-          loading: "lazy",
+          loading: loading | default: 'lazy',
           css: "w-full"
       %}
     {% endif %}
