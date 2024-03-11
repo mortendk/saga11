@@ -1,5 +1,8 @@
 ---
-title: Components overview
+order: 3
+layout: page/page.liquid
+date: 2023-06-12 11:58:55
+title: Components overview !
 url: component
 image: https://images.unsplash.com/photo-1496449903678-68ddcb189a24
 components:
@@ -272,16 +275,13 @@ components:
       est laborum.
 card:
   title: "Component overview "
-  image: /content/upload/4hundo.gif
+  image: ""
   alt: alt text for image
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad "
 tags:
   - saga11
   - rssfeed
-order: 3
-layout: page/page.liquid
-date: 2023-06-12 11:58:55
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Components

@@ -29,9 +29,9 @@
       {% include 'image/image.liquid',
           file: image,
           sizes: "(min-width: 30em) 50vw, 100vw",
-          widths: "400, 800",
+          widths: "640, 1200",
           format: "webp",
-          loading: "lazy",
+          loading: loading | default: 'lazy',
           css: "w-full"
       %}
     {% endif %}
