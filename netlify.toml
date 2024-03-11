@@ -20,20 +20,6 @@
       { width = 1920, height = 1080 }
     ]
 
-[[plugins]]
-  package = "netlify-plugin-minify-html"
-
-  [plugins.inputs]
-    contexts = [
-      'production',
-      'branch-deploy',
-      'deploy-preview'
-    ]
-
-  [plugins.inputs.minifierOptions]
-    removeComments = true
-    collapseInlineTagWhitespace = true
-
 [build]
   publish = "_site"
   command = "npm run build"

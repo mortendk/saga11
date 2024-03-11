@@ -1,1 +1,1 @@
-This is used for the styleguide should kill
+Example of how to create pageniation over data
