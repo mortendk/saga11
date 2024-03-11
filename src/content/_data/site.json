@@ -9,7 +9,7 @@
   "rss": true,
   "authorname": "mortendk",
   "icon": "/content/upload/saga11icon.svg",
-  "faveicon": "/content/upload/faveicon.svg",
+  "touchicon": "/content/upload/maskable-icon.png",
   "maskableicon": "/content/upload/maskable-icon.png",
   "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS"
 }
