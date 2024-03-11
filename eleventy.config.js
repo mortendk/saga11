@@ -149,7 +149,7 @@ module.exports = function (eleventyConfig) {
 
   // HTML minify
   if (env.mode == "prod") {
-    eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
+    // eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
 
