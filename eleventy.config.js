@@ -149,20 +149,13 @@ module.exports = function (eleventyConfig) {
 
   // HTML minify
   if (env.mode == "prod") {
-    eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
-
-
-  eleventyConfig.addPlugin(criticalCss, {
-      // inline: true,
-      // width: 1920,
-      // height: 1080,
-      dimensions : [
-        { width: 414, height: 896 },
-        { width: 1920, height: 1080 }
-      ]
+    eleventyConfig.addPlugin(criticalCss, {
+        dimensions : [
+          { width: 414, height: 896 },
+          { width: 1920, height: 1080 }
+        ]
     });
-
   }
 
 
