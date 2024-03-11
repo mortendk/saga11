@@ -40,22 +40,16 @@
     <link rel="canonical" href="{{ seocanonical }}" />
     <meta name=”robots” content="{{ seo.index | default: "index" }}, {{ seo.follow | default: "nofollow" }}">
 
+    {% comment %}
+      icons & manifest
+      All files get generated when webminfest gets created
+    {% endcomment %}
 
-
-    {% comment %} icons & manifest {% endcomment %}
     <meta name="theme-color" content="{{ site.color }}">
-
     <link rel="manifest" href="/manifest.webmanifest">
-
-    {% renderTemplate "njk", site %}
-      {% if icon %}
-        {% set icon  = 'src/' + icon %}
-      {% else %}
-        {% set icon = "src/_system/icon.png" %}
-      {% endif %}
-
-      {% favicons icon, appleIconBgColor=faviconcolor, appleIconPadding=10, generateManifest=false %}
-    {% endrenderTemplate %}
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     {% comment %} OPENGRAPH {% endcomment %}
     {% assign ogImage = opengraph.image | default: site.opengraph %}
@@ -71,13 +65,11 @@
       env: env,
       some: some
     -%}
-    {% comment %} netlify identity {% endcomment %}
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     {%- if env.mode == 'prod' %}
-    <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
+      <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
-    <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
+      <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
 
     {% comment %}title {% endcomment %}

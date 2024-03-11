@@ -1,1 +1,17 @@
 src/content/**/README.md
+src/_custom/**
+src/_system/_decapcms/fields/**
+src/_system/_decapcms/settings/**
+src/_system/_decapcms/widgets/**
+src/_system/_decapcms/README.md
+src/_system/head/**
+
+src/content/upload/**
+src/content/styleguide/**
+
+src/content/author/**
+src/content/menuitem/**
+src/content/tag/**
+
+src/theme-grunn/README.md
+src/theme-grunn/tailwind/README.md

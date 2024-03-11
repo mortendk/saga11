@@ -6,6 +6,7 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 const env = require("./src/content/_data/env.js");
 const package = require("./package.json");
+const site = require("./src/content/_data/site.json");
 
 const saga11version = package.version;
 const theme = package.config.theme;
@@ -16,8 +17,6 @@ const timeZone = package.config.timeZone || "";
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const faviconsPlugin = require("eleventy-plugin-gen-favicons");
-
 const pluginTOC = require("@uncenter/eleventy-plugin-toc");
 
 const markdownIt = require('markdown-it');
@@ -26,15 +25,16 @@ const markdownItAnchor = require('markdown-it-anchor');
 const embedYouTube = require("eleventy-plugin-youtube-embed");
 const embedVimeo = require("eleventy-plugin-vimeo-embed");
 
+//minify + critical
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
+// const criticalCss = require("eleventy-critical-css");
+
 
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(faviconsPlugin, {'generateManifest': false});
-  eleventyConfig.addPlugin(EleventyRenderPlugin);
 
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ["h2", "h3", "h4"],
@@ -50,8 +50,10 @@ module.exports = function (eleventyConfig) {
   // Shortcodes
   eleventyConfig.addShortcode("image", require("./src/_system/11ty/shortcode/image.js"));
   eleventyConfig.addShortcode("imageurl", require("./src/_system/11ty/shortcode/imageurl.js"));
+  eleventyConfig.addShortcode("imagefavicon", require("./src/_system/11ty/shortcode/image-favicon.js"));
   eleventyConfig.addShortcode("calendar", require("./src/_system/11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
+
 
   // Filters
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
@@ -84,6 +86,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/assets/"] : "/assets/"});
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
+
+  // eleventyConfig.addPassthroughCopy({ ["src/content/upload/faveicon.svg" ] : "faveicon.svg"});
+  eleventyConfig.addPassthroughCopy({ ["src" + site.faveicon ] : "faveicon.svg"});
+
+
 
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
@@ -145,9 +152,15 @@ module.exports = function (eleventyConfig) {
   // HTML minify
   // if (env.mode == "prod") {
     // eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
-    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+    // eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+
+    // eleventyConfig.addPlugin(criticalCss, {
+    //   width: 1300,
+    //   height: 900,
+    // });
 
   // }
+
 
   return {
     dir: {

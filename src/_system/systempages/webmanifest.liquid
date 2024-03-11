@@ -17,10 +17,17 @@ eleventyExcludeFromCollections: true
     {%- if site.maskableicon -%}
     ,
     {
-      "src": "{{ site.maskableicon }}",
+      "src": "/maskable-icon.png",
       "sizes": "512x512",
       "purpose": "maskable"
     }
     {%- endif -%}
   ]
 }
+
+{% comment %} Generates the icons {% endcomment %}
+{%- imagefavicon site.icon, 512, 'icon-512.png' -%}
+{%- imagefavicon site.icon, 192, 'icon-192.png' -%}
+{%- imagefavicon site.icon, 180, 'apple-touch-icon.png' -%}
+{%- imagefavicon site.maskableicon, 512, 'maskable-icon.png' -%}
+{%- imagefavicon site.icon, 32, 'favico.ico', ico -%}
