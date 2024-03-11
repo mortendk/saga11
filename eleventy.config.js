@@ -5,8 +5,8 @@ const util = require('util');
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 const env = require("./src/content/_data/env.js");
-const package = require("./package.json");
 const site = require("./src/content/_data/site.json");
+const package = require("./package.json");
 
 const saga11version = package.version;
 const theme = package.config.theme;
@@ -88,7 +88,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
   //faveicon
-  eleventyConfig.addPassthroughCopy({ ["src" + site.faveicon ] : "icon.svg"});
+  eleventyConfig.addPassthroughCopy({ ["src" + site.icon ] : "icon.svg"});
 
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
