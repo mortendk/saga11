@@ -155,9 +155,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(criticalCss, {
       // inline: true,
-      height: 1080,
-      width: 1920,
-
+      // height: 1080,
+      // width: 1920,
 
     });
 
