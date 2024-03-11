@@ -8,8 +8,9 @@
   "authoremail": "",
   "rss": true,
   "authorname": "mortendk",
-  "icon": "/content/upload/saga11icon.svg",
   "touchicon": "/content/upload/maskable-icon.png",
-  "maskableicon": "/content/upload/maskable-icon.png",
-  "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS"
+  "title": "Saga Eleven",
+  "icon": "/content/upload/saga11icon.svg",
+  "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS",
+  "maskableicon": "/content/upload/maskable-icon.png"
 }
