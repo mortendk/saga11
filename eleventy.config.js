@@ -27,7 +27,7 @@ const embedVimeo = require("eleventy-plugin-vimeo-embed");
 
 //minify + critical
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
-// const criticalCss = require("eleventy-critical-css");
+const criticalCss = require("eleventy-critical-css");
 
 
 module.exports = function (eleventyConfig) {
@@ -89,8 +89,6 @@ module.exports = function (eleventyConfig) {
 
   //faveicon
   eleventyConfig.addPassthroughCopy({ ["src" + site.faveicon ] : "icon.svg"});
-
-
 
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
@@ -154,10 +152,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addTransform("htmlmin", require("./src/_system/11ty/transform/minify.js"));
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
-    // eleventyConfig.addPlugin(criticalCss, {
-    //   width: 1300,
-    //   height: 900,
-    // });
+
+  eleventyConfig.addPlugin(criticalCss, {
+      // inline: true,
+      height: 1080,
+      width: 1920,
+
+
+    });
 
   }
 

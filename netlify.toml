@@ -8,18 +8,6 @@
     ".cache" # Remote Asset Cache
   ]
 
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"
-
-  [plugins.inputs]
-    fileFilter = ["*.html"]
-    directoryFilter = ["!node_modules"]
-    extract = false
-    dimensions = [
-      { width = 414, height = 896 },
-      { width = 1920, height = 1080 }
-    ]
-
 [build]
   publish = "_site"
   command = "npm run build"
