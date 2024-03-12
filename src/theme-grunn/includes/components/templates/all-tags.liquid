@@ -3,6 +3,7 @@
 <section class="grid md:grid-cols-3 gap-4 py-4">
 
   {% for item in collections.tags %}
+    title ? : {{ item  | debug }}
     {% if item.fileSlug != "rssfeed" %}
     {% assign title = item.data.card.title | default: item.data.title %}
     {% assign image = item.data.card.image | default: item.data.image %}
