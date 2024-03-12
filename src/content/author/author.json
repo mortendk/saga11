@@ -3,5 +3,6 @@
   "tags": [
     "{{ page.fileSlug | slugify }}",
     "contentfolderauthors"
-  ]
+  ],
+  "layout": "page/page.liquid"
 }
