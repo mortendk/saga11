@@ -10,3 +10,5 @@ src/content/upload/**
 
 src/theme-grunn/README.md
 src/theme-grunn/tailwind/README.md
+
+src/content/author/**
