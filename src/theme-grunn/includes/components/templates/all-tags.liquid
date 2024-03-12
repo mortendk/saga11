@@ -1,9 +1,14 @@
-{%- if env.mode != 'prod' %}<!-- src/theme-grunn/includes/components/templates/all-pages.liquid -->{%- endif -%}
-
+{%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/includes/components/templates/all-tags.liquid -->{%- endif -%}
 <section class="grid md:grid-cols-3 gap-4 py-4">
 
-  {% for item in collections.tags %}
-    {% if item.fileSlug != "rssfeed" %}
+  {% for item in collections.contentfoldertags %}
+
+    {% unless item.fileSlug == "rssfeed"
+              or item.fileSlug == "contentfolderpages"
+              or item.fileSlug == "contentfoldertags"
+              or item.fileSlug == "contentfolderposts"
+
+    %}
     {% assign title = item.data.card.title | default: item.data.title %}
     {% assign image = item.data.card.image | default: item.data.image %}
     {% assign text = item.data.card.text | default: item.data.text | truncatewords: "20",  " ..."  %}
@@ -16,7 +21,7 @@
         date: item.date
     %}
 
-  {% endif %}
+    {% endunless %}
   {% endfor %}
 </section>
 

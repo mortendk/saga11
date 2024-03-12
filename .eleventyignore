@@ -8,10 +8,7 @@ src/_system/head/**
 
 src/content/upload/**
 
-
-src/content/author/**
-src/content/menuitem/**
-src/content/tag/**
-
 src/theme-grunn/README.md
 src/theme-grunn/tailwind/README.md
+
+src/content/author/**
