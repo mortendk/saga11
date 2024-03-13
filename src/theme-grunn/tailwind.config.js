@@ -2,8 +2,8 @@
 // colors vars set in tailwind/base.css
 
 // get the theme name
-const package = require("../../package.json");
-const theme = package.config.theme;
+const packageinfo = require("../../package.json");
+const theme = packageinfo.config.theme;
 
 const colors = require("./tailwind/designToken-color");
 const fontsize = require("./tailwind/designToken-fontSize");
