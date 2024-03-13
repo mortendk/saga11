@@ -9,7 +9,7 @@
     "timeZone": "Europe/Copenhagen"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=18.x"
   },
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
