@@ -25,6 +25,9 @@
   "keywords": [],
   "author": "mortendk",
   "license": "MIT",
+  "engines": {
+    "node": " ^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-fetch": "^4.0.1",
