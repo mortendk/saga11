@@ -1,0 +1,17 @@
+---
+layout: default.liquid
+saga-template-name: test
+---
+{% comment %}
+  testdata comes from  _datapagination/test.liquid
+{% endcomment %}
+
+<section class="grid lg:grid-cols-3 gap-4">
+{% for item in collections.5e %}
+
+  {{ forloop.index }} :
+  {{ item.data.5e[0] }}
+  {% comment %} {{ item.data.desc }} {% endcomment %}
+  {% comment %} https://www.dnd5eapi.co/docs/#get-/api/ability-scores/ {% endcomment %}
+{% endfor %}
+</section>
