@@ -4,7 +4,7 @@ const util = require('util');
 
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
-const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
+// const directoryOutputPlugin = require("@11ty/eleventy-plugin-directory-output");
 const env = require("./src/content/_data/env.js");
 const site = require("./src/content/_data/site.json");
 const package = require("./package.json");
@@ -159,20 +159,20 @@ module.exports = function (eleventyConfig) {
     });
   }
 
-  //
-  if (env.mode == "dev") {
-    eleventyConfig.setQuietMode(true);
-    eleventyConfig.addPlugin(directoryOutputPlugin, {
-      // Customize columns
-      columns: {
-        filesize: true, // Use `false` to disable
-        benchmark: true, // Use `false` to disable
-      },
-
-      // Will show in yellow if greater than this number of bytes
-      warningFileSize: 400 * 1000,
-    });
-  }
+//   //
+//   if (env.mode == "dev") {
+//     eleventyConfig.setQuietMode(true);
+//     eleventyConfig.addPlugin(directoryOutputPlugin, {
+//       // Customize columns
+//       columns: {
+//         filesize: true, // Use `false` to disable
+//         benchmark: true, // Use `false` to disable
+//       },
+//
+//       // Will show in yellow if greater than this number of bytes
+//       warningFileSize: 400 * 1000,
+//     });
+//   }
 
   return {
     dir: {
