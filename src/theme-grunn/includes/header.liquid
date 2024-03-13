@@ -1,6 +1,4 @@
-{%- if env.mode != 'prod' %}
-<!-- 👋 includes/header.liquid -->
-{%- endif  -%}
+{%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/includes/header.liquid -->{%- endif -%}
 <header class="fixed z-50 lg:relative dark:bg-gray-800 bg-white w-full h-16 md:h-20" x-data="{ openmenu: false }">
 
   <a href="#main" class="sr-only focus:not-sr-only sr-tab">Skip to Content</a>
@@ -12,7 +10,6 @@
     <div class="flex flex-row">
 
       <a href="/" title="{{site.title}}" class="w-20 h-20 overflow-hidden inline-flex items-center md:mr-4">
-        {% comment %}quick n fast logo {% endcomment %}
         {% include "svg/saga11.svg" %}
         <h1 class="sr-only"> {{ site.title }}</h1>
       </a>
