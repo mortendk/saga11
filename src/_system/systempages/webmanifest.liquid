@@ -26,8 +26,11 @@ eleventyExcludeFromCollections: true
 }
 
 {% comment %} Generates the icons {% endcomment %}
-{%- imagefavicon site.icon, 512, 'icon-512.png' -%}
-{%- imagefavicon site.icon, 192, 'icon-192.png' -%}
-{%- imagefavicon site.touchicon, 180, 'apple-touch-icon.png' -%}
-{%- imagefavicon site.icon, 32, 'favicon.ico', ico -%}
-{%- imagefavicon site.maskableicon, 512, 'maskable-icon.png' -%}
+{% assign icon  = site.icon | default: '_system/icon.svg'  %}
+{% assign touchicon  = site.touchicon | default: '_system/icon.png'  %}
+{% assign maskableicon  = site.maskableicon | default: '_system/icon.png'  %}
+{%- imagefavicon icon, 512, 'icon-512.png' -%}
+{%- imagefavicon icon, 192, 'icon-192.png' -%}
+{%- imagefavicon icon, 32, 'favicon.ico', ico -%}
+{%- imagefavicon touchicon, 180, 'apple-touch-icon.png' -%}
+{%- imagefavicon maskableicon, 512, 'maskable-icon.png' -%}
