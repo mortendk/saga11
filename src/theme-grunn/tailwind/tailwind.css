@@ -14,7 +14,6 @@ font sizes are set in design token fontsize
 
 @import "components.css";
 
-@import "prism-gh.css";
+@import "utilities.css";
 
-/* tw gets angry if you dont add this ;)  */
-@tailwind utilities;
+@import "prism-gh.css";
