@@ -1026,14 +1026,6 @@ form button:focus {
   height: 2rem;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
-.h-\[50vh\] {
-  height: 50vh;
-}
-
 .h-full {
   height: 100%;
 }
@@ -1048,10 +1040,6 @@ form button:focus {
 
 .w-1\/2 {
   width: 50%;
-}
-
-.w-1\/3 {
-  width: 33.333333%;
 }
 
 .w-10 {
@@ -1108,10 +1096,6 @@ form button:focus {
 
 .w-80 {
   width: 20rem;
-}
-
-.w-96 {
-  width: 24rem;
 }
 
 .w-full {
@@ -1477,26 +1461,6 @@ form button:focus {
   background-color: rgb(0 0 0 / 0.7);
 }
 
-.bg-blue-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-}
-
-.bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
 .bg-cyan-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(6 182 212 / var(--tw-bg-opacity));
@@ -1568,19 +1532,9 @@ form button:focus {
   background-color: var(--color-primary-800);
 }
 
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
-
 .bg-red-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
-}
-
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .bg-sky-100 {
@@ -1596,11 +1550,6 @@ form button:focus {
 .bg-sky-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(12 74 110 / var(--tw-bg-opacity));
-}
-
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .bg-slate-200 {
@@ -1640,11 +1589,6 @@ form button:focus {
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
-}
-
-.bg-yellow-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -2089,10 +2033,6 @@ form button:focus {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.\@container {
-  container-type: inline-size;
-}
-
 @keyframes fadeInUp {
   0%{
     opacity: 0;
@@ -2105,10 +2045,6 @@ form button:focus {
   }
 }
 
-.fadeInUp {
-  animation: fadeInUp 1s;
-}
-
 @keyframes kenburns {
   0% {
     transform: scale(1) translateY(0);
@@ -2116,7 +2052,7 @@ form button:focus {
   }
 
   100% {
-    transform: scale(1.10) translateY(-15px);
+    transform: scale(1.20) translateY(-15px);
     transform-origin: top;
   }
 }
@@ -2456,83 +2392,6 @@ pre[class*="language-"] {
 
 .focus-visible\:outline-0:focus-visible {
   outline-width: 0px;
-}
-
-@container (min-width: 20rem) {
-  .\@xs\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 24rem) {
-  .\@sm\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 28rem) {
-  .\@md\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 32rem) {
-  .\@lg\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 36rem) {
-  .\@xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 42rem) {
-  .\@2xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 48rem) {
-  .\@3xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 56rem) {
-  .\@4xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 64rem) {
-  .\@5xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 72rem) {
-  .\@6xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
-}
-
-@container (min-width: 80rem) {
-  .\@7xl\:bg-red-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  }
 }
 
 :is(.dark .dark\:rounded-none) {

@@ -6,6 +6,20 @@ saga-template-name: Page default
 
 <h1 class="text-5xl">{{ title }}</h1>
 
+<div class="@container pagewidth bg-slate-100 p-8 flex flex-row">
+  <div class="bg-red-500 w-12 h-8">B</div>
+  <div class="@xs:bg-red-300 w-12 h-8">xs</div>
+  <div class="@sm:bg-red-300 w-12 h-8">sm</div>
+  <div class="@md:bg-red-300 w-12 h-8">md</div>
+  <div class="@lg:bg-red-300 w-12 h-8">lg</div>
+  <div class="@xl:bg-red-300 w-12 h-8">xl</div>
+  <div class="@2xl:bg-red-300 w-12 h-8">2xl</div>
+  <div class="@3xl:bg-red-300 w-12 h-8">3xl</div>
+  <div class="@4xl:bg-red-300 w-12 h-8">3xl</div>
+  <div class="@5xl:bg-red-300 w-12 h-8">3xl</div>
+  <div class="@6xl:bg-red-300 w-12 h-8">3xl</div>
+  <div class="@7xl:bg-red-300 w-12 h-8">3xl</div>
+</div>
 
 <div class="aspect-video overflow-hidden">
   {% if image %}
