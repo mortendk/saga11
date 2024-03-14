@@ -14,10 +14,7 @@ module.exports = {
     "src/" + theme + "/layouts/*.liquid",
     "src/" + theme + "/layouts/**/*.liquid",
     "src/" + theme + "/includes/*.liquid",
-    "src/" + theme + "/includes/**/*.liquid",
-    "src/content/styleguide/*.liquid",
-    "src/content/styleguide/**/*.liquid",
-  ],
+    "src/" + theme + "/includes/**/*.liquid"  ],
   darkMode: "class",
   theme: {
     extend: {
@@ -26,5 +23,9 @@ module.exports = {
       colors: colors,
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require('@tailwindcss/container-queries'),
+
+  ],
 };
+

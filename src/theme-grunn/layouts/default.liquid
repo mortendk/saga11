@@ -17,9 +17,9 @@ layout: html.liquid
     {{ content }}
   </main>
 
-  {%- include "misc/edit.liquid" %}
 
   {%- if env.mode != 'prod' %}
+    {%- include "misc/edit.liquid" %}
     {%- include "misc/responsive.liquid" %}
   {% endif %}
 

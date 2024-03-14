@@ -1,0 +1,34 @@
+@tailwind utilities;
+
+@layer utilities {
+
+  @keyframes fadeInUp {
+    0%{
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fadeInUp {
+    animation: fadeInUp 1s;
+  }
+
+
+  @keyframes kenburns {
+    0% {
+      transform: scale(1) translateY(0);
+      transform-origin: 50% 16%;
+    }
+    100% {
+      transform: scale(1.20) translateY(-15px);
+      transform-origin: top;
+    }
+  }
+
+  .animation-kenburns {
+    animation: kenburns 10s ease-out infinite alternate-reverse both;
+  }
+}

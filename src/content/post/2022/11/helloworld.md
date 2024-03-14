@@ -30,15 +30,15 @@ This is probably the best description ever of a movie
 
 ![Always add an alt text](https://images.unsplash.com/photo-1581291519195-ef11498d1cf2?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "This is an image title")
 
-## h2 Heres a title
+## h2 Heres a h2 title
 
 lorem
 
-### h3 Heres a title
+### h3 Heres a h3 title
 
 `this is a small code block`
 
-* Llist item a
+* List item a
 * List item b
 
 This is *italic* and this is **bold** and this is a [link](https://saga11.dev)

@@ -20,6 +20,7 @@
     date: item.date
   %}
 {% endcomment %}
+{%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/includes/card.liquid -->{%- endif -%}
 <article aria-label="Post {{ title}}">
 
   <a href="{{ url }}" title="{{ title }}" tabindex="0">

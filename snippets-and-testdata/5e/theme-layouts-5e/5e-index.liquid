@@ -1,0 +1,27 @@
+---
+layout: default.liquid
+saga-template-name: test
+---
+{% comment %}
+  testdata comes from  _datapagination/test.liquid
+{% endcomment %}
+
+
+
+<section class="grid lg:grid-cols-3 gap-4">
+{% for item in dnd5e.results %}
+  <div>
+
+    {{ item.index }}
+    {{ item.url }}
+    {{ item.name }}
+    </div>
+
+{% comment %} {{ item.results.index }} {% endcomment %}
+
+
+{% endfor %}
+</section>
+
+
+{% comment %} https://dev.to/andreasbergstrom/how-to-easily-use-media-queries-for-print-in-tailwind-2o9a {% endcomment %}

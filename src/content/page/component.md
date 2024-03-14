@@ -1,7 +1,4 @@
 ---
-order: 3
-layout: page/page.liquid
-date: 2023-06-12 11:58:55
 title: Components overview !
 url: component
 image: https://images.unsplash.com/photo-1496449903678-68ddcb189a24
@@ -30,7 +27,7 @@ components:
     title: This is a Collection
     template: components/collection/collection.liquid
     collection: saga11
-    text: lorem ip...
+    text: "This is a collection of data "
   - type: image
     template: components/image/image.liquid
     title: image and text
@@ -282,10 +279,13 @@ card:
 tags:
   - saga11
   - rssfeed
+order: 3
+layout: page/page.liquid
+date: 2023-06-12 11:58:55
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Components
-  parent: main
+  parent: footer
   key: component
   order: 50
   excerpt: "*This is the text for the menu*"
