@@ -6,6 +6,18 @@ saga-template-name: Page default
 
 <h1 class="text-5xl">{{ title }}</h1>
 
+
+<div class="aspect-video overflow-hidden">
+  {% if image %}
+    <div class="kenburns-top h-full bg-no-repeat bg-cover" style="background-image: url({% render 'image/imageurl.liquid', file: image, widths: "1024" %})">
+    </div>
+  {% endif %}
+
+</div>
+
+
+
+
   <div class="h- h-96 bg-blue-300">1</div>
   <div class="h- h-screen bg-blue-400">2</div>
   {% comment %} <div class="h- h-96 bg-blue-500">3</div>
@@ -68,4 +80,4 @@ saga-template-name: Page default
 
 {% include "some/share.liquid" %}
 
-
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptate quae neque recusandae vel eum ullam laudantium optio at excepturi earum impedit, laboriosam nisi mollitia quasi nam nostrum modi consequuntur.

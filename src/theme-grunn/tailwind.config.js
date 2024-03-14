@@ -23,5 +23,9 @@ module.exports = {
       colors: colors,
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require('@tailwindcss/container-queries'),
+
+  ],
 };
+

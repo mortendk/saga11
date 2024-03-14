@@ -1,7 +1,8 @@
 ---
 title: alpine testing
 url: alpinetest
-image: ""
+image:
+  - /content/upload/default.png
 order: 1
 eleventyExcludeFromCollections: false
 eleventyNavigation:

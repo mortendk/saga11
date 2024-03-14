@@ -1,5 +1,5 @@
 ---
-title: Blog posts
+title: Posts
 pagination:
   size: 15
   alias: contentcollection

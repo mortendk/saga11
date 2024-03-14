@@ -16,4 +16,19 @@
     animation: fadeInUp 1s;
   }
 
+
+  @keyframes kenburns {
+    0% {
+      transform: scale(1) translateY(0);
+      transform-origin: 50% 16%;
+    }
+    100% {
+      transform: scale(1.10) translateY(-15px);
+      transform-origin: top;
+    }
+  }
+
+  .animation-kenburns {
+    animation: kenburns 10s ease-out infinite alternate-reverse both;
+  }
 }
