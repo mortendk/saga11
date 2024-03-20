@@ -1,16 +1,14 @@
 {
   "display": "fullscreen",
   "color": "#35034c",
-  "opengraph": "/content/upload/opengraph.jpg",
   "shortname": "saga 11",
   "faviconcolor": "#35034c",
-  "Authoremail": "sdsd",
   "authoremail": "",
   "rss": true,
   "authorname": "mortendk",
-  "touchicon": "/content/upload/maskable-icon.png",
   "title": "Saga Eleven",
-  "icon": "/content/upload/saga11icon.svg",
+  "touchicon": "/content/upload/maskable-icon.png",
+  "icon": "/content/upload/faveicon.svg",
   "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS",
   "maskableicon": "/content/upload/maskable-icon.png"
 }

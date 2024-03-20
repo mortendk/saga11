@@ -11,6 +11,8 @@ const fontfamily = require("./tailwind/designToken-fontFamily");
 
 module.exports = {
   content: [
+    "src/content/*.md",
+    "src/content/**/*.md",
     "src/" + theme + "/layouts/*.liquid",
     "src/" + theme + "/layouts/**/*.liquid",
     "src/" + theme + "/includes/*.liquid",

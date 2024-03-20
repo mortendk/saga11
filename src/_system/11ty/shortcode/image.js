@@ -3,12 +3,18 @@ const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 
 module.exports = async function (file, widths, format, alttext, sizes, loading, css) {
-  if (fs.existsSync("src" + file)) {
-    src = "src" + file;
-  } else if (file.indexOf("http://") === 0 || file.indexOf("https://") === 0) {
+  if (fs.existsSync(file)) {
+    //test if the file exist
     src = file;
-  } else {
-    console.log(`missing file: ${file} - src ${src}`); 
+  } else if (file.indexOf("http://") === 0 || file.indexOf("https://") === 0) {
+  // ok is it from a http somewhere
+    src = file;
+  } else if (fs.existsSync( './src' + file)) {
+    // alright lets test and se if its in the global content/upload prefix with src
+    src = './src' + file
+  }else{
+    // Throw an error
+    console.log(`🚨 image.js: Missing file: ${file} `); 
   }
 
   const theCss = css || "";
@@ -43,9 +49,7 @@ module.exports = async function (file, widths, format, alttext, sizes, loading, 
     decoding: "async",
   };
 
-  // You bet we throw an error on a missing alt (alt="" works okay)
   		return Image.generateHTML(metadata, imageAttributes);
-
   // return Image.generateHTML(metadata, imageAttributes, {
   //   whitespaceMode: "inline",
   // });

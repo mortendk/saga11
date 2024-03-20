@@ -6,10 +6,13 @@
     label_singular: 🏩 Page
     description: "Landing Pages"
     folder: "src/content/page"
-    slug: "{{title}}"
+    slug: "{% raw %}{{title}}/{{slug}}{% endraw %}"
     preview_path: /{% raw %}{{url}}{% endraw %}/
     create: true
     delete: true
+    # Sets the media foldes to be local to this root
+    media_folder: ''
+    public_folder: ''
     editor:
       preview: false
     summary: "{% raw %}🏩 Title '{{title}}' Url: '{{url}}' {% endraw %} "
@@ -22,7 +25,7 @@
       - label: Tags
         field: tags
     nested:
-      depth: 1
+      depth: 5
       summary: "{% raw %}{{title}}{% endraw %}"
     fields:
 {% include "_system/_decapcms/widgets/string",
@@ -44,7 +47,6 @@
 {% include "_system/_decapcms/widgets/image.liquid",
   name: "image",
   label: "Image",
-  default: "/content/upload/default.png"
   choose_url: true,
   allow_multiple: false,
   required: "false",

@@ -3,7 +3,7 @@ title: Saga 11
 icon: icons/arrow-down-left.svg
 eleventyExcludeFromCollections: false
 rssfeed: true
-image: /content/upload/saga11icon.svg
+image: null
 eleventyNavigation:
   title: ""
   parent: ""

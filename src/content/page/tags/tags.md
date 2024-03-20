@@ -1,7 +1,7 @@
 ---
 title: tags
 url: tag
-image: /content/upload/default.png
+image: ""
 components:
   - type: njktemplate
     template: components/templates/all-tags.liquid

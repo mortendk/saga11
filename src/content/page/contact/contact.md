@@ -1,5 +1,5 @@
 ---
-title: Contact
+title: Contact Page
 url: contact
 image: ""
 components:
