@@ -1,4 +1,4 @@
----
+{% comment %} ---
 pagination:
   data: collections.contentfoldertags
   size: 1
@@ -37,9 +37,9 @@ eleventyExcludeFromCollections: true
       <![CDATA[{%- render 'image/image.liquid', file: img, markdownpath:  markdownpath, widths: "800", format: "webp" -%}]]>
       {{ item.templateContent | strip_html | truncatewords: "50" }}
 
-    {{ item.templateContent | strip_html | truncatewords: "50" }}
+
     </content>
   </entry>
   {%- endfor %}
 
-</feed>
+</feed> {% endcomment %}

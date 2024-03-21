@@ -1,6 +1,7 @@
 {
   "display": "fullscreen",
   "color": "#35034c",
+  "opengraph": "/content/upload/opengraph.jpg",
   "shortname": "saga 11",
   "faviconcolor": "#35034c",
   "authoremail": "",
