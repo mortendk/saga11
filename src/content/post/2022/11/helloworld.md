@@ -1,15 +1,13 @@
 ---
 title: Hello World
-image:
-  - canva.png
+image: https://images.unsplash.com/photo-1488145842571-f4b346304162?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 card:
-  title: Hello **world**
-  image: canva.png
+  title: Hello World im a card
   text: This is text in a card and used for sharing and teaser on the site
 tags:
   - saga11
   - rssfeed
-created: 2023-10-11 17:24:29
+created: 2022-11-11 23:58:00
 authors:
   - ragnar
 order: 1
@@ -33,7 +31,7 @@ This is probably the best description ever of a movie
 
 # H1 Heres some multimedia(tm)
 
-<video controls><source src="pexels-eva-toscano-10530358-3840x2160-24fps.mp4"></video>
+<video controls><source src="content/upload/video.mp3"></video>
 
 ## h2 Heres a h2 title
 
@@ -58,14 +56,14 @@ This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
 
 {.w-full}
 
-Heres a youtube link wonder what we wanna do with that
+## Video Formats
 
-The tube
-mark
+youtube
+
 youtube.com/watch?v=dQw4w9WgXcQ
 
 Vimeo
 
 https://vimeo.com/347565673
 
-![Always add an alt text](https://images.unsplash.com/photo-1581291519195-ef11498d1cf2?q=80&w=3570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "This is an image title"){.logo}
+![Always add an alt text](https://images.unsplash.com/photo-1488145842571-f4b346304162?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "image title")
