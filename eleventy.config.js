@@ -159,6 +159,7 @@ module.exports = function (eleventyConfig) {
   if (env.mode == "prod") {
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
     eleventyConfig.addPlugin(criticalCss, {
+        base: "_site",
         dimensions : [
           { width: 414, height: 896 },
           { width: 1920, height: 1080 }
