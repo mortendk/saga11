@@ -1,0 +1,51 @@
+  # ---------------------------------------------------------------
+  # Images
+  # ---------------------------------------------------------------
+  - name:  "imageAssets"
+    label_singular: 📷 inmage
+    label: 📷 Images
+    description: "Global images"
+    folder: "src/content/image"
+    slug: "{% raw %}{{title}}{% endraw %}"
+    summary: "{% raw %}📷  {{title}} {% endraw %} "
+    hide: false
+    create: true
+    delete: false
+    editor:
+      preview: false
+    fields:
+
+
+      # Mandatory field(s)
+      - label: "Url"
+        name: "url"
+        widget: "file"
+        description: "Location where the image may be retrieved. Relative paths are assumed relative to the configured media_folder."
+      # Optional fields
+      - label: "Size"
+        name: "size"
+        widget: "number"
+        required: false
+        description: "Size of the file in bytes"
+      - label: "Preview Url"
+        name: "previewUrl"
+        widget: "file"
+        required: false
+        description: "A low resolution image to help with identification in the media library"
+      # Sample custom fields. These could be injected to previews as fieldMetaData, used
+      # to drive filters in the media_library configuration or filters within the library UI itself.
+      - label: "Description"
+        name: "description"
+        widget: "string"
+        description: "An accessible summary of the image's contents"
+      - label: "Location"
+        name: "location"
+        widget: "map"
+        required: false
+        description: "Location where the image was initially captured. Extracted from EXIF where available otherwise manually assigned by an editor."
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        description: "A label used to aid in identification and association of images"
+
