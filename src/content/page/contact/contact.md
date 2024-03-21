@@ -1,4 +1,7 @@
 ---
+order: 1
+layout: page/page.liquid
+date: 2023-06-21 20:03:22
 title: Contact Page
 url: contact
 image: ""
@@ -38,14 +41,12 @@ components:
     text: |-
       Y﻿ou can totally contact us :)
       t﻿ext with stuff on it
-order: 1
-layout: page/page.liquid
-date: 2023-06-21 20:03:22
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Contact
-  parent: main
+  parent: footermenu
   order: 20
-  target: true
-  url: https://morten.dk
+  target: false
+  url: ""
+  key: ""
 ---

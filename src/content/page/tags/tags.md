@@ -11,7 +11,7 @@ eleventyNavigation:
   description: ""
   string: ""
   title: Tags
-  parent: main
+  parent: ""
   key: ""
   order: 15
 seo:

@@ -9,7 +9,7 @@
   {% endif %}
 
   {% if component.text %}
-    <div class="text-xl">{{ component.text }}</div>
+    <div class="text-xl">{{ component.text | markdown }}</div>
   {% endif %}
 </article>
 {% endif %}

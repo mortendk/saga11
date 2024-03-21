@@ -13,7 +13,7 @@ eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Post
   parent: main
-  icon: popcorn.svg
+  icon: ""
   text: Blög og skriverier
 seo:
   index: index

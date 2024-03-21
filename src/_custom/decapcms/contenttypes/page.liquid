@@ -111,10 +111,12 @@
 
 {% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagetemplates', folder: "page", default: 'page/page.liquid' %}
 
-{% include "_system/_decapcms/widgets/string.liquid",
+{% comment %} {% include "_system/_decapcms/widgets/string.liquid",
   name: "permalink",
   label: "Publish",
   default: "",
   required: "false",
   hint: "Set publish (permalink) to 'false' if you don want to publish this page"
-%}
+%} {% endcomment %}
+
+{% comment %} TODO we need a widget to be able to write pernalink: false and not like a string {% endcomment %}
