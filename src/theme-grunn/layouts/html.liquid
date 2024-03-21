@@ -51,15 +51,20 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     {% comment %} OPENGRAPH {% endcomment %}
-
-    {% assign ogTitle = opengraph.title | default: title  %}
+    {% assign ogTitle = opengraph.title | default: title %}
     {% assign ogText =  opengraph.description | default: site.description %}
+    {% assign ogImage = opengraph.image | default: image %}
+    {% assign ogMarkdownpath = ogImage  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
 
-    {%- capture opengrapgimage -%}
-      {%- assign ogImage = opengraph.image | default: image -%}
-      {%- assign ogMarkdownpath = ogImage  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" -%}
-      {{ env.url }}{%- render 'image/imageurl.liquid', file: ogImage, markdownpath: ogMarkdownpath , widths: "1200" -%}
-    {%- endcapture -%}
+    {% if ogImage == blank %}
+      {%- capture opengrapgimage -%}
+        {{ env.url }}{%- render 'image/imageurl.liquid', file: site.opengraph, widths: "1200" -%}
+      {%- endcapture -%}
+    {% else %}
+      {%- capture opengrapgimage -%}
+        {{ env.url }}{%- render 'image/imageurl.liquid', file: ogImage, markdownpath: ogMarkdownpath , widths: "1200" -%}
+      {%- endcapture -%}
+    {% endif %}
 
     {%- render "_system/head/opengraph.liquid",
       title: ogTitle,

@@ -17,6 +17,8 @@ module.exports = async function (file, widths, format, alttext, sizes, loading, 
     console.log(`🚨 image.js: Missing file: ${file} `); 
   }
 
+  // test if this is actualy
+
   const theCss = css || "";
   const theFormat = format || "webp";
   const theSizes = sizes || "(min-width: 30em) 50vw, 100vw";
@@ -49,8 +51,5 @@ module.exports = async function (file, widths, format, alttext, sizes, loading, 
     decoding: "async",
   };
 
-  		return Image.generateHTML(metadata, imageAttributes);
-  // return Image.generateHTML(metadata, imageAttributes, {
-  //   whitespaceMode: "inline",
-  // });
+  return Image.generateHTML(metadata, imageAttributes);
 };

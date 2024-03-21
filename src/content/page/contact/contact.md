@@ -44,6 +44,8 @@ date: 2023-06-21 20:03:22
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Contact
-  parent: footer
+  parent: main
   order: 20
+  target: true
+  url: https://morten.dk
 ---

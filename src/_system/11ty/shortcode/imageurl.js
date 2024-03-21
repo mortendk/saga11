@@ -15,7 +15,7 @@ module.exports = async function (file, width, format) {
     src = './src' + file
   }else{
     // Throw an error
-    console.log(`🚨 image.js: Missing file: ${file} `); 
+    console.log(`🚨 imageurl.js: Missing file: ${file} `); 
   }
 
   const theFormat = format || "webp";

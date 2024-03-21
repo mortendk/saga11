@@ -23,8 +23,7 @@
         {% if item.target %} target="_blank" {% endif %}
         {% if item.text %} title="{{ item.text }}"{% endif %}
       >
-        {{ item.title }}
-
+        {{ item.title }} {{ item.icon }}
       </a>
       {% else %}
       {% comment %}Level 1 + level 2 {% endcomment %}
