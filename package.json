@@ -8,9 +8,6 @@
     "dateLocalize": "Da",
     "timeZone": "Europe/Copenhagen"
   },
-  "engines": {
-    "node": ">=20.x"
-  },
   "scripts": {
     "start": "npx netlify-cms-proxy-server & npm run watch",
     "clean": "rm -rf _site",
