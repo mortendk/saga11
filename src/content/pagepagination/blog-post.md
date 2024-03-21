@@ -11,7 +11,7 @@ image: ""
 order: 1
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  title: "All Post menu "
+  title: Post
   parent: main
   icon: ""
   text: Blög og skriverier

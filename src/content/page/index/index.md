@@ -8,8 +8,7 @@ layout: page/frontpage.liquid
 date: 2023-06-20 22:01:46
 title: Saga 11
 url: /
-image:
-  - uglysweather.png
+image: https://images.unsplash.com/photo-1595740041673-6a525c7be994?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZWxldmVufGVufDB8fDB8fHww
 components:
   - type: collection
     order: data.order
@@ -18,7 +17,7 @@ components:
     collection: saga11
     title: Collection
     text: |+
-      **bold** text 
+      **bold** text
 
       ## title {.text-red-500}
 
@@ -59,9 +58,12 @@ seo:
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
 
-## title {.text-red-500} 
+## title {.text-red-500}
+
 ```html
 <h2> code
 ```
 
-![](uglysweather.png)
+test image:
+
+![](testimage.png)
