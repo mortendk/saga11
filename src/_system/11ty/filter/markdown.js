@@ -1,4 +1,4 @@
-
+// TODO add markdownItEleventyImg
 
 let markdownItAttrs = require('markdown-it-attrs');
 // markdwon {{ item.foo | markdown | safe }}
@@ -9,8 +9,6 @@ const markdownIt = require("markdown-it")({
   typographer: true
 }).use(markdownItAttrs, {}
 );
-
-
 
 
 module.exports = function markdown(value) {

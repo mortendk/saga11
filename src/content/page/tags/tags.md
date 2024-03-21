@@ -11,7 +11,7 @@ eleventyNavigation:
   description: ""
   string: ""
   title: Tags
-  parent: ""
+  parent: footermenu
   key: ""
   order: 15
 seo:

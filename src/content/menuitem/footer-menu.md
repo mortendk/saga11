@@ -1,7 +1,7 @@
 ---
 title: Footer menu
 eleventyNavigation:
-  title: Footer menu placeholder
+  title: Footer menu
   key: foootermenu
   parent: ""
 ---

@@ -1,5 +1,5 @@
 ---
-title: Posts
+title: All posts
 pagination:
   size: 15
   alias: contentcollection
@@ -11,7 +11,7 @@ image: ""
 order: 1
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  title: Post
+  title: "All Post menu "
   parent: main
   icon: ""
   text: Blög og skriverier

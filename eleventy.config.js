@@ -56,7 +56,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("calendar", require("./src/_system/11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
 
-
   // Filters
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));

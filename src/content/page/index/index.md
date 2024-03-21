@@ -26,7 +26,6 @@ components:
       <h2> code
       ```
 
-      image:
 
 card:
   title: "This is the frontpage card "
@@ -37,7 +36,7 @@ tags:
   - saga11
 eleventyExcludeFromCollections: false
 eleventyNavigation:
-  title: Home
+  title: main
   order: 0
   key: main
 seo:

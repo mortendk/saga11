@@ -5,9 +5,9 @@ eleventyExcludeFromCollections: false
 rssfeed: true
 image: null
 eleventyNavigation:
-  title: ""
+  title: saga 11 tag
   parent: ""
   order: 20
 layout: tag/tag.liquid
 ---
-The tag page for "Saga11"
+The tag page for "Saga11" should be renamed frontpage ?

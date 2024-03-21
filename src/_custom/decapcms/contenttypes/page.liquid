@@ -36,12 +36,13 @@
   hint: ""
 %}
 
+
 {% include "_system/_decapcms/widgets/string.liquid",
   name: "url",
   label: "url",
   default: "",
   required: true,
-  hint: ""
+  hint: "ℹ️ if set to 'page-not-published' then the page will not be published ⚠️ Remeber this should be unique as pages are not prefixed with date etc - can be changed in page.json for permalink"
 %}
 
 {% include "_system/_decapcms/widgets/image.liquid",
