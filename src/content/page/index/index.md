@@ -8,7 +8,7 @@ layout: page/frontpage.liquid
 date: 2023-06-20 22:01:46
 title: Saga 11
 url: /
-image: https://images.unsplash.com/photo-1595740041673-6a525c7be994?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZWxldmVufGVufDB8fDB8fHww
+image:
 components:
   - type: collection
     order: data.order

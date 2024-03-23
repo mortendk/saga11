@@ -9,6 +9,7 @@ module.exports = async function (file, widths, format, alttext, sizes, loading, 
   } else if (file.indexOf("http://") === 0 || file.indexOf("https://") === 0) {
   // ok is it from a http somewhere
     src = file;
+    // console.log(`📷 url image: ${src}`);
   } else if (fs.existsSync( './src' + file)) {
     // alright lets test and se if its in the global content/upload prefix with src
     src = './src' + file
