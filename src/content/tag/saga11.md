@@ -3,11 +3,11 @@ title: Saga 11
 icon: icons/arrow-down-left.svg
 eleventyExcludeFromCollections: false
 rssfeed: true
-image: /content/upload/saga11icon.svg
+image: null
 eleventyNavigation:
-  title: ""
+  title: saga 11 tag
   parent: ""
   order: 20
 layout: tag/tag.liquid
 ---
-T﻿he tag page for "Saga11"
+The tag page for "Saga11" should be renamed frontpage ?

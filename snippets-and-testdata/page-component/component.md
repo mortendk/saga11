@@ -1,8 +1,43 @@
 ---
-title: Components overview !
+title: Components overview
 url: component
-image: https://images.unsplash.com/photo-1496449903678-68ddcb189a24
+image:
+  - default.png
 components:
+  - type: images
+    template: components/images/images-grid.liquid
+    title: image gallery grid
+    images:
+      - image: https://images.unsplash.com/photo-1710909664014-905cd4a983a9?q=80&w=3024&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+      - image: 4hundo.gif
+        title: alt text first image
+      - image: default.png
+        title: 4 Hundo
+    text: "lorem "
+  - type: cta
+    template: components/cta/cta.liquid
+    title: "This is a CTA "
+    url: /
+    cta: "CTA Text "
+    image: https://plus.unsplash.com/premium_photo-1675237625689-292df6ee7fce?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    alt: alt text for this image
+    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+  - type: images
+    template: components/images/images.liquid
+    title: image gallery slide
+    images:
+      - image: https://images.unsplash.com/photo-1708863828209-44530f44b53c?q=80&w=3264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+        title: exteranal image
+      - image: default.png
+        title: defailt image
+      - image: 4hundo.gif
+        title: "Git image "
   - type: pagecard
     template: components/pagecard/pagecard.liquid
     page:
@@ -31,7 +66,7 @@ components:
   - type: image
     template: components/image/image.liquid
     title: image and text
-    image: /content/upload/default.png
+    image: 4hundo.gif
     alt: This is an rocket going to the moon
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -42,20 +77,6 @@ components:
       est laborum.
   - type: text
     template: components/text/text.liquid
-    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
-  - type: cta
-    template: components/cta/cta.liquid
-    title: "This is a CTA "
-    url: /
-    cta: "CTA Text "
-    image: /content/upload/default.png
-    alt: alt text for this image
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -104,7 +125,7 @@ components:
       - title: This coffee is a delightful...
         text: This coffee is a delightful blend of rich flavors, with a smooth and
           velvety texture that leaves me craving another cup.
-        image: https://images.unsplash.com/photo-1514327605112-b887c0e61c0a
+        image: default.png
         person: Lady Cortado
         persontitle: Barista
         url: ""
@@ -167,23 +188,6 @@ components:
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
-  - type: images
-    template: components/images/images.liquid
-    title: image gallery slide
-    images:
-      - image: /content/upload/default.png
-        title: alt text first image
-      - image: /content/upload/4hundo.gif
-        title: alt text seconda image
-  - type: images
-    template: components/images/images-grid.liquid
-    title: image gallery grid
-    images:
-      - image: /content/upload/default.png
-        title: alt text first image
-      - image: /content/upload/4hundo.gif
-        title: alt text seconda image
-    text: "lorem "
   - type: form
     title: Form component
     name: contact
@@ -272,7 +276,7 @@ components:
       est laborum.
 card:
   title: "Component overview "
-  image: ""
+  image: 4hundo.gif
   alt: alt text for image
   text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad "
@@ -285,7 +289,7 @@ date: 2023-06-12 11:58:55
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Components
-  parent: footer
+  parent: main
   key: component
   order: 50
   excerpt: "*This is the text for the menu*"

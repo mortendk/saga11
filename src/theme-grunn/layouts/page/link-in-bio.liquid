@@ -11,6 +11,7 @@ saga-template-name: Link in Bio
     <article class="flex flex-col">
 
       <div class="flex items-center justify-center">
+        {% assign markdownpath = image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
         {% render 'image/image.liquid',
           file: image,
           widths: "640",

@@ -1,6 +1,6 @@
 ---
 title: "💜 System: All Pages"
 eleventyExcludeFromCollections: false
-image: /content/upload/maskable-icon.png
+image: ""
 layout: tag/tag.liquid
 ---

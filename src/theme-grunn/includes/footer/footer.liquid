@@ -72,7 +72,7 @@
 
     {% comment %} Menu {% endcomment %}
     <div class="basis-2/4 ">
-      {% assign menu = collections.all | eleventyNavigation: "footer" %}
+      {% assign menu = collections.all | eleventyNavigation: "footermenu" %}
 
       <nav class="flex flex-col">
         {% for item in menu %}

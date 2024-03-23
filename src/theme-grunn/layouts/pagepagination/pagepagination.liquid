@@ -21,6 +21,7 @@ saga-template-name: Page pagination
 
 <section class="pagewidth pt-8 gap-2 columns-2 lg:gap-4 lg:columns-4">
 {% endcomment %}
+{%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/layouts/pagepagination/pagepagination.liquid -->{%- endif -%}
 <section class="pagewidth grid grid-cols-1 lg:grid-cols-3 gap-3">
 
 {% assign all = contentcollection | sort: "date" | reverse  %}
@@ -33,10 +34,11 @@ saga-template-name: Page pagination
       title: title,
       text: text,
       image: image,
+      markdownpath: item.inputPath,
       url: item.url,
       date: item.created
-      tags: item.data.tags
-      loop: forloop.index
+      tags: item.data.tags,
+      loop: forloop.index,
   %}
 {% endfor %}
 

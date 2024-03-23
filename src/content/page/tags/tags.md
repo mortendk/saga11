@@ -1,7 +1,7 @@
 ---
 title: tags
 url: tag
-image: /content/upload/default.png
+image: ""
 components:
   - type: njktemplate
     template: components/templates/all-tags.liquid
@@ -11,7 +11,7 @@ eleventyNavigation:
   description: ""
   string: ""
   title: Tags
-  parent: main
+  parent: footermenu
   key: ""
   order: 15
 seo:

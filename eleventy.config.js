@@ -22,12 +22,14 @@ const pluginTOC = require("@uncenter/eleventy-plugin-toc");
 const markdownIt = require('markdown-it');
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
 const markdownItAnchor = require('markdown-it-anchor');
+
 const embedYouTube = require("eleventy-plugin-youtube-embed");
 const embedVimeo = require("eleventy-plugin-vimeo-embed");
 
 //minify + critical
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const criticalCss = require("eleventy-critical-css");
+
 
 
 module.exports = function (eleventyConfig) {
@@ -53,7 +55,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("imagefavicon", require("./src/_system/11ty/shortcode/image-favicon.js"));
   eleventyConfig.addShortcode("calendar", require("./src/_system/11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
-
 
   // Filters
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
@@ -85,6 +86,7 @@ module.exports = function (eleventyConfig) {
   // Fix placement of files
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/assets/"] : "/assets/"});
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
+
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
   //faveicon
@@ -108,6 +110,8 @@ module.exports = function (eleventyConfig) {
     strict_filters: true,
   });
 
+  let markdownItAttrs = require('markdown-it-attrs');
+
   // Markdown IT
   eleventyConfig.setLibrary('md', markdownIt ({
     html: true,
@@ -128,9 +132,12 @@ module.exports = function (eleventyConfig) {
         loading: "lazy",
         sizes: "(min-width: 30em) 50vw, 100vw"
       },
-      resolvePath: (filepath) => path.join('src', filepath)
+      // set path to absolute
+      // resolvePath: (filepath) => path.join('src', filepath)
+      // path relative
+      resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
     }
-  ).use(markdownItAnchor, {})
+  ).use(markdownItAnchor, {} ).use(markdownItAttrs, {})
 
   );
 
@@ -151,13 +158,12 @@ module.exports = function (eleventyConfig) {
   if (env.mode == "prod") {
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
     eleventyConfig.addPlugin(criticalCss, {
-        dimensions : [
-          { width: 414, height: 896 },
-          { width: 1920, height: 1080 }
-        ]
+      dimensions : [
+        { width: 414, height: 896 },
+        { width: 1920, height: 1080 }
+      ]
     });
   }
-
 
   return {
     dir: {

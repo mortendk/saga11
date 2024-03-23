@@ -1758,6 +1758,10 @@ form button:focus {
   padding-top: 2rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1823,6 +1827,10 @@ form button:focus {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .text-black {
@@ -1910,6 +1918,11 @@ form button:focus {
 
 .text-primary-700 {
   color: var(--color-primary-700);
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .text-sky-100 {

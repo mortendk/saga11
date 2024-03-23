@@ -1,4 +1,15 @@
 {%- if file -%}
-{% assign width = widths | split: ', ' %}
-{%- imageurl file, width, format -%}
+  {% comment %}
+  lets figure out if its a local file or its from the big interwebs .. yes this is errorprone but
+  {% endcomment %}
+  {%- assign isitlocal = file | slice : 0, 5 -%}
+  {%- if isitlocal == "https" -%}
+    {%- assign img = file -%}
+  {%- else -%}
+    {%- assign markdownfile = markdownpath |  split: "/" | last -%}
+    {%- assign img = markdownpath | remove: markdownfile | append: file -%}
+  {%- endif -%}
+   {% comment %} yes it needs to be an array cause reasons {% endcomment %}
+  {%- assign width = widths | split: ', ' -%}
+  {%- imageurl img, width, format -%}
 {%- endif -%}

@@ -1,7 +1,6 @@
 {
-  "errorpage": "404 error page yo",
-  "footer": "Footer text ",
-  "humantxt": "humans ?",
+  "errorpage": "404 error",
+  "footer": "Footer content is on global settings ",
   "address": {
     "name": "Saga 11",
     "street": "Enghave Plads",

@@ -1,5 +1,4 @@
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/_system/head/opengraph.liquid -->{%- endif  -%}
-
 <meta itemprop="name" content="site : {{ site.title }}"/>
 <meta itemprop="description" content="{{ description }}"/>
 <meta itemprop="image" content="{{ image }}"/>
@@ -15,7 +14,7 @@
 <meta name="twitter:title" content="{{ title }}">
 <meta name="twitter:description" content="{{ description }}">
 <meta name="twitter:image" content="{{ image }}">
-<meta name="twitter:image:src" content="{{ image  }}">
+<meta name="twitter:image:src" content="{{ image }}">
 {% if some.twitter -%}
   <meta name="twitter:creator" content="@{{ some.twitter }}">
   <meta name="twitter:site" content="@{{ some.twitter }}"/>
