@@ -14,7 +14,9 @@
           displayFields: ["Title: {% raw %}{{title}} | key: '{{eleventyNavigation.key}}{% endraw %}'"]
           required: false
           multiple: false
-        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is used by the system Main is used for the frontpage - and should always be" }
+        - { label: "Machine key", name: "key", widget: "string", required: false, hint: "The Key is what glues the menu together the index page have Main - this can be changed in the theme templa" }
         - { label: "Order", name: "order", widget: "number", required: false}
         - { label: "Text", name: "text", widget: "text", required: false}
         - { label: "icon", name: "icon", widget: "string", required: false, hint: "A string used for an icon file name " }
+        - { label: "url", name: "url", widget: "string", required: false, hint: "Overwrites the link for this element to the url" }
+        - { label: "Open in new window (target blank)", name: "target", widget: "boolean", default: false, required: false}

@@ -10,15 +10,17 @@ saga-template-name: Page default
 
 {% if image %}
   <div class="aspect-video overflow-hidden">
-  {% render 'image/image.liquid',
+    {% assign markdownpath = image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
+    {% render 'image/image.liquid',
       file: image,
+      markdownpath: markdownpath,
       alt: title,
       sizes: "(min-width: 30em) 50vw, 100vw",
       widths: "640, 1024, 1280",
       format: "webp",
       loading: "lazy",
       css: "w-full"
-  %}
+    %}
   </div>
 {% endif %}
 

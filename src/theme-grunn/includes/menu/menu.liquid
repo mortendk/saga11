@@ -7,9 +7,10 @@
 
 <nav class="h-full hidden md:block" aria-label="Main Menu">
   <div class="flex justify-between h-full">
-    <div class="flex space-x-4">
+    <div class="flex gap-4">
       {% comment %}level 1 {% endcomment %}
       {% assign menu = collections.all | eleventyNavigation: "main" %}
+
       {%- for item in menu  %}
       {% comment %}test if theres children to the first level of menu items {% endcomment %}
       {% if not item.children.size %}
@@ -23,8 +24,7 @@
         {% if item.target %} target="_blank" {% endif %}
         {% if item.text %} title="{{ item.text }}"{% endif %}
       >
-        {{ item.title }}
-
+        {{ item.title }} {{ item.icon }}
       </a>
       {% else %}
       {% comment %}Level 1 + level 2 {% endcomment %}

@@ -35,7 +35,8 @@ saga-template-name: Content collection
       url: item.url,
       date: item.date
       tags: item.data.tags
-      loop: forloop.index
+      loop: forloop.index,
+      markdownpath: item.inputPath
   %}
 {% endfor %}
 

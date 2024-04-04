@@ -9,7 +9,7 @@
   {% endif %}
 
   {% if component.text %}
-    <div class="text-xl">{{ component.text }}</div>
+    <div class="text-xl">{{ component.text | markdown }}</div>
   {% endif %}
 </article>
 {% endif %}
@@ -44,7 +44,8 @@
         image: image,
         loading: loading
         url: item.url,
-        date: item.date
+        date: item.date,
+        markdownpath: item.inputPath
     %}
   {% endfor %}
 

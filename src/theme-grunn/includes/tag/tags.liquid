@@ -3,8 +3,8 @@
 <div class="flex flex-row space-x-2 py-2">
   {% for tag in tags %}
   {% if tag != "rssfeed" %}
-  {% assign page = "/tag/" | append: tag | append: "/" %}
-  {% assign items = collections.all | getPage: page %}
+  {% assign tagpage = "/tag/" | append: tag | append: "/" %}
+  {% assign items = collections.all | getPage: tagpage %}
   {% for item in items %}
 
   <div class="bg-tone-100 flex flex-row space-x-1 items-center rounded p-1 text-sm">

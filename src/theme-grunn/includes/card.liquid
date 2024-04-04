@@ -8,7 +8,8 @@
     text: text,
     image: image,
     url: url,
-    date: page.date
+    date: page.date,
+    markdownpath: item.inputPath
 %}
 
 {%
@@ -17,7 +18,8 @@
     text: item.data.card.text,
     image: item.data.card.image,
     url: item.url,
-    date: item.date
+    date: item.date,
+    markdownpath: item.inputPath
   %}
 {% endcomment %}
 {%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/includes/card.liquid -->{%- endif -%}
@@ -27,8 +29,9 @@
 
   <div class="shadow-lg aspect-video w-full overflow-hidden bg-tone-100">
     {% if image %}
-      {% include 'image/image.liquid',
+      {% render 'image/image.liquid',
           file: image,
+          markdownpath: markdownpath,
           sizes: "(min-width: 30em) 50vw, 100vw",
           widths: "640, 1200",
           format: "webp",

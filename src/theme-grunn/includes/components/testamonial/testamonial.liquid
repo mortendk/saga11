@@ -24,12 +24,15 @@
     <article class="border-1 border-teal-300 bg-white dark:bg-gray-900 p-4 m-2 shadow rounded-sm">
       {% comment %}person {% endcomment %}
       <div class="flex flex-row items-center">
-        {% render 'image/image.liquid',
-            file: item.image,
-            widths: "200",
-            loading: "lazy",
-            css: "rounded-full w-24 h-24 border border-teal-400 dark:border-teal-100 mr-4"
-          %}
+
+      {% assign markdownpath = item.image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
+      {% render 'image/image.liquid',
+        file: item.image,
+        markdownpath:  markdownpath,
+        widths: "200",
+        loading: "lazy",
+        css: "rounded-full w-24 h-24 border border-teal-400 dark:border-teal-100 mr-4"
+        %}
 
         <div class="dark:text-gray-200 text-sm">
           <div>{{ item.person }}</div>

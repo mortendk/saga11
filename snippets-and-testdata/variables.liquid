@@ -1,5 +1,7 @@
 https://shopify.github.io/liquid
 
+https://www.11ty.dev/docs/data-eleventy-supplied/
+
 Debug
 {{ foo | console }}
 {{ foo | debug }}
@@ -12,6 +14,11 @@ Debug
 {% comment %}
   also a comment
 {% endcomment %}
+
+{{ page.filePathStem }}
+{{ page.inputPath }}
+{{ page.fileSlug }}
+{{ page.outputPath }}
 
 Global:
 {{ site | json }}
@@ -39,7 +46,7 @@ Content:
 {{ page.url }}
 {{ content }}
 {{ templateContent }}
-{{item.templateContent}}
+{{ item.templateContent }}
 {{ post.templateContent }}
 
 Navigation
@@ -50,8 +57,6 @@ Debug data
   {{ item | debug }}
   {{ item.templateContent }}
 {% endfor %}
-
-
 
 
 Global

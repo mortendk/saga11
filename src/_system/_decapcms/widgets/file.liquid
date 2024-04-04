@@ -3,7 +3,7 @@
         widget: "file"
         {% if default %}default: {{ default }}{% endif %}
         choose_url: {% if choose_url %}{{ choose_url }}{% else  %}false{% endif %}
-        {% if required %}required: {{ required }}{% endif %}
+        {% if required is true %}required: {{ required }}{% endif %}
         {% if hint %}hint: {{ hint }}{% endif %}
         media_library:
           config:

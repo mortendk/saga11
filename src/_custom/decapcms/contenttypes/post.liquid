@@ -10,6 +10,9 @@
     preview_path: /post/{% raw %}{{title}}{% endraw %}/
     create: true
     delete: true
+    # Sets the media foldes to be local to this root
+    media_folder: ''
+    public_folder: ''
     editor:
       preview: false
     summary: "{% raw %}{{title}} {{url.parent}} date:{{created}} {{card.image}}{% endraw %} "
@@ -41,7 +44,6 @@
 {% include "_system/_decapcms/widgets/image",
   name: "image",
   label: "image",
-  default: "/content/upload/default.png"
   choose_url: true,
   allow_multiple: false,
   required: "false",
@@ -69,12 +71,12 @@
 %}
 
 {% include "_system/_decapcms/widgets/relation",
-name: "authors",
-label: "authors",
-contenttype: "author"
-required: "false",
-hint: "Who wrote this",
-multiple: true
+  name: "authors",
+  label: "authors",
+  contenttype: "author"
+  required: "false",
+  hint: "Who wrote this",
+  multiple: true
 %}
 
 

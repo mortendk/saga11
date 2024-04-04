@@ -7,7 +7,7 @@ backend:
   branch: {{ env.branch }}
 local_backend:
   # when using a custom proxy server port
-  url: http://localhost:{{ env.netlifycmsport }}/api/v1
+  url: http://localhost:{{ env.decapcmsport }}/api/v1
 #SETTINGS
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/img/icon-admin.png
@@ -31,7 +31,7 @@ collections:
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'posttemplates', path: "layouts/post", theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'tagtemplates',  path: "layouts/tag",  theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'pagepaginationTemplates',  path: "layouts/pagepagination",  theme: theme %}
-
+# Componenets
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplatePagecard', path: "includes/components/pagecard", theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateCollection', path: 'includes/components/collection', theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateImages', path: 'includes/components/images', theme: theme %}
@@ -46,4 +46,5 @@ collections:
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateTestamonial', path: 'includes/components/testamonial', theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplatePrice', path: 'includes/components/price', theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateLink', path: 'includes/components/link', theme: theme %}
+
 

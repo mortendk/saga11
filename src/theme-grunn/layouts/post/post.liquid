@@ -5,8 +5,8 @@ saga-template-name: Post Default
 
 {%- if env.mode != 'prod' %}<!-- ___layouts/post/post.liquid  -->{%- endif -%}
 
-<article class="flex flex-col md:flex-row space-x-8">
-  <div class="md:w-4/6">
+  <article class="flex flex-col md:flex-row space-x-8">
+    <div class="md:w-4/6">
 
     <h1 class="pb-4 text-6xl dark:text-cyan-200">{{ title }}</h1>
 
@@ -17,13 +17,14 @@ saga-template-name: Post Default
       <div>
         {% include "tag/tags.liquid" %}
       </div>
-      </div>
-
+    </div>
 
   {% if image %}
     <div class="aspect-video overflow-hidden shadow-lg">
-      {% include 'image/image.liquid',
+    {% assign markdownpath = image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
+    {% render 'image/image.liquid',
       file: image,
+      markdownpath: markdownpath,
       alt: title,
       sizes: "(min-width: 30em) 50vw, 100vw",
       widths: "640, 1024, 1280",

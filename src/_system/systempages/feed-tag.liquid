@@ -32,11 +32,14 @@ eleventyExcludeFromCollections: true
     <updated>{{ item.date | dateToRfc3339 }}</updated>
     <id>{{ item.url }}</id>
     <content type="html">
+{% comment %}
+      {% assign markdownpath = item.data.card.image  | prepend: '/' | prepend: item.inputPath | remove_last: item.fileSlug | remove: ".md/" %}
       {% assign img = item.data.card.image | default: item.data.image %}
-      <![CDATA[
-        {%- include 'image/image.liquid', file: img, widths: "800", format: "webp" %}
-      ]]>
+      <![CDATA[{%- render 'image/image.liquid', file: img, markdownpath:  markdownpath, widths: "800", format: "webp" -%}]]>
+{% endcomment %}
       {{ item.templateContent | strip_html | truncatewords: "50" }}
+
+
     </content>
   </entry>
   {%- endfor %}

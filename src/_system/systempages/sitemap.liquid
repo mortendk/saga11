@@ -6,7 +6,6 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   {% for page in collections.all %}
 
-
     {%- unless page.url == false or
       page.url contains '/false' or
       page.url contains '/_custom/' or
