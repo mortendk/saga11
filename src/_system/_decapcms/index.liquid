@@ -74,7 +74,7 @@ eleventyExcludeFromCollections: true
     // Internal id of the component
     id: "video",
     // Visible label
-    label: "Video html5",
+    label: "Video",
     fields: [
       {
         name: 'file',
@@ -96,36 +96,6 @@ eleventyExcludeFromCollections: true
     }
   });
 
-
-  CMS.registerEditorComponent({
-    // Internal id of the component
-    id: "liquidcodeblock",
-    // Visible label
-    label: "Liquid Code",
-    fields: [
-      {
-          name: 'title',
-          label: 'title',
-          widget: 'string'
-        },
-
-      {
-        name: 'liquid',
-        label: 'liquid',
-        widget: 'text'
-      }
-    ],
-    pattern: /^(.*?)```liquid{% raw %}(.*?){% endraw %}```$/ms,
-    fromBlock: function(match) {
-      return {title: match[1], code: match[2]};
-    },
-    toBlock: function(data) {
-      return `${date.title}\`\`\`liquid\n{\% raw \%}\n${data.code}\n{\% endraw \%}\n\`\`\``;
-    },
-    toPreview: function(data) {
-      return `${date.title}\`\`\`liquid\n{\% raw \%}\n${data.code}\n{\% endraw \%}\n\`\`\``;
-    }
-  });
 
 
   </script>

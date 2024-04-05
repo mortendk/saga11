@@ -9,6 +9,7 @@ date: 2023-06-20 22:01:46
 title: Saga 11
 url: /
 image:
+  - testimage.png
 components:
   - type: collection
     order: data.order
@@ -16,7 +17,7 @@ components:
     template: components/collection/collection.liquid
     collection: saga11
     title: Collection
-    text: |+
+    text: |-
       **bold** text
 
       ## title {.text-red-500}
@@ -24,8 +25,6 @@ components:
       ```html
       <h2> code
       ```
-
-
 card:
   title: "This is the frontpage card "
   image: ""

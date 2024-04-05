@@ -1,37 +1,33 @@
 ---
+created: 2022-11-11 23:58:00
+authors:
+  - ragnar
+order: 1
+opengraph:
+  image: default.png
+layout: post/post.liquid
+date: 2022-11-11 23:58:00
 title: Hello World
-image:
+image: null
 card:
   title: Hello World im a card
   text: This is text in a card and used for sharing and teaser on the site
 tags:
   - saga11
   - rssfeed
-created: 2022-11-11 23:58:00
-authors:
-  - ragnar
-order: 1
 eleventyExcludeFromCollections: false
-opengraph:
-  image: default.png
-layout: post/post.liquid
-date: 2022-11-11 23:58:00
 ---
 Hello there!
 
 # header {.text-5xl .text-red-500}
 
-![mega alt text](default.png)
+![mega alt text](helloworld.png)
 
 This is probably the best description ever of a movie
 
 > Space ship movie
 > Space ship people get up from sleeping coffin and have eat.
 > Computer woman find strange noisisng on planet and astonauts go to seeing. astonauts find big elephant man who dead then find to many egg.
-
-# H1 Heres some multimedia(tm)
-
-<video controls><source src="content/upload/video.mp3"></video>
 
 ## h2 Heres a h2 title
 
