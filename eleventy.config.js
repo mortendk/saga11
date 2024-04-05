@@ -23,8 +23,7 @@ const markdownIt = require('markdown-it');
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
 const markdownItAnchor = require('markdown-it-anchor');
 
-const embedYouTube = require("eleventy-plugin-youtube-embed");
-const embedVimeo = require("eleventy-plugin-vimeo-embed");
+const embedEverything = require("eleventy-plugin-embed-everything");
 
 //minify + critical
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
@@ -141,18 +140,31 @@ module.exports = function (eleventyConfig) {
 
   );
 
-  // embed youtube
-  eleventyConfig.addPlugin(embedYouTube, {
-    embedClass: 'md-video',
-    lite: true,
-    modestBranding: true
+  // Embed
+  // https://github.com/gfscott/eleventy-plugin-embed-everything/tree/main/packages/everything
+  eleventyConfig.addPlugin(embedEverything, {
+    use: ['youtube'],
+    youtube: {
+      options: {
+        lite: {
+          css: {
+            enabled: true,
+            inline: true
+          },
+          js: {
+            inline: true
+          }
+        },
+        embedClass: 'md-youtube'
+      }
+    },
+    vimeo: {
+      options: {
+        embedClass: 'md-video'
+      }
+    }
   });
 
-  // embed vimeo
-  eleventyConfig.addPlugin(embedVimeo, {
-    embedClass: 'md-video',
-    dnt: true
-  });
 
   // HTML minify
   if (env.mode == "prod") {
