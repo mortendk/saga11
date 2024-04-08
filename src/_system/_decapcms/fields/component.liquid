@@ -277,19 +277,24 @@
               - { label: title, name: title, widget: string, default: '', required: false }
               - { label: Form name, name: name, widget: string, default: 'formname', required: true, hint: "Used as the forms name make it unique" }
               - { label: action url, name: action, widget: string, default: '/submitted', required: true, hint: "Link to the url the form goes to after submit" }
+              - { label: "Additional data", name: formdata, widget: text, required: false, hint="Used for additional data for the form" }
+              - { label: "javascript", name: javascript, widget: text, required: false, hint="Custom JS for this form" }
+
               - label: Form elements
                 name: elements
                 widget: list
                 summary: '{% raw %}{{fields.title}} || {{fields.inputtype}}{% endraw %}'
                 add_to_top: true
                 types:
-                  - label: "Input : text, tel, phone, url"
+                  - label: "Input field"
                     name: text
                     widget: list
                     fields:
-                      - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date"], default: text }
-                      - { label: title, name: title, widget: string, required: true }
+                      - { label: inputtype, name: inputtype, widget: select, options: ["text", "email", "tel", "url","date","hidden"], default: text }
+                      - { label: Label, name: title, widget: string, required: false }
+                      - { label: Name, name: name, widget: string, required: false }
                       - { label: placeholder, name: placeholder, widget: string, required: false }
+                      - { label: value, name: value, widget: string, required: false }
                       - { label: required, name: required, widget: boolean, default: false, required: false }
                   - label: Textarea
                     name: textarea
@@ -297,7 +302,7 @@
                     fields:
                       - { label: title, name: title, widget: string, required: true, default: Message }
                       - { label: required, name: required, widget: boolean, default: false, required: false }
-                  - label: "Options: Dropdown / Checkbox / Radio"
+                  - label: "Options (Dropdown / Checkbox / Radio)"
                     name: options
                     widget: list
                     fields:
@@ -311,6 +316,8 @@
                         add_to_top: true
                         fields:
                           - { label: title, name: title, widget: string, required: true }
+                          - { label: name, name: name, widget: string, required: false }
+                          - { label: value, name: value, widget: string, required: true }
                           - { label: "checked/selected", name: checked, widget: boolean, default: false, required: false }
                   - label: Button
                     name: button
