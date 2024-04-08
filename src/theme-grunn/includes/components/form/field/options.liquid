@@ -31,7 +31,7 @@
   {% comment %}Radio {% endcomment %}
   {% for option in item.option %}
   <div class="py-1">
-    <input type="radio" id="radio-{{ option.title | slugify }}" value="{{ option.value | default: option.title | slugify }}" name="{{item.title | slugify }}" {% if option.checked %}checked{% endif %}>
+    <input type="radio" id="radio-{{ option.title | slugify }}" value="{{ option.value | default: option.title | slugify }}" name="{{ item.name | slugify }}" {% if option.checked %}checked{% endif %}>
     <label for="radio-{{ option.title | slugify }}">
       {{ option.title }}
     </label>
@@ -48,7 +48,7 @@
   {% comment %}Checkbox {% endcomment %}
   {% for option in item.option %}
   <div class="py-1">
-    <input type="checkbox" id="checkbox-{{ option.title | slugify }}" value="{{ option.value | default: option.title | slugify }}" {% if option.checked %}checked{% endif %}>
+    <input type="checkbox" id="checkbox-{{ option.title | slugify }}" value="{{ option.value | default: option.title | slugify }}" name="{{ option.name | slugify  }}" {% if option.checked %}checked{% endif %}>
     <label for="checkbox-{{ option.title | slugify }}">
       {{ option.title }}
     </label>
