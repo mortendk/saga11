@@ -91,6 +91,7 @@ module.exports = function (eleventyConfig) {
   //faveicon
   eleventyConfig.addPassthroughCopy({ ["src" + site.icon ] : "icon.svg"});
 
+
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
   eleventyConfig.addGlobalData("theme", theme);
