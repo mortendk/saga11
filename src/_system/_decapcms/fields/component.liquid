@@ -277,6 +277,8 @@
               - { label: title, name: title, widget: string, default: '', required: false }
               - { label: Form name, name: name, widget: string, default: 'formname', required: true, hint: "Used as the forms name make it unique" }
               - { label: action url, name: action, widget: string, default: '/submitted', required: true, hint: "Link to the url the form goes to after submit" }
+              - { label: "Additional data", name: formdata, widget: text, required: false, hint="Used for additional data for the form" }
+
               - label: Form elements
                 name: elements
                 widget: list

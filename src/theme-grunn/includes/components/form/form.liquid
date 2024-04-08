@@ -13,8 +13,9 @@
   </div>
 
 
-<form name="{{ component.name | url_encode }}" method="POST"
-  data-netlify="true" netlify-honeypot="bot-field"
+<form name="{{ component.name | url_encode }}"
+  method="POST"
+  {{ component.formdata }}
   action="{{ component.action }}/"
   class="basis-1/2 py-20 px-20 flex flex-col space-y-4"
   >
