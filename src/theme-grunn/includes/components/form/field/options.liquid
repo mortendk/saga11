@@ -9,11 +9,12 @@
     </label>
 
     <select name="{{ item.title | slugify }}" id="form-item-{{ item.title | slugify }}">
-
-      <option>{{ item.title }}</option>
+      {% unless item.required %}
+        <option>Selecr {{ item.title }}</option>
+      {% endunless %}
 
       {% for option in item.option %}
-        <option value="{{ option.title | slugify }}"  {% if option.checked %} selected {% endif %}>
+        <option value="{{ option.value | default: option.title | slugify }}" {% if option.checked %} selected {% endif %}>
           {{ option.title }}
         </option>
       {% endfor %}
@@ -22,7 +23,7 @@
   {% comment %}/Dropdown {% endcomment %}
   {% elsif item.inputtype == "Radio" %}
 
-    <div class="font-bold text-lg">
+  <div class="font-bold text-lg">
     {{ item.title }}
     {% if item.required %} * {% endif %}:
   </div>
@@ -30,7 +31,7 @@
   {% comment %}Radio {% endcomment %}
   {% for option in item.option %}
   <div class="py-1">
-    <input type="radio" id="radio-{{ option.title | slugify }}" name="{{item.title | slugify }}" {% if option.checked %}checked{% endif %}>
+    <input type="radio" id="radio-{{ option.title | slugify }}" value="{{ option.value | default: option.title | slugify }}" name="{{item.title | slugify }}" {% if option.checked %}checked{% endif %}>
     <label for="radio-{{ option.title | slugify }}">
       {{ option.title }}
     </label>
@@ -39,7 +40,7 @@
   {% comment %}/Radio {% endcomment %}
 
   {% elsif item.inputtype == "Checkbox" %}
-  <div class="font-bold text-lg">
+  <div class="">
     {{ item.title }}
     {% if item.required %} * {% endif %}:
   </div>
@@ -47,7 +48,7 @@
   {% comment %}Checkbox {% endcomment %}
   {% for option in item.option %}
   <div class="py-1">
-    <input type="checkbox" id="checkbox-{{ option.title | slugify }}" {% if option.checked %}checked{% endif %}>
+    <input type="checkbox" id="checkbox-{{ option.title | slugify }}" value="{{ option.value | default: option.title | slugify }}" {% if option.checked %}checked{% endif %}>
     <label for="checkbox-{{ option.title | slugify }}">
       {{ option.title }}
     </label>
