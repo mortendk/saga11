@@ -11,7 +11,9 @@ layout: html.liquid
   :class="openmenu ? 'overflow-hidden' : ' ', isModalOpen ? 'overflow-y-hidden':'' "
 >
 
-  {%- include "header.liquid" %}
+  {%- include "header/header.liquid" %}
+
+  {%- include "notification/notifications.liquid" %}
 
   <main id="main" tabindex="-1" class="pagewidth flex-grow mt-4 focus-visible:outline-0">
     {{ content }}
@@ -24,3 +26,4 @@ layout: html.liquid
   {% endif %}
 
   {%- include "footer/footer.liquid" %}
+ 

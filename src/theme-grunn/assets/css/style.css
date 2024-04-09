@@ -1122,6 +1122,10 @@ form button:focus {
   max-width: 32rem;
 }
 
+.max-w-screen-md {
+  max-width: 768px;
+}
+
 .flex-none {
   flex: none;
 }
@@ -1591,6 +1595,11 @@ form button:focus {
   background-color: rgb(255 255 255 / 0.95);
 }
 
+.bg-orange-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1645,6 +1654,50 @@ form button:focus {
 
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+
+.fill-red-700 {
+  fill: #b91c1c;
+}
+
+.fill-sky-500 {
+  fill: #0ea5e9;
+}
+
+.fill-red-500 {
+  fill: #ef4444;
+}
+
+.fill-orange-600 {
+  fill: #ea580c;
+}
+
+.fill-yellow-500 {
+  fill: #eab308;
+}
+
+.fill-yellow-800 {
+  fill: #854d0e;
+}
+
+.fill-yellow-700 {
+  fill: #a16207;
+}
+
+.fill-yellow-600 {
+  fill: #ca8a04;
+}
+
+.fill-blue-500 {
+  fill: #3b82f6;
+}
+
+.fill-gray-400 {
+  fill: #9ca3af;
+}
+
+.fill-tone-300 {
+  fill: var(--color-tone-300);
 }
 
 .object-cover {
@@ -2334,6 +2387,10 @@ pre[class*="language-"] {
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
 }
 
+.hover\:fill-orange-500:hover {
+  fill: #f97316;
+}
+
 .hover\:text-cyan-600:hover {
   --tw-text-opacity: 1;
   color: rgb(8 145 178 / var(--tw-text-opacity));
@@ -2470,6 +2527,10 @@ pre[class*="language-"] {
 
 :is(.dark .dark\:bg-tone-900) {
   background-color: var(--color-tone-900);
+}
+
+:is(.dark .dark\:fill-gray-100) {
+  fill: #f3f4f6;
 }
 
 :is(.dark .dark\:text-cyan-100) {
