@@ -1,0 +1,40 @@
+{%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/includes/notification/notifications.liquid -->{%- endif -%}
+
+<section aria-label="notification" class="">
+{% for item in collections.contentfoldernotification %}
+
+  {% if item.data.status =="alert" %}
+    {% assign css = "bg-error-300 text-white" %}
+    {% assign icon = "./bolt.svg" %}
+  {% elsif item.data.status =="warning" %}
+    {% assign css = "bg-warning-200 text-warning-900" %}
+    {% assign icon = "./bell.svg" %}
+  {% elsif item.data.status =="info" %}
+    {% assign css = "bg-information-100 text-information-800" %}
+    {% assign icon = "./speaker-wave.svg" %}
+  {% endif %}
+
+
+  <article class="w-full relative flex flex-col items-center py-4 {{ css }}">
+    {% if item.data.showlink %}
+      <a href="{{ item.url }}" class="w-full relative flex flex-row items-center justify-between {{ css }}">
+    {% endif %}
+
+    <div class="mx-auto flex flex-row items-center p-2 ">
+      <div class="w-4 h-4 mr-2">{% include icon %}</div>
+      <div class="font-bold">{{ item.data.title }}</div>
+    </div>
+
+  {% if item.data.showlink %}
+    </a>
+  {% endif %}
+
+  <div class="mx-auto max-w-screen-md">
+    {{ item.data.text | markdown }}
+  </div>
+
+
+  </article>
+
+{% endfor %}
+</section>
