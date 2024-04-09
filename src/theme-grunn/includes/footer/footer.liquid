@@ -91,10 +91,23 @@
 
       {% include "some/socialmedia.liquid" %}
       <div class="py-2">
-        Build with ⚔️ + 💜
+
       </div>
       <div>Saga11 : {{ saga11version }}</div>
-      <div>{{ eleventy.generator }}</div>
+      <div>
+        <div class="w-4 h-4- fill-red-500">
+          {% render 'svg/css3.svg' %}
+        </div>
+        <div class="w-4 h-4- fill-red-500">
+          {% render 'svg/js.svg' %}
+        </div>
+        <div class="w-4 h-4- fill-red-500">
+          {% render 'svg/html5.svg' %}
+        </div>
+        <div class="w-8 h-8 fill-red-500">
+          {% render 'svg/11ty.svg' %}
+        </div>
+      {{ eleventy.generator }}</div>
       </div>
 
 

@@ -1122,6 +1122,10 @@ form button:focus {
   max-width: 32rem;
 }
 
+.max-w-screen-md {
+  max-width: 768px;
+}
+
 .flex-none {
   flex: none;
 }
@@ -1645,6 +1649,18 @@ form button:focus {
 
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+
+.fill-red-700 {
+  fill: #b91c1c;
+}
+
+.fill-sky-500 {
+  fill: #0ea5e9;
+}
+
+.fill-red-500 {
+  fill: #ef4444;
 }
 
 .object-cover {
