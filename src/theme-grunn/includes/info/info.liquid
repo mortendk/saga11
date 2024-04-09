@@ -1,0 +1,22 @@
+<section class="mt-4 flex flex-col items-center">
+  <article class="flex flex-row gap-2">
+    <div class="w-4 h-4 fill-blue-500" >
+      {% render 'info/css3.svg' %}
+    </div>
+    <div class="w-4 h-4 fill-yellow-600">
+      {% render 'info/js.svg' %}
+    </div>
+    <div class="w-4 h-4 fill-orange-600">
+      {% render 'info/html5.svg' %}
+    </div>
+    <div class="w-4 h-4">
+      {% render 'info/11ty.svg' %}
+    </div>
+  </article>
+
+  <div class="text-sm mt-2 text-center">
+    Saga11 : {{ saga11version }}
+    <br>
+    {{ eleventy.generator }}
+  </div>
+</section>
