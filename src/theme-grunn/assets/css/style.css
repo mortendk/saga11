@@ -608,6 +608,10 @@ a:focus {
   outline-offset: 2px;
 }
 
+h2 {
+  font-size: 1.35rem;
+}
+
 form button:focus {
   border-width: 1px;
   border-style: dashed;
@@ -1595,9 +1599,9 @@ form button:focus {
   background-color: rgb(255 255 255 / 0.95);
 }
 
-.bg-orange-600 {
+.bg-red-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-r {
@@ -1656,38 +1660,6 @@ form button:focus {
   background-repeat: no-repeat;
 }
 
-.fill-red-700 {
-  fill: #b91c1c;
-}
-
-.fill-sky-500 {
-  fill: #0ea5e9;
-}
-
-.fill-red-500 {
-  fill: #ef4444;
-}
-
-.fill-orange-600 {
-  fill: #ea580c;
-}
-
-.fill-yellow-500 {
-  fill: #eab308;
-}
-
-.fill-yellow-800 {
-  fill: #854d0e;
-}
-
-.fill-yellow-700 {
-  fill: #a16207;
-}
-
-.fill-yellow-600 {
-  fill: #ca8a04;
-}
-
 .fill-blue-500 {
   fill: #3b82f6;
 }
@@ -1696,8 +1668,24 @@ form button:focus {
   fill: #9ca3af;
 }
 
-.fill-tone-300 {
-  fill: var(--color-tone-300);
+.fill-orange-600 {
+  fill: #ea580c;
+}
+
+.fill-red-700 {
+  fill: #b91c1c;
+}
+
+.fill-sky-500 {
+  fill: #0ea5e9;
+}
+
+.fill-tone-500 {
+  fill: var(--color-tone-500);
+}
+
+.fill-yellow-600 {
+  fill: #ca8a04;
 }
 
 .object-cover {
@@ -1958,11 +1946,6 @@ form button:focus {
 
 .text-information-800 {
   color: var(--color-information-800);
-}
-
-.text-orange-700 {
-  --tw-text-opacity: 1;
-  color: rgb(194 65 12 / var(--tw-text-opacity));
 }
 
 .text-primary-600 {
@@ -2396,19 +2379,9 @@ pre[class*="language-"] {
   color: rgb(8 145 178 / var(--tw-text-opacity));
 }
 
-.hover\:text-cyan-800:hover {
-  --tw-text-opacity: 1;
-  color: rgb(21 94 117 / var(--tw-text-opacity));
-}
-
 .hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-.hover\:text-orange-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 
 .hover\:text-primary-600:hover {
@@ -2566,11 +2539,6 @@ pre[class*="language-"] {
 :is(.dark .dark\:text-gray-800) {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-orange-200) {
-  --tw-text-opacity: 1;
-  color: rgb(254 215 170 / var(--tw-text-opacity));
 }
 
 :is(.dark .dark\:text-teal-100) {

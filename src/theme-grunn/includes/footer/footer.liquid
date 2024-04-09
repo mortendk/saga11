@@ -5,7 +5,7 @@
     <article aria-label="Address">
 
       <div class="flex flex-row">
-        <div class="w-4 h-4 text-tone-300 mr-2">{% include "./building-office-2.svg" %}</div>
+        <div class="w-4 h-4 fill-tone-500 mr-2">{% render "./house.svg" %}</div>
         <div class="space-y-1">
           <div>{{ global.address.name }}</div>
           <div>{{ global.address.street }}</div>
@@ -25,14 +25,14 @@
 
         {% if global.address.email %}
           <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./envelope.svg" %}</div>
+            <div class="w-4 h-4 text-tone-300 mr-2">{% render "./envelope.svg" %}</div>
             <a href="mailto:{{ global.address.email }}" itemprop="email">{{ global.address.email }}</a><br>
           </div>
         {% endif %}
 
         {% if global.address.url %}
           <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./globe.svg" %}</div>
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./web.svg" %}</div>
             <a itemprop="url" href="{{ global.address.url }}" target="_blank" rel="noopener">{{ global.address.url }}</a>
           </div>
         {% endif %}
@@ -75,7 +75,7 @@
       <nav class="flex flex-col">
         {% for item in menu %}
           <a href="{{ item.url }}" class="flex flex-row items-center">
-            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./globe.svg" %}</div>
+            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./arrow.svg" %}</div>
           {{ item.title }}</a>
         {% endfor %}
       </nav>

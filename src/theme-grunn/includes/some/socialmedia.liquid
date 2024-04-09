@@ -3,14 +3,7 @@
 {% assign css = "w-8 h-8 block text-primary-600 dark:text-tone-200 hover:text-primary-600 block" %}
 
 
-<nav class="flex flex-wrap flex-grow space-x-8 mt-4" aria-label="Menu Social media links">
-
-  {% if site.rss %}
-    <a href="/feed.xml" class="{{ css }}">
-      <span class="sr-only">RSS Feed</span>
-      {% render "svg/rss.svg" %}
-    </a>
-  {% endif %}
+<nav class="flex flex-wrap flex-grow gap-4 my-4" aria-label="Menu Social media links">
 
   {% if some.mastodon %}
     <a href="{{ some.mastodon }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
