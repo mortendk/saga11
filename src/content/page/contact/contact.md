@@ -1,8 +1,10 @@
 ---
 title: Contact Page
 url: contact
-image: https://images.unsplash.com/photo-1595740041673-6a525c7be994?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZWxldmVufGVufDB8fDB8fHww
+image: ""
 components:
+  - type: njktemplate
+    template: components/templates/socialmedia.liquid
   - type: form
     title: "Contact form "
     name: contact
@@ -38,9 +40,14 @@ components:
         title: Send
         resettitle: Reset
         reset: true
-    text: |-
-      Y﻿ou can totally contact us :)
-      t﻿ext with stuff on it
+    text: >
+      text >
+
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+
+      ## Go go 
     formdata: |-
       data-netlify="true"
       netlify-honeypot="bot-field"
@@ -50,9 +57,14 @@ date: 2023-06-21 20:03:22
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Contact
-  parent: []
+  parent: main
   order: 20
   target: false
   url: ""
   key: ""
 ---
+text >
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+
+## Go go 

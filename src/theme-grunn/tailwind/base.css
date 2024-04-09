@@ -6,6 +6,10 @@
     @apply focus:border-tabcolor hover:cursor-pointer focus:border focus:border-dashed focus:outline-none;
   }
 
+  h2 {
+    @apply text-lg
+  }
+
   form button {
     @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
   }
