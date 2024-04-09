@@ -13,8 +13,8 @@ tube.forEach(function (element) {
 });
 
 
-const themeselector = document.querySelector(".themeselector");
-themeselector.setAttribute("data-theme", "germany");
-const theme = themeselector.getAttribute("data-theme");
-
-console.log(theme);
+// const themeselector = document.querySelector(".themeselector");
+// themeselector.setAttribute("data-theme", "germany");
+// const theme = themeselector.getAttribute("data-theme");
+//
+// console.log(theme);

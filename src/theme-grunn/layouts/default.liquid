@@ -9,6 +9,7 @@ layout: html.liquid
   x-on:keydown.escape="isModalOpen=false"
   x-on:keydown.cmd.shift.e="isEditvisible = ! isEditvisible"
   :class="openmenu ? 'overflow-hidden' : ' ', isModalOpen ? 'overflow-y-hidden':'' "
+  data-theme="default"
 >
 
   {%- include "header/header.liquid" %}
@@ -17,13 +18,16 @@ layout: html.liquid
 
 
   {% include "themeselector/themeselector.liquid" %}
-  <div class="bg-background text-on-background" data-theme="default">
-      this is default
-  </div>
+
+
   <div class="bg-background text-on-background" data-theme="dark">
-      this is dark
-  <div class="bg-background text-on-background" data-theme="pink">
-      this is dark
+    this is dark
+  </div>
+
+  <div class="bg-background text-on-background" data-theme="tone">
+    this is toned
+    <a href="#foo">link</a>
+
   </div>
 
   <main id="main" tabindex="-1" class="pagewidth flex-grow mt-4 focus-visible:outline-0">

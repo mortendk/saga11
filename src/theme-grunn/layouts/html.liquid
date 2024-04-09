@@ -76,6 +76,8 @@
       some: some
     -%}
 
+    <link href="{{ '/assets/css/theme.css' | url }}" rel="stylesheet">
+
     {%- if env.mode == 'prod' %}
       <link href="{{ '/assets/css/style.min.css' | url }}" rel="stylesheet">
     {% else %}
