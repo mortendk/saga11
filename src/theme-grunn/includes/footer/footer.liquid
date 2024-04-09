@@ -18,7 +18,7 @@
       <div class="flex flex-col space-y-4 pt-4">
         {% if global.address.phone %}
           <div class="flex flex-row items-center">
-            <div class="w-4 h-4 text-tone-300 mr-2">{% include "./phone.svg" %}</div>
+            <div class="w-4 h-4 text-tone-300 mr-2">{% render "./phone.svg" %}</div>
             <a href="tel:{{ global.address.phone | replace:" ", "" }}" itemprop="telephone">{{ global.address.phone }}</a>
           </div>
         {% endif %}
@@ -39,7 +39,7 @@
       </div>
 
       {% if global.address.street and global.address.zip and global.address.country %}
-      <button onclick="openinmap('{{ global.address.street }},{{ global.address.zip }},{{ global.address.country }}')" target="_blank" rel="noopener" class="inline-flex flex-row items-center">
+      <button onclick="openinmap('{{ global.address.street }},{{ global.address.zip }},{{ global.address.country }}')" target="_blank" rel="noopener" class="inline-flex flex-row items-center ,t-2">
         <div class="w-4 h-4 text-tone-300 mr-2">{% include "./map-pin.svg" %}</div>
         <div>Map</div>
       </button>
@@ -48,8 +48,6 @@
     </article>
 
 {% endcapture %}
-
-
 
 <footer class="bg-tone-100 dark:bg-tone-900 dark:text-gray-300 mt-16 py-8 ">
 <div class="pagewidth flex flex-row space-x-8 pt-4">
@@ -90,9 +88,9 @@
     </div>
 
     {% include "some/socialmedia.liquid" %}
-    {% include "info/info.liquid" %}
 
-  </div>
+    </div>
+    {% include "info/info.liquid" %}
 </footer>
 
 

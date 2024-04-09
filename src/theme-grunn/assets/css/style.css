@@ -1696,6 +1696,10 @@ form button:focus {
   fill: #9ca3af;
 }
 
+.fill-tone-300 {
+  fill: var(--color-tone-300);
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
