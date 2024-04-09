@@ -15,6 +15,17 @@ layout: html.liquid
 
   {%- include "notification/notifications.liquid" %}
 
+
+  {% include "themeselector/themeselector.liquid" %}
+  <div class="bg-background text-on-background" data-theme="default">
+      this is default
+  </div>
+  <div class="bg-background text-on-background" data-theme="dark">
+      this is dark
+  <div class="bg-background text-on-background" data-theme="pink">
+      this is dark
+  </div>
+
   <main id="main" tabindex="-1" class="pagewidth flex-grow mt-4 focus-visible:outline-0">
     {{ content }}
   </main>

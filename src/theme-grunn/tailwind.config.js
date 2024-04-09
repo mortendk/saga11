@@ -8,6 +8,7 @@ const theme = settings.config.theme;
 const colors = require("./tailwind/designToken-color");
 const fontsize = require("./tailwind/designToken-fontSize");
 const fontfamily = require("./tailwind/designToken-fontFamily");
+const borderRadius = require("./tailwind/designToken-borderRadius");
 
 module.exports = {
   content: [
@@ -16,9 +17,11 @@ module.exports = {
     "src/" + theme + "/layouts/*.liquid",
     "src/" + theme + "/layouts/**/*.liquid",
     "src/" + theme + "/includes/*.liquid",
-    "src/" + theme + "/includes/**/*.liquid"  ],
+    "src/" + theme + "/includes/**/*.liquid"
+  ],
   darkMode: "class",
   theme: {
+    borderRadius: borderRadius,
     extend: {
       fontFamily: fontfamily,
       fontSize: fontsize,

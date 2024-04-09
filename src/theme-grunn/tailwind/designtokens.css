@@ -10,96 +10,21 @@ foo.addEventListener('click', () => {
 }
 */
 :root {
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --color-white: 250 250 250;
+  --color-black: 0 0 0;
+}
 
-  --color-tab: 255 0 0;
+[data-theme="default"]{
+  --color-background: 0 0 0;
+  --color-on-background: 250 250 250;
+}
 
-  --color-primary-50: hsl(183, 60%, 90%);
-  --color-primary-100: hsl(183, 60%, 75%);
-  --color-primary-200: hsl(183, 60%, 60%);
-  --color-primary-300: hsl(183, 60%, 50%);
-  --color-primary-400: hsl(183, 60%, 45%);
-  --color-primary-500: hsl(183, 60%, 40%);
-  --color-primary-600: hsl(183, 60%, 35%);
-  --color-primary-700: hsl(183, 60%, 30%);
-  --color-primary-800: hsl(183, 60%, 22%);
-  --color-primary-900: hsl(183, 60%, 12%);
+[data-theme="dark"]{
+  --color-background: 250 250 250;
+  --color-on-background: 0 0 0;
+}
 
-  --color-secondary-50: hsl(32, 60%, 90%);
-  --color-secondary-100: hsl(32, 60%, 75%);
-  --color-secondary-200: hsl(32, 60%, 60%);
-  --color-secondary-300: hsl(32, 60%, 50%);
-  --color-secondary-400: hsl(32, 60%, 45%);
-  --color-secondary-500: hsl(32, 60%, 40%);
-  --color-secondary-600: hsl(32, 60%, 35%);
-  --color-secondary-700: hsl(32, 60%, 30%);
-  --color-secondary-800: hsl(32, 60%, 22%);
-  --color-secondary-900: hsl(32, 60%, 12%);
-
-  --color-tetiary-50: hsl(76, 60%, 90%);
-  --color-tetiary-100: hsl(76, 60%, 75%);
-  --color-tetiary-200: hsl(76, 60%, 60%);
-  --color-tetiary-300: hsl(76, 60%, 50%);
-  --color-tetiary-400: hsl(76, 60%, 45%);
-  --color-tetiary-500: hsl(76, 60%, 40%);
-  --color-tetiary-600: hsl(76, 60%, 35%);
-  --color-tetiary-700: hsl(76, 60%, 30%);
-  --color-tetiary-800: hsl(76, 60%, 22%);
-  --color-tetiary-900: hsl(76, 60%, 12%);
-
-  --color-tone-50: hsl(195, 16%, 97%);
-  --color-tone-100: hsl(195, 16%, 80%);
-  --color-tone-200: hsl(195, 16%, 70%);
-  --color-tone-300: hsl(195, 16%, 50%);
-  --color-tone-400: hsl(195, 16%, 45%);
-  --color-tone-500: hsl(195, 16%, 40%);
-  --color-tone-600: hsl(195, 16%, 35%);
-  --color-tone-700: hsl(195, 16%, 30%);
-  --color-tone-800: hsl(195, 16%, 22%);
-  --color-tone-900: hsl(195, 16%, 12%);
-
-  --color-error-50: hsl(0, 60%, 90%);
-  --color-error-100: hsl(0, 60%, 75%);
-  --color-error-200: hsl(0, 60%, 60%);
-  --color-error-300: hsl(0, 60%, 50%);
-  --color-error-400: hsl(0, 70%, 40%);
-  --color-error-500: hsl(0, 60%, 40%);
-  --color-error-600: hsl(0, 60%, 35%);
-  --color-error-700: hsl(0, 60%, 30%);
-  --color-error-800: hsl(0, 60%, 22%);
-  --color-error-900: hsl(0, 60%, 12%);
-
-  --color-success-50: hsl(120, 60%, 90%);
-  --color-success-100: hsl(120, 60%, 75%);
-  --color-success-200: hsl(120, 60%, 60%);
-  --color-success-300: hsl(120, 60%, 50%);
-  --color-success-400: hsl(120, 60%, 45%);
-  --color-success-500: hsl(120, 60%, 40%);
-  --color-success-600: hsl(120, 60%, 35%);
-  --color-success-700: hsl(120, 60%, 30%);
-  --color-success-800: hsl(120, 60%, 22%);
-  --color-success-900: hsl(120, 60%, 12%);
-
-  --color-warning-50: hsl(39, 60%, 90%);
-  --color-warning-100: hsl(39, 60%, 75%);
-  --color-warning-200: hsl(39, 60%, 60%);
-  --color-warning-300: hsl(39, 60%, 50%);
-  --color-warning-400: hsl(39, 60%, 45%);
-  --color-warning-500: hsl(39, 72%, 40%);
-  --color-warning-600: hsl(39, 60%, 35%);
-  --color-warning-700: hsl(39, 60%, 30%);
-  --color-warning-800: hsl(39, 60%, 22%);
-  --color-warning-900: hsl(39, 60%, 12%);
-
-  --color-information-50: hsl(193, 60%, 90%);
-  --color-information-100: hsl(193, 60%, 75%);
-  --color-information-200: hsl(193, 60%, 60%);
-  --color-information-300: hsl(193, 60%, 50%);
-  --color-information-400: hsl(193, 60%, 45%);
-  --color-information-500: hsl(193, 72%, 40%);
-  --color-information-600: hsl(193, 60%, 35%);
-  --color-information-700: hsl(193, 60%, 30%);
-  --color-information-800: hsl(193, 60%, 22%);
-  --color-information-900: hsl(193, 60%, 12%);
+[data-theme="pink"]{
+  --color-background: 220 0 220;
+  --color-on-background: 0 0 0;
 }
