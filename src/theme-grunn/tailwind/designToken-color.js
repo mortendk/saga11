@@ -1,6 +1,8 @@
 // ALIAS TOKEN
 // set value for core tokens from base.css
 // reference tokens to the css variable
+
+//
 module.exports = {
   "background": 'rgb(var(--color-background) / <alpha-value>)',
   "on-background": 'rgb(var(--color-on-background) / <alpha-value>)',

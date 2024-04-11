@@ -1,3 +1,4 @@
+/* Thme does NOT need to be rgb seperated colors cause unless we want the alpha to be editable in TW    */
 :root {
   --color-white: 250 250 250;
   --color-black: 0 0 0;
@@ -6,6 +7,7 @@
 [data-theme="default"]{
   --color-background: 0 0 0;
   --color-on-background: 250 250 250;
+
   --color-on-background-link: {{ scheme.settings.colorscheme_on_background_link.rgb }};
   --color-on-background-alt: {{ scheme.settings.colorscheme_on_background_alt.rgb }};
 
@@ -15,6 +17,7 @@
 
   --color-callout: {{ scheme.settings.colorscheme_callout.rgb }};
   --color-on-callout: {{ scheme.settings.colorscheme_on_callout.rgb }};
+  --color-on-callout-link: {{ scheme.settings.colorscheme_on_background_link.rgb }};
 
   --color-icon: {{ scheme.settings.colorscheme_icon.rgb }};
   --color-tone: {{ scheme.settings.colorscheme_tone.rgb }};

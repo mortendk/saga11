@@ -10,6 +10,7 @@
   "touchicon": "/content/upload/maskable-icon.png",
   "title": "Saga Eleven",
   "icon": "/content/upload/faveicon.svg",
+  "themecolor": "rgba(38, 170, 184, 0.41)",
   "description": "Saga11 is a system for building websites based on 11ty and Decap CMS\n\nIts markdown, HTML, CSS & JS",
   "maskableicon": "/content/upload/maskable-icon.png"
 }
