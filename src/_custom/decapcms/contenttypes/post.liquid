@@ -12,7 +12,7 @@
     delete: true
     # Sets the media foldes to be local to this root
     editor:
-      preview: true
+      preview: false
     summary: "{% raw %}{{title}} {{url.parent}} date:{{created}} {{card.image}}{% endraw %} "
     sortable_fields: ["title", "order", "created"]
     view_filters:
@@ -39,22 +39,7 @@
   hint: ""
 %}
 
-{% include "_system/_decapcms/widgets/image",
-  name: "image",
-  label: "image",
-  choose_url: true,
-  allow_multiple: false,
-  required: "false",
-  hint: "image"
-%}
-
-{% include "_system/_decapcms/widgets/string.liquid",
-  name: "alt",
-  label: "alt",
-  default: "",
-  required: "false",
-  hint: "alt text"
-%}
+{% render '_system/_decapcms/fields/primaryimage.liquid' %}
 
 {% include "_system/_decapcms/widgets/markdown",
   name: "body",
@@ -112,7 +97,7 @@
   label: "url",
   default: "",
   required: "false",
-  hint: "Overwrite the title generated url"
+  hint: "Overwrite the title generated url - the prefix for the paginated pages fx[path]/[number] ⛔️ Make sure the prefix dont collide with an existing url"
 %}
 
 {% include "_system/_decapcms/fields/seo.liquid" %}

@@ -39,15 +39,7 @@ required: :false,
 hint: "link to the author"
 %}
 
-
-{% include "_system/_decapcms/widgets/image",
-name: "image",
-label: "image",
-choose_url: true,
-allow_multiple: false,
-required: "false",
-hint: "image"
-%}
+{% render '_system/_decapcms/fields/primaryimage.liquid' %}
 
 {% include "_system/_decapcms/widgets/markdown",
 name: "body",

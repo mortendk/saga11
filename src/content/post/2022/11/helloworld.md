@@ -4,9 +4,12 @@ image: /content/upload/helloworld.png
 card:
   title: Hello World im a (post) card
   text: This is text in a card and used for sharing and teaser on the site
-tags: []
+tags:
+  - frontpage
+  - rssfeed
 created: 11.11.2022T23:11
-authors: []
+authors:
+  - ragnar
 order: 1
 layout: post/post.liquid
 date: 2022-11-11 23:58:00
@@ -36,9 +39,7 @@ I want to add a file link ?
 
 [](https://morten.dk)[](https://morten.dk)
 
-![](https://images.unsplash.com/photo-1625173925005-0043774fe954?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
 
-{% render "image/image.liquid" file:"/content/upload/cs-logo-black-optical-kerning-outline.png", alt:"12313", widths:"640" %}
 
 # header {.text-5xl .text-red-500}
 
