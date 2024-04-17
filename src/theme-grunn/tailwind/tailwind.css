@@ -8,7 +8,7 @@ font sizes are set in design token fontsize
 @import "fonts.css";
 
 /* get the css variables / design tokens  */
-@import "designtokens.css";
+/* @import "designtokens.css"; */
 
 @import "base.css";
 

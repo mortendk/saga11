@@ -50,103 +50,7 @@ the font paths are relative to the css file created with tailwind
 
 /* get the css variables / design tokens  */
 
-/*
-Design tokens
-Now we can do smooth stuff with js to change colors etc
-
-const color = document.querySelector(':root');
-
-foo.addEventListener('click', () => {
-    color.style.setProperty('--test', '#bada55');
-});
-}
-*/
-
-:root {
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-tab: 255 0 0;
-  --color-primary-50: hsl(183, 60%, 90%);
-  --color-primary-100: hsl(183, 60%, 75%);
-  --color-primary-200: hsl(183, 60%, 60%);
-  --color-primary-300: hsl(183, 60%, 50%);
-  --color-primary-400: hsl(183, 60%, 45%);
-  --color-primary-500: hsl(183, 60%, 40%);
-  --color-primary-600: hsl(183, 60%, 35%);
-  --color-primary-700: hsl(183, 60%, 30%);
-  --color-primary-800: hsl(183, 60%, 22%);
-  --color-primary-900: hsl(183, 60%, 12%);
-  --color-secondary-50: hsl(32, 60%, 90%);
-  --color-secondary-100: hsl(32, 60%, 75%);
-  --color-secondary-200: hsl(32, 60%, 60%);
-  --color-secondary-300: hsl(32, 60%, 50%);
-  --color-secondary-400: hsl(32, 60%, 45%);
-  --color-secondary-500: hsl(32, 60%, 40%);
-  --color-secondary-600: hsl(32, 60%, 35%);
-  --color-secondary-700: hsl(32, 60%, 30%);
-  --color-secondary-800: hsl(32, 60%, 22%);
-  --color-secondary-900: hsl(32, 60%, 12%);
-  --color-tetiary-50: hsl(76, 60%, 90%);
-  --color-tetiary-100: hsl(76, 60%, 75%);
-  --color-tetiary-200: hsl(76, 60%, 60%);
-  --color-tetiary-300: hsl(76, 60%, 50%);
-  --color-tetiary-400: hsl(76, 60%, 45%);
-  --color-tetiary-500: hsl(76, 60%, 40%);
-  --color-tetiary-600: hsl(76, 60%, 35%);
-  --color-tetiary-700: hsl(76, 60%, 30%);
-  --color-tetiary-800: hsl(76, 60%, 22%);
-  --color-tetiary-900: hsl(76, 60%, 12%);
-  --color-tone-50: hsl(195, 16%, 97%);
-  --color-tone-100: hsl(195, 16%, 80%);
-  --color-tone-200: hsl(195, 16%, 70%);
-  --color-tone-300: hsl(195, 16%, 50%);
-  --color-tone-400: hsl(195, 16%, 45%);
-  --color-tone-500: hsl(195, 16%, 40%);
-  --color-tone-600: hsl(195, 16%, 35%);
-  --color-tone-700: hsl(195, 16%, 30%);
-  --color-tone-800: hsl(195, 16%, 22%);
-  --color-tone-900: hsl(195, 16%, 12%);
-  --color-error-50: hsl(0, 60%, 90%);
-  --color-error-100: hsl(0, 60%, 75%);
-  --color-error-200: hsl(0, 60%, 60%);
-  --color-error-300: hsl(0, 60%, 50%);
-  --color-error-400: hsl(0, 70%, 40%);
-  --color-error-500: hsl(0, 60%, 40%);
-  --color-error-600: hsl(0, 60%, 35%);
-  --color-error-700: hsl(0, 60%, 30%);
-  --color-error-800: hsl(0, 60%, 22%);
-  --color-error-900: hsl(0, 60%, 12%);
-  --color-success-50: hsl(120, 60%, 90%);
-  --color-success-100: hsl(120, 60%, 75%);
-  --color-success-200: hsl(120, 60%, 60%);
-  --color-success-300: hsl(120, 60%, 50%);
-  --color-success-400: hsl(120, 60%, 45%);
-  --color-success-500: hsl(120, 60%, 40%);
-  --color-success-600: hsl(120, 60%, 35%);
-  --color-success-700: hsl(120, 60%, 30%);
-  --color-success-800: hsl(120, 60%, 22%);
-  --color-success-900: hsl(120, 60%, 12%);
-  --color-warning-50: hsl(39, 60%, 90%);
-  --color-warning-100: hsl(39, 60%, 75%);
-  --color-warning-200: hsl(39, 60%, 60%);
-  --color-warning-300: hsl(39, 60%, 50%);
-  --color-warning-400: hsl(39, 60%, 45%);
-  --color-warning-500: hsl(39, 72%, 40%);
-  --color-warning-600: hsl(39, 60%, 35%);
-  --color-warning-700: hsl(39, 60%, 30%);
-  --color-warning-800: hsl(39, 60%, 22%);
-  --color-warning-900: hsl(39, 60%, 12%);
-  --color-information-50: hsl(193, 60%, 90%);
-  --color-information-100: hsl(193, 60%, 75%);
-  --color-information-200: hsl(193, 60%, 60%);
-  --color-information-300: hsl(193, 60%, 50%);
-  --color-information-400: hsl(193, 60%, 45%);
-  --color-information-500: hsl(193, 72%, 40%);
-  --color-information-600: hsl(193, 60%, 35%);
-  --color-information-700: hsl(193, 60%, 30%);
-  --color-information-800: hsl(193, 60%, 22%);
-  --color-information-900: hsl(193, 60%, 12%);
-}
+/* @import "designtokens.css"; */
 
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
@@ -774,11 +678,6 @@ form button:focus {
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--color-tone-400);
-}
-
-:is(.dark .scrollbar)::-webkit-scrollbar-thumb {
-  background-color: var(--color-tone-900);
 }
 
 .scrollbar::-webkit-scrollbar-track {
@@ -925,10 +824,6 @@ form button:focus {
 
 .mt-0 {
   margin-top: 0px;
-}
-
-.mt-16 {
-  margin-top: 4rem;
 }
 
 .mt-2 {
@@ -1367,7 +1262,7 @@ form button:focus {
 }
 
 .rounded {
-  border-radius: 0.25rem;
+  border-radius: 3px;
 }
 
 .rounded-full {
@@ -1375,15 +1270,15 @@ form button:focus {
 }
 
 .rounded-lg {
-  border-radius: 0.5rem;
+  border-radius: 6px;
 }
 
 .rounded-md {
-  border-radius: 0.375rem;
+  border-radius: 4px;
 }
 
 .rounded-sm {
-  border-radius: 0.125rem;
+  border-radius: 2px;
 }
 
 .border {
@@ -1447,10 +1342,6 @@ form button:focus {
   border-color: rgb(45 212 191 / var(--tw-border-opacity));
 }
 
-.border-tone-100 {
-  border-color: var(--color-tone-100);
-}
-
 .border-transparent {
   border-color: transparent;
 }
@@ -1458,6 +1349,11 @@ form button:focus {
 .border-b-gray-200 {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(229 231 235 / var(--tw-border-opacity));
+}
+
+.bg-background {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-background) / var(--tw-bg-opacity));
 }
 
 .bg-black {
@@ -1477,10 +1373,6 @@ form button:focus {
 .bg-cyan-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(14 116 144 / var(--tw-bg-opacity));
-}
-
-.bg-error-300 {
-  background-color: var(--color-error-300);
 }
 
 .bg-fuchsia-600 {
@@ -1528,18 +1420,6 @@ form button:focus {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.bg-information-100 {
-  background-color: var(--color-information-100);
-}
-
-.bg-primary-100 {
-  background-color: var(--color-primary-100);
-}
-
-.bg-primary-800 {
-  background-color: var(--color-primary-800);
-}
-
 .bg-red-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
@@ -1568,22 +1448,6 @@ form button:focus {
 .bg-slate-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
-.bg-tone-100 {
-  background-color: var(--color-tone-100);
-}
-
-.bg-tone-200 {
-  background-color: var(--color-tone-200);
-}
-
-.bg-tone-50 {
-  background-color: var(--color-tone-50);
-}
-
-.bg-warning-200 {
-  background-color: var(--color-warning-200);
 }
 
 .bg-white {
@@ -1675,10 +1539,6 @@ form button:focus {
   fill: #0ea5e9;
 }
 
-.fill-tone-500 {
-  fill: var(--color-tone-500);
-}
-
 .fill-yellow-600 {
   fill: #ca8a04;
 }
@@ -1747,11 +1607,6 @@ form button:focus {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .pb-4 {
@@ -1939,16 +1794,9 @@ form button:focus {
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 
-.text-information-800 {
-  color: var(--color-information-800);
-}
-
-.text-primary-600 {
-  color: var(--color-primary-600);
-}
-
-.text-primary-700 {
-  color: var(--color-primary-700);
+.text-on-background {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-on-background) / var(--tw-text-opacity));
 }
 
 .text-red-500 {
@@ -1971,24 +1819,8 @@ form button:focus {
   color: rgb(15 118 110 / var(--tw-text-opacity));
 }
 
-.text-tone-300 {
-  color: var(--color-tone-300);
-}
-
-.text-tone-500 {
-  color: var(--color-tone-500);
-}
-
-.text-tone-600 {
-  color: var(--color-tone-600);
-}
-
 .text-transparent {
   color: transparent;
-}
-
-.text-warning-900 {
-  color: var(--color-warning-900);
 }
 
 .text-white {
@@ -2270,7 +2102,7 @@ pre[class*="language-"] {
 
 .before\:rounded-md::before {
   content: var(--tw-content);
-  border-radius: 0.375rem;
+  border-radius: 4px;
 }
 
 .before\:bg-cyan-600::before {
@@ -2317,7 +2149,7 @@ pre[class*="language-"] {
 
 .after\:rounded-md::after {
   content: var(--tw-content);
-  border-radius: 0.375rem;
+  border-radius: 4px;
 }
 
 .after\:bg-cyan-800::after {
@@ -2356,10 +2188,6 @@ pre[class*="language-"] {
   background-color: rgb(6 182 212 / 0.1);
 }
 
-.hover\:bg-primary-600:hover {
-  background-color: var(--color-primary-600);
-}
-
 .hover\:bg-sky-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(125 211 252 / var(--tw-bg-opacity));
@@ -2377,10 +2205,6 @@ pre[class*="language-"] {
 .hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-.hover\:text-primary-600:hover {
-  color: var(--color-primary-600);
 }
 
 .focus\:not-sr-only:focus {
@@ -2433,7 +2257,7 @@ pre[class*="language-"] {
 }
 
 :is(.dark .dark\:rounded-none) {
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 :is(.dark .dark\:border-none) {
@@ -2493,10 +2317,6 @@ pre[class*="language-"] {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:bg-tone-900) {
-  background-color: var(--color-tone-900);
-}
-
 :is(.dark .dark\:fill-gray-100) {
   fill: #f3f4f6;
 }
@@ -2521,11 +2341,6 @@ pre[class*="language-"] {
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
-:is(.dark .dark\:text-gray-300) {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
-}
-
 :is(.dark .dark\:text-gray-50) {
   --tw-text-opacity: 1;
   color: rgb(249 250 251 / var(--tw-text-opacity));
@@ -2539,10 +2354,6 @@ pre[class*="language-"] {
 :is(.dark .dark\:text-teal-100) {
   --tw-text-opacity: 1;
   color: rgb(204 251 241 / var(--tw-text-opacity));
-}
-
-:is(.dark .dark\:text-tone-200) {
-  color: var(--color-tone-200);
 }
 
 :is(.dark .dark\:text-white) {

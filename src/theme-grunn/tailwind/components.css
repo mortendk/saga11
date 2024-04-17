@@ -34,7 +34,7 @@
     @apply h-2 w-2;
   }
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-tone-400 dark:bg-tone-900;
+
   }
   .scrollbar::-webkit-scrollbar-track {
     background: transparent;

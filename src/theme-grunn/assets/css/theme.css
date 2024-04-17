@@ -1,0 +1,50 @@
+/* Thme does NOT need to be rgb seperated colors cause unless we want the alpha to be editable in TW    */
+:root {
+  --color-white: 250 250 250;
+  --color-black: 0 0 0;
+}
+
+[data-theme="default"]{
+  --color-background: 0 0 0;
+  --color-on-background: 250 250 250;
+
+  --color-on-background-link: {{ scheme.settings.colorscheme_on_background_link.rgb }};
+  --color-on-background-alt: {{ scheme.settings.colorscheme_on_background_alt.rgb }};
+
+  --color-surface: {{ scheme.settings.colorscheme_surface.rgb }};
+  --color-on-surface: {{ scheme.settings.colorscheme_on_surface.rgb }};
+  --color-on-surface-link: {{ scheme.settings.colorscheme_on_surface_link.rgb }};
+
+  --color-callout: {{ scheme.settings.colorscheme_callout.rgb }};
+  --color-on-callout: {{ scheme.settings.colorscheme_on_callout.rgb }};
+  --color-on-callout-link: {{ scheme.settings.colorscheme_on_background_link.rgb }};
+
+  --color-icon: {{ scheme.settings.colorscheme_icon.rgb }};
+  --color-tone: {{ scheme.settings.colorscheme_tone.rgb }};
+  --color-border: {{ scheme.settings.colorscheme_border.rgb }};
+
+  --color-form: {{ scheme.settings.colorscheme_form.rgb }};
+  --color-form-background: {{ scheme.settings.colorscheme_form_background.rgb }};
+  --color-form-on-background: {{ scheme.settings.colorscheme_form_on_background.rgb }};
+  --color-form-disabled: {{ scheme.settings.colorscheme_disabled.rgb }};
+  --color-form-on-disabled: {{ scheme.settings.colorscheme_on_disabled.rgb }};
+
+  --color-overlay: {{ scheme.settings.colorscheme_overlay.rgb }};
+  --color-on-overlay: {{ scheme.settings.colorscheme_on_overlay.rgb }};
+  --color-modalbackground: {{ scheme.settings.colorscheme_modalbackground.rgb }};
+
+  --color-button: {{ scheme.settings.colorscheme_button.rgb }};
+  --color-on-button: {{ scheme.settings.colorscheme_on_button.rgb }};
+  --color-button-border: {{ scheme.settings.colorscheme_button_border.rgb }};
+
+}
+
+[data-theme="dark"]{
+  --color-background: 50 50 50;
+  --color-on-background: 0 0 0;
+}
+
+[data-theme="tone"]{
+  --color-background: 220 0 220;
+  --color-on-background: 0 0 0;
+}

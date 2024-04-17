@@ -11,3 +11,10 @@ div.textContent = "FYI: When clicking play on the youtube video - youtube will s
 tube.forEach(function (element) {
   element.appendChild(div);
 });
+
+
+// const themeselector = document.querySelector(".themeselector");
+// themeselector.setAttribute("data-theme", "germany");
+// const theme = themeselector.getAttribute("data-theme");
+//
+// console.log(theme);
