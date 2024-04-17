@@ -135,7 +135,7 @@ module.exports = function (eleventyConfig) {
       // set path to absolute
       // resolvePath: (filepath) => path.join('src', filepath)
       // path relative
-      resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
+      // resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
     }
   ).use(markdownItAnchor, {} ).use(markdownItAttrs, {})
 

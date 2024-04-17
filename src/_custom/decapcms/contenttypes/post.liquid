@@ -11,10 +11,8 @@
     create: true
     delete: true
     # Sets the media foldes to be local to this root
-    media_folder: ''
-    public_folder: ''
     editor:
-      preview: false
+      preview: true
     summary: "{% raw %}{{title}} {{url.parent}} date:{{created}} {{card.image}}{% endraw %} "
     sortable_fields: ["title", "order", "created"]
     view_filters:
@@ -48,6 +46,14 @@
   allow_multiple: false,
   required: "false",
   hint: "image"
+%}
+
+{% include "_system/_decapcms/widgets/string.liquid",
+  name: "alt",
+  label: "alt",
+  default: "",
+  required: "false",
+  hint: "alt text"
 %}
 
 {% include "_system/_decapcms/widgets/markdown",

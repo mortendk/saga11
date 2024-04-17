@@ -4,13 +4,11 @@ saga-template-name: Frontpage
 ---
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->{%- endif -%}
 
-{% assign markdownpath = image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
-
 <article class="flex flex-col md:flex-row justify-between">
   <div class="w-full aspect-video overflow-hidden">
     {% if image %}
     <div class="animation-kenburns h-full bg-no-repeat bg-cover"
-          style="background-image: url({% render 'image/imageurl.liquid', file: image, markdownpath: markdownpath , widths: "1024" %})"
+          style="background-image: url({% render 'image/imageurl.liquid', file: image, widths: "1024" %})"
           >
       </div>
     {% endif %}

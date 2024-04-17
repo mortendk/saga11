@@ -54,7 +54,6 @@
     {% assign ogTitle = opengraph.title | default: title %}
     {% assign ogText =  opengraph.description | default: site.description %}
     {% assign ogImage = opengraph.image | default: image %}
-    {% assign ogMarkdownpath = ogImage  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
 
     {% if ogImage == blank %}
       {%- capture opengrapgimage -%}
@@ -62,7 +61,7 @@
       {%- endcapture -%}
     {% else %}
       {%- capture opengrapgimage -%}
-        {{ env.url }}{%- render 'image/imageurl.liquid', file: ogImage, markdownpath: ogMarkdownpath , widths: "1200" -%}
+        {{ env.url }}{%- render 'image/imageurl.liquid', file: ogImage, widths: "1200" -%}
       {%- endcapture -%}
     {% endif %}
 

@@ -23,10 +23,8 @@ saga-template-name: Pagination BragBlog
 
   {% capture img %}
     {% if item.data.image %}
-      {% assign markdownpath = item.data.image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
       {% render 'image/image.liquid',
         file: item.data.image,
-        markdownpath:  markdownpath,
         widths: "64",
         format: "webp",
         loading: "lazy",

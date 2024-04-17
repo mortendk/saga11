@@ -17,25 +17,23 @@ eleventyExcludeFromCollections: true
 
   <style>
     /* Workaround for text editor https://github.com/decaporg/decap-cms/issues/5092 */
-    textarea {
+    /* textarea {
       -webkit-user-modify: read-write !important;
     }
     [data-slate-editor] {
       -webkit-user-modify: read-write !important;
-    }
+    } */
 
     </style>
 
   <script>
     CMS.registerPreviewStyle("style.css");
-
     // COMPONENTS
-
-    // Image
+    // Image shortcode
     CMS.registerEditorComponent(
       {
-      id: "shortcode-image",
-      label: "Shortcode: image",
+      id: "shortcodeimage",
+      label: "Shortcode Image",
       collapsed: true,
       fields: [
         {
@@ -58,15 +56,15 @@ eleventyExcludeFromCollections: true
           hint: 'widths can be set as an array ex: 400, 800, 1200'
         }
       ],
-      pattern: /^{\% render "image.liquid" file:"(.*?)", alt:"(.*?)", widths:"(.*?)" \%}$/ms,
+      pattern: /^{\% render "image\/image.liquid" file:"(.*?)", alt:"(.*?)", widths:"(.*?)" \%}$/ms,
       fromBlock: function (match) {
         return {image: match[1], alt: match[2],widths: match[3]};
       },
       toBlock: function (data) {
-        return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}", widths:"${data.widths}" \%\}`;
+        return `\{\% render "image/image.liquid" file:"${data.image}", alt:"${data.alt}", widths:"${data.widths}" \%\}`;
       },
       toPreview: function (data) {
-        return `\{\% render "image.liquid" file:"${data.image}", alt:"${data.alt}"  \%\}`;
+        return `\{\% render "image/image.liquid" file:"${data.image}", alt:"${data.alt}"  \%\}`;
       }
     }
     );
@@ -128,8 +126,6 @@ eleventyExcludeFromCollections: true
       return `<video controls><source src="${data.file}"><\/video>`;
     }
   });
-
-
 
   </script>
 

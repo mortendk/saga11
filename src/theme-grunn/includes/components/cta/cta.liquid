@@ -24,10 +24,8 @@
 
   {% comment %}img {% endcomment %}
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-    {% assign markdownpath = component.image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
     {% render 'image/image.liquid',
       file: component.image,
-      markdownpath:  markdownpath,
       alt: component.alt,
       sizes: "(max-width: 640px) 50vw, 100vw",
       widths: "640, 1024, 1280",

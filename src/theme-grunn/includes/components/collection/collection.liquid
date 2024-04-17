@@ -37,15 +37,14 @@
       {% else %}
       {% assign loading = "lazy" %}
     {% endif %}
-
+    {{ image  }}
     {% render 'card.liquid',
         title: title,
         text: text,
         image: image,
         loading: loading
         url: item.url,
-        date: item.date,
-        markdownpath: item.inputPath
+        date: item.date
     %}
   {% endfor %}
 
