@@ -9,7 +9,7 @@
     "timeZone": "Europe/Copenhagen"
   },
   "scripts": {
-    "start": "npx netlify-cms-proxy-server & npm run watch",
+    "start": "npx decap-server & npm run watch",
     "clean": "rm -rf _site",
     "local-setup": "cp env-example .env",
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
