@@ -10,9 +10,6 @@
     preview_path: /{% raw %}{{url}}{% endraw %}/
     create: true
     delete: true
-    # Sets the media foldes to be local to this root
-    media_folder: "src/content/upload/"
-    public_folder: "/content/upload"
     editor:
       preview: false
     summary: "{% raw %}🏩 Title '{{title}}' Url: '{{url}}' {% endraw %} "
@@ -36,7 +33,6 @@
   hint: ""
 %}
 
-
 {% include "_system/_decapcms/widgets/string.liquid",
   name: "url",
   label: "url",
@@ -45,30 +41,7 @@
   hint: "ℹ️ if set to 'page-not-published' then the page will not be published ⚠️ Remeber this should be unique as pages are not prefixed with date etc - can be changed in page.json for permalink"
 %}
 
-{% include "_system/_decapcms/widgets/image.liquid",
-  name: "image",
-  label: "Image",
-  choose_url: true,
-  allow_multiple: false,
-  required: "false",
-  hint: ""
-%}
-
-{% include "_system/_decapcms/widgets/string.liquid",
-  name: "alt",
-  label: "alt",
-  default: "",
-  required: "false",
-  hint: "alt text"
-%}
-
-{% include "_system/_decapcms/widgets/string.liquid",
-  name: "photocredit",
-  label: "Photo Credit",
-  default: "",
-  required: "false",
-  hint: "alt text"
-%}
+{% render '_system/_decapcms/fields/primaryimage.liquid' %}
 
 {% include "_system/_decapcms/widgets/markdown.liquid",
   name: "body",

@@ -1,20 +1,13 @@
 ---
-order: 1
-opengraph:
-  title: "This is open graph "
-  description: "This is OG description "
-  image: ""
-layout: page/frontpage.liquid
-date: 2023-06-20 22:01:46
 title: Saga 11
 url: /
-image:
+image: /content/upload/helloworld.png
 components:
   - type: collection
     order: data.order
     size: 3
     template: components/collection/collection.liquid
-    collection: saga11
+    collection: frontpage
     title: Collection
     text: |-
       **bold** text
@@ -29,13 +22,19 @@ card:
   image: ""
   alt: spaceship
   text: The frontpage card that we use for sharing
-tags:
-  - saga11
+tags: []
+order: 1
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: main
   order: 0
   key: main
+opengraph:
+  title: "This is open graph "
+  description: "This is OG description "
+  image: ""
+layout: page/frontpage.liquid
+date: 2023-06-20 22:01:46
 seo:
   index: index
   follow: nofollow
@@ -61,4 +60,3 @@ seo:
 ```html
 <h2> code
 ```
-

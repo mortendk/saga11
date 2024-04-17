@@ -7,8 +7,7 @@ pagination:
   data: collections.contentfolderposts
 path: post
 layout: pagepagination/pagepagination.liquid
-image:
-  - /content/upload/faveicon.svg
+image: /content/upload/helloworld.png
 card:
   image: /content/upload/saga11icon.svg
 tags: []
