@@ -19,10 +19,8 @@
     {% assign gallery = component.images %}
     {% for item in gallery %}
     <div class="flex flex-col">
-      {% assign markdownpath = item.image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
       {% render 'image/image.liquid',
           file: item.image,
-          markdownpath:  markdownpath,
           alt: item.title,
           sizes: "(max-width: 640px) 50vw, 100vw",
           widths: "640, 1024, 1280",

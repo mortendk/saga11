@@ -7,5 +7,5 @@
         {% if hint %}hint: {{ hint }}{% endif %}
         media_library:
           config:
-            multiple: true
+            multiple: {% if allow_multiple %}true{% else  %}false{% endif %}
             media_folder: "src/content/upload/"

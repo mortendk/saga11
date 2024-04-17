@@ -1,15 +1,12 @@
 ---
 title: Hello World
-image: null
+image: /content/upload/helloworld.png
 card:
-  title: Hello World im a card
+  title: Hello World im a (post) card
   text: This is text in a card and used for sharing and teaser on the site
-tags:
-  - saga11
-  - rssfeed
+tags: []
 created: 11.11.2022T23:11
-authors:
-  - ragnar
+authors: []
 order: 1
 layout: post/post.liquid
 date: 2022-11-11 23:58:00
@@ -17,7 +14,7 @@ eleventyExcludeFromCollections: false
 ---
 # Hello there 🕺🏻
 
-This is a embedded youtube link with a warning if the user clicks it that google 
+This is a embedded youtube link with a warning if the user clicks it that google
 
 youtube.com/watch?v=dQw4w9WgXcQ
 
@@ -31,15 +28,21 @@ I want to add a file link ?
 
 <https://morten.dk>
 
+[](https://morten.dk)
 
+{% render "image/image.liquid" file:"/content/upload/helloworld.png", alt:"undefined", widths:"640" %}
+
+[](https://morten.dk)
+
+[](https://morten.dk)[](https://morten.dk)
+
+![](https://images.unsplash.com/photo-1625173925005-0043774fe954?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+{% render "image/image.liquid" file:"/content/upload/cs-logo-black-optical-kerning-outline.png", alt:"12313", widths:"640" %}
 
 # header {.text-5xl .text-red-500}
 
-![mega alt text](helloworld.png "foobar")
-
 This is probably the best description ever of a movie
-
-<a href="helloworld.md">12313"</a>
 
 > Space ship movie
 > Space ship people get up from sleeping coffin and have eat.

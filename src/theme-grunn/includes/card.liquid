@@ -9,7 +9,7 @@
     image: image,
     url: url,
     date: page.date,
-    markdownpath: item.inputPath
+
 %}
 
 {%
@@ -19,7 +19,7 @@
     image: item.data.card.image,
     url: item.url,
     date: item.date,
-    markdownpath: item.inputPath
+
   %}
 {% endcomment %}
 {%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/includes/card.liquid -->{%- endif -%}
@@ -31,7 +31,6 @@
     {% if image %}
       {% render 'image/image.liquid',
           file: image,
-          markdownpath: markdownpath,
           sizes: "(min-width: 30em) 50vw, 100vw",
           widths: "640, 1200",
           format: "webp",

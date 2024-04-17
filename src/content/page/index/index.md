@@ -9,7 +9,6 @@ date: 2023-06-20 22:01:46
 title: Saga 11
 url: /
 image:
-  - testimage.png
 components:
   - type: collection
     order: data.order
@@ -63,6 +62,3 @@ seo:
 <h2> code
 ```
 
-test image:
-
-![](testimage.png)

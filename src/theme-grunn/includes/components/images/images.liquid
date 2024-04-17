@@ -55,10 +55,9 @@
         <div aria-label="image" role="img" x-ref="slideitem{{ forloop.index }}" class="flex flex-shrink-0 overflow-auto relative md:aspect-video w-full h-full mr-2 snap-center transition"
           :class="isSliderOpen ? 'md:aspect-video justify-center items-center' : ''">
 
-          {% assign markdownpath = item.image  | prepend: '/' | prepend: page.inputPath | remove_last: page.fileSlug | remove: ".md/" %}
+
           {% render 'image/image.liquid',
             file: item.image,
-            markdownpath:  markdownpath,
             alt: item.title,
             sizes: "(max-width: 640px) 50vw, 100vw",
             widths: "640,1024, 1563",
@@ -86,7 +85,7 @@
         {% for item in gallery %}
         <div @click="$refs.slideitem{{ forloop.index }}.scrollIntoView(false)" class="">
           <div class="aspect-square overflow-hidden w-16 bg-slate-500">
-            {% render 'image/image.liquid',file: item.image, markdownpath:  markdownpath, alt: item.title, widths: "200", format: "webp",loading: "lazy", css: "w-full" %}
+            {% render 'image/image.liquid',file: item.image, alt: item.title, widths: "200", format: "webp",loading: "lazy", css: "w-full" %}
           </div>
           <div>
             {{ item.title }}

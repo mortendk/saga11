@@ -7,14 +7,18 @@ pagination:
   data: collections.contentfolderposts
 path: post
 layout: pagepagination/pagepagination.liquid
-image: ""
+image:
+  - /content/upload/faveicon.svg
+card:
+  image: /content/upload/saga11icon.svg
+tags: []
 order: 1
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: Post
   parent: main
   icon: ""
-  text: Blög og skriverier
+  text: pageination pagetype
 seo:
   index: index
   follow: nofollow
