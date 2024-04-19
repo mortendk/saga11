@@ -24,7 +24,7 @@ saga-template-name: Page pagination
 {%- if env.mode != 'prod' %}<!-- 👋 src/theme-grunn/layouts/pagepagination/pagepagination.liquid -->{%- endif -%}
 <section class="pagewidth grid grid-cols-1 lg:grid-cols-3 gap-3">
 
-{% assign all = contentcollection | sort: "date" | reverse  %}
+{% assign all = contentcollection | sort: "data.created" | reverse  %}
 {% for item in all %}
   {% assign title = item.data.card.title | default: item.data.title %}
   {% assign image = item.data.card.image | default: item.data.image %}
