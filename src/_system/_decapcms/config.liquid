@@ -20,13 +20,24 @@ slug:
   clean_accents: true
   sanitize_replacement: "-"
 
+# Media
 media_folder: "src/content/upload/"
 public_folder: "/content/upload"
 
-#media_library:
-#  name: uploadcare
-#  config:
-#    publicKey: demopublickey
+{% if env.decapcmsmedialibrary == "uploadcare" %}
+media_library:
+  name: uploadcare
+  config:
+    publicKey: {{ env.uploadcarekey }}
+{% endif %}
+
+{% if env.decapcmsmedialibrary == "cloudinary" %}
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: {{ env.cloudinaryname }}
+    api_key:    {{ env.cloudinarykey }}
+{% endif %}
 
 collections:
 {% include "_custom/decapcms/collections.liquid" %}
