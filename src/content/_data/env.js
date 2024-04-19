@@ -5,6 +5,7 @@ module.exports = {
   url: process.env.SITE_URL || "http://localhost:3791",
   siteport: process.env.SITE_PORT || "3791",
   decapcmsport: process.env.PORT || "8082",
+  decapcmsworkflow: process.env.DECAP_WORKFLOW || "simple",
   branch: process.env.BRANCH || "main",
   root: process.env.ELEVENTY_ROOT,
   source: process.env.ELEVENTY_SOURCE,

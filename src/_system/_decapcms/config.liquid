@@ -9,18 +9,24 @@ local_backend:
   # when using a custom proxy server port
   url: http://localhost:{{ env.decapcmsport }}/api/v1
 #SETTINGS
+publish_mode: {{ env.decapcmsworkflow }}
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/img/icon-admin.png
 display_url: {{ env.url }}
 search: true
-# publish_mode: editorial_workflow
 show_preview_links: true
 slug:
   encoding: "ascii"
   clean_accents: true
   sanitize_replacement: "-"
+
 media_folder: "src/content/upload/"
 public_folder: "/content/upload"
+
+#media_library:
+#  name: uploadcare
+#  config:
+#    publicKey: demopublickey
 
 collections:
 {% include "_custom/decapcms/collections.liquid" %}
