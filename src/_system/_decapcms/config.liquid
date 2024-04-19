@@ -7,9 +7,8 @@ backend:
   branch: {{ env.branch }}
 local_backend:
   url: http://localhost:{{ env.decapcmsport }}/api/v1
-
-publish_mode: editorial_workflow    # Add these lines without any indentation
-
+#SETTINGS
+publish_mode: {{ env.decapcmsworkflow }}
 site_url: {{ env.url }}
 logo_url: {{ env.url }}/assets/img/icon-admin.png
 display_url: {{ env.url }}
@@ -19,8 +18,25 @@ slug:
   encoding: "ascii"
   clean_accents: true
   sanitize_replacement: "-"
+
+# Media
 media_folder: "src/content/upload/"
 public_folder: "/content/upload"
+
+{% if env.decapcmsmedialibrary == "uploadcare" %}
+media_library:
+  name: uploadcare
+  config:
+    publicKey: {{ env.uploadcarekey }}
+{% endif %}
+
+{% if env.decapcmsmedialibrary == "cloudinary" %}
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: {{ env.cloudinaryname }}
+    api_key:    {{ env.cloudinarykey }}
+{% endif %}
 
 collections:
 {% include "_custom/decapcms/collections.liquid" %}
@@ -31,7 +47,8 @@ collections:
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'posttemplates', path: "layouts/post", theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'tagtemplates',  path: "layouts/tag",  theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'pagepaginationTemplates',  path: "layouts/pagepagination",  theme: theme %}
-# Componenets
+
+# Componenets List
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplatePagecard', path: "includes/components/pagecard", theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateCollection', path: 'includes/components/collection', theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateImages', path: 'includes/components/images', theme: theme %}
@@ -46,5 +63,3 @@ collections:
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateTestamonial', path: 'includes/components/testamonial', theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplatePrice', path: 'includes/components/price', theme: theme %}
 {% include '_system/_decapcms/widgets/template-collection.liquid', name: 'componentTemplateLink', path: 'includes/components/link', theme: theme %}
-
-
