@@ -2,7 +2,12 @@
 title: Saga 11
 url: /
 image: /content/upload/helloworld.png
+alt: alt text
+photocredit: photosrecite
 components:
+  - type: text
+    template: components/text/text.liquid
+    text: text component
   - type: collection
     order: data.order
     size: 3
