@@ -1,7 +1,7 @@
 {
   "name": "saga11",
-  "version": "0.9.3.2beta",
-  "description": "Website builder based on 11ty & Decap CMS",
+  "version": "0.9.3.3beta",
+  "description": "Website builder build with 11ty & Decap CMS",
   "main": "eleventy.config.js",
   "config": {
     "theme": "theme-grunn",
