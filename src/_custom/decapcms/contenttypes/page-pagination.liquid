@@ -11,7 +11,7 @@
     create: true
     delete: true
     editor:
-      preview: false
+      preview: true
     summary: "{% raw %}🏩 Title '{{title}}' {{pagination.data}} Url: '{{path}}' {% endraw %} "
     sortable_fields: ["url", "title", "order"]
     view_filters:
@@ -43,7 +43,7 @@
   hint: "the prefix for the paginated pages fx[path]/[number] ⛔️ Make sure the prefix dont collide with an existing url ℹ️ if set to 'page-not-published' then the page will not be published ⚠️ Remeber this should be unique as pages are not prefixed with date etc - can be changed in page.json for permalink"
 %}
 
-{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagepaginationTemplates', folder: "pagepagination", default: 'pagepagination/pagepagination.liquid' %}
+
 
 {% render '_system/_decapcms/fields/primaryimage.liquid' %}
 
@@ -85,3 +85,4 @@
 
 {% include "_system/_decapcms/fields/seo.liquid" %}
 
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagepaginationTemplates', folder: "pagepagination", default: 'pagepagination/pagepagination.liquid' %}

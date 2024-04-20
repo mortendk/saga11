@@ -9,7 +9,7 @@ path: post
 layout: pagepagination/pagepagination.liquid
 image: /content/upload/helloworld.png
 card:
-  image: /content/upload/saga11icon.svg
+  image: ""
 tags: []
 order: 1
 eleventyExcludeFromCollections: false
