@@ -29,8 +29,6 @@ const embedEverything = require("eleventy-plugin-embed-everything");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const criticalCss = require("eleventy-critical-css");
 
-
-
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -91,7 +89,7 @@ module.exports = function (eleventyConfig) {
   //faveicon
   eleventyConfig.addPassthroughCopy({ ["src" + site.icon ] : "icon.svg"});
 
-
+  eleventyConfig.addPassthroughCopy({"src/_system/_decapcms/decapcms.css" : "/admin/decapcms.css"});
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
   eleventyConfig.addGlobalData("theme", theme);

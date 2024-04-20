@@ -1,22 +1,33 @@
 ---
-alt: saga11 logo
-created: 11.11.2022T23:11
-authors:
-  - ragnar
-order: 1
-layout: post/post.liquid
-date: 2022-11-11 23:58:00
 title: Hello World
 image: /content/upload/helloworld.png
+alt: saga11 logo
+photocredit: photosreviets
 card:
   title: Hello World im a (post) card
   text: This is text in a card and used for sharing and teaser on the site
 tags:
   - frontpage
   - rssfeed
+created: 11.11.2022T23:11
+authors:
+  - ragnar
+order: 1
 eleventyExcludeFromCollections: false
+opengraph:
+  title: open graph title
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. "
+  image: /content/upload/opengraph.png
+layout: post/post.liquid
+date: 2022-11-11 23:58:00
+seo:
+  title: seo
+  description: seo text
 ---
-# Hello there 🕺🏻
+## Hello there 🕺🏻
 
 This is a embedded youtube link with a warning if the user clicks it that google
 
@@ -39,8 +50,6 @@ I want to add a file link ?
 [](https://morten.dk)
 
 [](https://morten.dk)[](https://morten.dk)
-
-
 
 # header {.text-5xl .text-red-500}
 
@@ -73,6 +82,3 @@ This is *italic* and this is **bold** and this is a [link](https://saga11.dev)
 
 {.w-full}
 
-external image
-
-![Always add an alt text](https://images.unsplash.com/photo-1488145842571-f4b346304162?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "image title")

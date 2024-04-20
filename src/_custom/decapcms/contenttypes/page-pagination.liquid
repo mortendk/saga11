@@ -11,7 +11,7 @@
     create: true
     delete: true
     editor:
-      preview: false
+      preview: true
     summary: "{% raw %}🏩 Title '{{title}}' {{pagination.data}} Url: '{{path}}' {% endraw %} "
     sortable_fields: ["url", "title", "order"]
     view_filters:
@@ -44,9 +44,6 @@
 %}
 
 
-
-
-{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagepaginationTemplates', folder: "pagepagination", default: 'pagepagination/pagepagination.liquid' %}
 
 {% render '_system/_decapcms/fields/primaryimage.liquid' %}
 
@@ -88,3 +85,4 @@
 
 {% include "_system/_decapcms/fields/seo.liquid" %}
 
+{% include '_system/_decapcms/widgets/template-relation.liquid', collection: 'pagepaginationTemplates', folder: "pagepagination", default: 'pagepagination/pagepagination.liquid' %}

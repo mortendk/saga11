@@ -15,19 +15,41 @@ eleventyExcludeFromCollections: true
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <style>
-    /* Workaround for text editor https://github.com/decaporg/decap-cms/issues/5092 */
-    /* textarea {
-      -webkit-user-modify: read-write !important;
-    }
-    [data-slate-editor] {
-      -webkit-user-modify: read-write !important;
-    } */
-
-    </style>
-
   <script>
-    CMS.registerPreviewStyle("style.css");
+    // get the css
+    CMS.registerPreviewStyle("decapcms.css");
+
+    // Post
+    var PostPreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var image = entry.getIn(['data', 'image']);
+        var bg = this.props.getAsset(image);
+        return h('div', {},
+          h('div', {"className": "alt"}, '👩‍💻'),
+
+          h('h2', {}, entry.getIn(['data', 'title'])),
+
+
+        this.props.widgetsFor('tags').map(function(tag, index) {
+          return h('div', {key: index},
+            h('div', {"className": "alt"}, '🏷️'),
+            h('strong', {}, tag.getIn(['data', 'title'])),
+            tag.getIn(['widgets', 'description'])
+          );
+        }),
+
+          h('div', {}, 'PHOTO'),
+          h('img', {src: bg.toString()}),
+          h('div', {"className": "alt"}, entry.getIn(['data', 'alt'])),
+          h('div', {"className": "alt"}, entry.getIn(['data', 'photocredit'])),
+          h('div', {"className": "markdown"}, this.props.widgetFor('body'))
+        );
+      }
+    });
+
+    // CMS.registerPreviewTemplate("post", PostPreview);
+
     // COMPONENTS
     // Image shortcode
     CMS.registerEditorComponent(

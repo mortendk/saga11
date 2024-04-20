@@ -1,0 +1,39 @@
+/* decapcms styles */
+body{
+  background-color: antiquewhite;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 1rem
+}
+
+h1{
+  color: chocolate;
+}
+
+img {
+  width: 75%
+}
+
+
+div:has( > strong ) {
+  margin-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed gray;
+
+}
+
+strong {
+  color:red;
+  font-size: 0.8rem;
+  display: block;
+}
+
+.markdown {
+  background-color: hotpink;
+}
+
+
+.css-1mexsh4-WidgetPreviewContainer:has(.css-1mexsh4-WidgetPreviewContainer){
+  border: 1px solid brown;
+  padding: 1rem;
+  margin: 1rem 0;
+}
