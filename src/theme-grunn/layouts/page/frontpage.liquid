@@ -4,6 +4,22 @@ saga-template-name: Frontpage
 ---
 {%- if env.mode != 'prod' %}<!-- 👋 sections src/theme-grunn/layouts/page/frontpage.liquid -->{%- endif -%}
 
+
+{% mastodon "https://mastodon.social/deck/@mortendk/112297516536989168" %}
+{% youtube "https://youtu.be/wgLvQlqc-Xw?si=g2LUXU5eP5Bq4ESL" %}
+{% vimeo "https://vimeo.com/928505095" %}
+
+<div
+  data-service="twitter"
+  data-id="1429246345668304898"
+  data-title="twitter"
+  data-thumbnail="/assets/img/icon-admin.png"
+  data-widget
+    style="height: 285px;">
+</div>
+
+
+
 <article class="flex flex-col md:flex-row justify-between">
   <div class="w-full aspect-video overflow-hidden">
     {% if image %}
