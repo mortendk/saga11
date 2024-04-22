@@ -57,6 +57,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("vimeo", require("./src/_system/11ty/shortcode/vimeo.js"));
   eleventyConfig.addShortcode("mastodon", require("./src/_system/11ty/shortcode/mastodon.js"));
 
+
   // Filters
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
   eleventyConfig.addFilter("slugify", require("./src/_system/11ty/filter/slugify.js"));
@@ -88,12 +89,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/assets/"] : "/assets/"});
   eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
 
+  //upload files ... TODO cleanup
   eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
 
   //faveicon
   eleventyConfig.addPassthroughCopy({ ["src" + site.icon ] : "icon.svg"});
-
+  // decap
   eleventyConfig.addPassthroughCopy({"src/_system/_decapcms/decapcms.css" : "/admin/decapcms.css"});
+
+  eleventyConfig.addPassthroughCopy({"src/_system/assets-saga11/" : "/assets-saga11/"});
+
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
   eleventyConfig.addGlobalData("theme", theme);
