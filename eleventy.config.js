@@ -23,7 +23,7 @@ const markdownIt = require('markdown-it');
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
 const markdownItAnchor = require('markdown-it-anchor');
 
-const embedEverything = require("eleventy-plugin-embed-everything");
+// const embedEverything = require("eleventy-plugin-embed-everything");
 
 //minify + critical
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
@@ -52,6 +52,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("imagefavicon", require("./src/_system/11ty/shortcode/image-favicon.js"));
   eleventyConfig.addShortcode("calendar", require("./src/_system/11ty/shortcode/calendarlinks.js"));
   eleventyConfig.addShortcode("datediff", require("./src/_system/11ty/shortcode/datediff.js"));
+
+  eleventyConfig.addShortcode("youtube", require("./src/_system/11ty/shortcode/youtube.js"));
+  eleventyConfig.addShortcode("vimeo", require("./src/_system/11ty/shortcode/vimeo.js"));
+  eleventyConfig.addShortcode("mastodon", require("./src/_system/11ty/shortcode/mastodon.js"));
 
   // Filters
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
@@ -141,28 +145,28 @@ module.exports = function (eleventyConfig) {
 
   // Embed
   // https://github.com/gfscott/eleventy-plugin-embed-everything/tree/main/packages/everything
-  eleventyConfig.addPlugin(embedEverything, {
-    use: ['youtube'],
-    youtube: {
-      options: {
-        lite: {
-          css: {
-            enabled: true,
-            inline: true
-          },
-          js: {
-            inline: true
-          }
-        },
-        embedClass: 'md-youtube'
-      }
-    },
-    vimeo: {
-      options: {
-        embedClass: 'md-video'
-      }
-    }
-  });
+  // eleventyConfig.addPlugin(embedEverything, {
+  //   use: ['youtube'],
+  //   youtube: {
+  //     options: {
+  //       lite: {
+  //         css: {
+  //           enabled: true,
+  //           inline: true
+  //         },
+  //         js: {
+  //           inline: true
+  //         }
+  //       },
+  //       embedClass: 'md-youtube'
+  //     }
+  //   },
+  //   vimeo: {
+  //     options: {
+  //       embedClass: 'md-video'
+  //     }
+  //   }
+  // });
 
 
   // HTML minify
