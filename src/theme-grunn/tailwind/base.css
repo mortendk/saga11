@@ -14,3 +14,17 @@
     @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
   }
 }
+
+/*
+
+.char {
+  filter: blur(calc(1rem * var(--blur, 1)));
+  transition: filter var(--speed, 5s);
+}
+
+.char:hover {
+  --blur: 0;
+  --speed: 0.1s;
+}
+
+*/

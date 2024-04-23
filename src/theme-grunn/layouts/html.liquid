@@ -81,6 +81,9 @@
       <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     {% endif -%}
 
+    {% comment %} https://github.com/orestbida/iframemanager {% endcomment %}
+    <link rel="stylesheet" href="/assets-saga11/css/iframemanager.css">
+
     {% comment %}title {% endcomment %}
     {% if page.url == "/" %}
       <title>{{ seo.title | default: site.title }}</title>
@@ -90,8 +93,11 @@
 
   </head>
 
+
   {{ content }}
 
+
+  </div>
   {% comment %}Service worker{% endcomment %}
   <script>
     if (navigator && navigator.serviceWorker) {
@@ -101,7 +107,10 @@
     }
   </script>
 
-    <script src="/assets/js/saga11.js" defer></script>
+    <script src="/assets-saga11/js/iframemanager.js" defer></script>
+    <script src="/assets-saga11/js/iframemanager-settings.js" defer></script>
+    <script src="/assets-saga11/js/saga11.js" defer></script>
+
     <script src="/assets/js/alpine-intersect.min.js" defer></script>
     <script src="/assets/js/alpine-persist.min.js" defer></script>
     <script src="/assets/js/alpine3.13.7.min.js" defer></script>
