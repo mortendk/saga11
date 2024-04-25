@@ -1,6 +1,6 @@
 {
   "name": "saga11",
-  "version": "0.9.3.3beta",
+  "version": "0.9.3.4beta",
   "description": "Website builder build with 11ty & Decap CMS",
   "main": "eleventy.config.js",
   "config": {
