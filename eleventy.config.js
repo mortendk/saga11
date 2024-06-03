@@ -2,8 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const util = require('util');
 
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-
 const env = require("./src/content/_data/env.js");
 const site = require("./src/content/_data/site.json");
 const package = require("./package.json");
