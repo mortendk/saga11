@@ -1,13 +1,29 @@
 ---
+alt: alt text
+photocredit: taken by foobar
+order: 1
+opengraph:
+  title: "This is open graph "
+  description: "This is OG description "
+  image: ""
+layout: page/frontpage.liquid
+date: 2023-06-20 22:01:46
 title: Saga 11
 url: /
 image: /content/upload/helloworld.png
-alt: alt text
-photocredit: photosrecite
 components:
   - type: text
     template: components/text/text.liquid
-    text: text component
+    text: |-
+      text component
+
+      **bold** text
+
+      ## title {.text-red-500}
+
+      ```html
+      <h2> code
+      ```
   - type: collection
     order: data.order
     size: 3
@@ -15,6 +31,7 @@ components:
     collection: frontpage
     title: Collection
     text: |-
+      text component in collection
       **bold** text
 
       ## title {.text-red-500}
@@ -28,18 +45,11 @@ card:
   alt: spaceship
   text: The frontpage card that we use for sharing
 tags: []
-order: 1
 eleventyExcludeFromCollections: false
 eleventyNavigation:
   title: main
   order: 0
   key: main
-opengraph:
-  title: "This is open graph "
-  description: "This is OG description "
-  image: ""
-layout: page/frontpage.liquid
-date: 2023-06-20 22:01:46
 seo:
   index: index
   follow: nofollow
@@ -60,8 +70,14 @@ seo:
 
 🪲 bugs & comments [github](https://github.com/mortendk/saga11)
 
+inline class
 ## title {.text-red-500}
 
 ```html
 <h2> code
 ```
+
+
+{% mastodon "https://mastodon.social/deck/@mortendk/112297516536989168" %}
+{% youtube "https://youtu.be/wgLvQlqc-Xw?si=g2LUXU5eP5Bq4ESL" %}
+{% vimeo "https://vimeo.com/928505095" %}
