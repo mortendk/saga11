@@ -12,8 +12,9 @@ probably a geek so you know this ;)
 1. Enviroment setup
 
 ```
-$ npm  run setup
+$ npm  run local-setup
 ```
+
 open the /.env for port settings and gitbranch
 
 2. Install Saga11
@@ -46,6 +47,7 @@ $ npm run cleanup
 ```
 
 ## Admin access online
+
 https://docs.netlify.com/visitor-access/identity/
 
 ## Static Sites FTW
