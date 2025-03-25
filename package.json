@@ -15,6 +15,7 @@
     "watch": "npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "watch:prod": "ELEVENTY_ENV=prod npx @11ty/eleventy --serve --quiet & npm run tw:watch",
     "build": "npm run tw:build && npm run 11ty:build",
+    "11ty:watch": "npx @11ty/eleventy --serve",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
     "tw:build": "npx tailwindcss/cli -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.min.css --minify",
