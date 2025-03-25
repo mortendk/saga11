@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const util = require('util');
+const util = require("util");
 
 const env = require("./src/content/_data/env.js");
 const site = require("./src/content/_data/site.json");
@@ -17,17 +17,17 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("@uncenter/eleventy-plugin-toc");
 
-const markdownIt = require('markdown-it');
+const markdownIt = require("markdown-it");
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
-const markdownItAnchor = require('markdown-it-anchor');
-
-// const embedEverything = require("eleventy-plugin-embed-everything");
+const markdownItAnchor = require("markdown-it-anchor");
 
 //minify + critical
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const criticalCss = require("eleventy-critical-css");
 
 module.exports = function (eleventyConfig) {
+  console.log("🎈11ty mode:", env.mode);
+
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -39,8 +39,8 @@ module.exports = function (eleventyConfig) {
     ignoredElements: [], // the elements (within the headings) to ignore when generating the TOC (list of selectors)
     ul: true, // whether to a use ul or ol
     wrapper: function (toc) {
-        // the wrapper to use around the generated TOC
-        return `${toc}`;
+      // the wrapper to use around the generated TOC
+      return `${toc}`;
     },
   });
 
@@ -54,7 +54,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("youtube", require("./src/_system/11ty/shortcode/youtube.js"));
   eleventyConfig.addShortcode("vimeo", require("./src/_system/11ty/shortcode/vimeo.js"));
   eleventyConfig.addShortcode("mastodon", require("./src/_system/11ty/shortcode/mastodon.js"));
-
 
   // Filters
   eleventyConfig.addFilter("markdown", require("./src/_system/11ty/filter/markdown.js"));
@@ -72,9 +71,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
 
   // Dump & Debug
-  eleventyConfig.addFilter('dump', function(value) {
+  eleventyConfig.addFilter("dump", function (value) {
     const str = util.inspect(value);
-    return `<pre style="white-space: pre-wrap; background: #eee; color: #666; padding: 1rem; border: 1px dashed #ccc">${unescape(str)}</pre>`
+    return `<pre style="white-space: pre-wrap; background: #eee; color: #666; padding: 1rem; border: 1px dashed #ccc">${unescape(
+      str
+    )}</pre>`;
   });
 
   eleventyConfig.addFilter("debug", require("./src/_system/11ty/filter/debug.js"));
@@ -84,24 +85,25 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("styleguide", require("./src/_system/11ty/collection/styleguide.js"));
 
   // Fix placement of files
-  eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/assets/"] : "/assets/"});
-  eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"] : "service-workers.js"});
+  eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/assets/"]: "/assets/" });
+  eleventyConfig.addPassthroughCopy({ ["src/" + theme + "/service-workers.js"]: "service-workers.js" });
 
   //upload files ... TODO cleanup
-  eleventyConfig.addPassthroughCopy({"src/content/upload/" : "/content/upload/"});
+  eleventyConfig.addPassthroughCopy({ "src/content/upload/": "/content/upload/" });
 
   //faveicon
-  eleventyConfig.addPassthroughCopy({ ["src" + site.icon ] : "icon.svg"});
+  eleventyConfig.addPassthroughCopy({ ["src" + site.icon]: "icon.svg" });
   // decap
-  eleventyConfig.addPassthroughCopy({"src/_system/_decapcms/decapcms.css" : "/admin/decapcms.css"});
+  eleventyConfig.addPassthroughCopy({ "src/_system/_decapcms/decapcms.css": "/admin/decapcms.css" });
 
-  eleventyConfig.addPassthroughCopy({"src/_system/assets-saga11/" : "/assets-saga11/"});
+  eleventyConfig.addPassthroughCopy({ "src/_system/assets-saga11/": "/assets-saga11/" });
 
   // Global varibles
   eleventyConfig.addGlobalData("saga11version", saga11version);
   eleventyConfig.addGlobalData("theme", theme);
   eleventyConfig.addGlobalData("timezone", timeZone);
   eleventyConfig.addGlobalData("dateLocalize", dateLocalize);
+  eleventyConfig.addGlobalData("env", env);
 
   // Local Server
   eleventyConfig.setServerOptions({
@@ -115,35 +117,37 @@ module.exports = function (eleventyConfig) {
     strict_filters: true,
   });
 
-  let markdownItAttrs = require('markdown-it-attrs');
+  let markdownItAttrs = require("markdown-it-attrs");
 
   // Markdown IT
-  eleventyConfig.setLibrary('md', markdownIt ({
-    html: true,
-    breaks: true,
-    linkify: true,
-    typographer: true
-  }).use(
-    markdownItEleventyImg, {
-      imgOptions: {
-        widths: [640, 1200, 1500],
-        urlPath: "/img",
-        outputDir: "./_site/img/",
-        formats: ["webp"]
-      },
-      globalAttributes: {
-        class: "md-image",
-        decoding: "async",
-        loading: "lazy",
-        sizes: "(min-width: 30em) 50vw, 100vw"
-      },
-      // set path to absolute
-      // resolvePath: (filepath) => path.join('src', filepath)
-      // path relative
-      // resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
-    }
-  ).use(markdownItAnchor, {} ).use(markdownItAttrs, {})
-
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt({
+      html: true,
+      breaks: true,
+      linkify: true,
+      typographer: true,
+    })
+      .use(markdownItEleventyImg, {
+        imgOptions: {
+          widths: [640, 1200, 1500],
+          urlPath: "/img",
+          outputDir: "./_site/img/",
+          formats: ["webp"],
+        },
+        globalAttributes: {
+          class: "md-image",
+          decoding: "async",
+          loading: "lazy",
+          sizes: "(min-width: 30em) 50vw, 100vw",
+        },
+        // set path to absolute
+        // resolvePath: (filepath) => path.join('src', filepath)
+        // path relative
+        // resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
+      })
+      .use(markdownItAnchor, {})
+      .use(markdownItAttrs, {})
   );
 
   // Embed
@@ -171,15 +175,14 @@ module.exports = function (eleventyConfig) {
   //   }
   // });
 
-
   // HTML minify
   if (env.mode == "prod") {
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
     eleventyConfig.addPlugin(criticalCss, {
-      dimensions : [
+      dimensions: [
         { width: 414, height: 896 },
-        { width: 1920, height: 1080 }
-      ]
+        { width: 1920, height: 1080 },
+      ],
     });
   }
 
