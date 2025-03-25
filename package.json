@@ -17,8 +17,8 @@
     "build": "npm run tw:build && npm run 11ty:build",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
-    "tw:build": "npx tailwindcss -c src/${npm_package_config_theme}/tailwind.config.js -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.min.css --minify",
-    "tw:watch": "npx tailwindcss -c src/${npm_package_config_theme}/tailwind.config.js -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.css --watch",
+    "tw:build": "npx tailwindcss/cli -c src/${npm_package_config_theme}/tailwind.config.js -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.min.css --minify",
+    "tw:watch": "npx tailwindcss/cli -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.css --watch",
     "upgrade": "npm install @11ty/eleventy@latest & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/forms@latest & npx update-browserslist-db@latest"
   },
   "keywords": [],
@@ -33,9 +33,10 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
     "@sherby/eleventy-plugin-files-minifier": "^1.1.1",
     "markdown-it-eleventy-img": "^0.10.1",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^4.0.16"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.16",
     "@tailwindcss/container-queries": "^0.1.1",
     "@uncenter/eleventy-plugin-toc": "^1.0.2",
     "calendar-link": "^2.2.0",
