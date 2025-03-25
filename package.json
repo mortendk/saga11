@@ -17,9 +17,10 @@
     "build": "npm run tw:build && npm run 11ty:build",
     "11ty:build": "ELEVENTY_ENV=prod eleventy",
     "11ty:debug": "ELEVENTY_ENV=prod DEBUG=* eleventy",
-    "tw:build": "npx tailwindcss/cli -c src/${npm_package_config_theme}/tailwind.config.js -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.min.css --minify",
+    "tw:build": "npx tailwindcss/cli -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.min.css --minify",
     "tw:watch": "npx tailwindcss/cli -i src/${npm_package_config_theme}/tailwind/tailwind.css -o src/${npm_package_config_theme}/assets/css/style.css --watch",
-    "upgrade": "npm install @11ty/eleventy@latest & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/forms@latest & npx update-browserslist-db@latest"
+    "upgrade": "npm install @11ty/eleventy@latest & npm install -D tailwindcss@latest & npm install -D  @tailwindcss/forms@latest & npx update-browserslist-db@latest",
+    "echo-theme": "echo ${npm_package_config_theme}"
   },
   "keywords": [],
   "author": "mortendk",

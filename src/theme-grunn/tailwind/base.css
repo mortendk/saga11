@@ -1,9 +1,29 @@
-@tailwind base;
+@import 'tailwindcss/theme' layer(theme);
+
+@import 'tailwindcss/preflight' layer(base);
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   /* a11y  */
   a {
-    @apply focus:border-tabcolor hover:cursor-pointer focus:border focus:border-dashed focus:outline-none;
+    @apply focus:border-tabcolor hover:cursor-pointer focus:border focus:border-dashed focus:outline-hidden;
   }
 
   h2 {
@@ -11,7 +31,7 @@
   }
 
   form button {
-    @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
+    @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-hidden;
   }
 }
 
