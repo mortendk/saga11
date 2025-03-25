@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-module.exports = {
+const envConfig = {
   mode: process.env.ELEVENTY_ENV || "prod",
   url: process.env.SITE_URL || "http://localhost:3791",
   siteport: process.env.SITE_PORT || "3791",
@@ -17,3 +17,5 @@ module.exports = {
   cloudinaryname: process.env.CLOUDINARY_NAME,
   cloudinarykey: process.env.CLOUDINARY_KEY,
 };
+
+module.exports = envConfig;
