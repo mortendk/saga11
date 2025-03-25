@@ -4,6 +4,13 @@
 
 
 <nav class="flex flex-wrap flex-grow gap-4 my-4" aria-label="Menu Social media links">
+  {% if some.bluesky %}
+    <a href="{{ some.bluesky }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
+      <span class="sr-only">Bluesky</span>
+      {% render "some/bluesky.svg" %}
+    </a>
+  {% endif %}
+
 
   {% if some.mastodon %}
     <a href="{{ some.mastodon }}" target="_blank" rel="noopener noreferrer nofollow" class="{{css}}">
