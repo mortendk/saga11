@@ -1,42 +1,42 @@
-@tailwind components;
+@utility center-center {
+  @apply flex items-center justify-center;
+}
+
+@utility pagewidth {
+  @apply mx-auto
+      w-full
+      px-2
+      lg:max-w-(--breakpoint-lg)
+      lg:px-0
+      xl:max-w-(--breakpoint-xl)
+      2xl:max-w-(--breakpoint-2xl);
+}
+
+@utility fullwidth {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+@utility sr-tab {
+  @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-hidden;
+}
+
+@utility scrollbar {
+  &::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-tone-400 dark:bg-tone-900;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
 
 @layer components {
   /* alpinejs helper */
   [x-cloak] {
     display: none;
-  }
-
-  .center-center {
-    @apply flex items-center justify-center;
-  }
-
-  .pagewidth {
-    @apply mx-auto
-      w-full
-      px-2
-      lg:max-w-screen-lg
-      lg:px-0
-      xl:max-w-screen-xl
-      2xl:max-w-screen-2xl;
-  }
-
-  .fullwidth {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .sr-tab {
-    @apply focus:border-tabcolor focus:border focus:border-dashed focus:outline-none;
-  }
-
-  .scrollbar::-webkit-scrollbar {
-    @apply h-2 w-2;
-  }
-  .scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-tone-400 dark:bg-tone-900;
-  }
-  .scrollbar::-webkit-scrollbar-track {
-    background: transparent;
   }
 }

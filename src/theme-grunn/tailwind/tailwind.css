@@ -4,16 +4,4 @@ Settings and definitions are in tailwin.config.js
 Colors are defined in 1-variables.css as css variables
 font sizes are set in design token fontsize
 */
-
-@import "fonts.css";
-
-/* get the css variables / design tokens  */
-@import "designtokens.css";
-
-@import "base.css";
-
-@import "components.css";
-
-@import "utilities.css";
-
-@import "prism-gh.css";
+@import "tailwindcss";
