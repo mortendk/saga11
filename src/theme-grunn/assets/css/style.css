@@ -110,6 +110,7 @@
     --font-sans: barlow;
     --font-serif: robotoslap;
     --font-mono: firacoda;
+    --color-red-100: oklch(0.936 0.032 17.717);
     --color-red-300: oklch(0.808 0.114 19.571);
     --color-red-400: oklch(0.704 0.191 22.216);
     --color-red-500: oklch(0.637 0.237 25.331);
@@ -603,24 +604,6 @@
   }
   .z-50 {
     z-index: 50;
-  }
-  .container {
-    width: 100%;
-    @media (width >= 40rem) {
-      max-width: 40rem;
-    }
-    @media (width >= 48rem) {
-      max-width: 48rem;
-    }
-    @media (width >= 64rem) {
-      max-width: 64rem;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
-    }
   }
   .-m-8 {
     margin: calc(var(--spacing) * -8);
@@ -1354,6 +1337,9 @@
   }
   .bg-primary-800 {
     background-color: var(--color-primary-800);
+  }
+  .bg-red-100 {
+    background-color: var(--color-red-100);
   }
   .bg-red-300 {
     background-color: var(--color-red-300);

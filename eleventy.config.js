@@ -150,31 +150,6 @@ module.exports = function (eleventyConfig) {
       .use(markdownItAttrs, {})
   );
 
-  // Embed
-  // https://github.com/gfscott/eleventy-plugin-embed-everything/tree/main/packages/everything
-  // eleventyConfig.addPlugin(embedEverything, {
-  //   use: ['youtube'],
-  //   youtube: {
-  //     options: {
-  //       lite: {
-  //         css: {
-  //           enabled: true,
-  //           inline: true
-  //         },
-  //         js: {
-  //           inline: true
-  //         }
-  //       },
-  //       embedClass: 'md-youtube'
-  //     }
-  //   },
-  //   vimeo: {
-  //     options: {
-  //       embedClass: 'md-video'
-  //     }
-  //   }
-  // });
-
   // HTML minify
   if (env.mode == "prod") {
     // eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
