@@ -1,19 +1,130 @@
-/*
-Tailwind setup
-Settings and definitions are in tailwin.config.js
-Colors are defined in 1-variables.css as css variables
-font sizes are set in design token fontsize
-*/
-
-@import "fonts.css";
+@import "./fonts.css";
 
 /* get the css variables / design tokens  */
-@import "designtokens.css";
+@import "./designtokens.css";
 
-@import "base.css";
+@import "./base.css";
 
-@import "components.css";
+@import "./components.css";
 
-@import "utilities.css";
+@import "./utilities.css";
 
-@import "prism-gh.css";
+@import "./prism-gh.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: barlow;
+  --font-serif: robotoslap;
+  --font-mono: firacoda;
+
+  --text-display: 11rem, 1;
+  --text-h1: 6rem, 1;
+  --text-h2: 5rem, 1;
+  --text-h3: 4rem, 1;
+  --text-h4: 3rem, 1;
+  --text-h5: 2rem, 1;
+  --text-h6: 1.5rem, 1;
+  --text-lg: 1.35rem;
+  --text-base: 1rem;
+  --text-sm: 0.813rem;
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-secondary-50: var(--color-secondary-50);
+  --color-secondary-100: var(--color-secondary-100);
+  --color-secondary-200: var(--color-secondary-200);
+  --color-secondary-300: var(--color-secondary-300);
+  --color-secondary-400: var(--color-secondary-400);
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary-600: var(--color-secondary-600);
+  --color-secondary-700: var(--color-secondary-700);
+  --color-secondary-800: var(--color-secondary-800);
+  --color-secondary-900: var(--color-secondary-900);
+  --color-tetiary-50: var(--color-tetiary-50);
+  --color-tetiary-100: var(--color-tetiary-100);
+  --color-tetiary-200: var(--color-tetiary-200);
+  --color-tetiary-300: var(--color-tetiary-300);
+  --color-tetiary-400: var(--color-tetiary-400);
+  --color-tetiary-500: var(--color-tetiary-500);
+  --color-tetiary-600: var(--color-tetiary-600);
+  --color-tetiary-700: var(--color-tetiary-700);
+  --color-tetiary-800: var(--color-tetiary-800);
+  --color-tetiary-900: var(--color-tetiary-900);
+  --color-tone-50: var(--color-tone-50);
+  --color-tone-100: var(--color-tone-100);
+  --color-tone-200: var(--color-tone-200);
+  --color-tone-300: var(--color-tone-300);
+  --color-tone-400: var(--color-tone-400);
+  --color-tone-500: var(--color-tone-500);
+  --color-tone-600: var(--color-tone-600);
+  --color-tone-700: var(--color-tone-700);
+  --color-tone-800: var(--color-tone-800);
+  --color-tone-900: var(--color-tone-900);
+  --color-error-50: var(--color-error-50);
+  --color-error-100: var(--color-error-100);
+  --color-error-200: var(--color-error-200);
+  --color-error-300: var(--color-error-300);
+  --color-error-400: var(--color-error-400);
+  --color-error-500: var(--color-error-500);
+  --color-error-600: var(--color-error-600);
+  --color-error-700: var(--color-error-700);
+  --color-error-800: var(--color-error-800);
+  --color-error-900: var(--color-error-900);
+  --color-warning-50: var(--color-warning-50);
+  --color-warning-100: var(--color-warning-100);
+  --color-warning-200: var(--color-warning-200);
+  --color-warning-300: var(--color-warning-300);
+  --color-warning-400: var(--color-warning-400);
+  --color-warning-500: var(--color-warning-500);
+  --color-warning-600: var(--color-warning-600);
+  --color-warning-700: var(--color-warning-700);
+  --color-warning-800: var(--color-warning-800);
+  --color-warning-900: var(--color-warning-900);
+  --color-success-50: var(--color-success-50);
+  --color-success-100: var(--color-success-100);
+  --color-success-200: var(--color-success-200);
+  --color-success-300: var(--color-success-300);
+  --color-success-400: var(--color-success-400);
+  --color-success-500: var(--color-success-500);
+  --color-success-600: var(--color-success-600);
+  --color-success-700: var(--color-success-700);
+  --color-success-800: var(--color-success-800);
+  --color-success-900: var(--color-success-900);
+  --color-information-50: var(--color-information-50);
+  --color-information-100: var(--color-information-100);
+  --color-information-200: var(--color-information-200);
+  --color-information-300: var(--color-information-300);
+  --color-information-400: var(--color-information-400);
+  --color-information-500: var(--color-information-500);
+  --color-information-600: var(--color-information-600);
+  --color-information-700: var(--color-information-700);
+  --color-information-800: var(--color-information-800);
+  --color-information-900: var(--color-information-900);
+  --color-background: var(--color-white);
+  --color-text: var(--color-black);
+  --color-surface: var(--color-tone-50);
+  --color-on-surface: var(--color-tone-900);
+  --color-primary: var(--color-primary-500);
+  --color-on-primary: var(--balck);
+  --color-primary-alt: var(--color-primary-700);
+  --color-on-primary-alt: var(--black);
+  --color-secondary: var(--color-secondary-200);
+  --color-on-secondary: var(--black);
+  --color-secondary-alt: var(--color-secondary-600);
+  --color-on-secondary-alt: var(--black);
+  --color-tetiary: var(--color-tetiary-200);
+  --color-on-tetiary: var(--black);
+  --color-tetiary-alt: var(--color-tetiary-200);
+  --color-on-tetiary-alt: var(--black);
+  --color-action: var(--color-primary-500);
+  --color-tabcolor: var(--color-primary-500);
+}

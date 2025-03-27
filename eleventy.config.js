@@ -18,12 +18,12 @@ const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const pluginTOC = require("@uncenter/eleventy-plugin-toc");
 
 const markdownIt = require("markdown-it");
-const markdownItEleventyImg = require("markdown-it-eleventy-img");
+// const markdownItEleventyImg = require("markdown-it-eleventy-img");
 const markdownItAnchor = require("markdown-it-anchor");
 
 //minify + critical
-const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
-const criticalCss = require("eleventy-critical-css");
+// const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
+// const criticalCss = require("eleventy-critical-css");
 
 module.exports = function (eleventyConfig) {
   console.log("🎈11ty mode:", env.mode);
@@ -128,62 +128,37 @@ module.exports = function (eleventyConfig) {
       linkify: true,
       typographer: true,
     })
-      .use(markdownItEleventyImg, {
-        imgOptions: {
-          widths: [640, 1200, 1500],
-          urlPath: "/img",
-          outputDir: "./_site/img/",
-          formats: ["webp"],
-        },
-        globalAttributes: {
-          class: "md-image",
-          decoding: "async",
-          loading: "lazy",
-          sizes: "(min-width: 30em) 50vw, 100vw",
-        },
-        // set path to absolute
-        // resolvePath: (filepath) => path.join('src', filepath)
-        // path relative
-        // resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
-      })
+      // .use(markdownItEleventyImg, {
+      //   imgOptions: {
+      //     widths: [640, 1200, 1500],
+      //     urlPath: "/img",
+      //     outputDir: "./_site/img/",
+      //     formats: ["webp"],
+      //   },
+      //   globalAttributes: {
+      //     class: "md-image",
+      //     decoding: "async",
+      //     loading: "lazy",
+      //     sizes: "(min-width: 30em) 50vw, 100vw",
+      //   },
+      // set path to absolute
+      // resolvePath: (filepath) => path.join('src', filepath)
+      // path relative
+      // resolvePath: (filepath, env) => path.join(path.dirname(env.page.inputPath), filepath)
+      // })
       .use(markdownItAnchor, {})
       .use(markdownItAttrs, {})
   );
 
-  // Embed
-  // https://github.com/gfscott/eleventy-plugin-embed-everything/tree/main/packages/everything
-  // eleventyConfig.addPlugin(embedEverything, {
-  //   use: ['youtube'],
-  //   youtube: {
-  //     options: {
-  //       lite: {
-  //         css: {
-  //           enabled: true,
-  //           inline: true
-  //         },
-  //         js: {
-  //           inline: true
-  //         }
-  //       },
-  //       embedClass: 'md-youtube'
-  //     }
-  //   },
-  //   vimeo: {
-  //     options: {
-  //       embedClass: 'md-video'
-  //     }
-  //   }
-  // });
-
   // HTML minify
   if (env.mode == "prod") {
-    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
-    eleventyConfig.addPlugin(criticalCss, {
-      dimensions: [
-        { width: 414, height: 896 },
-        { width: 1920, height: 1080 },
-      ],
-    });
+    // eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+    // eleventyConfig.addPlugin(criticalCss, {
+    //   dimensions: [
+    //     { width: 414, height: 896 },
+    //     { width: 1920, height: 1080 },
+    //   ],
+    // });
   }
 
   return {

@@ -1,4 +1,12 @@
-@tailwind utilities;
+@import 'tailwindcss/utilities' layer(utilities);
+
+@utility fadeInUp {
+  animation: fadeInUp 1s;
+}
+
+@utility animation-kenburns {
+  animation: kenburns 10s ease-out infinite alternate-reverse both;
+}
 
 @layer utilities {
 
@@ -12,9 +20,6 @@
       transform: translateY(0);
     }
   }
-  .fadeInUp {
-    animation: fadeInUp 1s;
-  }
 
 
   @keyframes kenburns {
@@ -26,9 +31,5 @@
       transform: scale(1.20) translateY(-15px);
       transform-origin: top;
     }
-  }
-
-  .animation-kenburns {
-    animation: kenburns 10s ease-out infinite alternate-reverse both;
   }
 }
